@@ -1,0 +1,830 @@
+ARM GAS  C:\Users\jason\AppData\Local\Temp\ccm9zKzu.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"LCD_LCDPort.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.LCD_LCDPort_Write,"ax",%progbits
+  19              		.align	2
+  20              		.global	LCD_LCDPort_Write
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	LCD_LCDPort_Write, %function
+  24              	LCD_LCDPort_Write:
+  25              	.LFB0:
+  26              		.file 1 ".\\Generated_Source\\PSoC5\\LCD_LCDPort.c"
+   1:.\Generated_Source\PSoC5/LCD_LCDPort.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * File Name: LCD_LCDPort.c  
+   3:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Version 2.10
+   4:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *
+   5:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Description:
+   6:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  This file contains API to enable firmware control of a Pins component.
+   7:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *
+   8:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Note:
+   9:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *
+  10:.\Generated_Source\PSoC5/LCD_LCDPort.c **** ********************************************************************************
+  11:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  12:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  13:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  14:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * the software package with which this file was provided.
+  15:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *******************************************************************************/
+  16:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 
+  17:.\Generated_Source\PSoC5/LCD_LCDPort.c **** #include "cytypes.h"
+  18:.\Generated_Source\PSoC5/LCD_LCDPort.c **** #include "LCD_LCDPort.h"
+  19:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 
+  20:.\Generated_Source\PSoC5/LCD_LCDPort.c **** /* APIs are not generated for P15[7:6] on PSoC 5 */
+  21:.\Generated_Source\PSoC5/LCD_LCDPort.c **** #if !(CY_PSOC5A &&\
+  22:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 	 LCD_LCDPort__PORT == 15 && ((LCD_LCDPort__MASK & 0xC0) != 0))
+  23:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 
+  24:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 
+  25:.\Generated_Source\PSoC5/LCD_LCDPort.c **** /*******************************************************************************
+  26:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Function Name: LCD_LCDPort_Write
+  27:.\Generated_Source\PSoC5/LCD_LCDPort.c **** ********************************************************************************
+  28:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *
+  29:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Summary:
+  30:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  Assign a new value to the digital port's data output register.  
+  31:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *
+ARM GAS  C:\Users\jason\AppData\Local\Temp\ccm9zKzu.s 			page 2
+
+
+  32:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Parameters:  
+  33:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  prtValue:  The value to be assigned to the Digital Port. 
+  34:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *
+  35:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Return: 
+  36:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  None
+  37:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  
+  38:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *******************************************************************************/
+  39:.\Generated_Source\PSoC5/LCD_LCDPort.c **** void LCD_LCDPort_Write(uint8 value) 
+  40:.\Generated_Source\PSoC5/LCD_LCDPort.c **** {
+  27              		.loc 1 40 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32              	.LVL0:
+  41:.\Generated_Source\PSoC5/LCD_LCDPort.c ****     uint8 staticBits = (LCD_LCDPort_DR & (uint8)(~LCD_LCDPort_MASK));
+  33              		.loc 1 41 0
+  34 0000 044B     		ldr	r3, .L2
+  35 0002 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  36 0004 02F08002 		and	r2, r2, #128
+  37              	.LVL1:
+  42:.\Generated_Source\PSoC5/LCD_LCDPort.c ****     LCD_LCDPort_DR = staticBits | ((uint8)(value << LCD_LCDPort_SHIFT) & LCD_LCDPort_MASK);
+  38              		.loc 1 42 0
+  39 0008 00F07F00 		and	r0, r0, #127
+  40              	.LVL2:
+  41 000c 0243     		orrs	r2, r2, r0
+  42              	.LVL3:
+  43 000e 1A70     		strb	r2, [r3]
+  44 0010 7047     		bx	lr
+  45              	.L3:
+  46 0012 00BF     		.align	2
+  47              	.L2:
+  48 0014 20510040 		.word	1073762592
+  49              		.cfi_endproc
+  50              	.LFE0:
+  51              		.size	LCD_LCDPort_Write, .-LCD_LCDPort_Write
+  52              		.section	.text.LCD_LCDPort_SetDriveMode,"ax",%progbits
+  53              		.align	2
+  54              		.global	LCD_LCDPort_SetDriveMode
+  55              		.thumb
+  56              		.thumb_func
+  57              		.type	LCD_LCDPort_SetDriveMode, %function
+  58              	LCD_LCDPort_SetDriveMode:
+  59              	.LFB1:
+  43:.\Generated_Source\PSoC5/LCD_LCDPort.c **** }
+  44:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 
+  45:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 
+  46:.\Generated_Source\PSoC5/LCD_LCDPort.c **** /*******************************************************************************
+  47:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Function Name: LCD_LCDPort_SetDriveMode
+  48:.\Generated_Source\PSoC5/LCD_LCDPort.c **** ********************************************************************************
+  49:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *
+  50:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Summary:
+  51:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  Change the drive mode on the pins of the port.
+  52:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * 
+  53:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Parameters:  
+  54:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  mode:  Change the pins to one of the following drive modes.
+  55:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *
+ARM GAS  C:\Users\jason\AppData\Local\Temp\ccm9zKzu.s 			page 3
+
+
+  56:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  LCD_LCDPort_DM_STRONG     Strong Drive 
+  57:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  LCD_LCDPort_DM_OD_HI      Open Drain, Drives High 
+  58:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  LCD_LCDPort_DM_OD_LO      Open Drain, Drives Low 
+  59:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  LCD_LCDPort_DM_RES_UP     Resistive Pull Up 
+  60:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  LCD_LCDPort_DM_RES_DWN    Resistive Pull Down 
+  61:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  LCD_LCDPort_DM_RES_UPDWN  Resistive Pull Up/Down 
+  62:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  LCD_LCDPort_DM_DIG_HIZ    High Impedance Digital 
+  63:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  LCD_LCDPort_DM_ALG_HIZ    High Impedance Analog 
+  64:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *
+  65:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Return: 
+  66:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  None
+  67:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *
+  68:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *******************************************************************************/
+  69:.\Generated_Source\PSoC5/LCD_LCDPort.c **** void LCD_LCDPort_SetDriveMode(uint8 mode) 
+  70:.\Generated_Source\PSoC5/LCD_LCDPort.c **** {
+  60              		.loc 1 70 0
+  61              		.cfi_startproc
+  62              		@ args = 0, pretend = 0, frame = 0
+  63              		@ frame_needed = 0, uses_anonymous_args = 0
+  64              		@ link register save eliminated.
+  65              	.LVL4:
+  71:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 	CyPins_SetPinDriveMode(LCD_LCDPort_0, mode);
+  66              		.loc 1 71 0
+  67 0000 164B     		ldr	r3, .L5
+  68 0002 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  69 0004 00F00E00 		and	r0, r0, #14
+  70              	.LVL5:
+  71 0008 02F0F102 		and	r2, r2, #241
+  72 000c 0243     		orrs	r2, r2, r0
+  73 000e 1A70     		strb	r2, [r3]
+  72:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 	CyPins_SetPinDriveMode(LCD_LCDPort_1, mode);
+  74              		.loc 1 72 0
+  75 0010 0133     		adds	r3, r3, #1
+  76 0012 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  77 0014 02F0F102 		and	r2, r2, #241
+  78 0018 0243     		orrs	r2, r2, r0
+  79 001a 1A70     		strb	r2, [r3]
+  73:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 	CyPins_SetPinDriveMode(LCD_LCDPort_2, mode);
+  80              		.loc 1 73 0
+  81 001c 0133     		adds	r3, r3, #1
+  82 001e 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  83 0020 02F0F102 		and	r2, r2, #241
+  84 0024 0243     		orrs	r2, r2, r0
+  85 0026 1A70     		strb	r2, [r3]
+  74:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 	CyPins_SetPinDriveMode(LCD_LCDPort_3, mode);
+  86              		.loc 1 74 0
+  87 0028 0133     		adds	r3, r3, #1
+  88 002a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  89 002c 02F0F102 		and	r2, r2, #241
+  90 0030 0243     		orrs	r2, r2, r0
+  91 0032 1A70     		strb	r2, [r3]
+  75:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 	CyPins_SetPinDriveMode(LCD_LCDPort_4, mode);
+  92              		.loc 1 75 0
+  93 0034 0133     		adds	r3, r3, #1
+  94 0036 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  95 0038 02F0F102 		and	r2, r2, #241
+  96 003c 0243     		orrs	r2, r2, r0
+ARM GAS  C:\Users\jason\AppData\Local\Temp\ccm9zKzu.s 			page 4
+
+
+  97 003e 1A70     		strb	r2, [r3]
+  76:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 	CyPins_SetPinDriveMode(LCD_LCDPort_5, mode);
+  98              		.loc 1 76 0
+  99 0040 0133     		adds	r3, r3, #1
+ 100 0042 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 101 0044 02F0F102 		and	r2, r2, #241
+ 102 0048 0243     		orrs	r2, r2, r0
+ 103 004a 1A70     		strb	r2, [r3]
+  77:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 	CyPins_SetPinDriveMode(LCD_LCDPort_6, mode);
+ 104              		.loc 1 77 0
+ 105 004c 0133     		adds	r3, r3, #1
+ 106 004e 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 107 0050 02F0F102 		and	r2, r2, #241
+ 108 0054 1043     		orrs	r0, r0, r2
+ 109 0056 1870     		strb	r0, [r3]
+ 110 0058 7047     		bx	lr
+ 111              	.L6:
+ 112 005a 00BF     		.align	2
+ 113              	.L5:
+ 114 005c 10500040 		.word	1073762320
+ 115              		.cfi_endproc
+ 116              	.LFE1:
+ 117              		.size	LCD_LCDPort_SetDriveMode, .-LCD_LCDPort_SetDriveMode
+ 118              		.section	.text.LCD_LCDPort_Read,"ax",%progbits
+ 119              		.align	2
+ 120              		.global	LCD_LCDPort_Read
+ 121              		.thumb
+ 122              		.thumb_func
+ 123              		.type	LCD_LCDPort_Read, %function
+ 124              	LCD_LCDPort_Read:
+ 125              	.LFB2:
+  78:.\Generated_Source\PSoC5/LCD_LCDPort.c **** }
+  79:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 
+  80:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 
+  81:.\Generated_Source\PSoC5/LCD_LCDPort.c **** /*******************************************************************************
+  82:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Function Name: LCD_LCDPort_Read
+  83:.\Generated_Source\PSoC5/LCD_LCDPort.c **** ********************************************************************************
+  84:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *
+  85:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Summary:
+  86:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  Read the current value on the pins of the Digital Port in right justified 
+  87:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  form.
+  88:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *
+  89:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Parameters:  
+  90:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  None
+  91:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *
+  92:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Return: 
+  93:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  Returns the current value of the Digital Port as a right justified number
+  94:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  
+  95:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Note:
+  96:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  Macro LCD_LCDPort_ReadPS calls this function. 
+  97:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  
+  98:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *******************************************************************************/
+  99:.\Generated_Source\PSoC5/LCD_LCDPort.c **** uint8 LCD_LCDPort_Read(void) 
+ 100:.\Generated_Source\PSoC5/LCD_LCDPort.c **** {
+ 126              		.loc 1 100 0
+ 127              		.cfi_startproc
+ 128              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\jason\AppData\Local\Temp\ccm9zKzu.s 			page 5
+
+
+ 129              		@ frame_needed = 0, uses_anonymous_args = 0
+ 130              		@ link register save eliminated.
+ 101:.\Generated_Source\PSoC5/LCD_LCDPort.c ****     return (LCD_LCDPort_PS & LCD_LCDPort_MASK) >> LCD_LCDPort_SHIFT;
+ 131              		.loc 1 101 0
+ 132 0000 024B     		ldr	r3, .L8
+ 133 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 102:.\Generated_Source\PSoC5/LCD_LCDPort.c **** }
+ 134              		.loc 1 102 0
+ 135 0004 00F07F00 		and	r0, r0, #127
+ 136 0008 7047     		bx	lr
+ 137              	.L9:
+ 138 000a 00BF     		.align	2
+ 139              	.L8:
+ 140 000c 21510040 		.word	1073762593
+ 141              		.cfi_endproc
+ 142              	.LFE2:
+ 143              		.size	LCD_LCDPort_Read, .-LCD_LCDPort_Read
+ 144              		.section	.text.LCD_LCDPort_ReadDataReg,"ax",%progbits
+ 145              		.align	2
+ 146              		.global	LCD_LCDPort_ReadDataReg
+ 147              		.thumb
+ 148              		.thumb_func
+ 149              		.type	LCD_LCDPort_ReadDataReg, %function
+ 150              	LCD_LCDPort_ReadDataReg:
+ 151              	.LFB3:
+ 103:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 
+ 104:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 
+ 105:.\Generated_Source\PSoC5/LCD_LCDPort.c **** /*******************************************************************************
+ 106:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Function Name: LCD_LCDPort_ReadDataReg
+ 107:.\Generated_Source\PSoC5/LCD_LCDPort.c **** ********************************************************************************
+ 108:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *
+ 109:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Summary:
+ 110:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  Read the current value assigned to a Digital Port's data output register
+ 111:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *
+ 112:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Parameters:  
+ 113:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  None 
+ 114:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *
+ 115:.\Generated_Source\PSoC5/LCD_LCDPort.c **** * Return: 
+ 116:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  Returns the current value assigned to the Digital Port's data output register
+ 117:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *  
+ 118:.\Generated_Source\PSoC5/LCD_LCDPort.c **** *******************************************************************************/
+ 119:.\Generated_Source\PSoC5/LCD_LCDPort.c **** uint8 LCD_LCDPort_ReadDataReg(void) 
+ 120:.\Generated_Source\PSoC5/LCD_LCDPort.c **** {
+ 152              		.loc 1 120 0
+ 153              		.cfi_startproc
+ 154              		@ args = 0, pretend = 0, frame = 0
+ 155              		@ frame_needed = 0, uses_anonymous_args = 0
+ 156              		@ link register save eliminated.
+ 121:.\Generated_Source\PSoC5/LCD_LCDPort.c ****     return (LCD_LCDPort_DR & LCD_LCDPort_MASK) >> LCD_LCDPort_SHIFT;
+ 157              		.loc 1 121 0
+ 158 0000 024B     		ldr	r3, .L11
+ 159 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 122:.\Generated_Source\PSoC5/LCD_LCDPort.c **** }
+ 160              		.loc 1 122 0
+ 161 0004 00F07F00 		and	r0, r0, #127
+ 162 0008 7047     		bx	lr
+ 163              	.L12:
+ARM GAS  C:\Users\jason\AppData\Local\Temp\ccm9zKzu.s 			page 6
+
+
+ 164 000a 00BF     		.align	2
+ 165              	.L11:
+ 166 000c 20510040 		.word	1073762592
+ 167              		.cfi_endproc
+ 168              	.LFE3:
+ 169              		.size	LCD_LCDPort_ReadDataReg, .-LCD_LCDPort_ReadDataReg
+ 170              		.text
+ 171              	.Letext0:
+ 172              		.file 2 ".\\Generated_Source\\PSoC5\\cytypes.h"
+ 173              		.section	.debug_info,"",%progbits
+ 174              	.Ldebug_info0:
+ 175 0000 1C010000 		.4byte	0x11c
+ 176 0004 0400     		.2byte	0x4
+ 177 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 178 000a 04       		.byte	0x4
+ 179 000b 01       		.uleb128 0x1
+ 180 000c E9000000 		.4byte	.LASF20
+ 181 0010 01       		.byte	0x1
+ 182 0011 C2000000 		.4byte	.LASF21
+ 183 0015 A2010000 		.4byte	.LASF22
+ 184 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 185 001d 00000000 		.4byte	0
+ 186 0021 00000000 		.4byte	.Ldebug_line0
+ 187 0025 02       		.uleb128 0x2
+ 188 0026 01       		.byte	0x1
+ 189 0027 06       		.byte	0x6
+ 190 0028 F0010000 		.4byte	.LASF0
+ 191 002c 02       		.uleb128 0x2
+ 192 002d 01       		.byte	0x1
+ 193 002e 08       		.byte	0x8
+ 194 002f 36000000 		.4byte	.LASF1
+ 195 0033 02       		.uleb128 0x2
+ 196 0034 02       		.byte	0x2
+ 197 0035 05       		.byte	0x5
+ 198 0036 78010000 		.4byte	.LASF2
+ 199 003a 02       		.uleb128 0x2
+ 200 003b 02       		.byte	0x2
+ 201 003c 07       		.byte	0x7
+ 202 003d 66000000 		.4byte	.LASF3
+ 203 0041 02       		.uleb128 0x2
+ 204 0042 04       		.byte	0x4
+ 205 0043 05       		.byte	0x5
+ 206 0044 99010000 		.4byte	.LASF4
+ 207 0048 02       		.uleb128 0x2
+ 208 0049 04       		.byte	0x4
+ 209 004a 07       		.byte	0x7
+ 210 004b 54000000 		.4byte	.LASF5
+ 211 004f 02       		.uleb128 0x2
+ 212 0050 08       		.byte	0x8
+ 213 0051 05       		.byte	0x5
+ 214 0052 65010000 		.4byte	.LASF6
+ 215 0056 02       		.uleb128 0x2
+ 216 0057 08       		.byte	0x8
+ 217 0058 07       		.byte	0x7
+ 218 0059 A6000000 		.4byte	.LASF7
+ 219 005d 03       		.uleb128 0x3
+ 220 005e 04       		.byte	0x4
+ARM GAS  C:\Users\jason\AppData\Local\Temp\ccm9zKzu.s 			page 7
+
+
+ 221 005f 05       		.byte	0x5
+ 222 0060 696E7400 		.ascii	"int\000"
+ 223 0064 02       		.uleb128 0x2
+ 224 0065 04       		.byte	0x4
+ 225 0066 07       		.byte	0x7
+ 226 0067 99000000 		.4byte	.LASF8
+ 227 006b 04       		.uleb128 0x4
+ 228 006c 82010000 		.4byte	.LASF12
+ 229 0070 02       		.byte	0x2
+ 230 0071 B4       		.byte	0xb4
+ 231 0072 2C000000 		.4byte	0x2c
+ 232 0076 02       		.uleb128 0x2
+ 233 0077 04       		.byte	0x4
+ 234 0078 04       		.byte	0x4
+ 235 0079 30000000 		.4byte	.LASF9
+ 236 007d 02       		.uleb128 0x2
+ 237 007e 08       		.byte	0x8
+ 238 007f 04       		.byte	0x4
+ 239 0080 92000000 		.4byte	.LASF10
+ 240 0084 02       		.uleb128 0x2
+ 241 0085 01       		.byte	0x1
+ 242 0086 08       		.byte	0x8
+ 243 0087 73010000 		.4byte	.LASF11
+ 244 008b 05       		.uleb128 0x5
+ 245 008c 4F000000 		.4byte	.LASF13
+ 246 0090 02       		.byte	0x2
+ 247 0091 5E01     		.2byte	0x15e
+ 248 0093 97000000 		.4byte	0x97
+ 249 0097 06       		.uleb128 0x6
+ 250 0098 6B000000 		.4byte	0x6b
+ 251 009c 07       		.uleb128 0x7
+ 252 009d 06000000 		.4byte	.LASF14
+ 253 00a1 01       		.byte	0x1
+ 254 00a2 27       		.byte	0x27
+ 255 00a3 00000000 		.4byte	.LFB0
+ 256 00a7 18000000 		.4byte	.LFE0-.LFB0
+ 257 00ab 01       		.uleb128 0x1
+ 258 00ac 9C       		.byte	0x9c
+ 259 00ad D0000000 		.4byte	0xd0
+ 260 00b1 08       		.uleb128 0x8
+ 261 00b2 00000000 		.4byte	.LASF16
+ 262 00b6 01       		.byte	0x1
+ 263 00b7 27       		.byte	0x27
+ 264 00b8 6B000000 		.4byte	0x6b
+ 265 00bc 00000000 		.4byte	.LLST0
+ 266 00c0 09       		.uleb128 0x9
+ 267 00c1 44000000 		.4byte	.LASF23
+ 268 00c5 01       		.byte	0x1
+ 269 00c6 29       		.byte	0x29
+ 270 00c7 6B000000 		.4byte	0x6b
+ 271 00cb 21000000 		.4byte	.LLST1
+ 272 00cf 00       		.byte	0
+ 273 00d0 07       		.uleb128 0x7
+ 274 00d1 79000000 		.4byte	.LASF15
+ 275 00d5 01       		.byte	0x1
+ 276 00d6 45       		.byte	0x45
+ 277 00d7 00000000 		.4byte	.LFB1
+ARM GAS  C:\Users\jason\AppData\Local\Temp\ccm9zKzu.s 			page 8
+
+
+ 278 00db 60000000 		.4byte	.LFE1-.LFB1
+ 279 00df 01       		.uleb128 0x1
+ 280 00e0 9C       		.byte	0x9c
+ 281 00e1 F5000000 		.4byte	0xf5
+ 282 00e5 08       		.uleb128 0x8
+ 283 00e6 BD000000 		.4byte	.LASF17
+ 284 00ea 01       		.byte	0x1
+ 285 00eb 45       		.byte	0x45
+ 286 00ec 6B000000 		.4byte	0x6b
+ 287 00f0 34000000 		.4byte	.LLST2
+ 288 00f4 00       		.byte	0
+ 289 00f5 0A       		.uleb128 0xa
+ 290 00f6 88010000 		.4byte	.LASF18
+ 291 00fa 01       		.byte	0x1
+ 292 00fb 63       		.byte	0x63
+ 293 00fc 6B000000 		.4byte	0x6b
+ 294 0100 00000000 		.4byte	.LFB2
+ 295 0104 10000000 		.4byte	.LFE2-.LFB2
+ 296 0108 01       		.uleb128 0x1
+ 297 0109 9C       		.byte	0x9c
+ 298 010a 0A       		.uleb128 0xa
+ 299 010b 18000000 		.4byte	.LASF19
+ 300 010f 01       		.byte	0x1
+ 301 0110 77       		.byte	0x77
+ 302 0111 6B000000 		.4byte	0x6b
+ 303 0115 00000000 		.4byte	.LFB3
+ 304 0119 10000000 		.4byte	.LFE3-.LFB3
+ 305 011d 01       		.uleb128 0x1
+ 306 011e 9C       		.byte	0x9c
+ 307 011f 00       		.byte	0
+ 308              		.section	.debug_abbrev,"",%progbits
+ 309              	.Ldebug_abbrev0:
+ 310 0000 01       		.uleb128 0x1
+ 311 0001 11       		.uleb128 0x11
+ 312 0002 01       		.byte	0x1
+ 313 0003 25       		.uleb128 0x25
+ 314 0004 0E       		.uleb128 0xe
+ 315 0005 13       		.uleb128 0x13
+ 316 0006 0B       		.uleb128 0xb
+ 317 0007 03       		.uleb128 0x3
+ 318 0008 0E       		.uleb128 0xe
+ 319 0009 1B       		.uleb128 0x1b
+ 320 000a 0E       		.uleb128 0xe
+ 321 000b 55       		.uleb128 0x55
+ 322 000c 17       		.uleb128 0x17
+ 323 000d 11       		.uleb128 0x11
+ 324 000e 01       		.uleb128 0x1
+ 325 000f 10       		.uleb128 0x10
+ 326 0010 17       		.uleb128 0x17
+ 327 0011 00       		.byte	0
+ 328 0012 00       		.byte	0
+ 329 0013 02       		.uleb128 0x2
+ 330 0014 24       		.uleb128 0x24
+ 331 0015 00       		.byte	0
+ 332 0016 0B       		.uleb128 0xb
+ 333 0017 0B       		.uleb128 0xb
+ 334 0018 3E       		.uleb128 0x3e
+ARM GAS  C:\Users\jason\AppData\Local\Temp\ccm9zKzu.s 			page 9
+
+
+ 335 0019 0B       		.uleb128 0xb
+ 336 001a 03       		.uleb128 0x3
+ 337 001b 0E       		.uleb128 0xe
+ 338 001c 00       		.byte	0
+ 339 001d 00       		.byte	0
+ 340 001e 03       		.uleb128 0x3
+ 341 001f 24       		.uleb128 0x24
+ 342 0020 00       		.byte	0
+ 343 0021 0B       		.uleb128 0xb
+ 344 0022 0B       		.uleb128 0xb
+ 345 0023 3E       		.uleb128 0x3e
+ 346 0024 0B       		.uleb128 0xb
+ 347 0025 03       		.uleb128 0x3
+ 348 0026 08       		.uleb128 0x8
+ 349 0027 00       		.byte	0
+ 350 0028 00       		.byte	0
+ 351 0029 04       		.uleb128 0x4
+ 352 002a 16       		.uleb128 0x16
+ 353 002b 00       		.byte	0
+ 354 002c 03       		.uleb128 0x3
+ 355 002d 0E       		.uleb128 0xe
+ 356 002e 3A       		.uleb128 0x3a
+ 357 002f 0B       		.uleb128 0xb
+ 358 0030 3B       		.uleb128 0x3b
+ 359 0031 0B       		.uleb128 0xb
+ 360 0032 49       		.uleb128 0x49
+ 361 0033 13       		.uleb128 0x13
+ 362 0034 00       		.byte	0
+ 363 0035 00       		.byte	0
+ 364 0036 05       		.uleb128 0x5
+ 365 0037 16       		.uleb128 0x16
+ 366 0038 00       		.byte	0
+ 367 0039 03       		.uleb128 0x3
+ 368 003a 0E       		.uleb128 0xe
+ 369 003b 3A       		.uleb128 0x3a
+ 370 003c 0B       		.uleb128 0xb
+ 371 003d 3B       		.uleb128 0x3b
+ 372 003e 05       		.uleb128 0x5
+ 373 003f 49       		.uleb128 0x49
+ 374 0040 13       		.uleb128 0x13
+ 375 0041 00       		.byte	0
+ 376 0042 00       		.byte	0
+ 377 0043 06       		.uleb128 0x6
+ 378 0044 35       		.uleb128 0x35
+ 379 0045 00       		.byte	0
+ 380 0046 49       		.uleb128 0x49
+ 381 0047 13       		.uleb128 0x13
+ 382 0048 00       		.byte	0
+ 383 0049 00       		.byte	0
+ 384 004a 07       		.uleb128 0x7
+ 385 004b 2E       		.uleb128 0x2e
+ 386 004c 01       		.byte	0x1
+ 387 004d 3F       		.uleb128 0x3f
+ 388 004e 19       		.uleb128 0x19
+ 389 004f 03       		.uleb128 0x3
+ 390 0050 0E       		.uleb128 0xe
+ 391 0051 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\jason\AppData\Local\Temp\ccm9zKzu.s 			page 10
+
+
+ 392 0052 0B       		.uleb128 0xb
+ 393 0053 3B       		.uleb128 0x3b
+ 394 0054 0B       		.uleb128 0xb
+ 395 0055 27       		.uleb128 0x27
+ 396 0056 19       		.uleb128 0x19
+ 397 0057 11       		.uleb128 0x11
+ 398 0058 01       		.uleb128 0x1
+ 399 0059 12       		.uleb128 0x12
+ 400 005a 06       		.uleb128 0x6
+ 401 005b 40       		.uleb128 0x40
+ 402 005c 18       		.uleb128 0x18
+ 403 005d 9742     		.uleb128 0x2117
+ 404 005f 19       		.uleb128 0x19
+ 405 0060 01       		.uleb128 0x1
+ 406 0061 13       		.uleb128 0x13
+ 407 0062 00       		.byte	0
+ 408 0063 00       		.byte	0
+ 409 0064 08       		.uleb128 0x8
+ 410 0065 05       		.uleb128 0x5
+ 411 0066 00       		.byte	0
+ 412 0067 03       		.uleb128 0x3
+ 413 0068 0E       		.uleb128 0xe
+ 414 0069 3A       		.uleb128 0x3a
+ 415 006a 0B       		.uleb128 0xb
+ 416 006b 3B       		.uleb128 0x3b
+ 417 006c 0B       		.uleb128 0xb
+ 418 006d 49       		.uleb128 0x49
+ 419 006e 13       		.uleb128 0x13
+ 420 006f 02       		.uleb128 0x2
+ 421 0070 17       		.uleb128 0x17
+ 422 0071 00       		.byte	0
+ 423 0072 00       		.byte	0
+ 424 0073 09       		.uleb128 0x9
+ 425 0074 34       		.uleb128 0x34
+ 426 0075 00       		.byte	0
+ 427 0076 03       		.uleb128 0x3
+ 428 0077 0E       		.uleb128 0xe
+ 429 0078 3A       		.uleb128 0x3a
+ 430 0079 0B       		.uleb128 0xb
+ 431 007a 3B       		.uleb128 0x3b
+ 432 007b 0B       		.uleb128 0xb
+ 433 007c 49       		.uleb128 0x49
+ 434 007d 13       		.uleb128 0x13
+ 435 007e 02       		.uleb128 0x2
+ 436 007f 17       		.uleb128 0x17
+ 437 0080 00       		.byte	0
+ 438 0081 00       		.byte	0
+ 439 0082 0A       		.uleb128 0xa
+ 440 0083 2E       		.uleb128 0x2e
+ 441 0084 00       		.byte	0
+ 442 0085 3F       		.uleb128 0x3f
+ 443 0086 19       		.uleb128 0x19
+ 444 0087 03       		.uleb128 0x3
+ 445 0088 0E       		.uleb128 0xe
+ 446 0089 3A       		.uleb128 0x3a
+ 447 008a 0B       		.uleb128 0xb
+ 448 008b 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\jason\AppData\Local\Temp\ccm9zKzu.s 			page 11
+
+
+ 449 008c 0B       		.uleb128 0xb
+ 450 008d 27       		.uleb128 0x27
+ 451 008e 19       		.uleb128 0x19
+ 452 008f 49       		.uleb128 0x49
+ 453 0090 13       		.uleb128 0x13
+ 454 0091 11       		.uleb128 0x11
+ 455 0092 01       		.uleb128 0x1
+ 456 0093 12       		.uleb128 0x12
+ 457 0094 06       		.uleb128 0x6
+ 458 0095 40       		.uleb128 0x40
+ 459 0096 18       		.uleb128 0x18
+ 460 0097 9742     		.uleb128 0x2117
+ 461 0099 19       		.uleb128 0x19
+ 462 009a 00       		.byte	0
+ 463 009b 00       		.byte	0
+ 464 009c 00       		.byte	0
+ 465              		.section	.debug_loc,"",%progbits
+ 466              	.Ldebug_loc0:
+ 467              	.LLST0:
+ 468 0000 00000000 		.4byte	.LVL0
+ 469 0004 0C000000 		.4byte	.LVL2
+ 470 0008 0100     		.2byte	0x1
+ 471 000a 50       		.byte	0x50
+ 472 000b 0C000000 		.4byte	.LVL2
+ 473 000f 18000000 		.4byte	.LFE0
+ 474 0013 0400     		.2byte	0x4
+ 475 0015 F3       		.byte	0xf3
+ 476 0016 01       		.uleb128 0x1
+ 477 0017 50       		.byte	0x50
+ 478 0018 9F       		.byte	0x9f
+ 479 0019 00000000 		.4byte	0
+ 480 001d 00000000 		.4byte	0
+ 481              	.LLST1:
+ 482 0021 08000000 		.4byte	.LVL1
+ 483 0025 0E000000 		.4byte	.LVL3
+ 484 0029 0100     		.2byte	0x1
+ 485 002b 52       		.byte	0x52
+ 486 002c 00000000 		.4byte	0
+ 487 0030 00000000 		.4byte	0
+ 488              	.LLST2:
+ 489 0034 00000000 		.4byte	.LVL4
+ 490 0038 08000000 		.4byte	.LVL5
+ 491 003c 0100     		.2byte	0x1
+ 492 003e 50       		.byte	0x50
+ 493 003f 08000000 		.4byte	.LVL5
+ 494 0043 60000000 		.4byte	.LFE1
+ 495 0047 0400     		.2byte	0x4
+ 496 0049 F3       		.byte	0xf3
+ 497 004a 01       		.uleb128 0x1
+ 498 004b 50       		.byte	0x50
+ 499 004c 9F       		.byte	0x9f
+ 500 004d 00000000 		.4byte	0
+ 501 0051 00000000 		.4byte	0
+ 502              		.section	.debug_aranges,"",%progbits
+ 503 0000 34000000 		.4byte	0x34
+ 504 0004 0200     		.2byte	0x2
+ 505 0006 00000000 		.4byte	.Ldebug_info0
+ARM GAS  C:\Users\jason\AppData\Local\Temp\ccm9zKzu.s 			page 12
+
+
+ 506 000a 04       		.byte	0x4
+ 507 000b 00       		.byte	0
+ 508 000c 0000     		.2byte	0
+ 509 000e 0000     		.2byte	0
+ 510 0010 00000000 		.4byte	.LFB0
+ 511 0014 18000000 		.4byte	.LFE0-.LFB0
+ 512 0018 00000000 		.4byte	.LFB1
+ 513 001c 60000000 		.4byte	.LFE1-.LFB1
+ 514 0020 00000000 		.4byte	.LFB2
+ 515 0024 10000000 		.4byte	.LFE2-.LFB2
+ 516 0028 00000000 		.4byte	.LFB3
+ 517 002c 10000000 		.4byte	.LFE3-.LFB3
+ 518 0030 00000000 		.4byte	0
+ 519 0034 00000000 		.4byte	0
+ 520              		.section	.debug_ranges,"",%progbits
+ 521              	.Ldebug_ranges0:
+ 522 0000 00000000 		.4byte	.LFB0
+ 523 0004 18000000 		.4byte	.LFE0
+ 524 0008 00000000 		.4byte	.LFB1
+ 525 000c 60000000 		.4byte	.LFE1
+ 526 0010 00000000 		.4byte	.LFB2
+ 527 0014 10000000 		.4byte	.LFE2
+ 528 0018 00000000 		.4byte	.LFB3
+ 529 001c 10000000 		.4byte	.LFE3
+ 530 0020 00000000 		.4byte	0
+ 531 0024 00000000 		.4byte	0
+ 532              		.section	.debug_line,"",%progbits
+ 533              	.Ldebug_line0:
+ 534 0000 9C000000 		.section	.debug_str,"MS",%progbits,1
+ 534      02004A00 
+ 534      00000201 
+ 534      FB0E0D00 
+ 534      01010101 
+ 535              	.LASF16:
+ 536 0000 76616C75 		.ascii	"value\000"
+ 536      6500
+ 537              	.LASF14:
+ 538 0006 4C43445F 		.ascii	"LCD_LCDPort_Write\000"
+ 538      4C434450 
+ 538      6F72745F 
+ 538      57726974 
+ 538      6500
+ 539              	.LASF19:
+ 540 0018 4C43445F 		.ascii	"LCD_LCDPort_ReadDataReg\000"
+ 540      4C434450 
+ 540      6F72745F 
+ 540      52656164 
+ 540      44617461 
+ 541              	.LASF9:
+ 542 0030 666C6F61 		.ascii	"float\000"
+ 542      7400
+ 543              	.LASF1:
+ 544 0036 756E7369 		.ascii	"unsigned char\000"
+ 544      676E6564 
+ 544      20636861 
+ 544      7200
+ 545              	.LASF23:
+ARM GAS  C:\Users\jason\AppData\Local\Temp\ccm9zKzu.s 			page 13
+
+
+ 546 0044 73746174 		.ascii	"staticBits\000"
+ 546      69634269 
+ 546      747300
+ 547              	.LASF13:
+ 548 004f 72656738 		.ascii	"reg8\000"
+ 548      00
+ 549              	.LASF5:
+ 550 0054 6C6F6E67 		.ascii	"long unsigned int\000"
+ 550      20756E73 
+ 550      69676E65 
+ 550      6420696E 
+ 550      7400
+ 551              	.LASF3:
+ 552 0066 73686F72 		.ascii	"short unsigned int\000"
+ 552      7420756E 
+ 552      7369676E 
+ 552      65642069 
+ 552      6E7400
+ 553              	.LASF15:
+ 554 0079 4C43445F 		.ascii	"LCD_LCDPort_SetDriveMode\000"
+ 554      4C434450 
+ 554      6F72745F 
+ 554      53657444 
+ 554      72697665 
+ 555              	.LASF10:
+ 556 0092 646F7562 		.ascii	"double\000"
+ 556      6C6500
+ 557              	.LASF8:
+ 558 0099 756E7369 		.ascii	"unsigned int\000"
+ 558      676E6564 
+ 558      20696E74 
+ 558      00
+ 559              	.LASF7:
+ 560 00a6 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 560      206C6F6E 
+ 560      6720756E 
+ 560      7369676E 
+ 560      65642069 
+ 561              	.LASF17:
+ 562 00bd 6D6F6465 		.ascii	"mode\000"
+ 562      00
+ 563              	.LASF21:
+ 564 00c2 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\LCD_LCDPort.c\000"
+ 564      6E657261 
+ 564      7465645F 
+ 564      536F7572 
+ 564      63655C50 
+ 565              	.LASF20:
+ 566 00e9 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
+ 566      4320342E 
+ 566      382E3420 
+ 566      32303134 
+ 566      30353236 
+ 567 011c 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m3 -mthumb -g -O"
+ 567      20726576 
+ 567      6973696F 
+ 567      6E203231 
+ARM GAS  C:\Users\jason\AppData\Local\Temp\ccm9zKzu.s 			page 14
+
+
+ 567      31333538 
+ 568 014f 67202D66 		.ascii	"g -ffunction-sections\000"
+ 568      66756E63 
+ 568      74696F6E 
+ 568      2D736563 
+ 568      74696F6E 
+ 569              	.LASF6:
+ 570 0165 6C6F6E67 		.ascii	"long long int\000"
+ 570      206C6F6E 
+ 570      6720696E 
+ 570      7400
+ 571              	.LASF11:
+ 572 0173 63686172 		.ascii	"char\000"
+ 572      00
+ 573              	.LASF2:
+ 574 0178 73686F72 		.ascii	"short int\000"
+ 574      7420696E 
+ 574      7400
+ 575              	.LASF12:
+ 576 0182 75696E74 		.ascii	"uint8\000"
+ 576      3800
+ 577              	.LASF18:
+ 578 0188 4C43445F 		.ascii	"LCD_LCDPort_Read\000"
+ 578      4C434450 
+ 578      6F72745F 
+ 578      52656164 
+ 578      00
+ 579              	.LASF4:
+ 580 0199 6C6F6E67 		.ascii	"long int\000"
+ 580      20696E74 
+ 580      00
+ 581              	.LASF22:
+ 582 01a2 433A5C55 		.ascii	"C:\\Users\\jason\\Documents\\PSoC Creator\\Hummingb"
+ 582      73657273 
+ 582      5C6A6173 
+ 582      6F6E5C44 
+ 582      6F63756D 
+ 583 01d0 69726420 		.ascii	"ird Test\\Hummingbird Test.cydsn\000"
+ 583      54657374 
+ 583      5C48756D 
+ 583      6D696E67 
+ 583      62697264 
+ 584              	.LASF0:
+ 585 01f0 7369676E 		.ascii	"signed char\000"
+ 585      65642063 
+ 585      68617200 
+ 586              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br
