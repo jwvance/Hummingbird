@@ -1,0 +1,44 @@
+--------------- Rebuild Started: 02/09/2017 19:55:09 Project: Hummingbird Test, Configuration: ARM GCC 4.8.4 Debug ---------------
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\main.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\WAV.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\cyfitter_cfg.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\cymetadata.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\Cm3Start.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\CyBootAsmGnu.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\CyDmac.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\CyFlash.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\CyLib.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\cyPm.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\CySpc.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\cyutils.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\ADC_SAR_1.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\ADC_SAR_1_INT.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\ADC_SAR_1_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\ADC_SAR_1_IRQ.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\ADC_SAR_1_theACLK.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\ADC_SAR_1_Bypass.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\LCD.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\LCD_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\LCD_LCDPort.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\Pin_1.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\Timer_1.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\Timer_1_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\isr_1.o"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\Hummingbird Test.hex"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\Hummingbird Test.elf"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\Hummingbird Test.map"
+Deleting file ".\Hummingbird Test.cycdx"
+Deleting file ".\Hummingbird Test.svd"
+Deleting file ".\Hummingbird Test.rpt"
+Deleting file ".\Hummingbird Test_timing.html"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\.deps\C_FILE.P"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\.deps\ARM_C_FILE.P"
+Deleting file ".\CortexM3\ARM_GCC_484\Debug\.deps\GNU_ARM_ASM_FILE.P"
+cydsfit.exe -.appdatapath "C:\Users\jason\AppData\Local\Cypress Semiconductor\PSoC Creator\3.2" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p "C:\Users\jason\Documents\PSoC Creator\Hummingbird Test\Hummingbird Test.cydsn\Hummingbird Test.cyprj" -d CY8C5868AXI-LP035 -s "C:\Users\jason\Documents\PSoC Creator\Hummingbird Test\Hummingbird Test.cydsn\Generated_Source\PSoC5" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: pft.M0025: error: Clock Error: (The ILO must be set to 100 kHz for USB bus reset interrupts to function correctly.).
+ * C:\Users\jason\Documents\PSoC Creator\Hummingbird Test\Hummingbird Test.cydsn\Hummingbird Test.cydwr (ILO)
+ADD: pft.M0025: error: Clock Error: (The USB clock is disabled. The USB clock needs to be enabled in order to use USB.).
+ * C:\Users\jason\Documents\PSoC Creator\Hummingbird Test\Hummingbird Test.cydsn\Hummingbird Test.cydwr (USB_CLK)
+Error: cdf.M0005: CyDsFit aborted due to errors, please address all errors and rerun CyDsFit. (App=cydsfit)
+--------------- Rebuild Failed: 02/09/2017 19:55:14 ---------------
