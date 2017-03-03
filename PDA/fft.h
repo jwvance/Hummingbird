@@ -36,7 +36,7 @@ bool fft_init(double cos_table[], double sin_table[], size_t n);
  * FFT function. Call this one.
  */
 bool transform(double real[], double imag[], double cos_table[],
-			   double sin_table[], doublesize_t n);
+			   double sin_table[], size_t n);
 
 bool inverse_transform(double real[], double imag[], double cos_table[],
 					   double sin_table[], size_t n);

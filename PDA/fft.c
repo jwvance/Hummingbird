@@ -48,7 +48,7 @@ bool fft_init(double cos_table[], double sin_table[], size_t n) {
 
 
 bool transform(double real[], double imag[], double cos_table[],
-			   double sin_table[], doublesize_t n) {
+			   double sin_table[], size_t n) {
 	if (n == 0)
 		return true;
 	else if ((n & (n - 1)) == 0)  // Is power of 2
