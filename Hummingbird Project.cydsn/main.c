@@ -24,6 +24,7 @@
 
 // Comment
 // Comment again
+// Comment 3
 
 #include <device.h>
 // Hummingbird Includes
