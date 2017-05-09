@@ -22,6 +22,8 @@
 * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 *******************************************************************************/
 
+// Comment
+
 #include <device.h>
 // Hummingbird Includes
 #include <fft.h>
