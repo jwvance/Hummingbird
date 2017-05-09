@@ -1,0 +1,1090 @@
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"MIDI1_UART_INT.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.MIDI1_UART_RXISR,"ax",%progbits
+  19              		.align	2
+  20              		.global	MIDI1_UART_RXISR
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	MIDI1_UART_RXISR, %function
+  24              	MIDI1_UART_RXISR:
+  25              	.LFB0:
+  26              		.file 1 "Generated_Source\\PSoC5\\MIDI1_UART_INT.c"
+   1:Generated_Source\PSoC5/MIDI1_UART_INT.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/MIDI1_UART_INT.c **** * File Name: MIDI1_UART_INT.c
+   3:Generated_Source\PSoC5/MIDI1_UART_INT.c **** * Version 2.30
+   4:Generated_Source\PSoC5/MIDI1_UART_INT.c **** *
+   5:Generated_Source\PSoC5/MIDI1_UART_INT.c **** * Description:
+   6:Generated_Source\PSoC5/MIDI1_UART_INT.c **** *  This file provides all Interrupt Service functionality of the UART component
+   7:Generated_Source\PSoC5/MIDI1_UART_INT.c **** *
+   8:Generated_Source\PSoC5/MIDI1_UART_INT.c **** * Note:
+   9:Generated_Source\PSoC5/MIDI1_UART_INT.c **** *  Any unusual or non-standard behavior should be noted here. Other-
+  10:Generated_Source\PSoC5/MIDI1_UART_INT.c **** *  wise, this section should remain blank.
+  11:Generated_Source\PSoC5/MIDI1_UART_INT.c **** *
+  12:Generated_Source\PSoC5/MIDI1_UART_INT.c **** ********************************************************************************
+  13:Generated_Source\PSoC5/MIDI1_UART_INT.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC5/MIDI1_UART_INT.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:Generated_Source\PSoC5/MIDI1_UART_INT.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:Generated_Source\PSoC5/MIDI1_UART_INT.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC5/MIDI1_UART_INT.c **** *******************************************************************************/
+  18:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+  19:Generated_Source\PSoC5/MIDI1_UART_INT.c **** #include "MIDI1_UART.h"
+  20:Generated_Source\PSoC5/MIDI1_UART_INT.c **** #include "CyLib.h"
+  21:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+  22:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+  23:Generated_Source\PSoC5/MIDI1_UART_INT.c **** /***************************************
+  24:Generated_Source\PSoC5/MIDI1_UART_INT.c **** * Custom Declratations
+  25:Generated_Source\PSoC5/MIDI1_UART_INT.c **** ***************************************/
+  26:Generated_Source\PSoC5/MIDI1_UART_INT.c **** /* `#START CUSTOM_DECLARATIONS` Place your declaration here */
+  27:Generated_Source\PSoC5/MIDI1_UART_INT.c **** #include "USB_midi.h"
+  28:Generated_Source\PSoC5/MIDI1_UART_INT.c **** #include "LED_InA.h"
+  29:Generated_Source\PSoC5/MIDI1_UART_INT.c **** #include "LED_OutA.h"
+  30:Generated_Source\PSoC5/MIDI1_UART_INT.c **** /* `#END` */
+  31:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 2
+
+
+  32:Generated_Source\PSoC5/MIDI1_UART_INT.c **** #if( (MIDI1_UART_RX_ENABLED || MIDI1_UART_HD_ENABLED) && \
+  33:Generated_Source\PSoC5/MIDI1_UART_INT.c ****      (MIDI1_UART_RXBUFFERSIZE > MIDI1_UART_FIFO_LENGTH))
+  34:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+  35:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+  36:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     /*******************************************************************************
+  37:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     * Function Name: MIDI1_UART_RXISR
+  38:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     ********************************************************************************
+  39:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *
+  40:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     * Summary:
+  41:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *  Interrupt Service Routine for RX portion of the UART
+  42:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *
+  43:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     * Parameters:
+  44:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *  None.
+  45:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *
+  46:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     * Return:
+  47:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *  None.
+  48:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *
+  49:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     * Global Variables:
+  50:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *  MIDI1_UART_rxBuffer - RAM buffer pointer for save received data.
+  51:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *  MIDI1_UART_rxBufferWrite - cyclic index for write to rxBuffer,
+  52:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *     increments after each byte saved to buffer.
+  53:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *  MIDI1_UART_rxBufferRead - cyclic index for read from rxBuffer,
+  54:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *     checked to detect overflow condition.
+  55:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *  MIDI1_UART_rxBufferOverflow - software overflow flag. Set to one
+  56:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *     when MIDI1_UART_rxBufferWrite index overtakes
+  57:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *     MIDI1_UART_rxBufferRead index.
+  58:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *  MIDI1_UART_rxBufferLoopDetect - additional variable to detect overflow.
+  59:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *     Set to one when MIDI1_UART_rxBufferWrite is equal to
+  60:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *    MIDI1_UART_rxBufferRead
+  61:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *  MIDI1_UART_rxAddressMode - this variable contains the Address mode,
+  62:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *     selected in customizer or set by UART_SetRxAddressMode() API.
+  63:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *  MIDI1_UART_rxAddressDetected - set to 1 when correct address received,
+  64:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *     and analysed to store following addressed data bytes to the buffer.
+  65:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *     When not correct address received, set to 0 to skip following data bytes.
+  66:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *
+  67:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *******************************************************************************/
+  68:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     CY_ISR(MIDI1_UART_RXISR)
+  69:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     {
+  27              		.loc 1 69 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  70:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         uint8 readData;
+  71:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         uint8 increment_pointer = 0u;
+  72:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         #if(CY_PSOC3)
+  73:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             uint8 int_en;
+  74:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         #endif /* CY_PSOC3 */
+  75:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+  76:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         /* User code required at start of ISR */
+  77:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         /* `#START MIDI1_UART_RXISR_START` */
+  78:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         //LED_InA_Write(1);
+  79:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         /* `#END` */
+  80:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+  81:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         #if(CY_PSOC3)   /* Make sure nested interrupt is enabled */
+  82:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             int_en = EA;
+  83:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             CyGlobalIntEnable;
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 3
+
+
+  84:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         #endif /* CY_PSOC3 */
+  85:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+  86:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         readData = MIDI1_UART_RXSTATUS_REG;
+  32              		.loc 1 86 0
+  33 0000 1849     		ldr	r1, .L15
+  34 0002 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+  35              	.LVL1:
+  87:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+  88:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         if((readData & (MIDI1_UART_RX_STS_BREAK | MIDI1_UART_RX_STS_PAR_ERROR |
+  89:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                         MIDI1_UART_RX_STS_STOP_ERROR | MIDI1_UART_RX_STS_OVERRUN)) != 0u)
+  90:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         {
+  91:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             /* ERROR handling. */
+  92:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             /* `#START MIDI1_UART_RXISR_ERROR` */
+  93:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+  94:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             /* `#END` */
+  95:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         }
+  96:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+  97:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         while((readData & MIDI1_UART_RX_STS_FIFO_NOTEMPTY) != 0u)
+  36              		.loc 1 97 0
+  37 0004 9A06     		lsls	r2, r3, #26
+  38 0006 2CD5     		bpl	.L13
+  39 0008 174A     		ldr	r2, .L15+4
+  69:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         uint8 readData;
+  40              		.loc 1 69 0
+  41 000a 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+  42              		.cfi_def_cfa_offset 28
+  43              		.cfi_offset 4, -28
+  44              		.cfi_offset 5, -24
+  45              		.cfi_offset 6, -20
+  46              		.cfi_offset 7, -16
+  47              		.cfi_offset 8, -12
+  48              		.cfi_offset 9, -8
+  49              		.cfi_offset 14, -4
+  98:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         {
+  99:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 100:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             #if (MIDI1_UART_RXHW_ADDRESS_ENABLED)
+ 101:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 if(MIDI1_UART_rxAddressMode == (uint8)MIDI1_UART__B_UART__AM_SW_DETECT_TO_BUFFER)
+ 102:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 {
+ 103:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                     if((readData & MIDI1_UART_RX_STS_MRKSPC) != 0u)
+ 104:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                     {
+ 105:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                         if ((readData & MIDI1_UART_RX_STS_ADDR_MATCH) != 0u)
+ 106:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                         {
+ 107:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                             MIDI1_UART_rxAddressDetected = 1u;
+ 108:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                         }
+ 109:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                         else
+ 110:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                         {
+ 111:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                             MIDI1_UART_rxAddressDetected = 0u;
+ 112:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                         }
+ 113:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                     }
+ 114:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 115:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                     readData = MIDI1_UART_RXDATA_REG;
+ 116:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                     if(MIDI1_UART_rxAddressDetected != 0u)
+ 117:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                     {   /* store only addressed data */
+ 118:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                         MIDI1_UART_rxBuffer[MIDI1_UART_rxBufferWrite] = readData;
+ 119:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                         increment_pointer = 1u;
+ 120:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                     }
+ 121:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 }
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 4
+
+
+ 122:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 else /* without software addressing */
+ 123:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 {
+ 124:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                     MIDI1_UART_rxBuffer[MIDI1_UART_rxBufferWrite] = MIDI1_UART_RXDATA_REG;
+ 125:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                     increment_pointer = 1u;
+ 126:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 }
+ 127:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             #else  /* without addressing */
+ 128:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 MIDI1_UART_rxBuffer[MIDI1_UART_rxBufferWrite] = MIDI1_UART_RXDATA_REG;
+ 129:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 increment_pointer = 1u;
+ 130:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             #endif /* End SW_DETECT_TO_BUFFER */
+ 131:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 132:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             /* do not increment buffer pointer when skip not adderessed data */
+ 133:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             if( increment_pointer != 0u )
+ 134:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             {
+ 135:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 if(MIDI1_UART_rxBufferLoopDetect != 0u)
+ 136:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 {   /* Set Software Buffer status Overflow */
+ 137:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                     MIDI1_UART_rxBufferOverflow = 1u;
+ 138:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 }
+ 139:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 /* Set next pointer. */
+ 140:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 MIDI1_UART_rxBufferWrite++;
+  50              		.loc 1 140 0
+  51 000e 9046     		mov	r8, r2
+  52 0010 164E     		ldr	r6, .L15+8
+  53 0012 1748     		ldr	r0, .L15+12
+  54 0014 174D     		ldr	r5, .L15+16
+ 128:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 increment_pointer = 1u;
+  55              		.loc 1 128 0
+  56 0016 184C     		ldr	r4, .L15+20
+ 137:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 }
+  57              		.loc 1 137 0
+  58 0018 DFF860E0 		ldr	lr, .L15+24
+  59 001c 0127     		movs	r7, #1
+ 141:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 142:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 /* Check pointer for a loop condition */
+ 143:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 if(MIDI1_UART_rxBufferWrite >= MIDI1_UART_RXBUFFERSIZE)
+ 144:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 {
+ 145:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                     MIDI1_UART_rxBufferWrite = 0u;
+  60              		.loc 1 145 0
+  61 001e 4FF0000C 		mov	ip, #0
+  62              	.LVL2:
+  63              	.L2:
+ 128:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 increment_pointer = 1u;
+  64              		.loc 1 128 0
+  65 0022 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  66 0024 94F80090 		ldrb	r9, [r4]	@ zero_extendqisi2
+  67 0028 DBB2     		uxtb	r3, r3
+  68 002a 5FFA89F9 		uxtb	r9, r9
+  69 002e 06F80390 		strb	r9, [r6, r3]
+  70              	.LVL3:
+ 135:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 {   /* Set Software Buffer status Overflow */
+  71              		.loc 1 135 0
+  72 0032 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+  73 0034 0BB1     		cbz	r3, .L3
+ 137:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 }
+  74              		.loc 1 137 0
+  75 0036 8EF80070 		strb	r7, [lr]
+  76              	.L3:
+ 140:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 5
+
+
+  77              		.loc 1 140 0
+  78 003a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  79 003c 0133     		adds	r3, r3, #1
+  80 003e DBB2     		uxtb	r3, r3
+  81 0040 1370     		strb	r3, [r2]
+ 143:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 {
+  82              		.loc 1 143 0
+  83 0042 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  84 0044 FF2B     		cmp	r3, #255
+  85              		.loc 1 145 0
+  86 0046 08BF     		it	eq
+  87 0048 88F800C0 		strbeq	ip, [r8]
+ 146:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 }
+ 147:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 /* Detect pre-overload condition and set flag */
+ 148:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 if(MIDI1_UART_rxBufferWrite == MIDI1_UART_rxBufferRead)
+  88              		.loc 1 148 0
+  89 004c 92F80090 		ldrb	r9, [r2]	@ zero_extendqisi2
+  90 0050 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+  91 0052 9945     		cmp	r9, r3
+ 149:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 {
+ 150:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                     MIDI1_UART_rxBufferLoopDetect = 1u;
+  92              		.loc 1 150 0
+  93 0054 08BF     		it	eq
+  94 0056 0770     		strbeq	r7, [r0]
+ 151:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                     /* When Hardware Flow Control selected */
+ 152:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                     #if(MIDI1_UART_FLOW_CONTROL != 0u)
+ 153:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                     /* Disable RX interrupt mask, it will be enabled when user read data from the b
+ 154:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                         MIDI1_UART_RXSTATUS_MASK_REG  &= (uint8)~MIDI1_UART_RX_STS_FIFO_NOTEMPTY;
+ 155:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                         CyIntClearPending(MIDI1_UART_RX_VECT_NUM);
+ 156:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                         break; /* Break the reading of the FIFO loop, leave the data there for gene
+ 157:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                     #endif /* End MIDI1_UART_FLOW_CONTROL != 0 */
+ 158:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 }
+ 159:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             }
+ 160:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 161:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             /* Check again if there is data. */
+ 162:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             readData = MIDI1_UART_RXSTATUS_REG;
+  95              		.loc 1 162 0
+  96 0058 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+  97              	.LVL4:
+  97:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         {
+  98              		.loc 1 97 0
+  99 005a 9B06     		lsls	r3, r3, #26
+ 100              	.LVL5:
+ 101 005c E1D4     		bmi	.L2
+ 102 005e BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 103              	.LVL6:
+ 104              	.L13:
+ 105              		.cfi_def_cfa_offset 0
+ 106              		.cfi_restore 4
+ 107              		.cfi_restore 5
+ 108              		.cfi_restore 6
+ 109              		.cfi_restore 7
+ 110              		.cfi_restore 8
+ 111              		.cfi_restore 9
+ 112              		.cfi_restore 14
+ 113 0062 7047     		bx	lr
+ 114              	.L16:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 6
+
+
+ 115              		.align	2
+ 116              	.L15:
+ 117 0064 64650040 		.word	1073767780
+ 118 0068 00000000 		.word	MIDI1_UART_rxBufferWrite
+ 119 006c 00000000 		.word	MIDI1_UART_rxBuffer
+ 120 0070 00000000 		.word	MIDI1_UART_rxBufferLoopDetect
+ 121 0074 00000000 		.word	MIDI1_UART_rxBufferRead
+ 122 0078 47650040 		.word	1073767751
+ 123 007c 00000000 		.word	MIDI1_UART_rxBufferOverflow
+ 124              		.cfi_endproc
+ 125              	.LFE0:
+ 126              		.size	MIDI1_UART_RXISR, .-MIDI1_UART_RXISR
+ 127              		.section	.text.MIDI1_UART_TXISR,"ax",%progbits
+ 128              		.align	2
+ 129              		.global	MIDI1_UART_TXISR
+ 130              		.thumb
+ 131              		.thumb_func
+ 132              		.type	MIDI1_UART_TXISR, %function
+ 133              	MIDI1_UART_TXISR:
+ 134              	.LFB1:
+ 163:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         }
+ 164:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 165:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         /* User code required at end of ISR (Optional) */
+ 166:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         /* `#START MIDI1_UART_RXISR_END` */
+ 167:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         #if(USB_EP_MM == USB__EP_DMAAUTO) 
+ 168:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             USB_MIDI_IN_Service();
+ 169:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         #endif
+ 170:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         //LED_InA_Write(0);
+ 171:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         /* `#END` */
+ 172:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 173:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         #if(CY_PSOC3)
+ 174:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             EA = int_en;
+ 175:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         #endif /* CY_PSOC3 */
+ 176:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 177:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     }
+ 178:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 179:Generated_Source\PSoC5/MIDI1_UART_INT.c **** #endif /* End MIDI1_UART_RX_ENABLED && (MIDI1_UART_RXBUFFERSIZE > MIDI1_UART_FIFO_LENGTH) */
+ 180:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 181:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 182:Generated_Source\PSoC5/MIDI1_UART_INT.c **** #if(MIDI1_UART_TX_ENABLED && (MIDI1_UART_TXBUFFERSIZE > MIDI1_UART_FIFO_LENGTH))
+ 183:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 184:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 185:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     /*******************************************************************************
+ 186:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     * Function Name: MIDI1_UART_TXISR
+ 187:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     ********************************************************************************
+ 188:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *
+ 189:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     * Summary:
+ 190:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     * Interrupt Service Routine for the TX portion of the UART
+ 191:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *
+ 192:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     * Parameters:
+ 193:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *  None.
+ 194:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *
+ 195:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     * Return:
+ 196:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *  None.
+ 197:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *
+ 198:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     * Global Variables:
+ 199:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *  MIDI1_UART_txBuffer - RAM buffer pointer for transmit data from.
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 7
+
+
+ 200:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *  MIDI1_UART_txBufferRead - cyclic index for read and transmit data
+ 201:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *     from txBuffer, increments after each transmited byte.
+ 202:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *  MIDI1_UART_rxBufferWrite - cyclic index for write to txBuffer,
+ 203:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *     checked to detect available for transmission bytes.
+ 204:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *
+ 205:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     *******************************************************************************/
+ 206:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     CY_ISR(MIDI1_UART_TXISR)
+ 207:Generated_Source\PSoC5/MIDI1_UART_INT.c ****     {
+ 135              		.loc 1 207 0
+ 136              		.cfi_startproc
+ 137              		@ args = 0, pretend = 0, frame = 0
+ 138              		@ frame_needed = 0, uses_anonymous_args = 0
+ 208:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 209:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         #if(CY_PSOC3)
+ 210:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             uint8 int_en;
+ 211:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         #endif /* CY_PSOC3 */
+ 212:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 213:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         /* User code required at start of ISR */
+ 214:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         /* `#START MIDI1_UART_TXISR_START` */
+ 215:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 216:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         /* `#END` */
+ 217:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 218:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         #if(CY_PSOC3)   /* Make sure nested interrupt is enabled */
+ 219:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             int_en = EA;
+ 220:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             CyGlobalIntEnable;
+ 221:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         #endif /* CY_PSOC3 */
+ 222:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 223:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         while((MIDI1_UART_txBufferRead != MIDI1_UART_txBufferWrite) &&
+ 139              		.loc 1 223 0
+ 140 0000 144A     		ldr	r2, .L27
+ 141 0002 1548     		ldr	r0, .L27+4
+ 142 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 143 0006 0178     		ldrb	r1, [r0]	@ zero_extendqisi2
+ 144 0008 9942     		cmp	r1, r3
+ 145 000a 21D0     		beq	.L25
+ 207:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 146              		.loc 1 207 0
+ 147 000c F0B5     		push	{r4, r5, r6, r7, lr}
+ 148              		.cfi_def_cfa_offset 20
+ 149              		.cfi_offset 4, -20
+ 150              		.cfi_offset 5, -16
+ 151              		.cfi_offset 6, -12
+ 152              		.cfi_offset 7, -8
+ 153              		.cfi_offset 14, -4
+ 224:Generated_Source\PSoC5/MIDI1_UART_INT.c ****              ((MIDI1_UART_TXSTATUS_REG & MIDI1_UART_TX_STS_FIFO_FULL) == 0u))
+ 154              		.loc 1 224 0
+ 155 000e 1349     		ldr	r1, .L27+8
+ 156 0010 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 157 0012 03F00403 		and	r3, r3, #4
+ 223:Generated_Source\PSoC5/MIDI1_UART_INT.c ****              ((MIDI1_UART_TXSTATUS_REG & MIDI1_UART_TX_STS_FIFO_FULL) == 0u))
+ 158              		.loc 1 223 0
+ 159 0016 03F0FF06 		and	r6, r3, #255
+ 160 001a C3B9     		cbnz	r3, .L17
+ 225:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         {
+ 226:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             /* Check pointer. */
+ 227:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             if(MIDI1_UART_txBufferRead >= MIDI1_UART_TXBUFFERSIZE)
+ 161              		.loc 1 227 0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 8
+
+
+ 162 001c 1746     		mov	r7, r2
+ 163 001e 104D     		ldr	r5, .L27+12
+ 228:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             {
+ 229:Generated_Source\PSoC5/MIDI1_UART_INT.c ****                 MIDI1_UART_txBufferRead = 0u;
+ 230:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             }
+ 231:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 232:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             MIDI1_UART_TXDATA_REG = MIDI1_UART_txBuffer[MIDI1_UART_txBufferRead];
+ 164              		.loc 1 232 0
+ 165 0020 104C     		ldr	r4, .L27+16
+ 166 0022 02E0     		b	.L21
+ 167              	.L26:
+ 224:Generated_Source\PSoC5/MIDI1_UART_INT.c ****         {
+ 168              		.loc 1 224 0 discriminator 1
+ 169 0024 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 223:Generated_Source\PSoC5/MIDI1_UART_INT.c ****              ((MIDI1_UART_TXSTATUS_REG & MIDI1_UART_TX_STS_FIFO_FULL) == 0u))
+ 170              		.loc 1 223 0 discriminator 1
+ 171 0026 5B07     		lsls	r3, r3, #29
+ 172 0028 11D4     		bmi	.L17
+ 173              	.L21:
+ 227:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             {
+ 174              		.loc 1 227 0
+ 175 002a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 176 002c FF2B     		cmp	r3, #255
+ 229:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             }
+ 177              		.loc 1 229 0
+ 178 002e 08BF     		it	eq
+ 179 0030 3E70     		strbeq	r6, [r7]
+ 180              		.loc 1 232 0
+ 181 0032 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 182 0034 DBB2     		uxtb	r3, r3
+ 183 0036 EB5C     		ldrb	r3, [r5, r3]	@ zero_extendqisi2
+ 184 0038 DBB2     		uxtb	r3, r3
+ 185 003a 2370     		strb	r3, [r4]
+ 233:Generated_Source\PSoC5/MIDI1_UART_INT.c **** 
+ 234:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             /* Set next pointer. */
+ 235:Generated_Source\PSoC5/MIDI1_UART_INT.c ****             MIDI1_UART_txBufferRead++;
+ 186              		.loc 1 235 0
+ 187 003c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 223:Generated_Source\PSoC5/MIDI1_UART_INT.c ****              ((MIDI1_UART_TXSTATUS_REG & MIDI1_UART_TX_STS_FIFO_FULL) == 0u))
+ 188              		.loc 1 223 0
+ 189 003e 90F800E0 		ldrb	lr, [r0]	@ zero_extendqisi2
+ 190              		.loc 1 235 0
+ 191 0042 0133     		adds	r3, r3, #1
+ 192 0044 DBB2     		uxtb	r3, r3
+ 193 0046 1370     		strb	r3, [r2]
+ 223:Generated_Source\PSoC5/MIDI1_UART_INT.c ****              ((MIDI1_UART_TXSTATUS_REG & MIDI1_UART_TX_STS_FIFO_FULL) == 0u))
+ 194              		.loc 1 223 0
+ 195 0048 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 196 004a 9E45     		cmp	lr, r3
+ 197 004c EAD1     		bne	.L26
+ 198              	.L17:
+ 199 004e F0BD     		pop	{r4, r5, r6, r7, pc}
+ 200              	.L25:
+ 201              		.cfi_def_cfa_offset 0
+ 202              		.cfi_restore 4
+ 203              		.cfi_restore 5
+ 204              		.cfi_restore 6
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 9
+
+
+ 205              		.cfi_restore 7
+ 206              		.cfi_restore 14
+ 207 0050 7047     		bx	lr
+ 208              	.L28:
+ 209 0052 00BF     		.align	2
+ 210              	.L27:
+ 211 0054 00000000 		.word	MIDI1_UART_txBufferRead
+ 212 0058 00000000 		.word	MIDI1_UART_txBufferWrite
+ 213 005c 6F640040 		.word	1073767535
+ 214 0060 00000000 		.word	MIDI1_UART_txBuffer
+ 215 0064 4C640040 		.word	1073767500
+ 216              		.cfi_endproc
+ 217              	.LFE1:
+ 218              		.size	MIDI1_UART_TXISR, .-MIDI1_UART_TXISR
+ 219              		.text
+ 220              	.Letext0:
+ 221              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 222              		.file 3 "Generated_Source\\PSoC5\\MIDI1_UART.h"
+ 223              		.section	.debug_info,"",%progbits
+ 224              	.Ldebug_info0:
+ 225 0000 5E010000 		.4byte	0x15e
+ 226 0004 0400     		.2byte	0x4
+ 227 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 228 000a 04       		.byte	0x4
+ 229 000b 01       		.uleb128 0x1
+ 230 000c 63000000 		.4byte	.LASF25
+ 231 0010 01       		.byte	0x1
+ 232 0011 36010000 		.4byte	.LASF26
+ 233 0015 61020000 		.4byte	.LASF27
+ 234 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 235 001d 00000000 		.4byte	0
+ 236 0021 00000000 		.4byte	.Ldebug_line0
+ 237 0025 02       		.uleb128 0x2
+ 238 0026 01       		.byte	0x1
+ 239 0027 06       		.byte	0x6
+ 240 0028 42020000 		.4byte	.LASF0
+ 241 002c 02       		.uleb128 0x2
+ 242 002d 01       		.byte	0x1
+ 243 002e 08       		.byte	0x8
+ 244 002f 10010000 		.4byte	.LASF1
+ 245 0033 02       		.uleb128 0x2
+ 246 0034 02       		.byte	0x2
+ 247 0035 05       		.byte	0x5
+ 248 0036 0D020000 		.4byte	.LASF2
+ 249 003a 02       		.uleb128 0x2
+ 250 003b 02       		.byte	0x2
+ 251 003c 07       		.byte	0x7
+ 252 003d 4E020000 		.4byte	.LASF3
+ 253 0041 02       		.uleb128 0x2
+ 254 0042 04       		.byte	0x4
+ 255 0043 05       		.byte	0x5
+ 256 0044 20020000 		.4byte	.LASF4
+ 257 0048 02       		.uleb128 0x2
+ 258 0049 04       		.byte	0x4
+ 259 004a 07       		.byte	0x7
+ 260 004b 63010000 		.4byte	.LASF5
+ 261 004f 02       		.uleb128 0x2
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 10
+
+
+ 262 0050 08       		.byte	0x8
+ 263 0051 05       		.byte	0x5
+ 264 0052 D4010000 		.4byte	.LASF6
+ 265 0056 02       		.uleb128 0x2
+ 266 0057 08       		.byte	0x8
+ 267 0058 07       		.byte	0x7
+ 268 0059 B4010000 		.4byte	.LASF7
+ 269 005d 03       		.uleb128 0x3
+ 270 005e 04       		.byte	0x4
+ 271 005f 05       		.byte	0x5
+ 272 0060 696E7400 		.ascii	"int\000"
+ 273 0064 02       		.uleb128 0x2
+ 274 0065 04       		.byte	0x4
+ 275 0066 07       		.byte	0x7
+ 276 0067 A7010000 		.4byte	.LASF8
+ 277 006b 04       		.uleb128 0x4
+ 278 006c 75010000 		.4byte	.LASF12
+ 279 0070 02       		.byte	0x2
+ 280 0071 5B       		.byte	0x5b
+ 281 0072 2C000000 		.4byte	0x2c
+ 282 0076 02       		.uleb128 0x2
+ 283 0077 04       		.byte	0x4
+ 284 0078 04       		.byte	0x4
+ 285 0079 F1000000 		.4byte	.LASF9
+ 286 007d 02       		.uleb128 0x2
+ 287 007e 08       		.byte	0x8
+ 288 007f 04       		.byte	0x4
+ 289 0080 8F010000 		.4byte	.LASF10
+ 290 0084 02       		.uleb128 0x2
+ 291 0085 01       		.byte	0x1
+ 292 0086 08       		.byte	0x8
+ 293 0087 29020000 		.4byte	.LASF11
+ 294 008b 04       		.uleb128 0x4
+ 295 008c 5E010000 		.4byte	.LASF13
+ 296 0090 02       		.byte	0x2
+ 297 0091 F0       		.byte	0xf0
+ 298 0092 96000000 		.4byte	0x96
+ 299 0096 05       		.uleb128 0x5
+ 300 0097 6B000000 		.4byte	0x6b
+ 301 009b 02       		.uleb128 0x2
+ 302 009c 04       		.byte	0x4
+ 303 009d 07       		.byte	0x7
+ 304 009e CB010000 		.4byte	.LASF14
+ 305 00a2 06       		.uleb128 0x6
+ 306 00a3 96010000 		.4byte	.LASF28
+ 307 00a7 01       		.byte	0x1
+ 308 00a8 44       		.byte	0x44
+ 309 00a9 00000000 		.4byte	.LFB0
+ 310 00ad 80000000 		.4byte	.LFE0-.LFB0
+ 311 00b1 01       		.uleb128 0x1
+ 312 00b2 9C       		.byte	0x9c
+ 313 00b3 D6000000 		.4byte	0xd6
+ 314 00b7 07       		.uleb128 0x7
+ 315 00b8 17020000 		.4byte	.LASF15
+ 316 00bc 01       		.byte	0x1
+ 317 00bd 46       		.byte	0x46
+ 318 00be 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 11
+
+
+ 319 00c2 00000000 		.4byte	.LLST0
+ 320 00c6 07       		.uleb128 0x7
+ 321 00c7 E2010000 		.4byte	.LASF16
+ 322 00cb 01       		.byte	0x1
+ 323 00cc 47       		.byte	0x47
+ 324 00cd 6B000000 		.4byte	0x6b
+ 325 00d1 29000000 		.4byte	.LLST1
+ 326 00d5 00       		.byte	0
+ 327 00d6 08       		.uleb128 0x8
+ 328 00d7 1E000000 		.4byte	.LASF29
+ 329 00db 01       		.byte	0x1
+ 330 00dc CE       		.byte	0xce
+ 331 00dd 00000000 		.4byte	.LFB1
+ 332 00e1 68000000 		.4byte	.LFE1-.LFB1
+ 333 00e5 01       		.uleb128 0x1
+ 334 00e6 9C       		.byte	0x9c
+ 335 00e7 09       		.uleb128 0x9
+ 336 00e8 6B000000 		.4byte	0x6b
+ 337 00ec F7000000 		.4byte	0xf7
+ 338 00f0 0A       		.uleb128 0xa
+ 339 00f1 9B000000 		.4byte	0x9b
+ 340 00f5 FE       		.byte	0xfe
+ 341 00f6 00       		.byte	0
+ 342 00f7 0B       		.uleb128 0xb
+ 343 00f8 7B010000 		.4byte	.LASF17
+ 344 00fc 03       		.byte	0x3
+ 345 00fd 4C01     		.2byte	0x14c
+ 346 00ff 03010000 		.4byte	0x103
+ 347 0103 05       		.uleb128 0x5
+ 348 0104 E7000000 		.4byte	0xe7
+ 349 0108 0B       		.uleb128 0xb
+ 350 0109 4B000000 		.4byte	.LASF18
+ 351 010d 03       		.byte	0x3
+ 352 010e 4D01     		.2byte	0x14d
+ 353 0110 96000000 		.4byte	0x96
+ 354 0114 0B       		.uleb128 0xb
+ 355 0115 F4010000 		.4byte	.LASF19
+ 356 0119 03       		.byte	0x3
+ 357 011a 4E01     		.2byte	0x14e
+ 358 011c 6B000000 		.4byte	0x6b
+ 359 0120 0B       		.uleb128 0xb
+ 360 0121 2E020000 		.4byte	.LASF20
+ 361 0125 03       		.byte	0x3
+ 362 0126 5201     		.2byte	0x152
+ 363 0128 2C010000 		.4byte	0x12c
+ 364 012c 05       		.uleb128 0x5
+ 365 012d E7000000 		.4byte	0xe7
+ 366 0131 0B       		.uleb128 0xb
+ 367 0132 1E010000 		.4byte	.LASF21
+ 368 0136 03       		.byte	0x3
+ 369 0137 5301     		.2byte	0x153
+ 370 0139 96000000 		.4byte	0x96
+ 371 013d 0B       		.uleb128 0xb
+ 372 013e F7000000 		.4byte	.LASF22
+ 373 0142 03       		.byte	0x3
+ 374 0143 5401     		.2byte	0x154
+ 375 0145 96000000 		.4byte	0x96
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 12
+
+
+ 376 0149 0B       		.uleb128 0xb
+ 377 014a 00000000 		.4byte	.LASF23
+ 378 014e 03       		.byte	0x3
+ 379 014f 5501     		.2byte	0x155
+ 380 0151 96000000 		.4byte	0x96
+ 381 0155 0B       		.uleb128 0xb
+ 382 0156 2F000000 		.4byte	.LASF24
+ 383 015a 03       		.byte	0x3
+ 384 015b 5601     		.2byte	0x156
+ 385 015d 96000000 		.4byte	0x96
+ 386 0161 00       		.byte	0
+ 387              		.section	.debug_abbrev,"",%progbits
+ 388              	.Ldebug_abbrev0:
+ 389 0000 01       		.uleb128 0x1
+ 390 0001 11       		.uleb128 0x11
+ 391 0002 01       		.byte	0x1
+ 392 0003 25       		.uleb128 0x25
+ 393 0004 0E       		.uleb128 0xe
+ 394 0005 13       		.uleb128 0x13
+ 395 0006 0B       		.uleb128 0xb
+ 396 0007 03       		.uleb128 0x3
+ 397 0008 0E       		.uleb128 0xe
+ 398 0009 1B       		.uleb128 0x1b
+ 399 000a 0E       		.uleb128 0xe
+ 400 000b 55       		.uleb128 0x55
+ 401 000c 17       		.uleb128 0x17
+ 402 000d 11       		.uleb128 0x11
+ 403 000e 01       		.uleb128 0x1
+ 404 000f 10       		.uleb128 0x10
+ 405 0010 17       		.uleb128 0x17
+ 406 0011 00       		.byte	0
+ 407 0012 00       		.byte	0
+ 408 0013 02       		.uleb128 0x2
+ 409 0014 24       		.uleb128 0x24
+ 410 0015 00       		.byte	0
+ 411 0016 0B       		.uleb128 0xb
+ 412 0017 0B       		.uleb128 0xb
+ 413 0018 3E       		.uleb128 0x3e
+ 414 0019 0B       		.uleb128 0xb
+ 415 001a 03       		.uleb128 0x3
+ 416 001b 0E       		.uleb128 0xe
+ 417 001c 00       		.byte	0
+ 418 001d 00       		.byte	0
+ 419 001e 03       		.uleb128 0x3
+ 420 001f 24       		.uleb128 0x24
+ 421 0020 00       		.byte	0
+ 422 0021 0B       		.uleb128 0xb
+ 423 0022 0B       		.uleb128 0xb
+ 424 0023 3E       		.uleb128 0x3e
+ 425 0024 0B       		.uleb128 0xb
+ 426 0025 03       		.uleb128 0x3
+ 427 0026 08       		.uleb128 0x8
+ 428 0027 00       		.byte	0
+ 429 0028 00       		.byte	0
+ 430 0029 04       		.uleb128 0x4
+ 431 002a 16       		.uleb128 0x16
+ 432 002b 00       		.byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 13
+
+
+ 433 002c 03       		.uleb128 0x3
+ 434 002d 0E       		.uleb128 0xe
+ 435 002e 3A       		.uleb128 0x3a
+ 436 002f 0B       		.uleb128 0xb
+ 437 0030 3B       		.uleb128 0x3b
+ 438 0031 0B       		.uleb128 0xb
+ 439 0032 49       		.uleb128 0x49
+ 440 0033 13       		.uleb128 0x13
+ 441 0034 00       		.byte	0
+ 442 0035 00       		.byte	0
+ 443 0036 05       		.uleb128 0x5
+ 444 0037 35       		.uleb128 0x35
+ 445 0038 00       		.byte	0
+ 446 0039 49       		.uleb128 0x49
+ 447 003a 13       		.uleb128 0x13
+ 448 003b 00       		.byte	0
+ 449 003c 00       		.byte	0
+ 450 003d 06       		.uleb128 0x6
+ 451 003e 2E       		.uleb128 0x2e
+ 452 003f 01       		.byte	0x1
+ 453 0040 3F       		.uleb128 0x3f
+ 454 0041 19       		.uleb128 0x19
+ 455 0042 03       		.uleb128 0x3
+ 456 0043 0E       		.uleb128 0xe
+ 457 0044 3A       		.uleb128 0x3a
+ 458 0045 0B       		.uleb128 0xb
+ 459 0046 3B       		.uleb128 0x3b
+ 460 0047 0B       		.uleb128 0xb
+ 461 0048 27       		.uleb128 0x27
+ 462 0049 19       		.uleb128 0x19
+ 463 004a 11       		.uleb128 0x11
+ 464 004b 01       		.uleb128 0x1
+ 465 004c 12       		.uleb128 0x12
+ 466 004d 06       		.uleb128 0x6
+ 467 004e 40       		.uleb128 0x40
+ 468 004f 18       		.uleb128 0x18
+ 469 0050 9742     		.uleb128 0x2117
+ 470 0052 19       		.uleb128 0x19
+ 471 0053 01       		.uleb128 0x1
+ 472 0054 13       		.uleb128 0x13
+ 473 0055 00       		.byte	0
+ 474 0056 00       		.byte	0
+ 475 0057 07       		.uleb128 0x7
+ 476 0058 34       		.uleb128 0x34
+ 477 0059 00       		.byte	0
+ 478 005a 03       		.uleb128 0x3
+ 479 005b 0E       		.uleb128 0xe
+ 480 005c 3A       		.uleb128 0x3a
+ 481 005d 0B       		.uleb128 0xb
+ 482 005e 3B       		.uleb128 0x3b
+ 483 005f 0B       		.uleb128 0xb
+ 484 0060 49       		.uleb128 0x49
+ 485 0061 13       		.uleb128 0x13
+ 486 0062 02       		.uleb128 0x2
+ 487 0063 17       		.uleb128 0x17
+ 488 0064 00       		.byte	0
+ 489 0065 00       		.byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 14
+
+
+ 490 0066 08       		.uleb128 0x8
+ 491 0067 2E       		.uleb128 0x2e
+ 492 0068 00       		.byte	0
+ 493 0069 3F       		.uleb128 0x3f
+ 494 006a 19       		.uleb128 0x19
+ 495 006b 03       		.uleb128 0x3
+ 496 006c 0E       		.uleb128 0xe
+ 497 006d 3A       		.uleb128 0x3a
+ 498 006e 0B       		.uleb128 0xb
+ 499 006f 3B       		.uleb128 0x3b
+ 500 0070 0B       		.uleb128 0xb
+ 501 0071 27       		.uleb128 0x27
+ 502 0072 19       		.uleb128 0x19
+ 503 0073 11       		.uleb128 0x11
+ 504 0074 01       		.uleb128 0x1
+ 505 0075 12       		.uleb128 0x12
+ 506 0076 06       		.uleb128 0x6
+ 507 0077 40       		.uleb128 0x40
+ 508 0078 18       		.uleb128 0x18
+ 509 0079 9742     		.uleb128 0x2117
+ 510 007b 19       		.uleb128 0x19
+ 511 007c 00       		.byte	0
+ 512 007d 00       		.byte	0
+ 513 007e 09       		.uleb128 0x9
+ 514 007f 01       		.uleb128 0x1
+ 515 0080 01       		.byte	0x1
+ 516 0081 49       		.uleb128 0x49
+ 517 0082 13       		.uleb128 0x13
+ 518 0083 01       		.uleb128 0x1
+ 519 0084 13       		.uleb128 0x13
+ 520 0085 00       		.byte	0
+ 521 0086 00       		.byte	0
+ 522 0087 0A       		.uleb128 0xa
+ 523 0088 21       		.uleb128 0x21
+ 524 0089 00       		.byte	0
+ 525 008a 49       		.uleb128 0x49
+ 526 008b 13       		.uleb128 0x13
+ 527 008c 2F       		.uleb128 0x2f
+ 528 008d 0B       		.uleb128 0xb
+ 529 008e 00       		.byte	0
+ 530 008f 00       		.byte	0
+ 531 0090 0B       		.uleb128 0xb
+ 532 0091 34       		.uleb128 0x34
+ 533 0092 00       		.byte	0
+ 534 0093 03       		.uleb128 0x3
+ 535 0094 0E       		.uleb128 0xe
+ 536 0095 3A       		.uleb128 0x3a
+ 537 0096 0B       		.uleb128 0xb
+ 538 0097 3B       		.uleb128 0x3b
+ 539 0098 05       		.uleb128 0x5
+ 540 0099 49       		.uleb128 0x49
+ 541 009a 13       		.uleb128 0x13
+ 542 009b 3F       		.uleb128 0x3f
+ 543 009c 19       		.uleb128 0x19
+ 544 009d 3C       		.uleb128 0x3c
+ 545 009e 19       		.uleb128 0x19
+ 546 009f 00       		.byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 15
+
+
+ 547 00a0 00       		.byte	0
+ 548 00a1 00       		.byte	0
+ 549              		.section	.debug_loc,"",%progbits
+ 550              	.Ldebug_loc0:
+ 551              	.LLST0:
+ 552 0000 04000000 		.4byte	.LVL1
+ 553 0004 22000000 		.4byte	.LVL2
+ 554 0008 0100     		.2byte	0x1
+ 555 000a 53       		.byte	0x53
+ 556 000b 5A000000 		.4byte	.LVL4
+ 557 000f 5C000000 		.4byte	.LVL5
+ 558 0013 0100     		.2byte	0x1
+ 559 0015 53       		.byte	0x53
+ 560 0016 62000000 		.4byte	.LVL6
+ 561 001a 80000000 		.4byte	.LFE0
+ 562 001e 0100     		.2byte	0x1
+ 563 0020 53       		.byte	0x53
+ 564 0021 00000000 		.4byte	0
+ 565 0025 00000000 		.4byte	0
+ 566              	.LLST1:
+ 567 0029 00000000 		.4byte	.LVL0
+ 568 002d 22000000 		.4byte	.LVL2
+ 569 0031 0200     		.2byte	0x2
+ 570 0033 30       		.byte	0x30
+ 571 0034 9F       		.byte	0x9f
+ 572 0035 32000000 		.4byte	.LVL3
+ 573 0039 62000000 		.4byte	.LVL6
+ 574 003d 0200     		.2byte	0x2
+ 575 003f 31       		.byte	0x31
+ 576 0040 9F       		.byte	0x9f
+ 577 0041 62000000 		.4byte	.LVL6
+ 578 0045 80000000 		.4byte	.LFE0
+ 579 0049 0200     		.2byte	0x2
+ 580 004b 30       		.byte	0x30
+ 581 004c 9F       		.byte	0x9f
+ 582 004d 00000000 		.4byte	0
+ 583 0051 00000000 		.4byte	0
+ 584              		.section	.debug_aranges,"",%progbits
+ 585 0000 24000000 		.4byte	0x24
+ 586 0004 0200     		.2byte	0x2
+ 587 0006 00000000 		.4byte	.Ldebug_info0
+ 588 000a 04       		.byte	0x4
+ 589 000b 00       		.byte	0
+ 590 000c 0000     		.2byte	0
+ 591 000e 0000     		.2byte	0
+ 592 0010 00000000 		.4byte	.LFB0
+ 593 0014 80000000 		.4byte	.LFE0-.LFB0
+ 594 0018 00000000 		.4byte	.LFB1
+ 595 001c 68000000 		.4byte	.LFE1-.LFB1
+ 596 0020 00000000 		.4byte	0
+ 597 0024 00000000 		.4byte	0
+ 598              		.section	.debug_ranges,"",%progbits
+ 599              	.Ldebug_ranges0:
+ 600 0000 00000000 		.4byte	.LFB0
+ 601 0004 80000000 		.4byte	.LFE0
+ 602 0008 00000000 		.4byte	.LFB1
+ 603 000c 68000000 		.4byte	.LFE1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 16
+
+
+ 604 0010 00000000 		.4byte	0
+ 605 0014 00000000 		.4byte	0
+ 606              		.section	.debug_line,"",%progbits
+ 607              	.Ldebug_line0:
+ 608 0000 CB000000 		.section	.debug_str,"MS",%progbits,1
+ 608      02005B00 
+ 608      00000201 
+ 608      FB0E0D00 
+ 608      01010101 
+ 609              	.LASF23:
+ 610 0000 4D494449 		.ascii	"MIDI1_UART_rxBufferLoopDetect\000"
+ 610      315F5541 
+ 610      52545F72 
+ 610      78427566 
+ 610      6665724C 
+ 611              	.LASF29:
+ 612 001e 4D494449 		.ascii	"MIDI1_UART_TXISR\000"
+ 612      315F5541 
+ 612      52545F54 
+ 612      58495352 
+ 612      00
+ 613              	.LASF24:
+ 614 002f 4D494449 		.ascii	"MIDI1_UART_rxBufferOverflow\000"
+ 614      315F5541 
+ 614      52545F72 
+ 614      78427566 
+ 614      6665724F 
+ 615              	.LASF18:
+ 616 004b 4D494449 		.ascii	"MIDI1_UART_txBufferRead\000"
+ 616      315F5541 
+ 616      52545F74 
+ 616      78427566 
+ 616      66657252 
+ 617              	.LASF25:
+ 618 0063 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 618      4320342E 
+ 618      392E3320 
+ 618      32303135 
+ 618      30333033 
+ 619 0096 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 619      20726576 
+ 619      6973696F 
+ 619      6E203232 
+ 619      31323230 
+ 620 00c9 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 620      66756E63 
+ 620      74696F6E 
+ 620      2D736563 
+ 620      74696F6E 
+ 621              	.LASF9:
+ 622 00f1 666C6F61 		.ascii	"float\000"
+ 622      7400
+ 623              	.LASF22:
+ 624 00f7 4D494449 		.ascii	"MIDI1_UART_rxBufferWrite\000"
+ 624      315F5541 
+ 624      52545F72 
+ 624      78427566 
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 17
+
+
+ 624      66657257 
+ 625              	.LASF1:
+ 626 0110 756E7369 		.ascii	"unsigned char\000"
+ 626      676E6564 
+ 626      20636861 
+ 626      7200
+ 627              	.LASF21:
+ 628 011e 4D494449 		.ascii	"MIDI1_UART_rxBufferRead\000"
+ 628      315F5541 
+ 628      52545F72 
+ 628      78427566 
+ 628      66657252 
+ 629              	.LASF26:
+ 630 0136 47656E65 		.ascii	"Generated_Source\\PSoC5\\MIDI1_UART_INT.c\000"
+ 630      72617465 
+ 630      645F536F 
+ 630      75726365 
+ 630      5C50536F 
+ 631              	.LASF13:
+ 632 015e 72656738 		.ascii	"reg8\000"
+ 632      00
+ 633              	.LASF5:
+ 634 0163 6C6F6E67 		.ascii	"long unsigned int\000"
+ 634      20756E73 
+ 634      69676E65 
+ 634      6420696E 
+ 634      7400
+ 635              	.LASF12:
+ 636 0175 75696E74 		.ascii	"uint8\000"
+ 636      3800
+ 637              	.LASF17:
+ 638 017b 4D494449 		.ascii	"MIDI1_UART_txBuffer\000"
+ 638      315F5541 
+ 638      52545F74 
+ 638      78427566 
+ 638      66657200 
+ 639              	.LASF10:
+ 640 018f 646F7562 		.ascii	"double\000"
+ 640      6C6500
+ 641              	.LASF28:
+ 642 0196 4D494449 		.ascii	"MIDI1_UART_RXISR\000"
+ 642      315F5541 
+ 642      52545F52 
+ 642      58495352 
+ 642      00
+ 643              	.LASF8:
+ 644 01a7 756E7369 		.ascii	"unsigned int\000"
+ 644      676E6564 
+ 644      20696E74 
+ 644      00
+ 645              	.LASF7:
+ 646 01b4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 646      206C6F6E 
+ 646      6720756E 
+ 646      7369676E 
+ 646      65642069 
+ 647              	.LASF14:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 18
+
+
+ 648 01cb 73697A65 		.ascii	"sizetype\000"
+ 648      74797065 
+ 648      00
+ 649              	.LASF6:
+ 650 01d4 6C6F6E67 		.ascii	"long long int\000"
+ 650      206C6F6E 
+ 650      6720696E 
+ 650      7400
+ 651              	.LASF16:
+ 652 01e2 696E6372 		.ascii	"increment_pointer\000"
+ 652      656D656E 
+ 652      745F706F 
+ 652      696E7465 
+ 652      7200
+ 653              	.LASF19:
+ 654 01f4 4D494449 		.ascii	"MIDI1_UART_txBufferWrite\000"
+ 654      315F5541 
+ 654      52545F74 
+ 654      78427566 
+ 654      66657257 
+ 655              	.LASF2:
+ 656 020d 73686F72 		.ascii	"short int\000"
+ 656      7420696E 
+ 656      7400
+ 657              	.LASF15:
+ 658 0217 72656164 		.ascii	"readData\000"
+ 658      44617461 
+ 658      00
+ 659              	.LASF4:
+ 660 0220 6C6F6E67 		.ascii	"long int\000"
+ 660      20696E74 
+ 660      00
+ 661              	.LASF11:
+ 662 0229 63686172 		.ascii	"char\000"
+ 662      00
+ 663              	.LASF20:
+ 664 022e 4D494449 		.ascii	"MIDI1_UART_rxBuffer\000"
+ 664      315F5541 
+ 664      52545F72 
+ 664      78427566 
+ 664      66657200 
+ 665              	.LASF0:
+ 666 0242 7369676E 		.ascii	"signed char\000"
+ 666      65642063 
+ 666      68617200 
+ 667              	.LASF3:
+ 668 024e 73686F72 		.ascii	"short unsigned int\000"
+ 668      7420756E 
+ 668      7369676E 
+ 668      65642069 
+ 668      6E7400
+ 669              	.LASF27:
+ 670 0261 433A5C55 		.ascii	"C:\\Users\\jmdevoto\\Desktop\\Builds\\(4-24-17)Humm"
+ 670      73657273 
+ 670      5C6A6D64 
+ 670      65766F74 
+ 670      6F5C4465 
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccAvKxPG.s 			page 19
+
+
+ 671 028f 696E6762 		.ascii	"ingbird-059-v1\\Hummingbird(Continuous Output).cyds"
+ 671      6972642D 
+ 671      3035392D 
+ 671      76315C48 
+ 671      756D6D69 
+ 672 02c1 6E00     		.ascii	"n\000"
+ 673              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

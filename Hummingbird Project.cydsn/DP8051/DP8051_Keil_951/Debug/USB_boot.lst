@@ -1,0 +1,299 @@
+C51 COMPILER V9.51   USB_BOOT                                                              02/21/2017 15:19:24 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE USB_BOOT
+OBJECT MODULE PLACED IN .\DP8051\DP8051_Keil_951\Debug\USB_boot.obj
+COMPILER INVOKED BY: C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\import\keil\pk51\9.51\C51\BIN\c51.exe 
+                    -Generated_Source\PSoC3\USB_boot.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP INCDIR(.,Generated_Source\PSoC3) FF(3) DB WL(2) PR(.
+                    -\DP8051\DP8051_Keil_951\Debug/USB_boot.lst) CD OT(2,SIZE) OJ(.\DP8051\DP8051_Keil_951\Debug\USB_boot.obj)
+
+line level    source
+
+   1          /*******************************************************************************
+   2          * File Name: USB_boot.c
+   3          * Version 2.70
+   4          *
+   5          * Description:
+   6          *  Boot loader API for USBFS Component.
+   7          *
+   8          *  Note:
+   9          *
+  10          ********************************************************************************
+  11          * Copyright 2008-2013, Cypress Semiconductor Corporation.  All rights reserved.
+  12          * You may use this file only in accordance with the license, terms, conditions,
+  13          * disclaimers, and limitations in the end user license agreement accompanying
+  14          * the software package with which this file was provided.
+  15          *******************************************************************************/
+  16          
+  17          #include "USB.h"
+  18          
+  19          #if defined(CYDEV_BOOTLOADER_IO_COMP) && ((CYDEV_BOOTLOADER_IO_COMP == CyBtldr_USB) || \
+  20                                                    (CYDEV_BOOTLOADER_IO_COMP == CyBtldr_Custom_Interface))
+              
+              
+              /***************************************
+              *    Bootloader Variables
+              ***************************************/
+              
+              static uint8  USB_started = 0u;
+              
+              
+              /*******************************************************************************
+              * Function Name: USB_CyBtldrCommStart
+              ********************************************************************************
+              *
+              * Summary:
+              *  Starts the component and enables the interrupt.
+              *
+              * Parameters:
+              *  None.
+              *
+              * Return:
+              *  None.
+              *
+              * Side Effects:
+              *  This function starts the USB with 3V or 5V operation.
+              *
+              * Reentrant:
+              *  No.
+              *
+              *******************************************************************************/
+              void USB_CyBtldrCommStart(void) 
+              {
+                  CyGlobalIntEnable;      /* Enable Global Interrupts */
+              
+C51 COMPILER V9.51   USB_BOOT                                                              02/21/2017 15:19:24 PAGE 2   
+
+                  /*Start USBFS Operation/device 0 and with 5V or 3V operation depend on Voltage Configuration in DWR */
+                  USB_Start(0u, USB_DWR_VDDD_OPERATION);
+              
+                  /* USB component started, the correct enumeration will be checked in first Read operation */
+                  USB_started = 1u;
+              }
+              
+              
+              /*******************************************************************************
+              * Function Name: USB_CyBtldrCommStop.
+              ********************************************************************************
+              *
+              * Summary:
+              *  Disable the component and disable the interrupt.
+              *
+              * Parameters:
+              *  None.
+              *
+              * Return:
+              *  None.
+              *
+              *******************************************************************************/
+              void USB_CyBtldrCommStop(void) 
+              {
+                  USB_Stop();
+              }
+              
+              
+              /*******************************************************************************
+              * Function Name: USB_CyBtldrCommReset.
+              ********************************************************************************
+              *
+              * Summary:
+              *  Resets the receive and transmit communication Buffers.
+              *
+              * Parameters:
+              *  None
+              *
+              * Return:
+              *  None
+              *
+              * Reentrant:
+              *  No
+              *
+              *******************************************************************************/
+              void USB_CyBtldrCommReset(void) 
+              {
+                  USB_EnableOutEP(USB_BTLDR_OUT_EP);  /* Enable the OUT endpoint */
+              }
+              
+              
+              /*******************************************************************************
+              * Function Name: USB_CyBtldrCommWrite.
+              ********************************************************************************
+              *
+              * Summary:
+              *  Allows the caller to write data to the boot loader host. The function will
+              *  handle polling to allow a block of data to be completely sent to the host
+              *  device.
+              *
+              * Parameters:
+              *  pData:    A pointer to the block of data to send to the device
+C51 COMPILER V9.51   USB_BOOT                                                              02/21/2017 15:19:24 PAGE 3   
+
+              *  size:     The number of bytes to write.
+              *  count:    Pointer to an unsigned short variable to write the number of
+              *             bytes actually written.
+              *  timeOut:  Number of units to wait before returning because of a timeout.
+              *
+              * Return:
+              *  Returns the value that best describes the problem.
+              *
+              * Reentrant:
+              *  No
+              *
+              *******************************************************************************/
+              cystatus USB_CyBtldrCommWrite(const uint8 pData[], uint16 size, uint16 *count, uint8 timeOut) CYSMALL
+                                                                          
+              {
+                  cystatus retCode;
+                  uint16 timeoutMs;
+              
+                  timeoutMs = ((uint16) 10u * timeOut);  /* Convert from 10mS check to number 1mS checks */
+                  
+                  /* Enable IN transfer */
+                  USB_LoadInEP(USB_BTLDR_IN_EP, pData, USB_BTLDR_SIZEOF_READ_BUFFER);
+              
+                  /* Wait for the master to read it. */
+                  while ((USB_GetEPState(USB_BTLDR_IN_EP) == USB_IN_BUFFER_FULL) &&
+                         (0u != timeoutMs))
+                  {
+                      CyDelay(USB_BTLDR_WAIT_1_MS);
+                      timeoutMs--;
+                  }
+              
+                  if (USB_GetEPState(USB_BTLDR_IN_EP) == USB_IN_BUFFER_FULL)
+                  {
+                      retCode = CYRET_TIMEOUT;
+                  }
+                  else
+                  {
+                      *count = size;
+                      retCode = CYRET_SUCCESS;
+                  }
+              
+                  return(retCode);
+              }
+              
+              
+              /*******************************************************************************
+              * Function Name: USB_CyBtldrCommRead.
+              ********************************************************************************
+              *
+              * Summary:
+              *  Allows the caller to read data from the boot loader host. The function will
+              *  handle polling to allow a block of data to be completely received from the
+              *  host device.
+              *
+              * Parameters:
+              *  pData:    A pointer to the area to store the block of data received
+              *             from the device.
+              *  size:     The number of bytes to read.
+              *  count:    Pointer to an unsigned short variable to write the number
+              *             of bytes actually read.
+              *  timeOut:  Number of units to wait before returning because of a timeOut.
+              *            Timeout is measured in 10s of ms.
+C51 COMPILER V9.51   USB_BOOT                                                              02/21/2017 15:19:24 PAGE 4   
+
+              *
+              * Return:
+              *  Returns the value that best describes the problem.
+              *
+              * Reentrant:
+              *  No
+              *
+              *******************************************************************************/
+              cystatus USB_CyBtldrCommRead(uint8 pData[], uint16 size, uint16 *count, uint8 timeOut) CYSMALL
+                                                                          
+              {
+                  cystatus retCode;
+                  uint16 timeoutMs;
+              
+                  timeoutMs = ((uint16) 10u * timeOut);  /* Convert from 10mS check to number 1mS checks */
+                  
+                  if (size > USB_BTLDR_SIZEOF_WRITE_BUFFER)
+                  {
+                      size = USB_BTLDR_SIZEOF_WRITE_BUFFER;
+                  }
+              
+                  /* Wait on enumeration in first time */
+                  if (0u != USB_started)
+                  {
+                      /* Wait for Device to enumerate */
+                      while ((0u ==USB_GetConfiguration()) && (0u != timeoutMs))
+                      {
+                          CyDelay(USB_BTLDR_WAIT_1_MS);
+                          timeoutMs--;
+                      }
+                      
+                      /* Enable first OUT, if enumeration complete */
+                      if (0u != USB_GetConfiguration())
+                      {
+                          (void) USB_IsConfigurationChanged();  /* Clear configuration changes state status */
+                          USB_CyBtldrCommReset();
+                          USB_started = 0u;
+                      }
+                  }
+                  else /* Check for configuration changes, has been done by Host */
+                  {
+                      if (0u != USB_IsConfigurationChanged()) /* Host could send double SET_INTERFACE request or RESET *
+             -/
+                      {
+                          if (0u != USB_GetConfiguration())   /* Init OUT endpoints when device reconfigured */
+                          {
+                              USB_CyBtldrCommReset();
+                          }
+                      }
+                  }
+                  
+                  timeoutMs = ((uint16) 10u * timeOut); /* Re-arm timeout */
+                  
+                  /* Wait on next packet */
+                  while((USB_GetEPState(USB_BTLDR_OUT_EP) != USB_OUT_BUFFER_FULL) && \
+                        (0u != timeoutMs))
+                  {
+                      CyDelay(USB_BTLDR_WAIT_1_MS);
+                      timeoutMs--;
+                  }
+              
+                  /* OUT EP has completed */
+C51 COMPILER V9.51   USB_BOOT                                                              02/21/2017 15:19:24 PAGE 5   
+
+                  if (USB_GetEPState(USB_BTLDR_OUT_EP) == USB_OUT_BUFFER_FULL)
+                  {
+                      *count = USB_ReadOutEP(USB_BTLDR_OUT_EP, pData, size);
+                      retCode = CYRET_SUCCESS;
+                  }
+                  else
+                  {
+                      *count = 0u;
+                      retCode = CYRET_TIMEOUT;
+                  }
+                  
+                  return(retCode);
+              }
+              
+              #endif /*  CYDEV_BOOTLOADER_IO_COMP == CyBtldr_USB */
+ 254          
+ 255          
+ 256          /* [] END OF FILE */
+C51 COMPILER V9.51   USB_BOOT                                                              02/21/2017 15:19:24 PAGE 6   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

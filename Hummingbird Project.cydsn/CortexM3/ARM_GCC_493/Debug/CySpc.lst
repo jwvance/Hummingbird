@@ -1,0 +1,3403 @@
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"CySpc.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.CySpcStart,"ax",%progbits
+  19              		.align	2
+  20              		.global	CySpcStart
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	CySpcStart, %function
+  24              	CySpcStart:
+  25              	.LFB0:
+  26              		.file 1 "Generated_Source\\PSoC5\\CySpc.c"
+   1:Generated_Source\PSoC5/CySpc.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/CySpc.c **** * File Name: CySpc.c
+   3:Generated_Source\PSoC5/CySpc.c **** * Version 4.11
+   4:Generated_Source\PSoC5/CySpc.c **** *
+   5:Generated_Source\PSoC5/CySpc.c **** *  Description:
+   6:Generated_Source\PSoC5/CySpc.c **** *   Provides an API for the System Performance Component.
+   7:Generated_Source\PSoC5/CySpc.c **** *   The SPC functions are not meant to be called directly by the user
+   8:Generated_Source\PSoC5/CySpc.c **** *   application.
+   9:Generated_Source\PSoC5/CySpc.c **** *
+  10:Generated_Source\PSoC5/CySpc.c **** ********************************************************************************
+  11:Generated_Source\PSoC5/CySpc.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC5/CySpc.c **** * You may use this file only in accordance with the license, terms, conditions,
+  13:Generated_Source\PSoC5/CySpc.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  14:Generated_Source\PSoC5/CySpc.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC5/CySpc.c **** *******************************************************************************/
+  16:Generated_Source\PSoC5/CySpc.c **** 
+  17:Generated_Source\PSoC5/CySpc.c **** #include "CySpc.h"
+  18:Generated_Source\PSoC5/CySpc.c **** 
+  19:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_KEY_ONE                      (0xB6u)
+  20:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_KEY_TWO(x)                   ((uint8) (((uint16) 0xD3u) + ((uint16) (x))))
+  21:Generated_Source\PSoC5/CySpc.c **** 
+  22:Generated_Source\PSoC5/CySpc.c **** /* Command Codes */
+  23:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_LD_BYTE                  (0x00u)
+  24:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_LD_MULTI_BYTE            (0x01u)
+  25:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_LD_ROW                   (0x02u)
+  26:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_RD_BYTE                  (0x03u)
+  27:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_RD_MULTI_BYTE            (0x04u)
+  28:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_WR_ROW                   (0x05u)
+  29:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_WR_USER_NVL              (0x06u)
+  30:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_PRG_ROW                  (0x07u)
+  31:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_ER_SECTOR                (0x08u)
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 2
+
+
+  32:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_ER_ALL                   (0x09u)
+  33:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_RD_HIDDEN                (0x0Au)
+  34:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_PRG_PROTECT              (0x0Bu)
+  35:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_CHECKSUM                 (0x0Cu)
+  36:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_DWNLD_ALGORITHM          (0x0Du)
+  37:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_GET_TEMP                 (0x0Eu)
+  38:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_GET_ADC                  (0x0Fu)
+  39:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_RD_NVL_VOLATILE          (0x10u)
+  40:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_SETUP_TS                 (0x11u)
+  41:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_DISABLE_TS               (0x12u)
+  42:Generated_Source\PSoC5/CySpc.c **** #define CY_SPC_CMD_ER_ROW                   (0x13u)
+  43:Generated_Source\PSoC5/CySpc.c **** 
+  44:Generated_Source\PSoC5/CySpc.c **** /* Enable bit in Active and Alternate Active mode templates */
+  45:Generated_Source\PSoC5/CySpc.c **** #define PM_SPC_PM_EN                        (0x08u)
+  46:Generated_Source\PSoC5/CySpc.c **** 
+  47:Generated_Source\PSoC5/CySpc.c **** /* Gate calls to the SPC. */
+  48:Generated_Source\PSoC5/CySpc.c **** uint8 SpcLockState = CY_SPC_UNLOCKED;
+  49:Generated_Source\PSoC5/CySpc.c **** 
+  50:Generated_Source\PSoC5/CySpc.c **** 
+  51:Generated_Source\PSoC5/CySpc.c **** #if(CY_PSOC5)
+  52:Generated_Source\PSoC5/CySpc.c **** 
+  53:Generated_Source\PSoC5/CySpc.c ****     /***************************************************************************
+  54:Generated_Source\PSoC5/CySpc.c ****     * The wait-state pipeline must be enabled prior to accessing the SPC
+  55:Generated_Source\PSoC5/CySpc.c ****     * register interface regardless of CPU frequency. The CySpcLock() saves
+  56:Generated_Source\PSoC5/CySpc.c ****     * current wait-state pipeline state and enables it. The CySpcUnlock()
+  57:Generated_Source\PSoC5/CySpc.c ****     * function, which must be called after SPC transaction, restores original
+  58:Generated_Source\PSoC5/CySpc.c ****     * state.
+  59:Generated_Source\PSoC5/CySpc.c ****     ***************************************************************************/
+  60:Generated_Source\PSoC5/CySpc.c ****     static uint32 spcWaitPipeBypass = 0u;
+  61:Generated_Source\PSoC5/CySpc.c **** 
+  62:Generated_Source\PSoC5/CySpc.c **** #endif  /* (CY_PSOC5) */
+  63:Generated_Source\PSoC5/CySpc.c **** 
+  64:Generated_Source\PSoC5/CySpc.c **** 
+  65:Generated_Source\PSoC5/CySpc.c **** /*******************************************************************************
+  66:Generated_Source\PSoC5/CySpc.c **** * Function Name: CySpcStart
+  67:Generated_Source\PSoC5/CySpc.c **** ********************************************************************************
+  68:Generated_Source\PSoC5/CySpc.c **** * Summary:
+  69:Generated_Source\PSoC5/CySpc.c **** *  Starts the SPC.
+  70:Generated_Source\PSoC5/CySpc.c **** *
+  71:Generated_Source\PSoC5/CySpc.c **** * Parameters:
+  72:Generated_Source\PSoC5/CySpc.c **** *  None
+  73:Generated_Source\PSoC5/CySpc.c **** *
+  74:Generated_Source\PSoC5/CySpc.c **** * Return:
+  75:Generated_Source\PSoC5/CySpc.c **** *  None
+  76:Generated_Source\PSoC5/CySpc.c **** *
+  77:Generated_Source\PSoC5/CySpc.c **** *******************************************************************************/
+  78:Generated_Source\PSoC5/CySpc.c **** void CySpcStart(void) 
+  79:Generated_Source\PSoC5/CySpc.c **** {
+  27              		.loc 1 79 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 3, -8
+  34              		.cfi_offset 14, -4
+  80:Generated_Source\PSoC5/CySpc.c ****     /* Save current global interrupt enable and disable it */
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 3
+
+
+  81:Generated_Source\PSoC5/CySpc.c ****     uint8 interruptState = CyEnterCriticalSection();
+  35              		.loc 1 81 0
+  36 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+  37              	.LVL0:
+  82:Generated_Source\PSoC5/CySpc.c **** 
+  83:Generated_Source\PSoC5/CySpc.c ****     CY_SPC_PM_ACT_REG  |= PM_SPC_PM_EN;
+  38              		.loc 1 83 0
+  39 0006 0749     		ldr	r1, .L3
+  84:Generated_Source\PSoC5/CySpc.c ****     CY_SPC_PM_STBY_REG |= PM_SPC_PM_EN;
+  40              		.loc 1 84 0
+  41 0008 074A     		ldr	r2, .L3+4
+  83:Generated_Source\PSoC5/CySpc.c ****     CY_SPC_PM_STBY_REG |= PM_SPC_PM_EN;
+  42              		.loc 1 83 0
+  43 000a 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+  44 000c 43F00803 		orr	r3, r3, #8
+  45 0010 0B70     		strb	r3, [r1]
+  46              		.loc 1 84 0
+  47 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  48 0014 43F00803 		orr	r3, r3, #8
+  49 0018 1370     		strb	r3, [r2]
+  85:Generated_Source\PSoC5/CySpc.c **** 
+  86:Generated_Source\PSoC5/CySpc.c ****     /* Restore global interrupt enable state */
+  87:Generated_Source\PSoC5/CySpc.c ****     CyExitCriticalSection(interruptState);
+  88:Generated_Source\PSoC5/CySpc.c **** }
+  50              		.loc 1 88 0
+  51 001a BDE80840 		pop	{r3, lr}
+  52              		.cfi_restore 14
+  53              		.cfi_restore 3
+  54              		.cfi_def_cfa_offset 0
+  87:Generated_Source\PSoC5/CySpc.c **** }
+  55              		.loc 1 87 0
+  56 001e FFF7FEBF 		b	CyExitCriticalSection
+  57              	.LVL1:
+  58              	.L4:
+  59 0022 00BF     		.align	2
+  60              	.L3:
+  61 0024 A0430040 		.word	1073759136
+  62 0028 B0430040 		.word	1073759152
+  63              		.cfi_endproc
+  64              	.LFE0:
+  65              		.size	CySpcStart, .-CySpcStart
+  66              		.section	.text.CySpcStop,"ax",%progbits
+  67              		.align	2
+  68              		.global	CySpcStop
+  69              		.thumb
+  70              		.thumb_func
+  71              		.type	CySpcStop, %function
+  72              	CySpcStop:
+  73              	.LFB1:
+  89:Generated_Source\PSoC5/CySpc.c **** 
+  90:Generated_Source\PSoC5/CySpc.c **** 
+  91:Generated_Source\PSoC5/CySpc.c **** /*******************************************************************************
+  92:Generated_Source\PSoC5/CySpc.c **** * Function Name: CySpcStop
+  93:Generated_Source\PSoC5/CySpc.c **** ********************************************************************************
+  94:Generated_Source\PSoC5/CySpc.c **** * Summary:
+  95:Generated_Source\PSoC5/CySpc.c **** *  Stops the SPC.
+  96:Generated_Source\PSoC5/CySpc.c **** *
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 4
+
+
+  97:Generated_Source\PSoC5/CySpc.c **** * Parameters:
+  98:Generated_Source\PSoC5/CySpc.c **** *  None
+  99:Generated_Source\PSoC5/CySpc.c **** *
+ 100:Generated_Source\PSoC5/CySpc.c **** * Return:
+ 101:Generated_Source\PSoC5/CySpc.c **** *  None
+ 102:Generated_Source\PSoC5/CySpc.c **** *
+ 103:Generated_Source\PSoC5/CySpc.c **** *******************************************************************************/
+ 104:Generated_Source\PSoC5/CySpc.c **** void CySpcStop(void) 
+ 105:Generated_Source\PSoC5/CySpc.c **** {
+  74              		.loc 1 105 0
+  75              		.cfi_startproc
+  76              		@ args = 0, pretend = 0, frame = 0
+  77              		@ frame_needed = 0, uses_anonymous_args = 0
+  78 0000 08B5     		push	{r3, lr}
+  79              		.cfi_def_cfa_offset 8
+  80              		.cfi_offset 3, -8
+  81              		.cfi_offset 14, -4
+ 106:Generated_Source\PSoC5/CySpc.c ****     /* Save current global interrupt enable and disable it */
+ 107:Generated_Source\PSoC5/CySpc.c ****     uint8 interruptState = CyEnterCriticalSection();
+  82              		.loc 1 107 0
+  83 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+  84              	.LVL2:
+ 108:Generated_Source\PSoC5/CySpc.c **** 
+ 109:Generated_Source\PSoC5/CySpc.c ****     CY_SPC_PM_ACT_REG  &= ((uint8)(~PM_SPC_PM_EN));
+  85              		.loc 1 109 0
+  86 0006 0749     		ldr	r1, .L7
+ 110:Generated_Source\PSoC5/CySpc.c ****     CY_SPC_PM_STBY_REG &= ((uint8)(~PM_SPC_PM_EN));
+  87              		.loc 1 110 0
+  88 0008 074A     		ldr	r2, .L7+4
+ 109:Generated_Source\PSoC5/CySpc.c ****     CY_SPC_PM_STBY_REG &= ((uint8)(~PM_SPC_PM_EN));
+  89              		.loc 1 109 0
+  90 000a 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+  91 000c 03F0F703 		and	r3, r3, #247
+  92 0010 0B70     		strb	r3, [r1]
+  93              		.loc 1 110 0
+  94 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  95 0014 03F0F703 		and	r3, r3, #247
+  96 0018 1370     		strb	r3, [r2]
+ 111:Generated_Source\PSoC5/CySpc.c **** 
+ 112:Generated_Source\PSoC5/CySpc.c ****     /* Restore global interrupt enable state */
+ 113:Generated_Source\PSoC5/CySpc.c ****     CyExitCriticalSection(interruptState);
+ 114:Generated_Source\PSoC5/CySpc.c **** }
+  97              		.loc 1 114 0
+  98 001a BDE80840 		pop	{r3, lr}
+  99              		.cfi_restore 14
+ 100              		.cfi_restore 3
+ 101              		.cfi_def_cfa_offset 0
+ 113:Generated_Source\PSoC5/CySpc.c **** }
+ 102              		.loc 1 113 0
+ 103 001e FFF7FEBF 		b	CyExitCriticalSection
+ 104              	.LVL3:
+ 105              	.L8:
+ 106 0022 00BF     		.align	2
+ 107              	.L7:
+ 108 0024 A0430040 		.word	1073759136
+ 109 0028 B0430040 		.word	1073759152
+ 110              		.cfi_endproc
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 5
+
+
+ 111              	.LFE1:
+ 112              		.size	CySpcStop, .-CySpcStop
+ 113              		.section	.text.CySpcReadData,"ax",%progbits
+ 114              		.align	2
+ 115              		.global	CySpcReadData
+ 116              		.thumb
+ 117              		.thumb_func
+ 118              		.type	CySpcReadData, %function
+ 119              	CySpcReadData:
+ 120              	.LFB2:
+ 115:Generated_Source\PSoC5/CySpc.c **** 
+ 116:Generated_Source\PSoC5/CySpc.c **** 
+ 117:Generated_Source\PSoC5/CySpc.c **** /*******************************************************************************
+ 118:Generated_Source\PSoC5/CySpc.c **** * Function Name: CySpcReadData
+ 119:Generated_Source\PSoC5/CySpc.c **** ********************************************************************************
+ 120:Generated_Source\PSoC5/CySpc.c **** * Summary:
+ 121:Generated_Source\PSoC5/CySpc.c **** *  Reads data from the SPC.
+ 122:Generated_Source\PSoC5/CySpc.c **** *
+ 123:Generated_Source\PSoC5/CySpc.c **** * Parameters:
+ 124:Generated_Source\PSoC5/CySpc.c **** *  uint8 buffer:
+ 125:Generated_Source\PSoC5/CySpc.c **** *   Address to store data read.
+ 126:Generated_Source\PSoC5/CySpc.c **** *
+ 127:Generated_Source\PSoC5/CySpc.c **** *  uint8 size:
+ 128:Generated_Source\PSoC5/CySpc.c **** *   Number of bytes to read from the SPC.
+ 129:Generated_Source\PSoC5/CySpc.c **** *
+ 130:Generated_Source\PSoC5/CySpc.c **** * Return:
+ 131:Generated_Source\PSoC5/CySpc.c **** *  uint8:
+ 132:Generated_Source\PSoC5/CySpc.c **** *   The number of bytes read from the SPC.
+ 133:Generated_Source\PSoC5/CySpc.c **** *
+ 134:Generated_Source\PSoC5/CySpc.c **** *******************************************************************************/
+ 135:Generated_Source\PSoC5/CySpc.c **** uint8 CySpcReadData(uint8 buffer[], uint8 size) 
+ 136:Generated_Source\PSoC5/CySpc.c **** {
+ 121              		.loc 1 136 0
+ 122              		.cfi_startproc
+ 123              		@ args = 0, pretend = 0, frame = 0
+ 124              		@ frame_needed = 0, uses_anonymous_args = 0
+ 125              	.LVL4:
+ 126 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 127              		.cfi_def_cfa_offset 24
+ 128              		.cfi_offset 4, -24
+ 129              		.cfi_offset 5, -20
+ 130              		.cfi_offset 6, -16
+ 131              		.cfi_offset 7, -12
+ 132              		.cfi_offset 8, -8
+ 133              		.cfi_offset 14, -4
+ 137:Generated_Source\PSoC5/CySpc.c ****     uint8 i;
+ 138:Generated_Source\PSoC5/CySpc.c **** 
+ 139:Generated_Source\PSoC5/CySpc.c ****     for(i = 0u; i < size; i++)
+ 134              		.loc 1 139 0
+ 135 0004 0F46     		mov	r7, r1
+ 136 0006 99B1     		cbz	r1, .L10
+ 137 0008 4E1E     		subs	r6, r1, #1
+ 138 000a F6B2     		uxtb	r6, r6
+ 139 000c 0644     		add	r6, r6, r0
+ 140 000e 451E     		subs	r5, r0, #1
+ 140:Generated_Source\PSoC5/CySpc.c ****     {
+ 141:Generated_Source\PSoC5/CySpc.c ****         while(!CY_SPC_DATA_READY)
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 6
+
+
+ 141              		.loc 1 141 0
+ 142 0010 094C     		ldr	r4, .L24
+ 142:Generated_Source\PSoC5/CySpc.c ****         {
+ 143:Generated_Source\PSoC5/CySpc.c ****             CyDelayUs(1u);
+ 144:Generated_Source\PSoC5/CySpc.c ****         }
+ 145:Generated_Source\PSoC5/CySpc.c ****         buffer[i] = CY_SPC_CPU_DATA_REG;
+ 143              		.loc 1 145 0
+ 144 0012 DFF82880 		ldr	r8, .L24+4
+ 145 0016 02E0     		b	.L22
+ 146              	.LVL5:
+ 147              	.L12:
+ 143:Generated_Source\PSoC5/CySpc.c ****         }
+ 148              		.loc 1 143 0
+ 149 0018 0120     		movs	r0, #1
+ 150 001a FFF7FEFF 		bl	CyDelayUs
+ 151              	.LVL6:
+ 152              	.L22:
+ 141:Generated_Source\PSoC5/CySpc.c ****         {
+ 153              		.loc 1 141 0
+ 154 001e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 155 0020 DB07     		lsls	r3, r3, #31
+ 156 0022 F9D5     		bpl	.L12
+ 157              		.loc 1 145 0
+ 158 0024 98F80030 		ldrb	r3, [r8]	@ zero_extendqisi2
+ 159 0028 05F8013F 		strb	r3, [r5, #1]!
+ 160              	.LVL7:
+ 139:Generated_Source\PSoC5/CySpc.c ****     {
+ 161              		.loc 1 139 0
+ 162 002c B542     		cmp	r5, r6
+ 163 002e F6D1     		bne	.L22
+ 164              	.LVL8:
+ 165              	.L10:
+ 146:Generated_Source\PSoC5/CySpc.c ****     }
+ 147:Generated_Source\PSoC5/CySpc.c **** 
+ 148:Generated_Source\PSoC5/CySpc.c ****     return(i);
+ 149:Generated_Source\PSoC5/CySpc.c **** }
+ 166              		.loc 1 149 0
+ 167 0030 3846     		mov	r0, r7
+ 168 0032 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 169              	.L25:
+ 170 0036 00BF     		.align	2
+ 171              	.L24:
+ 172 0038 22470040 		.word	1073760034
+ 173 003c 20470040 		.word	1073760032
+ 174              		.cfi_endproc
+ 175              	.LFE2:
+ 176              		.size	CySpcReadData, .-CySpcReadData
+ 177              		.section	.text.CySpcLoadMultiByte,"ax",%progbits
+ 178              		.align	2
+ 179              		.global	CySpcLoadMultiByte
+ 180              		.thumb
+ 181              		.thumb_func
+ 182              		.type	CySpcLoadMultiByte, %function
+ 183              	CySpcLoadMultiByte:
+ 184              	.LFB3:
+ 150:Generated_Source\PSoC5/CySpc.c **** 
+ 151:Generated_Source\PSoC5/CySpc.c **** 
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 7
+
+
+ 152:Generated_Source\PSoC5/CySpc.c **** /*******************************************************************************
+ 153:Generated_Source\PSoC5/CySpc.c **** * Function Name: CySpcLoadMultiByte
+ 154:Generated_Source\PSoC5/CySpc.c **** ********************************************************************************
+ 155:Generated_Source\PSoC5/CySpc.c **** * Summary:
+ 156:Generated_Source\PSoC5/CySpc.c **** *  Loads 1 to 32 bytes of data into the row latch of a Flash/EEPROM array.
+ 157:Generated_Source\PSoC5/CySpc.c **** *
+ 158:Generated_Source\PSoC5/CySpc.c **** * Parameters:
+ 159:Generated_Source\PSoC5/CySpc.c **** *  uint8 array:
+ 160:Generated_Source\PSoC5/CySpc.c **** *   Id of the array.
+ 161:Generated_Source\PSoC5/CySpc.c **** *
+ 162:Generated_Source\PSoC5/CySpc.c **** *  uint16 address:
+ 163:Generated_Source\PSoC5/CySpc.c **** *   Flash/eeprom addrress
+ 164:Generated_Source\PSoC5/CySpc.c **** *
+ 165:Generated_Source\PSoC5/CySpc.c **** *  uint8* buffer:
+ 166:Generated_Source\PSoC5/CySpc.c **** *   Data to load to the row latch
+ 167:Generated_Source\PSoC5/CySpc.c **** *
+ 168:Generated_Source\PSoC5/CySpc.c **** *  uint16 number:
+ 169:Generated_Source\PSoC5/CySpc.c **** *   Number bytes to load.
+ 170:Generated_Source\PSoC5/CySpc.c **** *
+ 171:Generated_Source\PSoC5/CySpc.c **** * Return:
+ 172:Generated_Source\PSoC5/CySpc.c **** *  CYRET_STARTED
+ 173:Generated_Source\PSoC5/CySpc.c **** *  CYRET_CANCELED
+ 174:Generated_Source\PSoC5/CySpc.c **** *  CYRET_LOCKED
+ 175:Generated_Source\PSoC5/CySpc.c **** *  CYRET_BAD_PARAM
+ 176:Generated_Source\PSoC5/CySpc.c **** *
+ 177:Generated_Source\PSoC5/CySpc.c **** *******************************************************************************/
+ 178:Generated_Source\PSoC5/CySpc.c **** cystatus CySpcLoadMultiByte(uint8 array, uint16 address, const uint8 buffer[], uint8 size)\
+ 179:Generated_Source\PSoC5/CySpc.c **** 
+ 180:Generated_Source\PSoC5/CySpc.c **** {
+ 185              		.loc 1 180 0
+ 186              		.cfi_startproc
+ 187              		@ args = 0, pretend = 0, frame = 0
+ 188              		@ frame_needed = 0, uses_anonymous_args = 0
+ 189              	.LVL9:
+ 181:Generated_Source\PSoC5/CySpc.c ****     cystatus status = CYRET_STARTED;
+ 182:Generated_Source\PSoC5/CySpc.c ****     uint8 i;
+ 183:Generated_Source\PSoC5/CySpc.c **** 
+ 184:Generated_Source\PSoC5/CySpc.c ****     /***************************************************************************
+ 185:Generated_Source\PSoC5/CySpc.c ****     * Check if number is correct for array. Number must be less than
+ 186:Generated_Source\PSoC5/CySpc.c ****     * 32 for Flash or less than 16 for EEPROM.
+ 187:Generated_Source\PSoC5/CySpc.c ****     ***************************************************************************/
+ 188:Generated_Source\PSoC5/CySpc.c ****     if(((array < CY_SPC_LAST_FLASH_ARRAYID) && (size < 32u)) ||
+ 190              		.loc 1 188 0
+ 191 0000 3E28     		cmp	r0, #62
+ 180:Generated_Source\PSoC5/CySpc.c ****     cystatus status = CYRET_STARTED;
+ 192              		.loc 1 180 0
+ 193 0002 F0B5     		push	{r4, r5, r6, r7, lr}
+ 194              		.cfi_def_cfa_offset 20
+ 195              		.cfi_offset 4, -20
+ 196              		.cfi_offset 5, -16
+ 197              		.cfi_offset 6, -12
+ 198              		.cfi_offset 7, -8
+ 199              		.cfi_offset 14, -4
+ 200              		.loc 1 188 0
+ 201 0004 07D8     		bhi	.L27
+ 202              		.loc 1 188 0 is_stmt 0 discriminator 1
+ 203 0006 1F2B     		cmp	r3, #31
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 8
+
+
+ 204 0008 09D8     		bhi	.L34
+ 205              	.L28:
+ 189:Generated_Source\PSoC5/CySpc.c ****        ((array > CY_SPC_LAST_FLASH_ARRAYID) && (size < 16u)))
+ 190:Generated_Source\PSoC5/CySpc.c ****     {
+ 191:Generated_Source\PSoC5/CySpc.c ****         if(CY_SPC_IDLE)
+ 206              		.loc 1 191 0 is_stmt 1
+ 207 000a 164D     		ldr	r5, .L41
+ 208 000c 2C78     		ldrb	r4, [r5]	@ zero_extendqisi2
+ 209 000e A607     		lsls	r6, r4, #30
+ 210 0010 07D4     		bmi	.L39
+ 192:Generated_Source\PSoC5/CySpc.c ****         {
+ 193:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_DATA_REG = CY_SPC_KEY_ONE;
+ 194:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_DATA_REG = CY_SPC_KEY_TWO(CY_SPC_CMD_LD_MULTI_BYTE);
+ 195:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_DATA_REG = CY_SPC_CMD_LD_MULTI_BYTE;
+ 196:Generated_Source\PSoC5/CySpc.c **** 
+ 197:Generated_Source\PSoC5/CySpc.c ****             if(CY_SPC_BUSY)
+ 198:Generated_Source\PSoC5/CySpc.c ****             {
+ 199:Generated_Source\PSoC5/CySpc.c ****                 CY_SPC_CPU_DATA_REG = array;
+ 200:Generated_Source\PSoC5/CySpc.c ****                 CY_SPC_CPU_DATA_REG = 1u & HI8(address);
+ 201:Generated_Source\PSoC5/CySpc.c ****                 CY_SPC_CPU_DATA_REG = LO8(address);
+ 202:Generated_Source\PSoC5/CySpc.c ****                 CY_SPC_CPU_DATA_REG = ((uint8)(size - 1u));
+ 203:Generated_Source\PSoC5/CySpc.c **** 
+ 204:Generated_Source\PSoC5/CySpc.c ****                 for(i = 0u; i < size; i++)
+ 205:Generated_Source\PSoC5/CySpc.c ****                 {
+ 206:Generated_Source\PSoC5/CySpc.c ****                     CY_SPC_CPU_DATA_REG = buffer[i];
+ 207:Generated_Source\PSoC5/CySpc.c ****                 }
+ 208:Generated_Source\PSoC5/CySpc.c ****             }
+ 209:Generated_Source\PSoC5/CySpc.c ****             else
+ 210:Generated_Source\PSoC5/CySpc.c ****             {
+ 211:Generated_Source\PSoC5/CySpc.c ****                 status = CYRET_CANCELED;
+ 212:Generated_Source\PSoC5/CySpc.c ****             }
+ 213:Generated_Source\PSoC5/CySpc.c ****         }
+ 214:Generated_Source\PSoC5/CySpc.c ****         else
+ 215:Generated_Source\PSoC5/CySpc.c ****         {
+ 216:Generated_Source\PSoC5/CySpc.c ****             status = CYRET_LOCKED;
+ 211              		.loc 1 216 0
+ 212 0012 0420     		movs	r0, #4
+ 213              	.LVL10:
+ 214 0014 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 215              	.LVL11:
+ 216              	.L27:
+ 188:Generated_Source\PSoC5/CySpc.c ****        ((array > CY_SPC_LAST_FLASH_ARRAYID) && (size < 16u)))
+ 217              		.loc 1 188 0 discriminator 3
+ 218 0016 3F28     		cmp	r0, #63
+ 219 0018 01D0     		beq	.L34
+ 189:Generated_Source\PSoC5/CySpc.c ****        ((array > CY_SPC_LAST_FLASH_ARRAYID) && (size < 16u)))
+ 220              		.loc 1 189 0
+ 221 001a 0F2B     		cmp	r3, #15
+ 222 001c F5D9     		bls	.L28
+ 223              	.L34:
+ 217:Generated_Source\PSoC5/CySpc.c ****         }
+ 218:Generated_Source\PSoC5/CySpc.c ****     }
+ 219:Generated_Source\PSoC5/CySpc.c ****     else
+ 220:Generated_Source\PSoC5/CySpc.c ****     {
+ 221:Generated_Source\PSoC5/CySpc.c ****         status = CYRET_BAD_PARAM;
+ 224              		.loc 1 221 0
+ 225 001e 0120     		movs	r0, #1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 9
+
+
+ 226              	.LVL12:
+ 227 0020 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 228              	.LVL13:
+ 229              	.L39:
+ 193:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_DATA_REG = CY_SPC_KEY_TWO(CY_SPC_CMD_LD_MULTI_BYTE);
+ 230              		.loc 1 193 0
+ 231 0022 114C     		ldr	r4, .L41+4
+ 232 0024 4FF0B60E 		mov	lr, #182
+ 194:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_DATA_REG = CY_SPC_CMD_LD_MULTI_BYTE;
+ 233              		.loc 1 194 0
+ 234 0028 D427     		movs	r7, #212
+ 195:Generated_Source\PSoC5/CySpc.c **** 
+ 235              		.loc 1 195 0
+ 236 002a 0126     		movs	r6, #1
+ 193:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_DATA_REG = CY_SPC_KEY_TWO(CY_SPC_CMD_LD_MULTI_BYTE);
+ 237              		.loc 1 193 0
+ 238 002c 84F800E0 		strb	lr, [r4]
+ 194:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_DATA_REG = CY_SPC_CMD_LD_MULTI_BYTE;
+ 239              		.loc 1 194 0
+ 240 0030 2770     		strb	r7, [r4]
+ 195:Generated_Source\PSoC5/CySpc.c **** 
+ 241              		.loc 1 195 0
+ 242 0032 2670     		strb	r6, [r4]
+ 197:Generated_Source\PSoC5/CySpc.c ****             {
+ 243              		.loc 1 197 0
+ 244 0034 2D78     		ldrb	r5, [r5]	@ zero_extendqisi2
+ 245 0036 AD07     		lsls	r5, r5, #30
+ 246 0038 01D5     		bpl	.L40
+ 211:Generated_Source\PSoC5/CySpc.c ****             }
+ 247              		.loc 1 211 0
+ 248 003a 0920     		movs	r0, #9
+ 249              	.LVL14:
+ 222:Generated_Source\PSoC5/CySpc.c ****     }
+ 223:Generated_Source\PSoC5/CySpc.c **** 
+ 224:Generated_Source\PSoC5/CySpc.c ****     return(status);
+ 225:Generated_Source\PSoC5/CySpc.c **** }
+ 250              		.loc 1 225 0
+ 251 003c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 252              	.LVL15:
+ 253              	.L40:
+ 202:Generated_Source\PSoC5/CySpc.c **** 
+ 254              		.loc 1 202 0
+ 255 003e 5D1E     		subs	r5, r3, #1
+ 200:Generated_Source\PSoC5/CySpc.c ****                 CY_SPC_CPU_DATA_REG = LO8(address);
+ 256              		.loc 1 200 0
+ 257 0040 C1F30026 		ubfx	r6, r1, #8, #1
+ 202:Generated_Source\PSoC5/CySpc.c **** 
+ 258              		.loc 1 202 0
+ 259 0044 EDB2     		uxtb	r5, r5
+ 201:Generated_Source\PSoC5/CySpc.c ****                 CY_SPC_CPU_DATA_REG = ((uint8)(size - 1u));
+ 260              		.loc 1 201 0
+ 261 0046 C9B2     		uxtb	r1, r1
+ 262              	.LVL16:
+ 199:Generated_Source\PSoC5/CySpc.c ****                 CY_SPC_CPU_DATA_REG = 1u & HI8(address);
+ 263              		.loc 1 199 0
+ 264 0048 2070     		strb	r0, [r4]
+ 200:Generated_Source\PSoC5/CySpc.c ****                 CY_SPC_CPU_DATA_REG = LO8(address);
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 10
+
+
+ 265              		.loc 1 200 0
+ 266 004a 2670     		strb	r6, [r4]
+ 201:Generated_Source\PSoC5/CySpc.c ****                 CY_SPC_CPU_DATA_REG = ((uint8)(size - 1u));
+ 267              		.loc 1 201 0
+ 268 004c 2170     		strb	r1, [r4]
+ 202:Generated_Source\PSoC5/CySpc.c **** 
+ 269              		.loc 1 202 0
+ 270 004e 2570     		strb	r5, [r4]
+ 271              	.LVL17:
+ 204:Generated_Source\PSoC5/CySpc.c ****                 {
+ 272              		.loc 1 204 0
+ 273 0050 33B1     		cbz	r3, .L32
+ 274 0052 5119     		adds	r1, r2, r5
+ 275 0054 013A     		subs	r2, r2, #1
+ 276              	.LVL18:
+ 277              	.L31:
+ 206:Generated_Source\PSoC5/CySpc.c ****                 }
+ 278              		.loc 1 206 0 discriminator 3
+ 279 0056 12F8013F 		ldrb	r3, [r2, #1]!	@ zero_extendqisi2
+ 280              	.LVL19:
+ 204:Generated_Source\PSoC5/CySpc.c ****                 {
+ 281              		.loc 1 204 0 discriminator 3
+ 282 005a 8A42     		cmp	r2, r1
+ 206:Generated_Source\PSoC5/CySpc.c ****                 }
+ 283              		.loc 1 206 0 discriminator 3
+ 284 005c 2370     		strb	r3, [r4]
+ 285              	.LVL20:
+ 204:Generated_Source\PSoC5/CySpc.c ****                 {
+ 286              		.loc 1 204 0 discriminator 3
+ 287 005e FAD1     		bne	.L31
+ 288              	.LVL21:
+ 289              	.L32:
+ 181:Generated_Source\PSoC5/CySpc.c ****     uint8 i;
+ 290              		.loc 1 181 0
+ 291 0060 0720     		movs	r0, #7
+ 292              	.LVL22:
+ 293 0062 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 294              	.L42:
+ 295              		.align	2
+ 296              	.L41:
+ 297 0064 22470040 		.word	1073760034
+ 298 0068 20470040 		.word	1073760032
+ 299              		.cfi_endproc
+ 300              	.LFE3:
+ 301              		.size	CySpcLoadMultiByte, .-CySpcLoadMultiByte
+ 302              		.section	.text.CySpcLoadRow,"ax",%progbits
+ 303              		.align	2
+ 304              		.global	CySpcLoadRow
+ 305              		.thumb
+ 306              		.thumb_func
+ 307              		.type	CySpcLoadRow, %function
+ 308              	CySpcLoadRow:
+ 309              	.LFB4:
+ 226:Generated_Source\PSoC5/CySpc.c **** 
+ 227:Generated_Source\PSoC5/CySpc.c **** 
+ 228:Generated_Source\PSoC5/CySpc.c **** /*******************************************************************************
+ 229:Generated_Source\PSoC5/CySpc.c **** * Function Name: CySpcLoadRow
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 11
+
+
+ 230:Generated_Source\PSoC5/CySpc.c **** ********************************************************************************
+ 231:Generated_Source\PSoC5/CySpc.c **** * Summary:
+ 232:Generated_Source\PSoC5/CySpc.c **** *  Loads a row of data into the row latch of a Flash/EEPROM array.
+ 233:Generated_Source\PSoC5/CySpc.c **** *
+ 234:Generated_Source\PSoC5/CySpc.c **** * Parameters:
+ 235:Generated_Source\PSoC5/CySpc.c **** *  uint8 array:
+ 236:Generated_Source\PSoC5/CySpc.c **** *   Id of the array.
+ 237:Generated_Source\PSoC5/CySpc.c **** *
+ 238:Generated_Source\PSoC5/CySpc.c **** *  uint8* buffer:
+ 239:Generated_Source\PSoC5/CySpc.c **** *   Data to be loaded to the row latch
+ 240:Generated_Source\PSoC5/CySpc.c **** *
+ 241:Generated_Source\PSoC5/CySpc.c **** *  uint8 size:
+ 242:Generated_Source\PSoC5/CySpc.c **** *   The number of data bytes that the SPC expects to be written. Depends on the
+ 243:Generated_Source\PSoC5/CySpc.c **** *   type of the array and, if the array is Flash, whether ECC is being enabled
+ 244:Generated_Source\PSoC5/CySpc.c **** *   or not. There are following values: flash row latch size with ECC enabled,
+ 245:Generated_Source\PSoC5/CySpc.c **** *   flash row latch size with ECC disabled and EEPROM row latch size.
+ 246:Generated_Source\PSoC5/CySpc.c **** *
+ 247:Generated_Source\PSoC5/CySpc.c **** * Return:
+ 248:Generated_Source\PSoC5/CySpc.c **** *  CYRET_STARTED
+ 249:Generated_Source\PSoC5/CySpc.c **** *  CYRET_CANCELED
+ 250:Generated_Source\PSoC5/CySpc.c **** *  CYRET_LOCKED
+ 251:Generated_Source\PSoC5/CySpc.c **** *
+ 252:Generated_Source\PSoC5/CySpc.c **** *******************************************************************************/
+ 253:Generated_Source\PSoC5/CySpc.c **** cystatus CySpcLoadRow(uint8 array, const uint8 buffer[], uint16 size)
+ 254:Generated_Source\PSoC5/CySpc.c **** {
+ 310              		.loc 1 254 0
+ 311              		.cfi_startproc
+ 312              		@ args = 0, pretend = 0, frame = 0
+ 313              		@ frame_needed = 0, uses_anonymous_args = 0
+ 314              		@ link register save eliminated.
+ 315              	.LVL23:
+ 316 0000 F0B4     		push	{r4, r5, r6, r7}
+ 317              		.cfi_def_cfa_offset 16
+ 318              		.cfi_offset 4, -16
+ 319              		.cfi_offset 5, -12
+ 320              		.cfi_offset 6, -8
+ 321              		.cfi_offset 7, -4
+ 255:Generated_Source\PSoC5/CySpc.c ****     cystatus status = CYRET_STARTED;
+ 256:Generated_Source\PSoC5/CySpc.c ****     uint16 i;
+ 257:Generated_Source\PSoC5/CySpc.c **** 
+ 258:Generated_Source\PSoC5/CySpc.c ****     /* Make sure the SPC is ready to accept command */
+ 259:Generated_Source\PSoC5/CySpc.c ****     if(CY_SPC_IDLE)
+ 322              		.loc 1 259 0
+ 323 0002 114C     		ldr	r4, .L52
+ 324              	.LVL24:
+ 325 0004 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 326 0006 9D07     		lsls	r5, r3, #30
+ 327 0008 1BD5     		bpl	.L48
+ 260:Generated_Source\PSoC5/CySpc.c ****     {
+ 261:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_KEY_ONE;
+ 328              		.loc 1 261 0
+ 329 000a 104B     		ldr	r3, .L52+4
+ 330 000c B627     		movs	r7, #182
+ 262:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_KEY_TWO(CY_SPC_CMD_LD_ROW);
+ 331              		.loc 1 262 0
+ 332 000e D526     		movs	r6, #213
+ 263:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_CMD_LD_ROW;
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 12
+
+
+ 333              		.loc 1 263 0
+ 334 0010 0225     		movs	r5, #2
+ 261:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_KEY_TWO(CY_SPC_CMD_LD_ROW);
+ 335              		.loc 1 261 0
+ 336 0012 1F70     		strb	r7, [r3]
+ 262:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_KEY_TWO(CY_SPC_CMD_LD_ROW);
+ 337              		.loc 1 262 0
+ 338 0014 1E70     		strb	r6, [r3]
+ 339              		.loc 1 263 0
+ 340 0016 1D70     		strb	r5, [r3]
+ 264:Generated_Source\PSoC5/CySpc.c **** 
+ 265:Generated_Source\PSoC5/CySpc.c ****         /* Make sure the command was accepted */
+ 266:Generated_Source\PSoC5/CySpc.c ****         if(CY_SPC_BUSY)
+ 341              		.loc 1 266 0
+ 342 0018 2478     		ldrb	r4, [r4]	@ zero_extendqisi2
+ 343 001a A407     		lsls	r4, r4, #30
+ 344 001c 0ED4     		bmi	.L49
+ 267:Generated_Source\PSoC5/CySpc.c ****         {
+ 268:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_DATA_REG = array;
+ 345              		.loc 1 268 0
+ 346 001e 1870     		strb	r0, [r3]
+ 347              	.LVL25:
+ 269:Generated_Source\PSoC5/CySpc.c **** 
+ 270:Generated_Source\PSoC5/CySpc.c ****             for(i = 0u; i < size; i++)
+ 348              		.loc 1 270 0
+ 349 0020 4AB1     		cbz	r2, .L47
+ 271:Generated_Source\PSoC5/CySpc.c ****             {
+ 272:Generated_Source\PSoC5/CySpc.c ****                 CY_SPC_CPU_DATA_REG = buffer[i];
+ 350              		.loc 1 272 0
+ 351 0022 1846     		mov	r0, r3
+ 352              	.LVL26:
+ 353 0024 013A     		subs	r2, r2, #1
+ 354              	.LVL27:
+ 355 0026 92B2     		uxth	r2, r2
+ 356 0028 0A44     		add	r2, r2, r1
+ 357 002a 0139     		subs	r1, r1, #1
+ 358              	.LVL28:
+ 359              	.L46:
+ 360              		.loc 1 272 0 is_stmt 0 discriminator 3
+ 361 002c 11F8013F 		ldrb	r3, [r1, #1]!	@ zero_extendqisi2
+ 362              	.LVL29:
+ 270:Generated_Source\PSoC5/CySpc.c ****             {
+ 363              		.loc 1 270 0 is_stmt 1 discriminator 3
+ 364 0030 9142     		cmp	r1, r2
+ 365              		.loc 1 272 0 discriminator 3
+ 366 0032 0370     		strb	r3, [r0]
+ 367              	.LVL30:
+ 270:Generated_Source\PSoC5/CySpc.c ****             {
+ 368              		.loc 1 270 0 discriminator 3
+ 369 0034 FAD1     		bne	.L46
+ 370              	.LVL31:
+ 371              	.L47:
+ 255:Generated_Source\PSoC5/CySpc.c ****     uint16 i;
+ 372              		.loc 1 255 0
+ 373 0036 0720     		movs	r0, #7
+ 374              	.LVL32:
+ 273:Generated_Source\PSoC5/CySpc.c ****             }
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 13
+
+
+ 274:Generated_Source\PSoC5/CySpc.c ****         }
+ 275:Generated_Source\PSoC5/CySpc.c ****         else
+ 276:Generated_Source\PSoC5/CySpc.c ****         {
+ 277:Generated_Source\PSoC5/CySpc.c ****             status = CYRET_CANCELED;
+ 278:Generated_Source\PSoC5/CySpc.c ****         }
+ 279:Generated_Source\PSoC5/CySpc.c ****     }
+ 280:Generated_Source\PSoC5/CySpc.c ****     else
+ 281:Generated_Source\PSoC5/CySpc.c ****     {
+ 282:Generated_Source\PSoC5/CySpc.c ****         status = CYRET_LOCKED;
+ 283:Generated_Source\PSoC5/CySpc.c ****     }
+ 284:Generated_Source\PSoC5/CySpc.c **** 
+ 285:Generated_Source\PSoC5/CySpc.c ****     return(status);
+ 286:Generated_Source\PSoC5/CySpc.c **** }
+ 375              		.loc 1 286 0
+ 376 0038 F0BC     		pop	{r4, r5, r6, r7}
+ 377              		.cfi_remember_state
+ 378              		.cfi_restore 7
+ 379              		.cfi_restore 6
+ 380              		.cfi_restore 5
+ 381              		.cfi_restore 4
+ 382              		.cfi_def_cfa_offset 0
+ 383 003a 7047     		bx	lr
+ 384              	.LVL33:
+ 385              	.L49:
+ 386              		.cfi_restore_state
+ 277:Generated_Source\PSoC5/CySpc.c ****         }
+ 387              		.loc 1 277 0
+ 388 003c 0920     		movs	r0, #9
+ 389              	.LVL34:
+ 390              		.loc 1 286 0
+ 391 003e F0BC     		pop	{r4, r5, r6, r7}
+ 392              		.cfi_remember_state
+ 393              		.cfi_restore 4
+ 394              		.cfi_restore 5
+ 395              		.cfi_restore 6
+ 396              		.cfi_restore 7
+ 397              		.cfi_def_cfa_offset 0
+ 398 0040 7047     		bx	lr
+ 399              	.LVL35:
+ 400              	.L48:
+ 401              		.cfi_restore_state
+ 282:Generated_Source\PSoC5/CySpc.c ****     }
+ 402              		.loc 1 282 0
+ 403 0042 0420     		movs	r0, #4
+ 404              	.LVL36:
+ 405              		.loc 1 286 0
+ 406 0044 F0BC     		pop	{r4, r5, r6, r7}
+ 407              		.cfi_restore 4
+ 408              		.cfi_restore 5
+ 409              		.cfi_restore 6
+ 410              		.cfi_restore 7
+ 411              		.cfi_def_cfa_offset 0
+ 412 0046 7047     		bx	lr
+ 413              	.L53:
+ 414              		.align	2
+ 415              	.L52:
+ 416 0048 22470040 		.word	1073760034
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 14
+
+
+ 417 004c 20470040 		.word	1073760032
+ 418              		.cfi_endproc
+ 419              	.LFE4:
+ 420              		.size	CySpcLoadRow, .-CySpcLoadRow
+ 421              		.section	.text.CySpcWriteRow,"ax",%progbits
+ 422              		.align	2
+ 423              		.global	CySpcWriteRow
+ 424              		.thumb
+ 425              		.thumb_func
+ 426              		.type	CySpcWriteRow, %function
+ 427              	CySpcWriteRow:
+ 428              	.LFB5:
+ 287:Generated_Source\PSoC5/CySpc.c **** 
+ 288:Generated_Source\PSoC5/CySpc.c **** 
+ 289:Generated_Source\PSoC5/CySpc.c **** /*******************************************************************************
+ 290:Generated_Source\PSoC5/CySpc.c **** * Function Name: CySpcWriteRow
+ 291:Generated_Source\PSoC5/CySpc.c **** ********************************************************************************
+ 292:Generated_Source\PSoC5/CySpc.c **** * Summary:
+ 293:Generated_Source\PSoC5/CySpc.c **** *  Erases then programs a row in Flash/EEPROM with data in row latch.
+ 294:Generated_Source\PSoC5/CySpc.c **** *
+ 295:Generated_Source\PSoC5/CySpc.c **** * Parameters:
+ 296:Generated_Source\PSoC5/CySpc.c **** *  uint8 array:
+ 297:Generated_Source\PSoC5/CySpc.c **** *   Id of the array.
+ 298:Generated_Source\PSoC5/CySpc.c **** *
+ 299:Generated_Source\PSoC5/CySpc.c **** *  uint16 address:
+ 300:Generated_Source\PSoC5/CySpc.c **** *   flash/eeprom addrress
+ 301:Generated_Source\PSoC5/CySpc.c **** *
+ 302:Generated_Source\PSoC5/CySpc.c **** *  uint8 tempPolarity:
+ 303:Generated_Source\PSoC5/CySpc.c **** *   temperature polarity.
+ 304:Generated_Source\PSoC5/CySpc.c **** *   1: the Temp Magnitude is interpreted as a positive value
+ 305:Generated_Source\PSoC5/CySpc.c **** *   0: the Temp Magnitude is interpreted as a negative value
+ 306:Generated_Source\PSoC5/CySpc.c **** *
+ 307:Generated_Source\PSoC5/CySpc.c **** *  uint8 tempMagnitude:
+ 308:Generated_Source\PSoC5/CySpc.c **** *   temperature magnitude.
+ 309:Generated_Source\PSoC5/CySpc.c **** *
+ 310:Generated_Source\PSoC5/CySpc.c **** * Return:
+ 311:Generated_Source\PSoC5/CySpc.c **** *  CYRET_STARTED
+ 312:Generated_Source\PSoC5/CySpc.c **** *  CYRET_CANCELED
+ 313:Generated_Source\PSoC5/CySpc.c **** *  CYRET_LOCKED
+ 314:Generated_Source\PSoC5/CySpc.c **** *
+ 315:Generated_Source\PSoC5/CySpc.c **** *******************************************************************************/
+ 316:Generated_Source\PSoC5/CySpc.c **** cystatus CySpcWriteRow(uint8 array, uint16 address, uint8 tempPolarity, uint8 tempMagnitude)\
+ 317:Generated_Source\PSoC5/CySpc.c **** 
+ 318:Generated_Source\PSoC5/CySpc.c **** {
+ 429              		.loc 1 318 0
+ 430              		.cfi_startproc
+ 431              		@ args = 0, pretend = 0, frame = 0
+ 432              		@ frame_needed = 0, uses_anonymous_args = 0
+ 433              	.LVL37:
+ 434 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 435              		.cfi_def_cfa_offset 20
+ 436              		.cfi_offset 4, -20
+ 437              		.cfi_offset 5, -16
+ 438              		.cfi_offset 6, -12
+ 439              		.cfi_offset 7, -8
+ 440              		.cfi_offset 14, -4
+ 319:Generated_Source\PSoC5/CySpc.c ****     cystatus status = CYRET_STARTED;
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 15
+
+
+ 320:Generated_Source\PSoC5/CySpc.c **** 
+ 321:Generated_Source\PSoC5/CySpc.c ****     /* Make sure the SPC is ready to accept command */
+ 322:Generated_Source\PSoC5/CySpc.c ****     if(CY_SPC_IDLE)
+ 441              		.loc 1 322 0
+ 442 0002 0E4D     		ldr	r5, .L59
+ 443 0004 2C78     		ldrb	r4, [r5]	@ zero_extendqisi2
+ 444 0006 A607     		lsls	r6, r4, #30
+ 445 0008 16D5     		bpl	.L56
+ 323:Generated_Source\PSoC5/CySpc.c ****     {
+ 324:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_KEY_ONE;
+ 446              		.loc 1 324 0
+ 447 000a 0D4C     		ldr	r4, .L59+4
+ 448 000c 4FF0B60E 		mov	lr, #182
+ 325:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_KEY_TWO(CY_SPC_CMD_WR_ROW);
+ 449              		.loc 1 325 0
+ 450 0010 D827     		movs	r7, #216
+ 326:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_CMD_WR_ROW;
+ 451              		.loc 1 326 0
+ 452 0012 0526     		movs	r6, #5
+ 324:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_KEY_TWO(CY_SPC_CMD_WR_ROW);
+ 453              		.loc 1 324 0
+ 454 0014 84F800E0 		strb	lr, [r4]
+ 325:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_KEY_TWO(CY_SPC_CMD_WR_ROW);
+ 455              		.loc 1 325 0
+ 456 0018 2770     		strb	r7, [r4]
+ 457              		.loc 1 326 0
+ 458 001a 2670     		strb	r6, [r4]
+ 327:Generated_Source\PSoC5/CySpc.c **** 
+ 328:Generated_Source\PSoC5/CySpc.c ****         /* Make sure the command was accepted */
+ 329:Generated_Source\PSoC5/CySpc.c ****         if(CY_SPC_BUSY)
+ 459              		.loc 1 329 0
+ 460 001c 2D78     		ldrb	r5, [r5]	@ zero_extendqisi2
+ 461 001e AD07     		lsls	r5, r5, #30
+ 462 0020 08D4     		bmi	.L57
+ 330:Generated_Source\PSoC5/CySpc.c ****         {
+ 331:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_DATA_REG = array;
+ 332:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_DATA_REG = HI8(address);
+ 463              		.loc 1 332 0
+ 464 0022 0D0A     		lsrs	r5, r1, #8
+ 333:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_DATA_REG = LO8(address);
+ 465              		.loc 1 333 0
+ 466 0024 C9B2     		uxtb	r1, r1
+ 467              	.LVL38:
+ 331:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_DATA_REG = HI8(address);
+ 468              		.loc 1 331 0
+ 469 0026 2070     		strb	r0, [r4]
+ 332:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_DATA_REG = LO8(address);
+ 470              		.loc 1 332 0
+ 471 0028 2570     		strb	r5, [r4]
+ 472              		.loc 1 333 0
+ 473 002a 2170     		strb	r1, [r4]
+ 334:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_DATA_REG = tempPolarity;
+ 474              		.loc 1 334 0
+ 475 002c 2270     		strb	r2, [r4]
+ 335:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_DATA_REG = tempMagnitude;
+ 476              		.loc 1 335 0
+ 477 002e 2370     		strb	r3, [r4]
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 16
+
+
+ 319:Generated_Source\PSoC5/CySpc.c **** 
+ 478              		.loc 1 319 0
+ 479 0030 0720     		movs	r0, #7
+ 480              	.LVL39:
+ 481 0032 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 482              	.LVL40:
+ 483              	.L57:
+ 336:Generated_Source\PSoC5/CySpc.c ****         }
+ 337:Generated_Source\PSoC5/CySpc.c ****         else
+ 338:Generated_Source\PSoC5/CySpc.c ****         {
+ 339:Generated_Source\PSoC5/CySpc.c ****             status = CYRET_CANCELED;
+ 484              		.loc 1 339 0
+ 485 0034 0920     		movs	r0, #9
+ 486              	.LVL41:
+ 340:Generated_Source\PSoC5/CySpc.c ****         }
+ 341:Generated_Source\PSoC5/CySpc.c ****     }
+ 342:Generated_Source\PSoC5/CySpc.c ****     else
+ 343:Generated_Source\PSoC5/CySpc.c ****     {
+ 344:Generated_Source\PSoC5/CySpc.c ****         status = CYRET_LOCKED;
+ 345:Generated_Source\PSoC5/CySpc.c ****     }
+ 346:Generated_Source\PSoC5/CySpc.c **** 
+ 347:Generated_Source\PSoC5/CySpc.c ****     return(status);
+ 348:Generated_Source\PSoC5/CySpc.c **** }
+ 487              		.loc 1 348 0
+ 488 0036 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 489              	.LVL42:
+ 490              	.L56:
+ 344:Generated_Source\PSoC5/CySpc.c ****     }
+ 491              		.loc 1 344 0
+ 492 0038 0420     		movs	r0, #4
+ 493              	.LVL43:
+ 494 003a F0BD     		pop	{r4, r5, r6, r7, pc}
+ 495              	.L60:
+ 496              		.align	2
+ 497              	.L59:
+ 498 003c 22470040 		.word	1073760034
+ 499 0040 20470040 		.word	1073760032
+ 500              		.cfi_endproc
+ 501              	.LFE5:
+ 502              		.size	CySpcWriteRow, .-CySpcWriteRow
+ 503              		.section	.text.CySpcEraseSector,"ax",%progbits
+ 504              		.align	2
+ 505              		.global	CySpcEraseSector
+ 506              		.thumb
+ 507              		.thumb_func
+ 508              		.type	CySpcEraseSector, %function
+ 509              	CySpcEraseSector:
+ 510              	.LFB6:
+ 349:Generated_Source\PSoC5/CySpc.c **** 
+ 350:Generated_Source\PSoC5/CySpc.c **** 
+ 351:Generated_Source\PSoC5/CySpc.c **** /*******************************************************************************
+ 352:Generated_Source\PSoC5/CySpc.c **** * Function Name: CySpcEraseSector
+ 353:Generated_Source\PSoC5/CySpc.c **** ********************************************************************************
+ 354:Generated_Source\PSoC5/CySpc.c **** * Summary:
+ 355:Generated_Source\PSoC5/CySpc.c **** *  Erases all data in the addressed sector (block of 64 rows).
+ 356:Generated_Source\PSoC5/CySpc.c **** *
+ 357:Generated_Source\PSoC5/CySpc.c **** * Parameters:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 17
+
+
+ 358:Generated_Source\PSoC5/CySpc.c **** *  uint8 array:
+ 359:Generated_Source\PSoC5/CySpc.c **** *   Id of the array.
+ 360:Generated_Source\PSoC5/CySpc.c **** *
+ 361:Generated_Source\PSoC5/CySpc.c **** *  uint8 sectorNumber:
+ 362:Generated_Source\PSoC5/CySpc.c **** *   Zero based sector number within Flash/EEPROM array
+ 363:Generated_Source\PSoC5/CySpc.c **** *
+ 364:Generated_Source\PSoC5/CySpc.c **** * Return:
+ 365:Generated_Source\PSoC5/CySpc.c **** *  CYRET_STARTED
+ 366:Generated_Source\PSoC5/CySpc.c **** *  CYRET_CANCELED
+ 367:Generated_Source\PSoC5/CySpc.c **** *  CYRET_LOCKED
+ 368:Generated_Source\PSoC5/CySpc.c **** *
+ 369:Generated_Source\PSoC5/CySpc.c **** *******************************************************************************/
+ 370:Generated_Source\PSoC5/CySpc.c **** cystatus CySpcEraseSector(uint8 array, uint8 sectorNumber)
+ 371:Generated_Source\PSoC5/CySpc.c **** {
+ 511              		.loc 1 371 0
+ 512              		.cfi_startproc
+ 513              		@ args = 0, pretend = 0, frame = 0
+ 514              		@ frame_needed = 0, uses_anonymous_args = 0
+ 515              		@ link register save eliminated.
+ 516              	.LVL44:
+ 372:Generated_Source\PSoC5/CySpc.c ****     cystatus status = CYRET_STARTED;
+ 373:Generated_Source\PSoC5/CySpc.c **** 
+ 374:Generated_Source\PSoC5/CySpc.c ****     /* Make sure the SPC is ready to accept command */
+ 375:Generated_Source\PSoC5/CySpc.c ****     if(CY_SPC_IDLE)
+ 517              		.loc 1 375 0
+ 518 0000 0C4A     		ldr	r2, .L66
+ 519 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 520 0004 9B07     		lsls	r3, r3, #30
+ 521 0006 12D5     		bpl	.L63
+ 371:Generated_Source\PSoC5/CySpc.c ****     cystatus status = CYRET_STARTED;
+ 522              		.loc 1 371 0
+ 523 0008 70B4     		push	{r4, r5, r6}
+ 524              		.cfi_def_cfa_offset 12
+ 525              		.cfi_offset 4, -12
+ 526              		.cfi_offset 5, -8
+ 527              		.cfi_offset 6, -4
+ 376:Generated_Source\PSoC5/CySpc.c ****     {
+ 377:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_KEY_ONE;
+ 528              		.loc 1 377 0
+ 529 000a 0B4B     		ldr	r3, .L66+4
+ 530 000c B626     		movs	r6, #182
+ 378:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_KEY_TWO(CY_SPC_CMD_ER_SECTOR);
+ 531              		.loc 1 378 0
+ 532 000e DB25     		movs	r5, #219
+ 379:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_CMD_ER_SECTOR;
+ 533              		.loc 1 379 0
+ 534 0010 0824     		movs	r4, #8
+ 377:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_KEY_TWO(CY_SPC_CMD_ER_SECTOR);
+ 535              		.loc 1 377 0
+ 536 0012 1E70     		strb	r6, [r3]
+ 378:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_KEY_TWO(CY_SPC_CMD_ER_SECTOR);
+ 537              		.loc 1 378 0
+ 538 0014 1D70     		strb	r5, [r3]
+ 539              		.loc 1 379 0
+ 540 0016 1C70     		strb	r4, [r3]
+ 380:Generated_Source\PSoC5/CySpc.c **** 
+ 381:Generated_Source\PSoC5/CySpc.c ****         /* Make sure the command was accepted */
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 18
+
+
+ 382:Generated_Source\PSoC5/CySpc.c ****         if(CY_SPC_BUSY)
+ 541              		.loc 1 382 0
+ 542 0018 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 543 001a 9207     		lsls	r2, r2, #30
+ 544 001c 04D4     		bmi	.L64
+ 383:Generated_Source\PSoC5/CySpc.c ****         {
+ 384:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_DATA_REG = array;
+ 545              		.loc 1 384 0
+ 546 001e 1870     		strb	r0, [r3]
+ 385:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_DATA_REG = sectorNumber;
+ 547              		.loc 1 385 0
+ 548 0020 1970     		strb	r1, [r3]
+ 372:Generated_Source\PSoC5/CySpc.c **** 
+ 549              		.loc 1 372 0
+ 550 0022 0720     		movs	r0, #7
+ 551              	.LVL45:
+ 386:Generated_Source\PSoC5/CySpc.c ****         }
+ 387:Generated_Source\PSoC5/CySpc.c ****         else
+ 388:Generated_Source\PSoC5/CySpc.c ****         {
+ 389:Generated_Source\PSoC5/CySpc.c ****             status = CYRET_CANCELED;
+ 390:Generated_Source\PSoC5/CySpc.c ****         }
+ 391:Generated_Source\PSoC5/CySpc.c ****     }
+ 392:Generated_Source\PSoC5/CySpc.c ****     else
+ 393:Generated_Source\PSoC5/CySpc.c ****     {
+ 394:Generated_Source\PSoC5/CySpc.c ****         status = CYRET_LOCKED;
+ 395:Generated_Source\PSoC5/CySpc.c ****     }
+ 396:Generated_Source\PSoC5/CySpc.c **** 
+ 397:Generated_Source\PSoC5/CySpc.c ****     return(status);
+ 398:Generated_Source\PSoC5/CySpc.c **** }
+ 552              		.loc 1 398 0
+ 553 0024 70BC     		pop	{r4, r5, r6}
+ 554              		.cfi_remember_state
+ 555              		.cfi_restore 6
+ 556              		.cfi_restore 5
+ 557              		.cfi_restore 4
+ 558              		.cfi_def_cfa_offset 0
+ 559 0026 7047     		bx	lr
+ 560              	.LVL46:
+ 561              	.L64:
+ 562              		.cfi_restore_state
+ 389:Generated_Source\PSoC5/CySpc.c ****         }
+ 563              		.loc 1 389 0
+ 564 0028 0920     		movs	r0, #9
+ 565              	.LVL47:
+ 566              		.loc 1 398 0
+ 567 002a 70BC     		pop	{r4, r5, r6}
+ 568              		.cfi_restore 4
+ 569              		.cfi_restore 5
+ 570              		.cfi_restore 6
+ 571              		.cfi_def_cfa_offset 0
+ 572 002c 7047     		bx	lr
+ 573              	.LVL48:
+ 574              	.L63:
+ 394:Generated_Source\PSoC5/CySpc.c ****     }
+ 575              		.loc 1 394 0
+ 576 002e 0420     		movs	r0, #4
+ 577              	.LVL49:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 19
+
+
+ 578              		.loc 1 398 0
+ 579 0030 7047     		bx	lr
+ 580              	.L67:
+ 581 0032 00BF     		.align	2
+ 582              	.L66:
+ 583 0034 22470040 		.word	1073760034
+ 584 0038 20470040 		.word	1073760032
+ 585              		.cfi_endproc
+ 586              	.LFE6:
+ 587              		.size	CySpcEraseSector, .-CySpcEraseSector
+ 588              		.section	.text.CySpcGetTemp,"ax",%progbits
+ 589              		.align	2
+ 590              		.global	CySpcGetTemp
+ 591              		.thumb
+ 592              		.thumb_func
+ 593              		.type	CySpcGetTemp, %function
+ 594              	CySpcGetTemp:
+ 595              	.LFB7:
+ 399:Generated_Source\PSoC5/CySpc.c **** 
+ 400:Generated_Source\PSoC5/CySpc.c **** 
+ 401:Generated_Source\PSoC5/CySpc.c **** /*******************************************************************************
+ 402:Generated_Source\PSoC5/CySpc.c **** * Function Name: CySpcGetTemp
+ 403:Generated_Source\PSoC5/CySpc.c **** ********************************************************************************
+ 404:Generated_Source\PSoC5/CySpc.c **** * Summary:
+ 405:Generated_Source\PSoC5/CySpc.c **** *  Returns the internal die temperature
+ 406:Generated_Source\PSoC5/CySpc.c **** *
+ 407:Generated_Source\PSoC5/CySpc.c **** * Parameters:
+ 408:Generated_Source\PSoC5/CySpc.c **** *  uint8 numSamples:
+ 409:Generated_Source\PSoC5/CySpc.c **** *   Number of samples. Valid values are 1-5, resulting in 2 - 32 samples
+ 410:Generated_Source\PSoC5/CySpc.c **** *   respectively.
+ 411:Generated_Source\PSoC5/CySpc.c **** *
+ 412:Generated_Source\PSoC5/CySpc.c **** * uint16 timerPeriod:
+ 413:Generated_Source\PSoC5/CySpc.c **** *   Number of ADC ACLK cycles. A valid 14 bit value is accepted, higher 2 bits
+ 414:Generated_Source\PSoC5/CySpc.c **** *   of 16 bit values are ignored.
+ 415:Generated_Source\PSoC5/CySpc.c **** *
+ 416:Generated_Source\PSoC5/CySpc.c **** * uint8 clkDivSelect:
+ 417:Generated_Source\PSoC5/CySpc.c **** *   ADC ACLK clock divide value. Valid values are 2 - 225.
+ 418:Generated_Source\PSoC5/CySpc.c **** *
+ 419:Generated_Source\PSoC5/CySpc.c **** * Return:
+ 420:Generated_Source\PSoC5/CySpc.c **** *  CYRET_STARTED
+ 421:Generated_Source\PSoC5/CySpc.c **** *  CYRET_CANCELED
+ 422:Generated_Source\PSoC5/CySpc.c **** *  CYRET_LOCKED
+ 423:Generated_Source\PSoC5/CySpc.c **** *
+ 424:Generated_Source\PSoC5/CySpc.c **** *******************************************************************************/
+ 425:Generated_Source\PSoC5/CySpc.c **** cystatus CySpcGetTemp(uint8 numSamples)
+ 426:Generated_Source\PSoC5/CySpc.c **** {
+ 596              		.loc 1 426 0
+ 597              		.cfi_startproc
+ 598              		@ args = 0, pretend = 0, frame = 0
+ 599              		@ frame_needed = 0, uses_anonymous_args = 0
+ 600              		@ link register save eliminated.
+ 601              	.LVL50:
+ 427:Generated_Source\PSoC5/CySpc.c ****     cystatus status = CYRET_STARTED;
+ 428:Generated_Source\PSoC5/CySpc.c **** 
+ 429:Generated_Source\PSoC5/CySpc.c ****     /* Make sure the SPC is ready to accept command */
+ 430:Generated_Source\PSoC5/CySpc.c ****     if(CY_SPC_IDLE)
+ 602              		.loc 1 430 0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 20
+
+
+ 603 0000 0B4A     		ldr	r2, .L73
+ 604 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 605 0004 9907     		lsls	r1, r3, #30
+ 606 0006 11D5     		bpl	.L70
+ 426:Generated_Source\PSoC5/CySpc.c ****     cystatus status = CYRET_STARTED;
+ 607              		.loc 1 426 0
+ 608 0008 30B4     		push	{r4, r5}
+ 609              		.cfi_def_cfa_offset 8
+ 610              		.cfi_offset 4, -8
+ 611              		.cfi_offset 5, -4
+ 431:Generated_Source\PSoC5/CySpc.c ****     {
+ 432:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_KEY_ONE;
+ 612              		.loc 1 432 0
+ 613 000a 0A4B     		ldr	r3, .L73+4
+ 614 000c B625     		movs	r5, #182
+ 433:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_KEY_TWO(CY_SPC_CMD_GET_TEMP);
+ 615              		.loc 1 433 0
+ 616 000e E124     		movs	r4, #225
+ 434:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_CMD_GET_TEMP;
+ 617              		.loc 1 434 0
+ 618 0010 0E21     		movs	r1, #14
+ 432:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_KEY_TWO(CY_SPC_CMD_GET_TEMP);
+ 619              		.loc 1 432 0
+ 620 0012 1D70     		strb	r5, [r3]
+ 433:Generated_Source\PSoC5/CySpc.c ****         CY_SPC_CPU_DATA_REG = CY_SPC_KEY_TWO(CY_SPC_CMD_GET_TEMP);
+ 621              		.loc 1 433 0
+ 622 0014 1C70     		strb	r4, [r3]
+ 623              		.loc 1 434 0
+ 624 0016 1970     		strb	r1, [r3]
+ 435:Generated_Source\PSoC5/CySpc.c **** 
+ 436:Generated_Source\PSoC5/CySpc.c ****         /* Make sure the command was accepted */
+ 437:Generated_Source\PSoC5/CySpc.c ****         if(CY_SPC_BUSY)
+ 625              		.loc 1 437 0
+ 626 0018 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 627 001a 9207     		lsls	r2, r2, #30
+ 628 001c 03D4     		bmi	.L71
+ 438:Generated_Source\PSoC5/CySpc.c ****         {
+ 439:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_DATA_REG = numSamples;
+ 629              		.loc 1 439 0
+ 630 001e 1870     		strb	r0, [r3]
+ 440:Generated_Source\PSoC5/CySpc.c ****         }
+ 441:Generated_Source\PSoC5/CySpc.c ****         else
+ 442:Generated_Source\PSoC5/CySpc.c ****         {
+ 443:Generated_Source\PSoC5/CySpc.c ****             status = CYRET_CANCELED;
+ 444:Generated_Source\PSoC5/CySpc.c ****         }
+ 445:Generated_Source\PSoC5/CySpc.c ****     }
+ 446:Generated_Source\PSoC5/CySpc.c ****     else
+ 447:Generated_Source\PSoC5/CySpc.c ****     {
+ 448:Generated_Source\PSoC5/CySpc.c ****         status = CYRET_LOCKED;
+ 449:Generated_Source\PSoC5/CySpc.c ****     }
+ 450:Generated_Source\PSoC5/CySpc.c **** 
+ 451:Generated_Source\PSoC5/CySpc.c ****     return(status);
+ 452:Generated_Source\PSoC5/CySpc.c **** }
+ 631              		.loc 1 452 0
+ 632 0020 30BC     		pop	{r4, r5}
+ 633              		.cfi_remember_state
+ 634              		.cfi_restore 5
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 21
+
+
+ 635              		.cfi_restore 4
+ 636              		.cfi_def_cfa_offset 0
+ 427:Generated_Source\PSoC5/CySpc.c **** 
+ 637              		.loc 1 427 0
+ 638 0022 0720     		movs	r0, #7
+ 639              	.LVL51:
+ 640              		.loc 1 452 0
+ 641 0024 7047     		bx	lr
+ 642              	.LVL52:
+ 643              	.L71:
+ 644              		.cfi_restore_state
+ 443:Generated_Source\PSoC5/CySpc.c ****         }
+ 645              		.loc 1 443 0
+ 646 0026 0920     		movs	r0, #9
+ 647              	.LVL53:
+ 648              		.loc 1 452 0
+ 649 0028 30BC     		pop	{r4, r5}
+ 650              		.cfi_restore 4
+ 651              		.cfi_restore 5
+ 652              		.cfi_def_cfa_offset 0
+ 653 002a 7047     		bx	lr
+ 654              	.LVL54:
+ 655              	.L70:
+ 448:Generated_Source\PSoC5/CySpc.c ****     }
+ 656              		.loc 1 448 0
+ 657 002c 0420     		movs	r0, #4
+ 658              	.LVL55:
+ 659              		.loc 1 452 0
+ 660 002e 7047     		bx	lr
+ 661              	.L74:
+ 662              		.align	2
+ 663              	.L73:
+ 664 0030 22470040 		.word	1073760034
+ 665 0034 20470040 		.word	1073760032
+ 666              		.cfi_endproc
+ 667              	.LFE7:
+ 668              		.size	CySpcGetTemp, .-CySpcGetTemp
+ 669              		.section	.text.CySpcLock,"ax",%progbits
+ 670              		.align	2
+ 671              		.global	CySpcLock
+ 672              		.thumb
+ 673              		.thumb_func
+ 674              		.type	CySpcLock, %function
+ 675              	CySpcLock:
+ 676              	.LFB8:
+ 453:Generated_Source\PSoC5/CySpc.c **** 
+ 454:Generated_Source\PSoC5/CySpc.c **** 
+ 455:Generated_Source\PSoC5/CySpc.c **** /*******************************************************************************
+ 456:Generated_Source\PSoC5/CySpc.c **** * Function Name: CySpcLock
+ 457:Generated_Source\PSoC5/CySpc.c **** ********************************************************************************
+ 458:Generated_Source\PSoC5/CySpc.c **** * Summary:
+ 459:Generated_Source\PSoC5/CySpc.c **** *  Locks the SPC so it can not be used by someone else:
+ 460:Generated_Source\PSoC5/CySpc.c **** *   - Saves wait-pipeline enable state and enable pipeline (PSoC5)
+ 461:Generated_Source\PSoC5/CySpc.c **** *
+ 462:Generated_Source\PSoC5/CySpc.c **** * Parameters:
+ 463:Generated_Source\PSoC5/CySpc.c **** *  Note
+ 464:Generated_Source\PSoC5/CySpc.c **** *
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 22
+
+
+ 465:Generated_Source\PSoC5/CySpc.c **** * Return:
+ 466:Generated_Source\PSoC5/CySpc.c **** *  CYRET_SUCCESS - if the resource was free.
+ 467:Generated_Source\PSoC5/CySpc.c **** *  CYRET_LOCKED  - if the SPC is in use.
+ 468:Generated_Source\PSoC5/CySpc.c **** *
+ 469:Generated_Source\PSoC5/CySpc.c **** *******************************************************************************/
+ 470:Generated_Source\PSoC5/CySpc.c **** cystatus CySpcLock(void)
+ 471:Generated_Source\PSoC5/CySpc.c **** {
+ 677              		.loc 1 471 0
+ 678              		.cfi_startproc
+ 679              		@ args = 0, pretend = 0, frame = 0
+ 680              		@ frame_needed = 0, uses_anonymous_args = 0
+ 681              	.LVL56:
+ 682 0000 38B5     		push	{r3, r4, r5, lr}
+ 683              		.cfi_def_cfa_offset 16
+ 684              		.cfi_offset 3, -16
+ 685              		.cfi_offset 4, -12
+ 686              		.cfi_offset 5, -8
+ 687              		.cfi_offset 14, -4
+ 472:Generated_Source\PSoC5/CySpc.c ****     cystatus status = CYRET_LOCKED;
+ 473:Generated_Source\PSoC5/CySpc.c ****     uint8 interruptState;
+ 474:Generated_Source\PSoC5/CySpc.c **** 
+ 475:Generated_Source\PSoC5/CySpc.c ****     /* Enter critical section */
+ 476:Generated_Source\PSoC5/CySpc.c ****     interruptState = CyEnterCriticalSection();
+ 688              		.loc 1 476 0
+ 689 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+ 690              	.LVL57:
+ 477:Generated_Source\PSoC5/CySpc.c **** 
+ 478:Generated_Source\PSoC5/CySpc.c ****     if(CY_SPC_UNLOCKED == SpcLockState)
+ 691              		.loc 1 478 0
+ 692 0006 0D4A     		ldr	r2, .L81
+ 693 0008 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 694 000a 23B1     		cbz	r3, .L80
+ 472:Generated_Source\PSoC5/CySpc.c ****     cystatus status = CYRET_LOCKED;
+ 695              		.loc 1 472 0
+ 696 000c 0424     		movs	r4, #4
+ 697              	.LVL58:
+ 698              	.L76:
+ 479:Generated_Source\PSoC5/CySpc.c ****     {
+ 480:Generated_Source\PSoC5/CySpc.c ****         SpcLockState = CY_SPC_LOCKED;
+ 481:Generated_Source\PSoC5/CySpc.c ****         status = CYRET_SUCCESS;
+ 482:Generated_Source\PSoC5/CySpc.c **** 
+ 483:Generated_Source\PSoC5/CySpc.c ****         #if(CY_PSOC5)
+ 484:Generated_Source\PSoC5/CySpc.c **** 
+ 485:Generated_Source\PSoC5/CySpc.c ****             if(0u != (CY_SPC_CPU_WAITPIPE_REG & CY_SPC_CPU_WAITPIPE_BYPASS))
+ 486:Generated_Source\PSoC5/CySpc.c ****             {
+ 487:Generated_Source\PSoC5/CySpc.c ****                 /* Enable pipeline registers */
+ 488:Generated_Source\PSoC5/CySpc.c ****                 CY_SPC_CPU_WAITPIPE_REG &= ((uint32)(~CY_SPC_CPU_WAITPIPE_BYPASS));
+ 489:Generated_Source\PSoC5/CySpc.c **** 
+ 490:Generated_Source\PSoC5/CySpc.c ****                 /* At least 2 NOP instructions are recommended */
+ 491:Generated_Source\PSoC5/CySpc.c ****                 CY_NOP;
+ 492:Generated_Source\PSoC5/CySpc.c ****                 CY_NOP;
+ 493:Generated_Source\PSoC5/CySpc.c ****                 CY_NOP;
+ 494:Generated_Source\PSoC5/CySpc.c **** 
+ 495:Generated_Source\PSoC5/CySpc.c ****                 spcWaitPipeBypass = CY_SPC_CPU_WAITPIPE_BYPASS;
+ 496:Generated_Source\PSoC5/CySpc.c ****             }
+ 497:Generated_Source\PSoC5/CySpc.c **** 
+ 498:Generated_Source\PSoC5/CySpc.c ****         #endif  /* (CY_PSOC5) */
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 23
+
+
+ 499:Generated_Source\PSoC5/CySpc.c ****     }
+ 500:Generated_Source\PSoC5/CySpc.c **** 
+ 501:Generated_Source\PSoC5/CySpc.c ****     /* Exit critical section */
+ 502:Generated_Source\PSoC5/CySpc.c ****     CyExitCriticalSection(interruptState);
+ 699              		.loc 1 502 0
+ 700 000e FFF7FEFF 		bl	CyExitCriticalSection
+ 701              	.LVL59:
+ 503:Generated_Source\PSoC5/CySpc.c **** 
+ 504:Generated_Source\PSoC5/CySpc.c ****     return(status);
+ 505:Generated_Source\PSoC5/CySpc.c **** }
+ 702              		.loc 1 505 0
+ 703 0012 2046     		mov	r0, r4
+ 704 0014 38BD     		pop	{r3, r4, r5, pc}
+ 705              	.LVL60:
+ 706              	.L80:
+ 480:Generated_Source\PSoC5/CySpc.c ****         status = CYRET_SUCCESS;
+ 707              		.loc 1 480 0
+ 708 0016 0125     		movs	r5, #1
+ 485:Generated_Source\PSoC5/CySpc.c ****             {
+ 709              		.loc 1 485 0
+ 710 0018 0949     		ldr	r1, .L81+4
+ 480:Generated_Source\PSoC5/CySpc.c ****         status = CYRET_SUCCESS;
+ 711              		.loc 1 480 0
+ 712 001a 1570     		strb	r5, [r2]
+ 713              	.LVL61:
+ 485:Generated_Source\PSoC5/CySpc.c ****             {
+ 714              		.loc 1 485 0
+ 715 001c 0C68     		ldr	r4, [r1]
+ 716 001e 2C40     		ands	r4, r4, r5
+ 717 0020 F5D0     		beq	.L76
+ 488:Generated_Source\PSoC5/CySpc.c **** 
+ 718              		.loc 1 488 0
+ 719 0022 0C68     		ldr	r4, [r1]
+ 720 0024 24F00104 		bic	r4, r4, #1
+ 721 0028 0C60     		str	r4, [r1]
+ 491:Generated_Source\PSoC5/CySpc.c ****                 CY_NOP;
+ 722              		.loc 1 491 0
+ 723              	@ 491 "Generated_Source\PSoC5\CySpc.c" 1
+ 724 002a 00BF     		NOP
+ 725              	
+ 726              	@ 0 "" 2
+ 492:Generated_Source\PSoC5/CySpc.c ****                 CY_NOP;
+ 727              		.loc 1 492 0
+ 728              	@ 492 "Generated_Source\PSoC5\CySpc.c" 1
+ 729 002c 00BF     		NOP
+ 730              	
+ 731              	@ 0 "" 2
+ 493:Generated_Source\PSoC5/CySpc.c **** 
+ 732              		.loc 1 493 0
+ 733              	@ 493 "Generated_Source\PSoC5\CySpc.c" 1
+ 734 002e 00BF     		NOP
+ 735              	
+ 736              	@ 0 "" 2
+ 481:Generated_Source\PSoC5/CySpc.c **** 
+ 737              		.loc 1 481 0
+ 738              		.thumb
+ 739 0030 1C46     		mov	r4, r3
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 24
+
+
+ 740              	.LVL62:
+ 495:Generated_Source\PSoC5/CySpc.c ****             }
+ 741              		.loc 1 495 0
+ 742 0032 5560     		str	r5, [r2, #4]
+ 502:Generated_Source\PSoC5/CySpc.c **** 
+ 743              		.loc 1 502 0
+ 744 0034 FFF7FEFF 		bl	CyExitCriticalSection
+ 745              	.LVL63:
+ 746              		.loc 1 505 0
+ 747 0038 2046     		mov	r0, r4
+ 748 003a 38BD     		pop	{r3, r4, r5, pc}
+ 749              	.LVL64:
+ 750              	.L82:
+ 751              		.align	2
+ 752              	.L81:
+ 753 003c 00000000 		.word	.LANCHOR0
+ 754 0040 04000840 		.word	1074266116
+ 755              		.cfi_endproc
+ 756              	.LFE8:
+ 757              		.size	CySpcLock, .-CySpcLock
+ 758              		.section	.text.CySpcUnlock,"ax",%progbits
+ 759              		.align	2
+ 760              		.global	CySpcUnlock
+ 761              		.thumb
+ 762              		.thumb_func
+ 763              		.type	CySpcUnlock, %function
+ 764              	CySpcUnlock:
+ 765              	.LFB9:
+ 506:Generated_Source\PSoC5/CySpc.c **** 
+ 507:Generated_Source\PSoC5/CySpc.c **** 
+ 508:Generated_Source\PSoC5/CySpc.c **** /*******************************************************************************
+ 509:Generated_Source\PSoC5/CySpc.c **** * Function Name: CySpcUnlock
+ 510:Generated_Source\PSoC5/CySpc.c **** ********************************************************************************
+ 511:Generated_Source\PSoC5/CySpc.c **** * Summary:
+ 512:Generated_Source\PSoC5/CySpc.c **** *  Unlocks the SPC so it can be used by someone else:
+ 513:Generated_Source\PSoC5/CySpc.c **** *   - Restores wait-pipeline enable state (PSoC5)
+ 514:Generated_Source\PSoC5/CySpc.c **** *
+ 515:Generated_Source\PSoC5/CySpc.c **** * Parameters:
+ 516:Generated_Source\PSoC5/CySpc.c **** *  None
+ 517:Generated_Source\PSoC5/CySpc.c **** *
+ 518:Generated_Source\PSoC5/CySpc.c **** * Return:
+ 519:Generated_Source\PSoC5/CySpc.c **** *  None
+ 520:Generated_Source\PSoC5/CySpc.c **** *
+ 521:Generated_Source\PSoC5/CySpc.c **** *******************************************************************************/
+ 522:Generated_Source\PSoC5/CySpc.c **** void CySpcUnlock(void)
+ 523:Generated_Source\PSoC5/CySpc.c **** {
+ 766              		.loc 1 523 0
+ 767              		.cfi_startproc
+ 768              		@ args = 0, pretend = 0, frame = 0
+ 769              		@ frame_needed = 0, uses_anonymous_args = 0
+ 770 0000 10B5     		push	{r4, lr}
+ 771              		.cfi_def_cfa_offset 8
+ 772              		.cfi_offset 4, -8
+ 773              		.cfi_offset 14, -4
+ 524:Generated_Source\PSoC5/CySpc.c ****     uint8 interruptState;
+ 525:Generated_Source\PSoC5/CySpc.c **** 
+ 526:Generated_Source\PSoC5/CySpc.c ****     /* Enter critical section */
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 25
+
+
+ 527:Generated_Source\PSoC5/CySpc.c ****     interruptState = CyEnterCriticalSection();
+ 774              		.loc 1 527 0
+ 775 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+ 776              	.LVL65:
+ 528:Generated_Source\PSoC5/CySpc.c **** 
+ 529:Generated_Source\PSoC5/CySpc.c ****     /* Release the SPC object */
+ 530:Generated_Source\PSoC5/CySpc.c ****     SpcLockState = CY_SPC_UNLOCKED;
+ 777              		.loc 1 530 0
+ 778 0006 094B     		ldr	r3, .L86
+ 779 0008 0022     		movs	r2, #0
+ 531:Generated_Source\PSoC5/CySpc.c **** 
+ 532:Generated_Source\PSoC5/CySpc.c ****     #if(CY_PSOC5)
+ 533:Generated_Source\PSoC5/CySpc.c **** 
+ 534:Generated_Source\PSoC5/CySpc.c ****         if(CY_SPC_CPU_WAITPIPE_BYPASS == spcWaitPipeBypass)
+ 780              		.loc 1 534 0
+ 781 000a 5968     		ldr	r1, [r3, #4]
+ 530:Generated_Source\PSoC5/CySpc.c **** 
+ 782              		.loc 1 530 0
+ 783 000c 1A70     		strb	r2, [r3]
+ 784              		.loc 1 534 0
+ 785 000e 0129     		cmp	r1, #1
+ 786 0010 08D1     		bne	.L84
+ 535:Generated_Source\PSoC5/CySpc.c ****         {
+ 536:Generated_Source\PSoC5/CySpc.c ****             /* Force to bypass pipeline registers */
+ 537:Generated_Source\PSoC5/CySpc.c ****             CY_SPC_CPU_WAITPIPE_REG |= CY_SPC_CPU_WAITPIPE_BYPASS;
+ 787              		.loc 1 537 0
+ 788 0012 074C     		ldr	r4, .L86+4
+ 789 0014 2168     		ldr	r1, [r4]
+ 790 0016 41F00101 		orr	r1, r1, #1
+ 791 001a 2160     		str	r1, [r4]
+ 538:Generated_Source\PSoC5/CySpc.c **** 
+ 539:Generated_Source\PSoC5/CySpc.c ****             /* At least 2 NOP instructions are recommended */
+ 540:Generated_Source\PSoC5/CySpc.c ****             CY_NOP;
+ 792              		.loc 1 540 0
+ 793              	@ 540 "Generated_Source\PSoC5\CySpc.c" 1
+ 794 001c 00BF     		NOP
+ 795              	
+ 796              	@ 0 "" 2
+ 541:Generated_Source\PSoC5/CySpc.c ****             CY_NOP;
+ 797              		.loc 1 541 0
+ 798              	@ 541 "Generated_Source\PSoC5\CySpc.c" 1
+ 799 001e 00BF     		NOP
+ 800              	
+ 801              	@ 0 "" 2
+ 542:Generated_Source\PSoC5/CySpc.c ****             CY_NOP;
+ 802              		.loc 1 542 0
+ 803              	@ 542 "Generated_Source\PSoC5\CySpc.c" 1
+ 804 0020 00BF     		NOP
+ 805              	
+ 806              	@ 0 "" 2
+ 543:Generated_Source\PSoC5/CySpc.c **** 
+ 544:Generated_Source\PSoC5/CySpc.c ****             spcWaitPipeBypass = 0u;
+ 807              		.loc 1 544 0
+ 808              		.thumb
+ 809 0022 5A60     		str	r2, [r3, #4]
+ 810              	.L84:
+ 545:Generated_Source\PSoC5/CySpc.c ****         }
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 26
+
+
+ 546:Generated_Source\PSoC5/CySpc.c **** 
+ 547:Generated_Source\PSoC5/CySpc.c ****     #endif  /* (CY_PSOC5) */
+ 548:Generated_Source\PSoC5/CySpc.c **** 
+ 549:Generated_Source\PSoC5/CySpc.c ****     /* Exit critical section */
+ 550:Generated_Source\PSoC5/CySpc.c ****     CyExitCriticalSection(interruptState);
+ 551:Generated_Source\PSoC5/CySpc.c **** }
+ 811              		.loc 1 551 0
+ 812 0024 BDE81040 		pop	{r4, lr}
+ 813              		.cfi_restore 14
+ 814              		.cfi_restore 4
+ 815              		.cfi_def_cfa_offset 0
+ 550:Generated_Source\PSoC5/CySpc.c **** }
+ 816              		.loc 1 550 0
+ 817 0028 FFF7FEBF 		b	CyExitCriticalSection
+ 818              	.LVL66:
+ 819              	.L87:
+ 820              		.align	2
+ 821              	.L86:
+ 822 002c 00000000 		.word	.LANCHOR0
+ 823 0030 04000840 		.word	1074266116
+ 824              		.cfi_endproc
+ 825              	.LFE9:
+ 826              		.size	CySpcUnlock, .-CySpcUnlock
+ 827              		.global	SpcLockState
+ 828              		.bss
+ 829              		.align	2
+ 830              		.set	.LANCHOR0,. + 0
+ 831              		.type	SpcLockState, %object
+ 832              		.size	SpcLockState, 1
+ 833              	SpcLockState:
+ 834 0000 00       		.space	1
+ 835 0001 000000   		.space	3
+ 836              		.type	spcWaitPipeBypass, %object
+ 837              		.size	spcWaitPipeBypass, 4
+ 838              	spcWaitPipeBypass:
+ 839 0004 00000000 		.space	4
+ 840              		.text
+ 841              	.Letext0:
+ 842              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 843              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
+ 844              		.section	.debug_info,"",%progbits
+ 845              	.Ldebug_info0:
+ 846 0000 3E040000 		.4byte	0x43e
+ 847 0004 0400     		.2byte	0x4
+ 848 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 849 000a 04       		.byte	0x4
+ 850 000b 01       		.uleb128 0x1
+ 851 000c 6D000000 		.4byte	.LASF40
+ 852 0010 01       		.byte	0x1
+ 853 0011 C5010000 		.4byte	.LASF41
+ 854 0015 B2020000 		.4byte	.LASF42
+ 855 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 856 001d 00000000 		.4byte	0
+ 857 0021 00000000 		.4byte	.Ldebug_line0
+ 858 0025 02       		.uleb128 0x2
+ 859 0026 01       		.byte	0x1
+ 860 0027 06       		.byte	0x6
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 27
+
+
+ 861 0028 A6020000 		.4byte	.LASF0
+ 862 002c 02       		.uleb128 0x2
+ 863 002d 01       		.byte	0x1
+ 864 002e 08       		.byte	0x8
+ 865 002f 74010000 		.4byte	.LASF1
+ 866 0033 02       		.uleb128 0x2
+ 867 0034 02       		.byte	0x2
+ 868 0035 05       		.byte	0x5
+ 869 0036 6D020000 		.4byte	.LASF2
+ 870 003a 02       		.uleb128 0x2
+ 871 003b 02       		.byte	0x2
+ 872 003c 07       		.byte	0x7
+ 873 003d 45000000 		.4byte	.LASF3
+ 874 0041 02       		.uleb128 0x2
+ 875 0042 04       		.byte	0x4
+ 876 0043 05       		.byte	0x5
+ 877 0044 8B020000 		.4byte	.LASF4
+ 878 0048 02       		.uleb128 0x2
+ 879 0049 04       		.byte	0x4
+ 880 004a 07       		.byte	0x7
+ 881 004b 3C010000 		.4byte	.LASF5
+ 882 004f 02       		.uleb128 0x2
+ 883 0050 08       		.byte	0x8
+ 884 0051 05       		.byte	0x5
+ 885 0052 50020000 		.4byte	.LASF6
+ 886 0056 02       		.uleb128 0x2
+ 887 0057 08       		.byte	0x8
+ 888 0058 07       		.byte	0x7
+ 889 0059 01010000 		.4byte	.LASF7
+ 890 005d 03       		.uleb128 0x3
+ 891 005e 04       		.byte	0x4
+ 892 005f 05       		.byte	0x5
+ 893 0060 696E7400 		.ascii	"int\000"
+ 894 0064 02       		.uleb128 0x2
+ 895 0065 04       		.byte	0x4
+ 896 0066 07       		.byte	0x7
+ 897 0067 E4010000 		.4byte	.LASF8
+ 898 006b 04       		.uleb128 0x4
+ 899 006c 4E010000 		.4byte	.LASF9
+ 900 0070 02       		.byte	0x2
+ 901 0071 5B       		.byte	0x5b
+ 902 0072 2C000000 		.4byte	0x2c
+ 903 0076 04       		.uleb128 0x4
+ 904 0077 96010000 		.4byte	.LASF10
+ 905 007b 02       		.byte	0x2
+ 906 007c 5C       		.byte	0x5c
+ 907 007d 3A000000 		.4byte	0x3a
+ 908 0081 04       		.uleb128 0x4
+ 909 0082 A7010000 		.4byte	.LASF11
+ 910 0086 02       		.byte	0x2
+ 911 0087 5D       		.byte	0x5d
+ 912 0088 48000000 		.4byte	0x48
+ 913 008c 02       		.uleb128 0x2
+ 914 008d 04       		.byte	0x4
+ 915 008e 04       		.byte	0x4
+ 916 008f FB000000 		.4byte	.LASF12
+ 917 0093 02       		.uleb128 0x2
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 28
+
+
+ 918 0094 08       		.byte	0x8
+ 919 0095 04       		.byte	0x4
+ 920 0096 82010000 		.4byte	.LASF13
+ 921 009a 02       		.uleb128 0x2
+ 922 009b 01       		.byte	0x1
+ 923 009c 08       		.byte	0x8
+ 924 009d 68020000 		.4byte	.LASF14
+ 925 00a1 04       		.uleb128 0x4
+ 926 00a2 13000000 		.4byte	.LASF15
+ 927 00a6 02       		.byte	0x2
+ 928 00a7 E8       		.byte	0xe8
+ 929 00a8 48000000 		.4byte	0x48
+ 930 00ac 04       		.uleb128 0x4
+ 931 00ad 28010000 		.4byte	.LASF16
+ 932 00b1 02       		.byte	0x2
+ 933 00b2 F0       		.byte	0xf0
+ 934 00b3 B7000000 		.4byte	0xb7
+ 935 00b7 05       		.uleb128 0x5
+ 936 00b8 6B000000 		.4byte	0x6b
+ 937 00bc 04       		.uleb128 0x4
+ 938 00bd 1C000000 		.4byte	.LASF17
+ 939 00c1 02       		.byte	0x2
+ 940 00c2 F2       		.byte	0xf2
+ 941 00c3 C7000000 		.4byte	0xc7
+ 942 00c7 05       		.uleb128 0x5
+ 943 00c8 81000000 		.4byte	0x81
+ 944 00cc 02       		.uleb128 0x2
+ 945 00cd 04       		.byte	0x4
+ 946 00ce 07       		.byte	0x7
+ 947 00cf 2A020000 		.4byte	.LASF18
+ 948 00d3 06       		.uleb128 0x6
+ 949 00d4 22000000 		.4byte	.LASF19
+ 950 00d8 01       		.byte	0x1
+ 951 00d9 4E       		.byte	0x4e
+ 952 00da 00000000 		.4byte	.LFB0
+ 953 00de 2C000000 		.4byte	.LFE0-.LFB0
+ 954 00e2 01       		.uleb128 0x1
+ 955 00e3 9C       		.byte	0x9c
+ 956 00e4 0A010000 		.4byte	0x10a
+ 957 00e8 07       		.uleb128 0x7
+ 958 00e9 2D010000 		.4byte	.LASF21
+ 959 00ed 01       		.byte	0x1
+ 960 00ee 51       		.byte	0x51
+ 961 00ef 6B000000 		.4byte	0x6b
+ 962 00f3 00000000 		.4byte	.LLST0
+ 963 00f7 08       		.uleb128 0x8
+ 964 00f8 06000000 		.4byte	.LVL0
+ 965 00fc 18040000 		.4byte	0x418
+ 966 0100 09       		.uleb128 0x9
+ 967 0101 22000000 		.4byte	.LVL1
+ 968 0105 23040000 		.4byte	0x423
+ 969 0109 00       		.byte	0
+ 970 010a 06       		.uleb128 0x6
+ 971 010b 3B000000 		.4byte	.LASF20
+ 972 010f 01       		.byte	0x1
+ 973 0110 68       		.byte	0x68
+ 974 0111 00000000 		.4byte	.LFB1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 29
+
+
+ 975 0115 2C000000 		.4byte	.LFE1-.LFB1
+ 976 0119 01       		.uleb128 0x1
+ 977 011a 9C       		.byte	0x9c
+ 978 011b 41010000 		.4byte	0x141
+ 979 011f 07       		.uleb128 0x7
+ 980 0120 2D010000 		.4byte	.LASF21
+ 981 0124 01       		.byte	0x1
+ 982 0125 6B       		.byte	0x6b
+ 983 0126 6B000000 		.4byte	0x6b
+ 984 012a 13000000 		.4byte	.LLST1
+ 985 012e 08       		.uleb128 0x8
+ 986 012f 06000000 		.4byte	.LVL2
+ 987 0133 18040000 		.4byte	0x418
+ 988 0137 09       		.uleb128 0x9
+ 989 0138 22000000 		.4byte	.LVL3
+ 990 013c 23040000 		.4byte	0x423
+ 991 0140 00       		.byte	0
+ 992 0141 0A       		.uleb128 0xa
+ 993 0142 58000000 		.4byte	.LASF24
+ 994 0146 01       		.byte	0x1
+ 995 0147 87       		.byte	0x87
+ 996 0148 6B000000 		.4byte	0x6b
+ 997 014c 00000000 		.4byte	.LFB2
+ 998 0150 40000000 		.4byte	.LFE2-.LFB2
+ 999 0154 01       		.uleb128 0x1
+ 1000 0155 9C       		.byte	0x9c
+ 1001 0156 95010000 		.4byte	0x195
+ 1002 015a 0B       		.uleb128 0xb
+ 1003 015b 77020000 		.4byte	.LASF22
+ 1004 015f 01       		.byte	0x1
+ 1005 0160 87       		.byte	0x87
+ 1006 0161 95010000 		.4byte	0x195
+ 1007 0165 26000000 		.4byte	.LLST2
+ 1008 0169 0B       		.uleb128 0xb
+ 1009 016a 23010000 		.4byte	.LASF23
+ 1010 016e 01       		.byte	0x1
+ 1011 016f 87       		.byte	0x87
+ 1012 0170 6B000000 		.4byte	0x6b
+ 1013 0174 47000000 		.4byte	.LLST3
+ 1014 0178 0C       		.uleb128 0xc
+ 1015 0179 6900     		.ascii	"i\000"
+ 1016 017b 01       		.byte	0x1
+ 1017 017c 89       		.byte	0x89
+ 1018 017d 6B000000 		.4byte	0x6b
+ 1019 0181 68000000 		.4byte	.LLST4
+ 1020 0185 0D       		.uleb128 0xd
+ 1021 0186 1E000000 		.4byte	.LVL6
+ 1022 018a 34040000 		.4byte	0x434
+ 1023 018e 0E       		.uleb128 0xe
+ 1024 018f 01       		.uleb128 0x1
+ 1025 0190 50       		.byte	0x50
+ 1026 0191 01       		.uleb128 0x1
+ 1027 0192 31       		.byte	0x31
+ 1028 0193 00       		.byte	0
+ 1029 0194 00       		.byte	0
+ 1030 0195 0F       		.uleb128 0xf
+ 1031 0196 04       		.byte	0x4
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 30
+
+
+ 1032 0197 6B000000 		.4byte	0x6b
+ 1033 019b 0A       		.uleb128 0xa
+ 1034 019c 00000000 		.4byte	.LASF25
+ 1035 01a0 01       		.byte	0x1
+ 1036 01a1 B2       		.byte	0xb2
+ 1037 01a2 A1000000 		.4byte	0xa1
+ 1038 01a6 00000000 		.4byte	.LFB3
+ 1039 01aa 6C000000 		.4byte	.LFE3-.LFB3
+ 1040 01ae 01       		.uleb128 0x1
+ 1041 01af 9C       		.byte	0x9c
+ 1042 01b0 0D020000 		.4byte	0x20d
+ 1043 01b4 0B       		.uleb128 0xb
+ 1044 01b5 6E010000 		.4byte	.LASF26
+ 1045 01b9 01       		.byte	0x1
+ 1046 01ba B2       		.byte	0xb2
+ 1047 01bb 6B000000 		.4byte	0x6b
+ 1048 01bf 8F000000 		.4byte	.LLST5
+ 1049 01c3 0B       		.uleb128 0xb
+ 1050 01c4 F1010000 		.4byte	.LASF27
+ 1051 01c8 01       		.byte	0x1
+ 1052 01c9 B2       		.byte	0xb2
+ 1053 01ca 76000000 		.4byte	0x76
+ 1054 01ce FB000000 		.4byte	.LLST6
+ 1055 01d2 0B       		.uleb128 0xb
+ 1056 01d3 77020000 		.4byte	.LASF22
+ 1057 01d7 01       		.byte	0x1
+ 1058 01d8 B2       		.byte	0xb2
+ 1059 01d9 0D020000 		.4byte	0x20d
+ 1060 01dd 1C010000 		.4byte	.LLST7
+ 1061 01e1 0B       		.uleb128 0xb
+ 1062 01e2 23010000 		.4byte	.LASF23
+ 1063 01e6 01       		.byte	0x1
+ 1064 01e7 B2       		.byte	0xb2
+ 1065 01e8 6B000000 		.4byte	0x6b
+ 1066 01ec 3D010000 		.4byte	.LLST8
+ 1067 01f0 07       		.uleb128 0x7
+ 1068 01f1 66000000 		.4byte	.LASF28
+ 1069 01f5 01       		.byte	0x1
+ 1070 01f6 B5       		.byte	0xb5
+ 1071 01f7 A1000000 		.4byte	0xa1
+ 1072 01fb 5E010000 		.4byte	.LLST9
+ 1073 01ff 0C       		.uleb128 0xc
+ 1074 0200 6900     		.ascii	"i\000"
+ 1075 0202 01       		.byte	0x1
+ 1076 0203 B6       		.byte	0xb6
+ 1077 0204 6B000000 		.4byte	0x6b
+ 1078 0208 89010000 		.4byte	.LLST10
+ 1079 020c 00       		.byte	0
+ 1080 020d 0F       		.uleb128 0xf
+ 1081 020e 04       		.byte	0x4
+ 1082 020f 13020000 		.4byte	0x213
+ 1083 0213 10       		.uleb128 0x10
+ 1084 0214 6B000000 		.4byte	0x6b
+ 1085 0218 0A       		.uleb128 0xa
+ 1086 0219 1D020000 		.4byte	.LASF29
+ 1087 021d 01       		.byte	0x1
+ 1088 021e FD       		.byte	0xfd
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 31
+
+
+ 1089 021f A1000000 		.4byte	0xa1
+ 1090 0223 00000000 		.4byte	.LFB4
+ 1091 0227 50000000 		.4byte	.LFE4-.LFB4
+ 1092 022b 01       		.uleb128 0x1
+ 1093 022c 9C       		.byte	0x9c
+ 1094 022d 7C020000 		.4byte	0x27c
+ 1095 0231 0B       		.uleb128 0xb
+ 1096 0232 6E010000 		.4byte	.LASF26
+ 1097 0236 01       		.byte	0x1
+ 1098 0237 FD       		.byte	0xfd
+ 1099 0238 6B000000 		.4byte	0x6b
+ 1100 023c C3010000 		.4byte	.LLST11
+ 1101 0240 0B       		.uleb128 0xb
+ 1102 0241 77020000 		.4byte	.LASF22
+ 1103 0245 01       		.byte	0x1
+ 1104 0246 FD       		.byte	0xfd
+ 1105 0247 0D020000 		.4byte	0x20d
+ 1106 024b 22020000 		.4byte	.LLST12
+ 1107 024f 0B       		.uleb128 0xb
+ 1108 0250 23010000 		.4byte	.LASF23
+ 1109 0254 01       		.byte	0x1
+ 1110 0255 FD       		.byte	0xfd
+ 1111 0256 76000000 		.4byte	0x76
+ 1112 025a 4E020000 		.4byte	.LLST13
+ 1113 025e 07       		.uleb128 0x7
+ 1114 025f 66000000 		.4byte	.LASF28
+ 1115 0263 01       		.byte	0x1
+ 1116 0264 FF       		.byte	0xff
+ 1117 0265 A1000000 		.4byte	0xa1
+ 1118 0269 7A020000 		.4byte	.LLST14
+ 1119 026d 11       		.uleb128 0x11
+ 1120 026e 6900     		.ascii	"i\000"
+ 1121 0270 01       		.byte	0x1
+ 1122 0271 0001     		.2byte	0x100
+ 1123 0273 76000000 		.4byte	0x76
+ 1124 0277 C7020000 		.4byte	.LLST15
+ 1125 027b 00       		.byte	0
+ 1126 027c 12       		.uleb128 0x12
+ 1127 027d 2D000000 		.4byte	.LASF30
+ 1128 0281 01       		.byte	0x1
+ 1129 0282 3C01     		.2byte	0x13c
+ 1130 0284 A1000000 		.4byte	0xa1
+ 1131 0288 00000000 		.4byte	.LFB5
+ 1132 028c 44000000 		.4byte	.LFE5-.LFB5
+ 1133 0290 01       		.uleb128 0x1
+ 1134 0291 9C       		.byte	0x9c
+ 1135 0292 E3020000 		.4byte	0x2e3
+ 1136 0296 13       		.uleb128 0x13
+ 1137 0297 6E010000 		.4byte	.LASF26
+ 1138 029b 01       		.byte	0x1
+ 1139 029c 3C01     		.2byte	0x13c
+ 1140 029e 6B000000 		.4byte	0x6b
+ 1141 02a2 01030000 		.4byte	.LLST16
+ 1142 02a6 13       		.uleb128 0x13
+ 1143 02a7 F1010000 		.4byte	.LASF27
+ 1144 02ab 01       		.byte	0x1
+ 1145 02ac 3C01     		.2byte	0x13c
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 32
+
+
+ 1146 02ae 76000000 		.4byte	0x76
+ 1147 02b2 54030000 		.4byte	.LLST17
+ 1148 02b6 14       		.uleb128 0x14
+ 1149 02b7 61010000 		.4byte	.LASF31
+ 1150 02bb 01       		.byte	0x1
+ 1151 02bc 3C01     		.2byte	0x13c
+ 1152 02be 6B000000 		.4byte	0x6b
+ 1153 02c2 01       		.uleb128 0x1
+ 1154 02c3 52       		.byte	0x52
+ 1155 02c4 14       		.uleb128 0x14
+ 1156 02c5 0F020000 		.4byte	.LASF32
+ 1157 02c9 01       		.byte	0x1
+ 1158 02ca 3C01     		.2byte	0x13c
+ 1159 02cc 6B000000 		.4byte	0x6b
+ 1160 02d0 01       		.uleb128 0x1
+ 1161 02d1 53       		.byte	0x53
+ 1162 02d2 15       		.uleb128 0x15
+ 1163 02d3 66000000 		.4byte	.LASF28
+ 1164 02d7 01       		.byte	0x1
+ 1165 02d8 3F01     		.2byte	0x13f
+ 1166 02da A1000000 		.4byte	0xa1
+ 1167 02de 80030000 		.4byte	.LLST18
+ 1168 02e2 00       		.byte	0
+ 1169 02e3 12       		.uleb128 0x12
+ 1170 02e4 3F020000 		.4byte	.LASF33
+ 1171 02e8 01       		.byte	0x1
+ 1172 02e9 7201     		.2byte	0x172
+ 1173 02eb A1000000 		.4byte	0xa1
+ 1174 02ef 00000000 		.4byte	.LFB6
+ 1175 02f3 3C000000 		.4byte	.LFE6-.LFB6
+ 1176 02f7 01       		.uleb128 0x1
+ 1177 02f8 9C       		.byte	0x9c
+ 1178 02f9 2C030000 		.4byte	0x32c
+ 1179 02fd 13       		.uleb128 0x13
+ 1180 02fe 6E010000 		.4byte	.LASF26
+ 1181 0302 01       		.byte	0x1
+ 1182 0303 7201     		.2byte	0x172
+ 1183 0305 6B000000 		.4byte	0x6b
+ 1184 0309 AB030000 		.4byte	.LLST19
+ 1185 030d 14       		.uleb128 0x14
+ 1186 030e 7E020000 		.4byte	.LASF34
+ 1187 0312 01       		.byte	0x1
+ 1188 0313 7201     		.2byte	0x172
+ 1189 0315 6B000000 		.4byte	0x6b
+ 1190 0319 01       		.uleb128 0x1
+ 1191 031a 51       		.byte	0x51
+ 1192 031b 15       		.uleb128 0x15
+ 1193 031c 66000000 		.4byte	.LASF28
+ 1194 0320 01       		.byte	0x1
+ 1195 0321 7401     		.2byte	0x174
+ 1196 0323 A1000000 		.4byte	0xa1
+ 1197 0327 FE030000 		.4byte	.LLST20
+ 1198 032b 00       		.byte	0
+ 1199 032c 12       		.uleb128 0x12
+ 1200 032d 89010000 		.4byte	.LASF35
+ 1201 0331 01       		.byte	0x1
+ 1202 0332 A901     		.2byte	0x1a9
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 33
+
+
+ 1203 0334 A1000000 		.4byte	0xa1
+ 1204 0338 00000000 		.4byte	.LFB7
+ 1205 033c 38000000 		.4byte	.LFE7-.LFB7
+ 1206 0340 01       		.uleb128 0x1
+ 1207 0341 9C       		.byte	0x9c
+ 1208 0342 67030000 		.4byte	0x367
+ 1209 0346 13       		.uleb128 0x13
+ 1210 0347 18010000 		.4byte	.LASF36
+ 1211 034b 01       		.byte	0x1
+ 1212 034c A901     		.2byte	0x1a9
+ 1213 034e 6B000000 		.4byte	0x6b
+ 1214 0352 4B040000 		.4byte	.LLST21
+ 1215 0356 15       		.uleb128 0x15
+ 1216 0357 66000000 		.4byte	.LASF28
+ 1217 035b 01       		.byte	0x1
+ 1218 035c AB01     		.2byte	0x1ab
+ 1219 035e A1000000 		.4byte	0xa1
+ 1220 0362 9C040000 		.4byte	.LLST22
+ 1221 0366 00       		.byte	0
+ 1222 0367 12       		.uleb128 0x12
+ 1223 0368 9D010000 		.4byte	.LASF37
+ 1224 036c 01       		.byte	0x1
+ 1225 036d D601     		.2byte	0x1d6
+ 1226 036f A1000000 		.4byte	0xa1
+ 1227 0373 00000000 		.4byte	.LFB8
+ 1228 0377 44000000 		.4byte	.LFE8-.LFB8
+ 1229 037b 01       		.uleb128 0x1
+ 1230 037c 9C       		.byte	0x9c
+ 1231 037d BD030000 		.4byte	0x3bd
+ 1232 0381 15       		.uleb128 0x15
+ 1233 0382 66000000 		.4byte	.LASF28
+ 1234 0386 01       		.byte	0x1
+ 1235 0387 D801     		.2byte	0x1d8
+ 1236 0389 A1000000 		.4byte	0xa1
+ 1237 038d E9040000 		.4byte	.LLST23
+ 1238 0391 15       		.uleb128 0x15
+ 1239 0392 2D010000 		.4byte	.LASF21
+ 1240 0396 01       		.byte	0x1
+ 1241 0397 D901     		.2byte	0x1d9
+ 1242 0399 6B000000 		.4byte	0x6b
+ 1243 039d 36050000 		.4byte	.LLST24
+ 1244 03a1 08       		.uleb128 0x8
+ 1245 03a2 06000000 		.4byte	.LVL57
+ 1246 03a6 18040000 		.4byte	0x418
+ 1247 03aa 08       		.uleb128 0x8
+ 1248 03ab 12000000 		.4byte	.LVL59
+ 1249 03af 23040000 		.4byte	0x423
+ 1250 03b3 08       		.uleb128 0x8
+ 1251 03b4 38000000 		.4byte	.LVL63
+ 1252 03b8 23040000 		.4byte	0x423
+ 1253 03bc 00       		.byte	0
+ 1254 03bd 16       		.uleb128 0x16
+ 1255 03be 33020000 		.4byte	.LASF38
+ 1256 03c2 01       		.byte	0x1
+ 1257 03c3 0A02     		.2byte	0x20a
+ 1258 03c5 00000000 		.4byte	.LFB9
+ 1259 03c9 34000000 		.4byte	.LFE9-.LFB9
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 34
+
+
+ 1260 03cd 01       		.uleb128 0x1
+ 1261 03ce 9C       		.byte	0x9c
+ 1262 03cf F6030000 		.4byte	0x3f6
+ 1263 03d3 15       		.uleb128 0x15
+ 1264 03d4 2D010000 		.4byte	.LASF21
+ 1265 03d8 01       		.byte	0x1
+ 1266 03d9 0C02     		.2byte	0x20c
+ 1267 03db 6B000000 		.4byte	0x6b
+ 1268 03df 54050000 		.4byte	.LLST25
+ 1269 03e3 08       		.uleb128 0x8
+ 1270 03e4 06000000 		.4byte	.LVL65
+ 1271 03e8 18040000 		.4byte	0x418
+ 1272 03ec 09       		.uleb128 0x9
+ 1273 03ed 2C000000 		.4byte	.LVL66
+ 1274 03f1 23040000 		.4byte	0x423
+ 1275 03f5 00       		.byte	0
+ 1276 03f6 17       		.uleb128 0x17
+ 1277 03f7 94020000 		.4byte	.LASF39
+ 1278 03fb 01       		.byte	0x1
+ 1279 03fc 3C       		.byte	0x3c
+ 1280 03fd 81000000 		.4byte	0x81
+ 1281 0401 05       		.uleb128 0x5
+ 1282 0402 03       		.byte	0x3
+ 1283 0403 04000000 		.4byte	spcWaitPipeBypass
+ 1284 0407 18       		.uleb128 0x18
+ 1285 0408 54010000 		.4byte	.LASF43
+ 1286 040c 01       		.byte	0x1
+ 1287 040d 30       		.byte	0x30
+ 1288 040e 6B000000 		.4byte	0x6b
+ 1289 0412 05       		.uleb128 0x5
+ 1290 0413 03       		.byte	0x3
+ 1291 0414 00000000 		.4byte	SpcLockState
+ 1292 0418 19       		.uleb128 0x19
+ 1293 0419 AE010000 		.4byte	.LASF44
+ 1294 041d 03       		.byte	0x3
+ 1295 041e 7E       		.byte	0x7e
+ 1296 041f 6B000000 		.4byte	0x6b
+ 1297 0423 1A       		.uleb128 0x1a
+ 1298 0424 F9010000 		.4byte	.LASF45
+ 1299 0428 03       		.byte	0x3
+ 1300 0429 7F       		.byte	0x7f
+ 1301 042a 34040000 		.4byte	0x434
+ 1302 042e 1B       		.uleb128 0x1b
+ 1303 042f 6B000000 		.4byte	0x6b
+ 1304 0433 00       		.byte	0
+ 1305 0434 1C       		.uleb128 0x1c
+ 1306 0435 5E020000 		.4byte	.LASF46
+ 1307 0439 03       		.byte	0x3
+ 1308 043a 78       		.byte	0x78
+ 1309 043b 1B       		.uleb128 0x1b
+ 1310 043c 76000000 		.4byte	0x76
+ 1311 0440 00       		.byte	0
+ 1312 0441 00       		.byte	0
+ 1313              		.section	.debug_abbrev,"",%progbits
+ 1314              	.Ldebug_abbrev0:
+ 1315 0000 01       		.uleb128 0x1
+ 1316 0001 11       		.uleb128 0x11
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 35
+
+
+ 1317 0002 01       		.byte	0x1
+ 1318 0003 25       		.uleb128 0x25
+ 1319 0004 0E       		.uleb128 0xe
+ 1320 0005 13       		.uleb128 0x13
+ 1321 0006 0B       		.uleb128 0xb
+ 1322 0007 03       		.uleb128 0x3
+ 1323 0008 0E       		.uleb128 0xe
+ 1324 0009 1B       		.uleb128 0x1b
+ 1325 000a 0E       		.uleb128 0xe
+ 1326 000b 55       		.uleb128 0x55
+ 1327 000c 17       		.uleb128 0x17
+ 1328 000d 11       		.uleb128 0x11
+ 1329 000e 01       		.uleb128 0x1
+ 1330 000f 10       		.uleb128 0x10
+ 1331 0010 17       		.uleb128 0x17
+ 1332 0011 00       		.byte	0
+ 1333 0012 00       		.byte	0
+ 1334 0013 02       		.uleb128 0x2
+ 1335 0014 24       		.uleb128 0x24
+ 1336 0015 00       		.byte	0
+ 1337 0016 0B       		.uleb128 0xb
+ 1338 0017 0B       		.uleb128 0xb
+ 1339 0018 3E       		.uleb128 0x3e
+ 1340 0019 0B       		.uleb128 0xb
+ 1341 001a 03       		.uleb128 0x3
+ 1342 001b 0E       		.uleb128 0xe
+ 1343 001c 00       		.byte	0
+ 1344 001d 00       		.byte	0
+ 1345 001e 03       		.uleb128 0x3
+ 1346 001f 24       		.uleb128 0x24
+ 1347 0020 00       		.byte	0
+ 1348 0021 0B       		.uleb128 0xb
+ 1349 0022 0B       		.uleb128 0xb
+ 1350 0023 3E       		.uleb128 0x3e
+ 1351 0024 0B       		.uleb128 0xb
+ 1352 0025 03       		.uleb128 0x3
+ 1353 0026 08       		.uleb128 0x8
+ 1354 0027 00       		.byte	0
+ 1355 0028 00       		.byte	0
+ 1356 0029 04       		.uleb128 0x4
+ 1357 002a 16       		.uleb128 0x16
+ 1358 002b 00       		.byte	0
+ 1359 002c 03       		.uleb128 0x3
+ 1360 002d 0E       		.uleb128 0xe
+ 1361 002e 3A       		.uleb128 0x3a
+ 1362 002f 0B       		.uleb128 0xb
+ 1363 0030 3B       		.uleb128 0x3b
+ 1364 0031 0B       		.uleb128 0xb
+ 1365 0032 49       		.uleb128 0x49
+ 1366 0033 13       		.uleb128 0x13
+ 1367 0034 00       		.byte	0
+ 1368 0035 00       		.byte	0
+ 1369 0036 05       		.uleb128 0x5
+ 1370 0037 35       		.uleb128 0x35
+ 1371 0038 00       		.byte	0
+ 1372 0039 49       		.uleb128 0x49
+ 1373 003a 13       		.uleb128 0x13
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 36
+
+
+ 1374 003b 00       		.byte	0
+ 1375 003c 00       		.byte	0
+ 1376 003d 06       		.uleb128 0x6
+ 1377 003e 2E       		.uleb128 0x2e
+ 1378 003f 01       		.byte	0x1
+ 1379 0040 3F       		.uleb128 0x3f
+ 1380 0041 19       		.uleb128 0x19
+ 1381 0042 03       		.uleb128 0x3
+ 1382 0043 0E       		.uleb128 0xe
+ 1383 0044 3A       		.uleb128 0x3a
+ 1384 0045 0B       		.uleb128 0xb
+ 1385 0046 3B       		.uleb128 0x3b
+ 1386 0047 0B       		.uleb128 0xb
+ 1387 0048 27       		.uleb128 0x27
+ 1388 0049 19       		.uleb128 0x19
+ 1389 004a 11       		.uleb128 0x11
+ 1390 004b 01       		.uleb128 0x1
+ 1391 004c 12       		.uleb128 0x12
+ 1392 004d 06       		.uleb128 0x6
+ 1393 004e 40       		.uleb128 0x40
+ 1394 004f 18       		.uleb128 0x18
+ 1395 0050 9742     		.uleb128 0x2117
+ 1396 0052 19       		.uleb128 0x19
+ 1397 0053 01       		.uleb128 0x1
+ 1398 0054 13       		.uleb128 0x13
+ 1399 0055 00       		.byte	0
+ 1400 0056 00       		.byte	0
+ 1401 0057 07       		.uleb128 0x7
+ 1402 0058 34       		.uleb128 0x34
+ 1403 0059 00       		.byte	0
+ 1404 005a 03       		.uleb128 0x3
+ 1405 005b 0E       		.uleb128 0xe
+ 1406 005c 3A       		.uleb128 0x3a
+ 1407 005d 0B       		.uleb128 0xb
+ 1408 005e 3B       		.uleb128 0x3b
+ 1409 005f 0B       		.uleb128 0xb
+ 1410 0060 49       		.uleb128 0x49
+ 1411 0061 13       		.uleb128 0x13
+ 1412 0062 02       		.uleb128 0x2
+ 1413 0063 17       		.uleb128 0x17
+ 1414 0064 00       		.byte	0
+ 1415 0065 00       		.byte	0
+ 1416 0066 08       		.uleb128 0x8
+ 1417 0067 898201   		.uleb128 0x4109
+ 1418 006a 00       		.byte	0
+ 1419 006b 11       		.uleb128 0x11
+ 1420 006c 01       		.uleb128 0x1
+ 1421 006d 31       		.uleb128 0x31
+ 1422 006e 13       		.uleb128 0x13
+ 1423 006f 00       		.byte	0
+ 1424 0070 00       		.byte	0
+ 1425 0071 09       		.uleb128 0x9
+ 1426 0072 898201   		.uleb128 0x4109
+ 1427 0075 00       		.byte	0
+ 1428 0076 11       		.uleb128 0x11
+ 1429 0077 01       		.uleb128 0x1
+ 1430 0078 9542     		.uleb128 0x2115
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 37
+
+
+ 1431 007a 19       		.uleb128 0x19
+ 1432 007b 31       		.uleb128 0x31
+ 1433 007c 13       		.uleb128 0x13
+ 1434 007d 00       		.byte	0
+ 1435 007e 00       		.byte	0
+ 1436 007f 0A       		.uleb128 0xa
+ 1437 0080 2E       		.uleb128 0x2e
+ 1438 0081 01       		.byte	0x1
+ 1439 0082 3F       		.uleb128 0x3f
+ 1440 0083 19       		.uleb128 0x19
+ 1441 0084 03       		.uleb128 0x3
+ 1442 0085 0E       		.uleb128 0xe
+ 1443 0086 3A       		.uleb128 0x3a
+ 1444 0087 0B       		.uleb128 0xb
+ 1445 0088 3B       		.uleb128 0x3b
+ 1446 0089 0B       		.uleb128 0xb
+ 1447 008a 27       		.uleb128 0x27
+ 1448 008b 19       		.uleb128 0x19
+ 1449 008c 49       		.uleb128 0x49
+ 1450 008d 13       		.uleb128 0x13
+ 1451 008e 11       		.uleb128 0x11
+ 1452 008f 01       		.uleb128 0x1
+ 1453 0090 12       		.uleb128 0x12
+ 1454 0091 06       		.uleb128 0x6
+ 1455 0092 40       		.uleb128 0x40
+ 1456 0093 18       		.uleb128 0x18
+ 1457 0094 9742     		.uleb128 0x2117
+ 1458 0096 19       		.uleb128 0x19
+ 1459 0097 01       		.uleb128 0x1
+ 1460 0098 13       		.uleb128 0x13
+ 1461 0099 00       		.byte	0
+ 1462 009a 00       		.byte	0
+ 1463 009b 0B       		.uleb128 0xb
+ 1464 009c 05       		.uleb128 0x5
+ 1465 009d 00       		.byte	0
+ 1466 009e 03       		.uleb128 0x3
+ 1467 009f 0E       		.uleb128 0xe
+ 1468 00a0 3A       		.uleb128 0x3a
+ 1469 00a1 0B       		.uleb128 0xb
+ 1470 00a2 3B       		.uleb128 0x3b
+ 1471 00a3 0B       		.uleb128 0xb
+ 1472 00a4 49       		.uleb128 0x49
+ 1473 00a5 13       		.uleb128 0x13
+ 1474 00a6 02       		.uleb128 0x2
+ 1475 00a7 17       		.uleb128 0x17
+ 1476 00a8 00       		.byte	0
+ 1477 00a9 00       		.byte	0
+ 1478 00aa 0C       		.uleb128 0xc
+ 1479 00ab 34       		.uleb128 0x34
+ 1480 00ac 00       		.byte	0
+ 1481 00ad 03       		.uleb128 0x3
+ 1482 00ae 08       		.uleb128 0x8
+ 1483 00af 3A       		.uleb128 0x3a
+ 1484 00b0 0B       		.uleb128 0xb
+ 1485 00b1 3B       		.uleb128 0x3b
+ 1486 00b2 0B       		.uleb128 0xb
+ 1487 00b3 49       		.uleb128 0x49
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 38
+
+
+ 1488 00b4 13       		.uleb128 0x13
+ 1489 00b5 02       		.uleb128 0x2
+ 1490 00b6 17       		.uleb128 0x17
+ 1491 00b7 00       		.byte	0
+ 1492 00b8 00       		.byte	0
+ 1493 00b9 0D       		.uleb128 0xd
+ 1494 00ba 898201   		.uleb128 0x4109
+ 1495 00bd 01       		.byte	0x1
+ 1496 00be 11       		.uleb128 0x11
+ 1497 00bf 01       		.uleb128 0x1
+ 1498 00c0 31       		.uleb128 0x31
+ 1499 00c1 13       		.uleb128 0x13
+ 1500 00c2 00       		.byte	0
+ 1501 00c3 00       		.byte	0
+ 1502 00c4 0E       		.uleb128 0xe
+ 1503 00c5 8A8201   		.uleb128 0x410a
+ 1504 00c8 00       		.byte	0
+ 1505 00c9 02       		.uleb128 0x2
+ 1506 00ca 18       		.uleb128 0x18
+ 1507 00cb 9142     		.uleb128 0x2111
+ 1508 00cd 18       		.uleb128 0x18
+ 1509 00ce 00       		.byte	0
+ 1510 00cf 00       		.byte	0
+ 1511 00d0 0F       		.uleb128 0xf
+ 1512 00d1 0F       		.uleb128 0xf
+ 1513 00d2 00       		.byte	0
+ 1514 00d3 0B       		.uleb128 0xb
+ 1515 00d4 0B       		.uleb128 0xb
+ 1516 00d5 49       		.uleb128 0x49
+ 1517 00d6 13       		.uleb128 0x13
+ 1518 00d7 00       		.byte	0
+ 1519 00d8 00       		.byte	0
+ 1520 00d9 10       		.uleb128 0x10
+ 1521 00da 26       		.uleb128 0x26
+ 1522 00db 00       		.byte	0
+ 1523 00dc 49       		.uleb128 0x49
+ 1524 00dd 13       		.uleb128 0x13
+ 1525 00de 00       		.byte	0
+ 1526 00df 00       		.byte	0
+ 1527 00e0 11       		.uleb128 0x11
+ 1528 00e1 34       		.uleb128 0x34
+ 1529 00e2 00       		.byte	0
+ 1530 00e3 03       		.uleb128 0x3
+ 1531 00e4 08       		.uleb128 0x8
+ 1532 00e5 3A       		.uleb128 0x3a
+ 1533 00e6 0B       		.uleb128 0xb
+ 1534 00e7 3B       		.uleb128 0x3b
+ 1535 00e8 05       		.uleb128 0x5
+ 1536 00e9 49       		.uleb128 0x49
+ 1537 00ea 13       		.uleb128 0x13
+ 1538 00eb 02       		.uleb128 0x2
+ 1539 00ec 17       		.uleb128 0x17
+ 1540 00ed 00       		.byte	0
+ 1541 00ee 00       		.byte	0
+ 1542 00ef 12       		.uleb128 0x12
+ 1543 00f0 2E       		.uleb128 0x2e
+ 1544 00f1 01       		.byte	0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 39
+
+
+ 1545 00f2 3F       		.uleb128 0x3f
+ 1546 00f3 19       		.uleb128 0x19
+ 1547 00f4 03       		.uleb128 0x3
+ 1548 00f5 0E       		.uleb128 0xe
+ 1549 00f6 3A       		.uleb128 0x3a
+ 1550 00f7 0B       		.uleb128 0xb
+ 1551 00f8 3B       		.uleb128 0x3b
+ 1552 00f9 05       		.uleb128 0x5
+ 1553 00fa 27       		.uleb128 0x27
+ 1554 00fb 19       		.uleb128 0x19
+ 1555 00fc 49       		.uleb128 0x49
+ 1556 00fd 13       		.uleb128 0x13
+ 1557 00fe 11       		.uleb128 0x11
+ 1558 00ff 01       		.uleb128 0x1
+ 1559 0100 12       		.uleb128 0x12
+ 1560 0101 06       		.uleb128 0x6
+ 1561 0102 40       		.uleb128 0x40
+ 1562 0103 18       		.uleb128 0x18
+ 1563 0104 9742     		.uleb128 0x2117
+ 1564 0106 19       		.uleb128 0x19
+ 1565 0107 01       		.uleb128 0x1
+ 1566 0108 13       		.uleb128 0x13
+ 1567 0109 00       		.byte	0
+ 1568 010a 00       		.byte	0
+ 1569 010b 13       		.uleb128 0x13
+ 1570 010c 05       		.uleb128 0x5
+ 1571 010d 00       		.byte	0
+ 1572 010e 03       		.uleb128 0x3
+ 1573 010f 0E       		.uleb128 0xe
+ 1574 0110 3A       		.uleb128 0x3a
+ 1575 0111 0B       		.uleb128 0xb
+ 1576 0112 3B       		.uleb128 0x3b
+ 1577 0113 05       		.uleb128 0x5
+ 1578 0114 49       		.uleb128 0x49
+ 1579 0115 13       		.uleb128 0x13
+ 1580 0116 02       		.uleb128 0x2
+ 1581 0117 17       		.uleb128 0x17
+ 1582 0118 00       		.byte	0
+ 1583 0119 00       		.byte	0
+ 1584 011a 14       		.uleb128 0x14
+ 1585 011b 05       		.uleb128 0x5
+ 1586 011c 00       		.byte	0
+ 1587 011d 03       		.uleb128 0x3
+ 1588 011e 0E       		.uleb128 0xe
+ 1589 011f 3A       		.uleb128 0x3a
+ 1590 0120 0B       		.uleb128 0xb
+ 1591 0121 3B       		.uleb128 0x3b
+ 1592 0122 05       		.uleb128 0x5
+ 1593 0123 49       		.uleb128 0x49
+ 1594 0124 13       		.uleb128 0x13
+ 1595 0125 02       		.uleb128 0x2
+ 1596 0126 18       		.uleb128 0x18
+ 1597 0127 00       		.byte	0
+ 1598 0128 00       		.byte	0
+ 1599 0129 15       		.uleb128 0x15
+ 1600 012a 34       		.uleb128 0x34
+ 1601 012b 00       		.byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 40
+
+
+ 1602 012c 03       		.uleb128 0x3
+ 1603 012d 0E       		.uleb128 0xe
+ 1604 012e 3A       		.uleb128 0x3a
+ 1605 012f 0B       		.uleb128 0xb
+ 1606 0130 3B       		.uleb128 0x3b
+ 1607 0131 05       		.uleb128 0x5
+ 1608 0132 49       		.uleb128 0x49
+ 1609 0133 13       		.uleb128 0x13
+ 1610 0134 02       		.uleb128 0x2
+ 1611 0135 17       		.uleb128 0x17
+ 1612 0136 00       		.byte	0
+ 1613 0137 00       		.byte	0
+ 1614 0138 16       		.uleb128 0x16
+ 1615 0139 2E       		.uleb128 0x2e
+ 1616 013a 01       		.byte	0x1
+ 1617 013b 3F       		.uleb128 0x3f
+ 1618 013c 19       		.uleb128 0x19
+ 1619 013d 03       		.uleb128 0x3
+ 1620 013e 0E       		.uleb128 0xe
+ 1621 013f 3A       		.uleb128 0x3a
+ 1622 0140 0B       		.uleb128 0xb
+ 1623 0141 3B       		.uleb128 0x3b
+ 1624 0142 05       		.uleb128 0x5
+ 1625 0143 27       		.uleb128 0x27
+ 1626 0144 19       		.uleb128 0x19
+ 1627 0145 11       		.uleb128 0x11
+ 1628 0146 01       		.uleb128 0x1
+ 1629 0147 12       		.uleb128 0x12
+ 1630 0148 06       		.uleb128 0x6
+ 1631 0149 40       		.uleb128 0x40
+ 1632 014a 18       		.uleb128 0x18
+ 1633 014b 9742     		.uleb128 0x2117
+ 1634 014d 19       		.uleb128 0x19
+ 1635 014e 01       		.uleb128 0x1
+ 1636 014f 13       		.uleb128 0x13
+ 1637 0150 00       		.byte	0
+ 1638 0151 00       		.byte	0
+ 1639 0152 17       		.uleb128 0x17
+ 1640 0153 34       		.uleb128 0x34
+ 1641 0154 00       		.byte	0
+ 1642 0155 03       		.uleb128 0x3
+ 1643 0156 0E       		.uleb128 0xe
+ 1644 0157 3A       		.uleb128 0x3a
+ 1645 0158 0B       		.uleb128 0xb
+ 1646 0159 3B       		.uleb128 0x3b
+ 1647 015a 0B       		.uleb128 0xb
+ 1648 015b 49       		.uleb128 0x49
+ 1649 015c 13       		.uleb128 0x13
+ 1650 015d 02       		.uleb128 0x2
+ 1651 015e 18       		.uleb128 0x18
+ 1652 015f 00       		.byte	0
+ 1653 0160 00       		.byte	0
+ 1654 0161 18       		.uleb128 0x18
+ 1655 0162 34       		.uleb128 0x34
+ 1656 0163 00       		.byte	0
+ 1657 0164 03       		.uleb128 0x3
+ 1658 0165 0E       		.uleb128 0xe
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 41
+
+
+ 1659 0166 3A       		.uleb128 0x3a
+ 1660 0167 0B       		.uleb128 0xb
+ 1661 0168 3B       		.uleb128 0x3b
+ 1662 0169 0B       		.uleb128 0xb
+ 1663 016a 49       		.uleb128 0x49
+ 1664 016b 13       		.uleb128 0x13
+ 1665 016c 3F       		.uleb128 0x3f
+ 1666 016d 19       		.uleb128 0x19
+ 1667 016e 02       		.uleb128 0x2
+ 1668 016f 18       		.uleb128 0x18
+ 1669 0170 00       		.byte	0
+ 1670 0171 00       		.byte	0
+ 1671 0172 19       		.uleb128 0x19
+ 1672 0173 2E       		.uleb128 0x2e
+ 1673 0174 00       		.byte	0
+ 1674 0175 3F       		.uleb128 0x3f
+ 1675 0176 19       		.uleb128 0x19
+ 1676 0177 03       		.uleb128 0x3
+ 1677 0178 0E       		.uleb128 0xe
+ 1678 0179 3A       		.uleb128 0x3a
+ 1679 017a 0B       		.uleb128 0xb
+ 1680 017b 3B       		.uleb128 0x3b
+ 1681 017c 0B       		.uleb128 0xb
+ 1682 017d 27       		.uleb128 0x27
+ 1683 017e 19       		.uleb128 0x19
+ 1684 017f 49       		.uleb128 0x49
+ 1685 0180 13       		.uleb128 0x13
+ 1686 0181 3C       		.uleb128 0x3c
+ 1687 0182 19       		.uleb128 0x19
+ 1688 0183 00       		.byte	0
+ 1689 0184 00       		.byte	0
+ 1690 0185 1A       		.uleb128 0x1a
+ 1691 0186 2E       		.uleb128 0x2e
+ 1692 0187 01       		.byte	0x1
+ 1693 0188 3F       		.uleb128 0x3f
+ 1694 0189 19       		.uleb128 0x19
+ 1695 018a 03       		.uleb128 0x3
+ 1696 018b 0E       		.uleb128 0xe
+ 1697 018c 3A       		.uleb128 0x3a
+ 1698 018d 0B       		.uleb128 0xb
+ 1699 018e 3B       		.uleb128 0x3b
+ 1700 018f 0B       		.uleb128 0xb
+ 1701 0190 27       		.uleb128 0x27
+ 1702 0191 19       		.uleb128 0x19
+ 1703 0192 3C       		.uleb128 0x3c
+ 1704 0193 19       		.uleb128 0x19
+ 1705 0194 01       		.uleb128 0x1
+ 1706 0195 13       		.uleb128 0x13
+ 1707 0196 00       		.byte	0
+ 1708 0197 00       		.byte	0
+ 1709 0198 1B       		.uleb128 0x1b
+ 1710 0199 05       		.uleb128 0x5
+ 1711 019a 00       		.byte	0
+ 1712 019b 49       		.uleb128 0x49
+ 1713 019c 13       		.uleb128 0x13
+ 1714 019d 00       		.byte	0
+ 1715 019e 00       		.byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 42
+
+
+ 1716 019f 1C       		.uleb128 0x1c
+ 1717 01a0 2E       		.uleb128 0x2e
+ 1718 01a1 01       		.byte	0x1
+ 1719 01a2 3F       		.uleb128 0x3f
+ 1720 01a3 19       		.uleb128 0x19
+ 1721 01a4 03       		.uleb128 0x3
+ 1722 01a5 0E       		.uleb128 0xe
+ 1723 01a6 3A       		.uleb128 0x3a
+ 1724 01a7 0B       		.uleb128 0xb
+ 1725 01a8 3B       		.uleb128 0x3b
+ 1726 01a9 0B       		.uleb128 0xb
+ 1727 01aa 27       		.uleb128 0x27
+ 1728 01ab 19       		.uleb128 0x19
+ 1729 01ac 3C       		.uleb128 0x3c
+ 1730 01ad 19       		.uleb128 0x19
+ 1731 01ae 00       		.byte	0
+ 1732 01af 00       		.byte	0
+ 1733 01b0 00       		.byte	0
+ 1734              		.section	.debug_loc,"",%progbits
+ 1735              	.Ldebug_loc0:
+ 1736              	.LLST0:
+ 1737 0000 06000000 		.4byte	.LVL0
+ 1738 0004 21000000 		.4byte	.LVL1-1
+ 1739 0008 0100     		.2byte	0x1
+ 1740 000a 50       		.byte	0x50
+ 1741 000b 00000000 		.4byte	0
+ 1742 000f 00000000 		.4byte	0
+ 1743              	.LLST1:
+ 1744 0013 06000000 		.4byte	.LVL2
+ 1745 0017 21000000 		.4byte	.LVL3-1
+ 1746 001b 0100     		.2byte	0x1
+ 1747 001d 50       		.byte	0x50
+ 1748 001e 00000000 		.4byte	0
+ 1749 0022 00000000 		.4byte	0
+ 1750              	.LLST2:
+ 1751 0026 00000000 		.4byte	.LVL4
+ 1752 002a 18000000 		.4byte	.LVL5
+ 1753 002e 0100     		.2byte	0x1
+ 1754 0030 50       		.byte	0x50
+ 1755 0031 18000000 		.4byte	.LVL5
+ 1756 0035 40000000 		.4byte	.LFE2
+ 1757 0039 0400     		.2byte	0x4
+ 1758 003b F3       		.byte	0xf3
+ 1759 003c 01       		.uleb128 0x1
+ 1760 003d 50       		.byte	0x50
+ 1761 003e 9F       		.byte	0x9f
+ 1762 003f 00000000 		.4byte	0
+ 1763 0043 00000000 		.4byte	0
+ 1764              	.LLST3:
+ 1765 0047 00000000 		.4byte	.LVL4
+ 1766 004b 18000000 		.4byte	.LVL5
+ 1767 004f 0100     		.2byte	0x1
+ 1768 0051 51       		.byte	0x51
+ 1769 0052 18000000 		.4byte	.LVL5
+ 1770 0056 40000000 		.4byte	.LFE2
+ 1771 005a 0400     		.2byte	0x4
+ 1772 005c F3       		.byte	0xf3
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 43
+
+
+ 1773 005d 01       		.uleb128 0x1
+ 1774 005e 51       		.byte	0x51
+ 1775 005f 9F       		.byte	0x9f
+ 1776 0060 00000000 		.4byte	0
+ 1777 0064 00000000 		.4byte	0
+ 1778              	.LLST4:
+ 1779 0068 00000000 		.4byte	.LVL4
+ 1780 006c 18000000 		.4byte	.LVL5
+ 1781 0070 0200     		.2byte	0x2
+ 1782 0072 30       		.byte	0x30
+ 1783 0073 9F       		.byte	0x9f
+ 1784 0074 2C000000 		.4byte	.LVL7
+ 1785 0078 30000000 		.4byte	.LVL8
+ 1786 007c 0900     		.2byte	0x9
+ 1787 007e 75       		.byte	0x75
+ 1788 007f 00       		.sleb128 0
+ 1789 0080 F3       		.byte	0xf3
+ 1790 0081 01       		.uleb128 0x1
+ 1791 0082 50       		.byte	0x50
+ 1792 0083 31       		.byte	0x31
+ 1793 0084 1C       		.byte	0x1c
+ 1794 0085 1C       		.byte	0x1c
+ 1795 0086 9F       		.byte	0x9f
+ 1796 0087 00000000 		.4byte	0
+ 1797 008b 00000000 		.4byte	0
+ 1798              	.LLST5:
+ 1799 008f 00000000 		.4byte	.LVL9
+ 1800 0093 14000000 		.4byte	.LVL10
+ 1801 0097 0100     		.2byte	0x1
+ 1802 0099 50       		.byte	0x50
+ 1803 009a 14000000 		.4byte	.LVL10
+ 1804 009e 16000000 		.4byte	.LVL11
+ 1805 00a2 0400     		.2byte	0x4
+ 1806 00a4 F3       		.byte	0xf3
+ 1807 00a5 01       		.uleb128 0x1
+ 1808 00a6 50       		.byte	0x50
+ 1809 00a7 9F       		.byte	0x9f
+ 1810 00a8 16000000 		.4byte	.LVL11
+ 1811 00ac 20000000 		.4byte	.LVL12
+ 1812 00b0 0100     		.2byte	0x1
+ 1813 00b2 50       		.byte	0x50
+ 1814 00b3 20000000 		.4byte	.LVL12
+ 1815 00b7 22000000 		.4byte	.LVL13
+ 1816 00bb 0400     		.2byte	0x4
+ 1817 00bd F3       		.byte	0xf3
+ 1818 00be 01       		.uleb128 0x1
+ 1819 00bf 50       		.byte	0x50
+ 1820 00c0 9F       		.byte	0x9f
+ 1821 00c1 22000000 		.4byte	.LVL13
+ 1822 00c5 3C000000 		.4byte	.LVL14
+ 1823 00c9 0100     		.2byte	0x1
+ 1824 00cb 50       		.byte	0x50
+ 1825 00cc 3C000000 		.4byte	.LVL14
+ 1826 00d0 3E000000 		.4byte	.LVL15
+ 1827 00d4 0400     		.2byte	0x4
+ 1828 00d6 F3       		.byte	0xf3
+ 1829 00d7 01       		.uleb128 0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 44
+
+
+ 1830 00d8 50       		.byte	0x50
+ 1831 00d9 9F       		.byte	0x9f
+ 1832 00da 3E000000 		.4byte	.LVL15
+ 1833 00de 62000000 		.4byte	.LVL22
+ 1834 00e2 0100     		.2byte	0x1
+ 1835 00e4 50       		.byte	0x50
+ 1836 00e5 62000000 		.4byte	.LVL22
+ 1837 00e9 6C000000 		.4byte	.LFE3
+ 1838 00ed 0400     		.2byte	0x4
+ 1839 00ef F3       		.byte	0xf3
+ 1840 00f0 01       		.uleb128 0x1
+ 1841 00f1 50       		.byte	0x50
+ 1842 00f2 9F       		.byte	0x9f
+ 1843 00f3 00000000 		.4byte	0
+ 1844 00f7 00000000 		.4byte	0
+ 1845              	.LLST6:
+ 1846 00fb 00000000 		.4byte	.LVL9
+ 1847 00ff 48000000 		.4byte	.LVL16
+ 1848 0103 0100     		.2byte	0x1
+ 1849 0105 51       		.byte	0x51
+ 1850 0106 48000000 		.4byte	.LVL16
+ 1851 010a 6C000000 		.4byte	.LFE3
+ 1852 010e 0400     		.2byte	0x4
+ 1853 0110 F3       		.byte	0xf3
+ 1854 0111 01       		.uleb128 0x1
+ 1855 0112 51       		.byte	0x51
+ 1856 0113 9F       		.byte	0x9f
+ 1857 0114 00000000 		.4byte	0
+ 1858 0118 00000000 		.4byte	0
+ 1859              	.LLST7:
+ 1860 011c 00000000 		.4byte	.LVL9
+ 1861 0120 56000000 		.4byte	.LVL18
+ 1862 0124 0100     		.2byte	0x1
+ 1863 0126 52       		.byte	0x52
+ 1864 0127 56000000 		.4byte	.LVL18
+ 1865 012b 6C000000 		.4byte	.LFE3
+ 1866 012f 0400     		.2byte	0x4
+ 1867 0131 F3       		.byte	0xf3
+ 1868 0132 01       		.uleb128 0x1
+ 1869 0133 52       		.byte	0x52
+ 1870 0134 9F       		.byte	0x9f
+ 1871 0135 00000000 		.4byte	0
+ 1872 0139 00000000 		.4byte	0
+ 1873              	.LLST8:
+ 1874 013d 00000000 		.4byte	.LVL9
+ 1875 0141 56000000 		.4byte	.LVL18
+ 1876 0145 0100     		.2byte	0x1
+ 1877 0147 53       		.byte	0x53
+ 1878 0148 56000000 		.4byte	.LVL18
+ 1879 014c 6C000000 		.4byte	.LFE3
+ 1880 0150 0400     		.2byte	0x4
+ 1881 0152 F3       		.byte	0xf3
+ 1882 0153 01       		.uleb128 0x1
+ 1883 0154 53       		.byte	0x53
+ 1884 0155 9F       		.byte	0x9f
+ 1885 0156 00000000 		.4byte	0
+ 1886 015a 00000000 		.4byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 45
+
+
+ 1887              	.LLST9:
+ 1888 015e 00000000 		.4byte	.LVL9
+ 1889 0162 3C000000 		.4byte	.LVL14
+ 1890 0166 0200     		.2byte	0x2
+ 1891 0168 37       		.byte	0x37
+ 1892 0169 9F       		.byte	0x9f
+ 1893 016a 3C000000 		.4byte	.LVL14
+ 1894 016e 3E000000 		.4byte	.LVL15
+ 1895 0172 0100     		.2byte	0x1
+ 1896 0174 50       		.byte	0x50
+ 1897 0175 3E000000 		.4byte	.LVL15
+ 1898 0179 6C000000 		.4byte	.LFE3
+ 1899 017d 0200     		.2byte	0x2
+ 1900 017f 37       		.byte	0x37
+ 1901 0180 9F       		.byte	0x9f
+ 1902 0181 00000000 		.4byte	0
+ 1903 0185 00000000 		.4byte	0
+ 1904              	.LLST10:
+ 1905 0189 50000000 		.4byte	.LVL17
+ 1906 018d 56000000 		.4byte	.LVL18
+ 1907 0191 0200     		.2byte	0x2
+ 1908 0193 30       		.byte	0x30
+ 1909 0194 9F       		.byte	0x9f
+ 1910 0195 56000000 		.4byte	.LVL18
+ 1911 0199 5A000000 		.4byte	.LVL19
+ 1912 019d 0900     		.2byte	0x9
+ 1913 019f 72       		.byte	0x72
+ 1914 01a0 00       		.sleb128 0
+ 1915 01a1 F3       		.byte	0xf3
+ 1916 01a2 01       		.uleb128 0x1
+ 1917 01a3 52       		.byte	0x52
+ 1918 01a4 31       		.byte	0x31
+ 1919 01a5 1C       		.byte	0x1c
+ 1920 01a6 1C       		.byte	0x1c
+ 1921 01a7 9F       		.byte	0x9f
+ 1922 01a8 5E000000 		.4byte	.LVL20
+ 1923 01ac 60000000 		.4byte	.LVL21
+ 1924 01b0 0900     		.2byte	0x9
+ 1925 01b2 72       		.byte	0x72
+ 1926 01b3 00       		.sleb128 0
+ 1927 01b4 F3       		.byte	0xf3
+ 1928 01b5 01       		.uleb128 0x1
+ 1929 01b6 52       		.byte	0x52
+ 1930 01b7 31       		.byte	0x31
+ 1931 01b8 1C       		.byte	0x1c
+ 1932 01b9 1C       		.byte	0x1c
+ 1933 01ba 9F       		.byte	0x9f
+ 1934 01bb 00000000 		.4byte	0
+ 1935 01bf 00000000 		.4byte	0
+ 1936              	.LLST11:
+ 1937 01c3 00000000 		.4byte	.LVL23
+ 1938 01c7 24000000 		.4byte	.LVL26
+ 1939 01cb 0100     		.2byte	0x1
+ 1940 01cd 50       		.byte	0x50
+ 1941 01ce 24000000 		.4byte	.LVL26
+ 1942 01d2 2C000000 		.4byte	.LVL28
+ 1943 01d6 0200     		.2byte	0x2
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 46
+
+
+ 1944 01d8 70       		.byte	0x70
+ 1945 01d9 00       		.sleb128 0
+ 1946 01da 2C000000 		.4byte	.LVL28
+ 1947 01de 3C000000 		.4byte	.LVL33
+ 1948 01e2 0400     		.2byte	0x4
+ 1949 01e4 F3       		.byte	0xf3
+ 1950 01e5 01       		.uleb128 0x1
+ 1951 01e6 50       		.byte	0x50
+ 1952 01e7 9F       		.byte	0x9f
+ 1953 01e8 3C000000 		.4byte	.LVL33
+ 1954 01ec 3E000000 		.4byte	.LVL34
+ 1955 01f0 0100     		.2byte	0x1
+ 1956 01f2 50       		.byte	0x50
+ 1957 01f3 3E000000 		.4byte	.LVL34
+ 1958 01f7 42000000 		.4byte	.LVL35
+ 1959 01fb 0400     		.2byte	0x4
+ 1960 01fd F3       		.byte	0xf3
+ 1961 01fe 01       		.uleb128 0x1
+ 1962 01ff 50       		.byte	0x50
+ 1963 0200 9F       		.byte	0x9f
+ 1964 0201 42000000 		.4byte	.LVL35
+ 1965 0205 44000000 		.4byte	.LVL36
+ 1966 0209 0100     		.2byte	0x1
+ 1967 020b 50       		.byte	0x50
+ 1968 020c 44000000 		.4byte	.LVL36
+ 1969 0210 50000000 		.4byte	.LFE4
+ 1970 0214 0400     		.2byte	0x4
+ 1971 0216 F3       		.byte	0xf3
+ 1972 0217 01       		.uleb128 0x1
+ 1973 0218 50       		.byte	0x50
+ 1974 0219 9F       		.byte	0x9f
+ 1975 021a 00000000 		.4byte	0
+ 1976 021e 00000000 		.4byte	0
+ 1977              	.LLST12:
+ 1978 0222 00000000 		.4byte	.LVL23
+ 1979 0226 2C000000 		.4byte	.LVL28
+ 1980 022a 0100     		.2byte	0x1
+ 1981 022c 51       		.byte	0x51
+ 1982 022d 2C000000 		.4byte	.LVL28
+ 1983 0231 3C000000 		.4byte	.LVL33
+ 1984 0235 0400     		.2byte	0x4
+ 1985 0237 F3       		.byte	0xf3
+ 1986 0238 01       		.uleb128 0x1
+ 1987 0239 51       		.byte	0x51
+ 1988 023a 9F       		.byte	0x9f
+ 1989 023b 3C000000 		.4byte	.LVL33
+ 1990 023f 50000000 		.4byte	.LFE4
+ 1991 0243 0100     		.2byte	0x1
+ 1992 0245 51       		.byte	0x51
+ 1993 0246 00000000 		.4byte	0
+ 1994 024a 00000000 		.4byte	0
+ 1995              	.LLST13:
+ 1996 024e 00000000 		.4byte	.LVL23
+ 1997 0252 26000000 		.4byte	.LVL27
+ 1998 0256 0100     		.2byte	0x1
+ 1999 0258 52       		.byte	0x52
+ 2000 0259 26000000 		.4byte	.LVL27
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 47
+
+
+ 2001 025d 3C000000 		.4byte	.LVL33
+ 2002 0261 0400     		.2byte	0x4
+ 2003 0263 F3       		.byte	0xf3
+ 2004 0264 01       		.uleb128 0x1
+ 2005 0265 52       		.byte	0x52
+ 2006 0266 9F       		.byte	0x9f
+ 2007 0267 3C000000 		.4byte	.LVL33
+ 2008 026b 50000000 		.4byte	.LFE4
+ 2009 026f 0100     		.2byte	0x1
+ 2010 0271 52       		.byte	0x52
+ 2011 0272 00000000 		.4byte	0
+ 2012 0276 00000000 		.4byte	0
+ 2013              	.LLST14:
+ 2014 027a 04000000 		.4byte	.LVL24
+ 2015 027e 38000000 		.4byte	.LVL32
+ 2016 0282 0200     		.2byte	0x2
+ 2017 0284 37       		.byte	0x37
+ 2018 0285 9F       		.byte	0x9f
+ 2019 0286 38000000 		.4byte	.LVL32
+ 2020 028a 3C000000 		.4byte	.LVL33
+ 2021 028e 0100     		.2byte	0x1
+ 2022 0290 50       		.byte	0x50
+ 2023 0291 3C000000 		.4byte	.LVL33
+ 2024 0295 3E000000 		.4byte	.LVL34
+ 2025 0299 0200     		.2byte	0x2
+ 2026 029b 37       		.byte	0x37
+ 2027 029c 9F       		.byte	0x9f
+ 2028 029d 3E000000 		.4byte	.LVL34
+ 2029 02a1 42000000 		.4byte	.LVL35
+ 2030 02a5 0100     		.2byte	0x1
+ 2031 02a7 50       		.byte	0x50
+ 2032 02a8 42000000 		.4byte	.LVL35
+ 2033 02ac 44000000 		.4byte	.LVL36
+ 2034 02b0 0200     		.2byte	0x2
+ 2035 02b2 37       		.byte	0x37
+ 2036 02b3 9F       		.byte	0x9f
+ 2037 02b4 44000000 		.4byte	.LVL36
+ 2038 02b8 50000000 		.4byte	.LFE4
+ 2039 02bc 0100     		.2byte	0x1
+ 2040 02be 50       		.byte	0x50
+ 2041 02bf 00000000 		.4byte	0
+ 2042 02c3 00000000 		.4byte	0
+ 2043              	.LLST15:
+ 2044 02c7 20000000 		.4byte	.LVL25
+ 2045 02cb 2C000000 		.4byte	.LVL28
+ 2046 02cf 0200     		.2byte	0x2
+ 2047 02d1 30       		.byte	0x30
+ 2048 02d2 9F       		.byte	0x9f
+ 2049 02d3 2C000000 		.4byte	.LVL28
+ 2050 02d7 30000000 		.4byte	.LVL29
+ 2051 02db 0900     		.2byte	0x9
+ 2052 02dd 71       		.byte	0x71
+ 2053 02de 00       		.sleb128 0
+ 2054 02df F3       		.byte	0xf3
+ 2055 02e0 01       		.uleb128 0x1
+ 2056 02e1 51       		.byte	0x51
+ 2057 02e2 31       		.byte	0x31
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 48
+
+
+ 2058 02e3 1C       		.byte	0x1c
+ 2059 02e4 1C       		.byte	0x1c
+ 2060 02e5 9F       		.byte	0x9f
+ 2061 02e6 34000000 		.4byte	.LVL30
+ 2062 02ea 36000000 		.4byte	.LVL31
+ 2063 02ee 0900     		.2byte	0x9
+ 2064 02f0 71       		.byte	0x71
+ 2065 02f1 00       		.sleb128 0
+ 2066 02f2 F3       		.byte	0xf3
+ 2067 02f3 01       		.uleb128 0x1
+ 2068 02f4 51       		.byte	0x51
+ 2069 02f5 31       		.byte	0x31
+ 2070 02f6 1C       		.byte	0x1c
+ 2071 02f7 1C       		.byte	0x1c
+ 2072 02f8 9F       		.byte	0x9f
+ 2073 02f9 00000000 		.4byte	0
+ 2074 02fd 00000000 		.4byte	0
+ 2075              	.LLST16:
+ 2076 0301 00000000 		.4byte	.LVL37
+ 2077 0305 32000000 		.4byte	.LVL39
+ 2078 0309 0100     		.2byte	0x1
+ 2079 030b 50       		.byte	0x50
+ 2080 030c 32000000 		.4byte	.LVL39
+ 2081 0310 34000000 		.4byte	.LVL40
+ 2082 0314 0400     		.2byte	0x4
+ 2083 0316 F3       		.byte	0xf3
+ 2084 0317 01       		.uleb128 0x1
+ 2085 0318 50       		.byte	0x50
+ 2086 0319 9F       		.byte	0x9f
+ 2087 031a 34000000 		.4byte	.LVL40
+ 2088 031e 36000000 		.4byte	.LVL41
+ 2089 0322 0100     		.2byte	0x1
+ 2090 0324 50       		.byte	0x50
+ 2091 0325 36000000 		.4byte	.LVL41
+ 2092 0329 38000000 		.4byte	.LVL42
+ 2093 032d 0400     		.2byte	0x4
+ 2094 032f F3       		.byte	0xf3
+ 2095 0330 01       		.uleb128 0x1
+ 2096 0331 50       		.byte	0x50
+ 2097 0332 9F       		.byte	0x9f
+ 2098 0333 38000000 		.4byte	.LVL42
+ 2099 0337 3A000000 		.4byte	.LVL43
+ 2100 033b 0100     		.2byte	0x1
+ 2101 033d 50       		.byte	0x50
+ 2102 033e 3A000000 		.4byte	.LVL43
+ 2103 0342 44000000 		.4byte	.LFE5
+ 2104 0346 0400     		.2byte	0x4
+ 2105 0348 F3       		.byte	0xf3
+ 2106 0349 01       		.uleb128 0x1
+ 2107 034a 50       		.byte	0x50
+ 2108 034b 9F       		.byte	0x9f
+ 2109 034c 00000000 		.4byte	0
+ 2110 0350 00000000 		.4byte	0
+ 2111              	.LLST17:
+ 2112 0354 00000000 		.4byte	.LVL37
+ 2113 0358 26000000 		.4byte	.LVL38
+ 2114 035c 0100     		.2byte	0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 49
+
+
+ 2115 035e 51       		.byte	0x51
+ 2116 035f 26000000 		.4byte	.LVL38
+ 2117 0363 34000000 		.4byte	.LVL40
+ 2118 0367 0400     		.2byte	0x4
+ 2119 0369 F3       		.byte	0xf3
+ 2120 036a 01       		.uleb128 0x1
+ 2121 036b 51       		.byte	0x51
+ 2122 036c 9F       		.byte	0x9f
+ 2123 036d 34000000 		.4byte	.LVL40
+ 2124 0371 44000000 		.4byte	.LFE5
+ 2125 0375 0100     		.2byte	0x1
+ 2126 0377 51       		.byte	0x51
+ 2127 0378 00000000 		.4byte	0
+ 2128 037c 00000000 		.4byte	0
+ 2129              	.LLST18:
+ 2130 0380 00000000 		.4byte	.LVL37
+ 2131 0384 36000000 		.4byte	.LVL41
+ 2132 0388 0200     		.2byte	0x2
+ 2133 038a 37       		.byte	0x37
+ 2134 038b 9F       		.byte	0x9f
+ 2135 038c 36000000 		.4byte	.LVL41
+ 2136 0390 38000000 		.4byte	.LVL42
+ 2137 0394 0100     		.2byte	0x1
+ 2138 0396 50       		.byte	0x50
+ 2139 0397 38000000 		.4byte	.LVL42
+ 2140 039b 44000000 		.4byte	.LFE5
+ 2141 039f 0200     		.2byte	0x2
+ 2142 03a1 37       		.byte	0x37
+ 2143 03a2 9F       		.byte	0x9f
+ 2144 03a3 00000000 		.4byte	0
+ 2145 03a7 00000000 		.4byte	0
+ 2146              	.LLST19:
+ 2147 03ab 00000000 		.4byte	.LVL44
+ 2148 03af 24000000 		.4byte	.LVL45
+ 2149 03b3 0100     		.2byte	0x1
+ 2150 03b5 50       		.byte	0x50
+ 2151 03b6 24000000 		.4byte	.LVL45
+ 2152 03ba 28000000 		.4byte	.LVL46
+ 2153 03be 0400     		.2byte	0x4
+ 2154 03c0 F3       		.byte	0xf3
+ 2155 03c1 01       		.uleb128 0x1
+ 2156 03c2 50       		.byte	0x50
+ 2157 03c3 9F       		.byte	0x9f
+ 2158 03c4 28000000 		.4byte	.LVL46
+ 2159 03c8 2A000000 		.4byte	.LVL47
+ 2160 03cc 0100     		.2byte	0x1
+ 2161 03ce 50       		.byte	0x50
+ 2162 03cf 2A000000 		.4byte	.LVL47
+ 2163 03d3 2E000000 		.4byte	.LVL48
+ 2164 03d7 0400     		.2byte	0x4
+ 2165 03d9 F3       		.byte	0xf3
+ 2166 03da 01       		.uleb128 0x1
+ 2167 03db 50       		.byte	0x50
+ 2168 03dc 9F       		.byte	0x9f
+ 2169 03dd 2E000000 		.4byte	.LVL48
+ 2170 03e1 30000000 		.4byte	.LVL49
+ 2171 03e5 0100     		.2byte	0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 50
+
+
+ 2172 03e7 50       		.byte	0x50
+ 2173 03e8 30000000 		.4byte	.LVL49
+ 2174 03ec 3C000000 		.4byte	.LFE6
+ 2175 03f0 0400     		.2byte	0x4
+ 2176 03f2 F3       		.byte	0xf3
+ 2177 03f3 01       		.uleb128 0x1
+ 2178 03f4 50       		.byte	0x50
+ 2179 03f5 9F       		.byte	0x9f
+ 2180 03f6 00000000 		.4byte	0
+ 2181 03fa 00000000 		.4byte	0
+ 2182              	.LLST20:
+ 2183 03fe 00000000 		.4byte	.LVL44
+ 2184 0402 24000000 		.4byte	.LVL45
+ 2185 0406 0200     		.2byte	0x2
+ 2186 0408 37       		.byte	0x37
+ 2187 0409 9F       		.byte	0x9f
+ 2188 040a 24000000 		.4byte	.LVL45
+ 2189 040e 28000000 		.4byte	.LVL46
+ 2190 0412 0100     		.2byte	0x1
+ 2191 0414 50       		.byte	0x50
+ 2192 0415 28000000 		.4byte	.LVL46
+ 2193 0419 2A000000 		.4byte	.LVL47
+ 2194 041d 0200     		.2byte	0x2
+ 2195 041f 37       		.byte	0x37
+ 2196 0420 9F       		.byte	0x9f
+ 2197 0421 2A000000 		.4byte	.LVL47
+ 2198 0425 2E000000 		.4byte	.LVL48
+ 2199 0429 0100     		.2byte	0x1
+ 2200 042b 50       		.byte	0x50
+ 2201 042c 2E000000 		.4byte	.LVL48
+ 2202 0430 30000000 		.4byte	.LVL49
+ 2203 0434 0200     		.2byte	0x2
+ 2204 0436 37       		.byte	0x37
+ 2205 0437 9F       		.byte	0x9f
+ 2206 0438 30000000 		.4byte	.LVL49
+ 2207 043c 3C000000 		.4byte	.LFE6
+ 2208 0440 0100     		.2byte	0x1
+ 2209 0442 50       		.byte	0x50
+ 2210 0443 00000000 		.4byte	0
+ 2211 0447 00000000 		.4byte	0
+ 2212              	.LLST21:
+ 2213 044b 00000000 		.4byte	.LVL50
+ 2214 044f 24000000 		.4byte	.LVL51
+ 2215 0453 0100     		.2byte	0x1
+ 2216 0455 50       		.byte	0x50
+ 2217 0456 24000000 		.4byte	.LVL51
+ 2218 045a 26000000 		.4byte	.LVL52
+ 2219 045e 0200     		.2byte	0x2
+ 2220 0460 73       		.byte	0x73
+ 2221 0461 00       		.sleb128 0
+ 2222 0462 26000000 		.4byte	.LVL52
+ 2223 0466 28000000 		.4byte	.LVL53
+ 2224 046a 0100     		.2byte	0x1
+ 2225 046c 50       		.byte	0x50
+ 2226 046d 28000000 		.4byte	.LVL53
+ 2227 0471 2C000000 		.4byte	.LVL54
+ 2228 0475 0400     		.2byte	0x4
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 51
+
+
+ 2229 0477 F3       		.byte	0xf3
+ 2230 0478 01       		.uleb128 0x1
+ 2231 0479 50       		.byte	0x50
+ 2232 047a 9F       		.byte	0x9f
+ 2233 047b 2C000000 		.4byte	.LVL54
+ 2234 047f 2E000000 		.4byte	.LVL55
+ 2235 0483 0100     		.2byte	0x1
+ 2236 0485 50       		.byte	0x50
+ 2237 0486 2E000000 		.4byte	.LVL55
+ 2238 048a 38000000 		.4byte	.LFE7
+ 2239 048e 0400     		.2byte	0x4
+ 2240 0490 F3       		.byte	0xf3
+ 2241 0491 01       		.uleb128 0x1
+ 2242 0492 50       		.byte	0x50
+ 2243 0493 9F       		.byte	0x9f
+ 2244 0494 00000000 		.4byte	0
+ 2245 0498 00000000 		.4byte	0
+ 2246              	.LLST22:
+ 2247 049c 00000000 		.4byte	.LVL50
+ 2248 04a0 24000000 		.4byte	.LVL51
+ 2249 04a4 0200     		.2byte	0x2
+ 2250 04a6 37       		.byte	0x37
+ 2251 04a7 9F       		.byte	0x9f
+ 2252 04a8 24000000 		.4byte	.LVL51
+ 2253 04ac 26000000 		.4byte	.LVL52
+ 2254 04b0 0100     		.2byte	0x1
+ 2255 04b2 50       		.byte	0x50
+ 2256 04b3 26000000 		.4byte	.LVL52
+ 2257 04b7 28000000 		.4byte	.LVL53
+ 2258 04bb 0200     		.2byte	0x2
+ 2259 04bd 37       		.byte	0x37
+ 2260 04be 9F       		.byte	0x9f
+ 2261 04bf 28000000 		.4byte	.LVL53
+ 2262 04c3 2C000000 		.4byte	.LVL54
+ 2263 04c7 0100     		.2byte	0x1
+ 2264 04c9 50       		.byte	0x50
+ 2265 04ca 2C000000 		.4byte	.LVL54
+ 2266 04ce 2E000000 		.4byte	.LVL55
+ 2267 04d2 0200     		.2byte	0x2
+ 2268 04d4 37       		.byte	0x37
+ 2269 04d5 9F       		.byte	0x9f
+ 2270 04d6 2E000000 		.4byte	.LVL55
+ 2271 04da 38000000 		.4byte	.LFE7
+ 2272 04de 0100     		.2byte	0x1
+ 2273 04e0 50       		.byte	0x50
+ 2274 04e1 00000000 		.4byte	0
+ 2275 04e5 00000000 		.4byte	0
+ 2276              	.LLST23:
+ 2277 04e9 00000000 		.4byte	.LVL56
+ 2278 04ed 0E000000 		.4byte	.LVL58
+ 2279 04f1 0200     		.2byte	0x2
+ 2280 04f3 34       		.byte	0x34
+ 2281 04f4 9F       		.byte	0x9f
+ 2282 04f5 0E000000 		.4byte	.LVL58
+ 2283 04f9 16000000 		.4byte	.LVL60
+ 2284 04fd 0100     		.2byte	0x1
+ 2285 04ff 54       		.byte	0x54
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 52
+
+
+ 2286 0500 16000000 		.4byte	.LVL60
+ 2287 0504 1C000000 		.4byte	.LVL61
+ 2288 0508 0200     		.2byte	0x2
+ 2289 050a 34       		.byte	0x34
+ 2290 050b 9F       		.byte	0x9f
+ 2291 050c 1C000000 		.4byte	.LVL61
+ 2292 0510 32000000 		.4byte	.LVL62
+ 2293 0514 0200     		.2byte	0x2
+ 2294 0516 30       		.byte	0x30
+ 2295 0517 9F       		.byte	0x9f
+ 2296 0518 32000000 		.4byte	.LVL62
+ 2297 051c 3C000000 		.4byte	.LVL64
+ 2298 0520 0100     		.2byte	0x1
+ 2299 0522 54       		.byte	0x54
+ 2300 0523 3C000000 		.4byte	.LVL64
+ 2301 0527 44000000 		.4byte	.LFE8
+ 2302 052b 0100     		.2byte	0x1
+ 2303 052d 50       		.byte	0x50
+ 2304 052e 00000000 		.4byte	0
+ 2305 0532 00000000 		.4byte	0
+ 2306              	.LLST24:
+ 2307 0536 06000000 		.4byte	.LVL57
+ 2308 053a 11000000 		.4byte	.LVL59-1
+ 2309 053e 0100     		.2byte	0x1
+ 2310 0540 50       		.byte	0x50
+ 2311 0541 16000000 		.4byte	.LVL60
+ 2312 0545 37000000 		.4byte	.LVL63-1
+ 2313 0549 0100     		.2byte	0x1
+ 2314 054b 50       		.byte	0x50
+ 2315 054c 00000000 		.4byte	0
+ 2316 0550 00000000 		.4byte	0
+ 2317              	.LLST25:
+ 2318 0554 06000000 		.4byte	.LVL65
+ 2319 0558 2B000000 		.4byte	.LVL66-1
+ 2320 055c 0100     		.2byte	0x1
+ 2321 055e 50       		.byte	0x50
+ 2322 055f 00000000 		.4byte	0
+ 2323 0563 00000000 		.4byte	0
+ 2324              		.section	.debug_aranges,"",%progbits
+ 2325 0000 64000000 		.4byte	0x64
+ 2326 0004 0200     		.2byte	0x2
+ 2327 0006 00000000 		.4byte	.Ldebug_info0
+ 2328 000a 04       		.byte	0x4
+ 2329 000b 00       		.byte	0
+ 2330 000c 0000     		.2byte	0
+ 2331 000e 0000     		.2byte	0
+ 2332 0010 00000000 		.4byte	.LFB0
+ 2333 0014 2C000000 		.4byte	.LFE0-.LFB0
+ 2334 0018 00000000 		.4byte	.LFB1
+ 2335 001c 2C000000 		.4byte	.LFE1-.LFB1
+ 2336 0020 00000000 		.4byte	.LFB2
+ 2337 0024 40000000 		.4byte	.LFE2-.LFB2
+ 2338 0028 00000000 		.4byte	.LFB3
+ 2339 002c 6C000000 		.4byte	.LFE3-.LFB3
+ 2340 0030 00000000 		.4byte	.LFB4
+ 2341 0034 50000000 		.4byte	.LFE4-.LFB4
+ 2342 0038 00000000 		.4byte	.LFB5
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 53
+
+
+ 2343 003c 44000000 		.4byte	.LFE5-.LFB5
+ 2344 0040 00000000 		.4byte	.LFB6
+ 2345 0044 3C000000 		.4byte	.LFE6-.LFB6
+ 2346 0048 00000000 		.4byte	.LFB7
+ 2347 004c 38000000 		.4byte	.LFE7-.LFB7
+ 2348 0050 00000000 		.4byte	.LFB8
+ 2349 0054 44000000 		.4byte	.LFE8-.LFB8
+ 2350 0058 00000000 		.4byte	.LFB9
+ 2351 005c 34000000 		.4byte	.LFE9-.LFB9
+ 2352 0060 00000000 		.4byte	0
+ 2353 0064 00000000 		.4byte	0
+ 2354              		.section	.debug_ranges,"",%progbits
+ 2355              	.Ldebug_ranges0:
+ 2356 0000 00000000 		.4byte	.LFB0
+ 2357 0004 2C000000 		.4byte	.LFE0
+ 2358 0008 00000000 		.4byte	.LFB1
+ 2359 000c 2C000000 		.4byte	.LFE1
+ 2360 0010 00000000 		.4byte	.LFB2
+ 2361 0014 40000000 		.4byte	.LFE2
+ 2362 0018 00000000 		.4byte	.LFB3
+ 2363 001c 6C000000 		.4byte	.LFE3
+ 2364 0020 00000000 		.4byte	.LFB4
+ 2365 0024 50000000 		.4byte	.LFE4
+ 2366 0028 00000000 		.4byte	.LFB5
+ 2367 002c 44000000 		.4byte	.LFE5
+ 2368 0030 00000000 		.4byte	.LFB6
+ 2369 0034 3C000000 		.4byte	.LFE6
+ 2370 0038 00000000 		.4byte	.LFB7
+ 2371 003c 38000000 		.4byte	.LFE7
+ 2372 0040 00000000 		.4byte	.LFB8
+ 2373 0044 44000000 		.4byte	.LFE8
+ 2374 0048 00000000 		.4byte	.LFB9
+ 2375 004c 34000000 		.4byte	.LFE9
+ 2376 0050 00000000 		.4byte	0
+ 2377 0054 00000000 		.4byte	0
+ 2378              		.section	.debug_line,"",%progbits
+ 2379              	.Ldebug_line0:
+ 2380 0000 FC010000 		.section	.debug_str,"MS",%progbits,1
+ 2380      02004D00 
+ 2380      00000201 
+ 2380      FB0E0D00 
+ 2380      01010101 
+ 2381              	.LASF25:
+ 2382 0000 43795370 		.ascii	"CySpcLoadMultiByte\000"
+ 2382      634C6F61 
+ 2382      644D756C 
+ 2382      74694279 
+ 2382      746500
+ 2383              	.LASF15:
+ 2384 0013 63797374 		.ascii	"cystatus\000"
+ 2384      61747573 
+ 2384      00
+ 2385              	.LASF17:
+ 2386 001c 72656733 		.ascii	"reg32\000"
+ 2386      3200
+ 2387              	.LASF19:
+ 2388 0022 43795370 		.ascii	"CySpcStart\000"
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 54
+
+
+ 2388      63537461 
+ 2388      727400
+ 2389              	.LASF30:
+ 2390 002d 43795370 		.ascii	"CySpcWriteRow\000"
+ 2390      63577269 
+ 2390      7465526F 
+ 2390      7700
+ 2391              	.LASF20:
+ 2392 003b 43795370 		.ascii	"CySpcStop\000"
+ 2392      6353746F 
+ 2392      7000
+ 2393              	.LASF3:
+ 2394 0045 73686F72 		.ascii	"short unsigned int\000"
+ 2394      7420756E 
+ 2394      7369676E 
+ 2394      65642069 
+ 2394      6E7400
+ 2395              	.LASF24:
+ 2396 0058 43795370 		.ascii	"CySpcReadData\000"
+ 2396      63526561 
+ 2396      64446174 
+ 2396      6100
+ 2397              	.LASF28:
+ 2398 0066 73746174 		.ascii	"status\000"
+ 2398      757300
+ 2399              	.LASF40:
+ 2400 006d 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2400      4320342E 
+ 2400      392E3320 
+ 2400      32303135 
+ 2400      30333033 
+ 2401 00a0 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 2401      20726576 
+ 2401      6973696F 
+ 2401      6E203232 
+ 2401      31323230 
+ 2402 00d3 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 2402      66756E63 
+ 2402      74696F6E 
+ 2402      2D736563 
+ 2402      74696F6E 
+ 2403              	.LASF12:
+ 2404 00fb 666C6F61 		.ascii	"float\000"
+ 2404      7400
+ 2405              	.LASF7:
+ 2406 0101 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2406      206C6F6E 
+ 2406      6720756E 
+ 2406      7369676E 
+ 2406      65642069 
+ 2407              	.LASF36:
+ 2408 0118 6E756D53 		.ascii	"numSamples\000"
+ 2408      616D706C 
+ 2408      657300
+ 2409              	.LASF23:
+ 2410 0123 73697A65 		.ascii	"size\000"
+ 2410      00
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 55
+
+
+ 2411              	.LASF16:
+ 2412 0128 72656738 		.ascii	"reg8\000"
+ 2412      00
+ 2413              	.LASF21:
+ 2414 012d 696E7465 		.ascii	"interruptState\000"
+ 2414      72727570 
+ 2414      74537461 
+ 2414      746500
+ 2415              	.LASF5:
+ 2416 013c 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2416      20756E73 
+ 2416      69676E65 
+ 2416      6420696E 
+ 2416      7400
+ 2417              	.LASF9:
+ 2418 014e 75696E74 		.ascii	"uint8\000"
+ 2418      3800
+ 2419              	.LASF43:
+ 2420 0154 5370634C 		.ascii	"SpcLockState\000"
+ 2420      6F636B53 
+ 2420      74617465 
+ 2420      00
+ 2421              	.LASF31:
+ 2422 0161 74656D70 		.ascii	"tempPolarity\000"
+ 2422      506F6C61 
+ 2422      72697479 
+ 2422      00
+ 2423              	.LASF26:
+ 2424 016e 61727261 		.ascii	"array\000"
+ 2424      7900
+ 2425              	.LASF1:
+ 2426 0174 756E7369 		.ascii	"unsigned char\000"
+ 2426      676E6564 
+ 2426      20636861 
+ 2426      7200
+ 2427              	.LASF13:
+ 2428 0182 646F7562 		.ascii	"double\000"
+ 2428      6C6500
+ 2429              	.LASF35:
+ 2430 0189 43795370 		.ascii	"CySpcGetTemp\000"
+ 2430      63476574 
+ 2430      54656D70 
+ 2430      00
+ 2431              	.LASF10:
+ 2432 0196 75696E74 		.ascii	"uint16\000"
+ 2432      313600
+ 2433              	.LASF37:
+ 2434 019d 43795370 		.ascii	"CySpcLock\000"
+ 2434      634C6F63 
+ 2434      6B00
+ 2435              	.LASF11:
+ 2436 01a7 75696E74 		.ascii	"uint32\000"
+ 2436      333200
+ 2437              	.LASF44:
+ 2438 01ae 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 2438      74657243 
+ 2438      72697469 
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 56
+
+
+ 2438      63616C53 
+ 2438      65637469 
+ 2439              	.LASF41:
+ 2440 01c5 47656E65 		.ascii	"Generated_Source\\PSoC5\\CySpc.c\000"
+ 2440      72617465 
+ 2440      645F536F 
+ 2440      75726365 
+ 2440      5C50536F 
+ 2441              	.LASF8:
+ 2442 01e4 756E7369 		.ascii	"unsigned int\000"
+ 2442      676E6564 
+ 2442      20696E74 
+ 2442      00
+ 2443              	.LASF27:
+ 2444 01f1 61646472 		.ascii	"address\000"
+ 2444      65737300 
+ 2445              	.LASF45:
+ 2446 01f9 43794578 		.ascii	"CyExitCriticalSection\000"
+ 2446      69744372 
+ 2446      69746963 
+ 2446      616C5365 
+ 2446      6374696F 
+ 2447              	.LASF32:
+ 2448 020f 74656D70 		.ascii	"tempMagnitude\000"
+ 2448      4D61676E 
+ 2448      69747564 
+ 2448      6500
+ 2449              	.LASF29:
+ 2450 021d 43795370 		.ascii	"CySpcLoadRow\000"
+ 2450      634C6F61 
+ 2450      64526F77 
+ 2450      00
+ 2451              	.LASF18:
+ 2452 022a 73697A65 		.ascii	"sizetype\000"
+ 2452      74797065 
+ 2452      00
+ 2453              	.LASF38:
+ 2454 0233 43795370 		.ascii	"CySpcUnlock\000"
+ 2454      63556E6C 
+ 2454      6F636B00 
+ 2455              	.LASF33:
+ 2456 023f 43795370 		.ascii	"CySpcEraseSector\000"
+ 2456      63457261 
+ 2456      73655365 
+ 2456      63746F72 
+ 2456      00
+ 2457              	.LASF6:
+ 2458 0250 6C6F6E67 		.ascii	"long long int\000"
+ 2458      206C6F6E 
+ 2458      6720696E 
+ 2458      7400
+ 2459              	.LASF46:
+ 2460 025e 43794465 		.ascii	"CyDelayUs\000"
+ 2460      6C617955 
+ 2460      7300
+ 2461              	.LASF14:
+ 2462 0268 63686172 		.ascii	"char\000"
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccJ1DbiB.s 			page 57
+
+
+ 2462      00
+ 2463              	.LASF2:
+ 2464 026d 73686F72 		.ascii	"short int\000"
+ 2464      7420696E 
+ 2464      7400
+ 2465              	.LASF22:
+ 2466 0277 62756666 		.ascii	"buffer\000"
+ 2466      657200
+ 2467              	.LASF34:
+ 2468 027e 73656374 		.ascii	"sectorNumber\000"
+ 2468      6F724E75 
+ 2468      6D626572 
+ 2468      00
+ 2469              	.LASF4:
+ 2470 028b 6C6F6E67 		.ascii	"long int\000"
+ 2470      20696E74 
+ 2470      00
+ 2471              	.LASF39:
+ 2472 0294 73706357 		.ascii	"spcWaitPipeBypass\000"
+ 2472      61697450 
+ 2472      69706542 
+ 2472      79706173 
+ 2472      7300
+ 2473              	.LASF0:
+ 2474 02a6 7369676E 		.ascii	"signed char\000"
+ 2474      65642063 
+ 2474      68617200 
+ 2475              	.LASF42:
+ 2476 02b2 433A5C55 		.ascii	"C:\\Users\\jmdevoto\\Desktop\\Builds\\(4-24-17)Humm"
+ 2476      73657273 
+ 2476      5C6A6D64 
+ 2476      65766F74 
+ 2476      6F5C4465 
+ 2477 02e0 696E6762 		.ascii	"ingbird-059-v1\\Hummingbird(Continuous Output).cyds"
+ 2477      6972642D 
+ 2477      3035392D 
+ 2477      76315C48 
+ 2477      756D6D69 
+ 2478 0312 6E00     		.ascii	"n\000"
+ 2479              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

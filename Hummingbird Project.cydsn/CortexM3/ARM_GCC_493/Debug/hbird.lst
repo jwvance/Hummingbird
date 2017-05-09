@@ -1,0 +1,1712 @@
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"hbird.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.map,"ax",%progbits
+  19              		.align	2
+  20              		.global	map
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	map, %function
+  24              	map:
+  25              	.LFB56:
+  26              		.file 1 "hbird.c"
+   1:hbird.c       **** /* 
+   2:hbird.c       **** *   hbird.c
+   3:hbird.c       **** *   
+   4:hbird.c       **** */
+   5:hbird.c       **** #include "hbird.h"
+   6:hbird.c       **** 
+   7:hbird.c       **** 
+   8:hbird.c       **** long map(long x, long in_min, long in_max, long out_min, long out_max)
+   9:hbird.c       **** {
+  27              		.loc 1 9 0
+  28              		.cfi_startproc
+  29              		@ args = 4, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32              	.LVL0:
+  33 0000 10B4     		push	{r4}
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 4, -4
+  36              		.loc 1 9 0
+  37 0002 019C     		ldr	r4, [sp, #4]
+  10:hbird.c       ****   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+  38              		.loc 1 10 0
+  39 0004 401A     		subs	r0, r0, r1
+  40              	.LVL1:
+  41 0006 E41A     		subs	r4, r4, r3
+  42 0008 04FB00F0 		mul	r0, r4, r0
+  43 000c 521A     		subs	r2, r2, r1
+  44              	.LVL2:
+  45 000e 90FBF2F0 		sdiv	r0, r0, r2
+  11:hbird.c       **** }
+  46              		.loc 1 11 0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 2
+
+
+  47 0012 5DF8044B 		ldr	r4, [sp], #4
+  48              		.cfi_restore 4
+  49              		.cfi_def_cfa_offset 0
+  50              	.LVL3:
+  51 0016 1844     		add	r0, r0, r3
+  52 0018 7047     		bx	lr
+  53              		.cfi_endproc
+  54              	.LFE56:
+  55              		.size	map, .-map
+  56 001a 00BF     		.section	.text.UpdateScaleLCD,"ax",%progbits
+  57              		.align	2
+  58              		.global	UpdateScaleLCD
+  59              		.thumb
+  60              		.thumb_func
+  61              		.type	UpdateScaleLCD, %function
+  62              	UpdateScaleLCD:
+  63              	.LFB57:
+  12:hbird.c       **** 
+  13:hbird.c       **** enum MusicScale UpdateScaleLCD()
+  14:hbird.c       **** {
+  64              		.loc 1 14 0
+  65              		.cfi_startproc
+  66              		@ args = 0, pretend = 0, frame = 0
+  67              		@ frame_needed = 0, uses_anonymous_args = 0
+  68 0000 10B5     		push	{r4, lr}
+  69              		.cfi_def_cfa_offset 8
+  70              		.cfi_offset 4, -8
+  71              		.cfi_offset 14, -4
+  15:hbird.c       ****     // Sets the LCD to the right position
+  16:hbird.c       ****     CharLCD_Position(0,6);
+  72              		.loc 1 16 0
+  73 0002 0621     		movs	r1, #6
+  74 0004 0020     		movs	r0, #0
+  75 0006 FFF7FEFF 		bl	CharLCD_Position
+  76              	.LVL4:
+  17:hbird.c       ****     
+  18:hbird.c       ****     // Grabs the ADC value from the scale pot, maps it to one of the scales
+  19:hbird.c       ****     UI_ADC_IsEndConversion(UI_ADC_WAIT_FOR_RESULT);
+  77              		.loc 1 19 0
+  78 000a 0020     		movs	r0, #0
+  79 000c FFF7FEFF 		bl	UI_ADC_IsEndConversion
+  80              	.LVL5:
+  20:hbird.c       ****     enum MusicScale scale = map(UI_ADC_GetResult16(0u), 0, 255, 0, 5);
+  81              		.loc 1 20 0
+  82 0010 0020     		movs	r0, #0
+  83 0012 FFF7FEFF 		bl	UI_ADC_GetResult16
+  84              	.LVL6:
+  85              	.LBB6:
+  86              	.LBB7:
+  10:hbird.c       **** }
+  87              		.loc 1 10 0
+  88 0016 174C     		ldr	r4, .L14
+  89 0018 00EB8000 		add	r0, r0, r0, lsl #2
+  90              	.LVL7:
+  91 001c 84FB0034 		smull	r3, r4, r4, r0
+  92 0020 C317     		asrs	r3, r0, #31
+  93 0022 0444     		add	r4, r4, r0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 3
+
+
+  94 0024 C3EBE414 		rsb	r4, r3, r4, asr #7
+  95              	.LBE7:
+  96              	.LBE6:
+  97              		.loc 1 20 0
+  98 0028 E4B2     		uxtb	r4, r4
+  99              	.LVL8:
+  21:hbird.c       ****     // Prints the string to the LCD
+  22:hbird.c       ****     switch(scale){
+ 100              		.loc 1 22 0
+ 101 002a 052C     		cmp	r4, #5
+ 102 002c 07D8     		bhi	.L4
+ 103 002e DFE804F0 		tbb	[pc, r4]
+ 104              	.L6:
+ 105 0032 08       		.byte	(.L5-.L6)/2
+ 106 0033 0D       		.byte	(.L7-.L6)/2
+ 107 0034 12       		.byte	(.L8-.L6)/2
+ 108 0035 17       		.byte	(.L9-.L6)/2
+ 109 0036 1C       		.byte	(.L10-.L6)/2
+ 110 0037 03       		.byte	(.L11-.L6)/2
+ 111              		.p2align 1
+ 112              	.L11:
+  23:hbird.c       ****         case MAJOR:
+  24:hbird.c       ****             CharLCD_PrintString("Maj");
+  25:hbird.c       ****             break;        
+  26:hbird.c       ****         case NATURAL_MINOR:
+  27:hbird.c       ****             CharLCD_PrintString("NatMin");
+  28:hbird.c       ****             break;        
+  29:hbird.c       ****         case MAJOR_PENT:
+  30:hbird.c       ****             CharLCD_PrintString("MajPnt");
+  31:hbird.c       ****             break;        
+  32:hbird.c       ****         case MINOR_PENT:
+  33:hbird.c       ****             CharLCD_PrintString("MinPnt");
+  34:hbird.c       ****             break;        
+  35:hbird.c       ****         case WHOLE_TONE:
+  36:hbird.c       ****             CharLCD_PrintString("Whole");
+  37:hbird.c       ****             break;        
+  38:hbird.c       ****         case BLUES:
+  39:hbird.c       ****             CharLCD_PrintString("Blues");
+ 113              		.loc 1 39 0
+ 114 0038 0F48     		ldr	r0, .L14+4
+ 115 003a FFF7FEFF 		bl	CharLCD_PrintString
+ 116              	.LVL9:
+ 117              	.L4:
+  40:hbird.c       ****             break;
+  41:hbird.c       ****     }
+  42:hbird.c       ****     // Returns the scale enum to main
+  43:hbird.c       ****     return scale;
+  44:hbird.c       **** }
+ 118              		.loc 1 44 0
+ 119 003e 2046     		mov	r0, r4
+ 120 0040 10BD     		pop	{r4, pc}
+ 121              	.LVL10:
+ 122              	.L5:
+  24:hbird.c       ****             break;        
+ 123              		.loc 1 24 0
+ 124 0042 0E48     		ldr	r0, .L14+8
+ 125 0044 FFF7FEFF 		bl	CharLCD_PrintString
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 4
+
+
+ 126              	.LVL11:
+ 127              		.loc 1 44 0
+ 128 0048 2046     		mov	r0, r4
+ 129 004a 10BD     		pop	{r4, pc}
+ 130              	.LVL12:
+ 131              	.L7:
+  27:hbird.c       ****             break;        
+ 132              		.loc 1 27 0
+ 133 004c 0C48     		ldr	r0, .L14+12
+ 134 004e FFF7FEFF 		bl	CharLCD_PrintString
+ 135              	.LVL13:
+ 136              		.loc 1 44 0
+ 137 0052 2046     		mov	r0, r4
+ 138 0054 10BD     		pop	{r4, pc}
+ 139              	.LVL14:
+ 140              	.L8:
+  30:hbird.c       ****             break;        
+ 141              		.loc 1 30 0
+ 142 0056 0B48     		ldr	r0, .L14+16
+ 143 0058 FFF7FEFF 		bl	CharLCD_PrintString
+ 144              	.LVL15:
+ 145              		.loc 1 44 0
+ 146 005c 2046     		mov	r0, r4
+ 147 005e 10BD     		pop	{r4, pc}
+ 148              	.LVL16:
+ 149              	.L9:
+  33:hbird.c       ****             break;        
+ 150              		.loc 1 33 0
+ 151 0060 0948     		ldr	r0, .L14+20
+ 152 0062 FFF7FEFF 		bl	CharLCD_PrintString
+ 153              	.LVL17:
+ 154              		.loc 1 44 0
+ 155 0066 2046     		mov	r0, r4
+ 156 0068 10BD     		pop	{r4, pc}
+ 157              	.LVL18:
+ 158              	.L10:
+  36:hbird.c       ****             break;        
+ 159              		.loc 1 36 0
+ 160 006a 0848     		ldr	r0, .L14+24
+ 161 006c FFF7FEFF 		bl	CharLCD_PrintString
+ 162              	.LVL19:
+ 163              		.loc 1 44 0
+ 164 0070 2046     		mov	r0, r4
+ 165 0072 10BD     		pop	{r4, pc}
+ 166              	.LVL20:
+ 167              	.L15:
+ 168              		.align	2
+ 169              	.L14:
+ 170 0074 81808080 		.word	-2139062143
+ 171 0078 24000000 		.word	.LC5
+ 172 007c 00000000 		.word	.LC0
+ 173 0080 04000000 		.word	.LC1
+ 174 0084 0C000000 		.word	.LC2
+ 175 0088 14000000 		.word	.LC3
+ 176 008c 1C000000 		.word	.LC4
+ 177              		.cfi_endproc
+ 178              	.LFE57:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 5
+
+
+ 179              		.size	UpdateScaleLCD, .-UpdateScaleLCD
+ 180              		.section	.text.UpdateKeyLCD,"ax",%progbits
+ 181              		.align	2
+ 182              		.global	UpdateKeyLCD
+ 183              		.thumb
+ 184              		.thumb_func
+ 185              		.type	UpdateKeyLCD, %function
+ 186              	UpdateKeyLCD:
+ 187              	.LFB58:
+  45:hbird.c       **** 
+  46:hbird.c       **** enum MusicKey UpdateKeyLCD()
+  47:hbird.c       **** {
+ 188              		.loc 1 47 0
+ 189              		.cfi_startproc
+ 190              		@ args = 0, pretend = 0, frame = 0
+ 191              		@ frame_needed = 0, uses_anonymous_args = 0
+ 192 0000 10B5     		push	{r4, lr}
+ 193              		.cfi_def_cfa_offset 8
+ 194              		.cfi_offset 4, -8
+ 195              		.cfi_offset 14, -4
+  48:hbird.c       ****     // Sets the LCD to the right position
+  49:hbird.c       ****     CharLCD_Position(1,6);
+ 196              		.loc 1 49 0
+ 197 0002 0621     		movs	r1, #6
+ 198 0004 0120     		movs	r0, #1
+ 199 0006 FFF7FEFF 		bl	CharLCD_Position
+ 200              	.LVL21:
+  50:hbird.c       ****     
+  51:hbird.c       ****     // Grabs the ADC value from the key pot, maps it to one of the keys
+  52:hbird.c       ****     UI_ADC_IsEndConversion(UI_ADC_WAIT_FOR_RESULT);
+ 201              		.loc 1 52 0
+ 202 000a 0020     		movs	r0, #0
+ 203 000c FFF7FEFF 		bl	UI_ADC_IsEndConversion
+ 204              	.LVL22:
+  53:hbird.c       ****     enum MusicKey key = map(UI_ADC_GetResult16(1u), 0, 255, 0, 11);
+ 205              		.loc 1 53 0
+ 206 0010 0120     		movs	r0, #1
+ 207 0012 FFF7FEFF 		bl	UI_ADC_GetResult16
+ 208              	.LVL23:
+ 209              	.LBB8:
+ 210              	.LBB9:
+  10:hbird.c       **** }
+ 211              		.loc 1 10 0
+ 212 0016 094A     		ldr	r2, .L18
+ 213 0018 00EB8003 		add	r3, r0, r0, lsl #2
+ 214 001c 00EB4300 		add	r0, r0, r3, lsl #1
+ 215              	.LVL24:
+ 216 0020 82FB0032 		smull	r3, r2, r2, r0
+ 217 0024 C417     		asrs	r4, r0, #31
+ 218 0026 1044     		add	r0, r0, r2
+ 219 0028 C4EBE010 		rsb	r0, r4, r0, asr #7
+ 220              	.LVL25:
+ 221              	.LBE9:
+ 222              	.LBE8:
+  54:hbird.c       ****     // Prints the string to the LCD, borrowing funciton from midi.c
+  55:hbird.c       ****     CharLCD_PrintString(midi_note_basename(key));
+ 223              		.loc 1 55 0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 6
+
+
+ 224 002c C4B2     		uxtb	r4, r0
+ 225 002e 2046     		mov	r0, r4
+ 226 0030 FFF7FEFF 		bl	midi_note_basename
+ 227              	.LVL26:
+ 228 0034 FFF7FEFF 		bl	CharLCD_PrintString
+ 229              	.LVL27:
+  56:hbird.c       ****     
+  57:hbird.c       ****     // Returns the key enum to main
+  58:hbird.c       ****     return key;
+  59:hbird.c       **** }
+ 230              		.loc 1 59 0
+ 231 0038 2046     		mov	r0, r4
+ 232 003a 10BD     		pop	{r4, pc}
+ 233              	.LVL28:
+ 234              	.L19:
+ 235              		.align	2
+ 236              	.L18:
+ 237 003c 81808080 		.word	-2139062143
+ 238              		.cfi_endproc
+ 239              	.LFE58:
+ 240              		.size	UpdateKeyLCD, .-UpdateKeyLCD
+ 241              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 242              		.align	2
+ 243              	.LC0:
+ 244 0000 4D616A00 		.ascii	"Maj\000"
+ 245              	.LC1:
+ 246 0004 4E61744D 		.ascii	"NatMin\000"
+ 246      696E00
+ 247 000b 00       		.space	1
+ 248              	.LC2:
+ 249 000c 4D616A50 		.ascii	"MajPnt\000"
+ 249      6E7400
+ 250 0013 00       		.space	1
+ 251              	.LC3:
+ 252 0014 4D696E50 		.ascii	"MinPnt\000"
+ 252      6E7400
+ 253 001b 00       		.space	1
+ 254              	.LC4:
+ 255 001c 57686F6C 		.ascii	"Whole\000"
+ 255      6500
+ 256 0022 0000     		.space	2
+ 257              	.LC5:
+ 258 0024 426C7565 		.ascii	"Blues\000"
+ 258      7300
+ 259 002a 0000     		.text
+ 260              	.Letext0:
+ 261              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 262              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 263              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 264              		.file 5 "./midi.h"
+ 265              		.file 6 "Generated_Source\\PSoC5/UI_ADC.h"
+ 266              		.file 7 "Generated_Source\\PSoC5/CharLCD_I2C.h"
+ 267              		.file 8 "Generated_Source\\PSoC5/core_cm3.h"
+ 268              		.section	.debug_info,"",%progbits
+ 269              	.Ldebug_info0:
+ 270 0000 39040000 		.4byte	0x439
+ 271 0004 0400     		.2byte	0x4
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 7
+
+
+ 272 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 273 000a 04       		.byte	0x4
+ 274 000b 01       		.uleb128 0x1
+ 275 000c 51000000 		.4byte	.LASF52
+ 276 0010 01       		.byte	0x1
+ 277 0011 85020000 		.4byte	.LASF53
+ 278 0015 B4020000 		.4byte	.LASF54
+ 279 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 280 001d 00000000 		.4byte	0
+ 281 0021 00000000 		.4byte	.Ldebug_line0
+ 282 0025 02       		.uleb128 0x2
+ 283 0026 01       		.byte	0x1
+ 284 0027 06       		.byte	0x6
+ 285 0028 9E020000 		.4byte	.LASF0
+ 286 002c 02       		.uleb128 0x2
+ 287 002d 01       		.byte	0x1
+ 288 002e 08       		.byte	0x8
+ 289 002f FC000000 		.4byte	.LASF1
+ 290 0033 02       		.uleb128 0x2
+ 291 0034 02       		.byte	0x2
+ 292 0035 05       		.byte	0x5
+ 293 0036 57020000 		.4byte	.LASF2
+ 294 003a 02       		.uleb128 0x2
+ 295 003b 02       		.byte	0x2
+ 296 003c 07       		.byte	0x7
+ 297 003d 33010000 		.4byte	.LASF3
+ 298 0041 03       		.uleb128 0x3
+ 299 0042 1E000000 		.4byte	.LASF9
+ 300 0046 02       		.byte	0x2
+ 301 0047 3F       		.byte	0x3f
+ 302 0048 4C000000 		.4byte	0x4c
+ 303 004c 02       		.uleb128 0x2
+ 304 004d 04       		.byte	0x4
+ 305 004e 05       		.byte	0x5
+ 306 004f 7C020000 		.4byte	.LASF4
+ 307 0053 02       		.uleb128 0x2
+ 308 0054 04       		.byte	0x4
+ 309 0055 07       		.byte	0x7
+ 310 0056 CF010000 		.4byte	.LASF5
+ 311 005a 02       		.uleb128 0x2
+ 312 005b 08       		.byte	0x8
+ 313 005c 05       		.byte	0x5
+ 314 005d 30020000 		.4byte	.LASF6
+ 315 0061 02       		.uleb128 0x2
+ 316 0062 08       		.byte	0x8
+ 317 0063 07       		.byte	0x7
+ 318 0064 E5000000 		.4byte	.LASF7
+ 319 0068 04       		.uleb128 0x4
+ 320 0069 04       		.byte	0x4
+ 321 006a 05       		.byte	0x5
+ 322 006b 696E7400 		.ascii	"int\000"
+ 323 006f 02       		.uleb128 0x2
+ 324 0070 04       		.byte	0x4
+ 325 0071 07       		.byte	0x7
+ 326 0072 E1010000 		.4byte	.LASF8
+ 327 0076 03       		.uleb128 0x3
+ 328 0077 1F020000 		.4byte	.LASF10
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 8
+
+
+ 329 007b 03       		.byte	0x3
+ 330 007c 2C       		.byte	0x2c
+ 331 007d 41000000 		.4byte	0x41
+ 332 0081 03       		.uleb128 0x3
+ 333 0082 61020000 		.4byte	.LASF11
+ 334 0086 04       		.byte	0x4
+ 335 0087 5B       		.byte	0x5b
+ 336 0088 2C000000 		.4byte	0x2c
+ 337 008c 03       		.uleb128 0x3
+ 338 008d B6010000 		.4byte	.LASF12
+ 339 0091 04       		.byte	0x4
+ 340 0092 5C       		.byte	0x5c
+ 341 0093 3A000000 		.4byte	0x3a
+ 342 0097 03       		.uleb128 0x3
+ 343 0098 BD010000 		.4byte	.LASF13
+ 344 009c 04       		.byte	0x4
+ 345 009d 5D       		.byte	0x5d
+ 346 009e 53000000 		.4byte	0x53
+ 347 00a2 03       		.uleb128 0x3
+ 348 00a3 1D010000 		.4byte	.LASF14
+ 349 00a7 04       		.byte	0x4
+ 350 00a8 5F       		.byte	0x5f
+ 351 00a9 33000000 		.4byte	0x33
+ 352 00ad 02       		.uleb128 0x2
+ 353 00ae 04       		.byte	0x4
+ 354 00af 04       		.byte	0x4
+ 355 00b0 DF000000 		.4byte	.LASF15
+ 356 00b4 02       		.uleb128 0x2
+ 357 00b5 08       		.byte	0x8
+ 358 00b6 04       		.byte	0x4
+ 359 00b7 28000000 		.4byte	.LASF16
+ 360 00bb 03       		.uleb128 0x3
+ 361 00bc 17010000 		.4byte	.LASF17
+ 362 00c0 04       		.byte	0x4
+ 363 00c1 6C       		.byte	0x6c
+ 364 00c2 C6000000 		.4byte	0xc6
+ 365 00c6 02       		.uleb128 0x2
+ 366 00c7 01       		.byte	0x1
+ 367 00c8 08       		.byte	0x8
+ 368 00c9 3E020000 		.4byte	.LASF18
+ 369 00cd 02       		.uleb128 0x2
+ 370 00ce 04       		.byte	0x4
+ 371 00cf 07       		.byte	0x7
+ 372 00d0 27020000 		.4byte	.LASF19
+ 373 00d4 05       		.uleb128 0x5
+ 374 00d5 04       		.byte	0x4
+ 375 00d6 C6000000 		.4byte	0xc6
+ 376 00da 06       		.uleb128 0x6
+ 377 00db 9F010000 		.4byte	.LASF32
+ 378 00df 01       		.byte	0x1
+ 379 00e0 05       		.byte	0x5
+ 380 00e1 07       		.byte	0x7
+ 381 00e2 2F010000 		.4byte	0x12f
+ 382 00e6 07       		.uleb128 0x7
+ 383 00e7 7E010000 		.4byte	.LASF20
+ 384 00eb 00       		.sleb128 0
+ 385 00ec 07       		.uleb128 0x7
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 9
+
+
+ 386 00ed 55010000 		.4byte	.LASF21
+ 387 00f1 01       		.sleb128 1
+ 388 00f2 07       		.uleb128 0x7
+ 389 00f3 0A000000 		.4byte	.LASF22
+ 390 00f7 02       		.sleb128 2
+ 391 00f8 07       		.uleb128 0x7
+ 392 00f9 AA020000 		.4byte	.LASF23
+ 393 00fd 03       		.sleb128 3
+ 394 00fe 07       		.uleb128 0x7
+ 395 00ff 8D010000 		.4byte	.LASF24
+ 396 0103 04       		.sleb128 4
+ 397 0104 07       		.uleb128 0x7
+ 398 0105 96010000 		.4byte	.LASF25
+ 399 0109 05       		.sleb128 5
+ 400 010a 07       		.uleb128 0x7
+ 401 010b 00000000 		.4byte	.LASF26
+ 402 010f 06       		.sleb128 6
+ 403 0110 07       		.uleb128 0x7
+ 404 0111 03020000 		.4byte	.LASF27
+ 405 0115 07       		.sleb128 7
+ 406 0116 07       		.uleb128 0x7
+ 407 0117 67020000 		.4byte	.LASF28
+ 408 011b 08       		.sleb128 8
+ 409 011c 07       		.uleb128 0x7
+ 410 011d 6C010000 		.4byte	.LASF29
+ 411 0121 09       		.sleb128 9
+ 412 0122 07       		.uleb128 0x7
+ 413 0123 29010000 		.4byte	.LASF30
+ 414 0127 0A       		.sleb128 10
+ 415 0128 07       		.uleb128 0x7
+ 416 0129 75010000 		.4byte	.LASF31
+ 417 012d 0B       		.sleb128 11
+ 418 012e 00       		.byte	0
+ 419 012f 06       		.uleb128 0x6
+ 420 0130 C4010000 		.4byte	.LASF33
+ 421 0134 01       		.byte	0x1
+ 422 0135 05       		.byte	0x5
+ 423 0136 0A       		.byte	0xa
+ 424 0137 60010000 		.4byte	0x160
+ 425 013b 07       		.uleb128 0x7
+ 426 013c 87010000 		.4byte	.LASF34
+ 427 0140 00       		.sleb128 0
+ 428 0141 07       		.uleb128 0x7
+ 429 0142 A8010000 		.4byte	.LASF35
+ 430 0146 01       		.sleb128 1
+ 431 0147 07       		.uleb128 0x7
+ 432 0148 71020000 		.4byte	.LASF36
+ 433 014c 02       		.sleb128 2
+ 434 014d 07       		.uleb128 0x7
+ 435 014e 13000000 		.4byte	.LASF37
+ 436 0152 03       		.sleb128 3
+ 437 0153 07       		.uleb128 0x7
+ 438 0154 2D030000 		.4byte	.LASF38
+ 439 0158 04       		.sleb128 4
+ 440 0159 07       		.uleb128 0x7
+ 441 015a FD010000 		.4byte	.LASF39
+ 442 015e 05       		.sleb128 5
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 10
+
+
+ 443 015f 00       		.byte	0
+ 444 0160 08       		.uleb128 0x8
+ 445 0161 6D617000 		.ascii	"map\000"
+ 446 0165 01       		.byte	0x1
+ 447 0166 08       		.byte	0x8
+ 448 0167 4C000000 		.4byte	0x4c
+ 449 016b 01       		.byte	0x1
+ 450 016c A6010000 		.4byte	0x1a6
+ 451 0170 09       		.uleb128 0x9
+ 452 0171 7800     		.ascii	"x\000"
+ 453 0173 01       		.byte	0x1
+ 454 0174 08       		.byte	0x8
+ 455 0175 4C000000 		.4byte	0x4c
+ 456 0179 0A       		.uleb128 0xa
+ 457 017a 4E010000 		.4byte	.LASF40
+ 458 017e 01       		.byte	0x1
+ 459 017f 08       		.byte	0x8
+ 460 0180 4C000000 		.4byte	0x4c
+ 461 0184 0A       		.uleb128 0xa
+ 462 0185 2F000000 		.4byte	.LASF41
+ 463 0189 01       		.byte	0x1
+ 464 018a 08       		.byte	0x8
+ 465 018b 4C000000 		.4byte	0x4c
+ 466 018f 0A       		.uleb128 0xa
+ 467 0190 46010000 		.4byte	.LASF42
+ 468 0194 01       		.byte	0x1
+ 469 0195 08       		.byte	0x8
+ 470 0196 4C000000 		.4byte	0x4c
+ 471 019a 0A       		.uleb128 0xa
+ 472 019b 49000000 		.4byte	.LASF43
+ 473 019f 01       		.byte	0x1
+ 474 01a0 08       		.byte	0x8
+ 475 01a1 4C000000 		.4byte	0x4c
+ 476 01a5 00       		.byte	0
+ 477 01a6 0B       		.uleb128 0xb
+ 478 01a7 60010000 		.4byte	0x160
+ 479 01ab 00000000 		.4byte	.LFB56
+ 480 01af 1A000000 		.4byte	.LFE56-.LFB56
+ 481 01b3 01       		.uleb128 0x1
+ 482 01b4 9C       		.byte	0x9c
+ 483 01b5 E3010000 		.4byte	0x1e3
+ 484 01b9 0C       		.uleb128 0xc
+ 485 01ba 70010000 		.4byte	0x170
+ 486 01be 00000000 		.4byte	.LLST0
+ 487 01c2 0D       		.uleb128 0xd
+ 488 01c3 79010000 		.4byte	0x179
+ 489 01c7 01       		.uleb128 0x1
+ 490 01c8 51       		.byte	0x51
+ 491 01c9 0C       		.uleb128 0xc
+ 492 01ca 84010000 		.4byte	0x184
+ 493 01ce 21000000 		.4byte	.LLST1
+ 494 01d2 0D       		.uleb128 0xd
+ 495 01d3 8F010000 		.4byte	0x18f
+ 496 01d7 01       		.uleb128 0x1
+ 497 01d8 53       		.byte	0x53
+ 498 01d9 0C       		.uleb128 0xc
+ 499 01da 9A010000 		.4byte	0x19a
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 11
+
+
+ 500 01de 42000000 		.4byte	.LLST2
+ 501 01e2 00       		.byte	0
+ 502 01e3 0E       		.uleb128 0xe
+ 503 01e4 EE010000 		.4byte	.LASF44
+ 504 01e8 01       		.byte	0x1
+ 505 01e9 0D       		.byte	0xd
+ 506 01ea 2F010000 		.4byte	0x12f
+ 507 01ee 00000000 		.4byte	.LFB57
+ 508 01f2 90000000 		.4byte	.LFE57-.LFB57
+ 509 01f6 01       		.uleb128 0x1
+ 510 01f7 9C       		.byte	0x9c
+ 511 01f8 05030000 		.4byte	0x305
+ 512 01fc 0F       		.uleb128 0xf
+ 513 01fd 23010000 		.4byte	.LASF46
+ 514 0201 01       		.byte	0x1
+ 515 0202 14       		.byte	0x14
+ 516 0203 2F010000 		.4byte	0x12f
+ 517 0207 62000000 		.4byte	.LLST3
+ 518 020b 10       		.uleb128 0x10
+ 519 020c 60010000 		.4byte	0x160
+ 520 0210 16000000 		.4byte	.LBB6
+ 521 0214 12000000 		.4byte	.LBE6-.LBB6
+ 522 0218 01       		.byte	0x1
+ 523 0219 14       		.byte	0x14
+ 524 021a 40020000 		.4byte	0x240
+ 525 021e 11       		.uleb128 0x11
+ 526 021f 9A010000 		.4byte	0x19a
+ 527 0223 05       		.byte	0x5
+ 528 0224 11       		.uleb128 0x11
+ 529 0225 8F010000 		.4byte	0x18f
+ 530 0229 00       		.byte	0
+ 531 022a 11       		.uleb128 0x11
+ 532 022b 84010000 		.4byte	0x184
+ 533 022f FF       		.byte	0xff
+ 534 0230 11       		.uleb128 0x11
+ 535 0231 79010000 		.4byte	0x179
+ 536 0235 00       		.byte	0
+ 537 0236 0C       		.uleb128 0xc
+ 538 0237 70010000 		.4byte	0x170
+ 539 023b 80000000 		.4byte	.LLST4
+ 540 023f 00       		.byte	0
+ 541 0240 12       		.uleb128 0x12
+ 542 0241 0A000000 		.4byte	.LVL4
+ 543 0245 CF030000 		.4byte	0x3cf
+ 544 0249 58020000 		.4byte	0x258
+ 545 024d 13       		.uleb128 0x13
+ 546 024e 01       		.uleb128 0x1
+ 547 024f 51       		.byte	0x51
+ 548 0250 01       		.uleb128 0x1
+ 549 0251 36       		.byte	0x36
+ 550 0252 13       		.uleb128 0x13
+ 551 0253 01       		.uleb128 0x1
+ 552 0254 50       		.byte	0x50
+ 553 0255 01       		.uleb128 0x1
+ 554 0256 30       		.byte	0x30
+ 555 0257 00       		.byte	0
+ 556 0258 12       		.uleb128 0x12
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 12
+
+
+ 557 0259 10000000 		.4byte	.LVL5
+ 558 025d E5030000 		.4byte	0x3e5
+ 559 0261 6B020000 		.4byte	0x26b
+ 560 0265 13       		.uleb128 0x13
+ 561 0266 01       		.uleb128 0x1
+ 562 0267 50       		.byte	0x50
+ 563 0268 01       		.uleb128 0x1
+ 564 0269 30       		.byte	0x30
+ 565 026a 00       		.byte	0
+ 566 026b 12       		.uleb128 0x12
+ 567 026c 16000000 		.4byte	.LVL6
+ 568 0270 FA030000 		.4byte	0x3fa
+ 569 0274 7E020000 		.4byte	0x27e
+ 570 0278 13       		.uleb128 0x13
+ 571 0279 01       		.uleb128 0x1
+ 572 027a 50       		.byte	0x50
+ 573 027b 01       		.uleb128 0x1
+ 574 027c 30       		.byte	0x30
+ 575 027d 00       		.byte	0
+ 576 027e 12       		.uleb128 0x12
+ 577 027f 3E000000 		.4byte	.LVL9
+ 578 0283 0F040000 		.4byte	0x40f
+ 579 0287 95020000 		.4byte	0x295
+ 580 028b 13       		.uleb128 0x13
+ 581 028c 01       		.uleb128 0x1
+ 582 028d 50       		.byte	0x50
+ 583 028e 05       		.uleb128 0x5
+ 584 028f 03       		.byte	0x3
+ 585 0290 24000000 		.4byte	.LC5
+ 586 0294 00       		.byte	0
+ 587 0295 12       		.uleb128 0x12
+ 588 0296 48000000 		.4byte	.LVL11
+ 589 029a 0F040000 		.4byte	0x40f
+ 590 029e AC020000 		.4byte	0x2ac
+ 591 02a2 13       		.uleb128 0x13
+ 592 02a3 01       		.uleb128 0x1
+ 593 02a4 50       		.byte	0x50
+ 594 02a5 05       		.uleb128 0x5
+ 595 02a6 03       		.byte	0x3
+ 596 02a7 00000000 		.4byte	.LC0
+ 597 02ab 00       		.byte	0
+ 598 02ac 12       		.uleb128 0x12
+ 599 02ad 52000000 		.4byte	.LVL13
+ 600 02b1 0F040000 		.4byte	0x40f
+ 601 02b5 C3020000 		.4byte	0x2c3
+ 602 02b9 13       		.uleb128 0x13
+ 603 02ba 01       		.uleb128 0x1
+ 604 02bb 50       		.byte	0x50
+ 605 02bc 05       		.uleb128 0x5
+ 606 02bd 03       		.byte	0x3
+ 607 02be 04000000 		.4byte	.LC1
+ 608 02c2 00       		.byte	0
+ 609 02c3 12       		.uleb128 0x12
+ 610 02c4 5C000000 		.4byte	.LVL15
+ 611 02c8 0F040000 		.4byte	0x40f
+ 612 02cc DA020000 		.4byte	0x2da
+ 613 02d0 13       		.uleb128 0x13
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 13
+
+
+ 614 02d1 01       		.uleb128 0x1
+ 615 02d2 50       		.byte	0x50
+ 616 02d3 05       		.uleb128 0x5
+ 617 02d4 03       		.byte	0x3
+ 618 02d5 0C000000 		.4byte	.LC2
+ 619 02d9 00       		.byte	0
+ 620 02da 12       		.uleb128 0x12
+ 621 02db 66000000 		.4byte	.LVL17
+ 622 02df 0F040000 		.4byte	0x40f
+ 623 02e3 F1020000 		.4byte	0x2f1
+ 624 02e7 13       		.uleb128 0x13
+ 625 02e8 01       		.uleb128 0x1
+ 626 02e9 50       		.byte	0x50
+ 627 02ea 05       		.uleb128 0x5
+ 628 02eb 03       		.byte	0x3
+ 629 02ec 14000000 		.4byte	.LC3
+ 630 02f0 00       		.byte	0
+ 631 02f1 14       		.uleb128 0x14
+ 632 02f2 70000000 		.4byte	.LVL19
+ 633 02f6 0F040000 		.4byte	0x40f
+ 634 02fa 13       		.uleb128 0x13
+ 635 02fb 01       		.uleb128 0x1
+ 636 02fc 50       		.byte	0x50
+ 637 02fd 05       		.uleb128 0x5
+ 638 02fe 03       		.byte	0x3
+ 639 02ff 1C000000 		.4byte	.LC4
+ 640 0303 00       		.byte	0
+ 641 0304 00       		.byte	0
+ 642 0305 0E       		.uleb128 0xe
+ 643 0306 0A010000 		.4byte	.LASF45
+ 644 030a 01       		.byte	0x1
+ 645 030b 2E       		.byte	0x2e
+ 646 030c DA000000 		.4byte	0xda
+ 647 0310 00000000 		.4byte	.LFB58
+ 648 0314 40000000 		.4byte	.LFE58-.LFB58
+ 649 0318 01       		.uleb128 0x1
+ 650 0319 9C       		.byte	0x9c
+ 651 031a BE030000 		.4byte	0x3be
+ 652 031e 15       		.uleb128 0x15
+ 653 031f 6B657900 		.ascii	"key\000"
+ 654 0323 01       		.byte	0x1
+ 655 0324 35       		.byte	0x35
+ 656 0325 DA000000 		.4byte	0xda
+ 657 0329 99000000 		.4byte	.LLST5
+ 658 032d 10       		.uleb128 0x10
+ 659 032e 60010000 		.4byte	0x160
+ 660 0332 16000000 		.4byte	.LBB8
+ 661 0336 16000000 		.4byte	.LBE8-.LBB8
+ 662 033a 01       		.byte	0x1
+ 663 033b 35       		.byte	0x35
+ 664 033c 62030000 		.4byte	0x362
+ 665 0340 11       		.uleb128 0x11
+ 666 0341 9A010000 		.4byte	0x19a
+ 667 0345 0B       		.byte	0xb
+ 668 0346 11       		.uleb128 0x11
+ 669 0347 8F010000 		.4byte	0x18f
+ 670 034b 00       		.byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 14
+
+
+ 671 034c 11       		.uleb128 0x11
+ 672 034d 84010000 		.4byte	0x184
+ 673 0351 FF       		.byte	0xff
+ 674 0352 11       		.uleb128 0x11
+ 675 0353 79010000 		.4byte	0x179
+ 676 0357 00       		.byte	0
+ 677 0358 0C       		.uleb128 0xc
+ 678 0359 70010000 		.4byte	0x170
+ 679 035d C2000000 		.4byte	.LLST6
+ 680 0361 00       		.byte	0
+ 681 0362 12       		.uleb128 0x12
+ 682 0363 0A000000 		.4byte	.LVL21
+ 683 0367 CF030000 		.4byte	0x3cf
+ 684 036b 7A030000 		.4byte	0x37a
+ 685 036f 13       		.uleb128 0x13
+ 686 0370 01       		.uleb128 0x1
+ 687 0371 51       		.byte	0x51
+ 688 0372 01       		.uleb128 0x1
+ 689 0373 36       		.byte	0x36
+ 690 0374 13       		.uleb128 0x13
+ 691 0375 01       		.uleb128 0x1
+ 692 0376 50       		.byte	0x50
+ 693 0377 01       		.uleb128 0x1
+ 694 0378 31       		.byte	0x31
+ 695 0379 00       		.byte	0
+ 696 037a 12       		.uleb128 0x12
+ 697 037b 10000000 		.4byte	.LVL22
+ 698 037f E5030000 		.4byte	0x3e5
+ 699 0383 8D030000 		.4byte	0x38d
+ 700 0387 13       		.uleb128 0x13
+ 701 0388 01       		.uleb128 0x1
+ 702 0389 50       		.byte	0x50
+ 703 038a 01       		.uleb128 0x1
+ 704 038b 30       		.byte	0x30
+ 705 038c 00       		.byte	0
+ 706 038d 12       		.uleb128 0x12
+ 707 038e 16000000 		.4byte	.LVL23
+ 708 0392 FA030000 		.4byte	0x3fa
+ 709 0396 A0030000 		.4byte	0x3a0
+ 710 039a 13       		.uleb128 0x13
+ 711 039b 01       		.uleb128 0x1
+ 712 039c 50       		.byte	0x50
+ 713 039d 01       		.uleb128 0x1
+ 714 039e 31       		.byte	0x31
+ 715 039f 00       		.byte	0
+ 716 03a0 12       		.uleb128 0x12
+ 717 03a1 34000000 		.4byte	.LVL26
+ 718 03a5 2B040000 		.4byte	0x42b
+ 719 03a9 B4030000 		.4byte	0x3b4
+ 720 03ad 13       		.uleb128 0x13
+ 721 03ae 01       		.uleb128 0x1
+ 722 03af 50       		.byte	0x50
+ 723 03b0 02       		.uleb128 0x2
+ 724 03b1 74       		.byte	0x74
+ 725 03b2 00       		.sleb128 0
+ 726 03b3 00       		.byte	0
+ 727 03b4 16       		.uleb128 0x16
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 15
+
+
+ 728 03b5 38000000 		.4byte	.LVL27
+ 729 03b9 0F040000 		.4byte	0x40f
+ 730 03bd 00       		.byte	0
+ 731 03be 17       		.uleb128 0x17
+ 732 03bf 5F010000 		.4byte	.LASF55
+ 733 03c3 08       		.byte	0x8
+ 734 03c4 1606     		.2byte	0x616
+ 735 03c6 CA030000 		.4byte	0x3ca
+ 736 03ca 18       		.uleb128 0x18
+ 737 03cb 76000000 		.4byte	0x76
+ 738 03cf 19       		.uleb128 0x19
+ 739 03d0 8D020000 		.4byte	.LASF49
+ 740 03d4 07       		.byte	0x7
+ 741 03d5 40       		.byte	0x40
+ 742 03d6 E5030000 		.4byte	0x3e5
+ 743 03da 1A       		.uleb128 0x1a
+ 744 03db 81000000 		.4byte	0x81
+ 745 03df 1A       		.uleb128 0x1a
+ 746 03e0 81000000 		.4byte	0x81
+ 747 03e4 00       		.byte	0
+ 748 03e5 1B       		.uleb128 0x1b
+ 749 03e6 16030000 		.4byte	.LASF47
+ 750 03ea 06       		.byte	0x6
+ 751 03eb 34       		.byte	0x34
+ 752 03ec 97000000 		.4byte	0x97
+ 753 03f0 FA030000 		.4byte	0x3fa
+ 754 03f4 1A       		.uleb128 0x1a
+ 755 03f5 81000000 		.4byte	0x81
+ 756 03f9 00       		.byte	0
+ 757 03fa 1B       		.uleb128 0x1b
+ 758 03fb 0C020000 		.4byte	.LASF48
+ 759 03ff 06       		.byte	0x6
+ 760 0400 35       		.byte	0x35
+ 761 0401 A2000000 		.4byte	0xa2
+ 762 0405 0F040000 		.4byte	0x40f
+ 763 0409 1A       		.uleb128 0x1a
+ 764 040a 8C000000 		.4byte	0x8c
+ 765 040e 00       		.byte	0
+ 766 040f 19       		.uleb128 0x19
+ 767 0410 43020000 		.4byte	.LASF50
+ 768 0414 07       		.byte	0x7
+ 769 0415 3F       		.byte	0x3f
+ 770 0416 20040000 		.4byte	0x420
+ 771 041a 1A       		.uleb128 0x1a
+ 772 041b 20040000 		.4byte	0x420
+ 773 041f 00       		.byte	0
+ 774 0420 05       		.uleb128 0x5
+ 775 0421 04       		.byte	0x4
+ 776 0422 26040000 		.4byte	0x426
+ 777 0426 1C       		.uleb128 0x1c
+ 778 0427 BB000000 		.4byte	0xbb
+ 779 042b 1D       		.uleb128 0x1d
+ 780 042c 36000000 		.4byte	.LASF51
+ 781 0430 05       		.byte	0x5
+ 782 0431 25       		.byte	0x25
+ 783 0432 D4000000 		.4byte	0xd4
+ 784 0436 1A       		.uleb128 0x1a
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 16
+
+
+ 785 0437 68000000 		.4byte	0x68
+ 786 043b 00       		.byte	0
+ 787 043c 00       		.byte	0
+ 788              		.section	.debug_abbrev,"",%progbits
+ 789              	.Ldebug_abbrev0:
+ 790 0000 01       		.uleb128 0x1
+ 791 0001 11       		.uleb128 0x11
+ 792 0002 01       		.byte	0x1
+ 793 0003 25       		.uleb128 0x25
+ 794 0004 0E       		.uleb128 0xe
+ 795 0005 13       		.uleb128 0x13
+ 796 0006 0B       		.uleb128 0xb
+ 797 0007 03       		.uleb128 0x3
+ 798 0008 0E       		.uleb128 0xe
+ 799 0009 1B       		.uleb128 0x1b
+ 800 000a 0E       		.uleb128 0xe
+ 801 000b 55       		.uleb128 0x55
+ 802 000c 17       		.uleb128 0x17
+ 803 000d 11       		.uleb128 0x11
+ 804 000e 01       		.uleb128 0x1
+ 805 000f 10       		.uleb128 0x10
+ 806 0010 17       		.uleb128 0x17
+ 807 0011 00       		.byte	0
+ 808 0012 00       		.byte	0
+ 809 0013 02       		.uleb128 0x2
+ 810 0014 24       		.uleb128 0x24
+ 811 0015 00       		.byte	0
+ 812 0016 0B       		.uleb128 0xb
+ 813 0017 0B       		.uleb128 0xb
+ 814 0018 3E       		.uleb128 0x3e
+ 815 0019 0B       		.uleb128 0xb
+ 816 001a 03       		.uleb128 0x3
+ 817 001b 0E       		.uleb128 0xe
+ 818 001c 00       		.byte	0
+ 819 001d 00       		.byte	0
+ 820 001e 03       		.uleb128 0x3
+ 821 001f 16       		.uleb128 0x16
+ 822 0020 00       		.byte	0
+ 823 0021 03       		.uleb128 0x3
+ 824 0022 0E       		.uleb128 0xe
+ 825 0023 3A       		.uleb128 0x3a
+ 826 0024 0B       		.uleb128 0xb
+ 827 0025 3B       		.uleb128 0x3b
+ 828 0026 0B       		.uleb128 0xb
+ 829 0027 49       		.uleb128 0x49
+ 830 0028 13       		.uleb128 0x13
+ 831 0029 00       		.byte	0
+ 832 002a 00       		.byte	0
+ 833 002b 04       		.uleb128 0x4
+ 834 002c 24       		.uleb128 0x24
+ 835 002d 00       		.byte	0
+ 836 002e 0B       		.uleb128 0xb
+ 837 002f 0B       		.uleb128 0xb
+ 838 0030 3E       		.uleb128 0x3e
+ 839 0031 0B       		.uleb128 0xb
+ 840 0032 03       		.uleb128 0x3
+ 841 0033 08       		.uleb128 0x8
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 17
+
+
+ 842 0034 00       		.byte	0
+ 843 0035 00       		.byte	0
+ 844 0036 05       		.uleb128 0x5
+ 845 0037 0F       		.uleb128 0xf
+ 846 0038 00       		.byte	0
+ 847 0039 0B       		.uleb128 0xb
+ 848 003a 0B       		.uleb128 0xb
+ 849 003b 49       		.uleb128 0x49
+ 850 003c 13       		.uleb128 0x13
+ 851 003d 00       		.byte	0
+ 852 003e 00       		.byte	0
+ 853 003f 06       		.uleb128 0x6
+ 854 0040 04       		.uleb128 0x4
+ 855 0041 01       		.byte	0x1
+ 856 0042 03       		.uleb128 0x3
+ 857 0043 0E       		.uleb128 0xe
+ 858 0044 0B       		.uleb128 0xb
+ 859 0045 0B       		.uleb128 0xb
+ 860 0046 3A       		.uleb128 0x3a
+ 861 0047 0B       		.uleb128 0xb
+ 862 0048 3B       		.uleb128 0x3b
+ 863 0049 0B       		.uleb128 0xb
+ 864 004a 01       		.uleb128 0x1
+ 865 004b 13       		.uleb128 0x13
+ 866 004c 00       		.byte	0
+ 867 004d 00       		.byte	0
+ 868 004e 07       		.uleb128 0x7
+ 869 004f 28       		.uleb128 0x28
+ 870 0050 00       		.byte	0
+ 871 0051 03       		.uleb128 0x3
+ 872 0052 0E       		.uleb128 0xe
+ 873 0053 1C       		.uleb128 0x1c
+ 874 0054 0D       		.uleb128 0xd
+ 875 0055 00       		.byte	0
+ 876 0056 00       		.byte	0
+ 877 0057 08       		.uleb128 0x8
+ 878 0058 2E       		.uleb128 0x2e
+ 879 0059 01       		.byte	0x1
+ 880 005a 3F       		.uleb128 0x3f
+ 881 005b 19       		.uleb128 0x19
+ 882 005c 03       		.uleb128 0x3
+ 883 005d 08       		.uleb128 0x8
+ 884 005e 3A       		.uleb128 0x3a
+ 885 005f 0B       		.uleb128 0xb
+ 886 0060 3B       		.uleb128 0x3b
+ 887 0061 0B       		.uleb128 0xb
+ 888 0062 27       		.uleb128 0x27
+ 889 0063 19       		.uleb128 0x19
+ 890 0064 49       		.uleb128 0x49
+ 891 0065 13       		.uleb128 0x13
+ 892 0066 20       		.uleb128 0x20
+ 893 0067 0B       		.uleb128 0xb
+ 894 0068 01       		.uleb128 0x1
+ 895 0069 13       		.uleb128 0x13
+ 896 006a 00       		.byte	0
+ 897 006b 00       		.byte	0
+ 898 006c 09       		.uleb128 0x9
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 18
+
+
+ 899 006d 05       		.uleb128 0x5
+ 900 006e 00       		.byte	0
+ 901 006f 03       		.uleb128 0x3
+ 902 0070 08       		.uleb128 0x8
+ 903 0071 3A       		.uleb128 0x3a
+ 904 0072 0B       		.uleb128 0xb
+ 905 0073 3B       		.uleb128 0x3b
+ 906 0074 0B       		.uleb128 0xb
+ 907 0075 49       		.uleb128 0x49
+ 908 0076 13       		.uleb128 0x13
+ 909 0077 00       		.byte	0
+ 910 0078 00       		.byte	0
+ 911 0079 0A       		.uleb128 0xa
+ 912 007a 05       		.uleb128 0x5
+ 913 007b 00       		.byte	0
+ 914 007c 03       		.uleb128 0x3
+ 915 007d 0E       		.uleb128 0xe
+ 916 007e 3A       		.uleb128 0x3a
+ 917 007f 0B       		.uleb128 0xb
+ 918 0080 3B       		.uleb128 0x3b
+ 919 0081 0B       		.uleb128 0xb
+ 920 0082 49       		.uleb128 0x49
+ 921 0083 13       		.uleb128 0x13
+ 922 0084 00       		.byte	0
+ 923 0085 00       		.byte	0
+ 924 0086 0B       		.uleb128 0xb
+ 925 0087 2E       		.uleb128 0x2e
+ 926 0088 01       		.byte	0x1
+ 927 0089 31       		.uleb128 0x31
+ 928 008a 13       		.uleb128 0x13
+ 929 008b 11       		.uleb128 0x11
+ 930 008c 01       		.uleb128 0x1
+ 931 008d 12       		.uleb128 0x12
+ 932 008e 06       		.uleb128 0x6
+ 933 008f 40       		.uleb128 0x40
+ 934 0090 18       		.uleb128 0x18
+ 935 0091 9742     		.uleb128 0x2117
+ 936 0093 19       		.uleb128 0x19
+ 937 0094 01       		.uleb128 0x1
+ 938 0095 13       		.uleb128 0x13
+ 939 0096 00       		.byte	0
+ 940 0097 00       		.byte	0
+ 941 0098 0C       		.uleb128 0xc
+ 942 0099 05       		.uleb128 0x5
+ 943 009a 00       		.byte	0
+ 944 009b 31       		.uleb128 0x31
+ 945 009c 13       		.uleb128 0x13
+ 946 009d 02       		.uleb128 0x2
+ 947 009e 17       		.uleb128 0x17
+ 948 009f 00       		.byte	0
+ 949 00a0 00       		.byte	0
+ 950 00a1 0D       		.uleb128 0xd
+ 951 00a2 05       		.uleb128 0x5
+ 952 00a3 00       		.byte	0
+ 953 00a4 31       		.uleb128 0x31
+ 954 00a5 13       		.uleb128 0x13
+ 955 00a6 02       		.uleb128 0x2
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 19
+
+
+ 956 00a7 18       		.uleb128 0x18
+ 957 00a8 00       		.byte	0
+ 958 00a9 00       		.byte	0
+ 959 00aa 0E       		.uleb128 0xe
+ 960 00ab 2E       		.uleb128 0x2e
+ 961 00ac 01       		.byte	0x1
+ 962 00ad 3F       		.uleb128 0x3f
+ 963 00ae 19       		.uleb128 0x19
+ 964 00af 03       		.uleb128 0x3
+ 965 00b0 0E       		.uleb128 0xe
+ 966 00b1 3A       		.uleb128 0x3a
+ 967 00b2 0B       		.uleb128 0xb
+ 968 00b3 3B       		.uleb128 0x3b
+ 969 00b4 0B       		.uleb128 0xb
+ 970 00b5 49       		.uleb128 0x49
+ 971 00b6 13       		.uleb128 0x13
+ 972 00b7 11       		.uleb128 0x11
+ 973 00b8 01       		.uleb128 0x1
+ 974 00b9 12       		.uleb128 0x12
+ 975 00ba 06       		.uleb128 0x6
+ 976 00bb 40       		.uleb128 0x40
+ 977 00bc 18       		.uleb128 0x18
+ 978 00bd 9742     		.uleb128 0x2117
+ 979 00bf 19       		.uleb128 0x19
+ 980 00c0 01       		.uleb128 0x1
+ 981 00c1 13       		.uleb128 0x13
+ 982 00c2 00       		.byte	0
+ 983 00c3 00       		.byte	0
+ 984 00c4 0F       		.uleb128 0xf
+ 985 00c5 34       		.uleb128 0x34
+ 986 00c6 00       		.byte	0
+ 987 00c7 03       		.uleb128 0x3
+ 988 00c8 0E       		.uleb128 0xe
+ 989 00c9 3A       		.uleb128 0x3a
+ 990 00ca 0B       		.uleb128 0xb
+ 991 00cb 3B       		.uleb128 0x3b
+ 992 00cc 0B       		.uleb128 0xb
+ 993 00cd 49       		.uleb128 0x49
+ 994 00ce 13       		.uleb128 0x13
+ 995 00cf 02       		.uleb128 0x2
+ 996 00d0 17       		.uleb128 0x17
+ 997 00d1 00       		.byte	0
+ 998 00d2 00       		.byte	0
+ 999 00d3 10       		.uleb128 0x10
+ 1000 00d4 1D       		.uleb128 0x1d
+ 1001 00d5 01       		.byte	0x1
+ 1002 00d6 31       		.uleb128 0x31
+ 1003 00d7 13       		.uleb128 0x13
+ 1004 00d8 11       		.uleb128 0x11
+ 1005 00d9 01       		.uleb128 0x1
+ 1006 00da 12       		.uleb128 0x12
+ 1007 00db 06       		.uleb128 0x6
+ 1008 00dc 58       		.uleb128 0x58
+ 1009 00dd 0B       		.uleb128 0xb
+ 1010 00de 59       		.uleb128 0x59
+ 1011 00df 0B       		.uleb128 0xb
+ 1012 00e0 01       		.uleb128 0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 20
+
+
+ 1013 00e1 13       		.uleb128 0x13
+ 1014 00e2 00       		.byte	0
+ 1015 00e3 00       		.byte	0
+ 1016 00e4 11       		.uleb128 0x11
+ 1017 00e5 05       		.uleb128 0x5
+ 1018 00e6 00       		.byte	0
+ 1019 00e7 31       		.uleb128 0x31
+ 1020 00e8 13       		.uleb128 0x13
+ 1021 00e9 1C       		.uleb128 0x1c
+ 1022 00ea 0B       		.uleb128 0xb
+ 1023 00eb 00       		.byte	0
+ 1024 00ec 00       		.byte	0
+ 1025 00ed 12       		.uleb128 0x12
+ 1026 00ee 898201   		.uleb128 0x4109
+ 1027 00f1 01       		.byte	0x1
+ 1028 00f2 11       		.uleb128 0x11
+ 1029 00f3 01       		.uleb128 0x1
+ 1030 00f4 31       		.uleb128 0x31
+ 1031 00f5 13       		.uleb128 0x13
+ 1032 00f6 01       		.uleb128 0x1
+ 1033 00f7 13       		.uleb128 0x13
+ 1034 00f8 00       		.byte	0
+ 1035 00f9 00       		.byte	0
+ 1036 00fa 13       		.uleb128 0x13
+ 1037 00fb 8A8201   		.uleb128 0x410a
+ 1038 00fe 00       		.byte	0
+ 1039 00ff 02       		.uleb128 0x2
+ 1040 0100 18       		.uleb128 0x18
+ 1041 0101 9142     		.uleb128 0x2111
+ 1042 0103 18       		.uleb128 0x18
+ 1043 0104 00       		.byte	0
+ 1044 0105 00       		.byte	0
+ 1045 0106 14       		.uleb128 0x14
+ 1046 0107 898201   		.uleb128 0x4109
+ 1047 010a 01       		.byte	0x1
+ 1048 010b 11       		.uleb128 0x11
+ 1049 010c 01       		.uleb128 0x1
+ 1050 010d 31       		.uleb128 0x31
+ 1051 010e 13       		.uleb128 0x13
+ 1052 010f 00       		.byte	0
+ 1053 0110 00       		.byte	0
+ 1054 0111 15       		.uleb128 0x15
+ 1055 0112 34       		.uleb128 0x34
+ 1056 0113 00       		.byte	0
+ 1057 0114 03       		.uleb128 0x3
+ 1058 0115 08       		.uleb128 0x8
+ 1059 0116 3A       		.uleb128 0x3a
+ 1060 0117 0B       		.uleb128 0xb
+ 1061 0118 3B       		.uleb128 0x3b
+ 1062 0119 0B       		.uleb128 0xb
+ 1063 011a 49       		.uleb128 0x49
+ 1064 011b 13       		.uleb128 0x13
+ 1065 011c 02       		.uleb128 0x2
+ 1066 011d 17       		.uleb128 0x17
+ 1067 011e 00       		.byte	0
+ 1068 011f 00       		.byte	0
+ 1069 0120 16       		.uleb128 0x16
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 21
+
+
+ 1070 0121 898201   		.uleb128 0x4109
+ 1071 0124 00       		.byte	0
+ 1072 0125 11       		.uleb128 0x11
+ 1073 0126 01       		.uleb128 0x1
+ 1074 0127 31       		.uleb128 0x31
+ 1075 0128 13       		.uleb128 0x13
+ 1076 0129 00       		.byte	0
+ 1077 012a 00       		.byte	0
+ 1078 012b 17       		.uleb128 0x17
+ 1079 012c 34       		.uleb128 0x34
+ 1080 012d 00       		.byte	0
+ 1081 012e 03       		.uleb128 0x3
+ 1082 012f 0E       		.uleb128 0xe
+ 1083 0130 3A       		.uleb128 0x3a
+ 1084 0131 0B       		.uleb128 0xb
+ 1085 0132 3B       		.uleb128 0x3b
+ 1086 0133 05       		.uleb128 0x5
+ 1087 0134 49       		.uleb128 0x49
+ 1088 0135 13       		.uleb128 0x13
+ 1089 0136 3F       		.uleb128 0x3f
+ 1090 0137 19       		.uleb128 0x19
+ 1091 0138 3C       		.uleb128 0x3c
+ 1092 0139 19       		.uleb128 0x19
+ 1093 013a 00       		.byte	0
+ 1094 013b 00       		.byte	0
+ 1095 013c 18       		.uleb128 0x18
+ 1096 013d 35       		.uleb128 0x35
+ 1097 013e 00       		.byte	0
+ 1098 013f 49       		.uleb128 0x49
+ 1099 0140 13       		.uleb128 0x13
+ 1100 0141 00       		.byte	0
+ 1101 0142 00       		.byte	0
+ 1102 0143 19       		.uleb128 0x19
+ 1103 0144 2E       		.uleb128 0x2e
+ 1104 0145 01       		.byte	0x1
+ 1105 0146 3F       		.uleb128 0x3f
+ 1106 0147 19       		.uleb128 0x19
+ 1107 0148 03       		.uleb128 0x3
+ 1108 0149 0E       		.uleb128 0xe
+ 1109 014a 3A       		.uleb128 0x3a
+ 1110 014b 0B       		.uleb128 0xb
+ 1111 014c 3B       		.uleb128 0x3b
+ 1112 014d 0B       		.uleb128 0xb
+ 1113 014e 27       		.uleb128 0x27
+ 1114 014f 19       		.uleb128 0x19
+ 1115 0150 3C       		.uleb128 0x3c
+ 1116 0151 19       		.uleb128 0x19
+ 1117 0152 01       		.uleb128 0x1
+ 1118 0153 13       		.uleb128 0x13
+ 1119 0154 00       		.byte	0
+ 1120 0155 00       		.byte	0
+ 1121 0156 1A       		.uleb128 0x1a
+ 1122 0157 05       		.uleb128 0x5
+ 1123 0158 00       		.byte	0
+ 1124 0159 49       		.uleb128 0x49
+ 1125 015a 13       		.uleb128 0x13
+ 1126 015b 00       		.byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 22
+
+
+ 1127 015c 00       		.byte	0
+ 1128 015d 1B       		.uleb128 0x1b
+ 1129 015e 2E       		.uleb128 0x2e
+ 1130 015f 01       		.byte	0x1
+ 1131 0160 3F       		.uleb128 0x3f
+ 1132 0161 19       		.uleb128 0x19
+ 1133 0162 03       		.uleb128 0x3
+ 1134 0163 0E       		.uleb128 0xe
+ 1135 0164 3A       		.uleb128 0x3a
+ 1136 0165 0B       		.uleb128 0xb
+ 1137 0166 3B       		.uleb128 0x3b
+ 1138 0167 0B       		.uleb128 0xb
+ 1139 0168 27       		.uleb128 0x27
+ 1140 0169 19       		.uleb128 0x19
+ 1141 016a 49       		.uleb128 0x49
+ 1142 016b 13       		.uleb128 0x13
+ 1143 016c 3C       		.uleb128 0x3c
+ 1144 016d 19       		.uleb128 0x19
+ 1145 016e 01       		.uleb128 0x1
+ 1146 016f 13       		.uleb128 0x13
+ 1147 0170 00       		.byte	0
+ 1148 0171 00       		.byte	0
+ 1149 0172 1C       		.uleb128 0x1c
+ 1150 0173 26       		.uleb128 0x26
+ 1151 0174 00       		.byte	0
+ 1152 0175 49       		.uleb128 0x49
+ 1153 0176 13       		.uleb128 0x13
+ 1154 0177 00       		.byte	0
+ 1155 0178 00       		.byte	0
+ 1156 0179 1D       		.uleb128 0x1d
+ 1157 017a 2E       		.uleb128 0x2e
+ 1158 017b 01       		.byte	0x1
+ 1159 017c 3F       		.uleb128 0x3f
+ 1160 017d 19       		.uleb128 0x19
+ 1161 017e 03       		.uleb128 0x3
+ 1162 017f 0E       		.uleb128 0xe
+ 1163 0180 3A       		.uleb128 0x3a
+ 1164 0181 0B       		.uleb128 0xb
+ 1165 0182 3B       		.uleb128 0x3b
+ 1166 0183 0B       		.uleb128 0xb
+ 1167 0184 27       		.uleb128 0x27
+ 1168 0185 19       		.uleb128 0x19
+ 1169 0186 49       		.uleb128 0x49
+ 1170 0187 13       		.uleb128 0x13
+ 1171 0188 3C       		.uleb128 0x3c
+ 1172 0189 19       		.uleb128 0x19
+ 1173 018a 00       		.byte	0
+ 1174 018b 00       		.byte	0
+ 1175 018c 00       		.byte	0
+ 1176              		.section	.debug_loc,"",%progbits
+ 1177              	.Ldebug_loc0:
+ 1178              	.LLST0:
+ 1179 0000 00000000 		.4byte	.LVL0
+ 1180 0004 06000000 		.4byte	.LVL1
+ 1181 0008 0100     		.2byte	0x1
+ 1182 000a 50       		.byte	0x50
+ 1183 000b 06000000 		.4byte	.LVL1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 23
+
+
+ 1184 000f 1A000000 		.4byte	.LFE56
+ 1185 0013 0400     		.2byte	0x4
+ 1186 0015 F3       		.byte	0xf3
+ 1187 0016 01       		.uleb128 0x1
+ 1188 0017 50       		.byte	0x50
+ 1189 0018 9F       		.byte	0x9f
+ 1190 0019 00000000 		.4byte	0
+ 1191 001d 00000000 		.4byte	0
+ 1192              	.LLST1:
+ 1193 0021 00000000 		.4byte	.LVL0
+ 1194 0025 0E000000 		.4byte	.LVL2
+ 1195 0029 0100     		.2byte	0x1
+ 1196 002b 52       		.byte	0x52
+ 1197 002c 0E000000 		.4byte	.LVL2
+ 1198 0030 1A000000 		.4byte	.LFE56
+ 1199 0034 0400     		.2byte	0x4
+ 1200 0036 F3       		.byte	0xf3
+ 1201 0037 01       		.uleb128 0x1
+ 1202 0038 52       		.byte	0x52
+ 1203 0039 9F       		.byte	0x9f
+ 1204 003a 00000000 		.4byte	0
+ 1205 003e 00000000 		.4byte	0
+ 1206              	.LLST2:
+ 1207 0042 00000000 		.4byte	.LVL0
+ 1208 0046 16000000 		.4byte	.LVL3
+ 1209 004a 0200     		.2byte	0x2
+ 1210 004c 91       		.byte	0x91
+ 1211 004d 00       		.sleb128 0
+ 1212 004e 16000000 		.4byte	.LVL3
+ 1213 0052 1A000000 		.4byte	.LFE56
+ 1214 0056 0200     		.2byte	0x2
+ 1215 0058 7D       		.byte	0x7d
+ 1216 0059 00       		.sleb128 0
+ 1217 005a 00000000 		.4byte	0
+ 1218 005e 00000000 		.4byte	0
+ 1219              	.LLST3:
+ 1220 0062 2A000000 		.4byte	.LVL8
+ 1221 0066 74000000 		.4byte	.LVL20
+ 1222 006a 0100     		.2byte	0x1
+ 1223 006c 54       		.byte	0x54
+ 1224 006d 74000000 		.4byte	.LVL20
+ 1225 0071 90000000 		.4byte	.LFE57
+ 1226 0075 0100     		.2byte	0x1
+ 1227 0077 50       		.byte	0x50
+ 1228 0078 00000000 		.4byte	0
+ 1229 007c 00000000 		.4byte	0
+ 1230              	.LLST4:
+ 1231 0080 16000000 		.4byte	.LVL6
+ 1232 0084 1C000000 		.4byte	.LVL7
+ 1233 0088 0700     		.2byte	0x7
+ 1234 008a 70       		.byte	0x70
+ 1235 008b 00       		.sleb128 0
+ 1236 008c 40       		.byte	0x40
+ 1237 008d 24       		.byte	0x24
+ 1238 008e 40       		.byte	0x40
+ 1239 008f 26       		.byte	0x26
+ 1240 0090 9F       		.byte	0x9f
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 24
+
+
+ 1241 0091 00000000 		.4byte	0
+ 1242 0095 00000000 		.4byte	0
+ 1243              	.LLST5:
+ 1244 0099 2C000000 		.4byte	.LVL25
+ 1245 009d 33000000 		.4byte	.LVL26-1
+ 1246 00a1 0100     		.2byte	0x1
+ 1247 00a3 50       		.byte	0x50
+ 1248 00a4 33000000 		.4byte	.LVL26-1
+ 1249 00a8 3C000000 		.4byte	.LVL28
+ 1250 00ac 0100     		.2byte	0x1
+ 1251 00ae 54       		.byte	0x54
+ 1252 00af 3C000000 		.4byte	.LVL28
+ 1253 00b3 40000000 		.4byte	.LFE58
+ 1254 00b7 0100     		.2byte	0x1
+ 1255 00b9 50       		.byte	0x50
+ 1256 00ba 00000000 		.4byte	0
+ 1257 00be 00000000 		.4byte	0
+ 1258              	.LLST6:
+ 1259 00c2 16000000 		.4byte	.LVL23
+ 1260 00c6 20000000 		.4byte	.LVL24
+ 1261 00ca 0700     		.2byte	0x7
+ 1262 00cc 70       		.byte	0x70
+ 1263 00cd 00       		.sleb128 0
+ 1264 00ce 40       		.byte	0x40
+ 1265 00cf 24       		.byte	0x24
+ 1266 00d0 40       		.byte	0x40
+ 1267 00d1 26       		.byte	0x26
+ 1268 00d2 9F       		.byte	0x9f
+ 1269 00d3 00000000 		.4byte	0
+ 1270 00d7 00000000 		.4byte	0
+ 1271              		.section	.debug_aranges,"",%progbits
+ 1272 0000 2C000000 		.4byte	0x2c
+ 1273 0004 0200     		.2byte	0x2
+ 1274 0006 00000000 		.4byte	.Ldebug_info0
+ 1275 000a 04       		.byte	0x4
+ 1276 000b 00       		.byte	0
+ 1277 000c 0000     		.2byte	0
+ 1278 000e 0000     		.2byte	0
+ 1279 0010 00000000 		.4byte	.LFB56
+ 1280 0014 1A000000 		.4byte	.LFE56-.LFB56
+ 1281 0018 00000000 		.4byte	.LFB57
+ 1282 001c 90000000 		.4byte	.LFE57-.LFB57
+ 1283 0020 00000000 		.4byte	.LFB58
+ 1284 0024 40000000 		.4byte	.LFE58-.LFB58
+ 1285 0028 00000000 		.4byte	0
+ 1286 002c 00000000 		.4byte	0
+ 1287              		.section	.debug_ranges,"",%progbits
+ 1288              	.Ldebug_ranges0:
+ 1289 0000 00000000 		.4byte	.LFB56
+ 1290 0004 1A000000 		.4byte	.LFE56
+ 1291 0008 00000000 		.4byte	.LFB57
+ 1292 000c 90000000 		.4byte	.LFE57
+ 1293 0010 00000000 		.4byte	.LFB58
+ 1294 0014 40000000 		.4byte	.LFE58
+ 1295 0018 00000000 		.4byte	0
+ 1296 001c 00000000 		.4byte	0
+ 1297              		.section	.debug_line,"",%progbits
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 25
+
+
+ 1298              	.Ldebug_line0:
+ 1299 0000 D9010000 		.section	.debug_str,"MS",%progbits,1
+ 1299      02007101 
+ 1299      00000201 
+ 1299      FB0E0D00 
+ 1299      01010101 
+ 1300              	.LASF26:
+ 1301 0000 4B45595F 		.ascii	"KEY_OF_Gb\000"
+ 1301      4F465F47 
+ 1301      6200
+ 1302              	.LASF22:
+ 1303 000a 4B45595F 		.ascii	"KEY_OF_D\000"
+ 1303      4F465F44 
+ 1303      00
+ 1304              	.LASF37:
+ 1305 0013 4D494E4F 		.ascii	"MINOR_PENT\000"
+ 1305      525F5045 
+ 1305      4E5400
+ 1306              	.LASF9:
+ 1307 001e 5F5F696E 		.ascii	"__int32_t\000"
+ 1307      7433325F 
+ 1307      7400
+ 1308              	.LASF16:
+ 1309 0028 646F7562 		.ascii	"double\000"
+ 1309      6C6500
+ 1310              	.LASF41:
+ 1311 002f 696E5F6D 		.ascii	"in_max\000"
+ 1311      617800
+ 1312              	.LASF51:
+ 1313 0036 6D696469 		.ascii	"midi_note_basename\000"
+ 1313      5F6E6F74 
+ 1313      655F6261 
+ 1313      73656E61 
+ 1313      6D6500
+ 1314              	.LASF43:
+ 1315 0049 6F75745F 		.ascii	"out_max\000"
+ 1315      6D617800 
+ 1316              	.LASF52:
+ 1317 0051 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1317      4320342E 
+ 1317      392E3320 
+ 1317      32303135 
+ 1317      30333033 
+ 1318 0084 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1318      20726576 
+ 1318      6973696F 
+ 1318      6E203232 
+ 1318      31323230 
+ 1319 00b7 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 1319      66756E63 
+ 1319      74696F6E 
+ 1319      2D736563 
+ 1319      74696F6E 
+ 1320              	.LASF15:
+ 1321 00df 666C6F61 		.ascii	"float\000"
+ 1321      7400
+ 1322              	.LASF7:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 26
+
+
+ 1323 00e5 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1323      206C6F6E 
+ 1323      6720756E 
+ 1323      7369676E 
+ 1323      65642069 
+ 1324              	.LASF1:
+ 1325 00fc 756E7369 		.ascii	"unsigned char\000"
+ 1325      676E6564 
+ 1325      20636861 
+ 1325      7200
+ 1326              	.LASF45:
+ 1327 010a 55706461 		.ascii	"UpdateKeyLCD\000"
+ 1327      74654B65 
+ 1327      794C4344 
+ 1327      00
+ 1328              	.LASF17:
+ 1329 0117 63686172 		.ascii	"char8\000"
+ 1329      3800
+ 1330              	.LASF14:
+ 1331 011d 696E7431 		.ascii	"int16\000"
+ 1331      3600
+ 1332              	.LASF46:
+ 1333 0123 7363616C 		.ascii	"scale\000"
+ 1333      6500
+ 1334              	.LASF30:
+ 1335 0129 4B45595F 		.ascii	"KEY_OF_Bb\000"
+ 1335      4F465F42 
+ 1335      6200
+ 1336              	.LASF3:
+ 1337 0133 73686F72 		.ascii	"short unsigned int\000"
+ 1337      7420756E 
+ 1337      7369676E 
+ 1337      65642069 
+ 1337      6E7400
+ 1338              	.LASF42:
+ 1339 0146 6F75745F 		.ascii	"out_min\000"
+ 1339      6D696E00 
+ 1340              	.LASF40:
+ 1341 014e 696E5F6D 		.ascii	"in_min\000"
+ 1341      696E00
+ 1342              	.LASF21:
+ 1343 0155 4B45595F 		.ascii	"KEY_OF_Db\000"
+ 1343      4F465F44 
+ 1343      6200
+ 1344              	.LASF55:
+ 1345 015f 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1345      52784275 
+ 1345      66666572 
+ 1345      00
+ 1346              	.LASF29:
+ 1347 016c 4B45595F 		.ascii	"KEY_OF_A\000"
+ 1347      4F465F41 
+ 1347      00
+ 1348              	.LASF31:
+ 1349 0175 4B45595F 		.ascii	"KEY_OF_B\000"
+ 1349      4F465F42 
+ 1349      00
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 27
+
+
+ 1350              	.LASF20:
+ 1351 017e 4B45595F 		.ascii	"KEY_OF_C\000"
+ 1351      4F465F43 
+ 1351      00
+ 1352              	.LASF34:
+ 1353 0187 4D414A4F 		.ascii	"MAJOR\000"
+ 1353      5200
+ 1354              	.LASF24:
+ 1355 018d 4B45595F 		.ascii	"KEY_OF_E\000"
+ 1355      4F465F45 
+ 1355      00
+ 1356              	.LASF25:
+ 1357 0196 4B45595F 		.ascii	"KEY_OF_F\000"
+ 1357      4F465F46 
+ 1357      00
+ 1358              	.LASF32:
+ 1359 019f 4D757369 		.ascii	"MusicKey\000"
+ 1359      634B6579 
+ 1359      00
+ 1360              	.LASF35:
+ 1361 01a8 4E415455 		.ascii	"NATURAL_MINOR\000"
+ 1361      52414C5F 
+ 1361      4D494E4F 
+ 1361      5200
+ 1362              	.LASF12:
+ 1363 01b6 75696E74 		.ascii	"uint16\000"
+ 1363      313600
+ 1364              	.LASF13:
+ 1365 01bd 75696E74 		.ascii	"uint32\000"
+ 1365      333200
+ 1366              	.LASF33:
+ 1367 01c4 4D757369 		.ascii	"MusicScale\000"
+ 1367      63536361 
+ 1367      6C6500
+ 1368              	.LASF5:
+ 1369 01cf 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1369      20756E73 
+ 1369      69676E65 
+ 1369      6420696E 
+ 1369      7400
+ 1370              	.LASF8:
+ 1371 01e1 756E7369 		.ascii	"unsigned int\000"
+ 1371      676E6564 
+ 1371      20696E74 
+ 1371      00
+ 1372              	.LASF44:
+ 1373 01ee 55706461 		.ascii	"UpdateScaleLCD\000"
+ 1373      74655363 
+ 1373      616C654C 
+ 1373      434400
+ 1374              	.LASF39:
+ 1375 01fd 424C5545 		.ascii	"BLUES\000"
+ 1375      5300
+ 1376              	.LASF27:
+ 1377 0203 4B45595F 		.ascii	"KEY_OF_G\000"
+ 1377      4F465F47 
+ 1377      00
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 28
+
+
+ 1378              	.LASF48:
+ 1379 020c 55495F41 		.ascii	"UI_ADC_GetResult16\000"
+ 1379      44435F47 
+ 1379      65745265 
+ 1379      73756C74 
+ 1379      313600
+ 1380              	.LASF10:
+ 1381 021f 696E7433 		.ascii	"int32_t\000"
+ 1381      325F7400 
+ 1382              	.LASF19:
+ 1383 0227 73697A65 		.ascii	"sizetype\000"
+ 1383      74797065 
+ 1383      00
+ 1384              	.LASF6:
+ 1385 0230 6C6F6E67 		.ascii	"long long int\000"
+ 1385      206C6F6E 
+ 1385      6720696E 
+ 1385      7400
+ 1386              	.LASF18:
+ 1387 023e 63686172 		.ascii	"char\000"
+ 1387      00
+ 1388              	.LASF50:
+ 1389 0243 43686172 		.ascii	"CharLCD_PrintString\000"
+ 1389      4C43445F 
+ 1389      5072696E 
+ 1389      74537472 
+ 1389      696E6700 
+ 1390              	.LASF2:
+ 1391 0257 73686F72 		.ascii	"short int\000"
+ 1391      7420696E 
+ 1391      7400
+ 1392              	.LASF11:
+ 1393 0261 75696E74 		.ascii	"uint8\000"
+ 1393      3800
+ 1394              	.LASF28:
+ 1395 0267 4B45595F 		.ascii	"KEY_OF_Ab\000"
+ 1395      4F465F41 
+ 1395      6200
+ 1396              	.LASF36:
+ 1397 0271 4D414A4F 		.ascii	"MAJOR_PENT\000"
+ 1397      525F5045 
+ 1397      4E5400
+ 1398              	.LASF4:
+ 1399 027c 6C6F6E67 		.ascii	"long int\000"
+ 1399      20696E74 
+ 1399      00
+ 1400              	.LASF53:
+ 1401 0285 68626972 		.ascii	"hbird.c\000"
+ 1401      642E6300 
+ 1402              	.LASF49:
+ 1403 028d 43686172 		.ascii	"CharLCD_Position\000"
+ 1403      4C43445F 
+ 1403      506F7369 
+ 1403      74696F6E 
+ 1403      00
+ 1404              	.LASF0:
+ 1405 029e 7369676E 		.ascii	"signed char\000"
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqEX70v.s 			page 29
+
+
+ 1405      65642063 
+ 1405      68617200 
+ 1406              	.LASF23:
+ 1407 02aa 4B45595F 		.ascii	"KEY_OF_Eb\000"
+ 1407      4F465F45 
+ 1407      6200
+ 1408              	.LASF54:
+ 1409 02b4 433A5C55 		.ascii	"C:\\Users\\jmdevoto\\Desktop\\Builds\\(4-24-17)Humm"
+ 1409      73657273 
+ 1409      5C6A6D64 
+ 1409      65766F74 
+ 1409      6F5C4465 
+ 1410 02e2 696E6762 		.ascii	"ingbird-059-v1\\Hummingbird(Continuous Output).cyds"
+ 1410      6972642D 
+ 1410      3035392D 
+ 1410      76315C48 
+ 1410      756D6D69 
+ 1411 0314 6E00     		.ascii	"n\000"
+ 1412              	.LASF47:
+ 1413 0316 55495F41 		.ascii	"UI_ADC_IsEndConversion\000"
+ 1413      44435F49 
+ 1413      73456E64 
+ 1413      436F6E76 
+ 1413      65727369 
+ 1414              	.LASF38:
+ 1415 032d 57484F4C 		.ascii	"WHOLE_TONE\000"
+ 1415      455F544F 
+ 1415      4E4500
+ 1416              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

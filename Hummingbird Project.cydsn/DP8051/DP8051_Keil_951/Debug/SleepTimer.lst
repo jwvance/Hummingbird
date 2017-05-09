@@ -1,0 +1,664 @@
+C51 COMPILER V9.51   SLEEPTIMER                                                            02/21/2017 15:19:24 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE SLEEPTIMER
+OBJECT MODULE PLACED IN .\DP8051\DP8051_Keil_951\Debug\SleepTimer.obj
+COMPILER INVOKED BY: C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\import\keil\pk51\9.51\C51\BIN\c51.exe 
+                    -Generated_Source\PSoC3\SleepTimer.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP INCDIR(.,Generated_Source\PSoC3) FF(3) DB WL(2) PR
+                    -(.\DP8051\DP8051_Keil_951\Debug/SleepTimer.lst) CD OT(2,SIZE) OJ(.\DP8051\DP8051_Keil_951\Debug\SleepTimer.obj)
+
+line level    source
+
+   1          /*******************************************************************************
+   2          * File Name: SleepTimer.c
+   3          * Version 3.20
+   4          *
+   5          * Description:
+   6          *  This file provides the source code to API for the Sleep Timer.
+   7          *
+   8          ********************************************************************************
+   9          * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  10          * You may use this file only in accordance with the license, terms, conditions,
+  11          * disclaimers, and limitations in the end user license agreement accompanying
+  12          * the software package with which this file was provided.
+  13          *******************************************************************************/
+  14          
+  15          #include "SleepTimer.h"
+  16          #include "CyLib.h"
+  17          
+  18          /* Variables were not initialized */
+  19          uint8 SleepTimer_initVar = 0u;
+  20          
+  21          
+  22          /*******************************************************************************
+  23          * Function Name: SleepTimer_Start
+  24          ********************************************************************************
+  25          *
+  26          * Summary:
+  27          *  This is the preferred method to begin component operation. SleepTimer_Start()
+  28          *  sets the initVar variable, calls the SleepTimer_Init() function, and then
+  29          *  calls the SleepTimer_Enable() function. It enables the 1-kHz ILO clock and
+  30          *  leaves it enabled after the Sleep Timer component is stopped.
+  31          *
+  32          * Parameters:
+  33          *  None
+  34          *
+  35          * Return:
+  36          *  None
+  37          *
+  38          * Global variables:
+  39          *  The SleepTimer_initVar variable is used to indicate initial
+  40          *  configuration of this component.  The variable is initialized to zero and
+  41          *  set to 1 the first time SleepTimer_Start() is called. This allows for
+  42          *  component initialization without re-initialization in all subsequent calls
+  43          *  to the SleepTimer_Start() routine.
+  44          *
+  45          * Reentrant:
+  46          *  No
+  47          *
+  48          * Side Effects:
+  49          *  If the initVar variable is already set, this function only calls the
+  50          *  SleepTimer_Enable() function.
+  51          *
+  52          *******************************************************************************/
+  53          void SleepTimer_Start(void) 
+C51 COMPILER V9.51   SLEEPTIMER                                                            02/21/2017 15:19:24 PAGE 2   
+
+  54          {
+  55   1          /* Execute once in normal flow */
+  56   1          if (0u == SleepTimer_initVar)
+  57   1          {
+  58   2              SleepTimer_Init();
+  59   2              SleepTimer_initVar = 1u;
+  60   2          }
+  61   1      
+  62   1          /* Enables the component operation */
+  63   1          SleepTimer_Enable();
+  64   1      }
+  65          
+  66          
+  67          /*******************************************************************************
+  68          * Function Name: SleepTimer_Init
+  69          ********************************************************************************
+  70          *
+  71          * Summary:
+  72          *  This function initializes or restores the component according to the
+  73          *  customizer Configure dialog settings. It is not necessary to call
+  74          *  SleepTimer_Init() because the SleepTimer_Start() API calls this function and
+  75          *  is the preferred method to begin component operation. Sets CTW interval
+  76          *  period and enables or disables CTW interrupt (according to the customizer's
+  77          *  settings).
+  78          *
+  79          * Parameters:
+  80          *  None
+  81          *
+  82          * Return:
+  83          *  None
+  84          *
+  85          *******************************************************************************/
+  86          void SleepTimer_Init(void)  
+  87          {
+  88   1          /* Sets default (passed from customizer) interval */
+  89   1          SleepTimer_SetInterval(SleepTimer_INTERVAL);
+  90   1      
+  91   1          /* Check if user sets to issue an interrupt in customizer */
+  92   1          #if (1u == SleepTimer_ENABLE_INTERRUPT)
+  93   1          {
+  94   2              /* Enable interrupt */
+  95   2              SleepTimer_EnableInt();
+  96   2          }
+  97   1          #else /* interrupt should be disabled */
+                  {
+                      /* Disable interrupt */
+                      SleepTimer_DisableInt();
+                  }   /* Interrupt is disabled  */
+                  #endif  /* (1u == SleepTimer_ENABLE_INTERRUPT) */
+ 103   1      }
+ 104          
+ 105          
+ 106          /*******************************************************************************
+ 107          * Function Name: SleepTimer_Enable
+ 108          ********************************************************************************
+ 109          * Summary:
+ 110          *  This function activates the 1-kHz ILO and the CTW and begins component
+ 111          *  operation. It is not necessary to call SleepTimer_Enable() because the
+ 112          *  SleepTimer_Start() API calls this function, which is the preferred method to
+ 113          *  begin component operation.
+ 114          *
+ 115          * Parameters:
+C51 COMPILER V9.51   SLEEPTIMER                                                            02/21/2017 15:19:24 PAGE 3   
+
+ 116          *  None
+ 117          *
+ 118          * Return:
+ 119          *  None
+ 120          *
+ 121          * Side Effects:
+ 122          *  Enables 1 kHz ILO clocks and leaves it enabled after Sleep Time component
+ 123          *  is stopped.
+ 124          *
+ 125          *******************************************************************************/
+ 126          void SleepTimer_Enable(void) 
+ 127          {
+ 128   1          uint8 interruptState;
+ 129   1      
+ 130   1          /* If 1kHz ILO is disabled */
+ 131   1          if(0u == (SleepTimer_ILO_CFG_REG & SleepTimer_ILO_1KHZ_EN))
+ 132   1          {
+ 133   2              /* Enter critical section */
+ 134   2              interruptState = CyEnterCriticalSection();
+ 135   2      
+ 136   2              /* Enable 1kHz ILO */
+ 137   2              SleepTimer_ILO_CFG_REG |=SleepTimer_ILO_1KHZ_EN;
+ 138   2      
+ 139   2              /* Enable the CTW counter */
+ 140   2              SleepTimer_TW_CFG_REG |= SleepTimer_CTW_EN;
+ 141   2      
+ 142   2              /* Exit critical section */
+ 143   2              CyExitCriticalSection(interruptState);
+ 144   2          }
+ 145   1          else /* If 1kHz ILO is enabled - enable CTW counter */
+ 146   1          {
+ 147   2              /* Enter critical section */
+ 148   2              interruptState = CyEnterCriticalSection();
+ 149   2      
+ 150   2              /* Enable the CTW counter */
+ 151   2              SleepTimer_TW_CFG_REG |= SleepTimer_CTW_EN;
+ 152   2      
+ 153   2              /* Exit critical section */
+ 154   2              CyExitCriticalSection(interruptState);
+ 155   2          }
+ 156   1      }
+ 157          
+ 158          
+ 159          /*******************************************************************************
+ 160          * Function Name: SleepTimer_Stop
+ 161          ********************************************************************************
+ 162          *
+ 163          * Summary:
+ 164          *  This function stops Sleep Timer operation and disables wakeup and interrupt.
+ 165          *  The device does not wake up when the CTW counter reaches terminal count, and
+ 166          *  an interrupt is not issued.
+ 167          *
+ 168          * Parameters:
+ 169          *  None
+ 170          *
+ 171          * Return:
+ 172          *  None
+ 173          *
+ 174          * Side Effects:
+ 175          *  Leaves the 1 kHz ILO clock enabled after Sleep Time component is stopped.
+ 176          *
+ 177          *******************************************************************************/
+C51 COMPILER V9.51   SLEEPTIMER                                                            02/21/2017 15:19:24 PAGE 4   
+
+ 178          void SleepTimer_Stop(void) 
+ 179          {
+ 180   1          uint8 interruptState;
+ 181   1      
+ 182   1          /* Enter critical section */
+ 183   1          interruptState = CyEnterCriticalSection();
+ 184   1      
+ 185   1          /* Disable CTW counter */
+ 186   1          SleepTimer_TW_CFG_REG &= (uint8)(~SleepTimer_CTW_EN);
+ 187   1      
+ 188   1          /* Exit critical section */
+ 189   1          CyExitCriticalSection(interruptState);
+ 190   1      }
+ 191          
+ 192          
+ 193          /*******************************************************************************
+ 194          * Function Name: SleepTimer_EnableInt
+ 195          ********************************************************************************
+ 196          *
+ 197          * Summary:
+ 198          *  This function enables the CTW terminal count interrupt.
+ 199          *
+ 200          * Parameters:
+ 201          *  None
+ 202          *
+ 203          * Return:
+ 204          *  None
+ 205          *
+ 206          *******************************************************************************/
+ 207          void SleepTimer_EnableInt(void) 
+ 208          {
+ 209   1          uint8 interruptState;
+ 210   1      
+ 211   1          /* Enter critical section */
+ 212   1          interruptState = CyEnterCriticalSection();
+ 213   1      
+ 214   1           /* Enable interrupt on wake up */
+ 215   1          SleepTimer_TW_CFG_REG |= SleepTimer_CTW_IE;
+ 216   1      
+ 217   1          /* Exit critical section */
+ 218   1          CyExitCriticalSection(interruptState);
+ 219   1      }
+ 220          
+ 221          
+ 222          /*******************************************************************************
+ 223          * Function Name: SleepTimer_DisableInt
+ 224          ********************************************************************************
+ 225          *
+ 226          * Summary:
+ 227          *  This function disables the CTW terminal count interrupt.
+ 228          *
+ 229          * Parameters:
+ 230          *  None
+ 231          *
+ 232          * Return:
+ 233          *  None
+ 234          *
+ 235          *******************************************************************************/
+ 236          void SleepTimer_DisableInt(void) 
+ 237          {
+ 238   1          uint8 interruptState;
+ 239   1      
+C51 COMPILER V9.51   SLEEPTIMER                                                            02/21/2017 15:19:24 PAGE 5   
+
+ 240   1          /* Enter critical section */
+ 241   1          interruptState = CyEnterCriticalSection();
+ 242   1      
+ 243   1          /* Disable interrupt on wake up */
+ 244   1          SleepTimer_TW_CFG_REG &= (uint8)(~SleepTimer_CTW_IE);
+ 245   1      
+ 246   1          /* Exit critical section */
+ 247   1          CyExitCriticalSection(interruptState);
+ 248   1      }
+ 249          
+ 250          
+ 251          /*******************************************************************************
+ 252          * Function Name: SleepTimer_SetInterval
+ 253          ********************************************************************************
+ 254          *
+ 255          * Summary:
+ 256          *  This function sets the CTW interval period. The first interval can range
+ 257          *  from 1 to (period + 1) milliseconds. Additional intervals occur at the
+ 258          *  nominal period. You can only change the interval value when CTW is disabled,
+ 259          *  which you do by stopping the component.
+ 260          *
+ 261          * Parameters:
+ 262          *  uint8 interval: interval?s value for the CTW.
+ 263          *
+ 264          *  PSoC 5:
+ 265          *  Only the 4-, 8-, 16-, 32-, 64-, 128-, and 256-ms selections are supported.
+ 266          *
+ 267          *           Name                    Value        Period
+ 268          *   SleepTimer__CTW_2_MS      4'b0001        2 ms
+ 269          *   SleepTimer__CTW_4_MS      4'b0010        4 ms
+ 270          *   SleepTimer__CTW_8_MS      4'b0011        8 ms
+ 271          *   SleepTimer__CTW_16_MS     4'b0100        16 ms
+ 272          *   SleepTimer__CTW_32_MS     4'b0101        32 ms
+ 273          *   SleepTimer__CTW_64_MS     4'b0110        64 ms
+ 274          *   SleepTimer__CTW_128_MS    4'b0111        128 ms
+ 275          *   SleepTimer__CTW_256_MS    4'b1000        256 ms
+ 276          *   SleepTimer__CTW_512_MS    4'b1001        512 ms
+ 277          *   SleepTimer__CTW_1024_MS   4'b1010        1024 ms
+ 278          *   SleepTimer__CTW_2048_MS   4'b1011        2048 ms
+ 279          *   SleepTimer__CTW_4096_MS   4'b1100        4096 ms
+ 280          *
+ 281          * Return:
+ 282          *  None
+ 283          *
+ 284          * Side Effects:
+ 285          *  Interval value can be only changed when component is stopped (CTW is
+ 286          *  disabled).
+ 287          *
+ 288          *******************************************************************************/
+ 289          void SleepTimer_SetInterval(uint8 interval) 
+ 290          {
+ 291   1          /* Check if CTW is disabled */
+ 292   1          if (0u == (SleepTimer_TW_CFG_REG & SleepTimer_CTW_EN))
+ 293   1          {
+ 294   2              #if(CY_PSOC5A)
+              
+                          CYASSERT((SleepTimer__CTW_4_MS   == interval) ||
+                                   (SleepTimer__CTW_8_MS   == interval) ||
+                                   (SleepTimer__CTW_16_MS  == interval) ||
+                                   (SleepTimer__CTW_32_MS  == interval) ||
+                                   (SleepTimer__CTW_64_MS  == interval) ||
+                                   (SleepTimer__CTW_128_MS == interval) ||
+C51 COMPILER V9.51   SLEEPTIMER                                                            02/21/2017 15:19:24 PAGE 6   
+
+                                   (SleepTimer__CTW_256_MS == interval));
+              
+                      #endif  /* (CY_PSOC5A) */
+ 305   2      
+ 306   2              /* Set CTW interval */
+ 307   2              SleepTimer_CTW_INTERVAL_REG = \
+ 308   2                  (SleepTimer_CTW_INTERVAL_REG & ((uint8)~SleepTimer_INTERVAL_MASK)) | \
+ 309   2                  (interval & SleepTimer_INTERVAL_MASK);
+ 310   2          }
+ 311   1          /* Do nothing if CTW is enabled. */
+ 312   1      }
+ 313          
+ 314          
+ 315          /*******************************************************************************
+ 316          * Function Name: SleepTimer_GetStatus
+ 317          ********************************************************************************
+ 318          *
+ 319          * Summary:
+ 320          *  This function returns the state of the Sleep Timer's status register, and
+ 321          *  clears the pending interrupt status bit. The application code must always
+ 322          *  call this function after wakeup to clear the ctw_int status bit. The code
+ 323          *  must call this function whether the Sleep Timer's interrupt is disabled or
+ 324          *  enabled.
+ 325          *
+ 326          * Parameters:
+ 327          *  None
+ 328          *
+ 329          * Return:
+ 330          *  Returns an 8-bit value (uint8) with bits set if a corresponding event has
+ 331          *  occurred. The constants shown in the following table describe the two-bit
+ 332          *  masks for the two events that this return value can contain.
+ 333          *
+ 334          *            Name                             Description
+ 335          *  SleepTimer_PM_INT_SR_ONEPPSP  A onepps event has occured
+ 336          *  SleepTimer_PM_INT_SR_CTW      A central timewheel event occured
+ 337          *  SleepTimer_PM_INT_SR_FTW      A fast timewheel event occured
+ 338          *
+ 339          * Side Effects:
+ 340          *  If the SleepTimer_GetStatus() function is not called in an interrupt
+ 341          *  associated with the SleepTimer, the interrupt is not cleared and as soon as
+ 342          *  the interrupt is exited it is re-entered.
+ 343          *
+ 344          *  After the Sleep Timer has expired, the sleep interval is functionally 0 ms,
+ 345          *  because the interrupt is called until the ctw_int flag is cleared by the
+ 346          *  SleepTimer_GetStatus() function.
+ 347          *
+ 348          *  If an interrupt is generated at the same time as a register read/clear, the
+ 349          *  bit remains set (which causes another interrupt).
+ 350          *
+ 351          *  Reports and then clears all interrupt status bits in the Power Manager
+ 352          *  Interrupt Status register. Some of the bits are not relevant to this
+ 353          *  component's operation.
+ 354          *
+ 355          *  The application code must always call this function (when the Sleep Timer's
+ 356          *  interrupt is disabled or enabled) after wakeup to clear the ctw_int status
+ 357          *  bit. The code must call SleepTimer_GetStatus() within 1 ms (1 clock cycle of
+ 358          *  the ILO) after the CTW event occurred.
+ 359          *
+ 360          *******************************************************************************/
+ 361          uint8 SleepTimer_GetStatus(void) 
+ 362          {
+ 363   1          /* Read to clear  */
+C51 COMPILER V9.51   SLEEPTIMER                                                            02/21/2017 15:19:24 PAGE 7   
+
+ 364   1          return CyPmReadStatus(CY_PM_CTW_INT);
+ 365   1      }
+ 366          
+ 367          
+ 368          /* [] END OF FILE */
+C51 COMPILER V9.51   SLEEPTIMER                                                            02/21/2017 15:19:24 PAGE 8   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION SleepTimer_Start (BEGIN)
+                                           ; SOURCE LINE # 53
+                                           ; SOURCE LINE # 54
+                                           ; SOURCE LINE # 56
+0000 900000      R     MOV     DPTR,#SleepTimer_initVar
+0003 E0                MOVX    A,@DPTR
+0004 FF                MOV     R7,A
+0005 EF                MOV     A,R7
+0006 7009              JNZ     ?C0001
+                                           ; SOURCE LINE # 57
+                                           ; SOURCE LINE # 58
+0008 120000      R     LCALL   SleepTimer_Init
+                                           ; SOURCE LINE # 59
+000B 900000      R     MOV     DPTR,#SleepTimer_initVar
+000E 7401              MOV     A,#01H
+0010 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 60
+0011         ?C0001:
+                                           ; SOURCE LINE # 63
+0011 120000      R     LCALL   SleepTimer_Enable
+                                           ; SOURCE LINE # 64
+0014 22                RET     
+             ; FUNCTION SleepTimer_Start (END)
+
+             ; FUNCTION SleepTimer_Init (BEGIN)
+                                           ; SOURCE LINE # 86
+                                           ; SOURCE LINE # 87
+                                           ; SOURCE LINE # 89
+0000 7F02              MOV     R7,#02H
+0002 120000      R     LCALL   _SleepTimer_SetInterval
+                                           ; SOURCE LINE # 93
+                                           ; SOURCE LINE # 95
+0005 120000      R     LCALL   SleepTimer_EnableInt
+                                           ; SOURCE LINE # 96
+                                           ; SOURCE LINE # 103
+0008 22                RET     
+             ; FUNCTION SleepTimer_Init (END)
+
+             ; FUNCTION SleepTimer_Enable (BEGIN)
+                                           ; SOURCE LINE # 126
+                                           ; SOURCE LINE # 127
+                                           ; SOURCE LINE # 131
+0000 904300            MOV     DPTR,#04300H
+0003 E0                MOVX    A,@DPTR
+0004 FF                MOV     R7,A
+0005 EF                MOV     A,R7
+0006 5402              ANL     A,#02H
+0008 FF                MOV     R7,A
+0009 7E00              MOV     R6,#00H
+000B EF                MOV     A,R7
+000C 4E                ORL     A,R6
+000D 7027              JNZ     ?C0004
+                                           ; SOURCE LINE # 132
+                                           ; SOURCE LINE # 134
+000F 120000      E     LCALL   CyEnterCriticalSection
+0012 900000      R     MOV     DPTR,#interruptState
+0015 EF                MOV     A,R7
+0016 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 137
+C51 COMPILER V9.51   SLEEPTIMER                                                            02/21/2017 15:19:24 PAGE 9   
+
+0017 904300            MOV     DPTR,#04300H
+001A E0                MOVX    A,@DPTR
+001B FF                MOV     R7,A
+001C EF                MOV     A,R7
+001D 4402              ORL     A,#02H
+001F FF                MOV     R7,A
+0020 EF                MOV     A,R7
+0021 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 140
+0022 904382            MOV     DPTR,#04382H
+0025 E0                MOVX    A,@DPTR
+0026 FF                MOV     R7,A
+0027 EF                MOV     A,R7
+0028 4404              ORL     A,#04H
+002A FF                MOV     R7,A
+002B EF                MOV     A,R7
+002C F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 143
+002D 900000      R     MOV     DPTR,#interruptState
+0030 E0                MOVX    A,@DPTR
+0031 FF                MOV     R7,A
+0032 120000      E     LCALL   _CyExitCriticalSection
+                                           ; SOURCE LINE # 144
+0035 22                RET     
+0036         ?C0004:
+                                           ; SOURCE LINE # 146
+                                           ; SOURCE LINE # 148
+0036 120000      E     LCALL   CyEnterCriticalSection
+0039 900000      R     MOV     DPTR,#interruptState
+003C EF                MOV     A,R7
+003D F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 151
+003E 904382            MOV     DPTR,#04382H
+0041 E0                MOVX    A,@DPTR
+0042 FF                MOV     R7,A
+0043 EF                MOV     A,R7
+0044 4404              ORL     A,#04H
+0046 FF                MOV     R7,A
+0047 EF                MOV     A,R7
+0048 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 154
+0049 900000      R     MOV     DPTR,#interruptState
+004C E0                MOVX    A,@DPTR
+004D FF                MOV     R7,A
+004E 120000      E     LCALL   _CyExitCriticalSection
+                                           ; SOURCE LINE # 155
+                                           ; SOURCE LINE # 156
+0051         ?C0006:
+0051 22                RET     
+             ; FUNCTION SleepTimer_Enable (END)
+
+             ; FUNCTION SleepTimer_Stop (BEGIN)
+                                           ; SOURCE LINE # 178
+                                           ; SOURCE LINE # 179
+                                           ; SOURCE LINE # 183
+0000 120000      E     LCALL   CyEnterCriticalSection
+0003 900000      R     MOV     DPTR,#interruptState
+0006 EF                MOV     A,R7
+0007 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 186
+0008 904382            MOV     DPTR,#04382H
+000B E0                MOVX    A,@DPTR
+C51 COMPILER V9.51   SLEEPTIMER                                                            02/21/2017 15:19:24 PAGE 10  
+
+000C FF                MOV     R7,A
+000D EF                MOV     A,R7
+000E 54FB              ANL     A,#0FBH
+0010 FF                MOV     R7,A
+0011 EF                MOV     A,R7
+0012 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 189
+0013 900000      R     MOV     DPTR,#interruptState
+0016 E0                MOVX    A,@DPTR
+0017 FF                MOV     R7,A
+0018 120000      E     LCALL   _CyExitCriticalSection
+                                           ; SOURCE LINE # 190
+001B 22                RET     
+             ; FUNCTION SleepTimer_Stop (END)
+
+             ; FUNCTION SleepTimer_EnableInt (BEGIN)
+                                           ; SOURCE LINE # 207
+                                           ; SOURCE LINE # 208
+                                           ; SOURCE LINE # 212
+0000 120000      E     LCALL   CyEnterCriticalSection
+0003 900000      R     MOV     DPTR,#interruptState
+0006 EF                MOV     A,R7
+0007 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 215
+0008 904382            MOV     DPTR,#04382H
+000B E0                MOVX    A,@DPTR
+000C FF                MOV     R7,A
+000D EF                MOV     A,R7
+000E 4408              ORL     A,#08H
+0010 FF                MOV     R7,A
+0011 EF                MOV     A,R7
+0012 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 218
+0013 900000      R     MOV     DPTR,#interruptState
+0016 E0                MOVX    A,@DPTR
+0017 FF                MOV     R7,A
+0018 120000      E     LCALL   _CyExitCriticalSection
+                                           ; SOURCE LINE # 219
+001B 22                RET     
+             ; FUNCTION SleepTimer_EnableInt (END)
+
+             ; FUNCTION SleepTimer_DisableInt (BEGIN)
+                                           ; SOURCE LINE # 236
+                                           ; SOURCE LINE # 237
+                                           ; SOURCE LINE # 241
+0000 120000      E     LCALL   CyEnterCriticalSection
+0003 900000      R     MOV     DPTR,#interruptState
+0006 EF                MOV     A,R7
+0007 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 244
+0008 904382            MOV     DPTR,#04382H
+000B E0                MOVX    A,@DPTR
+000C FF                MOV     R7,A
+000D EF                MOV     A,R7
+000E 54F7              ANL     A,#0F7H
+0010 FF                MOV     R7,A
+0011 EF                MOV     A,R7
+0012 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 247
+0013 900000      R     MOV     DPTR,#interruptState
+0016 E0                MOVX    A,@DPTR
+0017 FF                MOV     R7,A
+C51 COMPILER V9.51   SLEEPTIMER                                                            02/21/2017 15:19:24 PAGE 11  
+
+0018 120000      E     LCALL   _CyExitCriticalSection
+                                           ; SOURCE LINE # 248
+001B 22                RET     
+             ; FUNCTION SleepTimer_DisableInt (END)
+
+             ; FUNCTION _SleepTimer_SetInterval (BEGIN)
+                                           ; SOURCE LINE # 289
+0000 900000      R     MOV     DPTR,#interval
+0003 EF                MOV     A,R7
+0004 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 290
+                                           ; SOURCE LINE # 292
+0005 904382            MOV     DPTR,#04382H
+0008 E0                MOVX    A,@DPTR
+0009 FF                MOV     R7,A
+000A EF                MOV     A,R7
+000B 5404              ANL     A,#04H
+000D FF                MOV     R7,A
+000E 7E00              MOV     R6,#00H
+0010 EF                MOV     A,R7
+0011 4E                ORL     A,R6
+0012 701A              JNZ     ?C0011
+                                           ; SOURCE LINE # 293
+                                           ; SOURCE LINE # 307
+0014 900000      R     MOV     DPTR,#interval
+0017 E0                MOVX    A,@DPTR
+0018 FF                MOV     R7,A
+0019 EF                MOV     A,R7
+001A 540F              ANL     A,#0FH
+001C FF                MOV     R7,A
+001D 904381            MOV     DPTR,#04381H
+0020 E0                MOVX    A,@DPTR
+0021 FE                MOV     R6,A
+0022 EE                MOV     A,R6
+0023 54F0              ANL     A,#0F0H
+0025 FE                MOV     R6,A
+0026 EE                MOV     A,R6
+0027 4F                ORL     A,R7
+0028 FF                MOV     R7,A
+0029 904381            MOV     DPTR,#04381H
+002C EF                MOV     A,R7
+002D F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 310
+                                           ; SOURCE LINE # 312
+002E         ?C0011:
+002E 22                RET     
+             ; FUNCTION _SleepTimer_SetInterval (END)
+
+             ; FUNCTION SleepTimer_GetStatus (BEGIN)
+                                           ; SOURCE LINE # 361
+                                           ; SOURCE LINE # 362
+                                           ; SOURCE LINE # 364
+0000 7F02              MOV     R7,#02H
+0002 120000      E     LCALL   _?CyPmReadStatus
+                                           ; SOURCE LINE # 365
+0005         ?C0012:
+0005 22                RET     
+             ; FUNCTION SleepTimer_GetStatus (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+C51 COMPILER V9.51   SLEEPTIMER                                                            02/21/2017 15:19:24 PAGE 12  
+
+   CODE SIZE        =    249    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      1       5
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,3944 @@
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"main.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.GetSample,"ax",%progbits
+  19              		.align	2
+  20              		.global	GetSample
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	GetSample, %function
+  24              	GetSample:
+  25              	.LFB60:
+  26              		.file 1 "main.c"
+   1:main.c        **** /*******************************************************************************
+   2:main.c        **** * File Name: main.c
+   3:main.c        **** *
+   4:main.c        **** * Version: 1.0
+   5:main.c        **** *
+   6:main.c        **** * Description:
+   7:main.c        **** *  This is source code for the datasheet example of the USBFS component.
+   8:main.c        **** *   
+   9:main.c        **** * Related Document:
+  10:main.c        **** *  Universal Serial Bus Specification Revision 2.0 
+  11:main.c        **** *  Universal Serial Bus Device Class Definition for MIDI Devices Release 1.0
+  12:main.c        **** *  MIDI 1.0 Detailed Specification Document Version 4.2
+  13:main.c        **** *
+  14:main.c        **** ********************************************************************************
+  15:main.c        **** * Copyright 2012-2013, Cypress Semiconductor Corporation. All rights reserved.
+  16:main.c        **** * This software is owned by Cypress Semiconductor Corporation and is protected
+  17:main.c        **** * by and subject to worldwide patent and copyright laws and treaties.
+  18:main.c        **** * Therefore, you may use this software only as provided in the license agreement
+  19:main.c        **** * accompanying the software package from which you obtained this software.
+  20:main.c        **** * CYPRESS AND ITS SUPPLIERS MAKE NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+  21:main.c        **** * WITH REGARD TO THIS SOFTWARE, INCLUDING, BUT NOT LIMITED TO, NONINFRINGEMENT,
+  22:main.c        **** * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  23:main.c        **** *******************************************************************************/
+  24:main.c        **** 
+  25:main.c        **** #include <device.h>
+  26:main.c        **** // Hummingbird Includes
+  27:main.c        **** #include <fft.h>
+  28:main.c        **** #include <midi.h>
+  29:main.c        **** #include <pitch.h>
+  30:main.c        **** #include <hbird.h>
+  31:main.c        **** 
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 2
+
+
+  32:main.c        **** /**** Defines ****/
+  33:main.c        **** #define BUTT1	(0x01u)
+  34:main.c        **** #define BUTT2	(0x02u)
+  35:main.c        **** 
+  36:main.c        **** #define THRESHHOLD 110
+  37:main.c        **** 
+  38:main.c        **** // Variables for Button I/O
+  39:main.c        **** uint8 csButtStates = 0u;
+  40:main.c        **** uint8 csButtStates_old = 0u;
+  41:main.c        **** uint8 csButtChange = 0u;
+  42:main.c        **** uint8 inqFlags_old = 0u;
+  43:main.c        **** char8 LCDstr[10];
+  44:main.c        **** 
+  45:main.c        **** // Variables for audio aquisition ISR
+  46:main.c        **** int16 dataFrames[2][FRAME_LEN];
+  47:main.c        **** 
+  48:main.c        **** int16 ADCoutput;
+  49:main.c        **** uint16 frameIndex = 0;
+  50:main.c        **** uint8 currFrame = 0;
+  51:main.c        **** uint8 sampleFrame = 0;              // Frame for main to process on.
+  52:main.c        **** 
+  53:main.c        **** int max_value = 0;
+  54:main.c        **** 
+  55:main.c        **** // Flags
+  56:main.c        **** bool frameReady[2] = {};          // Flag frame as valid for processing.
+  57:main.c        **** bool frameLocked[2] = {};          // Sample is being processed and should not be overwritten
+  58:main.c        **** bool sustain = false;                   // flag for holding a note until the user is done singing
+  59:main.c        **** bool frameProcessed=false;          // Flag to prevent us from processing the same frame twice whil
+  60:main.c        **** 
+  61:main.c        **** // Variables for MIDI/PDA
+  62:main.c        **** uint8 midiMsg[4];  
+  63:main.c        **** int lastNote = -1;                  // Last sent MIDI note. -1 means no MIDI signal was active.
+  64:main.c        **** int i=0;
+  65:main.c        **** float pitchHz;
+  66:main.c        **** double noteTable[MIDI_LEN]; //(index=midi note, value=frequency)
+  67:main.c        **** uint8 frame1InUse=0;
+  68:main.c        **** uint8 frame2InUse=0;
+  69:main.c        **** enum MusicScale curScale=MAJOR;
+  70:main.c        **** enum MusicKey   curKey=KEY_OF_C;
+  71:main.c        **** 
+  72:main.c        **** int test_max;
+  73:main.c        **** 
+  74:main.c        **** 
+  75:main.c        **** /* Identity Reply message */
+  76:main.c        **** const uint8 CYCODE MIDI_IDENTITY_REPLY[] = {
+  77:main.c        ****     0xF0u,      /* SysEx */
+  78:main.c        ****     0x7Eu,      /* Non-Realtime */
+  79:main.c        ****     0x7Fu,      /* ID of target device (7F - "All Call") */
+  80:main.c        ****     0x06u,      /* Sub-ID#1 - General Information */
+  81:main.c        ****     0x02u,      /* Sub-ID#2 - Identity Reply */
+  82:main.c        ****     0x7Du,      /* Manufacturer's ID: 7D - Educational Use */
+  83:main.c        ****     0xB4u, 0x04u,               /* Family code */
+  84:main.c        ****     0x32u, 0xD2u,               /* Model number */
+  85:main.c        ****     0x01u, 0x00u, 0x00u, 0x00u, /* Version number */
+  86:main.c        ****     /*0xF7         End of SysEx automatically appended */
+  87:main.c        **** };
+  88:main.c        **** 
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 3
+
+
+  89:main.c        **** /* Need for Identity Reply message */
+  90:main.c        **** extern volatile uint8 USB_MIDI1_InqFlags;
+  91:main.c        **** extern volatile uint8 USB_MIDI2_InqFlags;
+  92:main.c        **** 
+  93:main.c        **** volatile uint8 usbActivityCounter = 0u;
+  94:main.c        **** 
+  95:main.c        **** 
+  96:main.c        **** 
+  97:main.c        **** 
+  98:main.c        **** /*******************************************************************************
+  99:main.c        **** * Function Name: SleepIsr
+ 100:main.c        **** *******************************************************************************/
+ 101:main.c        **** CY_ISR(SleepIsr)
+ 102:main.c        **** {
+ 103:main.c        ****     /* Chech USB activity */
+ 104:main.c        ****     if( USB_CheckActivity() != 0u ){
+ 105:main.c        ****         usbActivityCounter = 0u;
+ 106:main.c        ****     }else{
+ 107:main.c        ****         usbActivityCounter++;
+ 108:main.c        ****     }
+ 109:main.c        ****     /* Clear Pending Interrupt */
+ 110:main.c        ****     SleepTimer_GetStatus();
+ 111:main.c        **** }
+ 112:main.c        **** 
+ 113:main.c        **** /*******************************************************************************
+ 114:main.c        **** * Function Name: GenerateMidiArray
+ 115:main.c        **** ********************************************************************************
+ 116:main.c        **** * Summary:
+ 117:main.c        **** *  Aquires command, note, and velocity bytes and tosses them into an array (supplied by user)
+ 118:main.c        **** *
+ 119:main.c        **** * Parameters:
+ 120:main.c        **** *  midiArray[4], cmd, note, vel
+ 121:main.c        **** *
+ 122:main.c        **** * Return:
+ 123:main.c        **** *  None, modifies midiArray[]
+ 124:main.c        **** *
+ 125:main.c        **** *******************************************************************************/
+ 126:main.c        **** void GenerateMidiArray(uint8 midiArray[4], uint8 cmd, uint8 note, uint8 vel)
+ 127:main.c        **** {
+ 128:main.c        ****     midiArray[0]=cmd;
+ 129:main.c        ****     midiArray[1]=note;
+ 130:main.c        ****     midiArray[2]=vel;
+ 131:main.c        **** }
+ 132:main.c        **** 
+ 133:main.c        **** int main()
+ 134:main.c        **** {
+ 135:main.c        ****     /**** Initilizations ****/
+ 136:main.c        ****         
+ 137:main.c        ****     // Enable global interrupts 
+ 138:main.c        ****     CyGlobalIntEnable;
+ 139:main.c        ****     CY_ISR_PROTO(GetSample);  //declare the audio sampling interrupt
+ 140:main.c        ****     //CY_ISR_PROTO(UI_isr_Interrupt);     //declare the user interface interrupt
+ 141:main.c        ****     
+ 142:main.c        ****     I2C_CharLCD_Start();
+ 143:main.c        ****     CharLCD_Start();
+ 144:main.c        ****     
+ 145:main.c        ****     // Start the interrupt
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 4
+
+
+ 146:main.c        ****     isr_1_StartEx(GetSample);
+ 147:main.c        ****     //UI_isr_StartEx(UI_isr_Interrupt);
+ 148:main.c        ****         
+ 149:main.c        ****     // Start the data sample timer
+ 150:main.c        ****     Timer_1_Start();
+ 151:main.c        ****     
+ 152:main.c        ****     // Start the ADC conversion
+ 153:main.c        ****     ADC_SAR_1_Start();
+ 154:main.c        ****     ADC_SAR_1_StartConvert();
+ 155:main.c        ****     UI_ADC_Start();
+ 156:main.c        ****     UI_ADC_StartConvert();
+ 157:main.c        ****      
+ 158:main.c        ****     UART_Start();
+ 159:main.c        ****     
+ 160:main.c        ****     pitch_init();
+ 161:main.c        ****     
+ 162:main.c        ****     //Populates Note-MIDI array 
+ 163:main.c        ****     populate_midi_array(noteTable);    
+ 164:main.c        **** 
+ 165:main.c        ****     /* Start USBFS device 0 with VDDD operation */
+ 166:main.c        ****     USB_Start(0u, USB_DWR_VDDD_OPERATION); 
+ 167:main.c        ****     
+ 168:main.c        ****     /**** End of initilizations ****/
+ 169:main.c        ****     
+ 170:main.c        ****     /****************************************************** M A I N  L O O P **********************
+ 171:main.c        ****     while(1u)
+ 172:main.c        ****     {
+ 173:main.c        ****         #if 0
+ 174:main.c        ****         if(USB_IsConfigurationChanged() != 0u) /* Host could send double SET_INTERFACE request */
+ 175:main.c        ****         {
+ 176:main.c        ****             if(USB_GetConfiguration() != 0u)   /* Init IN endpoints when device configured */
+ 177:main.c        ****             {
+ 178:main.c        ****                 MIDI_PWR_Write(0u); /* Power ON CY8CKIT-044 board */ //WE DON'T HAVE THIS BOARD?? -
+ 179:main.c        ****                 /* Start ISR to determine the sleep condition */
+ 180:main.c        ****                 Sleep_isr_StartEx(SleepIsr);
+ 181:main.c        ****                 /* Start SleepTimer's operation */
+ 182:main.c        ****                 SleepTimer_Start();
+ 183:main.c        ****             	/* Enable the output endpoint */
+ 184:main.c        ****                 USB_MIDI_EP_Init();
+ 185:main.c        ****             }
+ 186:main.c        ****             else
+ 187:main.c        ****             {
+ 188:main.c        ****                 SleepTimer_Stop();
+ 189:main.c        ****             }    
+ 190:main.c        ****         }        
+ 191:main.c        ****         #endif
+ 192:main.c        ****         
+ 193:main.c        ****         if (1)
+ 194:main.c        ****         //if(USB_GetConfiguration() != 0u)    /* Service USB MIDI when device configured */
+ 195:main.c        ****         {
+ 196:main.c        ****             #if 0
+ 197:main.c        ****             /* Call this API from UART RX ISR for Auto DMA mode */
+ 198:main.c        ****             #if(USB_EP_MM != USB__EP_DMAAUTO) 
+ 199:main.c        ****                 USB_MIDI_IN_Service();
+ 200:main.c        ****             #endif
+ 201:main.c        ****             /* In Manual EP Memory Management mode OUT_EP_Service() 
+ 202:main.c        ****             *  may have to be called from main foreground or from OUT EP ISR
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 5
+
+
+ 203:main.c        ****             */
+ 204:main.c        ****             #if(USB_EP_MM != USB__EP_DMAAUTO) 
+ 205:main.c        ****                 USB_MIDI_OUT_EP_Service();
+ 206:main.c        ****             #endif
+ 207:main.c        **** 
+ 208:main.c        ****             /* Sending an Identity Reply Universal Sysex message back to the computer */
+ 209:main.c        ****             if((USB_MIDI1_InqFlags & USB_INQ_IDENTITY_REQ_FLAG) != 0u)
+ 210:main.c        ****             {
+ 211:main.c        ****                 USB_PutUsbMidiIn(sizeof(MIDI_IDENTITY_REPLY), (uint8 *)MIDI_IDENTITY_REPLY, USB_MID
+ 212:main.c        ****                 USB_MIDI1_InqFlags &= ~USB_INQ_IDENTITY_REQ_FLAG;
+ 213:main.c        ****             }
+ 214:main.c        ****             #if (USB_MIDI_EXT_MODE >= USB_TWO_EXT_INTRF)
+ 215:main.c        ****                 if((USB_MIDI2_InqFlags & USB_INQ_IDENTITY_REQ_FLAG) != 0u)
+ 216:main.c        ****                 {
+ 217:main.c        ****                     USB_PutUsbMidiIn(sizeof(MIDI_IDENTITY_REPLY), (uint8 *)MIDI_IDENTITY_REPLY, USB
+ 218:main.c        ****                     USB_MIDI2_InqFlags &= ~USB_INQ_IDENTITY_REQ_FLAG;
+ 219:main.c        ****                 }
+ 220:main.c        ****             #endif /* End USB_MIDI_EXT_MODE >= USB_TWO_EXT_INTRF */
+ 221:main.c        ****             #endif
+ 222:main.c        ****             
+ 223:main.c        ****             /*********************** M I D I  O U T P U T ****************************/
+ 224:main.c        ****             // This is the frame we are operating on. It is always the opposite of the current fram
+ 225:main.c        ****             sampleFrame = currFrame ^ 0b01; 
+ 226:main.c        ****             if (frameReady[sampleFrame]&&!frameProcessed) {
+ 227:main.c        ****                 // Lock the current frame and unset the current flag.
+ 228:main.c        ****                 frameLocked[sampleFrame] = true;
+ 229:main.c        ****                 frameProcessed = true;
+ 230:main.c        ****                 
+ 231:main.c        ****                 // Runs Pitch Detection Algorithm        
+ 232:main.c        ****                 //pitchHz = pitch_fft(dataFrames[sampleFrame], sampImg);
+ 233:main.c        ****                 //pitchHz = pitch_zero_cross(dataFrames[sampleFrame]);
+ 234:main.c        ****                 //pitchHz = auto_correlate(dataFrames[sampleFrame]);
+ 235:main.c        ****                 pitchHz = pitch_auto_fft(dataFrames[sampleFrame]);
+ 236:main.c        ****                 
+ 237:main.c        ****                 // Unlocks the frame
+ 238:main.c        ****                 frameLocked[sampleFrame] = false;
+ 239:main.c        ****                 
+ 240:main.c        ****                 //int note = NoteSnap(noteTable, pitchHz, curKey, curScale);
+ 241:main.c        ****                 int note = lastNote;
+ 242:main.c        ****                 
+ 243:main.c        ****                 if(pitchHz < 600 && pitchHz > 80){  //eliminate extreme, unintentional freqs
+ 244:main.c        ****                     if (midi_note_changed(pitchHz, lastNote, noteTable)) {
+ 245:main.c        ****                         note = NoteSnap(noteTable, pitchHz, curKey, curScale);
+ 246:main.c        ****                         //note = midi_note_from_freq(pitchHz);
+ 247:main.c        ****                     }
+ 248:main.c        ****                 }
+ 249:main.c        ****                 
+ 250:main.c        ****                 // If the new note is not the same as the last and does not = -1, the error value f
+ 251:main.c        ****                 if (note != lastNote && note != -1) {
+ 252:main.c        ****                     // If not the initial condition, send a note off signal when new note is detect
+ 253:main.c        ****                     if (lastNote != -1) {
+ 254:main.c        ****                         midiMsg[0] = USB_MIDI_NOTE_OFF;
+ 255:main.c        ****                         midiMsg[1] = lastNote;
+ 256:main.c        ****                         midiMsg[2] = 0u;        
+ 257:main.c        ****                         
+ 258:main.c        ****                         UART_PutChar(midiMsg[0]);
+ 259:main.c        ****                         UART_PutChar(midiMsg[1]);
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 6
+
+
+ 260:main.c        ****                         UART_PutChar(midiMsg[2]);
+ 261:main.c        ****                         //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);
+ 262:main.c        ****                         
+ 263:main.c        ****                         
+ 264:main.c        ****                     }
+ 265:main.c        ****                     
+ 266:main.c        ****                     midiMsg[0] = USB_MIDI_NOTE_ON;
+ 267:main.c        ****                     midiMsg[1] = note;
+ 268:main.c        ****                     midiMsg[2] = 100u;
+ 269:main.c        ****                     
+ 270:main.c        ****                     UART_PutChar(midiMsg[0]);
+ 271:main.c        ****                     UART_PutChar(midiMsg[1]);
+ 272:main.c        ****                     UART_PutChar(midiMsg[2]);
+ 273:main.c        ****                     //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);                            
+ 274:main.c        ****                     
+ 275:main.c        ****                     lastNote = note;
+ 276:main.c        ****                 }
+ 277:main.c        ****          
+ 278:main.c        ****                 // Updates display for debugging
+ 279:main.c        ****                 CharLCD_ClearDisplay();
+ 280:main.c        ****                 CharLCD_Position(0,0);
+ 281:main.c        ****                 CharLCD_PrintNumber(pitchHz);
+ 282:main.c        ****                 CharLCD_Position(1,0);
+ 283:main.c        ****                 CharLCD_PrintString(midi_note_basename(midiMsg[1]));
+ 284:main.c        ****                 CharLCD_Position(1,2);
+ 285:main.c        ****                 CharLCD_PrintNumber(midiMsg[1]);
+ 286:main.c        ****                 
+ 287:main.c        ****                 /**** TEST: Output for UI ADC (Disabled for testing note on/off functionallity)****
+ 288:main.c        ****                 curScale = UpdateScaleLCD();
+ 289:main.c        ****                 curKey = UpdateKeyLCD();
+ 290:main.c        ****                                             
+ 291:main.c        ****                 
+ 292:main.c        ****             } // If the frameReady was low, meaning no note is being hummed, send MIDI note off
+ 293:main.c        ****                 if(!frameReady[sampleFrame])
+ 294:main.c        ****                 {
+ 295:main.c        ****                     midiMsg[0] = USB_MIDI_NOTE_OFF;
+ 296:main.c        ****                     midiMsg[1] = lastNote;
+ 297:main.c        ****                     midiMsg[2] = 0u;
+ 298:main.c        ****                     
+ 299:main.c        ****                     UART_PutChar(midiMsg[0]);
+ 300:main.c        ****                     UART_PutChar(midiMsg[1]);
+ 301:main.c        ****                     UART_PutChar(midiMsg[2]);
+ 302:main.c        **** 
+ 303:main.c        ****                     //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);  
+ 304:main.c        ****                 }
+ 305:main.c        ****            
+ 306:main.c        **** 
+ 307:main.c        ****                 #if 0
+ 308:main.c        ****                 #if(USB_EP_MM == USB__EP_DMAAUTO) 
+ 309:main.c        ****                    #if (USB_MIDI_EXT_MODE >= USB_ONE_EXT_INTRF)
+ 310:main.c        ****                         MIDI1_UART_DisableRxInt();
+ 311:main.c        ****                         #if (USB_MIDI_EXT_MODE >= USB_TWO_EXT_INTRF)
+ 312:main.c        ****                             MIDI2_UART_DisableRxInt();
+ 313:main.c        ****                         #endif /* End USB_MIDI_EXT_MODE >= USB_TWO_EXT_INTRF */
+ 314:main.c        ****                     #endif /* End USB_MIDI_EXT_MODE >= USB_ONE_EXT_INTRF */            
+ 315:main.c        ****                     USB_MIDI_IN_Service();
+ 316:main.c        ****                     #if (USB_MIDI_EXT_MODE >= USB_ONE_EXT_INTRF)
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 7
+
+
+ 317:main.c        ****                         MIDI1_UART_EnableRxInt();
+ 318:main.c        ****                         #if (USB_MIDI_EXT_MODE >= USB_TWO_EXT_INTRF)
+ 319:main.c        ****                             MIDI2_UART_EnableRxInt();
+ 320:main.c        ****                         #endif /* End USB_MIDI_EXT_MODE >= USB_TWO_EXT_INTRF */
+ 321:main.c        ****                     #endif /* End USB_MIDI_EXT_MODE >= USB_ONE_EXT_INTRF */                
+ 322:main.c        ****                 #endif
+ 323:main.c        ****                 #endif
+ 324:main.c        ****         } /* END USB CHECK */
+ 325:main.c        ****         
+ 326:main.c        ****         if( usbActivityCounter >= 2u ) 
+ 327:main.c        ****         {
+ 328:main.c        ****             MIDI1_UART_Sleep();
+ 329:main.c        ****             MIDI2_UART_Sleep();
+ 330:main.c        ****             MIDI_PWR_Write(1u);     /* Power OFF CY8CKIT-044 board */
+ 331:main.c        ****                 
+ 332:main.c        ****             /*******************************************************************
+ 333:main.c        ****             * Disable the USBFS block and set DP Interrupt for wake-up 
+ 334:main.c        ****             * from sleep mode. 
+ 335:main.c        ****             *******************************************************************/
+ 336:main.c        ****             USB_Suspend(); 
+ 337:main.c        ****             /* Prepares system clocks for the Sleep mode */
+ 338:main.c        ****             CyPmSaveClocks();
+ 339:main.c        ****             /*******************************************************************
+ 340:main.c        ****             * Switch to the Sleep Mode for the PSoC 3 or PSoC 5LP devices:
+ 341:main.c        ****             *  - PM_SLEEP_TIME_NONE: wakeup time is defined by PICU source
+ 342:main.c        ****             *  - PM_SLEEP_SRC_PICU: PICU wakeup source 
+ 343:main.c        ****             *******************************************************************/
+ 344:main.c        ****             CyPmSleep(PM_SLEEP_TIME_NONE, PM_SLEEP_SRC_PICU);
+ 345:main.c        ****             /* Restore clock configuration */
+ 346:main.c        ****             CyPmRestoreClocks();
+ 347:main.c        ****             /* Enable the USBFS block after power down mode */
+ 348:main.c        ****             USB_Resume();
+ 349:main.c        ****             
+ 350:main.c        ****             /* Enable the output endpoint */
+ 351:main.c        ****             USB_MIDI_EP_Init();
+ 352:main.c        ****             MIDI_PWR_Write(0u);     /* Power ON CY8CKIT-044 board */
+ 353:main.c        ****             MIDI1_UART_Wakeup();
+ 354:main.c        ****             MIDI2_UART_Wakeup();
+ 355:main.c        ****             usbActivityCounter = 0u; /* Re-init USB Activity Counter*/
+ 356:main.c        ****         }
+ 357:main.c        ****     } /* END Service USB MIDI when device configured */
+ 358:main.c        ****     
+ 359:main.c        ****     return 0;
+ 360:main.c        **** } /**** END MAIN LOOP ****/    
+ 361:main.c        **** 
+ 362:main.c        **** 
+ 363:main.c        **** /* Local processing of USB MIDI out events here */
+ 364:main.c        **** void USB_callbackLocalMidiEvent(uint8 cable, uint8 *midiMsg) CYREENTRANT
+ 365:main.c        **** {
+ 366:main.c        ****     /* Support General System On/Off Message. */
+ 367:main.c        ****     if(((USB_MIDI1_InqFlags & USB_INQ_SYSEX_FLAG) == 0u) && ((inqFlags_old & USB_INQ_SYSEX_FLAG) !=
+ 368:main.c        ****     {
+ 369:main.c        ****         if(midiMsg[USB_EVENT_BYTE0] == USB_MIDI_SYSEX_GEN_MESSAGE)
+ 370:main.c        ****         {
+ 371:main.c        ****             if(midiMsg[USB_EVENT_BYTE1] == USB_MIDI_SYSEX_SYSTEM_ON)
+ 372:main.c        ****             {
+ 373:main.c        ****                 MIDI_PWR_Write(0u); /* Power ON */
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 8
+
+
+ 374:main.c        ****             }
+ 375:main.c        ****             else if(midiMsg[USB_EVENT_BYTE1] == USB_MIDI_SYSEX_SYSTEM_OFF)
+ 376:main.c        ****             {
+ 377:main.c        ****                 MIDI_PWR_Write(1u); /* Power OFF */
+ 378:main.c        ****             }
+ 379:main.c        ****         }
+ 380:main.c        ****     }
+ 381:main.c        ****     inqFlags_old = USB_MIDI1_InqFlags;
+ 382:main.c        ****     cable = cable;
+ 383:main.c        **** }    
+ 384:main.c        **** 
+ 385:main.c        **** // ***** GetSample ISR *****
+ 386:main.c        **** // This ISR fills each audio frame. It runs on a timer which gives us our sampling rate.
+ 387:main.c        **** // Each frame is 1024 samples stored in an array.
+ 388:main.c        **** 
+ 389:main.c        **** CY_ISR(GetSample){
+  27              		.loc 1 389 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 70B5     		push	{r4, r5, r6, lr}
+  32              		.cfi_def_cfa_offset 16
+  33              		.cfi_offset 4, -16
+  34              		.cfi_offset 5, -12
+  35              		.cfi_offset 6, -8
+  36              		.cfi_offset 14, -4
+ 390:main.c        ****     /* Clear pending Interrupt */
+ 391:main.c        ****     //isr_1_ClearPending();
+ 392:main.c        ****     Timer_1_STATUS;
+  37              		.loc 1 392 0
+  38 0002 1C4B     		ldr	r3, .L12
+ 393:main.c        ****     
+ 394:main.c        ****     if (ADC_SAR_1_IsEndConversion(ADC_SAR_1_WAIT_FOR_RESULT)) {
+  39              		.loc 1 394 0
+  40 0004 0020     		movs	r0, #0
+ 392:main.c        ****     
+  41              		.loc 1 392 0
+  42 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  43              		.loc 1 394 0
+  44 0008 FFF7FEFF 		bl	ADC_SAR_1_IsEndConversion
+  45              	.LVL0:
+  46 000c 38B1     		cbz	r0, .L1
+ 395:main.c        ****         if (!frameLocked[currFrame]) {
+  47              		.loc 1 395 0
+  48 000e 1A4C     		ldr	r4, .L12+4
+  49 0010 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+  50 0012 E218     		adds	r2, r4, r3
+  51 0014 1279     		ldrb	r2, [r2, #4]	@ zero_extendqisi2
+  52 0016 1AB1     		cbz	r2, .L11
+ 396:main.c        ****             ADCoutput = ADC_SAR_1_GetResult16();
+ 397:main.c        ****             
+ 398:main.c        ****             if (ADCoutput > max_value) {                        // Updates the max value if applica
+ 399:main.c        ****                 max_value = ADCoutput;
+ 400:main.c        ****             }
+ 401:main.c        ****             
+ 402:main.c        ****             if (frameIndex < FRAME_LEN) {
+ 403:main.c        ****                 dataFrames[currFrame][frameIndex] = ADCoutput;
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 9
+
+
+ 404:main.c        ****                 frameIndex++;
+ 405:main.c        ****             } else {                                            // Frame is getting the last value 
+ 406:main.c        ****                 frameReady[currFrame] = max_value >= THRESHHOLD;  // Sets the frameReady (note is o
+ 407:main.c        ****                                                                     //  noise threshold
+ 408:main.c        ****                 test_max = max_value;
+ 409:main.c        ****                 frameIndex = 0;
+ 410:main.c        ****                 max_value = 0;
+ 411:main.c        ****                 currFrame = currFrame ^ 0b01;                   // Swap current frame index.
+ 412:main.c        ****                 frameProcessed = false;                         // Signals to main that there is a 
+ 413:main.c        ****             }
+ 414:main.c        ****         } else {
+ 415:main.c        ****             currFrame = currFrame ^ 0b01;                       // If a frame is processing, update
+  53              		.loc 1 415 0
+  54 0018 83F00103 		eor	r3, r3, #1
+  55 001c 2370     		strb	r3, [r4]
+  56              	.L1:
+  57 001e 70BD     		pop	{r4, r5, r6, pc}
+  58              	.L11:
+ 396:main.c        ****             ADCoutput = ADC_SAR_1_GetResult16();
+  59              		.loc 1 396 0
+  60 0020 FFF7FEFF 		bl	ADC_SAR_1_GetResult16
+  61              	.LVL1:
+  62 0024 154A     		ldr	r2, .L12+8
+ 398:main.c        ****                 max_value = ADCoutput;
+  63              		.loc 1 398 0
+  64 0026 A368     		ldr	r3, [r4, #8]
+ 396:main.c        ****             ADCoutput = ADC_SAR_1_GetResult16();
+  65              		.loc 1 396 0
+  66 0028 1080     		strh	r0, [r2]	@ movhi
+ 402:main.c        ****                 dataFrames[currFrame][frameIndex] = ADCoutput;
+  67              		.loc 1 402 0
+  68 002a A289     		ldrh	r2, [r4, #12]
+ 398:main.c        ****                 max_value = ADCoutput;
+  69              		.loc 1 398 0
+  70 002c 9842     		cmp	r0, r3
+ 399:main.c        ****             }
+  71              		.loc 1 399 0
+  72 002e C8BF     		it	gt
+  73 0030 A060     		strgt	r0, [r4, #8]
+ 402:main.c        ****                 dataFrames[currFrame][frameIndex] = ADCoutput;
+  74              		.loc 1 402 0
+  75 0032 FF2A     		cmp	r2, #255
+  76 0034 104B     		ldr	r3, .L12+4
+  77 0036 08D8     		bhi	.L5
+ 403:main.c        ****                 frameIndex++;
+  78              		.loc 1 403 0
+  79 0038 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+  80 003a 114C     		ldr	r4, .L12+12
+  81 003c 02EB0121 		add	r1, r2, r1, lsl #8
+ 404:main.c        ****             } else {                                            // Frame is getting the last value 
+  82              		.loc 1 404 0
+  83 0040 0132     		adds	r2, r2, #1
+  84 0042 9A81     		strh	r2, [r3, #12]	@ movhi
+ 403:main.c        ****                 frameIndex++;
+  85              		.loc 1 403 0
+  86 0044 24F81100 		strh	r0, [r4, r1, lsl #1]	@ movhi
+  87 0048 70BD     		pop	{r4, r5, r6, pc}
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 10
+
+
+  88              	.L5:
+  89              	.LBB4:
+  90              	.LBB5:
+ 406:main.c        ****                                                                     //  noise threshold
+  91              		.loc 1 406 0
+  92 004a 9868     		ldr	r0, [r3, #8]
+  93 004c 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  94 004e 6D28     		cmp	r0, #109
+  95 0050 03EB0204 		add	r4, r3, r2
+ 408:main.c        ****                 frameIndex = 0;
+  96              		.loc 1 408 0
+  97 0054 0B4E     		ldr	r6, .L12+16
+ 411:main.c        ****                 frameProcessed = false;                         // Signals to main that there is a 
+  98              		.loc 1 411 0
+  99 0056 82F00102 		eor	r2, r2, #1
+ 409:main.c        ****                 max_value = 0;
+ 100              		.loc 1 409 0
+ 101 005a 4FF00001 		mov	r1, #0
+ 406:main.c        ****                                                                     //  noise threshold
+ 102              		.loc 1 406 0
+ 103 005e D4BF     		ite	le
+ 104 0060 0025     		movle	r5, #0
+ 105 0062 0125     		movgt	r5, #1
+ 411:main.c        ****                 frameProcessed = false;                         // Signals to main that there is a 
+ 106              		.loc 1 411 0
+ 107 0064 1A70     		strb	r2, [r3]
+ 408:main.c        ****                 frameIndex = 0;
+ 108              		.loc 1 408 0
+ 109 0066 3060     		str	r0, [r6]
+ 406:main.c        ****                                                                     //  noise threshold
+ 110              		.loc 1 406 0
+ 111 0068 2574     		strb	r5, [r4, #16]
+ 409:main.c        ****                 max_value = 0;
+ 112              		.loc 1 409 0
+ 113 006a 9981     		strh	r1, [r3, #12]	@ movhi
+ 410:main.c        ****                 currFrame = currFrame ^ 0b01;                   // Swap current frame index.
+ 114              		.loc 1 410 0
+ 115 006c 9960     		str	r1, [r3, #8]
+ 412:main.c        ****             }
+ 116              		.loc 1 412 0
+ 117 006e 9974     		strb	r1, [r3, #18]
+ 118 0070 70BD     		pop	{r4, r5, r6, pc}
+ 119              	.L13:
+ 120 0072 00BF     		.align	2
+ 121              	.L12:
+ 122 0074 69650040 		.word	1073767785
+ 123 0078 00000000 		.word	.LANCHOR0
+ 124 007c 00000000 		.word	ADCoutput
+ 125 0080 00000000 		.word	dataFrames
+ 126 0084 00000000 		.word	test_max
+ 127              	.LBE5:
+ 128              	.LBE4:
+ 129              		.cfi_endproc
+ 130              	.LFE60:
+ 131              		.size	GetSample, .-GetSample
+ 132              		.section	.text.SleepIsr,"ax",%progbits
+ 133              		.align	2
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 11
+
+
+ 134              		.global	SleepIsr
+ 135              		.thumb
+ 136              		.thumb_func
+ 137              		.type	SleepIsr, %function
+ 138              	SleepIsr:
+ 139              	.LFB56:
+ 102:main.c        ****     /* Chech USB activity */
+ 140              		.loc 1 102 0
+ 141              		.cfi_startproc
+ 142              		@ args = 0, pretend = 0, frame = 0
+ 143              		@ frame_needed = 0, uses_anonymous_args = 0
+ 144 0000 08B5     		push	{r3, lr}
+ 145              		.cfi_def_cfa_offset 8
+ 146              		.cfi_offset 3, -8
+ 147              		.cfi_offset 14, -4
+ 104:main.c        ****         usbActivityCounter = 0u;
+ 148              		.loc 1 104 0
+ 149 0002 FFF7FEFF 		bl	USB_CheckActivity
+ 150              	.LVL2:
+ 151 0006 40B9     		cbnz	r0, .L18
+ 107:main.c        ****     }
+ 152              		.loc 1 107 0
+ 153 0008 074A     		ldr	r2, .L19
+ 154 000a D37C     		ldrb	r3, [r2, #19]	@ zero_extendqisi2
+ 155 000c 0133     		adds	r3, r3, #1
+ 156 000e DBB2     		uxtb	r3, r3
+ 157 0010 D374     		strb	r3, [r2, #19]
+ 111:main.c        **** 
+ 158              		.loc 1 111 0
+ 159 0012 BDE80840 		pop	{r3, lr}
+ 160              		.cfi_remember_state
+ 161              		.cfi_restore 14
+ 162              		.cfi_restore 3
+ 163              		.cfi_def_cfa_offset 0
+ 110:main.c        **** }
+ 164              		.loc 1 110 0
+ 165 0016 FFF7FEBF 		b	SleepTimer_GetStatus
+ 166              	.LVL3:
+ 167              	.L18:
+ 168              		.cfi_restore_state
+ 105:main.c        ****     }else{
+ 169              		.loc 1 105 0
+ 170 001a 034B     		ldr	r3, .L19
+ 171 001c 0022     		movs	r2, #0
+ 172 001e DA74     		strb	r2, [r3, #19]
+ 111:main.c        **** 
+ 173              		.loc 1 111 0
+ 174 0020 BDE80840 		pop	{r3, lr}
+ 175              		.cfi_restore 3
+ 176              		.cfi_restore 14
+ 177              		.cfi_def_cfa_offset 0
+ 110:main.c        **** }
+ 178              		.loc 1 110 0
+ 179 0024 FFF7FEBF 		b	SleepTimer_GetStatus
+ 180              	.LVL4:
+ 181              	.L20:
+ 182              		.align	2
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 12
+
+
+ 183              	.L19:
+ 184 0028 00000000 		.word	.LANCHOR0
+ 185              		.cfi_endproc
+ 186              	.LFE56:
+ 187              		.size	SleepIsr, .-SleepIsr
+ 188              		.section	.text.GenerateMidiArray,"ax",%progbits
+ 189              		.align	2
+ 190              		.global	GenerateMidiArray
+ 191              		.thumb
+ 192              		.thumb_func
+ 193              		.type	GenerateMidiArray, %function
+ 194              	GenerateMidiArray:
+ 195              	.LFB57:
+ 127:main.c        ****     midiArray[0]=cmd;
+ 196              		.loc 1 127 0
+ 197              		.cfi_startproc
+ 198              		@ args = 0, pretend = 0, frame = 0
+ 199              		@ frame_needed = 0, uses_anonymous_args = 0
+ 200              		@ link register save eliminated.
+ 201              	.LVL5:
+ 128:main.c        ****     midiArray[1]=note;
+ 202              		.loc 1 128 0
+ 203 0000 0170     		strb	r1, [r0]
+ 129:main.c        ****     midiArray[2]=vel;
+ 204              		.loc 1 129 0
+ 205 0002 4270     		strb	r2, [r0, #1]
+ 130:main.c        **** }
+ 206              		.loc 1 130 0
+ 207 0004 8370     		strb	r3, [r0, #2]
+ 208 0006 7047     		bx	lr
+ 209              		.cfi_endproc
+ 210              	.LFE57:
+ 211              		.size	GenerateMidiArray, .-GenerateMidiArray
+ 212              		.global	__aeabi_fcmplt
+ 213              		.global	__aeabi_fcmpgt
+ 214              		.global	__aeabi_f2d
+ 215              		.global	__aeabi_f2uiz
+ 216              		.section	.text.startup.main,"ax",%progbits
+ 217              		.align	2
+ 218              		.global	main
+ 219              		.thumb
+ 220              		.thumb_func
+ 221              		.type	main, %function
+ 222              	main:
+ 223              	.LFB58:
+ 134:main.c        ****     /**** Initilizations ****/
+ 224              		.loc 1 134 0
+ 225              		.cfi_startproc
+ 226              		@ args = 0, pretend = 0, frame = 0
+ 227              		@ frame_needed = 0, uses_anonymous_args = 0
+ 228 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 229              		.cfi_def_cfa_offset 40
+ 230              		.cfi_offset 3, -40
+ 231              		.cfi_offset 4, -36
+ 232              		.cfi_offset 5, -32
+ 233              		.cfi_offset 6, -28
+ 234              		.cfi_offset 7, -24
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 13
+
+
+ 235              		.cfi_offset 8, -20
+ 236              		.cfi_offset 9, -16
+ 237              		.cfi_offset 10, -12
+ 238              		.cfi_offset 11, -8
+ 239              		.cfi_offset 14, -4
+ 138:main.c        ****     CY_ISR_PROTO(GetSample);  //declare the audio sampling interrupt
+ 240              		.loc 1 138 0
+ 241              	@ 138 "main.c" 1
+ 242 0004 62B6     		CPSIE   i
+ 243              	@ 0 "" 2
+ 142:main.c        ****     CharLCD_Start();
+ 244              		.loc 1 142 0
+ 245              		.thumb
+ 246 0006 FFF7FEFF 		bl	I2C_CharLCD_Start
+ 247              	.LVL6:
+ 143:main.c        ****     
+ 248              		.loc 1 143 0
+ 249 000a FFF7FEFF 		bl	CharLCD_Start
+ 250              	.LVL7:
+ 146:main.c        ****     //UI_isr_StartEx(UI_isr_Interrupt);
+ 251              		.loc 1 146 0
+ 252 000e 7148     		ldr	r0, .L51
+ 253 0010 FFF7FEFF 		bl	isr_1_StartEx
+ 254              	.LVL8:
+ 255 0014 DFF8CCA1 		ldr	r10, .L51+16
+ 150:main.c        ****     
+ 256              		.loc 1 150 0
+ 257 0018 FFF7FEFF 		bl	Timer_1_Start
+ 258              	.LVL9:
+ 153:main.c        ****     ADC_SAR_1_StartConvert();
+ 259              		.loc 1 153 0
+ 260 001c FFF7FEFF 		bl	ADC_SAR_1_Start
+ 261              	.LVL10:
+ 154:main.c        ****     UI_ADC_Start();
+ 262              		.loc 1 154 0
+ 263 0020 FFF7FEFF 		bl	ADC_SAR_1_StartConvert
+ 264              	.LVL11:
+ 155:main.c        ****     UI_ADC_StartConvert();
+ 265              		.loc 1 155 0
+ 266 0024 FFF7FEFF 		bl	UI_ADC_Start
+ 267              	.LVL12:
+ 156:main.c        ****      
+ 268              		.loc 1 156 0
+ 269 0028 FFF7FEFF 		bl	UI_ADC_StartConvert
+ 270              	.LVL13:
+ 158:main.c        ****     
+ 271              		.loc 1 158 0
+ 272 002c FFF7FEFF 		bl	UART_Start
+ 273              	.LVL14:
+ 160:main.c        ****     
+ 274              		.loc 1 160 0
+ 275 0030 FFF7FEFF 		bl	pitch_init
+ 276              	.LVL15:
+ 163:main.c        **** 
+ 277              		.loc 1 163 0
+ 278 0034 6848     		ldr	r0, .L51+4
+ 279 0036 FFF7FEFF 		bl	populate_midi_array
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 14
+
+
+ 280              	.LVL16:
+ 166:main.c        ****     
+ 281              		.loc 1 166 0
+ 282 003a 0020     		movs	r0, #0
+ 283 003c 0221     		movs	r1, #2
+ 284 003e FFF7FEFF 		bl	USB_Start
+ 285              	.LVL17:
+ 225:main.c        ****             if (frameReady[sampleFrame]&&!frameProcessed) {
+ 286              		.loc 1 225 0
+ 287 0042 5546     		mov	r5, r10
+ 288 0044 654C     		ldr	r4, .L51+8
+ 289 0046 664E     		ldr	r6, .L51+12
+ 290 0048 DFF8A8B1 		ldr	fp, .L51+32
+ 291 004c DFF8A091 		ldr	r9, .L51+28
+ 292 0050 13E0     		b	.L34
+ 293              	.L33:
+ 295:main.c        ****                     midiMsg[1] = lastNote;
+ 294              		.loc 1 295 0
+ 295 0052 8023     		movs	r3, #128
+ 296:main.c        ****                     midiMsg[2] = 0u;
+ 296              		.loc 1 296 0
+ 297 0054 3168     		ldr	r1, [r6]
+ 299:main.c        ****                     UART_PutChar(midiMsg[1]);
+ 298              		.loc 1 299 0
+ 299 0056 1846     		mov	r0, r3
+ 297:main.c        ****                     
+ 300              		.loc 1 297 0
+ 301 0058 0022     		movs	r2, #0
+ 295:main.c        ****                     midiMsg[1] = lastNote;
+ 302              		.loc 1 295 0
+ 303 005a 2370     		strb	r3, [r4]
+ 296:main.c        ****                     midiMsg[2] = 0u;
+ 304              		.loc 1 296 0
+ 305 005c 6170     		strb	r1, [r4, #1]
+ 297:main.c        ****                     
+ 306              		.loc 1 297 0
+ 307 005e A270     		strb	r2, [r4, #2]
+ 299:main.c        ****                     UART_PutChar(midiMsg[1]);
+ 308              		.loc 1 299 0
+ 309 0060 FFF7FEFF 		bl	UART_PutChar
+ 310              	.LVL18:
+ 300:main.c        ****                     UART_PutChar(midiMsg[2]);
+ 311              		.loc 1 300 0
+ 312 0064 6078     		ldrb	r0, [r4, #1]	@ zero_extendqisi2
+ 313 0066 FFF7FEFF 		bl	UART_PutChar
+ 314              	.LVL19:
+ 301:main.c        **** 
+ 315              		.loc 1 301 0
+ 316 006a A078     		ldrb	r0, [r4, #2]	@ zero_extendqisi2
+ 317 006c FFF7FEFF 		bl	UART_PutChar
+ 318              	.LVL20:
+ 319              	.L24:
+ 326:main.c        ****         {
+ 320              		.loc 1 326 0
+ 321 0070 9AF81330 		ldrb	r3, [r10, #19]	@ zero_extendqisi2
+ 322 0074 5B4F     		ldr	r7, .L51+16
+ 323 0076 012B     		cmp	r3, #1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 15
+
+
+ 324 0078 56D8     		bhi	.L48
+ 325              	.L34:
+ 225:main.c        ****             if (frameReady[sampleFrame]&&!frameProcessed) {
+ 326              		.loc 1 225 0
+ 327 007a 9AF80000 		ldrb	r0, [r10]	@ zero_extendqisi2
+ 328 007e 80F00100 		eor	r0, r0, #1
+ 226:main.c        ****                 // Lock the current frame and unset the current flag.
+ 329              		.loc 1 226 0
+ 330 0082 0AEB0003 		add	r3, r10, r0
+ 331 0086 1A7C     		ldrb	r2, [r3, #16]	@ zero_extendqisi2
+ 225:main.c        ****             if (frameReady[sampleFrame]&&!frameProcessed) {
+ 332              		.loc 1 225 0
+ 333 0088 8AF81400 		strb	r0, [r10, #20]
+ 226:main.c        ****                 // Lock the current frame and unset the current flag.
+ 334              		.loc 1 226 0
+ 335 008c 002A     		cmp	r2, #0
+ 336 008e E0D0     		beq	.L33
+ 226:main.c        ****                 // Lock the current frame and unset the current flag.
+ 337              		.loc 1 226 0 is_stmt 0 discriminator 1
+ 338 0090 AF7C     		ldrb	r7, [r5, #18]	@ zero_extendqisi2
+ 339 0092 002F     		cmp	r7, #0
+ 340 0094 ECD1     		bne	.L24
+ 341              	.LBB6:
+ 228:main.c        ****                 frameProcessed = true;
+ 342              		.loc 1 228 0 is_stmt 1
+ 343 0096 0122     		movs	r2, #1
+ 235:main.c        ****                 
+ 344              		.loc 1 235 0
+ 345 0098 0BEB4020 		add	r0, fp, r0, lsl #9
+ 228:main.c        ****                 frameProcessed = true;
+ 346              		.loc 1 228 0
+ 347 009c 1A71     		strb	r2, [r3, #4]
+ 229:main.c        ****                 
+ 348              		.loc 1 229 0
+ 349 009e AA74     		strb	r2, [r5, #18]
+ 235:main.c        ****                 
+ 350              		.loc 1 235 0
+ 351 00a0 FFF7FEFF 		bl	pitch_auto_fft
+ 352              	.LVL21:
+ 238:main.c        ****                 
+ 353              		.loc 1 238 0
+ 354 00a4 2B7D     		ldrb	r3, [r5, #20]	@ zero_extendqisi2
+ 243:main.c        ****                     if (midi_note_changed(pitchHz, lastNote, noteTable)) {
+ 355              		.loc 1 243 0
+ 356 00a6 5049     		ldr	r1, .L51+20
+ 238:main.c        ****                 
+ 357              		.loc 1 238 0
+ 358 00a8 2B44     		add	r3, r3, r5
+ 359 00aa 1F71     		strb	r7, [r3, #4]
+ 235:main.c        ****                 
+ 360              		.loc 1 235 0
+ 361 00ac 8046     		mov	r8, r0
+ 362 00ae C9F80000 		str	r0, [r9]	@ float
+ 241:main.c        ****                 
+ 363              		.loc 1 241 0
+ 364 00b2 3768     		ldr	r7, [r6]
+ 365              	.LVL22:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 16
+
+
+ 243:main.c        ****                     if (midi_note_changed(pitchHz, lastNote, noteTable)) {
+ 366              		.loc 1 243 0
+ 367 00b4 FFF7FEFF 		bl	__aeabi_fcmplt
+ 368              	.LVL23:
+ 369 00b8 28B1     		cbz	r0, .L27
+ 243:main.c        ****                     if (midi_note_changed(pitchHz, lastNote, noteTable)) {
+ 370              		.loc 1 243 0 is_stmt 0 discriminator 1
+ 371 00ba 4046     		mov	r0, r8
+ 372 00bc 4B49     		ldr	r1, .L51+24
+ 373 00be FFF7FEFF 		bl	__aeabi_fcmpgt
+ 374              	.LVL24:
+ 375 00c2 0028     		cmp	r0, #0
+ 376 00c4 4FD1     		bne	.L49
+ 377              	.L27:
+ 279:main.c        ****                 CharLCD_Position(0,0);
+ 378              		.loc 1 279 0 is_stmt 1
+ 379 00c6 0120     		movs	r0, #1
+ 380 00c8 FFF7FEFF 		bl	CharLCD_WriteControl
+ 381              	.LVL25:
+ 280:main.c        ****                 CharLCD_PrintNumber(pitchHz);
+ 382              		.loc 1 280 0
+ 383 00cc 0020     		movs	r0, #0
+ 384 00ce 0146     		mov	r1, r0
+ 385 00d0 FFF7FEFF 		bl	CharLCD_Position
+ 386              	.LVL26:
+ 281:main.c        ****                 CharLCD_Position(1,0);
+ 387              		.loc 1 281 0
+ 388 00d4 D9F80000 		ldr	r0, [r9]	@ float
+ 389 00d8 FFF7FEFF 		bl	__aeabi_f2uiz
+ 390              	.LVL27:
+ 391 00dc 80B2     		uxth	r0, r0
+ 392 00de FFF7FEFF 		bl	CharLCD_PrintNumber
+ 393              	.LVL28:
+ 282:main.c        ****                 CharLCD_PrintString(midi_note_basename(midiMsg[1]));
+ 394              		.loc 1 282 0
+ 395 00e2 0021     		movs	r1, #0
+ 396 00e4 0120     		movs	r0, #1
+ 397 00e6 FFF7FEFF 		bl	CharLCD_Position
+ 398              	.LVL29:
+ 283:main.c        ****                 CharLCD_Position(1,2);
+ 399              		.loc 1 283 0
+ 400 00ea 6078     		ldrb	r0, [r4, #1]	@ zero_extendqisi2
+ 401 00ec FFF7FEFF 		bl	midi_note_basename
+ 402              	.LVL30:
+ 403 00f0 FFF7FEFF 		bl	CharLCD_PrintString
+ 404              	.LVL31:
+ 284:main.c        ****                 CharLCD_PrintNumber(midiMsg[1]);
+ 405              		.loc 1 284 0
+ 406 00f4 0221     		movs	r1, #2
+ 407 00f6 0120     		movs	r0, #1
+ 408 00f8 FFF7FEFF 		bl	CharLCD_Position
+ 409              	.LVL32:
+ 285:main.c        ****                 
+ 410              		.loc 1 285 0
+ 411 00fc 6078     		ldrb	r0, [r4, #1]	@ zero_extendqisi2
+ 412 00fe FFF7FEFF 		bl	CharLCD_PrintNumber
+ 413              	.LVL33:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 17
+
+
+ 288:main.c        ****                 curKey = UpdateKeyLCD();
+ 414              		.loc 1 288 0
+ 415 0102 FFF7FEFF 		bl	UpdateScaleLCD
+ 416              	.LVL34:
+ 417 0106 8AF81600 		strb	r0, [r10, #22]
+ 289:main.c        ****                                             
+ 418              		.loc 1 289 0
+ 419 010a FFF7FEFF 		bl	UpdateKeyLCD
+ 420              	.LVL35:
+ 421              	.LBE6:
+ 293:main.c        ****                 {
+ 422              		.loc 1 293 0
+ 423 010e 9AF81430 		ldrb	r3, [r10, #20]	@ zero_extendqisi2
+ 424              	.LBB7:
+ 289:main.c        ****                                             
+ 425              		.loc 1 289 0
+ 426 0112 8AF81500 		strb	r0, [r10, #21]
+ 427              	.LBE7:
+ 293:main.c        ****                 {
+ 428              		.loc 1 293 0
+ 429 0116 5344     		add	r3, r3, r10
+ 430 0118 1B7C     		ldrb	r3, [r3, #16]	@ zero_extendqisi2
+ 431 011a 002B     		cmp	r3, #0
+ 432 011c 99D0     		beq	.L33
+ 326:main.c        ****         {
+ 433              		.loc 1 326 0
+ 434 011e 9AF81330 		ldrb	r3, [r10, #19]	@ zero_extendqisi2
+ 435 0122 304F     		ldr	r7, .L51+16
+ 436              	.LVL36:
+ 437 0124 012B     		cmp	r3, #1
+ 438 0126 A8D9     		bls	.L34
+ 439              	.L48:
+ 328:main.c        ****             MIDI2_UART_Sleep();
+ 440              		.loc 1 328 0
+ 441 0128 FFF7FEFF 		bl	MIDI1_UART_Sleep
+ 442              	.LVL37:
+ 329:main.c        ****             MIDI_PWR_Write(1u);     /* Power OFF CY8CKIT-044 board */
+ 443              		.loc 1 329 0
+ 444 012c FFF7FEFF 		bl	MIDI2_UART_Sleep
+ 445              	.LVL38:
+ 330:main.c        ****                 
+ 446              		.loc 1 330 0
+ 447 0130 0120     		movs	r0, #1
+ 448 0132 FFF7FEFF 		bl	MIDI_PWR_Write
+ 449              	.LVL39:
+ 336:main.c        ****             /* Prepares system clocks for the Sleep mode */
+ 450              		.loc 1 336 0
+ 451 0136 FFF7FEFF 		bl	USB_Suspend
+ 452              	.LVL40:
+ 338:main.c        ****             /*******************************************************************
+ 453              		.loc 1 338 0
+ 454 013a FFF7FEFF 		bl	CyPmSaveClocks
+ 455              	.LVL41:
+ 344:main.c        ****             /* Restore clock configuration */
+ 456              		.loc 1 344 0
+ 457 013e 4021     		movs	r1, #64
+ 458 0140 0020     		movs	r0, #0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 18
+
+
+ 459 0142 FFF7FEFF 		bl	CyPmSleep
+ 460              	.LVL42:
+ 346:main.c        ****             /* Enable the USBFS block after power down mode */
+ 461              		.loc 1 346 0
+ 462 0146 FFF7FEFF 		bl	CyPmRestoreClocks
+ 463              	.LVL43:
+ 348:main.c        ****             
+ 464              		.loc 1 348 0
+ 465 014a FFF7FEFF 		bl	USB_Resume
+ 466              	.LVL44:
+ 351:main.c        ****             MIDI_PWR_Write(0u);     /* Power ON CY8CKIT-044 board */
+ 467              		.loc 1 351 0
+ 468 014e FFF7FEFF 		bl	USB_MIDI_EP_Init
+ 469              	.LVL45:
+ 352:main.c        ****             MIDI1_UART_Wakeup();
+ 470              		.loc 1 352 0
+ 471 0152 0020     		movs	r0, #0
+ 472 0154 FFF7FEFF 		bl	MIDI_PWR_Write
+ 473              	.LVL46:
+ 353:main.c        ****             MIDI2_UART_Wakeup();
+ 474              		.loc 1 353 0
+ 475 0158 FFF7FEFF 		bl	MIDI1_UART_Wakeup
+ 476              	.LVL47:
+ 354:main.c        ****             usbActivityCounter = 0u; /* Re-init USB Activity Counter*/
+ 477              		.loc 1 354 0
+ 478 015c FFF7FEFF 		bl	MIDI2_UART_Wakeup
+ 479              	.LVL48:
+ 355:main.c        ****         }
+ 480              		.loc 1 355 0
+ 481 0160 0023     		movs	r3, #0
+ 482 0162 FB74     		strb	r3, [r7, #19]
+ 483 0164 89E7     		b	.L34
+ 484              	.LVL49:
+ 485              	.L49:
+ 486              	.LBB8:
+ 244:main.c        ****                         note = NoteSnap(noteTable, pitchHz, curKey, curScale);
+ 487              		.loc 1 244 0
+ 488 0166 4046     		mov	r0, r8
+ 489 0168 FFF7FEFF 		bl	__aeabi_f2d
+ 490              	.LVL50:
+ 491 016c 3A46     		mov	r2, r7
+ 492 016e 1A4B     		ldr	r3, .L51+4
+ 493 0170 FFF7FEFF 		bl	midi_note_changed
+ 494              	.LVL51:
+ 495 0174 20BB     		cbnz	r0, .L50
+ 496              	.L30:
+ 251:main.c        ****                     // If not the initial condition, send a note off signal when new note is detect
+ 497              		.loc 1 251 0
+ 498 0176 3368     		ldr	r3, [r6]
+ 499 0178 9F42     		cmp	r7, r3
+ 500 017a A4D0     		beq	.L27
+ 251:main.c        ****                     // If not the initial condition, send a note off signal when new note is detect
+ 501              		.loc 1 251 0 is_stmt 0 discriminator 1
+ 502 017c 791C     		adds	r1, r7, #1
+ 503 017e A2D0     		beq	.L27
+ 253:main.c        ****                         midiMsg[0] = USB_MIDI_NOTE_OFF;
+ 504              		.loc 1 253 0 is_stmt 1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 19
+
+
+ 505 0180 5A1C     		adds	r2, r3, #1
+ 506 0182 0DD0     		beq	.L31
+ 254:main.c        ****                         midiMsg[1] = lastNote;
+ 507              		.loc 1 254 0
+ 508 0184 8022     		movs	r2, #128
+ 258:main.c        ****                         UART_PutChar(midiMsg[1]);
+ 509              		.loc 1 258 0
+ 510 0186 1046     		mov	r0, r2
+ 256:main.c        ****                         
+ 511              		.loc 1 256 0
+ 512 0188 0021     		movs	r1, #0
+ 255:main.c        ****                         midiMsg[2] = 0u;        
+ 513              		.loc 1 255 0
+ 514 018a 6370     		strb	r3, [r4, #1]
+ 254:main.c        ****                         midiMsg[1] = lastNote;
+ 515              		.loc 1 254 0
+ 516 018c 2270     		strb	r2, [r4]
+ 256:main.c        ****                         
+ 517              		.loc 1 256 0
+ 518 018e A170     		strb	r1, [r4, #2]
+ 258:main.c        ****                         UART_PutChar(midiMsg[1]);
+ 519              		.loc 1 258 0
+ 520 0190 FFF7FEFF 		bl	UART_PutChar
+ 521              	.LVL52:
+ 259:main.c        ****                         UART_PutChar(midiMsg[2]);
+ 522              		.loc 1 259 0
+ 523 0194 6078     		ldrb	r0, [r4, #1]	@ zero_extendqisi2
+ 524 0196 FFF7FEFF 		bl	UART_PutChar
+ 525              	.LVL53:
+ 260:main.c        ****                         //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);
+ 526              		.loc 1 260 0
+ 527 019a A078     		ldrb	r0, [r4, #2]	@ zero_extendqisi2
+ 528 019c FFF7FEFF 		bl	UART_PutChar
+ 529              	.LVL54:
+ 530              	.L31:
+ 266:main.c        ****                     midiMsg[1] = note;
+ 531              		.loc 1 266 0
+ 532 01a0 9023     		movs	r3, #144
+ 270:main.c        ****                     UART_PutChar(midiMsg[1]);
+ 533              		.loc 1 270 0
+ 534 01a2 1846     		mov	r0, r3
+ 268:main.c        ****                     
+ 535              		.loc 1 268 0
+ 536 01a4 6422     		movs	r2, #100
+ 266:main.c        ****                     midiMsg[1] = note;
+ 537              		.loc 1 266 0
+ 538 01a6 2370     		strb	r3, [r4]
+ 268:main.c        ****                     
+ 539              		.loc 1 268 0
+ 540 01a8 A270     		strb	r2, [r4, #2]
+ 267:main.c        ****                     midiMsg[2] = 100u;
+ 541              		.loc 1 267 0
+ 542 01aa 6770     		strb	r7, [r4, #1]
+ 270:main.c        ****                     UART_PutChar(midiMsg[1]);
+ 543              		.loc 1 270 0
+ 544 01ac FFF7FEFF 		bl	UART_PutChar
+ 545              	.LVL55:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 20
+
+
+ 271:main.c        ****                     UART_PutChar(midiMsg[2]);
+ 546              		.loc 1 271 0
+ 547 01b0 6078     		ldrb	r0, [r4, #1]	@ zero_extendqisi2
+ 548 01b2 FFF7FEFF 		bl	UART_PutChar
+ 549              	.LVL56:
+ 272:main.c        ****                     //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);                            
+ 550              		.loc 1 272 0
+ 551 01b6 A078     		ldrb	r0, [r4, #2]	@ zero_extendqisi2
+ 552 01b8 FFF7FEFF 		bl	UART_PutChar
+ 553              	.LVL57:
+ 275:main.c        ****                 }
+ 554              		.loc 1 275 0
+ 555 01bc 3760     		str	r7, [r6]
+ 556 01be 82E7     		b	.L27
+ 557              	.L50:
+ 245:main.c        ****                         //note = midi_note_from_freq(pitchHz);
+ 558              		.loc 1 245 0
+ 559 01c0 0B4B     		ldr	r3, .L51+28
+ 560 01c2 0548     		ldr	r0, .L51+4
+ 561 01c4 1968     		ldr	r1, [r3]	@ float
+ 562 01c6 6A7D     		ldrb	r2, [r5, #21]	@ zero_extendqisi2
+ 563 01c8 AB7D     		ldrb	r3, [r5, #22]	@ zero_extendqisi2
+ 564 01ca FFF7FEFF 		bl	NoteSnap
+ 565              	.LVL58:
+ 566 01ce 0746     		mov	r7, r0
+ 567              	.LVL59:
+ 568 01d0 D1E7     		b	.L30
+ 569              	.L52:
+ 570 01d2 00BF     		.align	2
+ 571              	.L51:
+ 572 01d4 00000000 		.word	GetSample
+ 573 01d8 00000000 		.word	noteTable
+ 574 01dc 00000000 		.word	midiMsg
+ 575 01e0 00000000 		.word	.LANCHOR1
+ 576 01e4 00000000 		.word	.LANCHOR0
+ 577 01e8 00001644 		.word	1142292480
+ 578 01ec 0000A042 		.word	1117782016
+ 579 01f0 00000000 		.word	pitchHz
+ 580 01f4 00000000 		.word	dataFrames
+ 581              	.LBE8:
+ 582              		.cfi_endproc
+ 583              	.LFE58:
+ 584              		.size	main, .-main
+ 585              		.section	.text.USB_callbackLocalMidiEvent,"ax",%progbits
+ 586              		.align	2
+ 587              		.global	USB_callbackLocalMidiEvent
+ 588              		.thumb
+ 589              		.thumb_func
+ 590              		.type	USB_callbackLocalMidiEvent, %function
+ 591              	USB_callbackLocalMidiEvent:
+ 592              	.LFB59:
+ 365:main.c        ****     /* Support General System On/Off Message. */
+ 593              		.loc 1 365 0
+ 594              		.cfi_startproc
+ 595              		@ args = 0, pretend = 0, frame = 0
+ 596              		@ frame_needed = 0, uses_anonymous_args = 0
+ 597              	.LVL60:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 21
+
+
+ 598 0000 38B5     		push	{r3, r4, r5, lr}
+ 599              		.cfi_def_cfa_offset 16
+ 600              		.cfi_offset 3, -16
+ 601              		.cfi_offset 4, -12
+ 602              		.cfi_offset 5, -8
+ 603              		.cfi_offset 14, -4
+ 367:main.c        ****     {
+ 604              		.loc 1 367 0
+ 605 0002 0C4C     		ldr	r4, .L64
+ 606 0004 0C4D     		ldr	r5, .L64+4
+ 607 0006 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+ 608              	.LVL61:
+ 609 0008 10F00100 		ands	r0, r0, #1
+ 610 000c 05D1     		bne	.L54
+ 367:main.c        ****     {
+ 611              		.loc 1 367 0 is_stmt 0 discriminator 1
+ 612 000e EB7D     		ldrb	r3, [r5, #23]	@ zero_extendqisi2
+ 613 0010 DB07     		lsls	r3, r3, #31
+ 614 0012 02D5     		bpl	.L54
+ 369:main.c        ****         {
+ 615              		.loc 1 369 0 is_stmt 1
+ 616 0014 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 617 0016 092B     		cmp	r3, #9
+ 618 0018 02D0     		beq	.L63
+ 619              	.LVL62:
+ 620              	.L54:
+ 381:main.c        ****     cable = cable;
+ 621              		.loc 1 381 0
+ 622 001a 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 623 001c EB75     		strb	r3, [r5, #23]
+ 624              	.LVL63:
+ 625 001e 38BD     		pop	{r3, r4, r5, pc}
+ 626              	.LVL64:
+ 627              	.L63:
+ 371:main.c        ****             {
+ 628              		.loc 1 371 0
+ 629 0020 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
+ 630 0022 012B     		cmp	r3, #1
+ 631 0024 02D0     		beq	.L62
+ 375:main.c        ****             {
+ 632              		.loc 1 375 0
+ 633 0026 022B     		cmp	r3, #2
+ 634 0028 F7D1     		bne	.L54
+ 377:main.c        ****             }
+ 635              		.loc 1 377 0
+ 636 002a 0120     		movs	r0, #1
+ 637              	.L62:
+ 638 002c FFF7FEFF 		bl	MIDI_PWR_Write
+ 639              	.LVL65:
+ 640 0030 F3E7     		b	.L54
+ 641              	.L65:
+ 642 0032 00BF     		.align	2
+ 643              	.L64:
+ 644 0034 00000000 		.word	USB_MIDI1_InqFlags
+ 645 0038 00000000 		.word	.LANCHOR0
+ 646              		.cfi_endproc
+ 647              	.LFE59:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 22
+
+
+ 648              		.size	USB_callbackLocalMidiEvent, .-USB_callbackLocalMidiEvent
+ 649              		.global	usbActivityCounter
+ 650              		.global	MIDI_IDENTITY_REPLY
+ 651              		.comm	test_max,4,4
+ 652              		.global	curKey
+ 653              		.global	curScale
+ 654              		.global	frame2InUse
+ 655              		.global	frame1InUse
+ 656              		.comm	noteTable,1024,8
+ 657              		.comm	pitchHz,4,4
+ 658              		.global	i
+ 659              		.global	lastNote
+ 660              		.comm	midiMsg,4,4
+ 661              		.global	frameProcessed
+ 662              		.global	sustain
+ 663              		.global	frameLocked
+ 664              		.global	frameReady
+ 665              		.global	max_value
+ 666              		.global	sampleFrame
+ 667              		.global	currFrame
+ 668              		.global	frameIndex
+ 669              		.comm	ADCoutput,2,2
+ 670              		.comm	dataFrames,1024,4
+ 671              		.comm	LCDstr,10,4
+ 672              		.global	inqFlags_old
+ 673              		.global	csButtChange
+ 674              		.global	csButtStates_old
+ 675              		.global	csButtStates
+ 676              		.section	.rodata
+ 677              		.align	2
+ 678              		.type	MIDI_IDENTITY_REPLY, %object
+ 679              		.size	MIDI_IDENTITY_REPLY, 14
+ 680              	MIDI_IDENTITY_REPLY:
+ 681 0000 F0       		.byte	-16
+ 682 0001 7E       		.byte	126
+ 683 0002 7F       		.byte	127
+ 684 0003 06       		.byte	6
+ 685 0004 02       		.byte	2
+ 686 0005 7D       		.byte	125
+ 687 0006 B4       		.byte	-76
+ 688 0007 04       		.byte	4
+ 689 0008 32       		.byte	50
+ 690 0009 D2       		.byte	-46
+ 691 000a 01       		.byte	1
+ 692 000b 00       		.byte	0
+ 693 000c 00       		.byte	0
+ 694 000d 00       		.byte	0
+ 695 000e 0000     		.data
+ 696              		.align	2
+ 697              		.set	.LANCHOR1,. + 0
+ 698              		.type	lastNote, %object
+ 699              		.size	lastNote, 4
+ 700              	lastNote:
+ 701 0000 FFFFFFFF 		.word	-1
+ 702              		.bss
+ 703              		.align	2
+ 704              		.set	.LANCHOR0,. + 0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 23
+
+
+ 705              		.type	currFrame, %object
+ 706              		.size	currFrame, 1
+ 707              	currFrame:
+ 708 0000 00       		.space	1
+ 709 0001 000000   		.space	3
+ 710              		.type	frameLocked, %object
+ 711              		.size	frameLocked, 2
+ 712              	frameLocked:
+ 713 0004 0000     		.space	2
+ 714 0006 0000     		.space	2
+ 715              		.type	max_value, %object
+ 716              		.size	max_value, 4
+ 717              	max_value:
+ 718 0008 00000000 		.space	4
+ 719              		.type	frameIndex, %object
+ 720              		.size	frameIndex, 2
+ 721              	frameIndex:
+ 722 000c 0000     		.space	2
+ 723 000e 0000     		.space	2
+ 724              		.type	frameReady, %object
+ 725              		.size	frameReady, 2
+ 726              	frameReady:
+ 727 0010 0000     		.space	2
+ 728              		.type	frameProcessed, %object
+ 729              		.size	frameProcessed, 1
+ 730              	frameProcessed:
+ 731 0012 00       		.space	1
+ 732              		.type	usbActivityCounter, %object
+ 733              		.size	usbActivityCounter, 1
+ 734              	usbActivityCounter:
+ 735 0013 00       		.space	1
+ 736              		.type	sampleFrame, %object
+ 737              		.size	sampleFrame, 1
+ 738              	sampleFrame:
+ 739 0014 00       		.space	1
+ 740              		.type	curKey, %object
+ 741              		.size	curKey, 1
+ 742              	curKey:
+ 743 0015 00       		.space	1
+ 744              		.type	curScale, %object
+ 745              		.size	curScale, 1
+ 746              	curScale:
+ 747 0016 00       		.space	1
+ 748              		.type	inqFlags_old, %object
+ 749              		.size	inqFlags_old, 1
+ 750              	inqFlags_old:
+ 751 0017 00       		.space	1
+ 752              		.type	frame2InUse, %object
+ 753              		.size	frame2InUse, 1
+ 754              	frame2InUse:
+ 755 0018 00       		.space	1
+ 756              		.type	frame1InUse, %object
+ 757              		.size	frame1InUse, 1
+ 758              	frame1InUse:
+ 759 0019 00       		.space	1
+ 760 001a 0000     		.space	2
+ 761              		.type	i, %object
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 24
+
+
+ 762              		.size	i, 4
+ 763              	i:
+ 764 001c 00000000 		.space	4
+ 765              		.type	sustain, %object
+ 766              		.size	sustain, 1
+ 767              	sustain:
+ 768 0020 00       		.space	1
+ 769              		.type	csButtChange, %object
+ 770              		.size	csButtChange, 1
+ 771              	csButtChange:
+ 772 0021 00       		.space	1
+ 773              		.type	csButtStates_old, %object
+ 774              		.size	csButtStates_old, 1
+ 775              	csButtStates_old:
+ 776 0022 00       		.space	1
+ 777              		.type	csButtStates, %object
+ 778              		.size	csButtStates, 1
+ 779              	csButtStates:
+ 780 0023 00       		.space	1
+ 781              		.text
+ 782              	.Letext0:
+ 783              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 784              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 785              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 786              		.file 5 "./midi.h"
+ 787              		.file 6 "Generated_Source\\PSoC5/core_cm3.h"
+ 788              		.file 7 "Generated_Source\\PSoC5/ADC_SAR_1.h"
+ 789              		.file 8 "Generated_Source\\PSoC5/USB.h"
+ 790              		.file 9 "Generated_Source\\PSoC5/SleepTimer.h"
+ 791              		.file 10 "./pitch.h"
+ 792              		.file 11 "Generated_Source\\PSoC5/CharLCD_I2C.h"
+ 793              		.file 12 "./hbird.h"
+ 794              		.file 13 "Generated_Source\\PSoC5/UART.h"
+ 795              		.file 14 "Generated_Source\\PSoC5/I2C_CharLCD.h"
+ 796              		.file 15 "Generated_Source\\PSoC5/isr_1.h"
+ 797              		.file 16 "Generated_Source\\PSoC5/Timer_1.h"
+ 798              		.file 17 "Generated_Source\\PSoC5/UI_ADC.h"
+ 799              		.file 18 "Generated_Source\\PSoC5/MIDI1_UART.h"
+ 800              		.file 19 "Generated_Source\\PSoC5/MIDI2_UART.h"
+ 801              		.file 20 "Generated_Source\\PSoC5/MIDI_PWR.h"
+ 802              		.file 21 "Generated_Source\\PSoC5/cyPm.h"
+ 803              		.section	.debug_info,"",%progbits
+ 804              	.Ldebug_info0:
+ 805 0000 7D090000 		.4byte	0x97d
+ 806 0004 0400     		.2byte	0x4
+ 807 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 808 000a 04       		.byte	0x4
+ 809 000b 01       		.uleb128 0x1
+ 810 000c 77030000 		.4byte	.LASF115
+ 811 0010 01       		.byte	0x1
+ 812 0011 4B050000 		.4byte	.LASF116
+ 813 0015 34000000 		.4byte	.LASF117
+ 814 0019 20000000 		.4byte	.Ldebug_ranges0+0x20
+ 815 001d 00000000 		.4byte	0
+ 816 0021 00000000 		.4byte	.Ldebug_line0
+ 817 0025 02       		.uleb128 0x2
+ 818 0026 01       		.byte	0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 25
+
+
+ 819 0027 06       		.byte	0x6
+ 820 0028 B8010000 		.4byte	.LASF0
+ 821 002c 02       		.uleb128 0x2
+ 822 002d 01       		.byte	0x1
+ 823 002e 08       		.byte	0x8
+ 824 002f DE020000 		.4byte	.LASF1
+ 825 0033 02       		.uleb128 0x2
+ 826 0034 02       		.byte	0x2
+ 827 0035 05       		.byte	0x5
+ 828 0036 D5000000 		.4byte	.LASF2
+ 829 003a 02       		.uleb128 0x2
+ 830 003b 02       		.byte	0x2
+ 831 003c 07       		.byte	0x7
+ 832 003d 26050000 		.4byte	.LASF3
+ 833 0041 03       		.uleb128 0x3
+ 834 0042 D2050000 		.4byte	.LASF9
+ 835 0046 02       		.byte	0x2
+ 836 0047 3F       		.byte	0x3f
+ 837 0048 4C000000 		.4byte	0x4c
+ 838 004c 02       		.uleb128 0x2
+ 839 004d 04       		.byte	0x4
+ 840 004e 05       		.byte	0x5
+ 841 004f 3B020000 		.4byte	.LASF4
+ 842 0053 02       		.uleb128 0x2
+ 843 0054 04       		.byte	0x4
+ 844 0055 07       		.byte	0x7
+ 845 0056 57050000 		.4byte	.LASF5
+ 846 005a 02       		.uleb128 0x2
+ 847 005b 08       		.byte	0x8
+ 848 005c 05       		.byte	0x5
+ 849 005d F7010000 		.4byte	.LASF6
+ 850 0061 02       		.uleb128 0x2
+ 851 0062 08       		.byte	0x8
+ 852 0063 07       		.byte	0x7
+ 853 0064 2C030000 		.4byte	.LASF7
+ 854 0068 04       		.uleb128 0x4
+ 855 0069 04       		.byte	0x4
+ 856 006a 05       		.byte	0x5
+ 857 006b 696E7400 		.ascii	"int\000"
+ 858 006f 02       		.uleb128 0x2
+ 859 0070 04       		.byte	0x4
+ 860 0071 07       		.byte	0x7
+ 861 0072 6A030000 		.4byte	.LASF8
+ 862 0076 03       		.uleb128 0x3
+ 863 0077 68020000 		.4byte	.LASF10
+ 864 007b 03       		.byte	0x3
+ 865 007c 2C       		.byte	0x2c
+ 866 007d 41000000 		.4byte	0x41
+ 867 0081 03       		.uleb128 0x3
+ 868 0082 79010000 		.4byte	.LASF11
+ 869 0086 04       		.byte	0x4
+ 870 0087 5B       		.byte	0x5b
+ 871 0088 2C000000 		.4byte	0x2c
+ 872 008c 03       		.uleb128 0x3
+ 873 008d 63010000 		.4byte	.LASF12
+ 874 0091 04       		.byte	0x4
+ 875 0092 5C       		.byte	0x5c
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 26
+
+
+ 876 0093 3A000000 		.4byte	0x3a
+ 877 0097 03       		.uleb128 0x3
+ 878 0098 B2010000 		.4byte	.LASF13
+ 879 009c 04       		.byte	0x4
+ 880 009d 5F       		.byte	0x5f
+ 881 009e 33000000 		.4byte	0x33
+ 882 00a2 02       		.uleb128 0x2
+ 883 00a3 04       		.byte	0x4
+ 884 00a4 04       		.byte	0x4
+ 885 00a5 E7010000 		.4byte	.LASF14
+ 886 00a9 02       		.uleb128 0x2
+ 887 00aa 08       		.byte	0x8
+ 888 00ab 04       		.byte	0x4
+ 889 00ac 69050000 		.4byte	.LASF15
+ 890 00b0 03       		.uleb128 0x3
+ 891 00b1 0A010000 		.4byte	.LASF16
+ 892 00b5 04       		.byte	0x4
+ 893 00b6 6C       		.byte	0x6c
+ 894 00b7 BB000000 		.4byte	0xbb
+ 895 00bb 02       		.uleb128 0x2
+ 896 00bc 01       		.byte	0x1
+ 897 00bd 08       		.byte	0x8
+ 898 00be 7B040000 		.4byte	.LASF17
+ 899 00c2 03       		.uleb128 0x3
+ 900 00c3 52050000 		.4byte	.LASF18
+ 901 00c7 04       		.byte	0x4
+ 902 00c8 F0       		.byte	0xf0
+ 903 00c9 CD000000 		.4byte	0xcd
+ 904 00cd 05       		.uleb128 0x5
+ 905 00ce 81000000 		.4byte	0x81
+ 906 00d2 06       		.uleb128 0x6
+ 907 00d3 08030000 		.4byte	.LASF19
+ 908 00d7 04       		.byte	0x4
+ 909 00d8 0201     		.2byte	0x102
+ 910 00da DE000000 		.4byte	0xde
+ 911 00de 07       		.uleb128 0x7
+ 912 00df 04       		.byte	0x4
+ 913 00e0 E4000000 		.4byte	0xe4
+ 914 00e4 08       		.uleb128 0x8
+ 915 00e5 02       		.uleb128 0x2
+ 916 00e6 04       		.byte	0x4
+ 917 00e7 07       		.byte	0x7
+ 918 00e8 F3050000 		.4byte	.LASF20
+ 919 00ec 07       		.uleb128 0x7
+ 920 00ed 04       		.byte	0x4
+ 921 00ee BB000000 		.4byte	0xbb
+ 922 00f2 09       		.uleb128 0x9
+ 923 00f3 81000000 		.4byte	0x81
+ 924 00f7 02010000 		.4byte	0x102
+ 925 00fb 0A       		.uleb128 0xa
+ 926 00fc E5000000 		.4byte	0xe5
+ 927 0100 03       		.byte	0x3
+ 928 0101 00       		.byte	0
+ 929 0102 0B       		.uleb128 0xb
+ 930 0103 05040000 		.4byte	.LASF33
+ 931 0107 01       		.byte	0x1
+ 932 0108 05       		.byte	0x5
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 27
+
+
+ 933 0109 07       		.byte	0x7
+ 934 010a 57010000 		.4byte	0x157
+ 935 010e 0C       		.uleb128 0xc
+ 936 010f 3A040000 		.4byte	.LASF21
+ 937 0113 00       		.sleb128 0
+ 938 0114 0C       		.uleb128 0xc
+ 939 0115 44020000 		.4byte	.LASF22
+ 940 0119 01       		.sleb128 1
+ 941 011a 0C       		.uleb128 0xc
+ 942 011b 43040000 		.4byte	.LASF23
+ 943 011f 02       		.sleb128 2
+ 944 0120 0C       		.uleb128 0xc
+ 945 0121 ED010000 		.4byte	.LASF24
+ 946 0125 03       		.sleb128 3
+ 947 0126 0C       		.uleb128 0xc
+ 948 0127 4C040000 		.4byte	.LASF25
+ 949 012b 04       		.sleb128 4
+ 950 012c 0C       		.uleb128 0xc
+ 951 012d 55040000 		.4byte	.LASF26
+ 952 0131 05       		.sleb128 5
+ 953 0132 0C       		.uleb128 0xc
+ 954 0133 E9050000 		.4byte	.LASF27
+ 955 0137 06       		.sleb128 6
+ 956 0138 0C       		.uleb128 0xc
+ 957 0139 5E040000 		.4byte	.LASF28
+ 958 013d 07       		.sleb128 7
+ 959 013e 0C       		.uleb128 0xc
+ 960 013f 89010000 		.4byte	.LASF29
+ 961 0143 08       		.sleb128 8
+ 962 0144 0C       		.uleb128 0xc
+ 963 0145 28040000 		.4byte	.LASF30
+ 964 0149 09       		.sleb128 9
+ 965 014a 0C       		.uleb128 0xc
+ 966 014b 22030000 		.4byte	.LASF31
+ 967 014f 0A       		.sleb128 10
+ 968 0150 0C       		.uleb128 0xc
+ 969 0151 31040000 		.4byte	.LASF32
+ 970 0155 0B       		.sleb128 11
+ 971 0156 00       		.byte	0
+ 972 0157 0B       		.uleb128 0xb
+ 973 0158 C8020000 		.4byte	.LASF34
+ 974 015c 01       		.byte	0x1
+ 975 015d 05       		.byte	0x5
+ 976 015e 0A       		.byte	0xa
+ 977 015f 88010000 		.4byte	0x188
+ 978 0163 0C       		.uleb128 0xc
+ 979 0164 1C030000 		.4byte	.LASF35
+ 980 0168 00       		.sleb128 0
+ 981 0169 0C       		.uleb128 0xc
+ 982 016a 10060000 		.4byte	.LASF36
+ 983 016e 01       		.sleb128 1
+ 984 016f 0C       		.uleb128 0xc
+ 985 0170 BD020000 		.4byte	.LASF37
+ 986 0174 02       		.sleb128 2
+ 987 0175 0C       		.uleb128 0xc
+ 988 0176 67040000 		.4byte	.LASF38
+ 989 017a 03       		.sleb128 3
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 28
+
+
+ 990 017b 0C       		.uleb128 0xc
+ 991 017c 58010000 		.4byte	.LASF39
+ 992 0180 04       		.sleb128 4
+ 993 0181 0C       		.uleb128 0xc
+ 994 0182 AD050000 		.4byte	.LASF40
+ 995 0186 05       		.sleb128 5
+ 996 0187 00       		.byte	0
+ 997 0188 0D       		.uleb128 0xd
+ 998 0189 7F010000 		.4byte	.LASF46
+ 999 018d 01       		.byte	0x1
+ 1000 018e 8501     		.2byte	0x185
+ 1001 0190 01       		.byte	0x1
+ 1002 0191 0E       		.uleb128 0xe
+ 1003 0192 88010000 		.4byte	0x188
+ 1004 0196 00000000 		.4byte	.LFB60
+ 1005 019a 88000000 		.4byte	.LFE60-.LFB60
+ 1006 019e 01       		.uleb128 0x1
+ 1007 019f 9C       		.byte	0x9c
+ 1008 01a0 C1010000 		.4byte	0x1c1
+ 1009 01a4 0F       		.uleb128 0xf
+ 1010 01a5 0C000000 		.4byte	.LVL0
+ 1011 01a9 66070000 		.4byte	0x766
+ 1012 01ad B7010000 		.4byte	0x1b7
+ 1013 01b1 10       		.uleb128 0x10
+ 1014 01b2 01       		.uleb128 0x1
+ 1015 01b3 50       		.byte	0x50
+ 1016 01b4 01       		.uleb128 0x1
+ 1017 01b5 30       		.byte	0x30
+ 1018 01b6 00       		.byte	0
+ 1019 01b7 11       		.uleb128 0x11
+ 1020 01b8 24000000 		.4byte	.LVL1
+ 1021 01bc 7B070000 		.4byte	0x77b
+ 1022 01c0 00       		.byte	0
+ 1023 01c1 12       		.uleb128 0x12
+ 1024 01c2 93010000 		.4byte	.LASF41
+ 1025 01c6 01       		.byte	0x1
+ 1026 01c7 65       		.byte	0x65
+ 1027 01c8 00000000 		.4byte	.LFB56
+ 1028 01cc 2C000000 		.4byte	.LFE56-.LFB56
+ 1029 01d0 01       		.uleb128 0x1
+ 1030 01d1 9C       		.byte	0x9c
+ 1031 01d2 F2010000 		.4byte	0x1f2
+ 1032 01d6 11       		.uleb128 0x11
+ 1033 01d7 06000000 		.4byte	.LVL2
+ 1034 01db 86070000 		.4byte	0x786
+ 1035 01df 13       		.uleb128 0x13
+ 1036 01e0 1A000000 		.4byte	.LVL3
+ 1037 01e4 91070000 		.4byte	0x791
+ 1038 01e8 13       		.uleb128 0x13
+ 1039 01e9 28000000 		.4byte	.LVL4
+ 1040 01ed 91070000 		.4byte	0x791
+ 1041 01f1 00       		.byte	0
+ 1042 01f2 12       		.uleb128 0x12
+ 1043 01f3 16040000 		.4byte	.LASF42
+ 1044 01f7 01       		.byte	0x1
+ 1045 01f8 7E       		.byte	0x7e
+ 1046 01f9 00000000 		.4byte	.LFB57
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 29
+
+
+ 1047 01fd 08000000 		.4byte	.LFE57-.LFB57
+ 1048 0201 01       		.uleb128 0x1
+ 1049 0202 9C       		.byte	0x9c
+ 1050 0203 3C020000 		.4byte	0x23c
+ 1051 0207 14       		.uleb128 0x14
+ 1052 0208 DB040000 		.4byte	.LASF43
+ 1053 020c 01       		.byte	0x1
+ 1054 020d 7E       		.byte	0x7e
+ 1055 020e 3C020000 		.4byte	0x23c
+ 1056 0212 01       		.uleb128 0x1
+ 1057 0213 50       		.byte	0x50
+ 1058 0214 15       		.uleb128 0x15
+ 1059 0215 636D6400 		.ascii	"cmd\000"
+ 1060 0219 01       		.byte	0x1
+ 1061 021a 7E       		.byte	0x7e
+ 1062 021b 81000000 		.4byte	0x81
+ 1063 021f 01       		.uleb128 0x1
+ 1064 0220 51       		.byte	0x51
+ 1065 0221 14       		.uleb128 0x14
+ 1066 0222 F6040000 		.4byte	.LASF44
+ 1067 0226 01       		.byte	0x1
+ 1068 0227 7E       		.byte	0x7e
+ 1069 0228 81000000 		.4byte	0x81
+ 1070 022c 01       		.uleb128 0x1
+ 1071 022d 52       		.byte	0x52
+ 1072 022e 15       		.uleb128 0x15
+ 1073 022f 76656C00 		.ascii	"vel\000"
+ 1074 0233 01       		.byte	0x1
+ 1075 0234 7E       		.byte	0x7e
+ 1076 0235 81000000 		.4byte	0x81
+ 1077 0239 01       		.uleb128 0x1
+ 1078 023a 53       		.byte	0x53
+ 1079 023b 00       		.byte	0
+ 1080 023c 07       		.uleb128 0x7
+ 1081 023d 04       		.byte	0x4
+ 1082 023e 81000000 		.4byte	0x81
+ 1083 0242 16       		.uleb128 0x16
+ 1084 0243 1B010000 		.4byte	.LASF45
+ 1085 0247 01       		.byte	0x1
+ 1086 0248 85       		.byte	0x85
+ 1087 0249 68000000 		.4byte	0x68
+ 1088 024d 00000000 		.4byte	.LFB58
+ 1089 0251 F8010000 		.4byte	.LFE58-.LFB58
+ 1090 0255 01       		.uleb128 0x1
+ 1091 0256 9C       		.byte	0x9c
+ 1092 0257 DF040000 		.4byte	0x4df
+ 1093 025b 17       		.uleb128 0x17
+ 1094 025c 7F010000 		.4byte	.LASF46
+ 1095 0260 01       		.byte	0x1
+ 1096 0261 8B       		.byte	0x8b
+ 1097 0262 18       		.uleb128 0x18
+ 1098 0263 00000000 		.4byte	.Ldebug_ranges0+0
+ 1099 0267 91030000 		.4byte	0x391
+ 1100 026b 19       		.uleb128 0x19
+ 1101 026c F6040000 		.4byte	.LASF44
+ 1102 0270 01       		.byte	0x1
+ 1103 0271 F1       		.byte	0xf1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 30
+
+
+ 1104 0272 68000000 		.4byte	0x68
+ 1105 0276 00000000 		.4byte	.LLST0
+ 1106 027a 11       		.uleb128 0x11
+ 1107 027b A4000000 		.4byte	.LVL21
+ 1108 027f 9C070000 		.4byte	0x79c
+ 1109 0283 0F       		.uleb128 0xf
+ 1110 0284 CC000000 		.4byte	.LVL25
+ 1111 0288 B7070000 		.4byte	0x7b7
+ 1112 028c 96020000 		.4byte	0x296
+ 1113 0290 10       		.uleb128 0x10
+ 1114 0291 01       		.uleb128 0x1
+ 1115 0292 50       		.byte	0x50
+ 1116 0293 01       		.uleb128 0x1
+ 1117 0294 31       		.byte	0x31
+ 1118 0295 00       		.byte	0
+ 1119 0296 0F       		.uleb128 0xf
+ 1120 0297 D4000000 		.4byte	.LVL26
+ 1121 029b C8070000 		.4byte	0x7c8
+ 1122 029f AE020000 		.4byte	0x2ae
+ 1123 02a3 10       		.uleb128 0x10
+ 1124 02a4 01       		.uleb128 0x1
+ 1125 02a5 51       		.byte	0x51
+ 1126 02a6 01       		.uleb128 0x1
+ 1127 02a7 30       		.byte	0x30
+ 1128 02a8 10       		.uleb128 0x10
+ 1129 02a9 01       		.uleb128 0x1
+ 1130 02aa 50       		.byte	0x50
+ 1131 02ab 01       		.uleb128 0x1
+ 1132 02ac 30       		.byte	0x30
+ 1133 02ad 00       		.byte	0
+ 1134 02ae 11       		.uleb128 0x11
+ 1135 02af E2000000 		.4byte	.LVL28
+ 1136 02b3 DE070000 		.4byte	0x7de
+ 1137 02b7 0F       		.uleb128 0xf
+ 1138 02b8 EA000000 		.4byte	.LVL29
+ 1139 02bc C8070000 		.4byte	0x7c8
+ 1140 02c0 CF020000 		.4byte	0x2cf
+ 1141 02c4 10       		.uleb128 0x10
+ 1142 02c5 01       		.uleb128 0x1
+ 1143 02c6 51       		.byte	0x51
+ 1144 02c7 01       		.uleb128 0x1
+ 1145 02c8 30       		.byte	0x30
+ 1146 02c9 10       		.uleb128 0x10
+ 1147 02ca 01       		.uleb128 0x1
+ 1148 02cb 50       		.byte	0x50
+ 1149 02cc 01       		.uleb128 0x1
+ 1150 02cd 31       		.byte	0x31
+ 1151 02ce 00       		.byte	0
+ 1152 02cf 11       		.uleb128 0x11
+ 1153 02d0 F0000000 		.4byte	.LVL30
+ 1154 02d4 EF070000 		.4byte	0x7ef
+ 1155 02d8 11       		.uleb128 0x11
+ 1156 02d9 F4000000 		.4byte	.LVL31
+ 1157 02dd 04080000 		.4byte	0x804
+ 1158 02e1 0F       		.uleb128 0xf
+ 1159 02e2 FC000000 		.4byte	.LVL32
+ 1160 02e6 C8070000 		.4byte	0x7c8
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 31
+
+
+ 1161 02ea F9020000 		.4byte	0x2f9
+ 1162 02ee 10       		.uleb128 0x10
+ 1163 02ef 01       		.uleb128 0x1
+ 1164 02f0 51       		.byte	0x51
+ 1165 02f1 01       		.uleb128 0x1
+ 1166 02f2 32       		.byte	0x32
+ 1167 02f3 10       		.uleb128 0x10
+ 1168 02f4 01       		.uleb128 0x1
+ 1169 02f5 50       		.byte	0x50
+ 1170 02f6 01       		.uleb128 0x1
+ 1171 02f7 31       		.byte	0x31
+ 1172 02f8 00       		.byte	0
+ 1173 02f9 11       		.uleb128 0x11
+ 1174 02fa 02010000 		.4byte	.LVL33
+ 1175 02fe DE070000 		.4byte	0x7de
+ 1176 0302 11       		.uleb128 0x11
+ 1177 0303 06010000 		.4byte	.LVL34
+ 1178 0307 20080000 		.4byte	0x820
+ 1179 030b 11       		.uleb128 0x11
+ 1180 030c 0E010000 		.4byte	.LVL35
+ 1181 0310 31080000 		.4byte	0x831
+ 1182 0314 0F       		.uleb128 0xf
+ 1183 0315 74010000 		.4byte	.LVL51
+ 1184 0319 42080000 		.4byte	0x842
+ 1185 031d 31030000 		.4byte	0x331
+ 1186 0321 10       		.uleb128 0x10
+ 1187 0322 01       		.uleb128 0x1
+ 1188 0323 53       		.byte	0x53
+ 1189 0324 05       		.uleb128 0x5
+ 1190 0325 03       		.byte	0x3
+ 1191 0326 00000000 		.4byte	noteTable
+ 1192 032a 10       		.uleb128 0x10
+ 1193 032b 01       		.uleb128 0x1
+ 1194 032c 52       		.byte	0x52
+ 1195 032d 02       		.uleb128 0x2
+ 1196 032e 77       		.byte	0x77
+ 1197 032f 00       		.sleb128 0
+ 1198 0330 00       		.byte	0
+ 1199 0331 0F       		.uleb128 0xf
+ 1200 0332 94010000 		.4byte	.LVL52
+ 1201 0336 67080000 		.4byte	0x867
+ 1202 033a 45030000 		.4byte	0x345
+ 1203 033e 10       		.uleb128 0x10
+ 1204 033f 01       		.uleb128 0x1
+ 1205 0340 50       		.byte	0x50
+ 1206 0341 02       		.uleb128 0x2
+ 1207 0342 09       		.byte	0x9
+ 1208 0343 80       		.byte	0x80
+ 1209 0344 00       		.byte	0
+ 1210 0345 11       		.uleb128 0x11
+ 1211 0346 9A010000 		.4byte	.LVL53
+ 1212 034a 67080000 		.4byte	0x867
+ 1213 034e 11       		.uleb128 0x11
+ 1214 034f A0010000 		.4byte	.LVL54
+ 1215 0353 67080000 		.4byte	0x867
+ 1216 0357 0F       		.uleb128 0xf
+ 1217 0358 B0010000 		.4byte	.LVL55
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 32
+
+
+ 1218 035c 67080000 		.4byte	0x867
+ 1219 0360 6B030000 		.4byte	0x36b
+ 1220 0364 10       		.uleb128 0x10
+ 1221 0365 01       		.uleb128 0x1
+ 1222 0366 50       		.byte	0x50
+ 1223 0367 02       		.uleb128 0x2
+ 1224 0368 09       		.byte	0x9
+ 1225 0369 90       		.byte	0x90
+ 1226 036a 00       		.byte	0
+ 1227 036b 11       		.uleb128 0x11
+ 1228 036c B6010000 		.4byte	.LVL56
+ 1229 0370 67080000 		.4byte	0x867
+ 1230 0374 11       		.uleb128 0x11
+ 1231 0375 BC010000 		.4byte	.LVL57
+ 1232 0379 67080000 		.4byte	0x867
+ 1233 037d 1A       		.uleb128 0x1a
+ 1234 037e CE010000 		.4byte	.LVL58
+ 1235 0382 78080000 		.4byte	0x878
+ 1236 0386 10       		.uleb128 0x10
+ 1237 0387 01       		.uleb128 0x1
+ 1238 0388 50       		.byte	0x50
+ 1239 0389 05       		.uleb128 0x5
+ 1240 038a 03       		.byte	0x3
+ 1241 038b 00000000 		.4byte	noteTable
+ 1242 038f 00       		.byte	0
+ 1243 0390 00       		.byte	0
+ 1244 0391 11       		.uleb128 0x11
+ 1245 0392 0A000000 		.4byte	.LVL6
+ 1246 0396 9C080000 		.4byte	0x89c
+ 1247 039a 11       		.uleb128 0x11
+ 1248 039b 0E000000 		.4byte	.LVL7
+ 1249 039f A3080000 		.4byte	0x8a3
+ 1250 03a3 0F       		.uleb128 0xf
+ 1251 03a4 14000000 		.4byte	.LVL8
+ 1252 03a8 AA080000 		.4byte	0x8aa
+ 1253 03ac BA030000 		.4byte	0x3ba
+ 1254 03b0 10       		.uleb128 0x10
+ 1255 03b1 01       		.uleb128 0x1
+ 1256 03b2 50       		.byte	0x50
+ 1257 03b3 05       		.uleb128 0x5
+ 1258 03b4 03       		.byte	0x3
+ 1259 03b5 00000000 		.4byte	GetSample
+ 1260 03b9 00       		.byte	0
+ 1261 03ba 11       		.uleb128 0x11
+ 1262 03bb 1C000000 		.4byte	.LVL9
+ 1263 03bf BB080000 		.4byte	0x8bb
+ 1264 03c3 11       		.uleb128 0x11
+ 1265 03c4 20000000 		.4byte	.LVL10
+ 1266 03c8 C2080000 		.4byte	0x8c2
+ 1267 03cc 11       		.uleb128 0x11
+ 1268 03cd 24000000 		.4byte	.LVL11
+ 1269 03d1 C9080000 		.4byte	0x8c9
+ 1270 03d5 11       		.uleb128 0x11
+ 1271 03d6 28000000 		.4byte	.LVL12
+ 1272 03da D0080000 		.4byte	0x8d0
+ 1273 03de 11       		.uleb128 0x11
+ 1274 03df 2C000000 		.4byte	.LVL13
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 33
+
+
+ 1275 03e3 D7080000 		.4byte	0x8d7
+ 1276 03e7 11       		.uleb128 0x11
+ 1277 03e8 30000000 		.4byte	.LVL14
+ 1278 03ec DE080000 		.4byte	0x8de
+ 1279 03f0 11       		.uleb128 0x11
+ 1280 03f1 34000000 		.4byte	.LVL15
+ 1281 03f5 E5080000 		.4byte	0x8e5
+ 1282 03f9 0F       		.uleb128 0xf
+ 1283 03fa 3A000000 		.4byte	.LVL16
+ 1284 03fe F2080000 		.4byte	0x8f2
+ 1285 0402 10040000 		.4byte	0x410
+ 1286 0406 10       		.uleb128 0x10
+ 1287 0407 01       		.uleb128 0x1
+ 1288 0408 50       		.byte	0x50
+ 1289 0409 05       		.uleb128 0x5
+ 1290 040a 03       		.byte	0x3
+ 1291 040b 00000000 		.4byte	noteTable
+ 1292 040f 00       		.byte	0
+ 1293 0410 0F       		.uleb128 0xf
+ 1294 0411 42000000 		.4byte	.LVL17
+ 1295 0415 03090000 		.4byte	0x903
+ 1296 0419 28040000 		.4byte	0x428
+ 1297 041d 10       		.uleb128 0x10
+ 1298 041e 01       		.uleb128 0x1
+ 1299 041f 51       		.byte	0x51
+ 1300 0420 01       		.uleb128 0x1
+ 1301 0421 32       		.byte	0x32
+ 1302 0422 10       		.uleb128 0x10
+ 1303 0423 01       		.uleb128 0x1
+ 1304 0424 50       		.byte	0x50
+ 1305 0425 01       		.uleb128 0x1
+ 1306 0426 30       		.byte	0x30
+ 1307 0427 00       		.byte	0
+ 1308 0428 0F       		.uleb128 0xf
+ 1309 0429 64000000 		.4byte	.LVL18
+ 1310 042d 67080000 		.4byte	0x867
+ 1311 0431 3C040000 		.4byte	0x43c
+ 1312 0435 10       		.uleb128 0x10
+ 1313 0436 01       		.uleb128 0x1
+ 1314 0437 50       		.byte	0x50
+ 1315 0438 02       		.uleb128 0x2
+ 1316 0439 09       		.byte	0x9
+ 1317 043a 80       		.byte	0x80
+ 1318 043b 00       		.byte	0
+ 1319 043c 11       		.uleb128 0x11
+ 1320 043d 6A000000 		.4byte	.LVL19
+ 1321 0441 67080000 		.4byte	0x867
+ 1322 0445 11       		.uleb128 0x11
+ 1323 0446 70000000 		.4byte	.LVL20
+ 1324 044a 67080000 		.4byte	0x867
+ 1325 044e 11       		.uleb128 0x11
+ 1326 044f 2C010000 		.4byte	.LVL37
+ 1327 0453 19090000 		.4byte	0x919
+ 1328 0457 11       		.uleb128 0x11
+ 1329 0458 30010000 		.4byte	.LVL38
+ 1330 045c 20090000 		.4byte	0x920
+ 1331 0460 0F       		.uleb128 0xf
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 34
+
+
+ 1332 0461 36010000 		.4byte	.LVL39
+ 1333 0465 27090000 		.4byte	0x927
+ 1334 0469 73040000 		.4byte	0x473
+ 1335 046d 10       		.uleb128 0x10
+ 1336 046e 01       		.uleb128 0x1
+ 1337 046f 50       		.byte	0x50
+ 1338 0470 01       		.uleb128 0x1
+ 1339 0471 31       		.byte	0x31
+ 1340 0472 00       		.byte	0
+ 1341 0473 11       		.uleb128 0x11
+ 1342 0474 3A010000 		.4byte	.LVL40
+ 1343 0478 38090000 		.4byte	0x938
+ 1344 047c 11       		.uleb128 0x11
+ 1345 047d 3E010000 		.4byte	.LVL41
+ 1346 0481 3F090000 		.4byte	0x93f
+ 1347 0485 0F       		.uleb128 0xf
+ 1348 0486 46010000 		.4byte	.LVL42
+ 1349 048a 46090000 		.4byte	0x946
+ 1350 048e 9E040000 		.4byte	0x49e
+ 1351 0492 10       		.uleb128 0x10
+ 1352 0493 01       		.uleb128 0x1
+ 1353 0494 51       		.byte	0x51
+ 1354 0495 02       		.uleb128 0x2
+ 1355 0496 08       		.byte	0x8
+ 1356 0497 40       		.byte	0x40
+ 1357 0498 10       		.uleb128 0x10
+ 1358 0499 01       		.uleb128 0x1
+ 1359 049a 50       		.byte	0x50
+ 1360 049b 01       		.uleb128 0x1
+ 1361 049c 30       		.byte	0x30
+ 1362 049d 00       		.byte	0
+ 1363 049e 11       		.uleb128 0x11
+ 1364 049f 4A010000 		.4byte	.LVL43
+ 1365 04a3 5C090000 		.4byte	0x95c
+ 1366 04a7 11       		.uleb128 0x11
+ 1367 04a8 4E010000 		.4byte	.LVL44
+ 1368 04ac 63090000 		.4byte	0x963
+ 1369 04b0 11       		.uleb128 0x11
+ 1370 04b1 52010000 		.4byte	.LVL45
+ 1371 04b5 6A090000 		.4byte	0x96a
+ 1372 04b9 0F       		.uleb128 0xf
+ 1373 04ba 58010000 		.4byte	.LVL46
+ 1374 04be 27090000 		.4byte	0x927
+ 1375 04c2 CC040000 		.4byte	0x4cc
+ 1376 04c6 10       		.uleb128 0x10
+ 1377 04c7 01       		.uleb128 0x1
+ 1378 04c8 50       		.byte	0x50
+ 1379 04c9 01       		.uleb128 0x1
+ 1380 04ca 30       		.byte	0x30
+ 1381 04cb 00       		.byte	0
+ 1382 04cc 11       		.uleb128 0x11
+ 1383 04cd 5C010000 		.4byte	.LVL47
+ 1384 04d1 72090000 		.4byte	0x972
+ 1385 04d5 11       		.uleb128 0x11
+ 1386 04d6 60010000 		.4byte	.LVL48
+ 1387 04da 79090000 		.4byte	0x979
+ 1388 04de 00       		.byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 35
+
+
+ 1389 04df 1B       		.uleb128 0x1b
+ 1390 04e0 A2020000 		.4byte	.LASF47
+ 1391 04e4 01       		.byte	0x1
+ 1392 04e5 6C01     		.2byte	0x16c
+ 1393 04e7 00000000 		.4byte	.LFB59
+ 1394 04eb 3C000000 		.4byte	.LFE59-.LFB59
+ 1395 04ef 01       		.uleb128 0x1
+ 1396 04f0 9C       		.byte	0x9c
+ 1397 04f1 1F050000 		.4byte	0x51f
+ 1398 04f5 1C       		.uleb128 0x1c
+ 1399 04f6 A7050000 		.4byte	.LASF48
+ 1400 04fa 01       		.byte	0x1
+ 1401 04fb 6C01     		.2byte	0x16c
+ 1402 04fd 81000000 		.4byte	0x81
+ 1403 0501 29000000 		.4byte	.LLST1
+ 1404 0505 1C       		.uleb128 0x1c
+ 1405 0506 8C020000 		.4byte	.LASF49
+ 1406 050a 01       		.byte	0x1
+ 1407 050b 6C01     		.2byte	0x16c
+ 1408 050d 3C020000 		.4byte	0x23c
+ 1409 0511 66000000 		.4byte	.LLST2
+ 1410 0515 11       		.uleb128 0x11
+ 1411 0516 30000000 		.4byte	.LVL65
+ 1412 051a 27090000 		.4byte	0x927
+ 1413 051e 00       		.byte	0
+ 1414 051f 1D       		.uleb128 0x1d
+ 1415 0520 70050000 		.4byte	.LASF50
+ 1416 0524 01       		.byte	0x1
+ 1417 0525 5A       		.byte	0x5a
+ 1418 0526 CD000000 		.4byte	0xcd
+ 1419 052a 1E       		.uleb128 0x1e
+ 1420 052b 42060000 		.4byte	.LASF51
+ 1421 052f 06       		.byte	0x6
+ 1422 0530 1606     		.2byte	0x616
+ 1423 0532 36050000 		.4byte	0x536
+ 1424 0536 05       		.uleb128 0x5
+ 1425 0537 76000000 		.4byte	0x76
+ 1426 053b 1F       		.uleb128 0x1f
+ 1427 053c DC050000 		.4byte	.LASF52
+ 1428 0540 01       		.byte	0x1
+ 1429 0541 27       		.byte	0x27
+ 1430 0542 81000000 		.4byte	0x81
+ 1431 0546 05       		.uleb128 0x5
+ 1432 0547 03       		.byte	0x3
+ 1433 0548 00000000 		.4byte	csButtStates
+ 1434 054c 1F       		.uleb128 0x1f
+ 1435 054d DF000000 		.4byte	.LASF53
+ 1436 0551 01       		.byte	0x1
+ 1437 0552 28       		.byte	0x28
+ 1438 0553 81000000 		.4byte	0x81
+ 1439 0557 05       		.uleb128 0x5
+ 1440 0558 03       		.byte	0x3
+ 1441 0559 00000000 		.4byte	csButtStates_old
+ 1442 055d 1F       		.uleb128 0x1f
+ 1443 055e AC000000 		.4byte	.LASF54
+ 1444 0562 01       		.byte	0x1
+ 1445 0563 29       		.byte	0x29
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 36
+
+
+ 1446 0564 81000000 		.4byte	0x81
+ 1447 0568 05       		.uleb128 0x5
+ 1448 0569 03       		.byte	0x3
+ 1449 056a 00000000 		.4byte	csButtChange
+ 1450 056e 1F       		.uleb128 0x1f
+ 1451 056f 27000000 		.4byte	.LASF55
+ 1452 0573 01       		.byte	0x1
+ 1453 0574 2A       		.byte	0x2a
+ 1454 0575 81000000 		.4byte	0x81
+ 1455 0579 05       		.uleb128 0x5
+ 1456 057a 03       		.byte	0x3
+ 1457 057b 00000000 		.4byte	inqFlags_old
+ 1458 057f 09       		.uleb128 0x9
+ 1459 0580 B0000000 		.4byte	0xb0
+ 1460 0584 8F050000 		.4byte	0x58f
+ 1461 0588 0A       		.uleb128 0xa
+ 1462 0589 E5000000 		.4byte	0xe5
+ 1463 058d 09       		.byte	0x9
+ 1464 058e 00       		.byte	0
+ 1465 058f 1F       		.uleb128 0x1f
+ 1466 0590 70020000 		.4byte	.LASF56
+ 1467 0594 01       		.byte	0x1
+ 1468 0595 2B       		.byte	0x2b
+ 1469 0596 7F050000 		.4byte	0x57f
+ 1470 059a 05       		.uleb128 0x5
+ 1471 059b 03       		.byte	0x3
+ 1472 059c 00000000 		.4byte	LCDstr
+ 1473 05a0 09       		.uleb128 0x9
+ 1474 05a1 97000000 		.4byte	0x97
+ 1475 05a5 B6050000 		.4byte	0x5b6
+ 1476 05a9 0A       		.uleb128 0xa
+ 1477 05aa E5000000 		.4byte	0xe5
+ 1478 05ae 01       		.byte	0x1
+ 1479 05af 0A       		.uleb128 0xa
+ 1480 05b0 E5000000 		.4byte	0xe5
+ 1481 05b4 FF       		.byte	0xff
+ 1482 05b5 00       		.byte	0
+ 1483 05b6 1F       		.uleb128 0x1f
+ 1484 05b7 5D020000 		.4byte	.LASF57
+ 1485 05bb 01       		.byte	0x1
+ 1486 05bc 2E       		.byte	0x2e
+ 1487 05bd A0050000 		.4byte	0x5a0
+ 1488 05c1 05       		.uleb128 0x5
+ 1489 05c2 03       		.byte	0x3
+ 1490 05c3 00000000 		.4byte	dataFrames
+ 1491 05c7 1F       		.uleb128 0x1f
+ 1492 05c8 41050000 		.4byte	.LASF58
+ 1493 05cc 01       		.byte	0x1
+ 1494 05cd 30       		.byte	0x30
+ 1495 05ce 97000000 		.4byte	0x97
+ 1496 05d2 05       		.uleb128 0x5
+ 1497 05d3 03       		.byte	0x3
+ 1498 05d4 00000000 		.4byte	ADCoutput
+ 1499 05d8 1F       		.uleb128 0x1f
+ 1500 05d9 5F030000 		.4byte	.LASF59
+ 1501 05dd 01       		.byte	0x1
+ 1502 05de 31       		.byte	0x31
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 37
+
+
+ 1503 05df 8C000000 		.4byte	0x8c
+ 1504 05e3 05       		.uleb128 0x5
+ 1505 05e4 03       		.byte	0x3
+ 1506 05e5 00000000 		.4byte	frameIndex
+ 1507 05e9 1F       		.uleb128 0x1f
+ 1508 05ea 55030000 		.4byte	.LASF60
+ 1509 05ee 01       		.byte	0x1
+ 1510 05ef 32       		.byte	0x32
+ 1511 05f0 81000000 		.4byte	0x81
+ 1512 05f4 05       		.uleb128 0x5
+ 1513 05f5 03       		.byte	0x3
+ 1514 05f6 00000000 		.4byte	currFrame
+ 1515 05fa 1F       		.uleb128 0x1f
+ 1516 05fb CF040000 		.4byte	.LASF61
+ 1517 05ff 01       		.byte	0x1
+ 1518 0600 33       		.byte	0x33
+ 1519 0601 81000000 		.4byte	0x81
+ 1520 0605 05       		.uleb128 0x5
+ 1521 0606 03       		.byte	0x3
+ 1522 0607 00000000 		.4byte	sampleFrame
+ 1523 060b 1F       		.uleb128 0x1f
+ 1524 060c FE020000 		.4byte	.LASF62
+ 1525 0610 01       		.byte	0x1
+ 1526 0611 35       		.byte	0x35
+ 1527 0612 68000000 		.4byte	0x68
+ 1528 0616 05       		.uleb128 0x5
+ 1529 0617 03       		.byte	0x3
+ 1530 0618 00000000 		.4byte	max_value
+ 1531 061c 09       		.uleb128 0x9
+ 1532 061d 2C060000 		.4byte	0x62c
+ 1533 0621 2C060000 		.4byte	0x62c
+ 1534 0625 0A       		.uleb128 0xa
+ 1535 0626 E5000000 		.4byte	0xe5
+ 1536 062a 01       		.byte	0x1
+ 1537 062b 00       		.byte	0
+ 1538 062c 02       		.uleb128 0x2
+ 1539 062d 01       		.byte	0x1
+ 1540 062e 02       		.byte	0x2
+ 1541 062f E5040000 		.4byte	.LASF63
+ 1542 0633 1F       		.uleb128 0x1f
+ 1543 0634 D3020000 		.4byte	.LASF64
+ 1544 0638 01       		.byte	0x1
+ 1545 0639 38       		.byte	0x38
+ 1546 063a 1C060000 		.4byte	0x61c
+ 1547 063e 05       		.uleb128 0x5
+ 1548 063f 03       		.byte	0x3
+ 1549 0640 00000000 		.4byte	frameReady
+ 1550 0644 1F       		.uleb128 0x1f
+ 1551 0645 2F020000 		.4byte	.LASF65
+ 1552 0649 01       		.byte	0x1
+ 1553 064a 39       		.byte	0x39
+ 1554 064b 1C060000 		.4byte	0x61c
+ 1555 064f 05       		.uleb128 0x5
+ 1556 0650 03       		.byte	0x3
+ 1557 0651 00000000 		.4byte	frameLocked
+ 1558 0655 1F       		.uleb128 0x1f
+ 1559 0656 39050000 		.4byte	.LASF66
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 38
+
+
+ 1560 065a 01       		.byte	0x1
+ 1561 065b 3A       		.byte	0x3a
+ 1562 065c 2C060000 		.4byte	0x62c
+ 1563 0660 05       		.uleb128 0x5
+ 1564 0661 03       		.byte	0x3
+ 1565 0662 00000000 		.4byte	sustain
+ 1566 0666 1F       		.uleb128 0x1f
+ 1567 0667 4E020000 		.4byte	.LASF67
+ 1568 066b 01       		.byte	0x1
+ 1569 066c 3B       		.byte	0x3b
+ 1570 066d 2C060000 		.4byte	0x62c
+ 1571 0671 05       		.uleb128 0x5
+ 1572 0672 03       		.byte	0x3
+ 1573 0673 00000000 		.4byte	frameProcessed
+ 1574 0677 1F       		.uleb128 0x1f
+ 1575 0678 8C020000 		.4byte	.LASF49
+ 1576 067c 01       		.byte	0x1
+ 1577 067d 3E       		.byte	0x3e
+ 1578 067e F2000000 		.4byte	0xf2
+ 1579 0682 05       		.uleb128 0x5
+ 1580 0683 03       		.byte	0x3
+ 1581 0684 00000000 		.4byte	midiMsg
+ 1582 0688 1F       		.uleb128 0x1f
+ 1583 0689 A3000000 		.4byte	.LASF68
+ 1584 068d 01       		.byte	0x1
+ 1585 068e 3F       		.byte	0x3f
+ 1586 068f 68000000 		.4byte	0x68
+ 1587 0693 05       		.uleb128 0x5
+ 1588 0694 03       		.byte	0x3
+ 1589 0695 00000000 		.4byte	lastNote
+ 1590 0699 20       		.uleb128 0x20
+ 1591 069a 6900     		.ascii	"i\000"
+ 1592 069c 01       		.byte	0x1
+ 1593 069d 40       		.byte	0x40
+ 1594 069e 68000000 		.4byte	0x68
+ 1595 06a2 05       		.uleb128 0x5
+ 1596 06a3 03       		.byte	0x3
+ 1597 06a4 00000000 		.4byte	i
+ 1598 06a8 1F       		.uleb128 0x1f
+ 1599 06a9 0E040000 		.4byte	.LASF69
+ 1600 06ad 01       		.byte	0x1
+ 1601 06ae 41       		.byte	0x41
+ 1602 06af A2000000 		.4byte	0xa2
+ 1603 06b3 05       		.uleb128 0x5
+ 1604 06b4 03       		.byte	0x3
+ 1605 06b5 00000000 		.4byte	pitchHz
+ 1606 06b9 09       		.uleb128 0x9
+ 1607 06ba A9000000 		.4byte	0xa9
+ 1608 06be C9060000 		.4byte	0x6c9
+ 1609 06c2 0A       		.uleb128 0xa
+ 1610 06c3 E5000000 		.4byte	0xe5
+ 1611 06c7 7F       		.byte	0x7f
+ 1612 06c8 00       		.byte	0
+ 1613 06c9 1F       		.uleb128 0x1f
+ 1614 06ca 5D060000 		.4byte	.LASF70
+ 1615 06ce 01       		.byte	0x1
+ 1616 06cf 42       		.byte	0x42
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 39
+
+
+ 1617 06d0 B9060000 		.4byte	0x6b9
+ 1618 06d4 05       		.uleb128 0x5
+ 1619 06d5 03       		.byte	0x3
+ 1620 06d6 00000000 		.4byte	noteTable
+ 1621 06da 1F       		.uleb128 0x1f
+ 1622 06db 23020000 		.4byte	.LASF71
+ 1623 06df 01       		.byte	0x1
+ 1624 06e0 43       		.byte	0x43
+ 1625 06e1 81000000 		.4byte	0x81
+ 1626 06e5 05       		.uleb128 0x5
+ 1627 06e6 03       		.byte	0x3
+ 1628 06e7 00000000 		.4byte	frame1InUse
+ 1629 06eb 1F       		.uleb128 0x1f
+ 1630 06ec 1A050000 		.4byte	.LASF72
+ 1631 06f0 01       		.byte	0x1
+ 1632 06f1 44       		.byte	0x44
+ 1633 06f2 81000000 		.4byte	0x81
+ 1634 06f6 05       		.uleb128 0x5
+ 1635 06f7 03       		.byte	0x3
+ 1636 06f8 00000000 		.4byte	frame2InUse
+ 1637 06fc 1F       		.uleb128 0x1f
+ 1638 06fd 20010000 		.4byte	.LASF73
+ 1639 0701 01       		.byte	0x1
+ 1640 0702 45       		.byte	0x45
+ 1641 0703 57010000 		.4byte	0x157
+ 1642 0707 05       		.uleb128 0x5
+ 1643 0708 03       		.byte	0x3
+ 1644 0709 00000000 		.4byte	curScale
+ 1645 070d 1F       		.uleb128 0x1f
+ 1646 070e 15030000 		.4byte	.LASF74
+ 1647 0712 01       		.byte	0x1
+ 1648 0713 46       		.byte	0x46
+ 1649 0714 02010000 		.4byte	0x102
+ 1650 0718 05       		.uleb128 0x5
+ 1651 0719 03       		.byte	0x3
+ 1652 071a 00000000 		.4byte	curKey
+ 1653 071e 1F       		.uleb128 0x1f
+ 1654 071f F0000000 		.4byte	.LASF75
+ 1655 0723 01       		.byte	0x1
+ 1656 0724 48       		.byte	0x48
+ 1657 0725 68000000 		.4byte	0x68
+ 1658 0729 05       		.uleb128 0x5
+ 1659 072a 03       		.byte	0x3
+ 1660 072b 00000000 		.4byte	test_max
+ 1661 072f 09       		.uleb128 0x9
+ 1662 0730 81000000 		.4byte	0x81
+ 1663 0734 3F070000 		.4byte	0x73f
+ 1664 0738 0A       		.uleb128 0xa
+ 1665 0739 E5000000 		.4byte	0xe5
+ 1666 073d 0D       		.byte	0xd
+ 1667 073e 00       		.byte	0
+ 1668 073f 1F       		.uleb128 0x1f
+ 1669 0740 D3010000 		.4byte	.LASF76
+ 1670 0744 01       		.byte	0x1
+ 1671 0745 4C       		.byte	0x4c
+ 1672 0746 50070000 		.4byte	0x750
+ 1673 074a 05       		.uleb128 0x5
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 40
+
+
+ 1674 074b 03       		.byte	0x3
+ 1675 074c 00000000 		.4byte	MIDI_IDENTITY_REPLY
+ 1676 0750 21       		.uleb128 0x21
+ 1677 0751 2F070000 		.4byte	0x72f
+ 1678 0755 1F       		.uleb128 0x1f
+ 1679 0756 A2040000 		.4byte	.LASF77
+ 1680 075a 01       		.byte	0x1
+ 1681 075b 5D       		.byte	0x5d
+ 1682 075c CD000000 		.4byte	0xcd
+ 1683 0760 05       		.uleb128 0x5
+ 1684 0761 03       		.byte	0x3
+ 1685 0762 00000000 		.4byte	usbActivityCounter
+ 1686 0766 22       		.uleb128 0x22
+ 1687 0767 B5040000 		.4byte	.LASF81
+ 1688 076b 07       		.byte	0x7
+ 1689 076c 39       		.byte	0x39
+ 1690 076d 81000000 		.4byte	0x81
+ 1691 0771 7B070000 		.4byte	0x77b
+ 1692 0775 23       		.uleb128 0x23
+ 1693 0776 81000000 		.4byte	0x81
+ 1694 077a 00       		.byte	0
+ 1695 077b 24       		.uleb128 0x24
+ 1696 077c 9C010000 		.4byte	.LASF78
+ 1697 0780 07       		.byte	0x7
+ 1698 0781 3B       		.byte	0x3b
+ 1699 0782 97000000 		.4byte	0x97
+ 1700 0786 24       		.uleb128 0x24
+ 1701 0787 B9000000 		.4byte	.LASF79
+ 1702 078b 08       		.byte	0x8
+ 1703 078c C7       		.byte	0xc7
+ 1704 078d 81000000 		.4byte	0x81
+ 1705 0791 24       		.uleb128 0x24
+ 1706 0792 91060000 		.4byte	.LASF80
+ 1707 0796 09       		.byte	0x9
+ 1708 0797 2B       		.byte	0x2b
+ 1709 0798 81000000 		.4byte	0x81
+ 1710 079c 22       		.uleb128 0x22
+ 1711 079d 05020000 		.4byte	.LASF82
+ 1712 07a1 0A       		.byte	0xa
+ 1713 07a2 20       		.byte	0x20
+ 1714 07a3 A2000000 		.4byte	0xa2
+ 1715 07a7 B1070000 		.4byte	0x7b1
+ 1716 07ab 23       		.uleb128 0x23
+ 1717 07ac B1070000 		.4byte	0x7b1
+ 1718 07b0 00       		.byte	0
+ 1719 07b1 07       		.uleb128 0x7
+ 1720 07b2 04       		.byte	0x4
+ 1721 07b3 97000000 		.4byte	0x97
+ 1722 07b7 25       		.uleb128 0x25
+ 1723 07b8 77020000 		.4byte	.LASF83
+ 1724 07bc 0B       		.byte	0xb
+ 1725 07bd 3D       		.byte	0x3d
+ 1726 07be C8070000 		.4byte	0x7c8
+ 1727 07c2 23       		.uleb128 0x23
+ 1728 07c3 81000000 		.4byte	0x81
+ 1729 07c7 00       		.byte	0
+ 1730 07c8 25       		.uleb128 0x25
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 41
+
+
+ 1731 07c9 73060000 		.4byte	.LASF84
+ 1732 07cd 0B       		.byte	0xb
+ 1733 07ce 40       		.byte	0x40
+ 1734 07cf DE070000 		.4byte	0x7de
+ 1735 07d3 23       		.uleb128 0x23
+ 1736 07d4 81000000 		.4byte	0x81
+ 1737 07d8 23       		.uleb128 0x23
+ 1738 07d9 81000000 		.4byte	0x81
+ 1739 07dd 00       		.byte	0
+ 1740 07de 25       		.uleb128 0x25
+ 1741 07df 2E060000 		.4byte	.LASF85
+ 1742 07e3 0B       		.byte	0xb
+ 1743 07e4 65       		.byte	0x65
+ 1744 07e5 EF070000 		.4byte	0x7ef
+ 1745 07e9 23       		.uleb128 0x23
+ 1746 07ea 8C000000 		.4byte	0x8c
+ 1747 07ee 00       		.byte	0
+ 1748 07ef 22       		.uleb128 0x22
+ 1749 07f0 14000000 		.4byte	.LASF86
+ 1750 07f4 05       		.byte	0x5
+ 1751 07f5 25       		.byte	0x25
+ 1752 07f6 EC000000 		.4byte	0xec
+ 1753 07fa 04080000 		.4byte	0x804
+ 1754 07fe 23       		.uleb128 0x23
+ 1755 07ff 68000000 		.4byte	0x68
+ 1756 0803 00       		.byte	0
+ 1757 0804 25       		.uleb128 0x25
+ 1758 0805 FC050000 		.4byte	.LASF87
+ 1759 0809 0B       		.byte	0xb
+ 1760 080a 3F       		.byte	0x3f
+ 1761 080b 15080000 		.4byte	0x815
+ 1762 080f 23       		.uleb128 0x23
+ 1763 0810 15080000 		.4byte	0x815
+ 1764 0814 00       		.byte	0
+ 1765 0815 07       		.uleb128 0x7
+ 1766 0816 04       		.byte	0x4
+ 1767 0817 1B080000 		.4byte	0x81b
+ 1768 081b 21       		.uleb128 0x21
+ 1769 081c B0000000 		.4byte	0xb0
+ 1770 0820 26       		.uleb128 0x26
+ 1771 0821 14020000 		.4byte	.LASF88
+ 1772 0825 0C       		.byte	0xc
+ 1773 0826 18       		.byte	0x18
+ 1774 0827 57010000 		.4byte	0x157
+ 1775 082b 31080000 		.4byte	0x831
+ 1776 082f 27       		.uleb128 0x27
+ 1777 0830 00       		.byte	0
+ 1778 0831 26       		.uleb128 0x26
+ 1779 0832 C5050000 		.4byte	.LASF89
+ 1780 0836 0C       		.byte	0xc
+ 1781 0837 20       		.byte	0x20
+ 1782 0838 02010000 		.4byte	0x102
+ 1783 083c 42080000 		.4byte	0x842
+ 1784 0840 27       		.uleb128 0x27
+ 1785 0841 00       		.byte	0
+ 1786 0842 22       		.uleb128 0x22
+ 1787 0843 B3050000 		.4byte	.LASF90
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 42
+
+
+ 1788 0847 05       		.byte	0x5
+ 1789 0848 1D       		.byte	0x1d
+ 1790 0849 68000000 		.4byte	0x68
+ 1791 084d 61080000 		.4byte	0x861
+ 1792 0851 23       		.uleb128 0x23
+ 1793 0852 A9000000 		.4byte	0xa9
+ 1794 0856 23       		.uleb128 0x23
+ 1795 0857 68000000 		.4byte	0x68
+ 1796 085b 23       		.uleb128 0x23
+ 1797 085c 61080000 		.4byte	0x861
+ 1798 0860 00       		.byte	0
+ 1799 0861 07       		.uleb128 0x7
+ 1800 0862 04       		.byte	0x4
+ 1801 0863 A9000000 		.4byte	0xa9
+ 1802 0867 25       		.uleb128 0x25
+ 1803 0868 84060000 		.4byte	.LASF91
+ 1804 086c 0D       		.byte	0xd
+ 1805 086d 8A       		.byte	0x8a
+ 1806 086e 78080000 		.4byte	0x878
+ 1807 0872 23       		.uleb128 0x23
+ 1808 0873 81000000 		.4byte	0x81
+ 1809 0877 00       		.byte	0
+ 1810 0878 22       		.uleb128 0x22
+ 1811 0879 72040000 		.4byte	.LASF92
+ 1812 087d 05       		.byte	0x5
+ 1813 087e 32       		.byte	0x32
+ 1814 087f 68000000 		.4byte	0x68
+ 1815 0883 9C080000 		.4byte	0x89c
+ 1816 0887 23       		.uleb128 0x23
+ 1817 0888 61080000 		.4byte	0x861
+ 1818 088c 23       		.uleb128 0x23
+ 1819 088d A2000000 		.4byte	0xa2
+ 1820 0891 23       		.uleb128 0x23
+ 1821 0892 02010000 		.4byte	0x102
+ 1822 0896 23       		.uleb128 0x23
+ 1823 0897 57010000 		.4byte	0x157
+ 1824 089b 00       		.byte	0
+ 1825 089c 17       		.uleb128 0x17
+ 1826 089d 83050000 		.4byte	.LASF93
+ 1827 08a1 0E       		.byte	0xe
+ 1828 08a2 93       		.byte	0x93
+ 1829 08a3 17       		.uleb128 0x17
+ 1830 08a4 4F060000 		.4byte	.LASF94
+ 1831 08a8 0B       		.byte	0xb
+ 1832 08a9 3A       		.byte	0x3a
+ 1833 08aa 25       		.uleb128 0x25
+ 1834 08ab 94020000 		.4byte	.LASF95
+ 1835 08af 0F       		.byte	0xf
+ 1836 08b0 18       		.byte	0x18
+ 1837 08b1 BB080000 		.4byte	0x8bb
+ 1838 08b5 23       		.uleb128 0x23
+ 1839 08b6 D2000000 		.4byte	0xd2
+ 1840 08ba 00       		.byte	0
+ 1841 08bb 17       		.uleb128 0x17
+ 1842 08bc FB040000 		.4byte	.LASF96
+ 1843 08c0 10       		.byte	0x10
+ 1844 08c1 5A       		.byte	0x5a
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 43
+
+
+ 1845 08c2 17       		.uleb128 0x17
+ 1846 08c3 1E060000 		.4byte	.LASF97
+ 1847 08c7 07       		.byte	0x7
+ 1848 08c8 34       		.byte	0x34
+ 1849 08c9 17       		.uleb128 0x17
+ 1850 08ca 80040000 		.4byte	.LASF98
+ 1851 08ce 07       		.byte	0x7
+ 1852 08cf D1       		.byte	0xd1
+ 1853 08d0 17       		.uleb128 0x17
+ 1854 08d1 96000000 		.4byte	.LASF99
+ 1855 08d5 11       		.byte	0x11
+ 1856 08d6 31       		.byte	0x31
+ 1857 08d7 17       		.uleb128 0x17
+ 1858 08d8 00000000 		.4byte	.LASF100
+ 1859 08dc 11       		.byte	0x11
+ 1860 08dd A1       		.byte	0xa1
+ 1861 08de 17       		.uleb128 0x17
+ 1862 08df 97040000 		.4byte	.LASF101
+ 1863 08e3 0D       		.byte	0xd
+ 1864 08e4 54       		.byte	0x54
+ 1865 08e5 28       		.uleb128 0x28
+ 1866 08e6 10010000 		.4byte	.LASF118
+ 1867 08ea 0A       		.byte	0xa
+ 1868 08eb 10       		.byte	0x10
+ 1869 08ec F2080000 		.4byte	0x8f2
+ 1870 08f0 27       		.uleb128 0x27
+ 1871 08f1 00       		.byte	0
+ 1872 08f2 25       		.uleb128 0x25
+ 1873 08f3 44010000 		.4byte	.LASF102
+ 1874 08f7 05       		.byte	0x5
+ 1875 08f8 11       		.byte	0x11
+ 1876 08f9 03090000 		.4byte	0x903
+ 1877 08fd 23       		.uleb128 0x23
+ 1878 08fe 61080000 		.4byte	0x861
+ 1879 0902 00       		.byte	0
+ 1880 0903 25       		.uleb128 0x25
+ 1881 0904 3A010000 		.4byte	.LASF103
+ 1882 0908 08       		.byte	0x8
+ 1883 0909 C3       		.byte	0xc3
+ 1884 090a 19090000 		.4byte	0x919
+ 1885 090e 23       		.uleb128 0x23
+ 1886 090f 81000000 		.4byte	0x81
+ 1887 0913 23       		.uleb128 0x23
+ 1888 0914 81000000 		.4byte	0x81
+ 1889 0918 00       		.byte	0
+ 1890 0919 17       		.uleb128 0x17
+ 1891 091a F9000000 		.4byte	.LASF104
+ 1892 091e 12       		.byte	0x12
+ 1893 091f 74       		.byte	0x74
+ 1894 0920 17       		.uleb128 0x17
+ 1895 0921 29010000 		.4byte	.LASF105
+ 1896 0925 13       		.byte	0x13
+ 1897 0926 74       		.byte	0x74
+ 1898 0927 25       		.uleb128 0x25
+ 1899 0928 C4010000 		.4byte	.LASF106
+ 1900 092c 14       		.byte	0x14
+ 1901 092d 28       		.byte	0x28
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 44
+
+
+ 1902 092e 38090000 		.4byte	0x938
+ 1903 0932 23       		.uleb128 0x23
+ 1904 0933 81000000 		.4byte	0x81
+ 1905 0937 00       		.byte	0
+ 1906 0938 17       		.uleb128 0x17
+ 1907 0939 67060000 		.4byte	.LASF107
+ 1908 093d 08       		.byte	0x8
+ 1909 093e DA       		.byte	0xda
+ 1910 093f 17       		.uleb128 0x17
+ 1911 0940 6A010000 		.4byte	.LASF108
+ 1912 0944 15       		.byte	0x15
+ 1913 0945 20       		.byte	0x20
+ 1914 0946 25       		.uleb128 0x25
+ 1915 0947 CB000000 		.4byte	.LASF109
+ 1916 094b 15       		.byte	0x15
+ 1917 094c 23       		.byte	0x23
+ 1918 094d 5C090000 		.4byte	0x95c
+ 1919 0951 23       		.uleb128 0x23
+ 1920 0952 81000000 		.4byte	0x81
+ 1921 0956 23       		.uleb128 0x23
+ 1922 0957 8C000000 		.4byte	0x8c
+ 1923 095b 00       		.byte	0
+ 1924 095c 17       		.uleb128 0x17
+ 1925 095d 43030000 		.4byte	.LASF110
+ 1926 0961 15       		.byte	0x15
+ 1927 0962 21       		.byte	0x21
+ 1928 0963 17       		.uleb128 0x17
+ 1929 0964 EB040000 		.4byte	.LASF111
+ 1930 0968 08       		.byte	0x8
+ 1931 0969 DB       		.byte	0xdb
+ 1932 096a 29       		.uleb128 0x29
+ 1933 096b 09050000 		.4byte	.LASF112
+ 1934 096f 08       		.byte	0x8
+ 1935 0970 0E01     		.2byte	0x10e
+ 1936 0972 17       		.uleb128 0x17
+ 1937 0973 EC020000 		.4byte	.LASF113
+ 1938 0977 12       		.byte	0x12
+ 1939 0978 75       		.byte	0x75
+ 1940 0979 17       		.uleb128 0x17
+ 1941 097a 95050000 		.4byte	.LASF114
+ 1942 097e 13       		.byte	0x13
+ 1943 097f 75       		.byte	0x75
+ 1944 0980 00       		.byte	0
+ 1945              		.section	.debug_abbrev,"",%progbits
+ 1946              	.Ldebug_abbrev0:
+ 1947 0000 01       		.uleb128 0x1
+ 1948 0001 11       		.uleb128 0x11
+ 1949 0002 01       		.byte	0x1
+ 1950 0003 25       		.uleb128 0x25
+ 1951 0004 0E       		.uleb128 0xe
+ 1952 0005 13       		.uleb128 0x13
+ 1953 0006 0B       		.uleb128 0xb
+ 1954 0007 03       		.uleb128 0x3
+ 1955 0008 0E       		.uleb128 0xe
+ 1956 0009 1B       		.uleb128 0x1b
+ 1957 000a 0E       		.uleb128 0xe
+ 1958 000b 55       		.uleb128 0x55
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 45
+
+
+ 1959 000c 17       		.uleb128 0x17
+ 1960 000d 11       		.uleb128 0x11
+ 1961 000e 01       		.uleb128 0x1
+ 1962 000f 10       		.uleb128 0x10
+ 1963 0010 17       		.uleb128 0x17
+ 1964 0011 00       		.byte	0
+ 1965 0012 00       		.byte	0
+ 1966 0013 02       		.uleb128 0x2
+ 1967 0014 24       		.uleb128 0x24
+ 1968 0015 00       		.byte	0
+ 1969 0016 0B       		.uleb128 0xb
+ 1970 0017 0B       		.uleb128 0xb
+ 1971 0018 3E       		.uleb128 0x3e
+ 1972 0019 0B       		.uleb128 0xb
+ 1973 001a 03       		.uleb128 0x3
+ 1974 001b 0E       		.uleb128 0xe
+ 1975 001c 00       		.byte	0
+ 1976 001d 00       		.byte	0
+ 1977 001e 03       		.uleb128 0x3
+ 1978 001f 16       		.uleb128 0x16
+ 1979 0020 00       		.byte	0
+ 1980 0021 03       		.uleb128 0x3
+ 1981 0022 0E       		.uleb128 0xe
+ 1982 0023 3A       		.uleb128 0x3a
+ 1983 0024 0B       		.uleb128 0xb
+ 1984 0025 3B       		.uleb128 0x3b
+ 1985 0026 0B       		.uleb128 0xb
+ 1986 0027 49       		.uleb128 0x49
+ 1987 0028 13       		.uleb128 0x13
+ 1988 0029 00       		.byte	0
+ 1989 002a 00       		.byte	0
+ 1990 002b 04       		.uleb128 0x4
+ 1991 002c 24       		.uleb128 0x24
+ 1992 002d 00       		.byte	0
+ 1993 002e 0B       		.uleb128 0xb
+ 1994 002f 0B       		.uleb128 0xb
+ 1995 0030 3E       		.uleb128 0x3e
+ 1996 0031 0B       		.uleb128 0xb
+ 1997 0032 03       		.uleb128 0x3
+ 1998 0033 08       		.uleb128 0x8
+ 1999 0034 00       		.byte	0
+ 2000 0035 00       		.byte	0
+ 2001 0036 05       		.uleb128 0x5
+ 2002 0037 35       		.uleb128 0x35
+ 2003 0038 00       		.byte	0
+ 2004 0039 49       		.uleb128 0x49
+ 2005 003a 13       		.uleb128 0x13
+ 2006 003b 00       		.byte	0
+ 2007 003c 00       		.byte	0
+ 2008 003d 06       		.uleb128 0x6
+ 2009 003e 16       		.uleb128 0x16
+ 2010 003f 00       		.byte	0
+ 2011 0040 03       		.uleb128 0x3
+ 2012 0041 0E       		.uleb128 0xe
+ 2013 0042 3A       		.uleb128 0x3a
+ 2014 0043 0B       		.uleb128 0xb
+ 2015 0044 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 46
+
+
+ 2016 0045 05       		.uleb128 0x5
+ 2017 0046 49       		.uleb128 0x49
+ 2018 0047 13       		.uleb128 0x13
+ 2019 0048 00       		.byte	0
+ 2020 0049 00       		.byte	0
+ 2021 004a 07       		.uleb128 0x7
+ 2022 004b 0F       		.uleb128 0xf
+ 2023 004c 00       		.byte	0
+ 2024 004d 0B       		.uleb128 0xb
+ 2025 004e 0B       		.uleb128 0xb
+ 2026 004f 49       		.uleb128 0x49
+ 2027 0050 13       		.uleb128 0x13
+ 2028 0051 00       		.byte	0
+ 2029 0052 00       		.byte	0
+ 2030 0053 08       		.uleb128 0x8
+ 2031 0054 15       		.uleb128 0x15
+ 2032 0055 00       		.byte	0
+ 2033 0056 27       		.uleb128 0x27
+ 2034 0057 19       		.uleb128 0x19
+ 2035 0058 00       		.byte	0
+ 2036 0059 00       		.byte	0
+ 2037 005a 09       		.uleb128 0x9
+ 2038 005b 01       		.uleb128 0x1
+ 2039 005c 01       		.byte	0x1
+ 2040 005d 49       		.uleb128 0x49
+ 2041 005e 13       		.uleb128 0x13
+ 2042 005f 01       		.uleb128 0x1
+ 2043 0060 13       		.uleb128 0x13
+ 2044 0061 00       		.byte	0
+ 2045 0062 00       		.byte	0
+ 2046 0063 0A       		.uleb128 0xa
+ 2047 0064 21       		.uleb128 0x21
+ 2048 0065 00       		.byte	0
+ 2049 0066 49       		.uleb128 0x49
+ 2050 0067 13       		.uleb128 0x13
+ 2051 0068 2F       		.uleb128 0x2f
+ 2052 0069 0B       		.uleb128 0xb
+ 2053 006a 00       		.byte	0
+ 2054 006b 00       		.byte	0
+ 2055 006c 0B       		.uleb128 0xb
+ 2056 006d 04       		.uleb128 0x4
+ 2057 006e 01       		.byte	0x1
+ 2058 006f 03       		.uleb128 0x3
+ 2059 0070 0E       		.uleb128 0xe
+ 2060 0071 0B       		.uleb128 0xb
+ 2061 0072 0B       		.uleb128 0xb
+ 2062 0073 3A       		.uleb128 0x3a
+ 2063 0074 0B       		.uleb128 0xb
+ 2064 0075 3B       		.uleb128 0x3b
+ 2065 0076 0B       		.uleb128 0xb
+ 2066 0077 01       		.uleb128 0x1
+ 2067 0078 13       		.uleb128 0x13
+ 2068 0079 00       		.byte	0
+ 2069 007a 00       		.byte	0
+ 2070 007b 0C       		.uleb128 0xc
+ 2071 007c 28       		.uleb128 0x28
+ 2072 007d 00       		.byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 47
+
+
+ 2073 007e 03       		.uleb128 0x3
+ 2074 007f 0E       		.uleb128 0xe
+ 2075 0080 1C       		.uleb128 0x1c
+ 2076 0081 0D       		.uleb128 0xd
+ 2077 0082 00       		.byte	0
+ 2078 0083 00       		.byte	0
+ 2079 0084 0D       		.uleb128 0xd
+ 2080 0085 2E       		.uleb128 0x2e
+ 2081 0086 00       		.byte	0
+ 2082 0087 3F       		.uleb128 0x3f
+ 2083 0088 19       		.uleb128 0x19
+ 2084 0089 03       		.uleb128 0x3
+ 2085 008a 0E       		.uleb128 0xe
+ 2086 008b 3A       		.uleb128 0x3a
+ 2087 008c 0B       		.uleb128 0xb
+ 2088 008d 3B       		.uleb128 0x3b
+ 2089 008e 05       		.uleb128 0x5
+ 2090 008f 27       		.uleb128 0x27
+ 2091 0090 19       		.uleb128 0x19
+ 2092 0091 20       		.uleb128 0x20
+ 2093 0092 0B       		.uleb128 0xb
+ 2094 0093 00       		.byte	0
+ 2095 0094 00       		.byte	0
+ 2096 0095 0E       		.uleb128 0xe
+ 2097 0096 2E       		.uleb128 0x2e
+ 2098 0097 01       		.byte	0x1
+ 2099 0098 31       		.uleb128 0x31
+ 2100 0099 13       		.uleb128 0x13
+ 2101 009a 11       		.uleb128 0x11
+ 2102 009b 01       		.uleb128 0x1
+ 2103 009c 12       		.uleb128 0x12
+ 2104 009d 06       		.uleb128 0x6
+ 2105 009e 40       		.uleb128 0x40
+ 2106 009f 18       		.uleb128 0x18
+ 2107 00a0 9742     		.uleb128 0x2117
+ 2108 00a2 19       		.uleb128 0x19
+ 2109 00a3 01       		.uleb128 0x1
+ 2110 00a4 13       		.uleb128 0x13
+ 2111 00a5 00       		.byte	0
+ 2112 00a6 00       		.byte	0
+ 2113 00a7 0F       		.uleb128 0xf
+ 2114 00a8 898201   		.uleb128 0x4109
+ 2115 00ab 01       		.byte	0x1
+ 2116 00ac 11       		.uleb128 0x11
+ 2117 00ad 01       		.uleb128 0x1
+ 2118 00ae 31       		.uleb128 0x31
+ 2119 00af 13       		.uleb128 0x13
+ 2120 00b0 01       		.uleb128 0x1
+ 2121 00b1 13       		.uleb128 0x13
+ 2122 00b2 00       		.byte	0
+ 2123 00b3 00       		.byte	0
+ 2124 00b4 10       		.uleb128 0x10
+ 2125 00b5 8A8201   		.uleb128 0x410a
+ 2126 00b8 00       		.byte	0
+ 2127 00b9 02       		.uleb128 0x2
+ 2128 00ba 18       		.uleb128 0x18
+ 2129 00bb 9142     		.uleb128 0x2111
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 48
+
+
+ 2130 00bd 18       		.uleb128 0x18
+ 2131 00be 00       		.byte	0
+ 2132 00bf 00       		.byte	0
+ 2133 00c0 11       		.uleb128 0x11
+ 2134 00c1 898201   		.uleb128 0x4109
+ 2135 00c4 00       		.byte	0
+ 2136 00c5 11       		.uleb128 0x11
+ 2137 00c6 01       		.uleb128 0x1
+ 2138 00c7 31       		.uleb128 0x31
+ 2139 00c8 13       		.uleb128 0x13
+ 2140 00c9 00       		.byte	0
+ 2141 00ca 00       		.byte	0
+ 2142 00cb 12       		.uleb128 0x12
+ 2143 00cc 2E       		.uleb128 0x2e
+ 2144 00cd 01       		.byte	0x1
+ 2145 00ce 3F       		.uleb128 0x3f
+ 2146 00cf 19       		.uleb128 0x19
+ 2147 00d0 03       		.uleb128 0x3
+ 2148 00d1 0E       		.uleb128 0xe
+ 2149 00d2 3A       		.uleb128 0x3a
+ 2150 00d3 0B       		.uleb128 0xb
+ 2151 00d4 3B       		.uleb128 0x3b
+ 2152 00d5 0B       		.uleb128 0xb
+ 2153 00d6 27       		.uleb128 0x27
+ 2154 00d7 19       		.uleb128 0x19
+ 2155 00d8 11       		.uleb128 0x11
+ 2156 00d9 01       		.uleb128 0x1
+ 2157 00da 12       		.uleb128 0x12
+ 2158 00db 06       		.uleb128 0x6
+ 2159 00dc 40       		.uleb128 0x40
+ 2160 00dd 18       		.uleb128 0x18
+ 2161 00de 9742     		.uleb128 0x2117
+ 2162 00e0 19       		.uleb128 0x19
+ 2163 00e1 01       		.uleb128 0x1
+ 2164 00e2 13       		.uleb128 0x13
+ 2165 00e3 00       		.byte	0
+ 2166 00e4 00       		.byte	0
+ 2167 00e5 13       		.uleb128 0x13
+ 2168 00e6 898201   		.uleb128 0x4109
+ 2169 00e9 00       		.byte	0
+ 2170 00ea 11       		.uleb128 0x11
+ 2171 00eb 01       		.uleb128 0x1
+ 2172 00ec 9542     		.uleb128 0x2115
+ 2173 00ee 19       		.uleb128 0x19
+ 2174 00ef 31       		.uleb128 0x31
+ 2175 00f0 13       		.uleb128 0x13
+ 2176 00f1 00       		.byte	0
+ 2177 00f2 00       		.byte	0
+ 2178 00f3 14       		.uleb128 0x14
+ 2179 00f4 05       		.uleb128 0x5
+ 2180 00f5 00       		.byte	0
+ 2181 00f6 03       		.uleb128 0x3
+ 2182 00f7 0E       		.uleb128 0xe
+ 2183 00f8 3A       		.uleb128 0x3a
+ 2184 00f9 0B       		.uleb128 0xb
+ 2185 00fa 3B       		.uleb128 0x3b
+ 2186 00fb 0B       		.uleb128 0xb
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 49
+
+
+ 2187 00fc 49       		.uleb128 0x49
+ 2188 00fd 13       		.uleb128 0x13
+ 2189 00fe 02       		.uleb128 0x2
+ 2190 00ff 18       		.uleb128 0x18
+ 2191 0100 00       		.byte	0
+ 2192 0101 00       		.byte	0
+ 2193 0102 15       		.uleb128 0x15
+ 2194 0103 05       		.uleb128 0x5
+ 2195 0104 00       		.byte	0
+ 2196 0105 03       		.uleb128 0x3
+ 2197 0106 08       		.uleb128 0x8
+ 2198 0107 3A       		.uleb128 0x3a
+ 2199 0108 0B       		.uleb128 0xb
+ 2200 0109 3B       		.uleb128 0x3b
+ 2201 010a 0B       		.uleb128 0xb
+ 2202 010b 49       		.uleb128 0x49
+ 2203 010c 13       		.uleb128 0x13
+ 2204 010d 02       		.uleb128 0x2
+ 2205 010e 18       		.uleb128 0x18
+ 2206 010f 00       		.byte	0
+ 2207 0110 00       		.byte	0
+ 2208 0111 16       		.uleb128 0x16
+ 2209 0112 2E       		.uleb128 0x2e
+ 2210 0113 01       		.byte	0x1
+ 2211 0114 3F       		.uleb128 0x3f
+ 2212 0115 19       		.uleb128 0x19
+ 2213 0116 03       		.uleb128 0x3
+ 2214 0117 0E       		.uleb128 0xe
+ 2215 0118 3A       		.uleb128 0x3a
+ 2216 0119 0B       		.uleb128 0xb
+ 2217 011a 3B       		.uleb128 0x3b
+ 2218 011b 0B       		.uleb128 0xb
+ 2219 011c 49       		.uleb128 0x49
+ 2220 011d 13       		.uleb128 0x13
+ 2221 011e 11       		.uleb128 0x11
+ 2222 011f 01       		.uleb128 0x1
+ 2223 0120 12       		.uleb128 0x12
+ 2224 0121 06       		.uleb128 0x6
+ 2225 0122 40       		.uleb128 0x40
+ 2226 0123 18       		.uleb128 0x18
+ 2227 0124 9642     		.uleb128 0x2116
+ 2228 0126 19       		.uleb128 0x19
+ 2229 0127 01       		.uleb128 0x1
+ 2230 0128 13       		.uleb128 0x13
+ 2231 0129 00       		.byte	0
+ 2232 012a 00       		.byte	0
+ 2233 012b 17       		.uleb128 0x17
+ 2234 012c 2E       		.uleb128 0x2e
+ 2235 012d 00       		.byte	0
+ 2236 012e 3F       		.uleb128 0x3f
+ 2237 012f 19       		.uleb128 0x19
+ 2238 0130 03       		.uleb128 0x3
+ 2239 0131 0E       		.uleb128 0xe
+ 2240 0132 3A       		.uleb128 0x3a
+ 2241 0133 0B       		.uleb128 0xb
+ 2242 0134 3B       		.uleb128 0x3b
+ 2243 0135 0B       		.uleb128 0xb
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 50
+
+
+ 2244 0136 27       		.uleb128 0x27
+ 2245 0137 19       		.uleb128 0x19
+ 2246 0138 3C       		.uleb128 0x3c
+ 2247 0139 19       		.uleb128 0x19
+ 2248 013a 00       		.byte	0
+ 2249 013b 00       		.byte	0
+ 2250 013c 18       		.uleb128 0x18
+ 2251 013d 0B       		.uleb128 0xb
+ 2252 013e 01       		.byte	0x1
+ 2253 013f 55       		.uleb128 0x55
+ 2254 0140 17       		.uleb128 0x17
+ 2255 0141 01       		.uleb128 0x1
+ 2256 0142 13       		.uleb128 0x13
+ 2257 0143 00       		.byte	0
+ 2258 0144 00       		.byte	0
+ 2259 0145 19       		.uleb128 0x19
+ 2260 0146 34       		.uleb128 0x34
+ 2261 0147 00       		.byte	0
+ 2262 0148 03       		.uleb128 0x3
+ 2263 0149 0E       		.uleb128 0xe
+ 2264 014a 3A       		.uleb128 0x3a
+ 2265 014b 0B       		.uleb128 0xb
+ 2266 014c 3B       		.uleb128 0x3b
+ 2267 014d 0B       		.uleb128 0xb
+ 2268 014e 49       		.uleb128 0x49
+ 2269 014f 13       		.uleb128 0x13
+ 2270 0150 02       		.uleb128 0x2
+ 2271 0151 17       		.uleb128 0x17
+ 2272 0152 00       		.byte	0
+ 2273 0153 00       		.byte	0
+ 2274 0154 1A       		.uleb128 0x1a
+ 2275 0155 898201   		.uleb128 0x4109
+ 2276 0158 01       		.byte	0x1
+ 2277 0159 11       		.uleb128 0x11
+ 2278 015a 01       		.uleb128 0x1
+ 2279 015b 31       		.uleb128 0x31
+ 2280 015c 13       		.uleb128 0x13
+ 2281 015d 00       		.byte	0
+ 2282 015e 00       		.byte	0
+ 2283 015f 1B       		.uleb128 0x1b
+ 2284 0160 2E       		.uleb128 0x2e
+ 2285 0161 01       		.byte	0x1
+ 2286 0162 3F       		.uleb128 0x3f
+ 2287 0163 19       		.uleb128 0x19
+ 2288 0164 03       		.uleb128 0x3
+ 2289 0165 0E       		.uleb128 0xe
+ 2290 0166 3A       		.uleb128 0x3a
+ 2291 0167 0B       		.uleb128 0xb
+ 2292 0168 3B       		.uleb128 0x3b
+ 2293 0169 05       		.uleb128 0x5
+ 2294 016a 27       		.uleb128 0x27
+ 2295 016b 19       		.uleb128 0x19
+ 2296 016c 11       		.uleb128 0x11
+ 2297 016d 01       		.uleb128 0x1
+ 2298 016e 12       		.uleb128 0x12
+ 2299 016f 06       		.uleb128 0x6
+ 2300 0170 40       		.uleb128 0x40
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 51
+
+
+ 2301 0171 18       		.uleb128 0x18
+ 2302 0172 9742     		.uleb128 0x2117
+ 2303 0174 19       		.uleb128 0x19
+ 2304 0175 01       		.uleb128 0x1
+ 2305 0176 13       		.uleb128 0x13
+ 2306 0177 00       		.byte	0
+ 2307 0178 00       		.byte	0
+ 2308 0179 1C       		.uleb128 0x1c
+ 2309 017a 05       		.uleb128 0x5
+ 2310 017b 00       		.byte	0
+ 2311 017c 03       		.uleb128 0x3
+ 2312 017d 0E       		.uleb128 0xe
+ 2313 017e 3A       		.uleb128 0x3a
+ 2314 017f 0B       		.uleb128 0xb
+ 2315 0180 3B       		.uleb128 0x3b
+ 2316 0181 05       		.uleb128 0x5
+ 2317 0182 49       		.uleb128 0x49
+ 2318 0183 13       		.uleb128 0x13
+ 2319 0184 02       		.uleb128 0x2
+ 2320 0185 17       		.uleb128 0x17
+ 2321 0186 00       		.byte	0
+ 2322 0187 00       		.byte	0
+ 2323 0188 1D       		.uleb128 0x1d
+ 2324 0189 34       		.uleb128 0x34
+ 2325 018a 00       		.byte	0
+ 2326 018b 03       		.uleb128 0x3
+ 2327 018c 0E       		.uleb128 0xe
+ 2328 018d 3A       		.uleb128 0x3a
+ 2329 018e 0B       		.uleb128 0xb
+ 2330 018f 3B       		.uleb128 0x3b
+ 2331 0190 0B       		.uleb128 0xb
+ 2332 0191 49       		.uleb128 0x49
+ 2333 0192 13       		.uleb128 0x13
+ 2334 0193 3F       		.uleb128 0x3f
+ 2335 0194 19       		.uleb128 0x19
+ 2336 0195 3C       		.uleb128 0x3c
+ 2337 0196 19       		.uleb128 0x19
+ 2338 0197 00       		.byte	0
+ 2339 0198 00       		.byte	0
+ 2340 0199 1E       		.uleb128 0x1e
+ 2341 019a 34       		.uleb128 0x34
+ 2342 019b 00       		.byte	0
+ 2343 019c 03       		.uleb128 0x3
+ 2344 019d 0E       		.uleb128 0xe
+ 2345 019e 3A       		.uleb128 0x3a
+ 2346 019f 0B       		.uleb128 0xb
+ 2347 01a0 3B       		.uleb128 0x3b
+ 2348 01a1 05       		.uleb128 0x5
+ 2349 01a2 49       		.uleb128 0x49
+ 2350 01a3 13       		.uleb128 0x13
+ 2351 01a4 3F       		.uleb128 0x3f
+ 2352 01a5 19       		.uleb128 0x19
+ 2353 01a6 3C       		.uleb128 0x3c
+ 2354 01a7 19       		.uleb128 0x19
+ 2355 01a8 00       		.byte	0
+ 2356 01a9 00       		.byte	0
+ 2357 01aa 1F       		.uleb128 0x1f
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 52
+
+
+ 2358 01ab 34       		.uleb128 0x34
+ 2359 01ac 00       		.byte	0
+ 2360 01ad 03       		.uleb128 0x3
+ 2361 01ae 0E       		.uleb128 0xe
+ 2362 01af 3A       		.uleb128 0x3a
+ 2363 01b0 0B       		.uleb128 0xb
+ 2364 01b1 3B       		.uleb128 0x3b
+ 2365 01b2 0B       		.uleb128 0xb
+ 2366 01b3 49       		.uleb128 0x49
+ 2367 01b4 13       		.uleb128 0x13
+ 2368 01b5 3F       		.uleb128 0x3f
+ 2369 01b6 19       		.uleb128 0x19
+ 2370 01b7 02       		.uleb128 0x2
+ 2371 01b8 18       		.uleb128 0x18
+ 2372 01b9 00       		.byte	0
+ 2373 01ba 00       		.byte	0
+ 2374 01bb 20       		.uleb128 0x20
+ 2375 01bc 34       		.uleb128 0x34
+ 2376 01bd 00       		.byte	0
+ 2377 01be 03       		.uleb128 0x3
+ 2378 01bf 08       		.uleb128 0x8
+ 2379 01c0 3A       		.uleb128 0x3a
+ 2380 01c1 0B       		.uleb128 0xb
+ 2381 01c2 3B       		.uleb128 0x3b
+ 2382 01c3 0B       		.uleb128 0xb
+ 2383 01c4 49       		.uleb128 0x49
+ 2384 01c5 13       		.uleb128 0x13
+ 2385 01c6 3F       		.uleb128 0x3f
+ 2386 01c7 19       		.uleb128 0x19
+ 2387 01c8 02       		.uleb128 0x2
+ 2388 01c9 18       		.uleb128 0x18
+ 2389 01ca 00       		.byte	0
+ 2390 01cb 00       		.byte	0
+ 2391 01cc 21       		.uleb128 0x21
+ 2392 01cd 26       		.uleb128 0x26
+ 2393 01ce 00       		.byte	0
+ 2394 01cf 49       		.uleb128 0x49
+ 2395 01d0 13       		.uleb128 0x13
+ 2396 01d1 00       		.byte	0
+ 2397 01d2 00       		.byte	0
+ 2398 01d3 22       		.uleb128 0x22
+ 2399 01d4 2E       		.uleb128 0x2e
+ 2400 01d5 01       		.byte	0x1
+ 2401 01d6 3F       		.uleb128 0x3f
+ 2402 01d7 19       		.uleb128 0x19
+ 2403 01d8 03       		.uleb128 0x3
+ 2404 01d9 0E       		.uleb128 0xe
+ 2405 01da 3A       		.uleb128 0x3a
+ 2406 01db 0B       		.uleb128 0xb
+ 2407 01dc 3B       		.uleb128 0x3b
+ 2408 01dd 0B       		.uleb128 0xb
+ 2409 01de 27       		.uleb128 0x27
+ 2410 01df 19       		.uleb128 0x19
+ 2411 01e0 49       		.uleb128 0x49
+ 2412 01e1 13       		.uleb128 0x13
+ 2413 01e2 3C       		.uleb128 0x3c
+ 2414 01e3 19       		.uleb128 0x19
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 53
+
+
+ 2415 01e4 01       		.uleb128 0x1
+ 2416 01e5 13       		.uleb128 0x13
+ 2417 01e6 00       		.byte	0
+ 2418 01e7 00       		.byte	0
+ 2419 01e8 23       		.uleb128 0x23
+ 2420 01e9 05       		.uleb128 0x5
+ 2421 01ea 00       		.byte	0
+ 2422 01eb 49       		.uleb128 0x49
+ 2423 01ec 13       		.uleb128 0x13
+ 2424 01ed 00       		.byte	0
+ 2425 01ee 00       		.byte	0
+ 2426 01ef 24       		.uleb128 0x24
+ 2427 01f0 2E       		.uleb128 0x2e
+ 2428 01f1 00       		.byte	0
+ 2429 01f2 3F       		.uleb128 0x3f
+ 2430 01f3 19       		.uleb128 0x19
+ 2431 01f4 03       		.uleb128 0x3
+ 2432 01f5 0E       		.uleb128 0xe
+ 2433 01f6 3A       		.uleb128 0x3a
+ 2434 01f7 0B       		.uleb128 0xb
+ 2435 01f8 3B       		.uleb128 0x3b
+ 2436 01f9 0B       		.uleb128 0xb
+ 2437 01fa 27       		.uleb128 0x27
+ 2438 01fb 19       		.uleb128 0x19
+ 2439 01fc 49       		.uleb128 0x49
+ 2440 01fd 13       		.uleb128 0x13
+ 2441 01fe 3C       		.uleb128 0x3c
+ 2442 01ff 19       		.uleb128 0x19
+ 2443 0200 00       		.byte	0
+ 2444 0201 00       		.byte	0
+ 2445 0202 25       		.uleb128 0x25
+ 2446 0203 2E       		.uleb128 0x2e
+ 2447 0204 01       		.byte	0x1
+ 2448 0205 3F       		.uleb128 0x3f
+ 2449 0206 19       		.uleb128 0x19
+ 2450 0207 03       		.uleb128 0x3
+ 2451 0208 0E       		.uleb128 0xe
+ 2452 0209 3A       		.uleb128 0x3a
+ 2453 020a 0B       		.uleb128 0xb
+ 2454 020b 3B       		.uleb128 0x3b
+ 2455 020c 0B       		.uleb128 0xb
+ 2456 020d 27       		.uleb128 0x27
+ 2457 020e 19       		.uleb128 0x19
+ 2458 020f 3C       		.uleb128 0x3c
+ 2459 0210 19       		.uleb128 0x19
+ 2460 0211 01       		.uleb128 0x1
+ 2461 0212 13       		.uleb128 0x13
+ 2462 0213 00       		.byte	0
+ 2463 0214 00       		.byte	0
+ 2464 0215 26       		.uleb128 0x26
+ 2465 0216 2E       		.uleb128 0x2e
+ 2466 0217 01       		.byte	0x1
+ 2467 0218 3F       		.uleb128 0x3f
+ 2468 0219 19       		.uleb128 0x19
+ 2469 021a 03       		.uleb128 0x3
+ 2470 021b 0E       		.uleb128 0xe
+ 2471 021c 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 54
+
+
+ 2472 021d 0B       		.uleb128 0xb
+ 2473 021e 3B       		.uleb128 0x3b
+ 2474 021f 0B       		.uleb128 0xb
+ 2475 0220 49       		.uleb128 0x49
+ 2476 0221 13       		.uleb128 0x13
+ 2477 0222 3C       		.uleb128 0x3c
+ 2478 0223 19       		.uleb128 0x19
+ 2479 0224 01       		.uleb128 0x1
+ 2480 0225 13       		.uleb128 0x13
+ 2481 0226 00       		.byte	0
+ 2482 0227 00       		.byte	0
+ 2483 0228 27       		.uleb128 0x27
+ 2484 0229 18       		.uleb128 0x18
+ 2485 022a 00       		.byte	0
+ 2486 022b 00       		.byte	0
+ 2487 022c 00       		.byte	0
+ 2488 022d 28       		.uleb128 0x28
+ 2489 022e 2E       		.uleb128 0x2e
+ 2490 022f 01       		.byte	0x1
+ 2491 0230 3F       		.uleb128 0x3f
+ 2492 0231 19       		.uleb128 0x19
+ 2493 0232 03       		.uleb128 0x3
+ 2494 0233 0E       		.uleb128 0xe
+ 2495 0234 3A       		.uleb128 0x3a
+ 2496 0235 0B       		.uleb128 0xb
+ 2497 0236 3B       		.uleb128 0x3b
+ 2498 0237 0B       		.uleb128 0xb
+ 2499 0238 3C       		.uleb128 0x3c
+ 2500 0239 19       		.uleb128 0x19
+ 2501 023a 01       		.uleb128 0x1
+ 2502 023b 13       		.uleb128 0x13
+ 2503 023c 00       		.byte	0
+ 2504 023d 00       		.byte	0
+ 2505 023e 29       		.uleb128 0x29
+ 2506 023f 2E       		.uleb128 0x2e
+ 2507 0240 00       		.byte	0
+ 2508 0241 3F       		.uleb128 0x3f
+ 2509 0242 19       		.uleb128 0x19
+ 2510 0243 03       		.uleb128 0x3
+ 2511 0244 0E       		.uleb128 0xe
+ 2512 0245 3A       		.uleb128 0x3a
+ 2513 0246 0B       		.uleb128 0xb
+ 2514 0247 3B       		.uleb128 0x3b
+ 2515 0248 05       		.uleb128 0x5
+ 2516 0249 27       		.uleb128 0x27
+ 2517 024a 19       		.uleb128 0x19
+ 2518 024b 3C       		.uleb128 0x3c
+ 2519 024c 19       		.uleb128 0x19
+ 2520 024d 00       		.byte	0
+ 2521 024e 00       		.byte	0
+ 2522 024f 00       		.byte	0
+ 2523              		.section	.debug_loc,"",%progbits
+ 2524              	.Ldebug_loc0:
+ 2525              	.LLST0:
+ 2526 0000 B4000000 		.4byte	.LVL22
+ 2527 0004 24010000 		.4byte	.LVL36
+ 2528 0008 0100     		.2byte	0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 55
+
+
+ 2529 000a 57       		.byte	0x57
+ 2530 000b 66010000 		.4byte	.LVL49
+ 2531 000f D0010000 		.4byte	.LVL59
+ 2532 0013 0100     		.2byte	0x1
+ 2533 0015 57       		.byte	0x57
+ 2534 0016 D0010000 		.4byte	.LVL59
+ 2535 001a F8010000 		.4byte	.LFE58
+ 2536 001e 0100     		.2byte	0x1
+ 2537 0020 50       		.byte	0x50
+ 2538 0021 00000000 		.4byte	0
+ 2539 0025 00000000 		.4byte	0
+ 2540              	.LLST1:
+ 2541 0029 00000000 		.4byte	.LVL60
+ 2542 002d 08000000 		.4byte	.LVL61
+ 2543 0031 0100     		.2byte	0x1
+ 2544 0033 50       		.byte	0x50
+ 2545 0034 08000000 		.4byte	.LVL61
+ 2546 0038 1E000000 		.4byte	.LVL63
+ 2547 003c 0400     		.2byte	0x4
+ 2548 003e F3       		.byte	0xf3
+ 2549 003f 01       		.uleb128 0x1
+ 2550 0040 50       		.byte	0x50
+ 2551 0041 9F       		.byte	0x9f
+ 2552 0042 1E000000 		.4byte	.LVL63
+ 2553 0046 20000000 		.4byte	.LVL64
+ 2554 004a 0400     		.2byte	0x4
+ 2555 004c F3       		.byte	0xf3
+ 2556 004d 01       		.uleb128 0x1
+ 2557 004e 50       		.byte	0x50
+ 2558 004f 9F       		.byte	0x9f
+ 2559 0050 20000000 		.4byte	.LVL64
+ 2560 0054 3C000000 		.4byte	.LFE59
+ 2561 0058 0400     		.2byte	0x4
+ 2562 005a F3       		.byte	0xf3
+ 2563 005b 01       		.uleb128 0x1
+ 2564 005c 50       		.byte	0x50
+ 2565 005d 9F       		.byte	0x9f
+ 2566 005e 00000000 		.4byte	0
+ 2567 0062 00000000 		.4byte	0
+ 2568              	.LLST2:
+ 2569 0066 00000000 		.4byte	.LVL60
+ 2570 006a 1A000000 		.4byte	.LVL62
+ 2571 006e 0100     		.2byte	0x1
+ 2572 0070 51       		.byte	0x51
+ 2573 0071 1A000000 		.4byte	.LVL62
+ 2574 0075 20000000 		.4byte	.LVL64
+ 2575 0079 0400     		.2byte	0x4
+ 2576 007b F3       		.byte	0xf3
+ 2577 007c 01       		.uleb128 0x1
+ 2578 007d 51       		.byte	0x51
+ 2579 007e 9F       		.byte	0x9f
+ 2580 007f 20000000 		.4byte	.LVL64
+ 2581 0083 2F000000 		.4byte	.LVL65-1
+ 2582 0087 0100     		.2byte	0x1
+ 2583 0089 51       		.byte	0x51
+ 2584 008a 2F000000 		.4byte	.LVL65-1
+ 2585 008e 3C000000 		.4byte	.LFE59
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 56
+
+
+ 2586 0092 0400     		.2byte	0x4
+ 2587 0094 F3       		.byte	0xf3
+ 2588 0095 01       		.uleb128 0x1
+ 2589 0096 51       		.byte	0x51
+ 2590 0097 9F       		.byte	0x9f
+ 2591 0098 00000000 		.4byte	0
+ 2592 009c 00000000 		.4byte	0
+ 2593              		.section	.debug_aranges,"",%progbits
+ 2594 0000 3C000000 		.4byte	0x3c
+ 2595 0004 0200     		.2byte	0x2
+ 2596 0006 00000000 		.4byte	.Ldebug_info0
+ 2597 000a 04       		.byte	0x4
+ 2598 000b 00       		.byte	0
+ 2599 000c 0000     		.2byte	0
+ 2600 000e 0000     		.2byte	0
+ 2601 0010 00000000 		.4byte	.LFB60
+ 2602 0014 88000000 		.4byte	.LFE60-.LFB60
+ 2603 0018 00000000 		.4byte	.LFB56
+ 2604 001c 2C000000 		.4byte	.LFE56-.LFB56
+ 2605 0020 00000000 		.4byte	.LFB57
+ 2606 0024 08000000 		.4byte	.LFE57-.LFB57
+ 2607 0028 00000000 		.4byte	.LFB58
+ 2608 002c F8010000 		.4byte	.LFE58-.LFB58
+ 2609 0030 00000000 		.4byte	.LFB59
+ 2610 0034 3C000000 		.4byte	.LFE59-.LFB59
+ 2611 0038 00000000 		.4byte	0
+ 2612 003c 00000000 		.4byte	0
+ 2613              		.section	.debug_ranges,"",%progbits
+ 2614              	.Ldebug_ranges0:
+ 2615 0000 96000000 		.4byte	.LBB6
+ 2616 0004 0E010000 		.4byte	.LBE6
+ 2617 0008 12010000 		.4byte	.LBB7
+ 2618 000c 16010000 		.4byte	.LBE7
+ 2619 0010 66010000 		.4byte	.LBB8
+ 2620 0014 F8010000 		.4byte	.LBE8
+ 2621 0018 00000000 		.4byte	0
+ 2622 001c 00000000 		.4byte	0
+ 2623 0020 00000000 		.4byte	.LFB60
+ 2624 0024 88000000 		.4byte	.LFE60
+ 2625 0028 00000000 		.4byte	.LFB56
+ 2626 002c 2C000000 		.4byte	.LFE56
+ 2627 0030 00000000 		.4byte	.LFB57
+ 2628 0034 08000000 		.4byte	.LFE57
+ 2629 0038 00000000 		.4byte	.LFB58
+ 2630 003c F8010000 		.4byte	.LFE58
+ 2631 0040 00000000 		.4byte	.LFB59
+ 2632 0044 3C000000 		.4byte	.LFE59
+ 2633 0048 00000000 		.4byte	0
+ 2634 004c 00000000 		.4byte	0
+ 2635              		.section	.debug_line,"",%progbits
+ 2636              	.Ldebug_line0:
+ 2637 0000 30030000 		.section	.debug_str,"MS",%progbits,1
+ 2637      02001D02 
+ 2637      00000201 
+ 2637      FB0E0D00 
+ 2637      01010101 
+ 2638              	.LASF100:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 57
+
+
+ 2639 0000 55495F41 		.ascii	"UI_ADC_StartConvert\000"
+ 2639      44435F53 
+ 2639      74617274 
+ 2639      436F6E76 
+ 2639      65727400 
+ 2640              	.LASF86:
+ 2641 0014 6D696469 		.ascii	"midi_note_basename\000"
+ 2641      5F6E6F74 
+ 2641      655F6261 
+ 2641      73656E61 
+ 2641      6D6500
+ 2642              	.LASF55:
+ 2643 0027 696E7146 		.ascii	"inqFlags_old\000"
+ 2643      6C616773 
+ 2643      5F6F6C64 
+ 2643      00
+ 2644              	.LASF117:
+ 2645 0034 433A5C55 		.ascii	"C:\\Users\\jmdevoto\\Desktop\\Builds\\(4-24-17)Humm"
+ 2645      73657273 
+ 2645      5C6A6D64 
+ 2645      65766F74 
+ 2645      6F5C4465 
+ 2646 0062 696E6762 		.ascii	"ingbird-059-v1\\Hummingbird(Continuous Output).cyds"
+ 2646      6972642D 
+ 2646      3035392D 
+ 2646      76315C48 
+ 2646      756D6D69 
+ 2647 0094 6E00     		.ascii	"n\000"
+ 2648              	.LASF99:
+ 2649 0096 55495F41 		.ascii	"UI_ADC_Start\000"
+ 2649      44435F53 
+ 2649      74617274 
+ 2649      00
+ 2650              	.LASF68:
+ 2651 00a3 6C617374 		.ascii	"lastNote\000"
+ 2651      4E6F7465 
+ 2651      00
+ 2652              	.LASF54:
+ 2653 00ac 63734275 		.ascii	"csButtChange\000"
+ 2653      74744368 
+ 2653      616E6765 
+ 2653      00
+ 2654              	.LASF79:
+ 2655 00b9 5553425F 		.ascii	"USB_CheckActivity\000"
+ 2655      43686563 
+ 2655      6B416374 
+ 2655      69766974 
+ 2655      7900
+ 2656              	.LASF109:
+ 2657 00cb 4379506D 		.ascii	"CyPmSleep\000"
+ 2657      536C6565 
+ 2657      7000
+ 2658              	.LASF2:
+ 2659 00d5 73686F72 		.ascii	"short int\000"
+ 2659      7420696E 
+ 2659      7400
+ 2660              	.LASF53:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 58
+
+
+ 2661 00df 63734275 		.ascii	"csButtStates_old\000"
+ 2661      74745374 
+ 2661      61746573 
+ 2661      5F6F6C64 
+ 2661      00
+ 2662              	.LASF75:
+ 2663 00f0 74657374 		.ascii	"test_max\000"
+ 2663      5F6D6178 
+ 2663      00
+ 2664              	.LASF104:
+ 2665 00f9 4D494449 		.ascii	"MIDI1_UART_Sleep\000"
+ 2665      315F5541 
+ 2665      52545F53 
+ 2665      6C656570 
+ 2665      00
+ 2666              	.LASF16:
+ 2667 010a 63686172 		.ascii	"char8\000"
+ 2667      3800
+ 2668              	.LASF118:
+ 2669 0110 70697463 		.ascii	"pitch_init\000"
+ 2669      685F696E 
+ 2669      697400
+ 2670              	.LASF45:
+ 2671 011b 6D61696E 		.ascii	"main\000"
+ 2671      00
+ 2672              	.LASF73:
+ 2673 0120 63757253 		.ascii	"curScale\000"
+ 2673      63616C65 
+ 2673      00
+ 2674              	.LASF105:
+ 2675 0129 4D494449 		.ascii	"MIDI2_UART_Sleep\000"
+ 2675      325F5541 
+ 2675      52545F53 
+ 2675      6C656570 
+ 2675      00
+ 2676              	.LASF103:
+ 2677 013a 5553425F 		.ascii	"USB_Start\000"
+ 2677      53746172 
+ 2677      7400
+ 2678              	.LASF102:
+ 2679 0144 706F7075 		.ascii	"populate_midi_array\000"
+ 2679      6C617465 
+ 2679      5F6D6964 
+ 2679      695F6172 
+ 2679      72617900 
+ 2680              	.LASF39:
+ 2681 0158 57484F4C 		.ascii	"WHOLE_TONE\000"
+ 2681      455F544F 
+ 2681      4E4500
+ 2682              	.LASF12:
+ 2683 0163 75696E74 		.ascii	"uint16\000"
+ 2683      313600
+ 2684              	.LASF108:
+ 2685 016a 4379506D 		.ascii	"CyPmSaveClocks\000"
+ 2685      53617665 
+ 2685      436C6F63 
+ 2685      6B7300
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 59
+
+
+ 2686              	.LASF11:
+ 2687 0179 75696E74 		.ascii	"uint8\000"
+ 2687      3800
+ 2688              	.LASF46:
+ 2689 017f 47657453 		.ascii	"GetSample\000"
+ 2689      616D706C 
+ 2689      6500
+ 2690              	.LASF29:
+ 2691 0189 4B45595F 		.ascii	"KEY_OF_Ab\000"
+ 2691      4F465F41 
+ 2691      6200
+ 2692              	.LASF41:
+ 2693 0193 536C6565 		.ascii	"SleepIsr\000"
+ 2693      70497372 
+ 2693      00
+ 2694              	.LASF78:
+ 2695 019c 4144435F 		.ascii	"ADC_SAR_1_GetResult16\000"
+ 2695      5341525F 
+ 2695      315F4765 
+ 2695      74526573 
+ 2695      756C7431 
+ 2696              	.LASF13:
+ 2697 01b2 696E7431 		.ascii	"int16\000"
+ 2697      3600
+ 2698              	.LASF0:
+ 2699 01b8 7369676E 		.ascii	"signed char\000"
+ 2699      65642063 
+ 2699      68617200 
+ 2700              	.LASF106:
+ 2701 01c4 4D494449 		.ascii	"MIDI_PWR_Write\000"
+ 2701      5F505752 
+ 2701      5F577269 
+ 2701      746500
+ 2702              	.LASF76:
+ 2703 01d3 4D494449 		.ascii	"MIDI_IDENTITY_REPLY\000"
+ 2703      5F494445 
+ 2703      4E544954 
+ 2703      595F5245 
+ 2703      504C5900 
+ 2704              	.LASF14:
+ 2705 01e7 666C6F61 		.ascii	"float\000"
+ 2705      7400
+ 2706              	.LASF24:
+ 2707 01ed 4B45595F 		.ascii	"KEY_OF_Eb\000"
+ 2707      4F465F45 
+ 2707      6200
+ 2708              	.LASF6:
+ 2709 01f7 6C6F6E67 		.ascii	"long long int\000"
+ 2709      206C6F6E 
+ 2709      6720696E 
+ 2709      7400
+ 2710              	.LASF82:
+ 2711 0205 70697463 		.ascii	"pitch_auto_fft\000"
+ 2711      685F6175 
+ 2711      746F5F66 
+ 2711      667400
+ 2712              	.LASF88:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 60
+
+
+ 2713 0214 55706461 		.ascii	"UpdateScaleLCD\000"
+ 2713      74655363 
+ 2713      616C654C 
+ 2713      434400
+ 2714              	.LASF71:
+ 2715 0223 6672616D 		.ascii	"frame1InUse\000"
+ 2715      6531496E 
+ 2715      55736500 
+ 2716              	.LASF65:
+ 2717 022f 6672616D 		.ascii	"frameLocked\000"
+ 2717      654C6F63 
+ 2717      6B656400 
+ 2718              	.LASF4:
+ 2719 023b 6C6F6E67 		.ascii	"long int\000"
+ 2719      20696E74 
+ 2719      00
+ 2720              	.LASF22:
+ 2721 0244 4B45595F 		.ascii	"KEY_OF_Db\000"
+ 2721      4F465F44 
+ 2721      6200
+ 2722              	.LASF67:
+ 2723 024e 6672616D 		.ascii	"frameProcessed\000"
+ 2723      6550726F 
+ 2723      63657373 
+ 2723      656400
+ 2724              	.LASF57:
+ 2725 025d 64617461 		.ascii	"dataFrames\000"
+ 2725      4672616D 
+ 2725      657300
+ 2726              	.LASF10:
+ 2727 0268 696E7433 		.ascii	"int32_t\000"
+ 2727      325F7400 
+ 2728              	.LASF56:
+ 2729 0270 4C434473 		.ascii	"LCDstr\000"
+ 2729      747200
+ 2730              	.LASF83:
+ 2731 0277 43686172 		.ascii	"CharLCD_WriteControl\000"
+ 2731      4C43445F 
+ 2731      57726974 
+ 2731      65436F6E 
+ 2731      74726F6C 
+ 2732              	.LASF49:
+ 2733 028c 6D696469 		.ascii	"midiMsg\000"
+ 2733      4D736700 
+ 2734              	.LASF95:
+ 2735 0294 6973725F 		.ascii	"isr_1_StartEx\000"
+ 2735      315F5374 
+ 2735      61727445 
+ 2735      7800
+ 2736              	.LASF47:
+ 2737 02a2 5553425F 		.ascii	"USB_callbackLocalMidiEvent\000"
+ 2737      63616C6C 
+ 2737      6261636B 
+ 2737      4C6F6361 
+ 2737      6C4D6964 
+ 2738              	.LASF37:
+ 2739 02bd 4D414A4F 		.ascii	"MAJOR_PENT\000"
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 61
+
+
+ 2739      525F5045 
+ 2739      4E5400
+ 2740              	.LASF34:
+ 2741 02c8 4D757369 		.ascii	"MusicScale\000"
+ 2741      63536361 
+ 2741      6C6500
+ 2742              	.LASF64:
+ 2743 02d3 6672616D 		.ascii	"frameReady\000"
+ 2743      65526561 
+ 2743      647900
+ 2744              	.LASF1:
+ 2745 02de 756E7369 		.ascii	"unsigned char\000"
+ 2745      676E6564 
+ 2745      20636861 
+ 2745      7200
+ 2746              	.LASF113:
+ 2747 02ec 4D494449 		.ascii	"MIDI1_UART_Wakeup\000"
+ 2747      315F5541 
+ 2747      52545F57 
+ 2747      616B6575 
+ 2747      7000
+ 2748              	.LASF62:
+ 2749 02fe 6D61785F 		.ascii	"max_value\000"
+ 2749      76616C75 
+ 2749      6500
+ 2750              	.LASF19:
+ 2751 0308 63796973 		.ascii	"cyisraddress\000"
+ 2751      72616464 
+ 2751      72657373 
+ 2751      00
+ 2752              	.LASF74:
+ 2753 0315 6375724B 		.ascii	"curKey\000"
+ 2753      657900
+ 2754              	.LASF35:
+ 2755 031c 4D414A4F 		.ascii	"MAJOR\000"
+ 2755      5200
+ 2756              	.LASF31:
+ 2757 0322 4B45595F 		.ascii	"KEY_OF_Bb\000"
+ 2757      4F465F42 
+ 2757      6200
+ 2758              	.LASF7:
+ 2759 032c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2759      206C6F6E 
+ 2759      6720756E 
+ 2759      7369676E 
+ 2759      65642069 
+ 2760              	.LASF110:
+ 2761 0343 4379506D 		.ascii	"CyPmRestoreClocks\000"
+ 2761      52657374 
+ 2761      6F726543 
+ 2761      6C6F636B 
+ 2761      7300
+ 2762              	.LASF60:
+ 2763 0355 63757272 		.ascii	"currFrame\000"
+ 2763      4672616D 
+ 2763      6500
+ 2764              	.LASF59:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 62
+
+
+ 2765 035f 6672616D 		.ascii	"frameIndex\000"
+ 2765      65496E64 
+ 2765      657800
+ 2766              	.LASF8:
+ 2767 036a 756E7369 		.ascii	"unsigned int\000"
+ 2767      676E6564 
+ 2767      20696E74 
+ 2767      00
+ 2768              	.LASF115:
+ 2769 0377 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2769      4320342E 
+ 2769      392E3320 
+ 2769      32303135 
+ 2769      30333033 
+ 2770 03aa 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 2770      20726576 
+ 2770      6973696F 
+ 2770      6E203232 
+ 2770      31323230 
+ 2771 03dd 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 2771      66756E63 
+ 2771      74696F6E 
+ 2771      2D736563 
+ 2771      74696F6E 
+ 2772              	.LASF33:
+ 2773 0405 4D757369 		.ascii	"MusicKey\000"
+ 2773      634B6579 
+ 2773      00
+ 2774              	.LASF69:
+ 2775 040e 70697463 		.ascii	"pitchHz\000"
+ 2775      68487A00 
+ 2776              	.LASF42:
+ 2777 0416 47656E65 		.ascii	"GenerateMidiArray\000"
+ 2777      72617465 
+ 2777      4D696469 
+ 2777      41727261 
+ 2777      7900
+ 2778              	.LASF30:
+ 2779 0428 4B45595F 		.ascii	"KEY_OF_A\000"
+ 2779      4F465F41 
+ 2779      00
+ 2780              	.LASF32:
+ 2781 0431 4B45595F 		.ascii	"KEY_OF_B\000"
+ 2781      4F465F42 
+ 2781      00
+ 2782              	.LASF21:
+ 2783 043a 4B45595F 		.ascii	"KEY_OF_C\000"
+ 2783      4F465F43 
+ 2783      00
+ 2784              	.LASF23:
+ 2785 0443 4B45595F 		.ascii	"KEY_OF_D\000"
+ 2785      4F465F44 
+ 2785      00
+ 2786              	.LASF25:
+ 2787 044c 4B45595F 		.ascii	"KEY_OF_E\000"
+ 2787      4F465F45 
+ 2787      00
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 63
+
+
+ 2788              	.LASF26:
+ 2789 0455 4B45595F 		.ascii	"KEY_OF_F\000"
+ 2789      4F465F46 
+ 2789      00
+ 2790              	.LASF28:
+ 2791 045e 4B45595F 		.ascii	"KEY_OF_G\000"
+ 2791      4F465F47 
+ 2791      00
+ 2792              	.LASF38:
+ 2793 0467 4D494E4F 		.ascii	"MINOR_PENT\000"
+ 2793      525F5045 
+ 2793      4E5400
+ 2794              	.LASF92:
+ 2795 0472 4E6F7465 		.ascii	"NoteSnap\000"
+ 2795      536E6170 
+ 2795      00
+ 2796              	.LASF17:
+ 2797 047b 63686172 		.ascii	"char\000"
+ 2797      00
+ 2798              	.LASF98:
+ 2799 0480 4144435F 		.ascii	"ADC_SAR_1_StartConvert\000"
+ 2799      5341525F 
+ 2799      315F5374 
+ 2799      61727443 
+ 2799      6F6E7665 
+ 2800              	.LASF101:
+ 2801 0497 55415254 		.ascii	"UART_Start\000"
+ 2801      5F537461 
+ 2801      727400
+ 2802              	.LASF77:
+ 2803 04a2 75736241 		.ascii	"usbActivityCounter\000"
+ 2803      63746976 
+ 2803      69747943 
+ 2803      6F756E74 
+ 2803      657200
+ 2804              	.LASF81:
+ 2805 04b5 4144435F 		.ascii	"ADC_SAR_1_IsEndConversion\000"
+ 2805      5341525F 
+ 2805      315F4973 
+ 2805      456E6443 
+ 2805      6F6E7665 
+ 2806              	.LASF61:
+ 2807 04cf 73616D70 		.ascii	"sampleFrame\000"
+ 2807      6C654672 
+ 2807      616D6500 
+ 2808              	.LASF43:
+ 2809 04db 6D696469 		.ascii	"midiArray\000"
+ 2809      41727261 
+ 2809      7900
+ 2810              	.LASF63:
+ 2811 04e5 5F426F6F 		.ascii	"_Bool\000"
+ 2811      6C00
+ 2812              	.LASF111:
+ 2813 04eb 5553425F 		.ascii	"USB_Resume\000"
+ 2813      52657375 
+ 2813      6D6500
+ 2814              	.LASF44:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 64
+
+
+ 2815 04f6 6E6F7465 		.ascii	"note\000"
+ 2815      00
+ 2816              	.LASF96:
+ 2817 04fb 54696D65 		.ascii	"Timer_1_Start\000"
+ 2817      725F315F 
+ 2817      53746172 
+ 2817      7400
+ 2818              	.LASF112:
+ 2819 0509 5553425F 		.ascii	"USB_MIDI_EP_Init\000"
+ 2819      4D494449 
+ 2819      5F45505F 
+ 2819      496E6974 
+ 2819      00
+ 2820              	.LASF72:
+ 2821 051a 6672616D 		.ascii	"frame2InUse\000"
+ 2821      6532496E 
+ 2821      55736500 
+ 2822              	.LASF3:
+ 2823 0526 73686F72 		.ascii	"short unsigned int\000"
+ 2823      7420756E 
+ 2823      7369676E 
+ 2823      65642069 
+ 2823      6E7400
+ 2824              	.LASF66:
+ 2825 0539 73757374 		.ascii	"sustain\000"
+ 2825      61696E00 
+ 2826              	.LASF58:
+ 2827 0541 4144436F 		.ascii	"ADCoutput\000"
+ 2827      75747075 
+ 2827      7400
+ 2828              	.LASF116:
+ 2829 054b 6D61696E 		.ascii	"main.c\000"
+ 2829      2E6300
+ 2830              	.LASF18:
+ 2831 0552 72656738 		.ascii	"reg8\000"
+ 2831      00
+ 2832              	.LASF5:
+ 2833 0557 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2833      20756E73 
+ 2833      69676E65 
+ 2833      6420696E 
+ 2833      7400
+ 2834              	.LASF15:
+ 2835 0569 646F7562 		.ascii	"double\000"
+ 2835      6C6500
+ 2836              	.LASF50:
+ 2837 0570 5553425F 		.ascii	"USB_MIDI1_InqFlags\000"
+ 2837      4D494449 
+ 2837      315F496E 
+ 2837      71466C61 
+ 2837      677300
+ 2838              	.LASF93:
+ 2839 0583 4932435F 		.ascii	"I2C_CharLCD_Start\000"
+ 2839      43686172 
+ 2839      4C43445F 
+ 2839      53746172 
+ 2839      7400
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 65
+
+
+ 2840              	.LASF114:
+ 2841 0595 4D494449 		.ascii	"MIDI2_UART_Wakeup\000"
+ 2841      325F5541 
+ 2841      52545F57 
+ 2841      616B6575 
+ 2841      7000
+ 2842              	.LASF48:
+ 2843 05a7 6361626C 		.ascii	"cable\000"
+ 2843      6500
+ 2844              	.LASF40:
+ 2845 05ad 424C5545 		.ascii	"BLUES\000"
+ 2845      5300
+ 2846              	.LASF90:
+ 2847 05b3 6D696469 		.ascii	"midi_note_changed\000"
+ 2847      5F6E6F74 
+ 2847      655F6368 
+ 2847      616E6765 
+ 2847      6400
+ 2848              	.LASF89:
+ 2849 05c5 55706461 		.ascii	"UpdateKeyLCD\000"
+ 2849      74654B65 
+ 2849      794C4344 
+ 2849      00
+ 2850              	.LASF9:
+ 2851 05d2 5F5F696E 		.ascii	"__int32_t\000"
+ 2851      7433325F 
+ 2851      7400
+ 2852              	.LASF52:
+ 2853 05dc 63734275 		.ascii	"csButtStates\000"
+ 2853      74745374 
+ 2853      61746573 
+ 2853      00
+ 2854              	.LASF27:
+ 2855 05e9 4B45595F 		.ascii	"KEY_OF_Gb\000"
+ 2855      4F465F47 
+ 2855      6200
+ 2856              	.LASF20:
+ 2857 05f3 73697A65 		.ascii	"sizetype\000"
+ 2857      74797065 
+ 2857      00
+ 2858              	.LASF87:
+ 2859 05fc 43686172 		.ascii	"CharLCD_PrintString\000"
+ 2859      4C43445F 
+ 2859      5072696E 
+ 2859      74537472 
+ 2859      696E6700 
+ 2860              	.LASF36:
+ 2861 0610 4E415455 		.ascii	"NATURAL_MINOR\000"
+ 2861      52414C5F 
+ 2861      4D494E4F 
+ 2861      5200
+ 2862              	.LASF97:
+ 2863 061e 4144435F 		.ascii	"ADC_SAR_1_Start\000"
+ 2863      5341525F 
+ 2863      315F5374 
+ 2863      61727400 
+ 2864              	.LASF85:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cce8AF7b.s 			page 66
+
+
+ 2865 062e 43686172 		.ascii	"CharLCD_PrintNumber\000"
+ 2865      4C43445F 
+ 2865      5072696E 
+ 2865      744E756D 
+ 2865      62657200 
+ 2866              	.LASF51:
+ 2867 0642 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2867      52784275 
+ 2867      66666572 
+ 2867      00
+ 2868              	.LASF94:
+ 2869 064f 43686172 		.ascii	"CharLCD_Start\000"
+ 2869      4C43445F 
+ 2869      53746172 
+ 2869      7400
+ 2870              	.LASF70:
+ 2871 065d 6E6F7465 		.ascii	"noteTable\000"
+ 2871      5461626C 
+ 2871      6500
+ 2872              	.LASF107:
+ 2873 0667 5553425F 		.ascii	"USB_Suspend\000"
+ 2873      53757370 
+ 2873      656E6400 
+ 2874              	.LASF84:
+ 2875 0673 43686172 		.ascii	"CharLCD_Position\000"
+ 2875      4C43445F 
+ 2875      506F7369 
+ 2875      74696F6E 
+ 2875      00
+ 2876              	.LASF91:
+ 2877 0684 55415254 		.ascii	"UART_PutChar\000"
+ 2877      5F507574 
+ 2877      43686172 
+ 2877      00
+ 2878              	.LASF80:
+ 2879 0691 536C6565 		.ascii	"SleepTimer_GetStatus\000"
+ 2879      7054696D 
+ 2879      65725F47 
+ 2879      65745374 
+ 2879      61747573 
+ 2880              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -1,0 +1,587 @@
+C51 COMPILER V9.51   MIDI1_UART_INT                                                        02/21/2017 15:19:23 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE MIDI1_UART_INT
+OBJECT MODULE PLACED IN .\DP8051\DP8051_Keil_951\Debug\MIDI1_UART_INT.obj
+COMPILER INVOKED BY: C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\import\keil\pk51\9.51\C51\BIN\c51.exe 
+                    -Generated_Source\PSoC3\MIDI1_UART_INT.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP INCDIR(.,Generated_Source\PSoC3) FF(3) DB WL(2
+                    -) PR(.\DP8051\DP8051_Keil_951\Debug/MIDI1_UART_INT.lst) CD OT(2,SIZE) OJ(.\DP8051\DP8051_Keil_951\Debug\MIDI1_UART_INT.o
+                    -bj)
+
+line level    source
+
+   1          /*******************************************************************************
+   2          * File Name: MIDI1_UART_INT.c
+   3          * Version 2.30
+   4          *
+   5          * Description:
+   6          *  This file provides all Interrupt Service functionality of the UART component
+   7          *
+   8          * Note:
+   9          *  Any unusual or non-standard behavior should be noted here. Other-
+  10          *  wise, this section should remain blank.
+  11          *
+  12          ********************************************************************************
+  13          * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14          * You may use this file only in accordance with the license, terms, conditions,
+  15          * disclaimers, and limitations in the end user license agreement accompanying
+  16          * the software package with which this file was provided.
+  17          *******************************************************************************/
+  18          
+  19          #include "MIDI1_UART.h"
+  20          #include "CyLib.h"
+  21          
+  22          
+  23          /***************************************
+  24          * Custom Declratations
+  25          ***************************************/
+  26          /* `#START CUSTOM_DECLARATIONS` Place your declaration here */
+  27          #include "USB_midi.h"
+  28          #include "LED_InA.h"
+  29          #include "LED_OutA.h"
+  30          /* `#END` */
+  31          
+  32          #if( (MIDI1_UART_RX_ENABLED || MIDI1_UART_HD_ENABLED) && \
+  33               (MIDI1_UART_RXBUFFERSIZE > MIDI1_UART_FIFO_LENGTH))
+  34          
+  35          
+  36              /*******************************************************************************
+  37              * Function Name: MIDI1_UART_RXISR
+  38              ********************************************************************************
+  39              *
+  40              * Summary:
+  41              *  Interrupt Service Routine for RX portion of the UART
+  42              *
+  43              * Parameters:
+  44              *  None.
+  45              *
+  46              * Return:
+  47              *  None.
+  48              *
+  49              * Global Variables:
+  50              *  MIDI1_UART_rxBuffer - RAM buffer pointer for save received data.
+  51              *  MIDI1_UART_rxBufferWrite - cyclic index for write to rxBuffer,
+  52              *     increments after each byte saved to buffer.
+C51 COMPILER V9.51   MIDI1_UART_INT                                                        02/21/2017 15:19:23 PAGE 2   
+
+  53              *  MIDI1_UART_rxBufferRead - cyclic index for read from rxBuffer,
+  54              *     checked to detect overflow condition.
+  55              *  MIDI1_UART_rxBufferOverflow - software overflow flag. Set to one
+  56              *     when MIDI1_UART_rxBufferWrite index overtakes
+  57              *     MIDI1_UART_rxBufferRead index.
+  58              *  MIDI1_UART_rxBufferLoopDetect - additional variable to detect overflow.
+  59              *     Set to one when MIDI1_UART_rxBufferWrite is equal to
+  60              *    MIDI1_UART_rxBufferRead
+  61              *  MIDI1_UART_rxAddressMode - this variable contains the Address mode,
+  62              *     selected in customizer or set by UART_SetRxAddressMode() API.
+  63              *  MIDI1_UART_rxAddressDetected - set to 1 when correct address received,
+  64              *     and analysed to store following addressed data bytes to the buffer.
+  65              *     When not correct address received, set to 0 to skip following data bytes.
+  66              *
+  67              *******************************************************************************/
+  68              CY_ISR(MIDI1_UART_RXISR)
+  69              {
+  70   1              uint8 readData;
+  71   1              uint8 increment_pointer = 0u;
+  72   1              #if(CY_PSOC3)
+  73   1                  uint8 int_en;
+  74   1              #endif /* CY_PSOC3 */
+  75   1      
+  76   1              /* User code required at start of ISR */
+  77   1              /* `#START MIDI1_UART_RXISR_START` */
+  78   1              /* These LEDs indicate MIDI input activity */
+  79   1              LED_InA_Write(1);
+  80   1              /* `#END` */
+  81   1      
+  82   1              #if(CY_PSOC3)   /* Make sure nested interrupt is enabled */
+  83   1                  int_en = EA;
+  84   1                  CyGlobalIntEnable;
+  85   1              #endif /* CY_PSOC3 */
+  86   1      
+  87   1              readData = MIDI1_UART_RXSTATUS_REG;
+  88   1      
+  89   1              if((readData & (MIDI1_UART_RX_STS_BREAK | MIDI1_UART_RX_STS_PAR_ERROR |
+  90   1                              MIDI1_UART_RX_STS_STOP_ERROR | MIDI1_UART_RX_STS_OVERRUN)) != 0u)
+  91   1              {
+  92   2                  /* ERROR handling. */
+  93   2                  /* `#START MIDI1_UART_RXISR_ERROR` */
+  94   2      
+  95   2                  /* `#END` */
+  96   2              }
+  97   1      
+  98   1              while((readData & MIDI1_UART_RX_STS_FIFO_NOTEMPTY) != 0u)
+  99   1              {
+ 100   2      
+ 101   2                  #if (MIDI1_UART_RXHW_ADDRESS_ENABLED)
+                              if(MIDI1_UART_rxAddressMode == (uint8)MIDI1_UART__B_UART__AM_SW_DETECT_TO_BUFFER)
+                              {
+                                  if((readData & MIDI1_UART_RX_STS_MRKSPC) != 0u)
+                                  {
+                                      if ((readData & MIDI1_UART_RX_STS_ADDR_MATCH) != 0u)
+                                      {
+                                          MIDI1_UART_rxAddressDetected = 1u;
+                                      }
+                                      else
+                                      {
+                                          MIDI1_UART_rxAddressDetected = 0u;
+                                      }
+                                  }
+C51 COMPILER V9.51   MIDI1_UART_INT                                                        02/21/2017 15:19:23 PAGE 3   
+
+              
+                                  readData = MIDI1_UART_RXDATA_REG;
+                                  if(MIDI1_UART_rxAddressDetected != 0u)
+                                  {   /* store only addressed data */
+                                      MIDI1_UART_rxBuffer[MIDI1_UART_rxBufferWrite] = readData;
+                                      increment_pointer = 1u;
+                                  }
+                              }
+                              else /* without software addressing */
+                              {
+                                  MIDI1_UART_rxBuffer[MIDI1_UART_rxBufferWrite] = MIDI1_UART_RXDATA_REG;
+                                  increment_pointer = 1u;
+                              }
+                          #else  /* without addressing */
+ 129   2                      MIDI1_UART_rxBuffer[MIDI1_UART_rxBufferWrite] = MIDI1_UART_RXDATA_REG;
+ 130   2                      increment_pointer = 1u;
+ 131   2                  #endif /* End SW_DETECT_TO_BUFFER */
+ 132   2      
+ 133   2                  /* do not increment buffer pointer when skip not adderessed data */
+ 134   2                  if( increment_pointer != 0u )
+ 135   2                  {
+ 136   3                      if(MIDI1_UART_rxBufferLoopDetect != 0u)
+ 137   3                      {   /* Set Software Buffer status Overflow */
+ 138   4                          MIDI1_UART_rxBufferOverflow = 1u;
+ 139   4                      }
+ 140   3                      /* Set next pointer. */
+ 141   3                      MIDI1_UART_rxBufferWrite++;
+ 142   3      
+ 143   3                      /* Check pointer for a loop condition */
+ 144   3                      if(MIDI1_UART_rxBufferWrite >= MIDI1_UART_RXBUFFERSIZE)
+ 145   3                      {
+ 146   4                          MIDI1_UART_rxBufferWrite = 0u;
+ 147   4                      }
+ 148   3                      /* Detect pre-overload condition and set flag */
+ 149   3                      if(MIDI1_UART_rxBufferWrite == MIDI1_UART_rxBufferRead)
+ 150   3                      {
+ 151   4                          MIDI1_UART_rxBufferLoopDetect = 1u;
+ 152   4                          /* When Hardware Flow Control selected */
+ 153   4                          #if(MIDI1_UART_FLOW_CONTROL != 0u)
+                                  /* Disable RX interrupt mask, it will be enabled when user read data from the buffer u
+             -sing APIs */
+                                      MIDI1_UART_RXSTATUS_MASK_REG  &= (uint8)~MIDI1_UART_RX_STS_FIFO_NOTEMPTY;
+                                      CyIntClearPending(MIDI1_UART_RX_VECT_NUM);
+                                      break; /* Break the reading of the FIFO loop, leave the data there for generating 
+             -RTS signal */
+                                  #endif /* End MIDI1_UART_FLOW_CONTROL != 0 */
+ 159   4                      }
+ 160   3                  }
+ 161   2      
+ 162   2                  /* Check again if there is data. */
+ 163   2                  readData = MIDI1_UART_RXSTATUS_REG;
+ 164   2              }
+ 165   1      
+ 166   1              /* User code required at end of ISR (Optional) */
+ 167   1              /* `#START MIDI1_UART_RXISR_END` */
+ 168   1              #if(USB_EP_MM == USB__EP_DMAAUTO) 
+                          USB_MIDI_IN_Service();
+                      #endif
+ 171   1              LED_InA_Write(0);
+ 172   1              /* `#END` */
+ 173   1      
+ 174   1              #if(CY_PSOC3)
+C51 COMPILER V9.51   MIDI1_UART_INT                                                        02/21/2017 15:19:23 PAGE 4   
+
+ 175   1                  EA = int_en;
+ 176   1              #endif /* CY_PSOC3 */
+ 177   1      
+ 178   1          }
+ 179          
+ 180          #endif /* End MIDI1_UART_RX_ENABLED && (MIDI1_UART_RXBUFFERSIZE > MIDI1_UART_FIFO_LENGTH) */
+ 181          
+ 182          
+ 183          #if(MIDI1_UART_TX_ENABLED && (MIDI1_UART_TXBUFFERSIZE > MIDI1_UART_FIFO_LENGTH))
+ 184          
+ 185          
+ 186              /*******************************************************************************
+ 187              * Function Name: MIDI1_UART_TXISR
+ 188              ********************************************************************************
+ 189              *
+ 190              * Summary:
+ 191              * Interrupt Service Routine for the TX portion of the UART
+ 192              *
+ 193              * Parameters:
+ 194              *  None.
+ 195              *
+ 196              * Return:
+ 197              *  None.
+ 198              *
+ 199              * Global Variables:
+ 200              *  MIDI1_UART_txBuffer - RAM buffer pointer for transmit data from.
+ 201              *  MIDI1_UART_txBufferRead - cyclic index for read and transmit data
+ 202              *     from txBuffer, increments after each transmited byte.
+ 203              *  MIDI1_UART_rxBufferWrite - cyclic index for write to txBuffer,
+ 204              *     checked to detect available for transmission bytes.
+ 205              *
+ 206              *******************************************************************************/
+ 207              CY_ISR(MIDI1_UART_TXISR)
+ 208              {
+ 209   1      
+ 210   1              #if(CY_PSOC3)
+ 211   1                  uint8 int_en;
+ 212   1              #endif /* CY_PSOC3 */
+ 213   1      
+ 214   1              /* User code required at start of ISR */
+ 215   1              /* `#START MIDI1_UART_TXISR_START` */
+ 216   1      
+ 217   1              /* `#END` */
+ 218   1      
+ 219   1              #if(CY_PSOC3)   /* Make sure nested interrupt is enabled */
+ 220   1                  int_en = EA;
+ 221   1                  CyGlobalIntEnable;
+ 222   1              #endif /* CY_PSOC3 */
+ 223   1      
+ 224   1              while((MIDI1_UART_txBufferRead != MIDI1_UART_txBufferWrite) &&
+ 225   1                   ((MIDI1_UART_TXSTATUS_REG & MIDI1_UART_TX_STS_FIFO_FULL) == 0u))
+ 226   1              {
+ 227   2                  /* Check pointer. */
+ 228   2                  if(MIDI1_UART_txBufferRead >= MIDI1_UART_TXBUFFERSIZE)
+ 229   2                  {
+ 230   3                      MIDI1_UART_txBufferRead = 0u;
+ 231   3                  }
+ 232   2      
+ 233   2                  MIDI1_UART_TXDATA_REG = MIDI1_UART_txBuffer[MIDI1_UART_txBufferRead];
+ 234   2      
+ 235   2                  /* Set next pointer. */
+ 236   2                  MIDI1_UART_txBufferRead++;
+C51 COMPILER V9.51   MIDI1_UART_INT                                                        02/21/2017 15:19:23 PAGE 5   
+
+ 237   2              }
+ 238   1      
+ 239   1              /* User code required at end of ISR (Optional) */
+ 240   1              /* `#START MIDI1_UART_TXISR_END` */
+ 241   1      
+ 242   1              /* `#END` */
+ 243   1      
+ 244   1              #if(CY_PSOC3)
+ 245   1                  EA = int_en;
+ 246   1              #endif /* CY_PSOC3 */
+ 247   1      
+ 248   1          }
+ 249          
+ 250          #endif /* End MIDI1_UART_TX_ENABLED && (MIDI1_UART_TXBUFFERSIZE > MIDI1_UART_FIFO_LENGTH) */
+ 251          
+ 252          
+ 253          /* [] END OF FILE */
+C51 COMPILER V9.51   MIDI1_UART_INT                                                        02/21/2017 15:19:23 PAGE 6   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION MIDI1_UART_RXISR (BEGIN)
+0000 C0E0              PUSH    ACC
+0002 C0F0              PUSH    B
+0004 C083              PUSH    DPH
+0006 C082              PUSH    DPL
+0008 C085              PUSH    DPH1
+000A C084              PUSH    DPL1
+000C C086              PUSH    DPS
+000E 758600            MOV     DPS,#00H
+0011 C000        E     PUSH    ?C?XPAGE1SFR
+0013 750000      E     MOV     ?C?XPAGE1SFR,#?C?XPAGE1RST
+0016 C0D0              PUSH    PSW
+0018 75D000            MOV     PSW,#00H
+001B C000              PUSH    AR0
+001D C001              PUSH    AR1
+001F C002              PUSH    AR2
+0021 C003              PUSH    AR3
+0023 C004              PUSH    AR4
+0025 C005              PUSH    AR5
+0027 C006              PUSH    AR6
+0029 C007              PUSH    AR7
+                                           ; SOURCE LINE # 68
+                                           ; SOURCE LINE # 71
+002B 900000      R     MOV     DPTR,#increment_pointer
+002E E4                CLR     A
+002F F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 79
+0030 7F01              MOV     R7,#01H
+0032 120000      E     LCALL   _LED_InA_Write
+                                           ; SOURCE LINE # 83
+0035 A2AF              MOV     C,EA
+0037 E4                CLR     A
+0038 33                RLC     A
+0039 FF                MOV     R7,A
+003A 900000      R     MOV     DPTR,#int_en
+003D EF                MOV     A,R7
+003E F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 84
+003F D2AF              SETB    EA
+0041 9044F4            MOV     DPTR,#044F4H
+0044 74FD              MOV     A,#0FDH
+0046 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 87
+0047 906468            MOV     DPTR,#06468H
+004A E0                MOVX    A,@DPTR
+004B FF                MOV     R7,A
+004C 900000      R     MOV     DPTR,#readData
+004F EF                MOV     A,R7
+0050 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 90
+                                           ; SOURCE LINE # 91
+                                           ; SOURCE LINE # 96
+0051         ?C0002:
+                                           ; SOURCE LINE # 98
+0051 900000      R     MOV     DPTR,#readData
+0054 E0                MOVX    A,@DPTR
+0055 FF                MOV     R7,A
+0056 EF                MOV     A,R7
+0057 30E568            JNB     ACC.5,?C0003
+C51 COMPILER V9.51   MIDI1_UART_INT                                                        02/21/2017 15:19:23 PAGE 7   
+
+                                           ; SOURCE LINE # 99
+                                           ; SOURCE LINE # 129
+005A 906548            MOV     DPTR,#06548H
+005D E0                MOVX    A,@DPTR
+005E FF                MOV     R7,A
+005F 900000      E     MOV     DPTR,#MIDI1_UART_rxBufferWrite
+0062 E0                MOVX    A,@DPTR
+0063 FE                MOV     R6,A
+0064 7400        E     MOV     A,#LOW MIDI1_UART_rxBuffer
+0066 2E                ADD     A,R6
+0067 F582              MOV     DPL,A
+0069 E4                CLR     A
+006A 3400        E     ADDC    A,#HIGH MIDI1_UART_rxBuffer
+006C F583              MOV     DPH,A
+006E EF                MOV     A,R7
+006F F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 130
+0070 900000      R     MOV     DPTR,#increment_pointer
+0073 7401              MOV     A,#01H
+0075 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 134
+0076 900000      R     MOV     DPTR,#increment_pointer
+0079 E0                MOVX    A,@DPTR
+007A FF                MOV     R7,A
+007B EF                MOV     A,R7
+007C 6038              JZ      ?C0004
+                                           ; SOURCE LINE # 135
+                                           ; SOURCE LINE # 136
+007E 900000      E     MOV     DPTR,#MIDI1_UART_rxBufferLoopDetect
+0081 E0                MOVX    A,@DPTR
+0082 FF                MOV     R7,A
+0083 EF                MOV     A,R7
+0084 6006              JZ      ?C0005
+                                           ; SOURCE LINE # 137
+                                           ; SOURCE LINE # 138
+0086 900000      E     MOV     DPTR,#MIDI1_UART_rxBufferOverflow
+0089 7401              MOV     A,#01H
+008B F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 139
+008C         ?C0005:
+                                           ; SOURCE LINE # 141
+008C 900000      E     MOV     DPTR,#MIDI1_UART_rxBufferWrite
+008F E0                MOVX    A,@DPTR
+0090 04                INC     A
+0091 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 144
+0092 900000      E     MOV     DPTR,#MIDI1_UART_rxBufferWrite
+0095 E0                MOVX    A,@DPTR
+0096 FF                MOV     R7,A
+0097 EF                MOV     A,R7
+0098 C3                CLR     C
+0099 94FF              SUBB    A,#0FFH
+009B 4005              JC      ?C0006
+                                           ; SOURCE LINE # 145
+                                           ; SOURCE LINE # 146
+009D 900000      E     MOV     DPTR,#MIDI1_UART_rxBufferWrite
+00A0 E4                CLR     A
+00A1 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 147
+00A2         ?C0006:
+                                           ; SOURCE LINE # 149
+00A2 900000      E     MOV     DPTR,#MIDI1_UART_rxBufferRead
+C51 COMPILER V9.51   MIDI1_UART_INT                                                        02/21/2017 15:19:23 PAGE 8   
+
+00A5 E0                MOVX    A,@DPTR
+00A6 FF                MOV     R7,A
+00A7 900000      E     MOV     DPTR,#MIDI1_UART_rxBufferWrite
+00AA E0                MOVX    A,@DPTR
+00AB FE                MOV     R6,A
+00AC EE                MOV     A,R6
+00AD B50706            CJNE    A,AR7,?C0004
+                                           ; SOURCE LINE # 150
+                                           ; SOURCE LINE # 151
+00B0 900000      E     MOV     DPTR,#MIDI1_UART_rxBufferLoopDetect
+00B3 7401              MOV     A,#01H
+00B5 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 159
+                                           ; SOURCE LINE # 160
+00B6         ?C0004:
+                                           ; SOURCE LINE # 163
+00B6 906468            MOV     DPTR,#06468H
+00B9 E0                MOVX    A,@DPTR
+00BA FF                MOV     R7,A
+00BB 900000      R     MOV     DPTR,#readData
+00BE EF                MOV     A,R7
+00BF F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 164
+00C0 808F              SJMP    ?C0002
+00C2         ?C0003:
+                                           ; SOURCE LINE # 171
+00C2 7F00              MOV     R7,#00H
+00C4 120000      E     LCALL   _LED_InA_Write
+                                           ; SOURCE LINE # 175
+00C7 900000      R     MOV     DPTR,#int_en
+00CA E0                MOVX    A,@DPTR
+00CB FF                MOV     R7,A
+00CC EF                MOV     A,R7
+00CD 24FF              ADD     A,#0FFH
+00CF 92AF              MOV     EA,C
+                                           ; SOURCE LINE # 178
+00D1 D007              POP     AR7
+00D3 D006              POP     AR6
+00D5 D005              POP     AR5
+00D7 D004              POP     AR4
+00D9 D003              POP     AR3
+00DB D002              POP     AR2
+00DD D001              POP     AR1
+00DF D000              POP     AR0
+00E1 D0D0              POP     PSW
+00E3 D000        E     POP     ?C?XPAGE1SFR
+00E5 D086              POP     DPS
+00E7 D084              POP     DPL1
+00E9 D085              POP     DPH1
+00EB D082              POP     DPL
+00ED D083              POP     DPH
+00EF D0F0              POP     B
+00F1 D0E0              POP     ACC
+00F3 32                RETI    
+             ; FUNCTION MIDI1_UART_RXISR (END)
+
+             ; FUNCTION MIDI1_UART_TXISR (BEGIN)
+0000 C0E0              PUSH    ACC
+0002 C083              PUSH    DPH
+0004 C082              PUSH    DPL
+0006 C085              PUSH    DPH1
+0008 C084              PUSH    DPL1
+C51 COMPILER V9.51   MIDI1_UART_INT                                                        02/21/2017 15:19:23 PAGE 9   
+
+000A C086              PUSH    DPS
+000C 758600            MOV     DPS,#00H
+000F C000        E     PUSH    ?C?XPAGE1SFR
+0011 750000      E     MOV     ?C?XPAGE1SFR,#?C?XPAGE1RST
+0014 C0D0              PUSH    PSW
+0016 75D000            MOV     PSW,#00H
+0019 C006              PUSH    AR6
+001B C007              PUSH    AR7
+                                           ; SOURCE LINE # 207
+                                           ; SOURCE LINE # 220
+001D A2AF              MOV     C,EA
+001F E4                CLR     A
+0020 33                RLC     A
+0021 FF                MOV     R7,A
+0022 900000      R     MOV     DPTR,#int_en
+0025 EF                MOV     A,R7
+0026 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 221
+0027 D2AF              SETB    EA
+0029 9044F4            MOV     DPTR,#044F4H
+002C 74FD              MOV     A,#0FDH
+002E F0                MOVX    @DPTR,A
+002F         ?C0009:
+                                           ; SOURCE LINE # 225
+002F 900000      E     MOV     DPTR,#MIDI1_UART_txBufferWrite
+0032 E0                MOVX    A,@DPTR
+0033 FF                MOV     R7,A
+0034 900000      E     MOV     DPTR,#MIDI1_UART_txBufferRead
+0037 E0                MOVX    A,@DPTR
+0038 FE                MOV     R6,A
+0039 EE                MOV     A,R6
+003A 6F                XRL     A,R7
+003B 6037              JZ      ?C0010
+003D 90646A            MOV     DPTR,#0646AH
+0040 E0                MOVX    A,@DPTR
+0041 FF                MOV     R7,A
+0042 EF                MOV     A,R7
+0043 20E22E            JB      ACC.2,?C0010
+                                           ; SOURCE LINE # 226
+                                           ; SOURCE LINE # 228
+0046 900000      E     MOV     DPTR,#MIDI1_UART_txBufferRead
+0049 E0                MOVX    A,@DPTR
+004A FF                MOV     R7,A
+004B EF                MOV     A,R7
+004C C3                CLR     C
+004D 94FF              SUBB    A,#0FFH
+004F 4005              JC      ?C0011
+                                           ; SOURCE LINE # 229
+                                           ; SOURCE LINE # 230
+0051 900000      E     MOV     DPTR,#MIDI1_UART_txBufferRead
+0054 E4                CLR     A
+0055 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 231
+0056         ?C0011:
+                                           ; SOURCE LINE # 233
+0056 900000      E     MOV     DPTR,#MIDI1_UART_txBufferRead
+0059 E0                MOVX    A,@DPTR
+005A FF                MOV     R7,A
+005B 7400        E     MOV     A,#LOW MIDI1_UART_txBuffer
+005D 2F                ADD     A,R7
+005E F582              MOV     DPL,A
+0060 E4                CLR     A
+C51 COMPILER V9.51   MIDI1_UART_INT                                                        02/21/2017 15:19:23 PAGE 10  
+
+0061 3400        E     ADDC    A,#HIGH MIDI1_UART_txBuffer
+0063 F583              MOV     DPH,A
+0065 E0                MOVX    A,@DPTR
+0066 FF                MOV     R7,A
+0067 90644A            MOV     DPTR,#0644AH
+006A EF                MOV     A,R7
+006B F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 236
+006C 900000      E     MOV     DPTR,#MIDI1_UART_txBufferRead
+006F E0                MOVX    A,@DPTR
+0070 04                INC     A
+0071 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 237
+0072 80BB              SJMP    ?C0009
+0074         ?C0010:
+                                           ; SOURCE LINE # 245
+0074 900000      R     MOV     DPTR,#int_en
+0077 E0                MOVX    A,@DPTR
+0078 FF                MOV     R7,A
+0079 EF                MOV     A,R7
+007A 24FF              ADD     A,#0FFH
+007C 92AF              MOV     EA,C
+                                           ; SOURCE LINE # 248
+007E D007              POP     AR7
+0080 D006              POP     AR6
+0082 D0D0              POP     PSW
+0084 D000        E     POP     ?C?XPAGE1SFR
+0086 D086              POP     DPS
+0088 D084              POP     DPL1
+008A D085              POP     DPH1
+008C D082              POP     DPL
+008E D083              POP     DPH
+0090 D0E0              POP     ACC
+0092 32                RETI    
+             ; FUNCTION MIDI1_UART_TXISR (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    391    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----       4
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

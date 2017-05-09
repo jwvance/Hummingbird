@@ -1,0 +1,2427 @@
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"Sleep_isr.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.Sleep_isr_Interrupt,"ax",%progbits
+  19              		.align	2
+  20              		.global	Sleep_isr_Interrupt
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	Sleep_isr_Interrupt, %function
+  24              	Sleep_isr_Interrupt:
+  25              	.LFB3:
+  26              		.file 1 "Generated_Source\\PSoC5\\Sleep_isr.c"
+   1:Generated_Source\PSoC5/Sleep_isr.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/Sleep_isr.c **** * File Name: Sleep_isr.c  
+   3:Generated_Source\PSoC5/Sleep_isr.c **** * Version 1.70
+   4:Generated_Source\PSoC5/Sleep_isr.c **** *
+   5:Generated_Source\PSoC5/Sleep_isr.c **** *  Description:
+   6:Generated_Source\PSoC5/Sleep_isr.c **** *   API for controlling the state of an interrupt.
+   7:Generated_Source\PSoC5/Sleep_isr.c **** *
+   8:Generated_Source\PSoC5/Sleep_isr.c **** *
+   9:Generated_Source\PSoC5/Sleep_isr.c **** *  Note:
+  10:Generated_Source\PSoC5/Sleep_isr.c **** *
+  11:Generated_Source\PSoC5/Sleep_isr.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/Sleep_isr.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/Sleep_isr.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC5/Sleep_isr.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC5/Sleep_isr.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/Sleep_isr.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/Sleep_isr.c **** 
+  18:Generated_Source\PSoC5/Sleep_isr.c **** 
+  19:Generated_Source\PSoC5/Sleep_isr.c **** #include <cydevice_trm.h>
+  20:Generated_Source\PSoC5/Sleep_isr.c **** #include <CyLib.h>
+  21:Generated_Source\PSoC5/Sleep_isr.c **** #include <Sleep_isr.h>
+  22:Generated_Source\PSoC5/Sleep_isr.c **** 
+  23:Generated_Source\PSoC5/Sleep_isr.c **** 
+  24:Generated_Source\PSoC5/Sleep_isr.c **** #if !defined(Sleep_isr__REMOVED) /* Check for removal by optimization */
+  25:Generated_Source\PSoC5/Sleep_isr.c **** 
+  26:Generated_Source\PSoC5/Sleep_isr.c **** /*******************************************************************************
+  27:Generated_Source\PSoC5/Sleep_isr.c **** *  Place your includes, defines and code here 
+  28:Generated_Source\PSoC5/Sleep_isr.c **** ********************************************************************************/
+  29:Generated_Source\PSoC5/Sleep_isr.c **** /* `#START Sleep_isr_intc` */
+  30:Generated_Source\PSoC5/Sleep_isr.c **** 
+  31:Generated_Source\PSoC5/Sleep_isr.c **** /* `#END` */
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 2
+
+
+  32:Generated_Source\PSoC5/Sleep_isr.c **** 
+  33:Generated_Source\PSoC5/Sleep_isr.c **** #ifndef CYINT_IRQ_BASE
+  34:Generated_Source\PSoC5/Sleep_isr.c **** #define CYINT_IRQ_BASE      16
+  35:Generated_Source\PSoC5/Sleep_isr.c **** #endif /* CYINT_IRQ_BASE */
+  36:Generated_Source\PSoC5/Sleep_isr.c **** #ifndef CYINT_VECT_TABLE
+  37:Generated_Source\PSoC5/Sleep_isr.c **** #define CYINT_VECT_TABLE    ((cyisraddress **) CYREG_NVIC_VECT_OFFSET)
+  38:Generated_Source\PSoC5/Sleep_isr.c **** #endif /* CYINT_VECT_TABLE */
+  39:Generated_Source\PSoC5/Sleep_isr.c **** 
+  40:Generated_Source\PSoC5/Sleep_isr.c **** /* Declared in startup, used to set unused interrupts to. */
+  41:Generated_Source\PSoC5/Sleep_isr.c **** CY_ISR_PROTO(IntDefaultHandler);
+  42:Generated_Source\PSoC5/Sleep_isr.c **** 
+  43:Generated_Source\PSoC5/Sleep_isr.c **** 
+  44:Generated_Source\PSoC5/Sleep_isr.c **** /*******************************************************************************
+  45:Generated_Source\PSoC5/Sleep_isr.c **** * Function Name: Sleep_isr_Start
+  46:Generated_Source\PSoC5/Sleep_isr.c **** ********************************************************************************
+  47:Generated_Source\PSoC5/Sleep_isr.c **** *
+  48:Generated_Source\PSoC5/Sleep_isr.c **** * Summary:
+  49:Generated_Source\PSoC5/Sleep_isr.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
+  50:Generated_Source\PSoC5/Sleep_isr.c **** *  sets the default interrupt vector, sets the priority from the value in the
+  51:Generated_Source\PSoC5/Sleep_isr.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
+  52:Generated_Source\PSoC5/Sleep_isr.c **** *  interrupt controller.
+  53:Generated_Source\PSoC5/Sleep_isr.c **** *
+  54:Generated_Source\PSoC5/Sleep_isr.c **** * Parameters:  
+  55:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+  56:Generated_Source\PSoC5/Sleep_isr.c **** *
+  57:Generated_Source\PSoC5/Sleep_isr.c **** * Return:
+  58:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+  59:Generated_Source\PSoC5/Sleep_isr.c **** *
+  60:Generated_Source\PSoC5/Sleep_isr.c **** *******************************************************************************/
+  61:Generated_Source\PSoC5/Sleep_isr.c **** void Sleep_isr_Start(void)
+  62:Generated_Source\PSoC5/Sleep_isr.c **** {
+  63:Generated_Source\PSoC5/Sleep_isr.c ****     /* For all we know the interrupt is active. */
+  64:Generated_Source\PSoC5/Sleep_isr.c ****     Sleep_isr_Disable();
+  65:Generated_Source\PSoC5/Sleep_isr.c **** 
+  66:Generated_Source\PSoC5/Sleep_isr.c ****     /* Set the ISR to point to the Sleep_isr Interrupt. */
+  67:Generated_Source\PSoC5/Sleep_isr.c ****     Sleep_isr_SetVector(&Sleep_isr_Interrupt);
+  68:Generated_Source\PSoC5/Sleep_isr.c **** 
+  69:Generated_Source\PSoC5/Sleep_isr.c ****     /* Set the priority. */
+  70:Generated_Source\PSoC5/Sleep_isr.c ****     Sleep_isr_SetPriority((uint8)Sleep_isr_INTC_PRIOR_NUMBER);
+  71:Generated_Source\PSoC5/Sleep_isr.c **** 
+  72:Generated_Source\PSoC5/Sleep_isr.c ****     /* Enable it. */
+  73:Generated_Source\PSoC5/Sleep_isr.c ****     Sleep_isr_Enable();
+  74:Generated_Source\PSoC5/Sleep_isr.c **** }
+  75:Generated_Source\PSoC5/Sleep_isr.c **** 
+  76:Generated_Source\PSoC5/Sleep_isr.c **** 
+  77:Generated_Source\PSoC5/Sleep_isr.c **** /*******************************************************************************
+  78:Generated_Source\PSoC5/Sleep_isr.c **** * Function Name: Sleep_isr_StartEx
+  79:Generated_Source\PSoC5/Sleep_isr.c **** ********************************************************************************
+  80:Generated_Source\PSoC5/Sleep_isr.c **** *
+  81:Generated_Source\PSoC5/Sleep_isr.c **** * Summary:
+  82:Generated_Source\PSoC5/Sleep_isr.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
+  83:Generated_Source\PSoC5/Sleep_isr.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
+  84:Generated_Source\PSoC5/Sleep_isr.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
+  85:Generated_Source\PSoC5/Sleep_isr.c **** *  the interrupt to the interrupt controller.
+  86:Generated_Source\PSoC5/Sleep_isr.c **** *  
+  87:Generated_Source\PSoC5/Sleep_isr.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+  88:Generated_Source\PSoC5/Sleep_isr.c **** *  used to provide consistent definition across compilers:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 3
+
+
+  89:Generated_Source\PSoC5/Sleep_isr.c **** *  
+  90:Generated_Source\PSoC5/Sleep_isr.c **** *  Function definition example:
+  91:Generated_Source\PSoC5/Sleep_isr.c **** *   CY_ISR(MyISR)
+  92:Generated_Source\PSoC5/Sleep_isr.c **** *   {
+  93:Generated_Source\PSoC5/Sleep_isr.c **** *   }
+  94:Generated_Source\PSoC5/Sleep_isr.c **** *   Function prototype example:
+  95:Generated_Source\PSoC5/Sleep_isr.c **** *   CY_ISR_PROTO(MyISR);
+  96:Generated_Source\PSoC5/Sleep_isr.c **** *
+  97:Generated_Source\PSoC5/Sleep_isr.c **** * Parameters:  
+  98:Generated_Source\PSoC5/Sleep_isr.c **** *   address: Address of the ISR to set in the interrupt vector table.
+  99:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 100:Generated_Source\PSoC5/Sleep_isr.c **** * Return:
+ 101:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+ 102:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 103:Generated_Source\PSoC5/Sleep_isr.c **** *******************************************************************************/
+ 104:Generated_Source\PSoC5/Sleep_isr.c **** void Sleep_isr_StartEx(cyisraddress address)
+ 105:Generated_Source\PSoC5/Sleep_isr.c **** {
+ 106:Generated_Source\PSoC5/Sleep_isr.c ****     /* For all we know the interrupt is active. */
+ 107:Generated_Source\PSoC5/Sleep_isr.c ****     Sleep_isr_Disable();
+ 108:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 109:Generated_Source\PSoC5/Sleep_isr.c ****     /* Set the ISR to point to the Sleep_isr Interrupt. */
+ 110:Generated_Source\PSoC5/Sleep_isr.c ****     Sleep_isr_SetVector(address);
+ 111:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 112:Generated_Source\PSoC5/Sleep_isr.c ****     /* Set the priority. */
+ 113:Generated_Source\PSoC5/Sleep_isr.c ****     Sleep_isr_SetPriority((uint8)Sleep_isr_INTC_PRIOR_NUMBER);
+ 114:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 115:Generated_Source\PSoC5/Sleep_isr.c ****     /* Enable it. */
+ 116:Generated_Source\PSoC5/Sleep_isr.c ****     Sleep_isr_Enable();
+ 117:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 118:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 119:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 120:Generated_Source\PSoC5/Sleep_isr.c **** /*******************************************************************************
+ 121:Generated_Source\PSoC5/Sleep_isr.c **** * Function Name: Sleep_isr_Stop
+ 122:Generated_Source\PSoC5/Sleep_isr.c **** ********************************************************************************
+ 123:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 124:Generated_Source\PSoC5/Sleep_isr.c **** * Summary:
+ 125:Generated_Source\PSoC5/Sleep_isr.c **** *   Disables and removes the interrupt.
+ 126:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 127:Generated_Source\PSoC5/Sleep_isr.c **** * Parameters:  
+ 128:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+ 129:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 130:Generated_Source\PSoC5/Sleep_isr.c **** * Return:
+ 131:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+ 132:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 133:Generated_Source\PSoC5/Sleep_isr.c **** *******************************************************************************/
+ 134:Generated_Source\PSoC5/Sleep_isr.c **** void Sleep_isr_Stop(void)
+ 135:Generated_Source\PSoC5/Sleep_isr.c **** {
+ 136:Generated_Source\PSoC5/Sleep_isr.c ****     /* Disable this interrupt. */
+ 137:Generated_Source\PSoC5/Sleep_isr.c ****     Sleep_isr_Disable();
+ 138:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 139:Generated_Source\PSoC5/Sleep_isr.c ****     /* Set the ISR to point to the passive one. */
+ 140:Generated_Source\PSoC5/Sleep_isr.c ****     Sleep_isr_SetVector(&IntDefaultHandler);
+ 141:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 142:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 143:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 144:Generated_Source\PSoC5/Sleep_isr.c **** /*******************************************************************************
+ 145:Generated_Source\PSoC5/Sleep_isr.c **** * Function Name: Sleep_isr_Interrupt
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 4
+
+
+ 146:Generated_Source\PSoC5/Sleep_isr.c **** ********************************************************************************
+ 147:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 148:Generated_Source\PSoC5/Sleep_isr.c **** * Summary:
+ 149:Generated_Source\PSoC5/Sleep_isr.c **** *   The default Interrupt Service Routine for Sleep_isr.
+ 150:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 151:Generated_Source\PSoC5/Sleep_isr.c **** *   Add custom code between the coments to keep the next version of this file
+ 152:Generated_Source\PSoC5/Sleep_isr.c **** *   from over writting your code.
+ 153:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 154:Generated_Source\PSoC5/Sleep_isr.c **** * Parameters:  
+ 155:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 156:Generated_Source\PSoC5/Sleep_isr.c **** * Return:
+ 157:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+ 158:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 159:Generated_Source\PSoC5/Sleep_isr.c **** *******************************************************************************/
+ 160:Generated_Source\PSoC5/Sleep_isr.c **** CY_ISR(Sleep_isr_Interrupt)
+ 161:Generated_Source\PSoC5/Sleep_isr.c **** {
+  27              		.loc 1 161 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32 0000 7047     		bx	lr
+  33              		.cfi_endproc
+  34              	.LFE3:
+  35              		.size	Sleep_isr_Interrupt, .-Sleep_isr_Interrupt
+  36 0002 00BF     		.section	.text.Sleep_isr_Start,"ax",%progbits
+  37              		.align	2
+  38              		.global	Sleep_isr_Start
+  39              		.thumb
+  40              		.thumb_func
+  41              		.type	Sleep_isr_Start, %function
+  42              	Sleep_isr_Start:
+  43              	.LFB0:
+  62:Generated_Source\PSoC5/Sleep_isr.c ****     /* For all we know the interrupt is active. */
+  44              		.loc 1 62 0
+  45              		.cfi_startproc
+  46              		@ args = 0, pretend = 0, frame = 0
+  47              		@ frame_needed = 0, uses_anonymous_args = 0
+  48              		@ link register save eliminated.
+  62:Generated_Source\PSoC5/Sleep_isr.c ****     /* For all we know the interrupt is active. */
+  49              		.loc 1 62 0
+  50 0000 70B4     		push	{r4, r5, r6}
+  51              		.cfi_def_cfa_offset 12
+  52              		.cfi_offset 4, -12
+  53              		.cfi_offset 5, -8
+  54              		.cfi_offset 6, -4
+  55              	.LBB22:
+  56              	.LBB23:
+ 162:Generated_Source\PSoC5/Sleep_isr.c ****     #ifdef Sleep_isr_INTERRUPT_INTERRUPT_CALLBACK
+ 163:Generated_Source\PSoC5/Sleep_isr.c ****         Sleep_isr_Interrupt_InterruptCallback();
+ 164:Generated_Source\PSoC5/Sleep_isr.c ****     #endif /* Sleep_isr_INTERRUPT_INTERRUPT_CALLBACK */ 
+ 165:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 166:Generated_Source\PSoC5/Sleep_isr.c ****     /*  Place your Interrupt code here. */
+ 167:Generated_Source\PSoC5/Sleep_isr.c ****     /* `#START Sleep_isr_Interrupt` */
+ 168:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 169:Generated_Source\PSoC5/Sleep_isr.c ****     /* `#END` */
+ 170:Generated_Source\PSoC5/Sleep_isr.c **** }
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 5
+
+
+ 171:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 172:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 173:Generated_Source\PSoC5/Sleep_isr.c **** /*******************************************************************************
+ 174:Generated_Source\PSoC5/Sleep_isr.c **** * Function Name: Sleep_isr_SetVector
+ 175:Generated_Source\PSoC5/Sleep_isr.c **** ********************************************************************************
+ 176:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 177:Generated_Source\PSoC5/Sleep_isr.c **** * Summary:
+ 178:Generated_Source\PSoC5/Sleep_isr.c **** *   Change the ISR vector for the Interrupt. Note calling Sleep_isr_Start
+ 179:Generated_Source\PSoC5/Sleep_isr.c **** *   will override any effect this method would have had. To set the vector 
+ 180:Generated_Source\PSoC5/Sleep_isr.c **** *   before the component has been started use Sleep_isr_StartEx instead.
+ 181:Generated_Source\PSoC5/Sleep_isr.c **** * 
+ 182:Generated_Source\PSoC5/Sleep_isr.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 183:Generated_Source\PSoC5/Sleep_isr.c **** *   used to provide consistent definition across compilers:
+ 184:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 185:Generated_Source\PSoC5/Sleep_isr.c **** *   Function definition example:
+ 186:Generated_Source\PSoC5/Sleep_isr.c **** *   CY_ISR(MyISR)
+ 187:Generated_Source\PSoC5/Sleep_isr.c **** *   {
+ 188:Generated_Source\PSoC5/Sleep_isr.c **** *   }
+ 189:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 190:Generated_Source\PSoC5/Sleep_isr.c **** *   Function prototype example:
+ 191:Generated_Source\PSoC5/Sleep_isr.c **** *     CY_ISR_PROTO(MyISR);
+ 192:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 193:Generated_Source\PSoC5/Sleep_isr.c **** * Parameters:
+ 194:Generated_Source\PSoC5/Sleep_isr.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 195:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 196:Generated_Source\PSoC5/Sleep_isr.c **** * Return:
+ 197:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+ 198:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 199:Generated_Source\PSoC5/Sleep_isr.c **** *******************************************************************************/
+ 200:Generated_Source\PSoC5/Sleep_isr.c **** void Sleep_isr_SetVector(cyisraddress address)
+ 201:Generated_Source\PSoC5/Sleep_isr.c **** {
+ 202:Generated_Source\PSoC5/Sleep_isr.c ****     cyisraddress * ramVectorTable;
+ 203:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 204:Generated_Source\PSoC5/Sleep_isr.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+  57              		.loc 1 204 0
+  58 0002 074B     		ldr	r3, .L4
+  59              	.LBE23:
+  60              	.LBE22:
+  61              	.LBB26:
+  62              	.LBB27:
+ 205:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 206:Generated_Source\PSoC5/Sleep_isr.c ****     ramVectorTable[CYINT_IRQ_BASE + (uint32)Sleep_isr__INTC_NUMBER] = address;
+ 207:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 208:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 209:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 210:Generated_Source\PSoC5/Sleep_isr.c **** /*******************************************************************************
+ 211:Generated_Source\PSoC5/Sleep_isr.c **** * Function Name: Sleep_isr_GetVector
+ 212:Generated_Source\PSoC5/Sleep_isr.c **** ********************************************************************************
+ 213:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 214:Generated_Source\PSoC5/Sleep_isr.c **** * Summary:
+ 215:Generated_Source\PSoC5/Sleep_isr.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 216:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 217:Generated_Source\PSoC5/Sleep_isr.c **** * Parameters:
+ 218:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+ 219:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 220:Generated_Source\PSoC5/Sleep_isr.c **** * Return:
+ 221:Generated_Source\PSoC5/Sleep_isr.c **** *   Address of the ISR in the interrupt vector table.
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 6
+
+
+ 222:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 223:Generated_Source\PSoC5/Sleep_isr.c **** *******************************************************************************/
+ 224:Generated_Source\PSoC5/Sleep_isr.c **** cyisraddress Sleep_isr_GetVector(void)
+ 225:Generated_Source\PSoC5/Sleep_isr.c **** {
+ 226:Generated_Source\PSoC5/Sleep_isr.c ****     cyisraddress * ramVectorTable;
+ 227:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 228:Generated_Source\PSoC5/Sleep_isr.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+ 229:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 230:Generated_Source\PSoC5/Sleep_isr.c ****     return ramVectorTable[CYINT_IRQ_BASE + (uint32)Sleep_isr__INTC_NUMBER];
+ 231:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 232:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 233:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 234:Generated_Source\PSoC5/Sleep_isr.c **** /*******************************************************************************
+ 235:Generated_Source\PSoC5/Sleep_isr.c **** * Function Name: Sleep_isr_SetPriority
+ 236:Generated_Source\PSoC5/Sleep_isr.c **** ********************************************************************************
+ 237:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 238:Generated_Source\PSoC5/Sleep_isr.c **** * Summary:
+ 239:Generated_Source\PSoC5/Sleep_isr.c **** *   Sets the Priority of the Interrupt. 
+ 240:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 241:Generated_Source\PSoC5/Sleep_isr.c **** *   Note calling Sleep_isr_Start or Sleep_isr_StartEx will 
+ 242:Generated_Source\PSoC5/Sleep_isr.c **** *   override any effect this API would have had. This API should only be called
+ 243:Generated_Source\PSoC5/Sleep_isr.c **** *   after Sleep_isr_Start or Sleep_isr_StartEx has been called. 
+ 244:Generated_Source\PSoC5/Sleep_isr.c **** *   To set the initial priority for the component, use the Design-Wide Resources
+ 245:Generated_Source\PSoC5/Sleep_isr.c **** *   Interrupt Editor.
+ 246:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 247:Generated_Source\PSoC5/Sleep_isr.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 248:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 249:Generated_Source\PSoC5/Sleep_isr.c **** * Parameters:
+ 250:Generated_Source\PSoC5/Sleep_isr.c **** *   priority: Priority of the interrupt, 0 being the highest priority
+ 251:Generated_Source\PSoC5/Sleep_isr.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 252:Generated_Source\PSoC5/Sleep_isr.c **** *             PSoC 4: Priority is from 0 to 3.
+ 253:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 254:Generated_Source\PSoC5/Sleep_isr.c **** * Return:
+ 255:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+ 256:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 257:Generated_Source\PSoC5/Sleep_isr.c **** *******************************************************************************/
+ 258:Generated_Source\PSoC5/Sleep_isr.c **** void Sleep_isr_SetPriority(uint8 priority)
+ 259:Generated_Source\PSoC5/Sleep_isr.c **** {
+ 260:Generated_Source\PSoC5/Sleep_isr.c ****     *Sleep_isr_INTC_PRIOR = priority << 5;
+ 261:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 262:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 263:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 264:Generated_Source\PSoC5/Sleep_isr.c **** /*******************************************************************************
+ 265:Generated_Source\PSoC5/Sleep_isr.c **** * Function Name: Sleep_isr_GetPriority
+ 266:Generated_Source\PSoC5/Sleep_isr.c **** ********************************************************************************
+ 267:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 268:Generated_Source\PSoC5/Sleep_isr.c **** * Summary:
+ 269:Generated_Source\PSoC5/Sleep_isr.c **** *   Gets the Priority of the Interrupt.
+ 270:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 271:Generated_Source\PSoC5/Sleep_isr.c **** * Parameters:
+ 272:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+ 273:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 274:Generated_Source\PSoC5/Sleep_isr.c **** * Return:
+ 275:Generated_Source\PSoC5/Sleep_isr.c **** *   Priority of the interrupt, 0 being the highest priority
+ 276:Generated_Source\PSoC5/Sleep_isr.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 277:Generated_Source\PSoC5/Sleep_isr.c **** *    PSoC 4: Priority is from 0 to 3.
+ 278:Generated_Source\PSoC5/Sleep_isr.c **** *
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 7
+
+
+ 279:Generated_Source\PSoC5/Sleep_isr.c **** *******************************************************************************/
+ 280:Generated_Source\PSoC5/Sleep_isr.c **** uint8 Sleep_isr_GetPriority(void)
+ 281:Generated_Source\PSoC5/Sleep_isr.c **** {
+ 282:Generated_Source\PSoC5/Sleep_isr.c ****     uint8 priority;
+ 283:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 284:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 285:Generated_Source\PSoC5/Sleep_isr.c ****     priority = *Sleep_isr_INTC_PRIOR >> 5;
+ 286:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 287:Generated_Source\PSoC5/Sleep_isr.c ****     return priority;
+ 288:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 289:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 290:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 291:Generated_Source\PSoC5/Sleep_isr.c **** /*******************************************************************************
+ 292:Generated_Source\PSoC5/Sleep_isr.c **** * Function Name: Sleep_isr_Enable
+ 293:Generated_Source\PSoC5/Sleep_isr.c **** ********************************************************************************
+ 294:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 295:Generated_Source\PSoC5/Sleep_isr.c **** * Summary:
+ 296:Generated_Source\PSoC5/Sleep_isr.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
+ 297:Generated_Source\PSoC5/Sleep_isr.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
+ 298:Generated_Source\PSoC5/Sleep_isr.c **** *   function, which sets the vector and the priority, has been called.
+ 299:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 300:Generated_Source\PSoC5/Sleep_isr.c **** * Parameters:
+ 301:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+ 302:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 303:Generated_Source\PSoC5/Sleep_isr.c **** * Return:
+ 304:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+ 305:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 306:Generated_Source\PSoC5/Sleep_isr.c **** *******************************************************************************/
+ 307:Generated_Source\PSoC5/Sleep_isr.c **** void Sleep_isr_Enable(void)
+ 308:Generated_Source\PSoC5/Sleep_isr.c **** {
+ 309:Generated_Source\PSoC5/Sleep_isr.c ****     /* Enable the general interrupt. */
+ 310:Generated_Source\PSoC5/Sleep_isr.c ****     *Sleep_isr_INTC_SET_EN = Sleep_isr__INTC_MASK;
+ 311:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 312:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 313:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 314:Generated_Source\PSoC5/Sleep_isr.c **** /*******************************************************************************
+ 315:Generated_Source\PSoC5/Sleep_isr.c **** * Function Name: Sleep_isr_GetState
+ 316:Generated_Source\PSoC5/Sleep_isr.c **** ********************************************************************************
+ 317:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 318:Generated_Source\PSoC5/Sleep_isr.c **** * Summary:
+ 319:Generated_Source\PSoC5/Sleep_isr.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 320:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 321:Generated_Source\PSoC5/Sleep_isr.c **** * Parameters:
+ 322:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+ 323:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 324:Generated_Source\PSoC5/Sleep_isr.c **** * Return:
+ 325:Generated_Source\PSoC5/Sleep_isr.c **** *   1 if enabled, 0 if disabled.
+ 326:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 327:Generated_Source\PSoC5/Sleep_isr.c **** *******************************************************************************/
+ 328:Generated_Source\PSoC5/Sleep_isr.c **** uint8 Sleep_isr_GetState(void)
+ 329:Generated_Source\PSoC5/Sleep_isr.c **** {
+ 330:Generated_Source\PSoC5/Sleep_isr.c ****     /* Get the state of the general interrupt. */
+ 331:Generated_Source\PSoC5/Sleep_isr.c ****     return ((*Sleep_isr_INTC_SET_EN & (uint32)Sleep_isr__INTC_MASK) != 0u) ? 1u:0u;
+ 332:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 333:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 334:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 335:Generated_Source\PSoC5/Sleep_isr.c **** /*******************************************************************************
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 8
+
+
+ 336:Generated_Source\PSoC5/Sleep_isr.c **** * Function Name: Sleep_isr_Disable
+ 337:Generated_Source\PSoC5/Sleep_isr.c **** ********************************************************************************
+ 338:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 339:Generated_Source\PSoC5/Sleep_isr.c **** * Summary:
+ 340:Generated_Source\PSoC5/Sleep_isr.c **** *   Disables the Interrupt in the interrupt controller.
+ 341:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 342:Generated_Source\PSoC5/Sleep_isr.c **** * Parameters:
+ 343:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+ 344:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 345:Generated_Source\PSoC5/Sleep_isr.c **** * Return:
+ 346:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+ 347:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 348:Generated_Source\PSoC5/Sleep_isr.c **** *******************************************************************************/
+ 349:Generated_Source\PSoC5/Sleep_isr.c **** void Sleep_isr_Disable(void)
+ 350:Generated_Source\PSoC5/Sleep_isr.c **** {
+ 351:Generated_Source\PSoC5/Sleep_isr.c ****     /* Disable the general interrupt. */
+ 352:Generated_Source\PSoC5/Sleep_isr.c ****     *Sleep_isr_INTC_CLR_EN = Sleep_isr__INTC_MASK;
+  63              		.loc 1 352 0
+  64 0004 074E     		ldr	r6, .L4+4
+  65              	.LBE27:
+  66              	.LBE26:
+  67              	.LBB30:
+  68              	.LBB24:
+ 204:Generated_Source\PSoC5/Sleep_isr.c **** 
+  69              		.loc 1 204 0
+  70 0006 1C68     		ldr	r4, [r3]
+ 206:Generated_Source\PSoC5/Sleep_isr.c **** }
+  71              		.loc 1 206 0
+  72 0008 074D     		ldr	r5, .L4+8
+  73              	.LBE24:
+  74              	.LBE30:
+  75              	.LBB31:
+  76              	.LBB32:
+ 260:Generated_Source\PSoC5/Sleep_isr.c **** }
+  77              		.loc 1 260 0
+  78 000a 0849     		ldr	r1, .L4+12
+  79              	.LBE32:
+  80              	.LBE31:
+  81              	.LBB35:
+  82              	.LBB28:
+  83              		.loc 1 352 0
+  84 000c 0123     		movs	r3, #1
+  85              	.LBE28:
+  86              	.LBE35:
+  87              	.LBB36:
+  88              	.LBB37:
+ 310:Generated_Source\PSoC5/Sleep_isr.c **** }
+  89              		.loc 1 310 0
+  90 000e 084A     		ldr	r2, .L4+16
+  91              	.LBE37:
+  92              	.LBE36:
+  93              	.LBB39:
+  94              	.LBB33:
+ 260:Generated_Source\PSoC5/Sleep_isr.c **** }
+  95              		.loc 1 260 0
+  96 0010 E020     		movs	r0, #224
+  97              	.LBE33:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 9
+
+
+  98              	.LBE39:
+  99              	.LBB40:
+ 100              	.LBB29:
+ 101              		.loc 1 352 0
+ 102 0012 3360     		str	r3, [r6]
+ 103              	.LVL0:
+ 104              	.LBE29:
+ 105              	.LBE40:
+ 106              	.LBB41:
+ 107              	.LBB25:
+ 206:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 108              		.loc 1 206 0
+ 109 0014 2564     		str	r5, [r4, #64]
+ 110              	.LVL1:
+ 111              	.LBE25:
+ 112              	.LBE41:
+ 113              	.LBB42:
+ 114              	.LBB34:
+ 260:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 115              		.loc 1 260 0
+ 116 0016 0870     		strb	r0, [r1]
+ 117              	.LBE34:
+ 118              	.LBE42:
+  74:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 119              		.loc 1 74 0
+ 120 0018 70BC     		pop	{r4, r5, r6}
+ 121              		.cfi_restore 6
+ 122              		.cfi_restore 5
+ 123              		.cfi_restore 4
+ 124              		.cfi_def_cfa_offset 0
+ 125              	.LVL2:
+ 126              	.LBB43:
+ 127              	.LBB38:
+ 310:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 128              		.loc 1 310 0
+ 129 001a 1360     		str	r3, [r2]
+ 130              	.LBE38:
+ 131              	.LBE43:
+  74:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 132              		.loc 1 74 0
+ 133 001c 7047     		bx	lr
+ 134              	.L5:
+ 135 001e 00BF     		.align	2
+ 136              	.L4:
+ 137 0020 08ED00E0 		.word	-536810232
+ 138 0024 80E100E0 		.word	-536813184
+ 139 0028 00000000 		.word	Sleep_isr_Interrupt
+ 140 002c 00E400E0 		.word	-536812544
+ 141 0030 00E100E0 		.word	-536813312
+ 142              		.cfi_endproc
+ 143              	.LFE0:
+ 144              		.size	Sleep_isr_Start, .-Sleep_isr_Start
+ 145              		.section	.text.Sleep_isr_StartEx,"ax",%progbits
+ 146              		.align	2
+ 147              		.global	Sleep_isr_StartEx
+ 148              		.thumb
+ 149              		.thumb_func
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 10
+
+
+ 150              		.type	Sleep_isr_StartEx, %function
+ 151              	Sleep_isr_StartEx:
+ 152              	.LFB1:
+ 105:Generated_Source\PSoC5/Sleep_isr.c ****     /* For all we know the interrupt is active. */
+ 153              		.loc 1 105 0
+ 154              		.cfi_startproc
+ 155              		@ args = 0, pretend = 0, frame = 0
+ 156              		@ frame_needed = 0, uses_anonymous_args = 0
+ 157              		@ link register save eliminated.
+ 158              	.LVL3:
+ 159 0000 70B4     		push	{r4, r5, r6}
+ 160              		.cfi_def_cfa_offset 12
+ 161              		.cfi_offset 4, -12
+ 162              		.cfi_offset 5, -8
+ 163              		.cfi_offset 6, -4
+ 164              	.LBB44:
+ 165              	.LBB45:
+ 204:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 166              		.loc 1 204 0
+ 167 0002 064B     		ldr	r3, .L8
+ 168              	.LBE45:
+ 169              	.LBE44:
+ 170              	.LBB48:
+ 171              	.LBB49:
+ 172              		.loc 1 352 0
+ 173 0004 064E     		ldr	r6, .L8+4
+ 174              	.LBE49:
+ 175              	.LBE48:
+ 176              	.LBB52:
+ 177              	.LBB46:
+ 204:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 178              		.loc 1 204 0
+ 179 0006 1D68     		ldr	r5, [r3]
+ 180              	.LBE46:
+ 181              	.LBE52:
+ 182              	.LBB53:
+ 183              	.LBB54:
+ 260:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 184              		.loc 1 260 0
+ 185 0008 0649     		ldr	r1, .L8+8
+ 186              	.LBE54:
+ 187              	.LBE53:
+ 188              	.LBB57:
+ 189              	.LBB50:
+ 190              		.loc 1 352 0
+ 191 000a 0123     		movs	r3, #1
+ 192              	.LBE50:
+ 193              	.LBE57:
+ 194              	.LBB58:
+ 195              	.LBB55:
+ 260:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 196              		.loc 1 260 0
+ 197 000c E024     		movs	r4, #224
+ 198              	.LBE55:
+ 199              	.LBE58:
+ 200              	.LBB59:
+ 201              	.LBB60:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 11
+
+
+ 310:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 202              		.loc 1 310 0
+ 203 000e 064A     		ldr	r2, .L8+12
+ 204              	.LBE60:
+ 205              	.LBE59:
+ 206              	.LBB62:
+ 207              	.LBB51:
+ 208              		.loc 1 352 0
+ 209 0010 3360     		str	r3, [r6]
+ 210              	.LVL4:
+ 211              	.LBE51:
+ 212              	.LBE62:
+ 213              	.LBB63:
+ 214              	.LBB47:
+ 206:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 215              		.loc 1 206 0
+ 216 0012 2864     		str	r0, [r5, #64]
+ 217              	.LVL5:
+ 218              	.LBE47:
+ 219              	.LBE63:
+ 220              	.LBB64:
+ 221              	.LBB56:
+ 260:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 222              		.loc 1 260 0
+ 223 0014 0C70     		strb	r4, [r1]
+ 224              	.LBE56:
+ 225              	.LBE64:
+ 117:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 226              		.loc 1 117 0
+ 227 0016 70BC     		pop	{r4, r5, r6}
+ 228              		.cfi_restore 6
+ 229              		.cfi_restore 5
+ 230              		.cfi_restore 4
+ 231              		.cfi_def_cfa_offset 0
+ 232              	.LVL6:
+ 233              	.LBB65:
+ 234              	.LBB61:
+ 310:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 235              		.loc 1 310 0
+ 236 0018 1360     		str	r3, [r2]
+ 237              	.LBE61:
+ 238              	.LBE65:
+ 117:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 239              		.loc 1 117 0
+ 240 001a 7047     		bx	lr
+ 241              	.L9:
+ 242              		.align	2
+ 243              	.L8:
+ 244 001c 08ED00E0 		.word	-536810232
+ 245 0020 80E100E0 		.word	-536813184
+ 246 0024 00E400E0 		.word	-536812544
+ 247 0028 00E100E0 		.word	-536813312
+ 248              		.cfi_endproc
+ 249              	.LFE1:
+ 250              		.size	Sleep_isr_StartEx, .-Sleep_isr_StartEx
+ 251              		.section	.text.Sleep_isr_Stop,"ax",%progbits
+ 252              		.align	2
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 12
+
+
+ 253              		.global	Sleep_isr_Stop
+ 254              		.thumb
+ 255              		.thumb_func
+ 256              		.type	Sleep_isr_Stop, %function
+ 257              	Sleep_isr_Stop:
+ 258              	.LFB2:
+ 135:Generated_Source\PSoC5/Sleep_isr.c ****     /* Disable this interrupt. */
+ 259              		.loc 1 135 0
+ 260              		.cfi_startproc
+ 261              		@ args = 0, pretend = 0, frame = 0
+ 262              		@ frame_needed = 0, uses_anonymous_args = 0
+ 263              		@ link register save eliminated.
+ 264              	.LBB66:
+ 265              	.LBB67:
+ 204:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 266              		.loc 1 204 0
+ 267 0000 034B     		ldr	r3, .L11
+ 268              	.LBE67:
+ 269              	.LBE66:
+ 270              	.LBB70:
+ 271              	.LBB71:
+ 272              		.loc 1 352 0
+ 273 0002 0449     		ldr	r1, .L11+4
+ 274              	.LBE71:
+ 275              	.LBE70:
+ 276              	.LBB73:
+ 277              	.LBB68:
+ 204:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 278              		.loc 1 204 0
+ 279 0004 1B68     		ldr	r3, [r3]
+ 206:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 280              		.loc 1 206 0
+ 281 0006 044A     		ldr	r2, .L11+8
+ 282              	.LBE68:
+ 283              	.LBE73:
+ 284              	.LBB74:
+ 285              	.LBB72:
+ 286              		.loc 1 352 0
+ 287 0008 0120     		movs	r0, #1
+ 288 000a 0860     		str	r0, [r1]
+ 289              	.LVL7:
+ 290              	.LBE72:
+ 291              	.LBE74:
+ 292              	.LBB75:
+ 293              	.LBB69:
+ 206:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 294              		.loc 1 206 0
+ 295 000c 1A64     		str	r2, [r3, #64]
+ 296 000e 7047     		bx	lr
+ 297              	.L12:
+ 298              		.align	2
+ 299              	.L11:
+ 300 0010 08ED00E0 		.word	-536810232
+ 301 0014 80E100E0 		.word	-536813184
+ 302 0018 00000000 		.word	IntDefaultHandler
+ 303              	.LBE69:
+ 304              	.LBE75:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 13
+
+
+ 305              		.cfi_endproc
+ 306              	.LFE2:
+ 307              		.size	Sleep_isr_Stop, .-Sleep_isr_Stop
+ 308              		.section	.text.Sleep_isr_SetVector,"ax",%progbits
+ 309              		.align	2
+ 310              		.global	Sleep_isr_SetVector
+ 311              		.thumb
+ 312              		.thumb_func
+ 313              		.type	Sleep_isr_SetVector, %function
+ 314              	Sleep_isr_SetVector:
+ 315              	.LFB4:
+ 201:Generated_Source\PSoC5/Sleep_isr.c ****     cyisraddress * ramVectorTable;
+ 316              		.loc 1 201 0
+ 317              		.cfi_startproc
+ 318              		@ args = 0, pretend = 0, frame = 0
+ 319              		@ frame_needed = 0, uses_anonymous_args = 0
+ 320              		@ link register save eliminated.
+ 321              	.LVL8:
+ 204:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 322              		.loc 1 204 0
+ 323 0000 014B     		ldr	r3, .L14
+ 324 0002 1B68     		ldr	r3, [r3]
+ 325              	.LVL9:
+ 206:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 326              		.loc 1 206 0
+ 327 0004 1864     		str	r0, [r3, #64]
+ 328 0006 7047     		bx	lr
+ 329              	.L15:
+ 330              		.align	2
+ 331              	.L14:
+ 332 0008 08ED00E0 		.word	-536810232
+ 333              		.cfi_endproc
+ 334              	.LFE4:
+ 335              		.size	Sleep_isr_SetVector, .-Sleep_isr_SetVector
+ 336              		.section	.text.Sleep_isr_GetVector,"ax",%progbits
+ 337              		.align	2
+ 338              		.global	Sleep_isr_GetVector
+ 339              		.thumb
+ 340              		.thumb_func
+ 341              		.type	Sleep_isr_GetVector, %function
+ 342              	Sleep_isr_GetVector:
+ 343              	.LFB5:
+ 225:Generated_Source\PSoC5/Sleep_isr.c ****     cyisraddress * ramVectorTable;
+ 344              		.loc 1 225 0
+ 345              		.cfi_startproc
+ 346              		@ args = 0, pretend = 0, frame = 0
+ 347              		@ frame_needed = 0, uses_anonymous_args = 0
+ 348              		@ link register save eliminated.
+ 349              	.LVL10:
+ 228:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 350              		.loc 1 228 0
+ 351 0000 014B     		ldr	r3, .L17
+ 352              	.LVL11:
+ 230:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 353              		.loc 1 230 0
+ 354 0002 1B68     		ldr	r3, [r3]
+ 355              	.LVL12:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 14
+
+
+ 231:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 356              		.loc 1 231 0
+ 357 0004 186C     		ldr	r0, [r3, #64]
+ 358 0006 7047     		bx	lr
+ 359              	.L18:
+ 360              		.align	2
+ 361              	.L17:
+ 362 0008 08ED00E0 		.word	-536810232
+ 363              		.cfi_endproc
+ 364              	.LFE5:
+ 365              		.size	Sleep_isr_GetVector, .-Sleep_isr_GetVector
+ 366              		.section	.text.Sleep_isr_SetPriority,"ax",%progbits
+ 367              		.align	2
+ 368              		.global	Sleep_isr_SetPriority
+ 369              		.thumb
+ 370              		.thumb_func
+ 371              		.type	Sleep_isr_SetPriority, %function
+ 372              	Sleep_isr_SetPriority:
+ 373              	.LFB6:
+ 259:Generated_Source\PSoC5/Sleep_isr.c ****     *Sleep_isr_INTC_PRIOR = priority << 5;
+ 374              		.loc 1 259 0
+ 375              		.cfi_startproc
+ 376              		@ args = 0, pretend = 0, frame = 0
+ 377              		@ frame_needed = 0, uses_anonymous_args = 0
+ 378              		@ link register save eliminated.
+ 379              	.LVL13:
+ 260:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 380              		.loc 1 260 0
+ 381 0000 4001     		lsls	r0, r0, #5
+ 382              	.LVL14:
+ 383 0002 024B     		ldr	r3, .L20
+ 384 0004 C0B2     		uxtb	r0, r0
+ 385 0006 1870     		strb	r0, [r3]
+ 386 0008 7047     		bx	lr
+ 387              	.L21:
+ 388 000a 00BF     		.align	2
+ 389              	.L20:
+ 390 000c 00E400E0 		.word	-536812544
+ 391              		.cfi_endproc
+ 392              	.LFE6:
+ 393              		.size	Sleep_isr_SetPriority, .-Sleep_isr_SetPriority
+ 394              		.section	.text.Sleep_isr_GetPriority,"ax",%progbits
+ 395              		.align	2
+ 396              		.global	Sleep_isr_GetPriority
+ 397              		.thumb
+ 398              		.thumb_func
+ 399              		.type	Sleep_isr_GetPriority, %function
+ 400              	Sleep_isr_GetPriority:
+ 401              	.LFB7:
+ 281:Generated_Source\PSoC5/Sleep_isr.c ****     uint8 priority;
+ 402              		.loc 1 281 0
+ 403              		.cfi_startproc
+ 404              		@ args = 0, pretend = 0, frame = 0
+ 405              		@ frame_needed = 0, uses_anonymous_args = 0
+ 406              		@ link register save eliminated.
+ 285:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 407              		.loc 1 285 0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 15
+
+
+ 408 0000 014B     		ldr	r3, .L23
+ 409 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 410              	.LVL15:
+ 288:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 411              		.loc 1 288 0
+ 412 0004 4009     		lsrs	r0, r0, #5
+ 413              	.LVL16:
+ 414 0006 7047     		bx	lr
+ 415              	.L24:
+ 416              		.align	2
+ 417              	.L23:
+ 418 0008 00E400E0 		.word	-536812544
+ 419              		.cfi_endproc
+ 420              	.LFE7:
+ 421              		.size	Sleep_isr_GetPriority, .-Sleep_isr_GetPriority
+ 422              		.section	.text.Sleep_isr_Enable,"ax",%progbits
+ 423              		.align	2
+ 424              		.global	Sleep_isr_Enable
+ 425              		.thumb
+ 426              		.thumb_func
+ 427              		.type	Sleep_isr_Enable, %function
+ 428              	Sleep_isr_Enable:
+ 429              	.LFB8:
+ 308:Generated_Source\PSoC5/Sleep_isr.c ****     /* Enable the general interrupt. */
+ 430              		.loc 1 308 0
+ 431              		.cfi_startproc
+ 432              		@ args = 0, pretend = 0, frame = 0
+ 433              		@ frame_needed = 0, uses_anonymous_args = 0
+ 434              		@ link register save eliminated.
+ 310:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 435              		.loc 1 310 0
+ 436 0000 014B     		ldr	r3, .L26
+ 437 0002 0122     		movs	r2, #1
+ 438 0004 1A60     		str	r2, [r3]
+ 439 0006 7047     		bx	lr
+ 440              	.L27:
+ 441              		.align	2
+ 442              	.L26:
+ 443 0008 00E100E0 		.word	-536813312
+ 444              		.cfi_endproc
+ 445              	.LFE8:
+ 446              		.size	Sleep_isr_Enable, .-Sleep_isr_Enable
+ 447              		.section	.text.Sleep_isr_GetState,"ax",%progbits
+ 448              		.align	2
+ 449              		.global	Sleep_isr_GetState
+ 450              		.thumb
+ 451              		.thumb_func
+ 452              		.type	Sleep_isr_GetState, %function
+ 453              	Sleep_isr_GetState:
+ 454              	.LFB9:
+ 329:Generated_Source\PSoC5/Sleep_isr.c ****     /* Get the state of the general interrupt. */
+ 455              		.loc 1 329 0
+ 456              		.cfi_startproc
+ 457              		@ args = 0, pretend = 0, frame = 0
+ 458              		@ frame_needed = 0, uses_anonymous_args = 0
+ 459              		@ link register save eliminated.
+ 331:Generated_Source\PSoC5/Sleep_isr.c **** }
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 16
+
+
+ 460              		.loc 1 331 0
+ 461 0000 024B     		ldr	r3, .L29
+ 462 0002 1868     		ldr	r0, [r3]
+ 332:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 463              		.loc 1 332 0
+ 464 0004 00F00100 		and	r0, r0, #1
+ 465 0008 7047     		bx	lr
+ 466              	.L30:
+ 467 000a 00BF     		.align	2
+ 468              	.L29:
+ 469 000c 00E100E0 		.word	-536813312
+ 470              		.cfi_endproc
+ 471              	.LFE9:
+ 472              		.size	Sleep_isr_GetState, .-Sleep_isr_GetState
+ 473              		.section	.text.Sleep_isr_Disable,"ax",%progbits
+ 474              		.align	2
+ 475              		.global	Sleep_isr_Disable
+ 476              		.thumb
+ 477              		.thumb_func
+ 478              		.type	Sleep_isr_Disable, %function
+ 479              	Sleep_isr_Disable:
+ 480              	.LFB10:
+ 350:Generated_Source\PSoC5/Sleep_isr.c ****     /* Disable the general interrupt. */
+ 481              		.loc 1 350 0
+ 482              		.cfi_startproc
+ 483              		@ args = 0, pretend = 0, frame = 0
+ 484              		@ frame_needed = 0, uses_anonymous_args = 0
+ 485              		@ link register save eliminated.
+ 486              		.loc 1 352 0
+ 487 0000 014B     		ldr	r3, .L32
+ 488 0002 0122     		movs	r2, #1
+ 489 0004 1A60     		str	r2, [r3]
+ 490 0006 7047     		bx	lr
+ 491              	.L33:
+ 492              		.align	2
+ 493              	.L32:
+ 494 0008 80E100E0 		.word	-536813184
+ 495              		.cfi_endproc
+ 496              	.LFE10:
+ 497              		.size	Sleep_isr_Disable, .-Sleep_isr_Disable
+ 498              		.section	.text.Sleep_isr_SetPending,"ax",%progbits
+ 499              		.align	2
+ 500              		.global	Sleep_isr_SetPending
+ 501              		.thumb
+ 502              		.thumb_func
+ 503              		.type	Sleep_isr_SetPending, %function
+ 504              	Sleep_isr_SetPending:
+ 505              	.LFB11:
+ 353:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 354:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 355:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 356:Generated_Source\PSoC5/Sleep_isr.c **** /*******************************************************************************
+ 357:Generated_Source\PSoC5/Sleep_isr.c **** * Function Name: Sleep_isr_SetPending
+ 358:Generated_Source\PSoC5/Sleep_isr.c **** ********************************************************************************
+ 359:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 360:Generated_Source\PSoC5/Sleep_isr.c **** * Summary:
+ 361:Generated_Source\PSoC5/Sleep_isr.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 17
+
+
+ 362:Generated_Source\PSoC5/Sleep_isr.c **** *   generating the interrupt.
+ 363:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 364:Generated_Source\PSoC5/Sleep_isr.c **** * Parameters:
+ 365:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+ 366:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 367:Generated_Source\PSoC5/Sleep_isr.c **** * Return:
+ 368:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+ 369:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 370:Generated_Source\PSoC5/Sleep_isr.c **** * Side Effects:
+ 371:Generated_Source\PSoC5/Sleep_isr.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
+ 372:Generated_Source\PSoC5/Sleep_isr.c **** *   entered (depending on the priority of this interrupt and other pending 
+ 373:Generated_Source\PSoC5/Sleep_isr.c **** *   interrupts).
+ 374:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 375:Generated_Source\PSoC5/Sleep_isr.c **** *******************************************************************************/
+ 376:Generated_Source\PSoC5/Sleep_isr.c **** void Sleep_isr_SetPending(void)
+ 377:Generated_Source\PSoC5/Sleep_isr.c **** {
+ 506              		.loc 1 377 0
+ 507              		.cfi_startproc
+ 508              		@ args = 0, pretend = 0, frame = 0
+ 509              		@ frame_needed = 0, uses_anonymous_args = 0
+ 510              		@ link register save eliminated.
+ 378:Generated_Source\PSoC5/Sleep_isr.c ****     *Sleep_isr_INTC_SET_PD = Sleep_isr__INTC_MASK;
+ 511              		.loc 1 378 0
+ 512 0000 014B     		ldr	r3, .L35
+ 513 0002 0122     		movs	r2, #1
+ 514 0004 1A60     		str	r2, [r3]
+ 515 0006 7047     		bx	lr
+ 516              	.L36:
+ 517              		.align	2
+ 518              	.L35:
+ 519 0008 00E200E0 		.word	-536813056
+ 520              		.cfi_endproc
+ 521              	.LFE11:
+ 522              		.size	Sleep_isr_SetPending, .-Sleep_isr_SetPending
+ 523              		.section	.text.Sleep_isr_ClearPending,"ax",%progbits
+ 524              		.align	2
+ 525              		.global	Sleep_isr_ClearPending
+ 526              		.thumb
+ 527              		.thumb_func
+ 528              		.type	Sleep_isr_ClearPending, %function
+ 529              	Sleep_isr_ClearPending:
+ 530              	.LFB12:
+ 379:Generated_Source\PSoC5/Sleep_isr.c **** }
+ 380:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 381:Generated_Source\PSoC5/Sleep_isr.c **** 
+ 382:Generated_Source\PSoC5/Sleep_isr.c **** /*******************************************************************************
+ 383:Generated_Source\PSoC5/Sleep_isr.c **** * Function Name: Sleep_isr_ClearPending
+ 384:Generated_Source\PSoC5/Sleep_isr.c **** ********************************************************************************
+ 385:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 386:Generated_Source\PSoC5/Sleep_isr.c **** * Summary:
+ 387:Generated_Source\PSoC5/Sleep_isr.c **** *   Clears a pending interrupt in the interrupt controller.
+ 388:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 389:Generated_Source\PSoC5/Sleep_isr.c **** *   Note Some interrupt sources are clear-on-read and require the block 
+ 390:Generated_Source\PSoC5/Sleep_isr.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
+ 391:Generated_Source\PSoC5/Sleep_isr.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
+ 392:Generated_Source\PSoC5/Sleep_isr.c **** *   pending state even though the interrupt itself is cleared using this API.
+ 393:Generated_Source\PSoC5/Sleep_isr.c **** *
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 18
+
+
+ 394:Generated_Source\PSoC5/Sleep_isr.c **** * Parameters:
+ 395:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+ 396:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 397:Generated_Source\PSoC5/Sleep_isr.c **** * Return:
+ 398:Generated_Source\PSoC5/Sleep_isr.c **** *   None
+ 399:Generated_Source\PSoC5/Sleep_isr.c **** *
+ 400:Generated_Source\PSoC5/Sleep_isr.c **** *******************************************************************************/
+ 401:Generated_Source\PSoC5/Sleep_isr.c **** void Sleep_isr_ClearPending(void)
+ 402:Generated_Source\PSoC5/Sleep_isr.c **** {
+ 531              		.loc 1 402 0
+ 532              		.cfi_startproc
+ 533              		@ args = 0, pretend = 0, frame = 0
+ 534              		@ frame_needed = 0, uses_anonymous_args = 0
+ 535              		@ link register save eliminated.
+ 403:Generated_Source\PSoC5/Sleep_isr.c ****     *Sleep_isr_INTC_CLR_PD = Sleep_isr__INTC_MASK;
+ 536              		.loc 1 403 0
+ 537 0000 014B     		ldr	r3, .L38
+ 538 0002 0122     		movs	r2, #1
+ 539 0004 1A60     		str	r2, [r3]
+ 540 0006 7047     		bx	lr
+ 541              	.L39:
+ 542              		.align	2
+ 543              	.L38:
+ 544 0008 80E200E0 		.word	-536812928
+ 545              		.cfi_endproc
+ 546              	.LFE12:
+ 547              		.size	Sleep_isr_ClearPending, .-Sleep_isr_ClearPending
+ 548              		.text
+ 549              	.Letext0:
+ 550              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
+ 551              		.section	.debug_info,"",%progbits
+ 552              	.Ldebug_info0:
+ 553 0000 6B030000 		.4byte	0x36b
+ 554 0004 0400     		.2byte	0x4
+ 555 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 556 000a 04       		.byte	0x4
+ 557 000b 01       		.uleb128 0x1
+ 558 000c 7B000000 		.4byte	.LASF33
+ 559 0010 01       		.byte	0x1
+ 560 0011 2F000000 		.4byte	.LASF34
+ 561 0015 90020000 		.4byte	.LASF35
+ 562 0019 28010000 		.4byte	.Ldebug_ranges0+0x128
+ 563 001d 00000000 		.4byte	0
+ 564 0021 00000000 		.4byte	.Ldebug_line0
+ 565 0025 02       		.uleb128 0x2
+ 566 0026 04       		.byte	0x4
+ 567 0027 05       		.byte	0x5
+ 568 0028 696E7400 		.ascii	"int\000"
+ 569 002c 03       		.uleb128 0x3
+ 570 002d 04       		.byte	0x4
+ 571 002e 07       		.byte	0x7
+ 572 002f A7010000 		.4byte	.LASF0
+ 573 0033 03       		.uleb128 0x3
+ 574 0034 01       		.byte	0x1
+ 575 0035 06       		.byte	0x6
+ 576 0036 74020000 		.4byte	.LASF1
+ 577 003a 03       		.uleb128 0x3
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 19
+
+
+ 578 003b 01       		.byte	0x1
+ 579 003c 08       		.byte	0x8
+ 580 003d 0F010000 		.4byte	.LASF2
+ 581 0041 03       		.uleb128 0x3
+ 582 0042 02       		.byte	0x2
+ 583 0043 05       		.byte	0x5
+ 584 0044 76010000 		.4byte	.LASF3
+ 585 0048 03       		.uleb128 0x3
+ 586 0049 02       		.byte	0x2
+ 587 004a 07       		.byte	0x7
+ 588 004b 1C000000 		.4byte	.LASF4
+ 589 004f 03       		.uleb128 0x3
+ 590 0050 04       		.byte	0x4
+ 591 0051 05       		.byte	0x5
+ 592 0052 6B020000 		.4byte	.LASF5
+ 593 0056 03       		.uleb128 0x3
+ 594 0057 04       		.byte	0x4
+ 595 0058 07       		.byte	0x7
+ 596 0059 43010000 		.4byte	.LASF6
+ 597 005d 03       		.uleb128 0x3
+ 598 005e 08       		.byte	0x8
+ 599 005f 05       		.byte	0x5
+ 600 0060 21020000 		.4byte	.LASF7
+ 601 0064 03       		.uleb128 0x3
+ 602 0065 08       		.byte	0x8
+ 603 0066 07       		.byte	0x7
+ 604 0067 D1010000 		.4byte	.LASF8
+ 605 006b 03       		.uleb128 0x3
+ 606 006c 04       		.byte	0x4
+ 607 006d 07       		.byte	0x7
+ 608 006e 18020000 		.4byte	.LASF9
+ 609 0072 04       		.uleb128 0x4
+ 610 0073 04       		.byte	0x4
+ 611 0074 78000000 		.4byte	0x78
+ 612 0078 05       		.uleb128 0x5
+ 613 0079 03       		.uleb128 0x3
+ 614 007a 01       		.byte	0x1
+ 615 007b 08       		.byte	0x8
+ 616 007c 2F020000 		.4byte	.LASF10
+ 617 0080 06       		.uleb128 0x6
+ 618 0081 55010000 		.4byte	.LASF11
+ 619 0085 02       		.byte	0x2
+ 620 0086 5B       		.byte	0x5b
+ 621 0087 3A000000 		.4byte	0x3a
+ 622 008b 06       		.uleb128 0x6
+ 623 008c 89010000 		.4byte	.LASF12
+ 624 0090 02       		.byte	0x2
+ 625 0091 5D       		.byte	0x5d
+ 626 0092 56000000 		.4byte	0x56
+ 627 0096 03       		.uleb128 0x3
+ 628 0097 04       		.byte	0x4
+ 629 0098 04       		.byte	0x4
+ 630 0099 09010000 		.4byte	.LASF13
+ 631 009d 03       		.uleb128 0x3
+ 632 009e 08       		.byte	0x8
+ 633 009f 04       		.byte	0x4
+ 634 00a0 6F010000 		.4byte	.LASF14
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 20
+
+
+ 635 00a4 06       		.uleb128 0x6
+ 636 00a5 2C010000 		.4byte	.LASF15
+ 637 00a9 02       		.byte	0x2
+ 638 00aa F0       		.byte	0xf0
+ 639 00ab AF000000 		.4byte	0xaf
+ 640 00af 07       		.uleb128 0x7
+ 641 00b0 80000000 		.4byte	0x80
+ 642 00b4 06       		.uleb128 0x6
+ 643 00b5 00000000 		.4byte	.LASF16
+ 644 00b9 02       		.byte	0x2
+ 645 00ba F2       		.byte	0xf2
+ 646 00bb BF000000 		.4byte	0xbf
+ 647 00bf 07       		.uleb128 0x7
+ 648 00c0 8B000000 		.4byte	0x8b
+ 649 00c4 08       		.uleb128 0x8
+ 650 00c5 FA010000 		.4byte	.LASF17
+ 651 00c9 02       		.byte	0x2
+ 652 00ca 0201     		.2byte	0x102
+ 653 00cc 72000000 		.4byte	0x72
+ 654 00d0 09       		.uleb128 0x9
+ 655 00d1 E8010000 		.4byte	.LASF22
+ 656 00d5 01       		.byte	0x1
+ 657 00d6 5D01     		.2byte	0x15d
+ 658 00d8 01       		.byte	0x1
+ 659 00d9 0A       		.uleb128 0xa
+ 660 00da 5B010000 		.4byte	.LASF18
+ 661 00de 01       		.byte	0x1
+ 662 00df C8       		.byte	0xc8
+ 663 00e0 01       		.byte	0x1
+ 664 00e1 FC000000 		.4byte	0xfc
+ 665 00e5 0B       		.uleb128 0xb
+ 666 00e6 C9010000 		.4byte	.LASF20
+ 667 00ea 01       		.byte	0x1
+ 668 00eb C8       		.byte	0xc8
+ 669 00ec C4000000 		.4byte	0xc4
+ 670 00f0 0C       		.uleb128 0xc
+ 671 00f1 34020000 		.4byte	.LASF29
+ 672 00f5 01       		.byte	0x1
+ 673 00f6 CA       		.byte	0xca
+ 674 00f7 FC000000 		.4byte	0xfc
+ 675 00fb 00       		.byte	0
+ 676 00fc 04       		.uleb128 0x4
+ 677 00fd 04       		.byte	0x4
+ 678 00fe C4000000 		.4byte	0xc4
+ 679 0102 0D       		.uleb128 0xd
+ 680 0103 52000000 		.4byte	.LASF19
+ 681 0107 01       		.byte	0x1
+ 682 0108 0201     		.2byte	0x102
+ 683 010a 01       		.byte	0x1
+ 684 010b 1C010000 		.4byte	0x11c
+ 685 010f 0E       		.uleb128 0xe
+ 686 0110 80010000 		.4byte	.LASF21
+ 687 0114 01       		.byte	0x1
+ 688 0115 0201     		.2byte	0x102
+ 689 0117 80000000 		.4byte	0x80
+ 690 011b 00       		.byte	0
+ 691 011c 09       		.uleb128 0x9
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 21
+
+
+ 692 011d 07020000 		.4byte	.LASF23
+ 693 0121 01       		.byte	0x1
+ 694 0122 3301     		.2byte	0x133
+ 695 0124 01       		.byte	0x1
+ 696 0125 0F       		.uleb128 0xf
+ 697 0126 57020000 		.4byte	.LASF30
+ 698 012a 01       		.byte	0x1
+ 699 012b A0       		.byte	0xa0
+ 700 012c 00000000 		.4byte	.LFB3
+ 701 0130 02000000 		.4byte	.LFE3-.LFB3
+ 702 0134 01       		.uleb128 0x1
+ 703 0135 9C       		.byte	0x9c
+ 704 0136 10       		.uleb128 0x10
+ 705 0137 80020000 		.4byte	.LASF24
+ 706 013b 01       		.byte	0x1
+ 707 013c 3D       		.byte	0x3d
+ 708 013d 00000000 		.4byte	.LFB0
+ 709 0141 34000000 		.4byte	.LFE0-.LFB0
+ 710 0145 01       		.uleb128 0x1
+ 711 0146 9C       		.byte	0x9c
+ 712 0147 B3010000 		.4byte	0x1b3
+ 713 014b 11       		.uleb128 0x11
+ 714 014c D9000000 		.4byte	0xd9
+ 715 0150 02000000 		.4byte	.LBB22
+ 716 0154 00000000 		.4byte	.Ldebug_ranges0+0
+ 717 0158 01       		.byte	0x1
+ 718 0159 43       		.byte	0x43
+ 719 015a 7A010000 		.4byte	0x17a
+ 720 015e 12       		.uleb128 0x12
+ 721 015f E5000000 		.4byte	0xe5
+ 722 0163 06       		.uleb128 0x6
+ 723 0164 03       		.byte	0x3
+ 724 0165 00000000 		.4byte	Sleep_isr_Interrupt
+ 725 0169 9F       		.byte	0x9f
+ 726 016a 13       		.uleb128 0x13
+ 727 016b 00000000 		.4byte	.Ldebug_ranges0+0
+ 728 016f 14       		.uleb128 0x14
+ 729 0170 F0000000 		.4byte	0xf0
+ 730 0174 00000000 		.4byte	.LLST0
+ 731 0178 00       		.byte	0
+ 732 0179 00       		.byte	0
+ 733 017a 15       		.uleb128 0x15
+ 734 017b D0000000 		.4byte	0xd0
+ 735 017f 04000000 		.4byte	.LBB26
+ 736 0183 20000000 		.4byte	.Ldebug_ranges0+0x20
+ 737 0187 01       		.byte	0x1
+ 738 0188 40       		.byte	0x40
+ 739 0189 11       		.uleb128 0x11
+ 740 018a 02010000 		.4byte	0x102
+ 741 018e 0A000000 		.4byte	.LBB31
+ 742 0192 40000000 		.4byte	.Ldebug_ranges0+0x40
+ 743 0196 01       		.byte	0x1
+ 744 0197 46       		.byte	0x46
+ 745 0198 A3010000 		.4byte	0x1a3
+ 746 019c 16       		.uleb128 0x16
+ 747 019d 0F010000 		.4byte	0x10f
+ 748 01a1 07       		.byte	0x7
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 22
+
+
+ 749 01a2 00       		.byte	0
+ 750 01a3 15       		.uleb128 0x15
+ 751 01a4 1C010000 		.4byte	0x11c
+ 752 01a8 0E000000 		.4byte	.LBB36
+ 753 01ac 60000000 		.4byte	.Ldebug_ranges0+0x60
+ 754 01b0 01       		.byte	0x1
+ 755 01b1 49       		.byte	0x49
+ 756 01b2 00       		.byte	0
+ 757 01b3 10       		.uleb128 0x10
+ 758 01b4 31010000 		.4byte	.LASF25
+ 759 01b8 01       		.byte	0x1
+ 760 01b9 68       		.byte	0x68
+ 761 01ba 00000000 		.4byte	.LFB1
+ 762 01be 2C000000 		.4byte	.LFE1-.LFB1
+ 763 01c2 01       		.uleb128 0x1
+ 764 01c3 9C       		.byte	0x9c
+ 765 01c4 38020000 		.4byte	0x238
+ 766 01c8 17       		.uleb128 0x17
+ 767 01c9 C9010000 		.4byte	.LASF20
+ 768 01cd 01       		.byte	0x1
+ 769 01ce 68       		.byte	0x68
+ 770 01cf C4000000 		.4byte	0xc4
+ 771 01d3 01       		.uleb128 0x1
+ 772 01d4 50       		.byte	0x50
+ 773 01d5 11       		.uleb128 0x11
+ 774 01d6 D9000000 		.4byte	0xd9
+ 775 01da 02000000 		.4byte	.LBB44
+ 776 01de 78000000 		.4byte	.Ldebug_ranges0+0x78
+ 777 01e2 01       		.byte	0x1
+ 778 01e3 6E       		.byte	0x6e
+ 779 01e4 FF010000 		.4byte	0x1ff
+ 780 01e8 12       		.uleb128 0x12
+ 781 01e9 E5000000 		.4byte	0xe5
+ 782 01ed 01       		.uleb128 0x1
+ 783 01ee 50       		.byte	0x50
+ 784 01ef 13       		.uleb128 0x13
+ 785 01f0 78000000 		.4byte	.Ldebug_ranges0+0x78
+ 786 01f4 14       		.uleb128 0x14
+ 787 01f5 F0000000 		.4byte	0xf0
+ 788 01f9 13000000 		.4byte	.LLST1
+ 789 01fd 00       		.byte	0
+ 790 01fe 00       		.byte	0
+ 791 01ff 15       		.uleb128 0x15
+ 792 0200 D0000000 		.4byte	0xd0
+ 793 0204 04000000 		.4byte	.LBB48
+ 794 0208 98000000 		.4byte	.Ldebug_ranges0+0x98
+ 795 020c 01       		.byte	0x1
+ 796 020d 6B       		.byte	0x6b
+ 797 020e 11       		.uleb128 0x11
+ 798 020f 02010000 		.4byte	0x102
+ 799 0213 08000000 		.4byte	.LBB53
+ 800 0217 B8000000 		.4byte	.Ldebug_ranges0+0xb8
+ 801 021b 01       		.byte	0x1
+ 802 021c 71       		.byte	0x71
+ 803 021d 28020000 		.4byte	0x228
+ 804 0221 16       		.uleb128 0x16
+ 805 0222 0F010000 		.4byte	0x10f
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 23
+
+
+ 806 0226 07       		.byte	0x7
+ 807 0227 00       		.byte	0
+ 808 0228 15       		.uleb128 0x15
+ 809 0229 1C010000 		.4byte	0x11c
+ 810 022d 0E000000 		.4byte	.LBB59
+ 811 0231 D8000000 		.4byte	.Ldebug_ranges0+0xd8
+ 812 0235 01       		.byte	0x1
+ 813 0236 74       		.byte	0x74
+ 814 0237 00       		.byte	0
+ 815 0238 10       		.uleb128 0x10
+ 816 0239 1D010000 		.4byte	.LASF26
+ 817 023d 01       		.byte	0x1
+ 818 023e 86       		.byte	0x86
+ 819 023f 00000000 		.4byte	.LFB2
+ 820 0243 1C000000 		.4byte	.LFE2-.LFB2
+ 821 0247 01       		.uleb128 0x1
+ 822 0248 9C       		.byte	0x9c
+ 823 0249 83020000 		.4byte	0x283
+ 824 024d 11       		.uleb128 0x11
+ 825 024e D9000000 		.4byte	0xd9
+ 826 0252 00000000 		.4byte	.LBB66
+ 827 0256 F0000000 		.4byte	.Ldebug_ranges0+0xf0
+ 828 025a 01       		.byte	0x1
+ 829 025b 8C       		.byte	0x8c
+ 830 025c 73020000 		.4byte	0x273
+ 831 0260 18       		.uleb128 0x18
+ 832 0261 E5000000 		.4byte	0xe5
+ 833 0265 13       		.uleb128 0x13
+ 834 0266 F0000000 		.4byte	.Ldebug_ranges0+0xf0
+ 835 026a 19       		.uleb128 0x19
+ 836 026b F0000000 		.4byte	0xf0
+ 837 026f 01       		.uleb128 0x1
+ 838 0270 53       		.byte	0x53
+ 839 0271 00       		.byte	0
+ 840 0272 00       		.byte	0
+ 841 0273 15       		.uleb128 0x15
+ 842 0274 D0000000 		.4byte	0xd0
+ 843 0278 02000000 		.4byte	.LBB70
+ 844 027c 10010000 		.4byte	.Ldebug_ranges0+0x110
+ 845 0280 01       		.byte	0x1
+ 846 0281 89       		.byte	0x89
+ 847 0282 00       		.byte	0
+ 848 0283 1A       		.uleb128 0x1a
+ 849 0284 D9000000 		.4byte	0xd9
+ 850 0288 00000000 		.4byte	.LFB4
+ 851 028c 0C000000 		.4byte	.LFE4-.LFB4
+ 852 0290 01       		.uleb128 0x1
+ 853 0291 9C       		.byte	0x9c
+ 854 0292 A5020000 		.4byte	0x2a5
+ 855 0296 12       		.uleb128 0x12
+ 856 0297 E5000000 		.4byte	0xe5
+ 857 029b 01       		.uleb128 0x1
+ 858 029c 50       		.byte	0x50
+ 859 029d 19       		.uleb128 0x19
+ 860 029e F0000000 		.4byte	0xf0
+ 861 02a2 01       		.uleb128 0x1
+ 862 02a3 53       		.byte	0x53
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 24
+
+
+ 863 02a4 00       		.byte	0
+ 864 02a5 1B       		.uleb128 0x1b
+ 865 02a6 43020000 		.4byte	.LASF27
+ 866 02aa 01       		.byte	0x1
+ 867 02ab E0       		.byte	0xe0
+ 868 02ac C4000000 		.4byte	0xc4
+ 869 02b0 00000000 		.4byte	.LFB5
+ 870 02b4 0C000000 		.4byte	.LFE5-.LFB5
+ 871 02b8 01       		.uleb128 0x1
+ 872 02b9 9C       		.byte	0x9c
+ 873 02ba CE020000 		.4byte	0x2ce
+ 874 02be 1C       		.uleb128 0x1c
+ 875 02bf 34020000 		.4byte	.LASF29
+ 876 02c3 01       		.byte	0x1
+ 877 02c4 E2       		.byte	0xe2
+ 878 02c5 FC000000 		.4byte	0xfc
+ 879 02c9 26000000 		.4byte	.LLST2
+ 880 02cd 00       		.byte	0
+ 881 02ce 1A       		.uleb128 0x1a
+ 882 02cf 02010000 		.4byte	0x102
+ 883 02d3 00000000 		.4byte	.LFB6
+ 884 02d7 10000000 		.4byte	.LFE6-.LFB6
+ 885 02db 01       		.uleb128 0x1
+ 886 02dc 9C       		.byte	0x9c
+ 887 02dd EB020000 		.4byte	0x2eb
+ 888 02e1 1D       		.uleb128 0x1d
+ 889 02e2 0F010000 		.4byte	0x10f
+ 890 02e6 55000000 		.4byte	.LLST3
+ 891 02ea 00       		.byte	0
+ 892 02eb 1E       		.uleb128 0x1e
+ 893 02ec 06000000 		.4byte	.LASF28
+ 894 02f0 01       		.byte	0x1
+ 895 02f1 1801     		.2byte	0x118
+ 896 02f3 80000000 		.4byte	0x80
+ 897 02f7 00000000 		.4byte	.LFB7
+ 898 02fb 0C000000 		.4byte	.LFE7-.LFB7
+ 899 02ff 01       		.uleb128 0x1
+ 900 0300 9C       		.byte	0x9c
+ 901 0301 16030000 		.4byte	0x316
+ 902 0305 1F       		.uleb128 0x1f
+ 903 0306 80010000 		.4byte	.LASF21
+ 904 030a 01       		.byte	0x1
+ 905 030b 1A01     		.2byte	0x11a
+ 906 030d 80000000 		.4byte	0x80
+ 907 0311 76000000 		.4byte	.LLST4
+ 908 0315 00       		.byte	0
+ 909 0316 20       		.uleb128 0x20
+ 910 0317 1C010000 		.4byte	0x11c
+ 911 031b 00000000 		.4byte	.LFB8
+ 912 031f 0C000000 		.4byte	.LFE8-.LFB8
+ 913 0323 01       		.uleb128 0x1
+ 914 0324 9C       		.byte	0x9c
+ 915 0325 21       		.uleb128 0x21
+ 916 0326 68000000 		.4byte	.LASF36
+ 917 032a 01       		.byte	0x1
+ 918 032b 4801     		.2byte	0x148
+ 919 032d 80000000 		.4byte	0x80
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 25
+
+
+ 920 0331 00000000 		.4byte	.LFB9
+ 921 0335 10000000 		.4byte	.LFE9-.LFB9
+ 922 0339 01       		.uleb128 0x1
+ 923 033a 9C       		.byte	0x9c
+ 924 033b 20       		.uleb128 0x20
+ 925 033c D0000000 		.4byte	0xd0
+ 926 0340 00000000 		.4byte	.LFB10
+ 927 0344 0C000000 		.4byte	.LFE10-.LFB10
+ 928 0348 01       		.uleb128 0x1
+ 929 0349 9C       		.byte	0x9c
+ 930 034a 22       		.uleb128 0x22
+ 931 034b B4010000 		.4byte	.LASF31
+ 932 034f 01       		.byte	0x1
+ 933 0350 7801     		.2byte	0x178
+ 934 0352 00000000 		.4byte	.LFB11
+ 935 0356 0C000000 		.4byte	.LFE11-.LFB11
+ 936 035a 01       		.uleb128 0x1
+ 937 035b 9C       		.byte	0x9c
+ 938 035c 22       		.uleb128 0x22
+ 939 035d 90010000 		.4byte	.LASF32
+ 940 0361 01       		.byte	0x1
+ 941 0362 9101     		.2byte	0x191
+ 942 0364 00000000 		.4byte	.LFB12
+ 943 0368 0C000000 		.4byte	.LFE12-.LFB12
+ 944 036c 01       		.uleb128 0x1
+ 945 036d 9C       		.byte	0x9c
+ 946 036e 00       		.byte	0
+ 947              		.section	.debug_abbrev,"",%progbits
+ 948              	.Ldebug_abbrev0:
+ 949 0000 01       		.uleb128 0x1
+ 950 0001 11       		.uleb128 0x11
+ 951 0002 01       		.byte	0x1
+ 952 0003 25       		.uleb128 0x25
+ 953 0004 0E       		.uleb128 0xe
+ 954 0005 13       		.uleb128 0x13
+ 955 0006 0B       		.uleb128 0xb
+ 956 0007 03       		.uleb128 0x3
+ 957 0008 0E       		.uleb128 0xe
+ 958 0009 1B       		.uleb128 0x1b
+ 959 000a 0E       		.uleb128 0xe
+ 960 000b 55       		.uleb128 0x55
+ 961 000c 17       		.uleb128 0x17
+ 962 000d 11       		.uleb128 0x11
+ 963 000e 01       		.uleb128 0x1
+ 964 000f 10       		.uleb128 0x10
+ 965 0010 17       		.uleb128 0x17
+ 966 0011 00       		.byte	0
+ 967 0012 00       		.byte	0
+ 968 0013 02       		.uleb128 0x2
+ 969 0014 24       		.uleb128 0x24
+ 970 0015 00       		.byte	0
+ 971 0016 0B       		.uleb128 0xb
+ 972 0017 0B       		.uleb128 0xb
+ 973 0018 3E       		.uleb128 0x3e
+ 974 0019 0B       		.uleb128 0xb
+ 975 001a 03       		.uleb128 0x3
+ 976 001b 08       		.uleb128 0x8
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 26
+
+
+ 977 001c 00       		.byte	0
+ 978 001d 00       		.byte	0
+ 979 001e 03       		.uleb128 0x3
+ 980 001f 24       		.uleb128 0x24
+ 981 0020 00       		.byte	0
+ 982 0021 0B       		.uleb128 0xb
+ 983 0022 0B       		.uleb128 0xb
+ 984 0023 3E       		.uleb128 0x3e
+ 985 0024 0B       		.uleb128 0xb
+ 986 0025 03       		.uleb128 0x3
+ 987 0026 0E       		.uleb128 0xe
+ 988 0027 00       		.byte	0
+ 989 0028 00       		.byte	0
+ 990 0029 04       		.uleb128 0x4
+ 991 002a 0F       		.uleb128 0xf
+ 992 002b 00       		.byte	0
+ 993 002c 0B       		.uleb128 0xb
+ 994 002d 0B       		.uleb128 0xb
+ 995 002e 49       		.uleb128 0x49
+ 996 002f 13       		.uleb128 0x13
+ 997 0030 00       		.byte	0
+ 998 0031 00       		.byte	0
+ 999 0032 05       		.uleb128 0x5
+ 1000 0033 15       		.uleb128 0x15
+ 1001 0034 00       		.byte	0
+ 1002 0035 27       		.uleb128 0x27
+ 1003 0036 19       		.uleb128 0x19
+ 1004 0037 00       		.byte	0
+ 1005 0038 00       		.byte	0
+ 1006 0039 06       		.uleb128 0x6
+ 1007 003a 16       		.uleb128 0x16
+ 1008 003b 00       		.byte	0
+ 1009 003c 03       		.uleb128 0x3
+ 1010 003d 0E       		.uleb128 0xe
+ 1011 003e 3A       		.uleb128 0x3a
+ 1012 003f 0B       		.uleb128 0xb
+ 1013 0040 3B       		.uleb128 0x3b
+ 1014 0041 0B       		.uleb128 0xb
+ 1015 0042 49       		.uleb128 0x49
+ 1016 0043 13       		.uleb128 0x13
+ 1017 0044 00       		.byte	0
+ 1018 0045 00       		.byte	0
+ 1019 0046 07       		.uleb128 0x7
+ 1020 0047 35       		.uleb128 0x35
+ 1021 0048 00       		.byte	0
+ 1022 0049 49       		.uleb128 0x49
+ 1023 004a 13       		.uleb128 0x13
+ 1024 004b 00       		.byte	0
+ 1025 004c 00       		.byte	0
+ 1026 004d 08       		.uleb128 0x8
+ 1027 004e 16       		.uleb128 0x16
+ 1028 004f 00       		.byte	0
+ 1029 0050 03       		.uleb128 0x3
+ 1030 0051 0E       		.uleb128 0xe
+ 1031 0052 3A       		.uleb128 0x3a
+ 1032 0053 0B       		.uleb128 0xb
+ 1033 0054 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 27
+
+
+ 1034 0055 05       		.uleb128 0x5
+ 1035 0056 49       		.uleb128 0x49
+ 1036 0057 13       		.uleb128 0x13
+ 1037 0058 00       		.byte	0
+ 1038 0059 00       		.byte	0
+ 1039 005a 09       		.uleb128 0x9
+ 1040 005b 2E       		.uleb128 0x2e
+ 1041 005c 00       		.byte	0
+ 1042 005d 3F       		.uleb128 0x3f
+ 1043 005e 19       		.uleb128 0x19
+ 1044 005f 03       		.uleb128 0x3
+ 1045 0060 0E       		.uleb128 0xe
+ 1046 0061 3A       		.uleb128 0x3a
+ 1047 0062 0B       		.uleb128 0xb
+ 1048 0063 3B       		.uleb128 0x3b
+ 1049 0064 05       		.uleb128 0x5
+ 1050 0065 27       		.uleb128 0x27
+ 1051 0066 19       		.uleb128 0x19
+ 1052 0067 20       		.uleb128 0x20
+ 1053 0068 0B       		.uleb128 0xb
+ 1054 0069 00       		.byte	0
+ 1055 006a 00       		.byte	0
+ 1056 006b 0A       		.uleb128 0xa
+ 1057 006c 2E       		.uleb128 0x2e
+ 1058 006d 01       		.byte	0x1
+ 1059 006e 3F       		.uleb128 0x3f
+ 1060 006f 19       		.uleb128 0x19
+ 1061 0070 03       		.uleb128 0x3
+ 1062 0071 0E       		.uleb128 0xe
+ 1063 0072 3A       		.uleb128 0x3a
+ 1064 0073 0B       		.uleb128 0xb
+ 1065 0074 3B       		.uleb128 0x3b
+ 1066 0075 0B       		.uleb128 0xb
+ 1067 0076 27       		.uleb128 0x27
+ 1068 0077 19       		.uleb128 0x19
+ 1069 0078 20       		.uleb128 0x20
+ 1070 0079 0B       		.uleb128 0xb
+ 1071 007a 01       		.uleb128 0x1
+ 1072 007b 13       		.uleb128 0x13
+ 1073 007c 00       		.byte	0
+ 1074 007d 00       		.byte	0
+ 1075 007e 0B       		.uleb128 0xb
+ 1076 007f 05       		.uleb128 0x5
+ 1077 0080 00       		.byte	0
+ 1078 0081 03       		.uleb128 0x3
+ 1079 0082 0E       		.uleb128 0xe
+ 1080 0083 3A       		.uleb128 0x3a
+ 1081 0084 0B       		.uleb128 0xb
+ 1082 0085 3B       		.uleb128 0x3b
+ 1083 0086 0B       		.uleb128 0xb
+ 1084 0087 49       		.uleb128 0x49
+ 1085 0088 13       		.uleb128 0x13
+ 1086 0089 00       		.byte	0
+ 1087 008a 00       		.byte	0
+ 1088 008b 0C       		.uleb128 0xc
+ 1089 008c 34       		.uleb128 0x34
+ 1090 008d 00       		.byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 28
+
+
+ 1091 008e 03       		.uleb128 0x3
+ 1092 008f 0E       		.uleb128 0xe
+ 1093 0090 3A       		.uleb128 0x3a
+ 1094 0091 0B       		.uleb128 0xb
+ 1095 0092 3B       		.uleb128 0x3b
+ 1096 0093 0B       		.uleb128 0xb
+ 1097 0094 49       		.uleb128 0x49
+ 1098 0095 13       		.uleb128 0x13
+ 1099 0096 00       		.byte	0
+ 1100 0097 00       		.byte	0
+ 1101 0098 0D       		.uleb128 0xd
+ 1102 0099 2E       		.uleb128 0x2e
+ 1103 009a 01       		.byte	0x1
+ 1104 009b 3F       		.uleb128 0x3f
+ 1105 009c 19       		.uleb128 0x19
+ 1106 009d 03       		.uleb128 0x3
+ 1107 009e 0E       		.uleb128 0xe
+ 1108 009f 3A       		.uleb128 0x3a
+ 1109 00a0 0B       		.uleb128 0xb
+ 1110 00a1 3B       		.uleb128 0x3b
+ 1111 00a2 05       		.uleb128 0x5
+ 1112 00a3 27       		.uleb128 0x27
+ 1113 00a4 19       		.uleb128 0x19
+ 1114 00a5 20       		.uleb128 0x20
+ 1115 00a6 0B       		.uleb128 0xb
+ 1116 00a7 01       		.uleb128 0x1
+ 1117 00a8 13       		.uleb128 0x13
+ 1118 00a9 00       		.byte	0
+ 1119 00aa 00       		.byte	0
+ 1120 00ab 0E       		.uleb128 0xe
+ 1121 00ac 05       		.uleb128 0x5
+ 1122 00ad 00       		.byte	0
+ 1123 00ae 03       		.uleb128 0x3
+ 1124 00af 0E       		.uleb128 0xe
+ 1125 00b0 3A       		.uleb128 0x3a
+ 1126 00b1 0B       		.uleb128 0xb
+ 1127 00b2 3B       		.uleb128 0x3b
+ 1128 00b3 05       		.uleb128 0x5
+ 1129 00b4 49       		.uleb128 0x49
+ 1130 00b5 13       		.uleb128 0x13
+ 1131 00b6 00       		.byte	0
+ 1132 00b7 00       		.byte	0
+ 1133 00b8 0F       		.uleb128 0xf
+ 1134 00b9 2E       		.uleb128 0x2e
+ 1135 00ba 00       		.byte	0
+ 1136 00bb 3F       		.uleb128 0x3f
+ 1137 00bc 19       		.uleb128 0x19
+ 1138 00bd 03       		.uleb128 0x3
+ 1139 00be 0E       		.uleb128 0xe
+ 1140 00bf 3A       		.uleb128 0x3a
+ 1141 00c0 0B       		.uleb128 0xb
+ 1142 00c1 3B       		.uleb128 0x3b
+ 1143 00c2 0B       		.uleb128 0xb
+ 1144 00c3 27       		.uleb128 0x27
+ 1145 00c4 19       		.uleb128 0x19
+ 1146 00c5 11       		.uleb128 0x11
+ 1147 00c6 01       		.uleb128 0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 29
+
+
+ 1148 00c7 12       		.uleb128 0x12
+ 1149 00c8 06       		.uleb128 0x6
+ 1150 00c9 40       		.uleb128 0x40
+ 1151 00ca 18       		.uleb128 0x18
+ 1152 00cb 9742     		.uleb128 0x2117
+ 1153 00cd 19       		.uleb128 0x19
+ 1154 00ce 00       		.byte	0
+ 1155 00cf 00       		.byte	0
+ 1156 00d0 10       		.uleb128 0x10
+ 1157 00d1 2E       		.uleb128 0x2e
+ 1158 00d2 01       		.byte	0x1
+ 1159 00d3 3F       		.uleb128 0x3f
+ 1160 00d4 19       		.uleb128 0x19
+ 1161 00d5 03       		.uleb128 0x3
+ 1162 00d6 0E       		.uleb128 0xe
+ 1163 00d7 3A       		.uleb128 0x3a
+ 1164 00d8 0B       		.uleb128 0xb
+ 1165 00d9 3B       		.uleb128 0x3b
+ 1166 00da 0B       		.uleb128 0xb
+ 1167 00db 27       		.uleb128 0x27
+ 1168 00dc 19       		.uleb128 0x19
+ 1169 00dd 11       		.uleb128 0x11
+ 1170 00de 01       		.uleb128 0x1
+ 1171 00df 12       		.uleb128 0x12
+ 1172 00e0 06       		.uleb128 0x6
+ 1173 00e1 40       		.uleb128 0x40
+ 1174 00e2 18       		.uleb128 0x18
+ 1175 00e3 9742     		.uleb128 0x2117
+ 1176 00e5 19       		.uleb128 0x19
+ 1177 00e6 01       		.uleb128 0x1
+ 1178 00e7 13       		.uleb128 0x13
+ 1179 00e8 00       		.byte	0
+ 1180 00e9 00       		.byte	0
+ 1181 00ea 11       		.uleb128 0x11
+ 1182 00eb 1D       		.uleb128 0x1d
+ 1183 00ec 01       		.byte	0x1
+ 1184 00ed 31       		.uleb128 0x31
+ 1185 00ee 13       		.uleb128 0x13
+ 1186 00ef 52       		.uleb128 0x52
+ 1187 00f0 01       		.uleb128 0x1
+ 1188 00f1 55       		.uleb128 0x55
+ 1189 00f2 17       		.uleb128 0x17
+ 1190 00f3 58       		.uleb128 0x58
+ 1191 00f4 0B       		.uleb128 0xb
+ 1192 00f5 59       		.uleb128 0x59
+ 1193 00f6 0B       		.uleb128 0xb
+ 1194 00f7 01       		.uleb128 0x1
+ 1195 00f8 13       		.uleb128 0x13
+ 1196 00f9 00       		.byte	0
+ 1197 00fa 00       		.byte	0
+ 1198 00fb 12       		.uleb128 0x12
+ 1199 00fc 05       		.uleb128 0x5
+ 1200 00fd 00       		.byte	0
+ 1201 00fe 31       		.uleb128 0x31
+ 1202 00ff 13       		.uleb128 0x13
+ 1203 0100 02       		.uleb128 0x2
+ 1204 0101 18       		.uleb128 0x18
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 30
+
+
+ 1205 0102 00       		.byte	0
+ 1206 0103 00       		.byte	0
+ 1207 0104 13       		.uleb128 0x13
+ 1208 0105 0B       		.uleb128 0xb
+ 1209 0106 01       		.byte	0x1
+ 1210 0107 55       		.uleb128 0x55
+ 1211 0108 17       		.uleb128 0x17
+ 1212 0109 00       		.byte	0
+ 1213 010a 00       		.byte	0
+ 1214 010b 14       		.uleb128 0x14
+ 1215 010c 34       		.uleb128 0x34
+ 1216 010d 00       		.byte	0
+ 1217 010e 31       		.uleb128 0x31
+ 1218 010f 13       		.uleb128 0x13
+ 1219 0110 02       		.uleb128 0x2
+ 1220 0111 17       		.uleb128 0x17
+ 1221 0112 00       		.byte	0
+ 1222 0113 00       		.byte	0
+ 1223 0114 15       		.uleb128 0x15
+ 1224 0115 1D       		.uleb128 0x1d
+ 1225 0116 00       		.byte	0
+ 1226 0117 31       		.uleb128 0x31
+ 1227 0118 13       		.uleb128 0x13
+ 1228 0119 52       		.uleb128 0x52
+ 1229 011a 01       		.uleb128 0x1
+ 1230 011b 55       		.uleb128 0x55
+ 1231 011c 17       		.uleb128 0x17
+ 1232 011d 58       		.uleb128 0x58
+ 1233 011e 0B       		.uleb128 0xb
+ 1234 011f 59       		.uleb128 0x59
+ 1235 0120 0B       		.uleb128 0xb
+ 1236 0121 00       		.byte	0
+ 1237 0122 00       		.byte	0
+ 1238 0123 16       		.uleb128 0x16
+ 1239 0124 05       		.uleb128 0x5
+ 1240 0125 00       		.byte	0
+ 1241 0126 31       		.uleb128 0x31
+ 1242 0127 13       		.uleb128 0x13
+ 1243 0128 1C       		.uleb128 0x1c
+ 1244 0129 0B       		.uleb128 0xb
+ 1245 012a 00       		.byte	0
+ 1246 012b 00       		.byte	0
+ 1247 012c 17       		.uleb128 0x17
+ 1248 012d 05       		.uleb128 0x5
+ 1249 012e 00       		.byte	0
+ 1250 012f 03       		.uleb128 0x3
+ 1251 0130 0E       		.uleb128 0xe
+ 1252 0131 3A       		.uleb128 0x3a
+ 1253 0132 0B       		.uleb128 0xb
+ 1254 0133 3B       		.uleb128 0x3b
+ 1255 0134 0B       		.uleb128 0xb
+ 1256 0135 49       		.uleb128 0x49
+ 1257 0136 13       		.uleb128 0x13
+ 1258 0137 02       		.uleb128 0x2
+ 1259 0138 18       		.uleb128 0x18
+ 1260 0139 00       		.byte	0
+ 1261 013a 00       		.byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 31
+
+
+ 1262 013b 18       		.uleb128 0x18
+ 1263 013c 05       		.uleb128 0x5
+ 1264 013d 00       		.byte	0
+ 1265 013e 31       		.uleb128 0x31
+ 1266 013f 13       		.uleb128 0x13
+ 1267 0140 00       		.byte	0
+ 1268 0141 00       		.byte	0
+ 1269 0142 19       		.uleb128 0x19
+ 1270 0143 34       		.uleb128 0x34
+ 1271 0144 00       		.byte	0
+ 1272 0145 31       		.uleb128 0x31
+ 1273 0146 13       		.uleb128 0x13
+ 1274 0147 02       		.uleb128 0x2
+ 1275 0148 18       		.uleb128 0x18
+ 1276 0149 00       		.byte	0
+ 1277 014a 00       		.byte	0
+ 1278 014b 1A       		.uleb128 0x1a
+ 1279 014c 2E       		.uleb128 0x2e
+ 1280 014d 01       		.byte	0x1
+ 1281 014e 31       		.uleb128 0x31
+ 1282 014f 13       		.uleb128 0x13
+ 1283 0150 11       		.uleb128 0x11
+ 1284 0151 01       		.uleb128 0x1
+ 1285 0152 12       		.uleb128 0x12
+ 1286 0153 06       		.uleb128 0x6
+ 1287 0154 40       		.uleb128 0x40
+ 1288 0155 18       		.uleb128 0x18
+ 1289 0156 9742     		.uleb128 0x2117
+ 1290 0158 19       		.uleb128 0x19
+ 1291 0159 01       		.uleb128 0x1
+ 1292 015a 13       		.uleb128 0x13
+ 1293 015b 00       		.byte	0
+ 1294 015c 00       		.byte	0
+ 1295 015d 1B       		.uleb128 0x1b
+ 1296 015e 2E       		.uleb128 0x2e
+ 1297 015f 01       		.byte	0x1
+ 1298 0160 3F       		.uleb128 0x3f
+ 1299 0161 19       		.uleb128 0x19
+ 1300 0162 03       		.uleb128 0x3
+ 1301 0163 0E       		.uleb128 0xe
+ 1302 0164 3A       		.uleb128 0x3a
+ 1303 0165 0B       		.uleb128 0xb
+ 1304 0166 3B       		.uleb128 0x3b
+ 1305 0167 0B       		.uleb128 0xb
+ 1306 0168 27       		.uleb128 0x27
+ 1307 0169 19       		.uleb128 0x19
+ 1308 016a 49       		.uleb128 0x49
+ 1309 016b 13       		.uleb128 0x13
+ 1310 016c 11       		.uleb128 0x11
+ 1311 016d 01       		.uleb128 0x1
+ 1312 016e 12       		.uleb128 0x12
+ 1313 016f 06       		.uleb128 0x6
+ 1314 0170 40       		.uleb128 0x40
+ 1315 0171 18       		.uleb128 0x18
+ 1316 0172 9742     		.uleb128 0x2117
+ 1317 0174 19       		.uleb128 0x19
+ 1318 0175 01       		.uleb128 0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 32
+
+
+ 1319 0176 13       		.uleb128 0x13
+ 1320 0177 00       		.byte	0
+ 1321 0178 00       		.byte	0
+ 1322 0179 1C       		.uleb128 0x1c
+ 1323 017a 34       		.uleb128 0x34
+ 1324 017b 00       		.byte	0
+ 1325 017c 03       		.uleb128 0x3
+ 1326 017d 0E       		.uleb128 0xe
+ 1327 017e 3A       		.uleb128 0x3a
+ 1328 017f 0B       		.uleb128 0xb
+ 1329 0180 3B       		.uleb128 0x3b
+ 1330 0181 0B       		.uleb128 0xb
+ 1331 0182 49       		.uleb128 0x49
+ 1332 0183 13       		.uleb128 0x13
+ 1333 0184 02       		.uleb128 0x2
+ 1334 0185 17       		.uleb128 0x17
+ 1335 0186 00       		.byte	0
+ 1336 0187 00       		.byte	0
+ 1337 0188 1D       		.uleb128 0x1d
+ 1338 0189 05       		.uleb128 0x5
+ 1339 018a 00       		.byte	0
+ 1340 018b 31       		.uleb128 0x31
+ 1341 018c 13       		.uleb128 0x13
+ 1342 018d 02       		.uleb128 0x2
+ 1343 018e 17       		.uleb128 0x17
+ 1344 018f 00       		.byte	0
+ 1345 0190 00       		.byte	0
+ 1346 0191 1E       		.uleb128 0x1e
+ 1347 0192 2E       		.uleb128 0x2e
+ 1348 0193 01       		.byte	0x1
+ 1349 0194 3F       		.uleb128 0x3f
+ 1350 0195 19       		.uleb128 0x19
+ 1351 0196 03       		.uleb128 0x3
+ 1352 0197 0E       		.uleb128 0xe
+ 1353 0198 3A       		.uleb128 0x3a
+ 1354 0199 0B       		.uleb128 0xb
+ 1355 019a 3B       		.uleb128 0x3b
+ 1356 019b 05       		.uleb128 0x5
+ 1357 019c 27       		.uleb128 0x27
+ 1358 019d 19       		.uleb128 0x19
+ 1359 019e 49       		.uleb128 0x49
+ 1360 019f 13       		.uleb128 0x13
+ 1361 01a0 11       		.uleb128 0x11
+ 1362 01a1 01       		.uleb128 0x1
+ 1363 01a2 12       		.uleb128 0x12
+ 1364 01a3 06       		.uleb128 0x6
+ 1365 01a4 40       		.uleb128 0x40
+ 1366 01a5 18       		.uleb128 0x18
+ 1367 01a6 9742     		.uleb128 0x2117
+ 1368 01a8 19       		.uleb128 0x19
+ 1369 01a9 01       		.uleb128 0x1
+ 1370 01aa 13       		.uleb128 0x13
+ 1371 01ab 00       		.byte	0
+ 1372 01ac 00       		.byte	0
+ 1373 01ad 1F       		.uleb128 0x1f
+ 1374 01ae 34       		.uleb128 0x34
+ 1375 01af 00       		.byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 33
+
+
+ 1376 01b0 03       		.uleb128 0x3
+ 1377 01b1 0E       		.uleb128 0xe
+ 1378 01b2 3A       		.uleb128 0x3a
+ 1379 01b3 0B       		.uleb128 0xb
+ 1380 01b4 3B       		.uleb128 0x3b
+ 1381 01b5 05       		.uleb128 0x5
+ 1382 01b6 49       		.uleb128 0x49
+ 1383 01b7 13       		.uleb128 0x13
+ 1384 01b8 02       		.uleb128 0x2
+ 1385 01b9 17       		.uleb128 0x17
+ 1386 01ba 00       		.byte	0
+ 1387 01bb 00       		.byte	0
+ 1388 01bc 20       		.uleb128 0x20
+ 1389 01bd 2E       		.uleb128 0x2e
+ 1390 01be 00       		.byte	0
+ 1391 01bf 31       		.uleb128 0x31
+ 1392 01c0 13       		.uleb128 0x13
+ 1393 01c1 11       		.uleb128 0x11
+ 1394 01c2 01       		.uleb128 0x1
+ 1395 01c3 12       		.uleb128 0x12
+ 1396 01c4 06       		.uleb128 0x6
+ 1397 01c5 40       		.uleb128 0x40
+ 1398 01c6 18       		.uleb128 0x18
+ 1399 01c7 9742     		.uleb128 0x2117
+ 1400 01c9 19       		.uleb128 0x19
+ 1401 01ca 00       		.byte	0
+ 1402 01cb 00       		.byte	0
+ 1403 01cc 21       		.uleb128 0x21
+ 1404 01cd 2E       		.uleb128 0x2e
+ 1405 01ce 00       		.byte	0
+ 1406 01cf 3F       		.uleb128 0x3f
+ 1407 01d0 19       		.uleb128 0x19
+ 1408 01d1 03       		.uleb128 0x3
+ 1409 01d2 0E       		.uleb128 0xe
+ 1410 01d3 3A       		.uleb128 0x3a
+ 1411 01d4 0B       		.uleb128 0xb
+ 1412 01d5 3B       		.uleb128 0x3b
+ 1413 01d6 05       		.uleb128 0x5
+ 1414 01d7 27       		.uleb128 0x27
+ 1415 01d8 19       		.uleb128 0x19
+ 1416 01d9 49       		.uleb128 0x49
+ 1417 01da 13       		.uleb128 0x13
+ 1418 01db 11       		.uleb128 0x11
+ 1419 01dc 01       		.uleb128 0x1
+ 1420 01dd 12       		.uleb128 0x12
+ 1421 01de 06       		.uleb128 0x6
+ 1422 01df 40       		.uleb128 0x40
+ 1423 01e0 18       		.uleb128 0x18
+ 1424 01e1 9742     		.uleb128 0x2117
+ 1425 01e3 19       		.uleb128 0x19
+ 1426 01e4 00       		.byte	0
+ 1427 01e5 00       		.byte	0
+ 1428 01e6 22       		.uleb128 0x22
+ 1429 01e7 2E       		.uleb128 0x2e
+ 1430 01e8 00       		.byte	0
+ 1431 01e9 3F       		.uleb128 0x3f
+ 1432 01ea 19       		.uleb128 0x19
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 34
+
+
+ 1433 01eb 03       		.uleb128 0x3
+ 1434 01ec 0E       		.uleb128 0xe
+ 1435 01ed 3A       		.uleb128 0x3a
+ 1436 01ee 0B       		.uleb128 0xb
+ 1437 01ef 3B       		.uleb128 0x3b
+ 1438 01f0 05       		.uleb128 0x5
+ 1439 01f1 27       		.uleb128 0x27
+ 1440 01f2 19       		.uleb128 0x19
+ 1441 01f3 11       		.uleb128 0x11
+ 1442 01f4 01       		.uleb128 0x1
+ 1443 01f5 12       		.uleb128 0x12
+ 1444 01f6 06       		.uleb128 0x6
+ 1445 01f7 40       		.uleb128 0x40
+ 1446 01f8 18       		.uleb128 0x18
+ 1447 01f9 9742     		.uleb128 0x2117
+ 1448 01fb 19       		.uleb128 0x19
+ 1449 01fc 00       		.byte	0
+ 1450 01fd 00       		.byte	0
+ 1451 01fe 00       		.byte	0
+ 1452              		.section	.debug_loc,"",%progbits
+ 1453              	.Ldebug_loc0:
+ 1454              	.LLST0:
+ 1455 0000 14000000 		.4byte	.LVL0
+ 1456 0004 1A000000 		.4byte	.LVL2
+ 1457 0008 0100     		.2byte	0x1
+ 1458 000a 54       		.byte	0x54
+ 1459 000b 00000000 		.4byte	0
+ 1460 000f 00000000 		.4byte	0
+ 1461              	.LLST1:
+ 1462 0013 12000000 		.4byte	.LVL4
+ 1463 0017 18000000 		.4byte	.LVL6
+ 1464 001b 0100     		.2byte	0x1
+ 1465 001d 55       		.byte	0x55
+ 1466 001e 00000000 		.4byte	0
+ 1467 0022 00000000 		.4byte	0
+ 1468              	.LLST2:
+ 1469 0026 00000000 		.4byte	.LVL10
+ 1470 002a 02000000 		.4byte	.LVL11
+ 1471 002e 0600     		.2byte	0x6
+ 1472 0030 11       		.byte	0x11
+ 1473 0031 88DA8380 		.sleb128 -536810232
+ 1473      7E
+ 1474 0036 02000000 		.4byte	.LVL11
+ 1475 003a 04000000 		.4byte	.LVL12
+ 1476 003e 0200     		.2byte	0x2
+ 1477 0040 73       		.byte	0x73
+ 1478 0041 00       		.sleb128 0
+ 1479 0042 04000000 		.4byte	.LVL12
+ 1480 0046 0C000000 		.4byte	.LFE5
+ 1481 004a 0100     		.2byte	0x1
+ 1482 004c 53       		.byte	0x53
+ 1483 004d 00000000 		.4byte	0
+ 1484 0051 00000000 		.4byte	0
+ 1485              	.LLST3:
+ 1486 0055 00000000 		.4byte	.LVL13
+ 1487 0059 02000000 		.4byte	.LVL14
+ 1488 005d 0100     		.2byte	0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 35
+
+
+ 1489 005f 50       		.byte	0x50
+ 1490 0060 02000000 		.4byte	.LVL14
+ 1491 0064 10000000 		.4byte	.LFE6
+ 1492 0068 0400     		.2byte	0x4
+ 1493 006a F3       		.byte	0xf3
+ 1494 006b 01       		.uleb128 0x1
+ 1495 006c 50       		.byte	0x50
+ 1496 006d 9F       		.byte	0x9f
+ 1497 006e 00000000 		.4byte	0
+ 1498 0072 00000000 		.4byte	0
+ 1499              	.LLST4:
+ 1500 0076 04000000 		.4byte	.LVL15
+ 1501 007a 06000000 		.4byte	.LVL16
+ 1502 007e 0500     		.2byte	0x5
+ 1503 0080 70       		.byte	0x70
+ 1504 0081 00       		.sleb128 0
+ 1505 0082 35       		.byte	0x35
+ 1506 0083 25       		.byte	0x25
+ 1507 0084 9F       		.byte	0x9f
+ 1508 0085 00000000 		.4byte	0
+ 1509 0089 00000000 		.4byte	0
+ 1510              		.section	.debug_aranges,"",%progbits
+ 1511 0000 7C000000 		.4byte	0x7c
+ 1512 0004 0200     		.2byte	0x2
+ 1513 0006 00000000 		.4byte	.Ldebug_info0
+ 1514 000a 04       		.byte	0x4
+ 1515 000b 00       		.byte	0
+ 1516 000c 0000     		.2byte	0
+ 1517 000e 0000     		.2byte	0
+ 1518 0010 00000000 		.4byte	.LFB3
+ 1519 0014 02000000 		.4byte	.LFE3-.LFB3
+ 1520 0018 00000000 		.4byte	.LFB0
+ 1521 001c 34000000 		.4byte	.LFE0-.LFB0
+ 1522 0020 00000000 		.4byte	.LFB1
+ 1523 0024 2C000000 		.4byte	.LFE1-.LFB1
+ 1524 0028 00000000 		.4byte	.LFB2
+ 1525 002c 1C000000 		.4byte	.LFE2-.LFB2
+ 1526 0030 00000000 		.4byte	.LFB4
+ 1527 0034 0C000000 		.4byte	.LFE4-.LFB4
+ 1528 0038 00000000 		.4byte	.LFB5
+ 1529 003c 0C000000 		.4byte	.LFE5-.LFB5
+ 1530 0040 00000000 		.4byte	.LFB6
+ 1531 0044 10000000 		.4byte	.LFE6-.LFB6
+ 1532 0048 00000000 		.4byte	.LFB7
+ 1533 004c 0C000000 		.4byte	.LFE7-.LFB7
+ 1534 0050 00000000 		.4byte	.LFB8
+ 1535 0054 0C000000 		.4byte	.LFE8-.LFB8
+ 1536 0058 00000000 		.4byte	.LFB9
+ 1537 005c 10000000 		.4byte	.LFE9-.LFB9
+ 1538 0060 00000000 		.4byte	.LFB10
+ 1539 0064 0C000000 		.4byte	.LFE10-.LFB10
+ 1540 0068 00000000 		.4byte	.LFB11
+ 1541 006c 0C000000 		.4byte	.LFE11-.LFB11
+ 1542 0070 00000000 		.4byte	.LFB12
+ 1543 0074 0C000000 		.4byte	.LFE12-.LFB12
+ 1544 0078 00000000 		.4byte	0
+ 1545 007c 00000000 		.4byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 36
+
+
+ 1546              		.section	.debug_ranges,"",%progbits
+ 1547              	.Ldebug_ranges0:
+ 1548 0000 02000000 		.4byte	.LBB22
+ 1549 0004 04000000 		.4byte	.LBE22
+ 1550 0008 06000000 		.4byte	.LBB30
+ 1551 000c 0A000000 		.4byte	.LBE30
+ 1552 0010 14000000 		.4byte	.LBB41
+ 1553 0014 16000000 		.4byte	.LBE41
+ 1554 0018 00000000 		.4byte	0
+ 1555 001c 00000000 		.4byte	0
+ 1556 0020 04000000 		.4byte	.LBB26
+ 1557 0024 06000000 		.4byte	.LBE26
+ 1558 0028 0C000000 		.4byte	.LBB35
+ 1559 002c 0E000000 		.4byte	.LBE35
+ 1560 0030 12000000 		.4byte	.LBB40
+ 1561 0034 14000000 		.4byte	.LBE40
+ 1562 0038 00000000 		.4byte	0
+ 1563 003c 00000000 		.4byte	0
+ 1564 0040 0A000000 		.4byte	.LBB31
+ 1565 0044 0C000000 		.4byte	.LBE31
+ 1566 0048 10000000 		.4byte	.LBB39
+ 1567 004c 12000000 		.4byte	.LBE39
+ 1568 0050 16000000 		.4byte	.LBB42
+ 1569 0054 18000000 		.4byte	.LBE42
+ 1570 0058 00000000 		.4byte	0
+ 1571 005c 00000000 		.4byte	0
+ 1572 0060 0E000000 		.4byte	.LBB36
+ 1573 0064 10000000 		.4byte	.LBE36
+ 1574 0068 1A000000 		.4byte	.LBB43
+ 1575 006c 1C000000 		.4byte	.LBE43
+ 1576 0070 00000000 		.4byte	0
+ 1577 0074 00000000 		.4byte	0
+ 1578 0078 02000000 		.4byte	.LBB44
+ 1579 007c 04000000 		.4byte	.LBE44
+ 1580 0080 06000000 		.4byte	.LBB52
+ 1581 0084 08000000 		.4byte	.LBE52
+ 1582 0088 12000000 		.4byte	.LBB63
+ 1583 008c 14000000 		.4byte	.LBE63
+ 1584 0090 00000000 		.4byte	0
+ 1585 0094 00000000 		.4byte	0
+ 1586 0098 04000000 		.4byte	.LBB48
+ 1587 009c 06000000 		.4byte	.LBE48
+ 1588 00a0 0A000000 		.4byte	.LBB57
+ 1589 00a4 0C000000 		.4byte	.LBE57
+ 1590 00a8 10000000 		.4byte	.LBB62
+ 1591 00ac 12000000 		.4byte	.LBE62
+ 1592 00b0 00000000 		.4byte	0
+ 1593 00b4 00000000 		.4byte	0
+ 1594 00b8 08000000 		.4byte	.LBB53
+ 1595 00bc 0A000000 		.4byte	.LBE53
+ 1596 00c0 0C000000 		.4byte	.LBB58
+ 1597 00c4 0E000000 		.4byte	.LBE58
+ 1598 00c8 14000000 		.4byte	.LBB64
+ 1599 00cc 16000000 		.4byte	.LBE64
+ 1600 00d0 00000000 		.4byte	0
+ 1601 00d4 00000000 		.4byte	0
+ 1602 00d8 0E000000 		.4byte	.LBB59
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 37
+
+
+ 1603 00dc 10000000 		.4byte	.LBE59
+ 1604 00e0 18000000 		.4byte	.LBB65
+ 1605 00e4 1A000000 		.4byte	.LBE65
+ 1606 00e8 00000000 		.4byte	0
+ 1607 00ec 00000000 		.4byte	0
+ 1608 00f0 00000000 		.4byte	.LBB66
+ 1609 00f4 02000000 		.4byte	.LBE66
+ 1610 00f8 04000000 		.4byte	.LBB73
+ 1611 00fc 08000000 		.4byte	.LBE73
+ 1612 0100 0C000000 		.4byte	.LBB75
+ 1613 0104 1C000000 		.4byte	.LBE75
+ 1614 0108 00000000 		.4byte	0
+ 1615 010c 00000000 		.4byte	0
+ 1616 0110 02000000 		.4byte	.LBB70
+ 1617 0114 04000000 		.4byte	.LBE70
+ 1618 0118 08000000 		.4byte	.LBB74
+ 1619 011c 0C000000 		.4byte	.LBE74
+ 1620 0120 00000000 		.4byte	0
+ 1621 0124 00000000 		.4byte	0
+ 1622 0128 00000000 		.4byte	.LFB3
+ 1623 012c 02000000 		.4byte	.LFE3
+ 1624 0130 00000000 		.4byte	.LFB0
+ 1625 0134 34000000 		.4byte	.LFE0
+ 1626 0138 00000000 		.4byte	.LFB1
+ 1627 013c 2C000000 		.4byte	.LFE1
+ 1628 0140 00000000 		.4byte	.LFB2
+ 1629 0144 1C000000 		.4byte	.LFE2
+ 1630 0148 00000000 		.4byte	.LFB4
+ 1631 014c 0C000000 		.4byte	.LFE4
+ 1632 0150 00000000 		.4byte	.LFB5
+ 1633 0154 0C000000 		.4byte	.LFE5
+ 1634 0158 00000000 		.4byte	.LFB6
+ 1635 015c 10000000 		.4byte	.LFE6
+ 1636 0160 00000000 		.4byte	.LFB7
+ 1637 0164 0C000000 		.4byte	.LFE7
+ 1638 0168 00000000 		.4byte	.LFB8
+ 1639 016c 0C000000 		.4byte	.LFE8
+ 1640 0170 00000000 		.4byte	.LFB9
+ 1641 0174 10000000 		.4byte	.LFE9
+ 1642 0178 00000000 		.4byte	.LFB10
+ 1643 017c 0C000000 		.4byte	.LFE10
+ 1644 0180 00000000 		.4byte	.LFB11
+ 1645 0184 0C000000 		.4byte	.LFE11
+ 1646 0188 00000000 		.4byte	.LFB12
+ 1647 018c 0C000000 		.4byte	.LFE12
+ 1648 0190 00000000 		.4byte	0
+ 1649 0194 00000000 		.4byte	0
+ 1650              		.section	.debug_line,"",%progbits
+ 1651              	.Ldebug_line0:
+ 1652 0000 A0010000 		.section	.debug_str,"MS",%progbits,1
+ 1652      02004600 
+ 1652      00000201 
+ 1652      FB0E0D00 
+ 1652      01010101 
+ 1653              	.LASF16:
+ 1654 0000 72656733 		.ascii	"reg32\000"
+ 1654      3200
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 38
+
+
+ 1655              	.LASF28:
+ 1656 0006 536C6565 		.ascii	"Sleep_isr_GetPriority\000"
+ 1656      705F6973 
+ 1656      725F4765 
+ 1656      74507269 
+ 1656      6F726974 
+ 1657              	.LASF4:
+ 1658 001c 73686F72 		.ascii	"short unsigned int\000"
+ 1658      7420756E 
+ 1658      7369676E 
+ 1658      65642069 
+ 1658      6E7400
+ 1659              	.LASF34:
+ 1660 002f 47656E65 		.ascii	"Generated_Source\\PSoC5\\Sleep_isr.c\000"
+ 1660      72617465 
+ 1660      645F536F 
+ 1660      75726365 
+ 1660      5C50536F 
+ 1661              	.LASF19:
+ 1662 0052 536C6565 		.ascii	"Sleep_isr_SetPriority\000"
+ 1662      705F6973 
+ 1662      725F5365 
+ 1662      74507269 
+ 1662      6F726974 
+ 1663              	.LASF36:
+ 1664 0068 536C6565 		.ascii	"Sleep_isr_GetState\000"
+ 1664      705F6973 
+ 1664      725F4765 
+ 1664      74537461 
+ 1664      746500
+ 1665              	.LASF33:
+ 1666 007b 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1666      4320342E 
+ 1666      392E3320 
+ 1666      32303135 
+ 1666      30333033 
+ 1667 00ae 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1667      20726576 
+ 1667      6973696F 
+ 1667      6E203232 
+ 1667      31323230 
+ 1668 00e1 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 1668      66756E63 
+ 1668      74696F6E 
+ 1668      2D736563 
+ 1668      74696F6E 
+ 1669              	.LASF13:
+ 1670 0109 666C6F61 		.ascii	"float\000"
+ 1670      7400
+ 1671              	.LASF2:
+ 1672 010f 756E7369 		.ascii	"unsigned char\000"
+ 1672      676E6564 
+ 1672      20636861 
+ 1672      7200
+ 1673              	.LASF26:
+ 1674 011d 536C6565 		.ascii	"Sleep_isr_Stop\000"
+ 1674      705F6973 
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 39
+
+
+ 1674      725F5374 
+ 1674      6F7000
+ 1675              	.LASF15:
+ 1676 012c 72656738 		.ascii	"reg8\000"
+ 1676      00
+ 1677              	.LASF25:
+ 1678 0131 536C6565 		.ascii	"Sleep_isr_StartEx\000"
+ 1678      705F6973 
+ 1678      725F5374 
+ 1678      61727445 
+ 1678      7800
+ 1679              	.LASF6:
+ 1680 0143 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1680      20756E73 
+ 1680      69676E65 
+ 1680      6420696E 
+ 1680      7400
+ 1681              	.LASF11:
+ 1682 0155 75696E74 		.ascii	"uint8\000"
+ 1682      3800
+ 1683              	.LASF18:
+ 1684 015b 536C6565 		.ascii	"Sleep_isr_SetVector\000"
+ 1684      705F6973 
+ 1684      725F5365 
+ 1684      74566563 
+ 1684      746F7200 
+ 1685              	.LASF14:
+ 1686 016f 646F7562 		.ascii	"double\000"
+ 1686      6C6500
+ 1687              	.LASF3:
+ 1688 0176 73686F72 		.ascii	"short int\000"
+ 1688      7420696E 
+ 1688      7400
+ 1689              	.LASF21:
+ 1690 0180 7072696F 		.ascii	"priority\000"
+ 1690      72697479 
+ 1690      00
+ 1691              	.LASF12:
+ 1692 0189 75696E74 		.ascii	"uint32\000"
+ 1692      333200
+ 1693              	.LASF32:
+ 1694 0190 536C6565 		.ascii	"Sleep_isr_ClearPending\000"
+ 1694      705F6973 
+ 1694      725F436C 
+ 1694      65617250 
+ 1694      656E6469 
+ 1695              	.LASF0:
+ 1696 01a7 756E7369 		.ascii	"unsigned int\000"
+ 1696      676E6564 
+ 1696      20696E74 
+ 1696      00
+ 1697              	.LASF31:
+ 1698 01b4 536C6565 		.ascii	"Sleep_isr_SetPending\000"
+ 1698      705F6973 
+ 1698      725F5365 
+ 1698      7450656E 
+ 1698      64696E67 
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 40
+
+
+ 1699              	.LASF20:
+ 1700 01c9 61646472 		.ascii	"address\000"
+ 1700      65737300 
+ 1701              	.LASF8:
+ 1702 01d1 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1702      206C6F6E 
+ 1702      6720756E 
+ 1702      7369676E 
+ 1702      65642069 
+ 1703              	.LASF22:
+ 1704 01e8 536C6565 		.ascii	"Sleep_isr_Disable\000"
+ 1704      705F6973 
+ 1704      725F4469 
+ 1704      7361626C 
+ 1704      6500
+ 1705              	.LASF17:
+ 1706 01fa 63796973 		.ascii	"cyisraddress\000"
+ 1706      72616464 
+ 1706      72657373 
+ 1706      00
+ 1707              	.LASF23:
+ 1708 0207 536C6565 		.ascii	"Sleep_isr_Enable\000"
+ 1708      705F6973 
+ 1708      725F456E 
+ 1708      61626C65 
+ 1708      00
+ 1709              	.LASF9:
+ 1710 0218 73697A65 		.ascii	"sizetype\000"
+ 1710      74797065 
+ 1710      00
+ 1711              	.LASF7:
+ 1712 0221 6C6F6E67 		.ascii	"long long int\000"
+ 1712      206C6F6E 
+ 1712      6720696E 
+ 1712      7400
+ 1713              	.LASF10:
+ 1714 022f 63686172 		.ascii	"char\000"
+ 1714      00
+ 1715              	.LASF29:
+ 1716 0234 72616D56 		.ascii	"ramVectorTable\000"
+ 1716      6563746F 
+ 1716      72546162 
+ 1716      6C6500
+ 1717              	.LASF27:
+ 1718 0243 536C6565 		.ascii	"Sleep_isr_GetVector\000"
+ 1718      705F6973 
+ 1718      725F4765 
+ 1718      74566563 
+ 1718      746F7200 
+ 1719              	.LASF30:
+ 1720 0257 536C6565 		.ascii	"Sleep_isr_Interrupt\000"
+ 1720      705F6973 
+ 1720      725F496E 
+ 1720      74657272 
+ 1720      75707400 
+ 1721              	.LASF5:
+ 1722 026b 6C6F6E67 		.ascii	"long int\000"
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccf1PDRZ.s 			page 41
+
+
+ 1722      20696E74 
+ 1722      00
+ 1723              	.LASF1:
+ 1724 0274 7369676E 		.ascii	"signed char\000"
+ 1724      65642063 
+ 1724      68617200 
+ 1725              	.LASF24:
+ 1726 0280 536C6565 		.ascii	"Sleep_isr_Start\000"
+ 1726      705F6973 
+ 1726      725F5374 
+ 1726      61727400 
+ 1727              	.LASF35:
+ 1728 0290 433A5C55 		.ascii	"C:\\Users\\jmdevoto\\Desktop\\Builds\\(4-24-17)Humm"
+ 1728      73657273 
+ 1728      5C6A6D64 
+ 1728      65766F74 
+ 1728      6F5C4465 
+ 1729 02be 696E6762 		.ascii	"ingbird-059-v1\\Hummingbird(Continuous Output).cyds"
+ 1729      6972642D 
+ 1729      3035392D 
+ 1729      76315C48 
+ 1729      756D6D69 
+ 1730 02f0 6E00     		.ascii	"n\000"
+ 1731              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

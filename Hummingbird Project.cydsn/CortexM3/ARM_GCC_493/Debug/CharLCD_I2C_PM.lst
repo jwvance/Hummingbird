@@ -1,0 +1,819 @@
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccxzOSnu.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"CharLCD_I2C_PM.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.CharLCD_SaveConfig,"ax",%progbits
+  19              		.align	2
+  20              		.global	CharLCD_SaveConfig
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	CharLCD_SaveConfig, %function
+  24              	CharLCD_SaveConfig:
+  25              	.LFB0:
+  26              		.file 1 "Generated_Source\\PSoC5\\CharLCD_I2C_PM.c"
+   1:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * File Name: CharLCD_I2C_PM.c
+   3:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Version 2.0
+   4:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+   5:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Description:
+   6:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *  This file provides the API source code for the Static Segment LCD component.
+   7:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+   8:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Note:
+   9:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+  10:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** ********************************************************************************
+  11:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  13:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  14:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *******************************************************************************/
+  16:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** 
+  17:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** #include "CharLCD_I2C.h"
+  18:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** 
+  19:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** 
+  20:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** static CharLCD_BACKUP_STRUCT CharLCD_backup;
+  21:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** 
+  22:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** 
+  23:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** /*******************************************************************************
+  24:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Function Name: CharLCD_SaveConfig
+  25:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** ********************************************************************************
+  26:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+  27:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Summary:
+  28:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *  Does nothing, provided for consistency.
+  29:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+  30:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Parameters:
+  31:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *  None.
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccxzOSnu.s 			page 2
+
+
+  32:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+  33:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Return:
+  34:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *  None.
+  35:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+  36:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *******************************************************************************/
+  37:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** void CharLCD_SaveConfig(void) 
+  38:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** {
+  27              		.loc 1 38 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32 0000 7047     		bx	lr
+  33              		.cfi_endproc
+  34              	.LFE0:
+  35              		.size	CharLCD_SaveConfig, .-CharLCD_SaveConfig
+  36 0002 00BF     		.section	.text.CharLCD_RestoreConfig,"ax",%progbits
+  37              		.align	2
+  38              		.global	CharLCD_RestoreConfig
+  39              		.thumb
+  40              		.thumb_func
+  41              		.type	CharLCD_RestoreConfig, %function
+  42              	CharLCD_RestoreConfig:
+  43              	.LFB1:
+  39:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** }
+  40:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** 
+  41:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** 
+  42:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** /*******************************************************************************
+  43:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Function Name: CharLCD_RestoreConfig
+  44:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** ********************************************************************************
+  45:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+  46:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Summary:
+  47:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *  Does nothing, provided for consistency.
+  48:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+  49:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Parameters:
+  50:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *  None.
+  51:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+  52:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Return:
+  53:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *  None.
+  54:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+  55:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *******************************************************************************/
+  56:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** void CharLCD_RestoreConfig(void) 
+  57:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** {
+  44              		.loc 1 57 0
+  45              		.cfi_startproc
+  46              		@ args = 0, pretend = 0, frame = 0
+  47              		@ frame_needed = 0, uses_anonymous_args = 0
+  48              		@ link register save eliminated.
+  49 0000 7047     		bx	lr
+  50              		.cfi_endproc
+  51              	.LFE1:
+  52              		.size	CharLCD_RestoreConfig, .-CharLCD_RestoreConfig
+  53 0002 00BF     		.section	.text.CharLCD_Sleep,"ax",%progbits
+  54              		.align	2
+  55              		.global	CharLCD_Sleep
+  56              		.thumb
+  57              		.thumb_func
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccxzOSnu.s 			page 3
+
+
+  58              		.type	CharLCD_Sleep, %function
+  59              	CharLCD_Sleep:
+  60              	.LFB2:
+  58:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** }
+  59:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** 
+  60:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** 
+  61:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** /*******************************************************************************
+  62:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Function Name: CharLCD_Sleep
+  63:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** ********************************************************************************
+  64:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+  65:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Summary:
+  66:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *  Prepares component for entering the sleep mode.
+  67:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+  68:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Parameters:
+  69:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *  None.
+  70:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+  71:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Return:
+  72:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *  None.
+  73:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+  74:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Reentrant:
+  75:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *  No.
+  76:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+  77:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *******************************************************************************/
+  78:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** void CharLCD_Sleep(void) 
+  79:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** {
+  61              		.loc 1 79 0
+  62              		.cfi_startproc
+  63              		@ args = 0, pretend = 0, frame = 0
+  64              		@ frame_needed = 0, uses_anonymous_args = 0
+  65              		@ link register save eliminated.
+  80:Generated_Source\PSoC5/CharLCD_I2C_PM.c ****     CharLCD_backup.enableState = CharLCD_enableState;
+  66              		.loc 1 80 0
+  67 0000 024A     		ldr	r2, .L4
+  68 0002 034B     		ldr	r3, .L4+4
+  69 0004 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+  70 0006 1A70     		strb	r2, [r3]
+  81:Generated_Source\PSoC5/CharLCD_I2C_PM.c ****     CharLCD_SaveConfig();
+  82:Generated_Source\PSoC5/CharLCD_I2C_PM.c ****     CharLCD_Stop();
+  71              		.loc 1 82 0
+  72 0008 FFF7FEBF 		b	CharLCD_Stop
+  73              	.LVL0:
+  74              	.L5:
+  75              		.align	2
+  76              	.L4:
+  77 000c 00000000 		.word	CharLCD_enableState
+  78 0010 00000000 		.word	.LANCHOR0
+  79              		.cfi_endproc
+  80              	.LFE2:
+  81              		.size	CharLCD_Sleep, .-CharLCD_Sleep
+  82              		.section	.text.CharLCD_Wakeup,"ax",%progbits
+  83              		.align	2
+  84              		.global	CharLCD_Wakeup
+  85              		.thumb
+  86              		.thumb_func
+  87              		.type	CharLCD_Wakeup, %function
+  88              	CharLCD_Wakeup:
+  89              	.LFB3:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccxzOSnu.s 			page 4
+
+
+  83:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** }
+  84:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** 
+  85:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** 
+  86:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** /*******************************************************************************
+  87:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Function Name: CharLCD_Wakeup
+  88:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** ********************************************************************************
+  89:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+  90:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Summary:
+  91:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *  Wakes component from sleep mode. Configures DMA and enables the component for
+  92:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *  normal operation.
+  93:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+  94:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Parameters:
+  95:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *  CharLCD_enableState - Global variable.
+  96:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+  97:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Return:
+  98:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *  Status one of standard status for PSoC3 Component
+  99:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *       CYRET_SUCCESS - Function completed successfully.
+ 100:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *       CYRET_LOCKED - The object was locked, already in use. Some of TDs or
+ 101:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *                      a channel already in use.
+ 102:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+ 103:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Reentrant:
+ 104:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *  No.
+ 105:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
+ 106:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *******************************************************************************/
+ 107:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** void CharLCD_Wakeup(void) 
+ 108:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** {
+  90              		.loc 1 108 0
+  91              		.cfi_startproc
+  92              		@ args = 0, pretend = 0, frame = 0
+  93              		@ frame_needed = 0, uses_anonymous_args = 0
+  94              		@ link register save eliminated.
+ 109:Generated_Source\PSoC5/CharLCD_I2C_PM.c ****     CharLCD_RestoreConfig();
+ 110:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** 
+ 111:Generated_Source\PSoC5/CharLCD_I2C_PM.c ****     if(CharLCD_backup.enableState == 1u)
+  95              		.loc 1 111 0
+  96 0000 034B     		ldr	r3, .L10
+  97 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  98 0004 012B     		cmp	r3, #1
+  99 0006 00D0     		beq	.L9
+ 100 0008 7047     		bx	lr
+ 101              	.L9:
+ 112:Generated_Source\PSoC5/CharLCD_I2C_PM.c ****     {
+ 113:Generated_Source\PSoC5/CharLCD_I2C_PM.c ****         CharLCD_Enable();
+ 102              		.loc 1 113 0
+ 103 000a FFF7FEBF 		b	CharLCD_Enable
+ 104              	.LVL1:
+ 105              	.L11:
+ 106 000e 00BF     		.align	2
+ 107              	.L10:
+ 108 0010 00000000 		.word	.LANCHOR0
+ 109              		.cfi_endproc
+ 110              	.LFE3:
+ 111              		.size	CharLCD_Wakeup, .-CharLCD_Wakeup
+ 112              		.bss
+ 113              		.align	2
+ 114              		.set	.LANCHOR0,. + 0
+ 115              		.type	CharLCD_backup, %object
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccxzOSnu.s 			page 5
+
+
+ 116              		.size	CharLCD_backup, 1
+ 117              	CharLCD_backup:
+ 118 0000 00       		.space	1
+ 119 0001 000000   		.text
+ 120              	.Letext0:
+ 121              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 122              		.file 3 "Generated_Source\\PSoC5\\CharLCD_I2C.h"
+ 123              		.section	.debug_info,"",%progbits
+ 124              	.Ldebug_info0:
+ 125 0000 3E010000 		.4byte	0x13e
+ 126 0004 0400     		.2byte	0x4
+ 127 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 128 000a 04       		.byte	0x4
+ 129 000b 01       		.uleb128 0x1
+ 130 000c 32000000 		.4byte	.LASF20
+ 131 0010 01       		.byte	0x1
+ 132 0011 D4000000 		.4byte	.LASF21
+ 133 0015 EB010000 		.4byte	.LASF22
+ 134 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 135 001d 00000000 		.4byte	0
+ 136 0021 00000000 		.4byte	.Ldebug_line0
+ 137 0025 02       		.uleb128 0x2
+ 138 0026 01       		.byte	0x1
+ 139 0027 06       		.byte	0x6
+ 140 0028 DF010000 		.4byte	.LASF0
+ 141 002c 02       		.uleb128 0x2
+ 142 002d 01       		.byte	0x1
+ 143 002e 08       		.byte	0x8
+ 144 002f C6000000 		.4byte	.LASF1
+ 145 0033 02       		.uleb128 0x2
+ 146 0034 02       		.byte	0x2
+ 147 0035 05       		.byte	0x5
+ 148 0036 A6010000 		.4byte	.LASF2
+ 149 003a 02       		.uleb128 0x2
+ 150 003b 02       		.byte	0x2
+ 151 003c 07       		.byte	0x7
+ 152 003d 0E010000 		.4byte	.LASF3
+ 153 0041 02       		.uleb128 0x2
+ 154 0042 04       		.byte	0x4
+ 155 0043 05       		.byte	0x5
+ 156 0044 CA010000 		.4byte	.LASF4
+ 157 0048 02       		.uleb128 0x2
+ 158 0049 04       		.byte	0x4
+ 159 004a 07       		.byte	0x7
+ 160 004b FC000000 		.4byte	.LASF5
+ 161 004f 02       		.uleb128 0x2
+ 162 0050 08       		.byte	0x8
+ 163 0051 05       		.byte	0x5
+ 164 0052 93010000 		.4byte	.LASF6
+ 165 0056 02       		.uleb128 0x2
+ 166 0057 08       		.byte	0x8
+ 167 0058 07       		.byte	0x7
+ 168 0059 6D010000 		.4byte	.LASF7
+ 169 005d 03       		.uleb128 0x3
+ 170 005e 04       		.byte	0x4
+ 171 005f 05       		.byte	0x5
+ 172 0060 696E7400 		.ascii	"int\000"
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccxzOSnu.s 			page 6
+
+
+ 173 0064 02       		.uleb128 0x2
+ 174 0065 04       		.byte	0x4
+ 175 0066 07       		.byte	0x7
+ 176 0067 51010000 		.4byte	.LASF8
+ 177 006b 04       		.uleb128 0x4
+ 178 006c B0010000 		.4byte	.LASF12
+ 179 0070 02       		.byte	0x2
+ 180 0071 5B       		.byte	0x5b
+ 181 0072 2C000000 		.4byte	0x2c
+ 182 0076 02       		.uleb128 0x2
+ 183 0077 04       		.byte	0x4
+ 184 0078 04       		.byte	0x4
+ 185 0079 C0000000 		.4byte	.LASF9
+ 186 007d 02       		.uleb128 0x2
+ 187 007e 08       		.byte	0x8
+ 188 007f 04       		.byte	0x4
+ 189 0080 21010000 		.4byte	.LASF10
+ 190 0084 02       		.uleb128 0x2
+ 191 0085 01       		.byte	0x1
+ 192 0086 08       		.byte	0x8
+ 193 0087 A1010000 		.4byte	.LASF11
+ 194 008b 05       		.uleb128 0x5
+ 195 008c 01       		.byte	0x1
+ 196 008d 03       		.byte	0x3
+ 197 008e 2D       		.byte	0x2d
+ 198 008f A0000000 		.4byte	0xa0
+ 199 0093 06       		.uleb128 0x6
+ 200 0094 D3010000 		.4byte	.LASF23
+ 201 0098 03       		.byte	0x3
+ 202 0099 2F       		.byte	0x2f
+ 203 009a 6B000000 		.4byte	0x6b
+ 204 009e 00       		.byte	0
+ 205 009f 00       		.byte	0
+ 206 00a0 04       		.uleb128 0x4
+ 207 00a1 00000000 		.4byte	.LASF13
+ 208 00a5 03       		.byte	0x3
+ 209 00a6 31       		.byte	0x31
+ 210 00a7 8B000000 		.4byte	0x8b
+ 211 00ab 07       		.uleb128 0x7
+ 212 00ac 3E010000 		.4byte	.LASF14
+ 213 00b0 01       		.byte	0x1
+ 214 00b1 25       		.byte	0x25
+ 215 00b2 01       		.byte	0x1
+ 216 00b3 07       		.uleb128 0x7
+ 217 00b4 28010000 		.4byte	.LASF15
+ 218 00b8 01       		.byte	0x1
+ 219 00b9 38       		.byte	0x38
+ 220 00ba 01       		.byte	0x1
+ 221 00bb 08       		.uleb128 0x8
+ 222 00bc AB000000 		.4byte	0xab
+ 223 00c0 00000000 		.4byte	.LFB0
+ 224 00c4 02000000 		.4byte	.LFE0-.LFB0
+ 225 00c8 01       		.uleb128 0x1
+ 226 00c9 9C       		.byte	0x9c
+ 227 00ca 08       		.uleb128 0x8
+ 228 00cb B3000000 		.4byte	0xb3
+ 229 00cf 00000000 		.4byte	.LFB1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccxzOSnu.s 			page 7
+
+
+ 230 00d3 02000000 		.4byte	.LFE1-.LFB1
+ 231 00d7 01       		.uleb128 0x1
+ 232 00d8 9C       		.byte	0x9c
+ 233 00d9 09       		.uleb128 0x9
+ 234 00da 4D020000 		.4byte	.LASF16
+ 235 00de 01       		.byte	0x1
+ 236 00df 4E       		.byte	0x4e
+ 237 00e0 00000000 		.4byte	.LFB2
+ 238 00e4 14000000 		.4byte	.LFE2-.LFB2
+ 239 00e8 01       		.uleb128 0x1
+ 240 00e9 9C       		.byte	0x9c
+ 241 00ea F8000000 		.4byte	0xf8
+ 242 00ee 0A       		.uleb128 0xa
+ 243 00ef 0C000000 		.4byte	.LVL0
+ 244 00f3 33010000 		.4byte	0x133
+ 245 00f7 00       		.byte	0
+ 246 00f8 09       		.uleb128 0x9
+ 247 00f9 84010000 		.4byte	.LASF17
+ 248 00fd 01       		.byte	0x1
+ 249 00fe 6B       		.byte	0x6b
+ 250 00ff 00000000 		.4byte	.LFB3
+ 251 0103 14000000 		.4byte	.LFE3-.LFB3
+ 252 0107 01       		.uleb128 0x1
+ 253 0108 9C       		.byte	0x9c
+ 254 0109 17010000 		.4byte	0x117
+ 255 010d 0A       		.uleb128 0xa
+ 256 010e 0E000000 		.4byte	.LVL1
+ 257 0112 3A010000 		.4byte	0x13a
+ 258 0116 00       		.byte	0
+ 259 0117 0B       		.uleb128 0xb
+ 260 0118 5E010000 		.4byte	.LASF24
+ 261 011c 01       		.byte	0x1
+ 262 011d 14       		.byte	0x14
+ 263 011e A0000000 		.4byte	0xa0
+ 264 0122 05       		.uleb128 0x5
+ 265 0123 03       		.byte	0x3
+ 266 0124 00000000 		.4byte	CharLCD_backup
+ 267 0128 0C       		.uleb128 0xc
+ 268 0129 B6010000 		.4byte	.LASF25
+ 269 012d 03       		.byte	0x3
+ 270 012e 7C       		.byte	0x7c
+ 271 012f 6B000000 		.4byte	0x6b
+ 272 0133 0D       		.uleb128 0xd
+ 273 0134 16000000 		.4byte	.LASF18
+ 274 0138 03       		.byte	0x3
+ 275 0139 3B       		.byte	0x3b
+ 276 013a 0D       		.uleb128 0xd
+ 277 013b 23000000 		.4byte	.LASF19
+ 278 013f 03       		.byte	0x3
+ 279 0140 39       		.byte	0x39
+ 280 0141 00       		.byte	0
+ 281              		.section	.debug_abbrev,"",%progbits
+ 282              	.Ldebug_abbrev0:
+ 283 0000 01       		.uleb128 0x1
+ 284 0001 11       		.uleb128 0x11
+ 285 0002 01       		.byte	0x1
+ 286 0003 25       		.uleb128 0x25
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccxzOSnu.s 			page 8
+
+
+ 287 0004 0E       		.uleb128 0xe
+ 288 0005 13       		.uleb128 0x13
+ 289 0006 0B       		.uleb128 0xb
+ 290 0007 03       		.uleb128 0x3
+ 291 0008 0E       		.uleb128 0xe
+ 292 0009 1B       		.uleb128 0x1b
+ 293 000a 0E       		.uleb128 0xe
+ 294 000b 55       		.uleb128 0x55
+ 295 000c 17       		.uleb128 0x17
+ 296 000d 11       		.uleb128 0x11
+ 297 000e 01       		.uleb128 0x1
+ 298 000f 10       		.uleb128 0x10
+ 299 0010 17       		.uleb128 0x17
+ 300 0011 00       		.byte	0
+ 301 0012 00       		.byte	0
+ 302 0013 02       		.uleb128 0x2
+ 303 0014 24       		.uleb128 0x24
+ 304 0015 00       		.byte	0
+ 305 0016 0B       		.uleb128 0xb
+ 306 0017 0B       		.uleb128 0xb
+ 307 0018 3E       		.uleb128 0x3e
+ 308 0019 0B       		.uleb128 0xb
+ 309 001a 03       		.uleb128 0x3
+ 310 001b 0E       		.uleb128 0xe
+ 311 001c 00       		.byte	0
+ 312 001d 00       		.byte	0
+ 313 001e 03       		.uleb128 0x3
+ 314 001f 24       		.uleb128 0x24
+ 315 0020 00       		.byte	0
+ 316 0021 0B       		.uleb128 0xb
+ 317 0022 0B       		.uleb128 0xb
+ 318 0023 3E       		.uleb128 0x3e
+ 319 0024 0B       		.uleb128 0xb
+ 320 0025 03       		.uleb128 0x3
+ 321 0026 08       		.uleb128 0x8
+ 322 0027 00       		.byte	0
+ 323 0028 00       		.byte	0
+ 324 0029 04       		.uleb128 0x4
+ 325 002a 16       		.uleb128 0x16
+ 326 002b 00       		.byte	0
+ 327 002c 03       		.uleb128 0x3
+ 328 002d 0E       		.uleb128 0xe
+ 329 002e 3A       		.uleb128 0x3a
+ 330 002f 0B       		.uleb128 0xb
+ 331 0030 3B       		.uleb128 0x3b
+ 332 0031 0B       		.uleb128 0xb
+ 333 0032 49       		.uleb128 0x49
+ 334 0033 13       		.uleb128 0x13
+ 335 0034 00       		.byte	0
+ 336 0035 00       		.byte	0
+ 337 0036 05       		.uleb128 0x5
+ 338 0037 13       		.uleb128 0x13
+ 339 0038 01       		.byte	0x1
+ 340 0039 0B       		.uleb128 0xb
+ 341 003a 0B       		.uleb128 0xb
+ 342 003b 3A       		.uleb128 0x3a
+ 343 003c 0B       		.uleb128 0xb
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccxzOSnu.s 			page 9
+
+
+ 344 003d 3B       		.uleb128 0x3b
+ 345 003e 0B       		.uleb128 0xb
+ 346 003f 01       		.uleb128 0x1
+ 347 0040 13       		.uleb128 0x13
+ 348 0041 00       		.byte	0
+ 349 0042 00       		.byte	0
+ 350 0043 06       		.uleb128 0x6
+ 351 0044 0D       		.uleb128 0xd
+ 352 0045 00       		.byte	0
+ 353 0046 03       		.uleb128 0x3
+ 354 0047 0E       		.uleb128 0xe
+ 355 0048 3A       		.uleb128 0x3a
+ 356 0049 0B       		.uleb128 0xb
+ 357 004a 3B       		.uleb128 0x3b
+ 358 004b 0B       		.uleb128 0xb
+ 359 004c 49       		.uleb128 0x49
+ 360 004d 13       		.uleb128 0x13
+ 361 004e 38       		.uleb128 0x38
+ 362 004f 0B       		.uleb128 0xb
+ 363 0050 00       		.byte	0
+ 364 0051 00       		.byte	0
+ 365 0052 07       		.uleb128 0x7
+ 366 0053 2E       		.uleb128 0x2e
+ 367 0054 00       		.byte	0
+ 368 0055 3F       		.uleb128 0x3f
+ 369 0056 19       		.uleb128 0x19
+ 370 0057 03       		.uleb128 0x3
+ 371 0058 0E       		.uleb128 0xe
+ 372 0059 3A       		.uleb128 0x3a
+ 373 005a 0B       		.uleb128 0xb
+ 374 005b 3B       		.uleb128 0x3b
+ 375 005c 0B       		.uleb128 0xb
+ 376 005d 27       		.uleb128 0x27
+ 377 005e 19       		.uleb128 0x19
+ 378 005f 20       		.uleb128 0x20
+ 379 0060 0B       		.uleb128 0xb
+ 380 0061 00       		.byte	0
+ 381 0062 00       		.byte	0
+ 382 0063 08       		.uleb128 0x8
+ 383 0064 2E       		.uleb128 0x2e
+ 384 0065 00       		.byte	0
+ 385 0066 31       		.uleb128 0x31
+ 386 0067 13       		.uleb128 0x13
+ 387 0068 11       		.uleb128 0x11
+ 388 0069 01       		.uleb128 0x1
+ 389 006a 12       		.uleb128 0x12
+ 390 006b 06       		.uleb128 0x6
+ 391 006c 40       		.uleb128 0x40
+ 392 006d 18       		.uleb128 0x18
+ 393 006e 9742     		.uleb128 0x2117
+ 394 0070 19       		.uleb128 0x19
+ 395 0071 00       		.byte	0
+ 396 0072 00       		.byte	0
+ 397 0073 09       		.uleb128 0x9
+ 398 0074 2E       		.uleb128 0x2e
+ 399 0075 01       		.byte	0x1
+ 400 0076 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccxzOSnu.s 			page 10
+
+
+ 401 0077 19       		.uleb128 0x19
+ 402 0078 03       		.uleb128 0x3
+ 403 0079 0E       		.uleb128 0xe
+ 404 007a 3A       		.uleb128 0x3a
+ 405 007b 0B       		.uleb128 0xb
+ 406 007c 3B       		.uleb128 0x3b
+ 407 007d 0B       		.uleb128 0xb
+ 408 007e 27       		.uleb128 0x27
+ 409 007f 19       		.uleb128 0x19
+ 410 0080 11       		.uleb128 0x11
+ 411 0081 01       		.uleb128 0x1
+ 412 0082 12       		.uleb128 0x12
+ 413 0083 06       		.uleb128 0x6
+ 414 0084 40       		.uleb128 0x40
+ 415 0085 18       		.uleb128 0x18
+ 416 0086 9742     		.uleb128 0x2117
+ 417 0088 19       		.uleb128 0x19
+ 418 0089 01       		.uleb128 0x1
+ 419 008a 13       		.uleb128 0x13
+ 420 008b 00       		.byte	0
+ 421 008c 00       		.byte	0
+ 422 008d 0A       		.uleb128 0xa
+ 423 008e 898201   		.uleb128 0x4109
+ 424 0091 00       		.byte	0
+ 425 0092 11       		.uleb128 0x11
+ 426 0093 01       		.uleb128 0x1
+ 427 0094 9542     		.uleb128 0x2115
+ 428 0096 19       		.uleb128 0x19
+ 429 0097 31       		.uleb128 0x31
+ 430 0098 13       		.uleb128 0x13
+ 431 0099 00       		.byte	0
+ 432 009a 00       		.byte	0
+ 433 009b 0B       		.uleb128 0xb
+ 434 009c 34       		.uleb128 0x34
+ 435 009d 00       		.byte	0
+ 436 009e 03       		.uleb128 0x3
+ 437 009f 0E       		.uleb128 0xe
+ 438 00a0 3A       		.uleb128 0x3a
+ 439 00a1 0B       		.uleb128 0xb
+ 440 00a2 3B       		.uleb128 0x3b
+ 441 00a3 0B       		.uleb128 0xb
+ 442 00a4 49       		.uleb128 0x49
+ 443 00a5 13       		.uleb128 0x13
+ 444 00a6 02       		.uleb128 0x2
+ 445 00a7 18       		.uleb128 0x18
+ 446 00a8 00       		.byte	0
+ 447 00a9 00       		.byte	0
+ 448 00aa 0C       		.uleb128 0xc
+ 449 00ab 34       		.uleb128 0x34
+ 450 00ac 00       		.byte	0
+ 451 00ad 03       		.uleb128 0x3
+ 452 00ae 0E       		.uleb128 0xe
+ 453 00af 3A       		.uleb128 0x3a
+ 454 00b0 0B       		.uleb128 0xb
+ 455 00b1 3B       		.uleb128 0x3b
+ 456 00b2 0B       		.uleb128 0xb
+ 457 00b3 49       		.uleb128 0x49
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccxzOSnu.s 			page 11
+
+
+ 458 00b4 13       		.uleb128 0x13
+ 459 00b5 3F       		.uleb128 0x3f
+ 460 00b6 19       		.uleb128 0x19
+ 461 00b7 3C       		.uleb128 0x3c
+ 462 00b8 19       		.uleb128 0x19
+ 463 00b9 00       		.byte	0
+ 464 00ba 00       		.byte	0
+ 465 00bb 0D       		.uleb128 0xd
+ 466 00bc 2E       		.uleb128 0x2e
+ 467 00bd 00       		.byte	0
+ 468 00be 3F       		.uleb128 0x3f
+ 469 00bf 19       		.uleb128 0x19
+ 470 00c0 03       		.uleb128 0x3
+ 471 00c1 0E       		.uleb128 0xe
+ 472 00c2 3A       		.uleb128 0x3a
+ 473 00c3 0B       		.uleb128 0xb
+ 474 00c4 3B       		.uleb128 0x3b
+ 475 00c5 0B       		.uleb128 0xb
+ 476 00c6 27       		.uleb128 0x27
+ 477 00c7 19       		.uleb128 0x19
+ 478 00c8 3C       		.uleb128 0x3c
+ 479 00c9 19       		.uleb128 0x19
+ 480 00ca 00       		.byte	0
+ 481 00cb 00       		.byte	0
+ 482 00cc 00       		.byte	0
+ 483              		.section	.debug_aranges,"",%progbits
+ 484 0000 34000000 		.4byte	0x34
+ 485 0004 0200     		.2byte	0x2
+ 486 0006 00000000 		.4byte	.Ldebug_info0
+ 487 000a 04       		.byte	0x4
+ 488 000b 00       		.byte	0
+ 489 000c 0000     		.2byte	0
+ 490 000e 0000     		.2byte	0
+ 491 0010 00000000 		.4byte	.LFB0
+ 492 0014 02000000 		.4byte	.LFE0-.LFB0
+ 493 0018 00000000 		.4byte	.LFB1
+ 494 001c 02000000 		.4byte	.LFE1-.LFB1
+ 495 0020 00000000 		.4byte	.LFB2
+ 496 0024 14000000 		.4byte	.LFE2-.LFB2
+ 497 0028 00000000 		.4byte	.LFB3
+ 498 002c 14000000 		.4byte	.LFE3-.LFB3
+ 499 0030 00000000 		.4byte	0
+ 500 0034 00000000 		.4byte	0
+ 501              		.section	.debug_ranges,"",%progbits
+ 502              	.Ldebug_ranges0:
+ 503 0000 00000000 		.4byte	.LFB0
+ 504 0004 02000000 		.4byte	.LFE0
+ 505 0008 00000000 		.4byte	.LFB1
+ 506 000c 02000000 		.4byte	.LFE1
+ 507 0010 00000000 		.4byte	.LFB2
+ 508 0014 14000000 		.4byte	.LFE2
+ 509 0018 00000000 		.4byte	.LFB3
+ 510 001c 14000000 		.4byte	.LFE3
+ 511 0020 00000000 		.4byte	0
+ 512 0024 00000000 		.4byte	0
+ 513              		.section	.debug_line,"",%progbits
+ 514              	.Ldebug_line0:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccxzOSnu.s 			page 12
+
+
+ 515 0000 A4000000 		.section	.debug_str,"MS",%progbits,1
+ 515      02005C00 
+ 515      00000201 
+ 515      FB0E0D00 
+ 515      01010101 
+ 516              	.LASF13:
+ 517 0000 43686172 		.ascii	"CharLCD_BACKUP_STRUCT\000"
+ 517      4C43445F 
+ 517      4241434B 
+ 517      55505F53 
+ 517      54525543 
+ 518              	.LASF18:
+ 519 0016 43686172 		.ascii	"CharLCD_Stop\000"
+ 519      4C43445F 
+ 519      53746F70 
+ 519      00
+ 520              	.LASF19:
+ 521 0023 43686172 		.ascii	"CharLCD_Enable\000"
+ 521      4C43445F 
+ 521      456E6162 
+ 521      6C6500
+ 522              	.LASF20:
+ 523 0032 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 523      4320342E 
+ 523      392E3320 
+ 523      32303135 
+ 523      30333033 
+ 524 0065 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 524      20726576 
+ 524      6973696F 
+ 524      6E203232 
+ 524      31323230 
+ 525 0098 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 525      66756E63 
+ 525      74696F6E 
+ 525      2D736563 
+ 525      74696F6E 
+ 526              	.LASF9:
+ 527 00c0 666C6F61 		.ascii	"float\000"
+ 527      7400
+ 528              	.LASF1:
+ 529 00c6 756E7369 		.ascii	"unsigned char\000"
+ 529      676E6564 
+ 529      20636861 
+ 529      7200
+ 530              	.LASF21:
+ 531 00d4 47656E65 		.ascii	"Generated_Source\\PSoC5\\CharLCD_I2C_PM.c\000"
+ 531      72617465 
+ 531      645F536F 
+ 531      75726365 
+ 531      5C50536F 
+ 532              	.LASF5:
+ 533 00fc 6C6F6E67 		.ascii	"long unsigned int\000"
+ 533      20756E73 
+ 533      69676E65 
+ 533      6420696E 
+ 533      7400
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccxzOSnu.s 			page 13
+
+
+ 534              	.LASF3:
+ 535 010e 73686F72 		.ascii	"short unsigned int\000"
+ 535      7420756E 
+ 535      7369676E 
+ 535      65642069 
+ 535      6E7400
+ 536              	.LASF10:
+ 537 0121 646F7562 		.ascii	"double\000"
+ 537      6C6500
+ 538              	.LASF15:
+ 539 0128 43686172 		.ascii	"CharLCD_RestoreConfig\000"
+ 539      4C43445F 
+ 539      52657374 
+ 539      6F726543 
+ 539      6F6E6669 
+ 540              	.LASF14:
+ 541 013e 43686172 		.ascii	"CharLCD_SaveConfig\000"
+ 541      4C43445F 
+ 541      53617665 
+ 541      436F6E66 
+ 541      696700
+ 542              	.LASF8:
+ 543 0151 756E7369 		.ascii	"unsigned int\000"
+ 543      676E6564 
+ 543      20696E74 
+ 543      00
+ 544              	.LASF24:
+ 545 015e 43686172 		.ascii	"CharLCD_backup\000"
+ 545      4C43445F 
+ 545      6261636B 
+ 545      757000
+ 546              	.LASF7:
+ 547 016d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 547      206C6F6E 
+ 547      6720756E 
+ 547      7369676E 
+ 547      65642069 
+ 548              	.LASF17:
+ 549 0184 43686172 		.ascii	"CharLCD_Wakeup\000"
+ 549      4C43445F 
+ 549      57616B65 
+ 549      757000
+ 550              	.LASF6:
+ 551 0193 6C6F6E67 		.ascii	"long long int\000"
+ 551      206C6F6E 
+ 551      6720696E 
+ 551      7400
+ 552              	.LASF11:
+ 553 01a1 63686172 		.ascii	"char\000"
+ 553      00
+ 554              	.LASF2:
+ 555 01a6 73686F72 		.ascii	"short int\000"
+ 555      7420696E 
+ 555      7400
+ 556              	.LASF12:
+ 557 01b0 75696E74 		.ascii	"uint8\000"
+ 557      3800
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccxzOSnu.s 			page 14
+
+
+ 558              	.LASF25:
+ 559 01b6 43686172 		.ascii	"CharLCD_enableState\000"
+ 559      4C43445F 
+ 559      656E6162 
+ 559      6C655374 
+ 559      61746500 
+ 560              	.LASF4:
+ 561 01ca 6C6F6E67 		.ascii	"long int\000"
+ 561      20696E74 
+ 561      00
+ 562              	.LASF23:
+ 563 01d3 656E6162 		.ascii	"enableState\000"
+ 563      6C655374 
+ 563      61746500 
+ 564              	.LASF0:
+ 565 01df 7369676E 		.ascii	"signed char\000"
+ 565      65642063 
+ 565      68617200 
+ 566              	.LASF22:
+ 567 01eb 433A5C55 		.ascii	"C:\\Users\\jmdevoto\\Desktop\\Builds\\(4-24-17)Humm"
+ 567      73657273 
+ 567      5C6A6D64 
+ 567      65766F74 
+ 567      6F5C4465 
+ 568 0219 696E6762 		.ascii	"ingbird-059-v1\\Hummingbird(Continuous Output).cyds"
+ 568      6972642D 
+ 568      3035392D 
+ 568      76315C48 
+ 568      756D6D69 
+ 569 024b 6E00     		.ascii	"n\000"
+ 570              	.LASF16:
+ 571 024d 43686172 		.ascii	"CharLCD_Sleep\000"
+ 571      4C43445F 
+ 571      536C6565 
+ 571      7000
+ 572              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

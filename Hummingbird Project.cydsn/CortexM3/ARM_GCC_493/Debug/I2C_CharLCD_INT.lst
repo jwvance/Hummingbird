@@ -1,0 +1,1715 @@
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"I2C_CharLCD_INT.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.I2C_CharLCD_ISR,"ax",%progbits
+  19              		.align	2
+  20              		.global	I2C_CharLCD_ISR
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	I2C_CharLCD_ISR, %function
+  24              	I2C_CharLCD_ISR:
+  25              	.LFB0:
+  26              		.file 1 "Generated_Source\\PSoC5\\I2C_CharLCD_INT.c"
+   1:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** * File Name: I2C_CharLCD_INT.c
+   3:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** * Version 3.50
+   4:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** *
+   5:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** * Description:
+   6:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** *  This file provides the source code of Interrupt Service Routine (ISR)
+   7:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** *  for the I2C component.
+   8:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** *
+   9:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** ********************************************************************************
+  10:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation. All rights reserved.
+  11:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** * You may use this file only in accordance with the license, terms, conditions,
+  12:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  13:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** * the software package with which this file was provided.
+  14:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** *******************************************************************************/
+  15:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  16:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** #include "I2C_CharLCD_PVT.h"
+  17:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  18:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  19:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  20:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** /*******************************************************************************
+  21:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** *  Place your includes, defines and code here.
+  22:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** ********************************************************************************/
+  23:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** /* `#START I2C_CharLCD_ISR_intc` */
+  24:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  25:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** /* `#END` */
+  26:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  27:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  28:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** /*******************************************************************************
+  29:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** * Function Name: I2C_CharLCD_ISR
+  30:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** ********************************************************************************
+  31:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** *
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 2
+
+
+  32:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** * Summary:
+  33:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** *  The handler for the I2C interrupt. The slave and master operations are
+  34:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** *  handled here.
+  35:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** *
+  36:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** * Parameters:
+  37:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** *  None.
+  38:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** *
+  39:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** * Return:
+  40:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** *  None.
+  41:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** *
+  42:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** * Reentrant:
+  43:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** *  No.
+  44:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** *
+  45:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** *******************************************************************************/
+  46:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** CY_ISR(I2C_CharLCD_ISR)
+  47:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** {
+  27              		.loc 1 47 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  32              		.cfi_def_cfa_offset 24
+  33              		.cfi_offset 3, -24
+  34              		.cfi_offset 4, -20
+  35              		.cfi_offset 5, -16
+  36              		.cfi_offset 6, -12
+  37              		.cfi_offset 7, -8
+  38              		.cfi_offset 14, -4
+  48:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** #if (I2C_CharLCD_MODE_SLAVE_ENABLED)
+  49:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****    uint8  tmp8;
+  50:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** #endif  /* (I2C_CharLCD_MODE_SLAVE_ENABLED) */
+  51:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  52:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     uint8  tmpCsr;
+  53:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     
+  54:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** #ifdef I2C_CharLCD_ISR_ENTRY_CALLBACK
+  55:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     I2C_CharLCD_ISR_EntryCallback();
+  56:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** #endif /* I2C_CharLCD_ISR_ENTRY_CALLBACK */
+  57:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     
+  58:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  59:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** #if(I2C_CharLCD_TIMEOUT_FF_ENABLED)
+  60:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     if(0u != I2C_CharLCD_TimeoutGetStatus())
+  61:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     {
+  62:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         I2C_CharLCD_TimeoutReset();
+  63:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         I2C_CharLCD_state = I2C_CharLCD_SM_EXIT_IDLE;
+  64:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         /* I2C_CharLCD_CSR_REG should be cleared after reset */
+  65:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     }
+  66:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** #endif /* (I2C_CharLCD_TIMEOUT_FF_ENABLED) */
+  67:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  68:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  69:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     tmpCsr = I2C_CharLCD_CSR_REG;      /* Make copy as interrupts clear */
+  39              		.loc 1 69 0
+  40 0002 854B     		ldr	r3, .L36
+  70:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  71:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** #if(I2C_CharLCD_MODE_MULTI_MASTER_SLAVE_ENABLED)
+  72:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     if(I2C_CharLCD_CHECK_START_GEN(I2C_CharLCD_MCSR_REG))
+  73:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     {
+  74:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         I2C_CharLCD_CLEAR_START_GEN;
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 3
+
+
+  75:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  76:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         /* Set transfer complete and error flags */
+  77:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         I2C_CharLCD_mstrStatus |= (I2C_CharLCD_MSTAT_ERR_XFER |
+  78:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                         I2C_CharLCD_GET_MSTAT_CMPLT);
+  79:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  80:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         /* Slave was addressed */
+  81:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         I2C_CharLCD_state = I2C_CharLCD_SM_SLAVE;
+  82:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     }
+  83:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** #endif /* (I2C_CharLCD_MODE_MULTI_MASTER_SLAVE_ENABLED) */
+  84:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  85:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  86:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** #if(I2C_CharLCD_MODE_MULTI_MASTER_ENABLED)
+  87:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     if(I2C_CharLCD_CHECK_LOST_ARB(tmpCsr))
+  88:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     {
+  89:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         /* Set errors */
+  90:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         I2C_CharLCD_mstrStatus |= (I2C_CharLCD_MSTAT_ERR_XFER     |
+  91:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                         I2C_CharLCD_MSTAT_ERR_ARB_LOST |
+  92:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                         I2C_CharLCD_GET_MSTAT_CMPLT);
+  93:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  94:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         I2C_CharLCD_DISABLE_INT_ON_STOP; /* Interrupt on Stop is enabled by write */
+  95:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  96:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         #if(I2C_CharLCD_MODE_MULTI_MASTER_SLAVE_ENABLED)
+  97:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             if(I2C_CharLCD_CHECK_ADDRESS_STS(tmpCsr))
+  98:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             {
+  99:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 /* Slave was addressed */
+ 100:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 I2C_CharLCD_state = I2C_CharLCD_SM_SLAVE;
+ 101:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             }
+ 102:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             else
+ 103:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             {
+ 104:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 I2C_CharLCD_BUS_RELEASE;
+ 105:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 106:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 I2C_CharLCD_state = I2C_CharLCD_SM_EXIT_IDLE;
+ 107:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             }
+ 108:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         #else
+ 109:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             I2C_CharLCD_BUS_RELEASE;
+ 110:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 111:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             I2C_CharLCD_state = I2C_CharLCD_SM_EXIT_IDLE;
+ 112:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 113:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         #endif /* (I2C_CharLCD_MODE_MULTI_MASTER_SLAVE_ENABLED) */
+ 114:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     }
+ 115:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** #endif /* (I2C_CharLCD_MODE_MULTI_MASTER_ENABLED) */
+ 116:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 117:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     /* Check for master operation mode */
+ 118:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     if(I2C_CharLCD_CHECK_SM_MASTER)
+  41              		.loc 1 118 0
+  42 0004 854D     		ldr	r5, .L36+4
+  69:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  43              		.loc 1 69 0
+  44 0006 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
+  45              		.loc 1 118 0
+  46 0008 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+  69:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  47              		.loc 1 69 0
+  48 000a E4B2     		uxtb	r4, r4
+  49              	.LVL0:
+  50              		.loc 1 118 0
+  51 000c 5906     		lsls	r1, r3, #25
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 4
+
+
+  52 000e 40D5     		bpl	.L2
+ 119:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     {
+ 120:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     #if(I2C_CharLCD_MODE_MASTER_ENABLED)
+ 121:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         if(I2C_CharLCD_CHECK_BYTE_COMPLETE(tmpCsr))
+  53              		.loc 1 121 0
+  54 0010 E207     		lsls	r2, r4, #31
+  55 0012 2AD5     		bpl	.L3
+ 122:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         {
+ 123:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             switch (I2C_CharLCD_state)
+  56              		.loc 1 123 0
+  57 0014 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+  58 0016 453B     		subs	r3, r3, #69
+  59 0018 052B     		cmp	r3, #5
+  60 001a 7ED8     		bhi	.L4
+  61 001c DFE803F0 		tbb	[pc, r3]
+  62              	.L6:
+  63 0020 03       		.byte	(.L5-.L6)/2
+  64 0021 65       		.byte	(.L7-.L6)/2
+  65 0022 7D       		.byte	(.L4-.L6)/2
+  66 0023 7D       		.byte	(.L4-.L6)/2
+  67 0024 03       		.byte	(.L5-.L6)/2
+  68 0025 3F       		.byte	(.L8-.L6)/2
+  69              		.p2align 1
+  70              	.L5:
+ 124:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             {
+ 125:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             case I2C_CharLCD_SM_MSTR_WR_ADDR:  /* After address is sent, write data */
+ 126:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             case I2C_CharLCD_SM_MSTR_RD_ADDR:  /* After address is sent, read data */
+ 127:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 128:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 tmpCsr &= ((uint8) ~I2C_CharLCD_CSR_STOP_STATUS); /* Clear Stop bit history on addr
+ 129:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 130:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 if(I2C_CharLCD_CHECK_ADDR_ACK(tmpCsr))
+  71              		.loc 1 130 0
+  72 0026 04F00A03 		and	r3, r4, #10
+  73 002a 082B     		cmp	r3, #8
+ 128:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+  74              		.loc 1 128 0
+  75 002c 04F0DF04 		and	r4, r4, #223
+  76              	.LVL1:
+  77              		.loc 1 130 0
+  78 0030 00F08B80 		beq	.L33
+ 131:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 132:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /* Setup for transmit or receive of data */
+ 133:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     if(I2C_CharLCD_state == I2C_CharLCD_SM_MSTR_WR_ADDR)   /* TRANSMIT data */
+ 134:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     {
+ 135:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         /* Check if at least one byte to transfer */
+ 136:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         if(I2C_CharLCD_mstrWrBufSize > 0u)
+ 137:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         {
+ 138:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             /* Load the 1st data byte */
+ 139:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_DATA_REG = I2C_CharLCD_mstrWrBufPtr[0u];
+ 140:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_TRANSMIT_DATA;
+ 141:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_mstrWrBufIndex = 1u;   /* Set index to 2nd element */
+ 142:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 143:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             /* Set transmit state until done */
+ 144:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_state = I2C_CharLCD_SM_MSTR_WR_DATA;
+ 145:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         }
+ 146:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         /* End of buffer: complete writing */
+ 147:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         else if(I2C_CharLCD_CHECK_NO_STOP(I2C_CharLCD_mstrControl))
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 5
+
+
+ 148:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         {
+ 149:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             /* Set write complete and master halted */
+ 150:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_mstrStatus |= (I2C_CharLCD_MSTAT_XFER_HALT |
+ 151:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                             I2C_CharLCD_MSTAT_WR_CMPLT);
+ 152:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 153:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_state = I2C_CharLCD_SM_MSTR_HALT; /* Expect ReStart */
+ 154:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_DisableInt();
+ 155:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         }
+ 156:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         else
+ 157:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         {
+ 158:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_ENABLE_INT_ON_STOP; /* Enable interrupt on Stop, to catch i
+ 159:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_GENERATE_STOP;
+ 160:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         }
+ 161:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 162:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     else  /* Master receive data */
+ 163:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     {
+ 164:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_READY_TO_READ; /* Release bus to read data */
+ 165:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 166:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_state  = I2C_CharLCD_SM_MSTR_RD_DATA;
+ 167:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 168:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 169:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 /* Address is NACKed */
+ 170:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 else if(I2C_CharLCD_CHECK_ADDR_NAK(tmpCsr))
+  79              		.loc 1 170 0
+  80 0034 0A2B     		cmp	r3, #10
+  81 0036 70D1     		bne	.L4
+ 171:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 172:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /* Set Address NAK error */
+ 173:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_mstrStatus |= (I2C_CharLCD_MSTAT_ERR_XFER |
+  82              		.loc 1 173 0
+  83 0038 794A     		ldr	r2, .L36+8
+ 174:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                     I2C_CharLCD_MSTAT_ERR_ADDR_NAK);
+ 175:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 176:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     if(I2C_CharLCD_CHECK_NO_STOP(I2C_CharLCD_mstrControl))
+  84              		.loc 1 176 0
+  85 003a 7A49     		ldr	r1, .L36+12
+ 173:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                     I2C_CharLCD_MSTAT_ERR_ADDR_NAK);
+  86              		.loc 1 173 0
+  87 003c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  88 003e 43F0A003 		orr	r3, r3, #160
+  89 0042 1370     		strb	r3, [r2]
+  90              		.loc 1 176 0
+  91 0044 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+  92 0046 9F07     		lsls	r7, r3, #30
+  93 0048 40F18980 		bpl	.L18
+ 177:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     {
+ 178:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_mstrStatus |= (I2C_CharLCD_MSTAT_XFER_HALT |
+ 179:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                         I2C_CharLCD_GET_MSTAT_CMPLT);
+  94              		.loc 1 179 0
+  95 004c 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 178:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                         I2C_CharLCD_GET_MSTAT_CMPLT);
+  96              		.loc 1 178 0
+  97 004e 1178     		ldrb	r1, [r2]	@ zero_extendqisi2
+  98 0050 13F0080F 		tst	r3, #8
+  99 0054 0CBF     		ite	eq
+ 100 0056 0A23     		moveq	r3, #10
+ 101 0058 0923     		movne	r3, #9
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 6
+
+
+ 180:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 181:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_state = I2C_CharLCD_SM_MSTR_HALT; /* Expect RESTART */
+ 182:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_DisableInt();
+ 102              		.loc 1 182 0
+ 103 005a 7348     		ldr	r0, .L36+16
+ 178:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                         I2C_CharLCD_GET_MSTAT_CMPLT);
+ 104              		.loc 1 178 0
+ 105 005c 0B43     		orrs	r3, r3, r1
+ 181:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_DisableInt();
+ 106              		.loc 1 181 0
+ 107 005e 6026     		movs	r6, #96
+ 108              		.loc 1 182 0
+ 109 0060 4FF40041 		mov	r1, #32768
+ 178:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                         I2C_CharLCD_GET_MSTAT_CMPLT);
+ 110              		.loc 1 178 0
+ 111 0064 1370     		strb	r3, [r2]
+ 181:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_DisableInt();
+ 112              		.loc 1 181 0
+ 113 0066 2E70     		strb	r6, [r5]
+ 114              		.loc 1 182 0
+ 115 0068 0160     		str	r1, [r0]
+ 116              	.L3:
+ 183:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 184:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     else  /* Do normal Stop */
+ 185:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     {
+ 186:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_ENABLE_INT_ON_STOP; /* Enable interrupt on Stop, to catch it */
+ 187:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_GENERATE_STOP;
+ 188:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 189:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 190:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 else
+ 191:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 192:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /* Address phase is not set for some reason: error */
+ 193:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     #if(I2C_CharLCD_TIMEOUT_ENABLED)
+ 194:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         /* Exit interrupt to take chance for timeout timer to handle this case */
+ 195:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_DisableInt();
+ 196:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_ClearPendingInt();
+ 197:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     #else
+ 198:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         /* Block execution flow: unexpected condition */
+ 199:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         CYASSERT(0u != 0u);
+ 200:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     #endif /* (I2C_CharLCD_TIMEOUT_ENABLED) */
+ 201:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 202:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 break;
+ 203:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 204:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             case I2C_CharLCD_SM_MSTR_WR_DATA:
+ 205:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 206:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 if(I2C_CharLCD_CHECK_DATA_ACK(tmpCsr))
+ 207:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 208:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /* Check if end of buffer */
+ 209:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     if(I2C_CharLCD_mstrWrBufIndex  < I2C_CharLCD_mstrWrBufSize)
+ 210:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     {
+ 211:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_DATA_REG =
+ 212:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                  I2C_CharLCD_mstrWrBufPtr[I2C_CharLCD_mstrWrBufInde
+ 213:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_TRANSMIT_DATA;
+ 214:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_mstrWrBufIndex++;
+ 215:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 216:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /* End of buffer: complete writing */
+ 217:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     else if(I2C_CharLCD_CHECK_NO_STOP(I2C_CharLCD_mstrControl))
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 7
+
+
+ 218:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     {
+ 219:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         /* Set write complete and master halted */
+ 220:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_mstrStatus |= (I2C_CharLCD_MSTAT_XFER_HALT |
+ 221:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                         I2C_CharLCD_MSTAT_WR_CMPLT);
+ 222:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 223:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_state = I2C_CharLCD_SM_MSTR_HALT;    /* Expect restart */
+ 224:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_DisableInt();
+ 225:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 226:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     else  /* Do normal Stop */
+ 227:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     {
+ 228:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_ENABLE_INT_ON_STOP;    /* Enable interrupt on Stop, to catch it
+ 229:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_GENERATE_STOP;
+ 230:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 231:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 232:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 /* Last byte NAKed: end writing */
+ 233:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 else if(I2C_CharLCD_CHECK_NO_STOP(I2C_CharLCD_mstrControl))
+ 234:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 235:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /* Set write complete, short transfer and master halted */
+ 236:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_mstrStatus |= (I2C_CharLCD_MSTAT_ERR_XFER       |
+ 237:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                     I2C_CharLCD_MSTAT_ERR_SHORT_XFER |
+ 238:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                     I2C_CharLCD_MSTAT_XFER_HALT      |
+ 239:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                     I2C_CharLCD_MSTAT_WR_CMPLT);
+ 240:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 241:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_state = I2C_CharLCD_SM_MSTR_HALT;    /* Expect ReStart */
+ 242:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_DisableInt();
+ 243:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 244:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 else  /* Do normal Stop */
+ 245:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 246:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_ENABLE_INT_ON_STOP;    /* Enable interrupt on Stop, to catch it */
+ 247:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_GENERATE_STOP;
+ 248:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 249:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /* Set short transfer and error flag */
+ 250:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_mstrStatus |= (I2C_CharLCD_MSTAT_ERR_SHORT_XFER |
+ 251:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                     I2C_CharLCD_MSTAT_ERR_XFER);
+ 252:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 253:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 254:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 break;
+ 255:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 256:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             case I2C_CharLCD_SM_MSTR_RD_DATA:
+ 257:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 258:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 I2C_CharLCD_mstrRdBufPtr[I2C_CharLCD_mstrRdBufIndex] = I2C_CharLCD_DATA_REG;
+ 259:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 I2C_CharLCD_mstrRdBufIndex++;
+ 260:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 261:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 /* Check if end of buffer */
+ 262:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 if(I2C_CharLCD_mstrRdBufIndex < I2C_CharLCD_mstrRdBufSize)
+ 263:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 264:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_ACK_AND_RECEIVE;       /* ACK and receive byte */
+ 265:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 266:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 /* End of buffer: complete reading */
+ 267:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 else if(I2C_CharLCD_CHECK_NO_STOP(I2C_CharLCD_mstrControl))
+ 268:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 269:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /* Set read complete and master halted */
+ 270:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_mstrStatus |= (I2C_CharLCD_MSTAT_XFER_HALT |
+ 271:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                     I2C_CharLCD_MSTAT_RD_CMPLT);
+ 272:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 273:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_state = I2C_CharLCD_SM_MSTR_HALT;    /* Expect ReStart */
+ 274:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_DisableInt();
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 8
+
+
+ 275:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 276:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 else
+ 277:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 278:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_ENABLE_INT_ON_STOP;
+ 279:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_NAK_AND_RECEIVE;       /* NACK and TRY to generate Stop */
+ 280:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 281:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 break;
+ 282:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 283:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             default: /* This is an invalid state and should not occur */
+ 284:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 285:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             #if(I2C_CharLCD_TIMEOUT_ENABLED)
+ 286:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 /* Exit interrupt to take chance for timeout timer to handles this case */
+ 287:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 I2C_CharLCD_DisableInt();
+ 288:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 I2C_CharLCD_ClearPendingInt();
+ 289:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             #else
+ 290:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 /* Block execution flow: unexpected condition */
+ 291:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 CYASSERT(0u != 0u);
+ 292:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             #endif /* (I2C_CharLCD_TIMEOUT_ENABLED) */
+ 293:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 294:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 break;
+ 295:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             }
+ 296:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         }
+ 297:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 298:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         /* Catches Stop: end of transaction */
+ 299:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         if(I2C_CharLCD_CHECK_STOP_STS(tmpCsr))
+ 117              		.loc 1 299 0
+ 118 006a A206     		lsls	r2, r4, #26
+ 119 006c 16D5     		bpl	.L1
+ 300:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         {
+ 301:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             I2C_CharLCD_mstrStatus |= I2C_CharLCD_GET_MSTAT_CMPLT;
+ 120              		.loc 1 301 0
+ 121 006e 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 122 0070 6B49     		ldr	r1, .L36+8
+ 123 0072 13F0080F 		tst	r3, #8
+ 124 0076 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 125 0078 14BF     		ite	ne
+ 126 007a 0120     		movne	r0, #1
+ 127 007c 0220     		moveq	r0, #2
+ 302:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 303:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             I2C_CharLCD_DISABLE_INT_ON_STOP;
+ 128              		.loc 1 303 0
+ 129 007e 6B4A     		ldr	r2, .L36+20
+ 301:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 130              		.loc 1 301 0
+ 131 0080 0343     		orrs	r3, r3, r0
+ 132 0082 0B70     		strb	r3, [r1]
+ 133              		.loc 1 303 0
+ 134 0084 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 304:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             I2C_CharLCD_state = I2C_CharLCD_SM_IDLE;
+ 135              		.loc 1 304 0
+ 136 0086 1021     		movs	r1, #16
+ 303:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             I2C_CharLCD_state = I2C_CharLCD_SM_IDLE;
+ 137              		.loc 1 303 0
+ 138 0088 03F0EF03 		and	r3, r3, #239
+ 139 008c 1370     		strb	r3, [r2]
+ 140              		.loc 1 304 0
+ 141 008e 2970     		strb	r1, [r5]
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 9
+
+
+ 142 0090 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 143              	.LVL2:
+ 144              	.L2:
+ 305:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         }
+ 306:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     #endif /* (I2C_CharLCD_MODE_MASTER_ENABLED) */
+ 307:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     }
+ 308:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     else if(I2C_CharLCD_CHECK_SM_SLAVE)
+ 145              		.loc 1 308 0
+ 146 0092 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 147 0094 DB06     		lsls	r3, r3, #27
+ 309:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     {
+ 310:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     #if(I2C_CharLCD_MODE_SLAVE_ENABLED)
+ 311:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 312:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         if((I2C_CharLCD_CHECK_STOP_STS(tmpCsr)) || /* Stop || Restart */
+ 313:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****            (I2C_CharLCD_CHECK_BYTE_COMPLETE(tmpCsr) && I2C_CharLCD_CHECK_ADDRESS_STS(tmpCsr)))
+ 314:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         {
+ 315:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             /* Catch end of master write transaction: use interrupt on Stop */
+ 316:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             /* The Stop bit history on address phase does not have correct state */
+ 317:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             if(I2C_CharLCD_SM_SL_WR_DATA == I2C_CharLCD_state)
+ 318:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             {
+ 319:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 I2C_CharLCD_DISABLE_INT_ON_STOP;
+ 320:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 321:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 I2C_CharLCD_slStatus &= ((uint8) ~I2C_CharLCD_SSTAT_WR_BUSY);
+ 322:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 I2C_CharLCD_slStatus |= ((uint8)  I2C_CharLCD_SSTAT_WR_CMPLT);
+ 323:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 324:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 I2C_CharLCD_state = I2C_CharLCD_SM_IDLE;
+ 325:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             }
+ 326:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         }
+ 327:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 328:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         if(I2C_CharLCD_CHECK_BYTE_COMPLETE(tmpCsr))
+ 329:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         {
+ 330:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             /* The address only issued after Start or ReStart: so check the address
+ 331:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                to catch these events:
+ 332:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 FF : sets an address phase with a byte_complete interrupt trigger.
+ 333:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 UDB: sets an address phase immediately after Start or ReStart. */
+ 334:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             if(I2C_CharLCD_CHECK_ADDRESS_STS(tmpCsr))
+ 335:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             {
+ 336:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             /* Check for software address detection */
+ 337:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             #if(I2C_CharLCD_SW_ADRR_DECODE)
+ 338:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 tmp8 = I2C_CharLCD_GET_SLAVE_ADDR(I2C_CharLCD_DATA_REG);
+ 339:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 340:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 if(tmp8 == I2C_CharLCD_slAddress)   /* Check for address match */
+ 341:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 342:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     if(0u != (I2C_CharLCD_DATA_REG & I2C_CharLCD_READ_FLAG))
+ 343:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     {
+ 344:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         /* Place code to prepare read buffer here                  */
+ 345:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         /* `#START I2C_CharLCD_SW_PREPARE_READ_BUF_interrupt` */
+ 346:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 347:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         /* `#END` */
+ 348:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 349:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     #ifdef I2C_CharLCD_SW_PREPARE_READ_BUF_CALLBACK
+ 350:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_SwPrepareReadBuf_Callback();
+ 351:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     #endif /* I2C_CharLCD_SW_PREPARE_READ_BUF_CALLBACK */
+ 352:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         
+ 353:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         /* Prepare next operation to read, get data and place in data register */
+ 354:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         if(I2C_CharLCD_slRdBufIndex < I2C_CharLCD_slRdBufSize)
+ 355:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         {
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 10
+
+
+ 356:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             /* Load first data byte from array */
+ 357:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_DATA_REG = I2C_CharLCD_slRdBufPtr[I2C_CharLCD_slRdBufIndex]
+ 358:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_ACK_AND_TRANSMIT;
+ 359:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_slRdBufIndex++;
+ 360:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 361:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_slStatus |= I2C_CharLCD_SSTAT_RD_BUSY;
+ 362:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         }
+ 363:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         else    /* Overflow: provide 0xFF on bus */
+ 364:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         {
+ 365:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_DATA_REG = I2C_CharLCD_OVERFLOW_RETURN;
+ 366:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_ACK_AND_TRANSMIT;
+ 367:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 368:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_slStatus  |= (I2C_CharLCD_SSTAT_RD_BUSY |
+ 369:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                            I2C_CharLCD_SSTAT_RD_ERR_OVFL);
+ 370:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         }
+ 371:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 372:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_state = I2C_CharLCD_SM_SL_RD_DATA;
+ 373:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 374:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     else  /* Write transaction: receive 1st byte */
+ 375:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     {
+ 376:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_ACK_AND_RECEIVE;
+ 377:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_state = I2C_CharLCD_SM_SL_WR_DATA;
+ 378:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 379:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_slStatus |= I2C_CharLCD_SSTAT_WR_BUSY;
+ 380:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_ENABLE_INT_ON_STOP;
+ 381:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 382:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 383:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 else
+ 384:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 385:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /*     Place code to compare for additional address here    */
+ 386:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /* `#START I2C_CharLCD_SW_ADDR_COMPARE_interruptStart` */
+ 387:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 388:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /* `#END` */
+ 389:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 390:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 #ifdef I2C_CharLCD_SW_ADDR_COMPARE_ENTRY_CALLBACK
+ 391:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_SwAddrCompare_EntryCallback();
+ 392:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 #endif /* I2C_CharLCD_SW_ADDR_COMPARE_ENTRY_CALLBACK */
+ 393:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     
+ 394:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_NAK_AND_RECEIVE;   /* NACK address */
+ 395:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 396:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /* Place code to end of condition for NACK generation here */
+ 397:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /* `#START I2C_CharLCD_SW_ADDR_COMPARE_interruptEnd`  */
+ 398:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 399:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /* `#END` */
+ 400:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 401:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 #ifdef I2C_CharLCD_SW_ADDR_COMPARE_EXIT_CALLBACK
+ 402:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_SwAddrCompare_ExitCallback();
+ 403:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 #endif /* I2C_CharLCD_SW_ADDR_COMPARE_EXIT_CALLBACK */
+ 404:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 405:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 406:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             #else /* (I2C_CharLCD_HW_ADRR_DECODE) */
+ 407:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 408:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 if(0u != (I2C_CharLCD_DATA_REG & I2C_CharLCD_READ_FLAG))
+ 409:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 410:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /* Place code to prepare read buffer here                  */
+ 411:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /* `#START I2C_CharLCD_HW_PREPARE_READ_BUF_interrupt` */
+ 412:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 11
+
+
+ 413:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /* `#END` */
+ 414:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     
+ 415:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 #ifdef I2C_CharLCD_HW_PREPARE_READ_BUF_CALLBACK
+ 416:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_HwPrepareReadBuf_Callback();
+ 417:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 #endif /* I2C_CharLCD_HW_PREPARE_READ_BUF_CALLBACK */
+ 418:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 419:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /* Prepare next operation to read, get data and place in data register */
+ 420:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     if(I2C_CharLCD_slRdBufIndex < I2C_CharLCD_slRdBufSize)
+ 421:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     {
+ 422:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         /* Load first data byte from array */
+ 423:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_DATA_REG = I2C_CharLCD_slRdBufPtr[I2C_CharLCD_slRdBufIndex];
+ 424:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_ACK_AND_TRANSMIT;
+ 425:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_slRdBufIndex++;
+ 426:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 427:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_slStatus |= I2C_CharLCD_SSTAT_RD_BUSY;
+ 428:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 429:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     else    /* Overflow: provide 0xFF on bus */
+ 430:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     {
+ 431:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_DATA_REG = I2C_CharLCD_OVERFLOW_RETURN;
+ 432:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_ACK_AND_TRANSMIT;
+ 433:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 434:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_slStatus  |= (I2C_CharLCD_SSTAT_RD_BUSY |
+ 435:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                        I2C_CharLCD_SSTAT_RD_ERR_OVFL);
+ 436:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 437:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 438:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_state = I2C_CharLCD_SM_SL_RD_DATA;
+ 439:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 440:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 else  /* Write transaction: receive 1st byte */
+ 441:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 442:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_ACK_AND_RECEIVE;
+ 443:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_state = I2C_CharLCD_SM_SL_WR_DATA;
+ 444:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 445:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_slStatus |= I2C_CharLCD_SSTAT_WR_BUSY;
+ 446:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_ENABLE_INT_ON_STOP;
+ 447:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 448:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 449:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             #endif /* (I2C_CharLCD_SW_ADRR_DECODE) */
+ 450:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             }
+ 451:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             /* Data states */
+ 452:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             /* Data master writes into slave */
+ 453:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             else if(I2C_CharLCD_state == I2C_CharLCD_SM_SL_WR_DATA)
+ 454:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             {
+ 455:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 if(I2C_CharLCD_slWrBufIndex < I2C_CharLCD_slWrBufSize)
+ 456:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 457:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     tmp8 = I2C_CharLCD_DATA_REG;
+ 458:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_ACK_AND_RECEIVE;
+ 459:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_slWrBufPtr[I2C_CharLCD_slWrBufIndex] = tmp8;
+ 460:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_slWrBufIndex++;
+ 461:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 462:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 else  /* of array: complete write, send NACK */
+ 463:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 464:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_NAK_AND_RECEIVE;
+ 465:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 466:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_slStatus |= I2C_CharLCD_SSTAT_WR_ERR_OVFL;
+ 467:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 468:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             }
+ 469:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             /* Data master reads from slave */
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 12
+
+
+ 470:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             else if(I2C_CharLCD_state == I2C_CharLCD_SM_SL_RD_DATA)
+ 471:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             {
+ 472:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 if(I2C_CharLCD_CHECK_DATA_ACK(tmpCsr))
+ 473:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 474:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     if(I2C_CharLCD_slRdBufIndex < I2C_CharLCD_slRdBufSize)
+ 475:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     {
+ 476:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                          /* Get data from array */
+ 477:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_DATA_REG = I2C_CharLCD_slRdBufPtr[I2C_CharLCD_slRdBufIndex];
+ 478:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_TRANSMIT_DATA;
+ 479:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_slRdBufIndex++;
+ 480:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 481:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     else   /* Overflow: provide 0xFF on bus */
+ 482:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     {
+ 483:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_DATA_REG = I2C_CharLCD_OVERFLOW_RETURN;
+ 484:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_TRANSMIT_DATA;
+ 485:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 486:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_slStatus |= I2C_CharLCD_SSTAT_RD_ERR_OVFL;
+ 487:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 488:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 489:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 else  /* Last byte was NACKed: read complete */
+ 490:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 491:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     /* Only NACK appears on bus */
+ 492:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_DATA_REG = I2C_CharLCD_OVERFLOW_RETURN;
+ 493:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_NAK_AND_TRANSMIT;
+ 494:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 495:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_slStatus &= ((uint8) ~I2C_CharLCD_SSTAT_RD_BUSY);
+ 496:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_slStatus |= ((uint8)  I2C_CharLCD_SSTAT_RD_CMPLT);
+ 497:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 498:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_state = I2C_CharLCD_SM_IDLE;
+ 499:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 500:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             }
+ 501:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             else
+ 502:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             {
+ 503:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             #if(I2C_CharLCD_TIMEOUT_ENABLED)
+ 504:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 /* Exit interrupt to take chance for timeout timer to handle this case */
+ 505:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 I2C_CharLCD_DisableInt();
+ 506:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 I2C_CharLCD_ClearPendingInt();
+ 507:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             #else
+ 508:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 /* Block execution flow: unexpected condition */
+ 509:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 CYASSERT(0u != 0u);
+ 510:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             #endif /* (I2C_CharLCD_TIMEOUT_ENABLED) */
+ 511:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             }
+ 512:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         }
+ 513:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     #endif /* (I2C_CharLCD_MODE_SLAVE_ENABLED) */
+ 514:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     }
+ 515:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     else
+ 516:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****     {
+ 517:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         /* The FSM skips master and slave processing: return to IDLE */
+ 518:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****         I2C_CharLCD_state = I2C_CharLCD_SM_IDLE;
+ 148              		.loc 1 518 0
+ 149 0096 5CBF     		itt	pl
+ 150 0098 1023     		movpl	r3, #16
+ 151 009a 2B70     		strbpl	r3, [r5]
+ 152              	.L1:
+ 153 009c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 154              	.LVL3:
+ 155              	.L8:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 13
+
+
+ 258:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 I2C_CharLCD_mstrRdBufIndex++;
+ 156              		.loc 1 258 0
+ 157 009e 644A     		ldr	r2, .L36+24
+ 158 00a0 6449     		ldr	r1, .L36+28
+ 159 00a2 6548     		ldr	r0, .L36+32
+ 160 00a4 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 161 00a6 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
+ 162 00a8 0068     		ldr	r0, [r0]
+ 163 00aa DBB2     		uxtb	r3, r3
+ 164 00ac C9B2     		uxtb	r1, r1
+ 165 00ae C154     		strb	r1, [r0, r3]
+ 259:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 166              		.loc 1 259 0
+ 167 00b0 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 262:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 168              		.loc 1 262 0
+ 169 00b2 6249     		ldr	r1, .L36+36
+ 259:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 170              		.loc 1 259 0
+ 171 00b4 0133     		adds	r3, r3, #1
+ 172 00b6 DBB2     		uxtb	r3, r3
+ 173 00b8 1370     		strb	r3, [r2]
+ 262:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 174              		.loc 1 262 0
+ 175 00ba 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 176 00bc 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 177 00be 9A42     		cmp	r2, r3
+ 178 00c0 3FD3     		bcc	.L34
+ 267:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 179              		.loc 1 267 0
+ 180 00c2 584B     		ldr	r3, .L36+12
+ 181 00c4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 182 00c6 03F00203 		and	r3, r3, #2
+ 183 00ca 03F0FF02 		and	r2, r3, #255
+ 184 00ce 002B     		cmp	r3, #0
+ 185 00d0 74D0     		beq	.L21
+ 270:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                     I2C_CharLCD_MSTAT_RD_CMPLT);
+ 186              		.loc 1 270 0
+ 187 00d2 534A     		ldr	r2, .L36+8
+ 274:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 188              		.loc 1 274 0
+ 189 00d4 5449     		ldr	r1, .L36+16
+ 270:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                     I2C_CharLCD_MSTAT_RD_CMPLT);
+ 190              		.loc 1 270 0
+ 191 00d6 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 273:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_DisableInt();
+ 192              		.loc 1 273 0
+ 193 00d8 6026     		movs	r6, #96
+ 270:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                     I2C_CharLCD_MSTAT_RD_CMPLT);
+ 194              		.loc 1 270 0
+ 195 00da 43F00903 		orr	r3, r3, #9
+ 274:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 196              		.loc 1 274 0
+ 197 00de 4FF40040 		mov	r0, #32768
+ 270:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                     I2C_CharLCD_MSTAT_RD_CMPLT);
+ 198              		.loc 1 270 0
+ 199 00e2 1370     		strb	r3, [r2]
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 14
+
+
+ 273:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_DisableInt();
+ 200              		.loc 1 273 0
+ 201 00e4 2E70     		strb	r6, [r5]
+ 274:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 202              		.loc 1 274 0
+ 203 00e6 0860     		str	r0, [r1]
+ 204 00e8 BFE7     		b	.L3
+ 205              	.L7:
+ 206:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 206              		.loc 1 206 0
+ 207 00ea A607     		lsls	r6, r4, #30
+ 208 00ec 19D4     		bmi	.L16
+ 209:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     {
+ 209              		.loc 1 209 0
+ 210 00ee 544B     		ldr	r3, .L36+40
+ 211 00f0 544A     		ldr	r2, .L36+44
+ 212 00f2 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 213 00f4 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 214 00f6 9142     		cmp	r1, r2
+ 215 00f8 50D2     		bcs	.L17
+ 212:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_TRANSMIT_DATA;
+ 216              		.loc 1 212 0
+ 217 00fa 5349     		ldr	r1, .L36+48
+ 218 00fc 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 219 00fe 0968     		ldr	r1, [r1]
+ 220 0100 D2B2     		uxtb	r2, r2
+ 221 0102 8A5C     		ldrb	r2, [r1, r2]	@ zero_extendqisi2
+ 211:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                  I2C_CharLCD_mstrWrBufPtr[I2C_CharLCD_mstrWrBufInde
+ 222              		.loc 1 211 0
+ 223 0104 4B4E     		ldr	r6, .L36+28
+ 213:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_mstrWrBufIndex++;
+ 224              		.loc 1 213 0
+ 225 0106 4449     		ldr	r1, .L36
+ 212:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_TRANSMIT_DATA;
+ 226              		.loc 1 212 0
+ 227 0108 D2B2     		uxtb	r2, r2
+ 213:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_mstrWrBufIndex++;
+ 228              		.loc 1 213 0
+ 229 010a 0420     		movs	r0, #4
+ 211:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                  I2C_CharLCD_mstrWrBufPtr[I2C_CharLCD_mstrWrBufInde
+ 230              		.loc 1 211 0
+ 231 010c 3270     		strb	r2, [r6]
+ 213:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_mstrWrBufIndex++;
+ 232              		.loc 1 213 0
+ 233 010e 0870     		strb	r0, [r1]
+ 214:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 234              		.loc 1 214 0
+ 235 0110 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 236 0112 0132     		adds	r2, r2, #1
+ 237 0114 D2B2     		uxtb	r2, r2
+ 238 0116 1A70     		strb	r2, [r3]
+ 239 0118 A7E7     		b	.L3
+ 240              	.L4:
+ 291:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             #endif /* (I2C_CharLCD_TIMEOUT_ENABLED) */
+ 241              		.loc 1 291 0 discriminator 1
+ 242 011a 0020     		movs	r0, #0
+ 243 011c FFF7FEFF 		bl	CyHalt
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 15
+
+
+ 244              	.LVL4:
+ 294:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****             }
+ 245              		.loc 1 294 0 discriminator 1
+ 246 0120 A3E7     		b	.L3
+ 247              	.L16:
+ 233:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 {
+ 248              		.loc 1 233 0
+ 249 0122 404B     		ldr	r3, .L36+12
+ 250 0124 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 251 0126 9907     		lsls	r1, r3, #30
+ 252 0128 25D5     		bpl	.L19
+ 236:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                     I2C_CharLCD_MSTAT_ERR_SHORT_XFER |
+ 253              		.loc 1 236 0
+ 254 012a 3D4A     		ldr	r2, .L36+8
+ 242:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 255              		.loc 1 242 0
+ 256 012c 3E49     		ldr	r1, .L36+16
+ 236:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                     I2C_CharLCD_MSTAT_ERR_SHORT_XFER |
+ 257              		.loc 1 236 0
+ 258 012e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 241:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_DisableInt();
+ 259              		.loc 1 241 0
+ 260 0130 6026     		movs	r6, #96
+ 236:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                     I2C_CharLCD_MSTAT_ERR_SHORT_XFER |
+ 261              		.loc 1 236 0
+ 262 0132 43F09A03 		orr	r3, r3, #154
+ 242:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 263              		.loc 1 242 0
+ 264 0136 4FF40040 		mov	r0, #32768
+ 236:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                     I2C_CharLCD_MSTAT_ERR_SHORT_XFER |
+ 265              		.loc 1 236 0
+ 266 013a 1370     		strb	r3, [r2]
+ 241:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_DisableInt();
+ 267              		.loc 1 241 0
+ 268 013c 2E70     		strb	r6, [r5]
+ 242:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 269              		.loc 1 242 0
+ 270 013e 0860     		str	r0, [r1]
+ 271 0140 93E7     		b	.L3
+ 272              	.L34:
+ 264:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 273              		.loc 1 264 0
+ 274 0142 354B     		ldr	r3, .L36
+ 275 0144 1022     		movs	r2, #16
+ 276 0146 1A70     		strb	r2, [r3]
+ 277 0148 8FE7     		b	.L3
+ 278              	.L33:
+ 133:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     {
+ 279              		.loc 1 133 0
+ 280 014a 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 281 014c 334A     		ldr	r2, .L36+4
+ 282 014e 452B     		cmp	r3, #69
+ 283 0150 3CD0     		beq	.L35
+ 164:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 284              		.loc 1 164 0
+ 285 0152 3149     		ldr	r1, .L36
+ 286 0154 0020     		movs	r0, #0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 16
+
+
+ 166:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 287              		.loc 1 166 0
+ 288 0156 4A23     		movs	r3, #74
+ 164:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 289              		.loc 1 164 0
+ 290 0158 0870     		strb	r0, [r1]
+ 166:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 291              		.loc 1 166 0
+ 292 015a 1370     		strb	r3, [r2]
+ 293 015c 85E7     		b	.L3
+ 294              	.L18:
+ 228:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_GENERATE_STOP;
+ 295              		.loc 1 228 0
+ 296 015e 334A     		ldr	r2, .L36+20
+ 229:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 297              		.loc 1 229 0
+ 298 0160 3A4E     		ldr	r6, .L36+52
+ 228:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_GENERATE_STOP;
+ 299              		.loc 1 228 0
+ 300 0162 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 229:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 301              		.loc 1 229 0
+ 302 0164 2C49     		ldr	r1, .L36
+ 228:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_GENERATE_STOP;
+ 303              		.loc 1 228 0
+ 304 0166 43F01003 		orr	r3, r3, #16
+ 229:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 305              		.loc 1 229 0
+ 306 016a 1027     		movs	r7, #16
+ 307 016c 0420     		movs	r0, #4
+ 228:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_GENERATE_STOP;
+ 308              		.loc 1 228 0
+ 309 016e 1370     		strb	r3, [r2]
+ 229:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 310              		.loc 1 229 0
+ 311 0170 3770     		strb	r7, [r6]
+ 312 0172 0870     		strb	r0, [r1]
+ 313 0174 79E7     		b	.L3
+ 314              	.L19:
+ 246:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_GENERATE_STOP;
+ 315              		.loc 1 246 0
+ 316 0176 2D49     		ldr	r1, .L36+20
+ 247:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 317              		.loc 1 247 0
+ 318 0178 344F     		ldr	r7, .L36+52
+ 246:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_GENERATE_STOP;
+ 319              		.loc 1 246 0
+ 320 017a 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 247:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 321              		.loc 1 247 0
+ 322 017c 2648     		ldr	r0, .L36
+ 246:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_GENERATE_STOP;
+ 323              		.loc 1 246 0
+ 324 017e 43F01003 		orr	r3, r3, #16
+ 250:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                     I2C_CharLCD_MSTAT_ERR_XFER);
+ 325              		.loc 1 250 0
+ 326 0182 274A     		ldr	r2, .L36+8
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 17
+
+
+ 247:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 327              		.loc 1 247 0
+ 328 0184 4FF0100E 		mov	lr, #16
+ 329 0188 0426     		movs	r6, #4
+ 246:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_GENERATE_STOP;
+ 330              		.loc 1 246 0
+ 331 018a 0B70     		strb	r3, [r1]
+ 247:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 332              		.loc 1 247 0
+ 333 018c 87F800E0 		strb	lr, [r7]
+ 334 0190 0670     		strb	r6, [r0]
+ 250:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                     I2C_CharLCD_MSTAT_ERR_XFER);
+ 335              		.loc 1 250 0
+ 336 0192 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 337 0194 43F09003 		orr	r3, r3, #144
+ 338 0198 1370     		strb	r3, [r2]
+ 339 019a 66E7     		b	.L3
+ 340              	.L17:
+ 217:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     {
+ 341              		.loc 1 217 0
+ 342 019c 214B     		ldr	r3, .L36+12
+ 343 019e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 344 01a0 9807     		lsls	r0, r3, #30
+ 345 01a2 DCD5     		bpl	.L18
+ 220:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                         I2C_CharLCD_MSTAT_WR_CMPLT);
+ 346              		.loc 1 220 0
+ 347 01a4 1E4A     		ldr	r2, .L36+8
+ 224:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 348              		.loc 1 224 0
+ 349 01a6 2049     		ldr	r1, .L36+16
+ 220:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                         I2C_CharLCD_MSTAT_WR_CMPLT);
+ 350              		.loc 1 220 0
+ 351 01a8 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 223:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_DisableInt();
+ 352              		.loc 1 223 0
+ 353 01aa 6026     		movs	r6, #96
+ 220:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                         I2C_CharLCD_MSTAT_WR_CMPLT);
+ 354              		.loc 1 220 0
+ 355 01ac 43F00A03 		orr	r3, r3, #10
+ 224:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 356              		.loc 1 224 0
+ 357 01b0 4FF40040 		mov	r0, #32768
+ 220:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                         I2C_CharLCD_MSTAT_WR_CMPLT);
+ 358              		.loc 1 220 0
+ 359 01b4 1370     		strb	r3, [r2]
+ 223:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         I2C_CharLCD_DisableInt();
+ 360              		.loc 1 223 0
+ 361 01b6 2E70     		strb	r6, [r5]
+ 224:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     }
+ 362              		.loc 1 224 0
+ 363 01b8 0860     		str	r0, [r1]
+ 364 01ba 56E7     		b	.L3
+ 365              	.L21:
+ 278:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_NAK_AND_RECEIVE;       /* NACK and TRY to generate Stop */
+ 366              		.loc 1 278 0
+ 367 01bc 1B49     		ldr	r1, .L36+20
+ 279:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 18
+
+
+ 368              		.loc 1 279 0
+ 369 01be 1648     		ldr	r0, .L36
+ 278:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                     I2C_CharLCD_NAK_AND_RECEIVE;       /* NACK and TRY to generate Stop */
+ 370              		.loc 1 278 0
+ 371 01c0 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 372 01c2 43F01003 		orr	r3, r3, #16
+ 373 01c6 0B70     		strb	r3, [r1]
+ 279:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                 }
+ 374              		.loc 1 279 0
+ 375 01c8 0270     		strb	r2, [r0]
+ 376 01ca 4EE7     		b	.L3
+ 377              	.L35:
+ 136:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         {
+ 378              		.loc 1 136 0
+ 379 01cc 1D4B     		ldr	r3, .L36+44
+ 380 01ce 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 381 01d0 93B1     		cbz	r3, .L11
+ 139:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_TRANSMIT_DATA;
+ 382              		.loc 1 139 0
+ 383 01d2 1D4B     		ldr	r3, .L36+48
+ 384 01d4 DFF85CC0 		ldr	ip, .L36+28
+ 385 01d8 1B68     		ldr	r3, [r3]
+ 140:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_mstrWrBufIndex = 1u;   /* Set index to 2nd element */
+ 386              		.loc 1 140 0
+ 387 01da 0F4F     		ldr	r7, .L36
+ 139:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_TRANSMIT_DATA;
+ 388              		.loc 1 139 0
+ 389 01dc 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 141:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 390              		.loc 1 141 0
+ 391 01de 1848     		ldr	r0, .L36+40
+ 139:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_TRANSMIT_DATA;
+ 392              		.loc 1 139 0
+ 393 01e0 DBB2     		uxtb	r3, r3
+ 140:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_mstrWrBufIndex = 1u;   /* Set index to 2nd element */
+ 394              		.loc 1 140 0
+ 395 01e2 4FF0040E 		mov	lr, #4
+ 141:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 396              		.loc 1 141 0
+ 397 01e6 0126     		movs	r6, #1
+ 144:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         }
+ 398              		.loc 1 144 0
+ 399 01e8 4621     		movs	r1, #70
+ 139:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_TRANSMIT_DATA;
+ 400              		.loc 1 139 0
+ 401 01ea 8CF80030 		strb	r3, [ip]
+ 140:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_mstrWrBufIndex = 1u;   /* Set index to 2nd element */
+ 402              		.loc 1 140 0
+ 403 01ee 87F800E0 		strb	lr, [r7]
+ 141:Generated_Source\PSoC5/I2C_CharLCD_INT.c **** 
+ 404              		.loc 1 141 0
+ 405 01f2 0670     		strb	r6, [r0]
+ 144:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         }
+ 406              		.loc 1 144 0
+ 407 01f4 1170     		strb	r1, [r2]
+ 408 01f6 38E7     		b	.L3
+ 409              	.L11:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 19
+
+
+ 147:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         {
+ 410              		.loc 1 147 0
+ 411 01f8 0A4B     		ldr	r3, .L36+12
+ 412 01fa 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 413 01fc 9B07     		lsls	r3, r3, #30
+ 414 01fe AED5     		bpl	.L18
+ 150:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                             I2C_CharLCD_MSTAT_WR_CMPLT);
+ 415              		.loc 1 150 0
+ 416 0200 0749     		ldr	r1, .L36+8
+ 154:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         }
+ 417              		.loc 1 154 0
+ 418 0202 0948     		ldr	r0, .L36+16
+ 150:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                             I2C_CharLCD_MSTAT_WR_CMPLT);
+ 419              		.loc 1 150 0
+ 420 0204 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 153:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_DisableInt();
+ 421              		.loc 1 153 0
+ 422 0206 6027     		movs	r7, #96
+ 150:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                             I2C_CharLCD_MSTAT_WR_CMPLT);
+ 423              		.loc 1 150 0
+ 424 0208 43F00A03 		orr	r3, r3, #10
+ 154:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         }
+ 425              		.loc 1 154 0
+ 426 020c 4FF40046 		mov	r6, #32768
+ 150:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                                                             I2C_CharLCD_MSTAT_WR_CMPLT);
+ 427              		.loc 1 150 0
+ 428 0210 0B70     		strb	r3, [r1]
+ 153:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                             I2C_CharLCD_DisableInt();
+ 429              		.loc 1 153 0
+ 430 0212 1770     		strb	r7, [r2]
+ 154:Generated_Source\PSoC5/I2C_CharLCD_INT.c ****                         }
+ 431              		.loc 1 154 0
+ 432 0214 0660     		str	r6, [r0]
+ 433 0216 28E7     		b	.L3
+ 434              	.L37:
+ 435              		.align	2
+ 436              	.L36:
+ 437 0218 D7490040 		.word	1073760727
+ 438 021c 00000000 		.word	I2C_CharLCD_state
+ 439 0220 00000000 		.word	I2C_CharLCD_mstrStatus
+ 440 0224 00000000 		.word	I2C_CharLCD_mstrControl
+ 441 0228 80E100E0 		.word	-536813184
+ 442 022c D6490040 		.word	1073760726
+ 443 0230 00000000 		.word	I2C_CharLCD_mstrRdBufIndex
+ 444 0234 D8490040 		.word	1073760728
+ 445 0238 00000000 		.word	I2C_CharLCD_mstrRdBufPtr
+ 446 023c 00000000 		.word	I2C_CharLCD_mstrRdBufSize
+ 447 0240 00000000 		.word	I2C_CharLCD_mstrWrBufIndex
+ 448 0244 00000000 		.word	I2C_CharLCD_mstrWrBufSize
+ 449 0248 00000000 		.word	I2C_CharLCD_mstrWrBufPtr
+ 450 024c D9490040 		.word	1073760729
+ 451              		.cfi_endproc
+ 452              	.LFE0:
+ 453              		.size	I2C_CharLCD_ISR, .-I2C_CharLCD_ISR
+ 454              		.text
+ 455              	.Letext0:
+ 456              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 20
+
+
+ 457              		.file 3 "Generated_Source\\PSoC5\\I2C_CharLCD_PVT.h"
+ 458              		.file 4 "Generated_Source\\PSoC5\\CyLib.h"
+ 459              		.section	.debug_info,"",%progbits
+ 460              	.Ldebug_info0:
+ 461 0000 62010000 		.4byte	0x162
+ 462 0004 0400     		.2byte	0x4
+ 463 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 464 000a 04       		.byte	0x4
+ 465 000b 01       		.uleb128 0x1
+ 466 000c C3000000 		.4byte	.LASF26
+ 467 0010 01       		.byte	0x1
+ 468 0011 53000000 		.4byte	.LASF27
+ 469 0015 69020000 		.4byte	.LASF28
+ 470 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 471 001d 00000000 		.4byte	0
+ 472 0021 00000000 		.4byte	.Ldebug_line0
+ 473 0025 02       		.uleb128 0x2
+ 474 0026 01       		.byte	0x1
+ 475 0027 06       		.byte	0x6
+ 476 0028 5D020000 		.4byte	.LASF0
+ 477 002c 02       		.uleb128 0x2
+ 478 002d 01       		.byte	0x1
+ 479 002e 08       		.byte	0x8
+ 480 002f 57010000 		.4byte	.LASF1
+ 481 0033 02       		.uleb128 0x2
+ 482 0034 02       		.byte	0x2
+ 483 0035 05       		.byte	0x5
+ 484 0036 18020000 		.4byte	.LASF2
+ 485 003a 02       		.uleb128 0x2
+ 486 003b 02       		.byte	0x2
+ 487 003c 07       		.byte	0x7
+ 488 003d 7C000000 		.4byte	.LASF3
+ 489 0041 02       		.uleb128 0x2
+ 490 0042 04       		.byte	0x4
+ 491 0043 05       		.byte	0x5
+ 492 0044 54020000 		.4byte	.LASF4
+ 493 0048 02       		.uleb128 0x2
+ 494 0049 04       		.byte	0x4
+ 495 004a 07       		.byte	0x7
+ 496 004b 6A010000 		.4byte	.LASF5
+ 497 004f 02       		.uleb128 0x2
+ 498 0050 08       		.byte	0x8
+ 499 0051 05       		.byte	0x5
+ 500 0052 05020000 		.4byte	.LASF6
+ 501 0056 02       		.uleb128 0x2
+ 502 0057 08       		.byte	0x8
+ 503 0058 07       		.byte	0x7
+ 504 0059 DE010000 		.4byte	.LASF7
+ 505 005d 03       		.uleb128 0x3
+ 506 005e 04       		.byte	0x4
+ 507 005f 05       		.byte	0x5
+ 508 0060 696E7400 		.ascii	"int\000"
+ 509 0064 02       		.uleb128 0x2
+ 510 0065 04       		.byte	0x4
+ 511 0066 07       		.byte	0x7
+ 512 0067 D1010000 		.4byte	.LASF8
+ 513 006b 04       		.uleb128 0x4
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 21
+
+
+ 514 006c 7C010000 		.4byte	.LASF9
+ 515 0070 02       		.byte	0x2
+ 516 0071 5B       		.byte	0x5b
+ 517 0072 2C000000 		.4byte	0x2c
+ 518 0076 04       		.uleb128 0x4
+ 519 0077 CA010000 		.4byte	.LASF10
+ 520 007b 02       		.byte	0x2
+ 521 007c 5D       		.byte	0x5d
+ 522 007d 48000000 		.4byte	0x48
+ 523 0081 02       		.uleb128 0x2
+ 524 0082 04       		.byte	0x4
+ 525 0083 04       		.byte	0x4
+ 526 0084 51010000 		.4byte	.LASF11
+ 527 0088 02       		.uleb128 0x2
+ 528 0089 08       		.byte	0x8
+ 529 008a 04       		.byte	0x4
+ 530 008b AA010000 		.4byte	.LASF12
+ 531 008f 02       		.uleb128 0x2
+ 532 0090 01       		.byte	0x1
+ 533 0091 08       		.byte	0x8
+ 534 0092 13020000 		.4byte	.LASF13
+ 535 0096 04       		.uleb128 0x4
+ 536 0097 65010000 		.4byte	.LASF14
+ 537 009b 02       		.byte	0x2
+ 538 009c F0       		.byte	0xf0
+ 539 009d A1000000 		.4byte	0xa1
+ 540 00a1 05       		.uleb128 0x5
+ 541 00a2 6B000000 		.4byte	0x6b
+ 542 00a6 04       		.uleb128 0x4
+ 543 00a7 21000000 		.4byte	.LASF15
+ 544 00ab 02       		.byte	0x2
+ 545 00ac F2       		.byte	0xf2
+ 546 00ad B1000000 		.4byte	0xb1
+ 547 00b1 05       		.uleb128 0x5
+ 548 00b2 76000000 		.4byte	0x76
+ 549 00b6 02       		.uleb128 0x2
+ 550 00b7 04       		.byte	0x4
+ 551 00b8 07       		.byte	0x7
+ 552 00b9 FC010000 		.4byte	.LASF16
+ 553 00bd 06       		.uleb128 0x6
+ 554 00be 82010000 		.4byte	.LASF29
+ 555 00c2 01       		.byte	0x1
+ 556 00c3 2E       		.byte	0x2e
+ 557 00c4 00000000 		.4byte	.LFB0
+ 558 00c8 50020000 		.4byte	.LFE0-.LFB0
+ 559 00cc 01       		.uleb128 0x1
+ 560 00cd 9C       		.byte	0x9c
+ 561 00ce EF000000 		.4byte	0xef
+ 562 00d2 07       		.uleb128 0x7
+ 563 00d3 00000000 		.4byte	.LASF30
+ 564 00d7 01       		.byte	0x1
+ 565 00d8 34       		.byte	0x34
+ 566 00d9 6B000000 		.4byte	0x6b
+ 567 00dd 01       		.uleb128 0x1
+ 568 00de 54       		.byte	0x54
+ 569 00df 08       		.uleb128 0x8
+ 570 00e0 20010000 		.4byte	.LVL4
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 22
+
+
+ 571 00e4 58010000 		.4byte	0x158
+ 572 00e8 09       		.uleb128 0x9
+ 573 00e9 01       		.uleb128 0x1
+ 574 00ea 50       		.byte	0x50
+ 575 00eb 01       		.uleb128 0x1
+ 576 00ec 30       		.byte	0x30
+ 577 00ed 00       		.byte	0
+ 578 00ee 00       		.byte	0
+ 579 00ef 0A       		.uleb128 0xa
+ 580 00f0 27000000 		.4byte	.LASF17
+ 581 00f4 03       		.byte	0x3
+ 582 00f5 23       		.byte	0x23
+ 583 00f6 A1000000 		.4byte	0xa1
+ 584 00fa 0A       		.uleb128 0xa
+ 585 00fb 3D020000 		.4byte	.LASF18
+ 586 00ff 03       		.byte	0x3
+ 587 0100 27       		.byte	0x27
+ 588 0101 A1000000 		.4byte	0xa1
+ 589 0105 0A       		.uleb128 0xa
+ 590 0106 92010000 		.4byte	.LASF19
+ 591 010a 03       		.byte	0x3
+ 592 010b 28       		.byte	0x28
+ 593 010c A1000000 		.4byte	0xa1
+ 594 0110 0A       		.uleb128 0xa
+ 595 0111 8F000000 		.4byte	.LASF20
+ 596 0115 03       		.byte	0x3
+ 597 0116 2B       		.byte	0x2b
+ 598 0117 1B010000 		.4byte	0x11b
+ 599 011b 0B       		.uleb128 0xb
+ 600 011c 04       		.byte	0x4
+ 601 011d A1000000 		.4byte	0xa1
+ 602 0121 0A       		.uleb128 0xa
+ 603 0122 39000000 		.4byte	.LASF21
+ 604 0126 03       		.byte	0x3
+ 605 0127 2C       		.byte	0x2c
+ 606 0128 A1000000 		.4byte	0xa1
+ 607 012c 0A       		.uleb128 0xa
+ 608 012d A8000000 		.4byte	.LASF22
+ 609 0131 03       		.byte	0x3
+ 610 0132 2D       		.byte	0x2d
+ 611 0133 A1000000 		.4byte	0xa1
+ 612 0137 0A       		.uleb128 0xa
+ 613 0138 B1010000 		.4byte	.LASF23
+ 614 013c 03       		.byte	0x3
+ 615 013d 30       		.byte	0x30
+ 616 013e 1B010000 		.4byte	0x11b
+ 617 0142 0A       		.uleb128 0xa
+ 618 0143 07000000 		.4byte	.LASF24
+ 619 0147 03       		.byte	0x3
+ 620 0148 31       		.byte	0x31
+ 621 0149 A1000000 		.4byte	0xa1
+ 622 014d 0A       		.uleb128 0xa
+ 623 014e 22020000 		.4byte	.LASF25
+ 624 0152 03       		.byte	0x3
+ 625 0153 32       		.byte	0x32
+ 626 0154 A1000000 		.4byte	0xa1
+ 627 0158 0C       		.uleb128 0xc
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 23
+
+
+ 628 0159 F5010000 		.4byte	.LASF31
+ 629 015d 04       		.byte	0x4
+ 630 015e 80       		.byte	0x80
+ 631 015f 0D       		.uleb128 0xd
+ 632 0160 6B000000 		.4byte	0x6b
+ 633 0164 00       		.byte	0
+ 634 0165 00       		.byte	0
+ 635              		.section	.debug_abbrev,"",%progbits
+ 636              	.Ldebug_abbrev0:
+ 637 0000 01       		.uleb128 0x1
+ 638 0001 11       		.uleb128 0x11
+ 639 0002 01       		.byte	0x1
+ 640 0003 25       		.uleb128 0x25
+ 641 0004 0E       		.uleb128 0xe
+ 642 0005 13       		.uleb128 0x13
+ 643 0006 0B       		.uleb128 0xb
+ 644 0007 03       		.uleb128 0x3
+ 645 0008 0E       		.uleb128 0xe
+ 646 0009 1B       		.uleb128 0x1b
+ 647 000a 0E       		.uleb128 0xe
+ 648 000b 55       		.uleb128 0x55
+ 649 000c 17       		.uleb128 0x17
+ 650 000d 11       		.uleb128 0x11
+ 651 000e 01       		.uleb128 0x1
+ 652 000f 10       		.uleb128 0x10
+ 653 0010 17       		.uleb128 0x17
+ 654 0011 00       		.byte	0
+ 655 0012 00       		.byte	0
+ 656 0013 02       		.uleb128 0x2
+ 657 0014 24       		.uleb128 0x24
+ 658 0015 00       		.byte	0
+ 659 0016 0B       		.uleb128 0xb
+ 660 0017 0B       		.uleb128 0xb
+ 661 0018 3E       		.uleb128 0x3e
+ 662 0019 0B       		.uleb128 0xb
+ 663 001a 03       		.uleb128 0x3
+ 664 001b 0E       		.uleb128 0xe
+ 665 001c 00       		.byte	0
+ 666 001d 00       		.byte	0
+ 667 001e 03       		.uleb128 0x3
+ 668 001f 24       		.uleb128 0x24
+ 669 0020 00       		.byte	0
+ 670 0021 0B       		.uleb128 0xb
+ 671 0022 0B       		.uleb128 0xb
+ 672 0023 3E       		.uleb128 0x3e
+ 673 0024 0B       		.uleb128 0xb
+ 674 0025 03       		.uleb128 0x3
+ 675 0026 08       		.uleb128 0x8
+ 676 0027 00       		.byte	0
+ 677 0028 00       		.byte	0
+ 678 0029 04       		.uleb128 0x4
+ 679 002a 16       		.uleb128 0x16
+ 680 002b 00       		.byte	0
+ 681 002c 03       		.uleb128 0x3
+ 682 002d 0E       		.uleb128 0xe
+ 683 002e 3A       		.uleb128 0x3a
+ 684 002f 0B       		.uleb128 0xb
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 24
+
+
+ 685 0030 3B       		.uleb128 0x3b
+ 686 0031 0B       		.uleb128 0xb
+ 687 0032 49       		.uleb128 0x49
+ 688 0033 13       		.uleb128 0x13
+ 689 0034 00       		.byte	0
+ 690 0035 00       		.byte	0
+ 691 0036 05       		.uleb128 0x5
+ 692 0037 35       		.uleb128 0x35
+ 693 0038 00       		.byte	0
+ 694 0039 49       		.uleb128 0x49
+ 695 003a 13       		.uleb128 0x13
+ 696 003b 00       		.byte	0
+ 697 003c 00       		.byte	0
+ 698 003d 06       		.uleb128 0x6
+ 699 003e 2E       		.uleb128 0x2e
+ 700 003f 01       		.byte	0x1
+ 701 0040 3F       		.uleb128 0x3f
+ 702 0041 19       		.uleb128 0x19
+ 703 0042 03       		.uleb128 0x3
+ 704 0043 0E       		.uleb128 0xe
+ 705 0044 3A       		.uleb128 0x3a
+ 706 0045 0B       		.uleb128 0xb
+ 707 0046 3B       		.uleb128 0x3b
+ 708 0047 0B       		.uleb128 0xb
+ 709 0048 27       		.uleb128 0x27
+ 710 0049 19       		.uleb128 0x19
+ 711 004a 11       		.uleb128 0x11
+ 712 004b 01       		.uleb128 0x1
+ 713 004c 12       		.uleb128 0x12
+ 714 004d 06       		.uleb128 0x6
+ 715 004e 40       		.uleb128 0x40
+ 716 004f 18       		.uleb128 0x18
+ 717 0050 9742     		.uleb128 0x2117
+ 718 0052 19       		.uleb128 0x19
+ 719 0053 01       		.uleb128 0x1
+ 720 0054 13       		.uleb128 0x13
+ 721 0055 00       		.byte	0
+ 722 0056 00       		.byte	0
+ 723 0057 07       		.uleb128 0x7
+ 724 0058 34       		.uleb128 0x34
+ 725 0059 00       		.byte	0
+ 726 005a 03       		.uleb128 0x3
+ 727 005b 0E       		.uleb128 0xe
+ 728 005c 3A       		.uleb128 0x3a
+ 729 005d 0B       		.uleb128 0xb
+ 730 005e 3B       		.uleb128 0x3b
+ 731 005f 0B       		.uleb128 0xb
+ 732 0060 49       		.uleb128 0x49
+ 733 0061 13       		.uleb128 0x13
+ 734 0062 02       		.uleb128 0x2
+ 735 0063 18       		.uleb128 0x18
+ 736 0064 00       		.byte	0
+ 737 0065 00       		.byte	0
+ 738 0066 08       		.uleb128 0x8
+ 739 0067 898201   		.uleb128 0x4109
+ 740 006a 01       		.byte	0x1
+ 741 006b 11       		.uleb128 0x11
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 25
+
+
+ 742 006c 01       		.uleb128 0x1
+ 743 006d 31       		.uleb128 0x31
+ 744 006e 13       		.uleb128 0x13
+ 745 006f 00       		.byte	0
+ 746 0070 00       		.byte	0
+ 747 0071 09       		.uleb128 0x9
+ 748 0072 8A8201   		.uleb128 0x410a
+ 749 0075 00       		.byte	0
+ 750 0076 02       		.uleb128 0x2
+ 751 0077 18       		.uleb128 0x18
+ 752 0078 9142     		.uleb128 0x2111
+ 753 007a 18       		.uleb128 0x18
+ 754 007b 00       		.byte	0
+ 755 007c 00       		.byte	0
+ 756 007d 0A       		.uleb128 0xa
+ 757 007e 34       		.uleb128 0x34
+ 758 007f 00       		.byte	0
+ 759 0080 03       		.uleb128 0x3
+ 760 0081 0E       		.uleb128 0xe
+ 761 0082 3A       		.uleb128 0x3a
+ 762 0083 0B       		.uleb128 0xb
+ 763 0084 3B       		.uleb128 0x3b
+ 764 0085 0B       		.uleb128 0xb
+ 765 0086 49       		.uleb128 0x49
+ 766 0087 13       		.uleb128 0x13
+ 767 0088 3F       		.uleb128 0x3f
+ 768 0089 19       		.uleb128 0x19
+ 769 008a 3C       		.uleb128 0x3c
+ 770 008b 19       		.uleb128 0x19
+ 771 008c 00       		.byte	0
+ 772 008d 00       		.byte	0
+ 773 008e 0B       		.uleb128 0xb
+ 774 008f 0F       		.uleb128 0xf
+ 775 0090 00       		.byte	0
+ 776 0091 0B       		.uleb128 0xb
+ 777 0092 0B       		.uleb128 0xb
+ 778 0093 49       		.uleb128 0x49
+ 779 0094 13       		.uleb128 0x13
+ 780 0095 00       		.byte	0
+ 781 0096 00       		.byte	0
+ 782 0097 0C       		.uleb128 0xc
+ 783 0098 2E       		.uleb128 0x2e
+ 784 0099 01       		.byte	0x1
+ 785 009a 3F       		.uleb128 0x3f
+ 786 009b 19       		.uleb128 0x19
+ 787 009c 03       		.uleb128 0x3
+ 788 009d 0E       		.uleb128 0xe
+ 789 009e 3A       		.uleb128 0x3a
+ 790 009f 0B       		.uleb128 0xb
+ 791 00a0 3B       		.uleb128 0x3b
+ 792 00a1 0B       		.uleb128 0xb
+ 793 00a2 27       		.uleb128 0x27
+ 794 00a3 19       		.uleb128 0x19
+ 795 00a4 3C       		.uleb128 0x3c
+ 796 00a5 19       		.uleb128 0x19
+ 797 00a6 00       		.byte	0
+ 798 00a7 00       		.byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 26
+
+
+ 799 00a8 0D       		.uleb128 0xd
+ 800 00a9 05       		.uleb128 0x5
+ 801 00aa 00       		.byte	0
+ 802 00ab 49       		.uleb128 0x49
+ 803 00ac 13       		.uleb128 0x13
+ 804 00ad 00       		.byte	0
+ 805 00ae 00       		.byte	0
+ 806 00af 00       		.byte	0
+ 807              		.section	.debug_aranges,"",%progbits
+ 808 0000 1C000000 		.4byte	0x1c
+ 809 0004 0200     		.2byte	0x2
+ 810 0006 00000000 		.4byte	.Ldebug_info0
+ 811 000a 04       		.byte	0x4
+ 812 000b 00       		.byte	0
+ 813 000c 0000     		.2byte	0
+ 814 000e 0000     		.2byte	0
+ 815 0010 00000000 		.4byte	.LFB0
+ 816 0014 50020000 		.4byte	.LFE0-.LFB0
+ 817 0018 00000000 		.4byte	0
+ 818 001c 00000000 		.4byte	0
+ 819              		.section	.debug_ranges,"",%progbits
+ 820              	.Ldebug_ranges0:
+ 821 0000 00000000 		.4byte	.LFB0
+ 822 0004 50020000 		.4byte	.LFE0
+ 823 0008 00000000 		.4byte	0
+ 824 000c 00000000 		.4byte	0
+ 825              		.section	.debug_line,"",%progbits
+ 826              	.Ldebug_line0:
+ 827 0000 43010000 		.section	.debug_str,"MS",%progbits,1
+ 827      02006C00 
+ 827      00000201 
+ 827      FB0E0D00 
+ 827      01010101 
+ 828              	.LASF30:
+ 829 0000 746D7043 		.ascii	"tmpCsr\000"
+ 829      737200
+ 830              	.LASF24:
+ 831 0007 4932435F 		.ascii	"I2C_CharLCD_mstrWrBufSize\000"
+ 831      43686172 
+ 831      4C43445F 
+ 831      6D737472 
+ 831      57724275 
+ 832              	.LASF15:
+ 833 0021 72656733 		.ascii	"reg32\000"
+ 833      3200
+ 834              	.LASF17:
+ 835 0027 4932435F 		.ascii	"I2C_CharLCD_state\000"
+ 835      43686172 
+ 835      4C43445F 
+ 835      73746174 
+ 835      6500
+ 836              	.LASF21:
+ 837 0039 4932435F 		.ascii	"I2C_CharLCD_mstrRdBufSize\000"
+ 837      43686172 
+ 837      4C43445F 
+ 837      6D737472 
+ 837      52644275 
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 27
+
+
+ 838              	.LASF27:
+ 839 0053 47656E65 		.ascii	"Generated_Source\\PSoC5\\I2C_CharLCD_INT.c\000"
+ 839      72617465 
+ 839      645F536F 
+ 839      75726365 
+ 839      5C50536F 
+ 840              	.LASF3:
+ 841 007c 73686F72 		.ascii	"short unsigned int\000"
+ 841      7420756E 
+ 841      7369676E 
+ 841      65642069 
+ 841      6E7400
+ 842              	.LASF20:
+ 843 008f 4932435F 		.ascii	"I2C_CharLCD_mstrRdBufPtr\000"
+ 843      43686172 
+ 843      4C43445F 
+ 843      6D737472 
+ 843      52644275 
+ 844              	.LASF22:
+ 845 00a8 4932435F 		.ascii	"I2C_CharLCD_mstrRdBufIndex\000"
+ 845      43686172 
+ 845      4C43445F 
+ 845      6D737472 
+ 845      52644275 
+ 846              	.LASF26:
+ 847 00c3 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 847      4320342E 
+ 847      392E3320 
+ 847      32303135 
+ 847      30333033 
+ 848 00f6 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 848      20726576 
+ 848      6973696F 
+ 848      6E203232 
+ 848      31323230 
+ 849 0129 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 849      66756E63 
+ 849      74696F6E 
+ 849      2D736563 
+ 849      74696F6E 
+ 850              	.LASF11:
+ 851 0151 666C6F61 		.ascii	"float\000"
+ 851      7400
+ 852              	.LASF1:
+ 853 0157 756E7369 		.ascii	"unsigned char\000"
+ 853      676E6564 
+ 853      20636861 
+ 853      7200
+ 854              	.LASF14:
+ 855 0165 72656738 		.ascii	"reg8\000"
+ 855      00
+ 856              	.LASF5:
+ 857 016a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 857      20756E73 
+ 857      69676E65 
+ 857      6420696E 
+ 857      7400
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 28
+
+
+ 858              	.LASF9:
+ 859 017c 75696E74 		.ascii	"uint8\000"
+ 859      3800
+ 860              	.LASF29:
+ 861 0182 4932435F 		.ascii	"I2C_CharLCD_ISR\000"
+ 861      43686172 
+ 861      4C43445F 
+ 861      49535200 
+ 862              	.LASF19:
+ 863 0192 4932435F 		.ascii	"I2C_CharLCD_mstrControl\000"
+ 863      43686172 
+ 863      4C43445F 
+ 863      6D737472 
+ 863      436F6E74 
+ 864              	.LASF12:
+ 865 01aa 646F7562 		.ascii	"double\000"
+ 865      6C6500
+ 866              	.LASF23:
+ 867 01b1 4932435F 		.ascii	"I2C_CharLCD_mstrWrBufPtr\000"
+ 867      43686172 
+ 867      4C43445F 
+ 867      6D737472 
+ 867      57724275 
+ 868              	.LASF10:
+ 869 01ca 75696E74 		.ascii	"uint32\000"
+ 869      333200
+ 870              	.LASF8:
+ 871 01d1 756E7369 		.ascii	"unsigned int\000"
+ 871      676E6564 
+ 871      20696E74 
+ 871      00
+ 872              	.LASF7:
+ 873 01de 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 873      206C6F6E 
+ 873      6720756E 
+ 873      7369676E 
+ 873      65642069 
+ 874              	.LASF31:
+ 875 01f5 43794861 		.ascii	"CyHalt\000"
+ 875      6C7400
+ 876              	.LASF16:
+ 877 01fc 73697A65 		.ascii	"sizetype\000"
+ 877      74797065 
+ 877      00
+ 878              	.LASF6:
+ 879 0205 6C6F6E67 		.ascii	"long long int\000"
+ 879      206C6F6E 
+ 879      6720696E 
+ 879      7400
+ 880              	.LASF13:
+ 881 0213 63686172 		.ascii	"char\000"
+ 881      00
+ 882              	.LASF2:
+ 883 0218 73686F72 		.ascii	"short int\000"
+ 883      7420696E 
+ 883      7400
+ 884              	.LASF25:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccQdSIyV.s 			page 29
+
+
+ 885 0222 4932435F 		.ascii	"I2C_CharLCD_mstrWrBufIndex\000"
+ 885      43686172 
+ 885      4C43445F 
+ 885      6D737472 
+ 885      57724275 
+ 886              	.LASF18:
+ 887 023d 4932435F 		.ascii	"I2C_CharLCD_mstrStatus\000"
+ 887      43686172 
+ 887      4C43445F 
+ 887      6D737472 
+ 887      53746174 
+ 888              	.LASF4:
+ 889 0254 6C6F6E67 		.ascii	"long int\000"
+ 889      20696E74 
+ 889      00
+ 890              	.LASF0:
+ 891 025d 7369676E 		.ascii	"signed char\000"
+ 891      65642063 
+ 891      68617200 
+ 892              	.LASF28:
+ 893 0269 433A5C55 		.ascii	"C:\\Users\\jmdevoto\\Desktop\\Builds\\(4-24-17)Humm"
+ 893      73657273 
+ 893      5C6A6D64 
+ 893      65766F74 
+ 893      6F5C4465 
+ 894 0297 696E6762 		.ascii	"ingbird-059-v1\\Hummingbird(Continuous Output).cyds"
+ 894      6972642D 
+ 894      3035392D 
+ 894      76315C48 
+ 894      756D6D69 
+ 895 02c9 6E00     		.ascii	"n\000"
+ 896              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

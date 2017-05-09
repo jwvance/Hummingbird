@@ -1,0 +1,4552 @@
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"midi.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	__aeabi_i2d
+  19              		.global	__aeabi_ddiv
+  20              		.global	__aeabi_dmul
+  21              		.section	.text.populate_midi_array,"ax",%progbits
+  22              		.align	2
+  23              		.global	populate_midi_array
+  24              		.thumb
+  25              		.thumb_func
+  26              		.type	populate_midi_array, %function
+  27              	populate_midi_array:
+  28              	.LFB0:
+  29              		.file 1 "midi.c"
+   1:midi.c        **** #include <math.h>
+   2:midi.c        **** #include "midi.h"
+   3:midi.c        **** #define HYST 0.90
+   4:midi.c        **** 
+   5:midi.c        **** 
+   6:midi.c        **** void populate_midi_array(double notes[MIDI_LEN])
+   7:midi.c        **** {
+  30              		.loc 1 7 0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              	.LVL0:
+  35 0000 70B5     		push	{r4, r5, r6, lr}
+  36              		.cfi_def_cfa_offset 16
+  37              		.cfi_offset 4, -16
+  38              		.cfi_offset 5, -12
+  39              		.cfi_offset 6, -8
+  40              		.cfi_offset 14, -4
+  41              		.loc 1 7 0
+  42 0002 6FF00705 		mvn	r5, #7
+  43 0006 4419     		adds	r4, r0, r5
+  44 0008 00F57E76 		add	r6, r0, #1016
+  45              	.LVL1:
+  46              	.L2:
+   8:midi.c        **** 	// Frequency of A, used as a basis for generation
+   9:midi.c        **** 	int freq_a = 440;
+  10:midi.c        **** 
+  11:midi.c        **** 	// Shifted up 1 (- 9 changed to - 8) for unknown reasons
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 2
+
+
+  12:midi.c        **** 	int i;
+  13:midi.c        **** 	for (i = 0; i < 128; i++) {
+  14:midi.c        **** 		notes[i] = (freq_a / 32) * pow(2.0, (i - 8) / 12.0); 
+  47              		.loc 1 14 0 discriminator 3
+  48 000c 2846     		mov	r0, r5
+  49 000e FFF7FEFF 		bl	__aeabi_i2d
+  50              	.LVL2:
+  51 0012 0022     		movs	r2, #0
+  52 0014 0A4B     		ldr	r3, .L6
+  53 0016 FFF7FEFF 		bl	__aeabi_ddiv
+  54              	.LVL3:
+  55 001a 0246     		mov	r2, r0
+  56 001c 0B46     		mov	r3, r1
+  57 001e 0020     		movs	r0, #0
+  58 0020 4FF08041 		mov	r1, #1073741824
+  59 0024 FFF7FEFF 		bl	pow
+  60              	.LVL4:
+  61 0028 0022     		movs	r2, #0
+  62 002a 064B     		ldr	r3, .L6+4
+  63 002c FFF7FEFF 		bl	__aeabi_dmul
+  64              	.LVL5:
+  65 0030 E4E90201 		strd	r0, [r4, #8]!
+  66              	.LVL6:
+  13:midi.c        **** 		notes[i] = (freq_a / 32) * pow(2.0, (i - 8) / 12.0); 
+  67              		.loc 1 13 0 discriminator 3
+  68 0034 B442     		cmp	r4, r6
+  69 0036 05F10105 		add	r5, r5, #1
+  70              	.LVL7:
+  71 003a E7D1     		bne	.L2
+  15:midi.c        **** 	}
+  16:midi.c        **** }
+  72              		.loc 1 16 0
+  73 003c 70BD     		pop	{r4, r5, r6, pc}
+  74              	.LVL8:
+  75              	.L7:
+  76 003e 00BF     		.align	2
+  77              	.L6:
+  78 0040 00002840 		.word	1076363264
+  79 0044 00002A40 		.word	1076494336
+  80              		.cfi_endproc
+  81              	.LFE0:
+  82              		.size	populate_midi_array, .-populate_midi_array
+  83              		.global	__aeabi_dadd
+  84              		.global	__aeabi_d2iz
+  85              		.section	.text.midi_note_from_freq,"ax",%progbits
+  86              		.align	2
+  87              		.global	midi_note_from_freq
+  88              		.thumb
+  89              		.thumb_func
+  90              		.type	midi_note_from_freq, %function
+  91              	midi_note_from_freq:
+  92              	.LFB1:
+  17:midi.c        **** 
+  18:midi.c        **** int midi_note_from_freq(double freq)
+  19:midi.c        **** {
+  93              		.loc 1 19 0
+  94              		.cfi_startproc
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 3
+
+
+  95              		@ args = 0, pretend = 0, frame = 0
+  96              		@ frame_needed = 0, uses_anonymous_args = 0
+  97              	.LVL9:
+  98 0000 08B5     		push	{r3, lr}
+  99              		.cfi_def_cfa_offset 8
+ 100              		.cfi_offset 3, -8
+ 101              		.cfi_offset 14, -4
+  20:midi.c        **** 	return (int)(round((69 + (12 * log(freq / 440) / log(2.0)))));
+ 102              		.loc 1 20 0
+ 103 0002 0022     		movs	r2, #0
+ 104 0004 0E4B     		ldr	r3, .L10+8
+ 105 0006 FFF7FEFF 		bl	__aeabi_ddiv
+ 106              	.LVL10:
+ 107 000a FFF7FEFF 		bl	log
+ 108              	.LVL11:
+ 109 000e 0022     		movs	r2, #0
+ 110 0010 0C4B     		ldr	r3, .L10+12
+ 111 0012 FFF7FEFF 		bl	__aeabi_dmul
+ 112              	.LVL12:
+ 113 0016 08A3     		adr	r3, .L10
+ 114 0018 D3E90023 		ldrd	r2, [r3]
+ 115 001c FFF7FEFF 		bl	__aeabi_ddiv
+ 116              	.LVL13:
+ 117 0020 0022     		movs	r2, #0
+ 118 0022 094B     		ldr	r3, .L10+16
+ 119 0024 FFF7FEFF 		bl	__aeabi_dadd
+ 120              	.LVL14:
+ 121 0028 FFF7FEFF 		bl	round
+ 122              	.LVL15:
+ 123 002c FFF7FEFF 		bl	__aeabi_d2iz
+ 124              	.LVL16:
+  21:midi.c        **** }
+ 125              		.loc 1 21 0
+ 126 0030 08BD     		pop	{r3, pc}
+ 127              	.L11:
+ 128 0032 00BFAFF3 		.align	3
+ 128      0080
+ 129              	.L10:
+ 130 0038 EF39FAFE 		.word	-17155601
+ 131 003c 422EE63F 		.word	1072049730
+ 132 0040 00807B40 		.word	1081835520
+ 133 0044 00002840 		.word	1076363264
+ 134 0048 00405140 		.word	1079066624
+ 135              		.cfi_endproc
+ 136              	.LFE1:
+ 137              		.size	midi_note_from_freq, .-midi_note_from_freq
+ 138              		.global	__aeabi_dsub
+ 139              		.global	__aeabi_d2f
+ 140              		.global	__aeabi_f2d
+ 141              		.global	__aeabi_dcmplt
+ 142 004c AFF30080 		.section	.text.midi_note_changed,"ax",%progbits
+ 143              		.align	2
+ 144              		.global	midi_note_changed
+ 145              		.thumb
+ 146              		.thumb_func
+ 147              		.type	midi_note_changed, %function
+ 148              	midi_note_changed:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 4
+
+
+ 149              	.LFB2:
+  22:midi.c        **** 
+  23:midi.c        **** int midi_note_changed(double freq, int last_midi, double notes[MIDI_LEN])
+  24:midi.c        **** {
+ 150              		.loc 1 24 0
+ 151              		.cfi_startproc
+ 152              		@ args = 0, pretend = 0, frame = 0
+ 153              		@ frame_needed = 0, uses_anonymous_args = 0
+ 154              	.LVL17:
+  25:midi.c        ****     if (last_midi < 1) {
+ 155              		.loc 1 25 0
+ 156 0000 002A     		cmp	r2, #0
+  24:midi.c        ****     if (last_midi < 1) {
+ 157              		.loc 1 24 0
+ 158 0002 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 159              		.cfi_def_cfa_offset 32
+ 160              		.cfi_offset 3, -32
+ 161              		.cfi_offset 4, -28
+ 162              		.cfi_offset 5, -24
+ 163              		.cfi_offset 6, -20
+ 164              		.cfi_offset 7, -16
+ 165              		.cfi_offset 8, -12
+ 166              		.cfi_offset 9, -8
+ 167              		.cfi_offset 14, -4
+  24:midi.c        ****     if (last_midi < 1) {
+ 168              		.loc 1 24 0
+ 169 0006 0446     		mov	r4, r0
+ 170 0008 0D46     		mov	r5, r1
+ 171              		.loc 1 25 0
+ 172 000a 4DDD     		ble	.L16
+ 173 000c 7E2A     		cmp	r2, #126
+ 174 000e A8BF     		it	ge
+ 175 0010 7E22     		movge	r2, #126
+ 176              	.LVL18:
+ 177 0012 0132     		adds	r2, r2, #1
+ 178 0014 D200     		lsls	r2, r2, #3
+ 179 0016 A2F10800 		sub	r0, r2, #8
+ 180              	.LVL19:
+ 181 001a A2F11001 		sub	r1, r2, #16
+ 182              	.L13:
+ 183              	.LVL20:
+  26:midi.c        ****         last_midi = 1;
+  27:midi.c        ****     } else if (last_midi > 126) {
+  28:midi.c        ****         last_midi = 126;
+  29:midi.c        ****     }
+  30:midi.c        ****     
+  31:midi.c        ****     float upper = notes[last_midi] + HYST*(notes[last_midi + 1] - notes[last_midi]);
+ 184              		.loc 1 31 0
+ 185 001e 1844     		add	r0, r0, r3
+ 186 0020 1A44     		add	r2, r2, r3
+  32:midi.c        ****     float lower = notes[last_midi] - HYST*(notes[last_midi] - notes[last_midi - 1]);
+ 187              		.loc 1 32 0
+ 188 0022 03EB010E 		add	lr, r3, r1
+  31:midi.c        ****     float lower = notes[last_midi] - HYST*(notes[last_midi] - notes[last_midi - 1]);
+ 189              		.loc 1 31 0
+ 190 0026 D0E90067 		ldrd	r6, [r0]
+ 191              	.LVL21:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 5
+
+
+ 192 002a D2E90001 		ldrd	r0, [r2]
+ 193 002e 3B46     		mov	r3, r7
+ 194              	.LVL22:
+ 195              		.loc 1 32 0
+ 196 0030 DEE90089 		ldrd	r8, [lr]
+ 197              	.LVL23:
+  31:midi.c        ****     float lower = notes[last_midi] - HYST*(notes[last_midi] - notes[last_midi - 1]);
+ 198              		.loc 1 31 0
+ 199 0034 3246     		mov	r2, r6
+ 200 0036 FFF7FEFF 		bl	__aeabi_dsub
+ 201              	.LVL24:
+ 202 003a 1DA3     		adr	r3, .L19
+ 203 003c D3E90023 		ldrd	r2, [r3]
+ 204 0040 FFF7FEFF 		bl	__aeabi_dmul
+ 205              	.LVL25:
+ 206 0044 0246     		mov	r2, r0
+ 207 0046 0B46     		mov	r3, r1
+ 208 0048 3046     		mov	r0, r6
+ 209 004a 3946     		mov	r1, r7
+ 210 004c FFF7FEFF 		bl	__aeabi_dadd
+ 211              	.LVL26:
+ 212 0050 FFF7FEFF 		bl	__aeabi_d2f
+ 213              	.LVL27:
+  33:midi.c        ****     
+  34:midi.c        ****     return (freq > upper) || (freq < lower);
+ 214              		.loc 1 34 0
+ 215 0054 FFF7FEFF 		bl	__aeabi_f2d
+ 216              	.LVL28:
+ 217 0058 2246     		mov	r2, r4
+ 218 005a 2B46     		mov	r3, r5
+ 219 005c FFF7FEFF 		bl	__aeabi_dcmplt
+ 220              	.LVL29:
+ 221 0060 F8B9     		cbnz	r0, .L17
+  32:midi.c        ****     
+ 222              		.loc 1 32 0 discriminator 2
+ 223 0062 4246     		mov	r2, r8
+ 224 0064 4B46     		mov	r3, r9
+ 225 0066 3046     		mov	r0, r6
+ 226 0068 3946     		mov	r1, r7
+ 227 006a FFF7FEFF 		bl	__aeabi_dsub
+ 228              	.LVL30:
+ 229 006e 10A3     		adr	r3, .L19
+ 230 0070 D3E90023 		ldrd	r2, [r3]
+ 231 0074 FFF7FEFF 		bl	__aeabi_dmul
+ 232              	.LVL31:
+ 233 0078 0246     		mov	r2, r0
+ 234 007a 0B46     		mov	r3, r1
+ 235 007c 3046     		mov	r0, r6
+ 236 007e 3946     		mov	r1, r7
+ 237 0080 FFF7FEFF 		bl	__aeabi_dsub
+ 238              	.LVL32:
+ 239 0084 FFF7FEFF 		bl	__aeabi_d2f
+ 240              	.LVL33:
+ 241              		.loc 1 34 0 discriminator 2
+ 242 0088 FFF7FEFF 		bl	__aeabi_f2d
+ 243              	.LVL34:
+ 244 008c 0246     		mov	r2, r0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 6
+
+
+ 245 008e 0B46     		mov	r3, r1
+ 246 0090 2046     		mov	r0, r4
+ 247 0092 2946     		mov	r1, r5
+ 248 0094 FFF7FEFF 		bl	__aeabi_dcmplt
+ 249              	.LVL35:
+ 250 0098 0030     		adds	r0, r0, #0
+ 251 009a 18BF     		it	ne
+ 252 009c 0120     		movne	r0, #1
+ 253 009e BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 254              	.LVL36:
+ 255              	.L17:
+ 256              		.loc 1 34 0 is_stmt 0
+ 257 00a2 0120     		movs	r0, #1
+  35:midi.c        **** }
+ 258              		.loc 1 35 0 is_stmt 1
+ 259 00a4 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 260              	.LVL37:
+ 261              	.L16:
+ 262 00a8 0021     		movs	r1, #0
+ 263 00aa 0820     		movs	r0, #8
+ 264              	.LVL38:
+ 265 00ac 1022     		movs	r2, #16
+ 266              	.LVL39:
+ 267 00ae B6E7     		b	.L13
+ 268              	.L20:
+ 269              		.align	3
+ 270              	.L19:
+ 271 00b0 CDCCCCCC 		.word	-858993459
+ 272 00b4 CCCCEC3F 		.word	1072483532
+ 273              		.cfi_endproc
+ 274              	.LFE2:
+ 275              		.size	midi_note_changed, .-midi_note_changed
+ 276              		.section	.text.midi_note_basename,"ax",%progbits
+ 277              		.align	2
+ 278              		.global	midi_note_basename
+ 279              		.thumb
+ 280              		.thumb_func
+ 281              		.type	midi_note_basename, %function
+ 282              	midi_note_basename:
+ 283              	.LFB3:
+  36:midi.c        **** 
+  37:midi.c        **** char *midi_note_basename(int note)
+  38:midi.c        **** {
+ 284              		.loc 1 38 0
+ 285              		.cfi_startproc
+ 286              		@ args = 0, pretend = 0, frame = 0
+ 287              		@ frame_needed = 0, uses_anonymous_args = 0
+ 288              		@ link register save eliminated.
+ 289              	.LVL40:
+  39:midi.c        **** 	if (note % 12 == 0) {
+ 290              		.loc 1 39 0
+ 291 0000 554A     		ldr	r2, .L36
+  38:midi.c        **** 	if (note % 12 == 0) {
+ 292              		.loc 1 38 0
+ 293 0002 10B4     		push	{r4}
+ 294              		.cfi_def_cfa_offset 4
+ 295              		.cfi_offset 4, -4
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 7
+
+
+ 296              		.loc 1 39 0
+ 297 0004 82FB0041 		smull	r4, r1, r2, r0
+ 298 0008 C317     		asrs	r3, r0, #31
+ 299 000a C3EB6103 		rsb	r3, r3, r1, asr #1
+ 300 000e 03EB4303 		add	r3, r3, r3, lsl #1
+ 301 0012 B0EB830F 		cmp	r0, r3, lsl #2
+ 302 0016 00F08680 		beq	.L23
+  40:midi.c        **** 		return "C";
+  41:midi.c        **** 	} else if ((note - 1) % 12 == 0) {
+ 303              		.loc 1 41 0
+ 304 001a 411E     		subs	r1, r0, #1
+ 305 001c 82FB0134 		smull	r3, r4, r2, r1
+ 306 0020 CB17     		asrs	r3, r1, #31
+ 307 0022 C3EB6403 		rsb	r3, r3, r4, asr #1
+ 308 0026 03EB4303 		add	r3, r3, r3, lsl #1
+ 309 002a B1EB830F 		cmp	r1, r3, lsl #2
+ 310 002e 76D0     		beq	.L24
+  42:midi.c        **** 		return "C#";
+  43:midi.c        **** 	} else if ((note - 2) % 12 == 0) {
+ 311              		.loc 1 43 0
+ 312 0030 811E     		subs	r1, r0, #2
+ 313 0032 82FB0134 		smull	r3, r4, r2, r1
+ 314 0036 CB17     		asrs	r3, r1, #31
+ 315 0038 C3EB6403 		rsb	r3, r3, r4, asr #1
+ 316 003c 03EB4303 		add	r3, r3, r3, lsl #1
+ 317 0040 B1EB830F 		cmp	r1, r3, lsl #2
+ 318 0044 75D0     		beq	.L25
+  44:midi.c        **** 		return "D";
+  45:midi.c        **** 	} else if ((note - 3) % 12 == 0) {
+ 319              		.loc 1 45 0
+ 320 0046 C11E     		subs	r1, r0, #3
+ 321 0048 82FB0134 		smull	r3, r4, r2, r1
+ 322 004c CB17     		asrs	r3, r1, #31
+ 323 004e C3EB6403 		rsb	r3, r3, r4, asr #1
+ 324 0052 03EB4303 		add	r3, r3, r3, lsl #1
+ 325 0056 B1EB830F 		cmp	r1, r3, lsl #2
+ 326 005a 68D0     		beq	.L26
+  46:midi.c        **** 		return "Eb";
+  47:midi.c        **** 	} else if ((note - 4) % 12 == 0) {
+ 327              		.loc 1 47 0
+ 328 005c 011F     		subs	r1, r0, #4
+ 329 005e 82FB0134 		smull	r3, r4, r2, r1
+ 330 0062 CB17     		asrs	r3, r1, #31
+ 331 0064 C3EB6403 		rsb	r3, r3, r4, asr #1
+ 332 0068 03EB4303 		add	r3, r3, r3, lsl #1
+ 333 006c B1EB830F 		cmp	r1, r3, lsl #2
+ 334 0070 63D0     		beq	.L27
+  48:midi.c        **** 		return "E";
+  49:midi.c        **** 	} else if ((note - 5) % 12 == 0) {
+ 335              		.loc 1 49 0
+ 336 0072 411F     		subs	r1, r0, #5
+ 337 0074 82FB0134 		smull	r3, r4, r2, r1
+ 338 0078 CB17     		asrs	r3, r1, #31
+ 339 007a C3EB6403 		rsb	r3, r3, r4, asr #1
+ 340 007e 03EB4303 		add	r3, r3, r3, lsl #1
+ 341 0082 B1EB830F 		cmp	r1, r3, lsl #2
+ 342 0086 5CD0     		beq	.L28
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 8
+
+
+  50:midi.c        **** 		return "F";
+  51:midi.c        **** 	} else if ((note - 6) % 12 == 0) {
+ 343              		.loc 1 51 0
+ 344 0088 811F     		subs	r1, r0, #6
+ 345 008a 82FB0134 		smull	r3, r4, r2, r1
+ 346 008e CB17     		asrs	r3, r1, #31
+ 347 0090 C3EB6403 		rsb	r3, r3, r4, asr #1
+ 348 0094 03EB4303 		add	r3, r3, r3, lsl #1
+ 349 0098 B1EB830F 		cmp	r1, r3, lsl #2
+ 350 009c 4FD0     		beq	.L29
+  52:midi.c        **** 		return "F#";
+  53:midi.c        **** 	} else if ((note - 7) % 12 == 0) {
+ 351              		.loc 1 53 0
+ 352 009e C11F     		subs	r1, r0, #7
+ 353 00a0 82FB0134 		smull	r3, r4, r2, r1
+ 354 00a4 CB17     		asrs	r3, r1, #31
+ 355 00a6 C3EB6403 		rsb	r3, r3, r4, asr #1
+ 356 00aa 03EB4303 		add	r3, r3, r3, lsl #1
+ 357 00ae B1EB830F 		cmp	r1, r3, lsl #2
+ 358 00b2 48D0     		beq	.L30
+  54:midi.c        **** 		return "G";
+  55:midi.c        **** 	} else if ((note - 8) % 12 == 0) {
+ 359              		.loc 1 55 0
+ 360 00b4 A0F10801 		sub	r1, r0, #8
+ 361 00b8 82FB0134 		smull	r3, r4, r2, r1
+ 362 00bc CB17     		asrs	r3, r1, #31
+ 363 00be C3EB6403 		rsb	r3, r3, r4, asr #1
+ 364 00c2 03EB4303 		add	r3, r3, r3, lsl #1
+ 365 00c6 B1EB830F 		cmp	r1, r3, lsl #2
+ 366 00ca 3ED0     		beq	.L31
+  56:midi.c        **** 		return "G#";
+  57:midi.c        **** 	} else if ((note - 9) % 12 == 0) {
+ 367              		.loc 1 57 0
+ 368 00cc A0F10901 		sub	r1, r0, #9
+ 369 00d0 82FB0132 		smull	r3, r2, r2, r1
+ 370 00d4 CB17     		asrs	r3, r1, #31
+ 371 00d6 C3EB6202 		rsb	r2, r3, r2, asr #1
+ 372 00da 02EB4202 		add	r2, r2, r2, lsl #1
+ 373 00de B1EB820F 		cmp	r1, r2, lsl #2
+ 374 00e2 34D0     		beq	.L32
+  58:midi.c        **** 		return "A";
+  59:midi.c        **** 	} else if ((note - 10) % 12 == 0) {
+ 375              		.loc 1 59 0
+ 376 00e4 1C49     		ldr	r1, .L36
+ 377 00e6 A0F10A02 		sub	r2, r0, #10
+ 378 00ea 81FB0234 		smull	r3, r4, r1, r2
+ 379 00ee D317     		asrs	r3, r2, #31
+ 380 00f0 C3EB6403 		rsb	r3, r3, r4, asr #1
+ 381 00f4 03EB4303 		add	r3, r3, r3, lsl #1
+ 382 00f8 B2EB830F 		cmp	r2, r3, lsl #2
+ 383 00fc 29D0     		beq	.L33
+  60:midi.c        **** 		return "Bb";
+  61:midi.c        **** 	} else if ((note - 11) % 12 == 0) {
+ 384              		.loc 1 61 0
+ 385 00fe 0B38     		subs	r0, r0, #11
+ 386              	.LVL41:
+ 387 0100 81FB0031 		smull	r3, r1, r1, r0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 9
+
+
+ 388 0104 C317     		asrs	r3, r0, #31
+ 389 0106 C3EB6103 		rsb	r3, r3, r1, asr #1
+ 390 010a 03EB4302 		add	r2, r3, r3, lsl #1
+  62:midi.c        **** 		return "B";
+  63:midi.c        **** 	}
+  64:midi.c        **** 
+  65:midi.c        **** 	return "";
+ 391              		.loc 1 65 0
+ 392 010e 1349     		ldr	r1, .L36+4
+ 393 0110 134B     		ldr	r3, .L36+8
+  61:midi.c        **** 		return "B";
+ 394              		.loc 1 61 0
+ 395 0112 B0EB820F 		cmp	r0, r2, lsl #2
+ 396              		.loc 1 65 0
+ 397 0116 0CBF     		ite	eq
+ 398 0118 1846     		moveq	r0, r3
+ 399              	.LVL42:
+ 400 011a 0846     		movne	r0, r1
+ 401 011c 00E0     		b	.L22
+ 402              	.LVL43:
+ 403              	.L24:
+  42:midi.c        **** 	} else if ((note - 2) % 12 == 0) {
+ 404              		.loc 1 42 0
+ 405 011e 1148     		ldr	r0, .L36+12
+ 406              	.LVL44:
+ 407              	.L22:
+  66:midi.c        **** }
+ 408              		.loc 1 66 0
+ 409 0120 5DF8044B 		ldr	r4, [sp], #4
+ 410              		.cfi_remember_state
+ 411              		.cfi_restore 4
+ 412              		.cfi_def_cfa_offset 0
+ 413 0124 7047     		bx	lr
+ 414              	.LVL45:
+ 415              	.L23:
+ 416              		.cfi_restore_state
+  40:midi.c        **** 	} else if ((note - 1) % 12 == 0) {
+ 417              		.loc 1 40 0
+ 418 0126 1048     		ldr	r0, .L36+16
+ 419              	.LVL46:
+ 420              		.loc 1 66 0
+ 421 0128 5DF8044B 		ldr	r4, [sp], #4
+ 422              		.cfi_remember_state
+ 423              		.cfi_restore 4
+ 424              		.cfi_def_cfa_offset 0
+ 425 012c 7047     		bx	lr
+ 426              	.LVL47:
+ 427              	.L26:
+ 428              		.cfi_restore_state
+  46:midi.c        **** 	} else if ((note - 4) % 12 == 0) {
+ 429              		.loc 1 46 0
+ 430 012e 0F48     		ldr	r0, .L36+20
+ 431              	.LVL48:
+ 432 0130 F6E7     		b	.L22
+ 433              	.LVL49:
+ 434              	.L25:
+  44:midi.c        **** 	} else if ((note - 3) % 12 == 0) {
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 10
+
+
+ 435              		.loc 1 44 0
+ 436 0132 0F48     		ldr	r0, .L36+24
+ 437              	.LVL50:
+ 438              		.loc 1 66 0
+ 439 0134 5DF8044B 		ldr	r4, [sp], #4
+ 440              		.cfi_remember_state
+ 441              		.cfi_restore 4
+ 442              		.cfi_def_cfa_offset 0
+ 443 0138 7047     		bx	lr
+ 444              	.LVL51:
+ 445              	.L27:
+ 446              		.cfi_restore_state
+  48:midi.c        **** 	} else if ((note - 5) % 12 == 0) {
+ 447              		.loc 1 48 0
+ 448 013a 0E48     		ldr	r0, .L36+28
+ 449              	.LVL52:
+ 450 013c F0E7     		b	.L22
+ 451              	.LVL53:
+ 452              	.L29:
+  52:midi.c        **** 	} else if ((note - 7) % 12 == 0) {
+ 453              		.loc 1 52 0
+ 454 013e 0E48     		ldr	r0, .L36+32
+ 455              	.LVL54:
+ 456 0140 EEE7     		b	.L22
+ 457              	.LVL55:
+ 458              	.L28:
+  50:midi.c        **** 	} else if ((note - 6) % 12 == 0) {
+ 459              		.loc 1 50 0
+ 460 0142 0E48     		ldr	r0, .L36+36
+ 461              	.LVL56:
+ 462 0144 ECE7     		b	.L22
+ 463              	.LVL57:
+ 464              	.L30:
+  54:midi.c        **** 	} else if ((note - 8) % 12 == 0) {
+ 465              		.loc 1 54 0
+ 466 0146 0E48     		ldr	r0, .L36+40
+ 467              	.LVL58:
+ 468 0148 EAE7     		b	.L22
+ 469              	.LVL59:
+ 470              	.L31:
+  56:midi.c        **** 	} else if ((note - 9) % 12 == 0) {
+ 471              		.loc 1 56 0
+ 472 014a 0E48     		ldr	r0, .L36+44
+ 473              	.LVL60:
+ 474 014c E8E7     		b	.L22
+ 475              	.LVL61:
+ 476              	.L32:
+  58:midi.c        **** 	} else if ((note - 10) % 12 == 0) {
+ 477              		.loc 1 58 0
+ 478 014e 0E48     		ldr	r0, .L36+48
+ 479              	.LVL62:
+ 480 0150 E6E7     		b	.L22
+ 481              	.LVL63:
+ 482              	.L33:
+  60:midi.c        **** 	} else if ((note - 11) % 12 == 0) {
+ 483              		.loc 1 60 0
+ 484 0152 0E48     		ldr	r0, .L36+52
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 11
+
+
+ 485              	.LVL64:
+ 486 0154 E4E7     		b	.L22
+ 487              	.L37:
+ 488 0156 00BF     		.align	2
+ 489              	.L36:
+ 490 0158 ABAAAA2A 		.word	715827883
+ 491 015c 30000000 		.word	.LC12
+ 492 0160 2C000000 		.word	.LC11
+ 493 0164 04000000 		.word	.LC1
+ 494 0168 00000000 		.word	.LC0
+ 495 016c 0C000000 		.word	.LC3
+ 496 0170 08000000 		.word	.LC2
+ 497 0174 10000000 		.word	.LC4
+ 498 0178 18000000 		.word	.LC6
+ 499 017c 14000000 		.word	.LC5
+ 500 0180 1C000000 		.word	.LC7
+ 501 0184 20000000 		.word	.LC8
+ 502 0188 24000000 		.word	.LC9
+ 503 018c 28000000 		.word	.LC10
+ 504              		.cfi_endproc
+ 505              	.LFE3:
+ 506              		.size	midi_note_basename, .-midi_note_basename
+ 507              		.section	.text.midi_note_octave,"ax",%progbits
+ 508              		.align	2
+ 509              		.global	midi_note_octave
+ 510              		.thumb
+ 511              		.thumb_func
+ 512              		.type	midi_note_octave, %function
+ 513              	midi_note_octave:
+ 514              	.LFB4:
+  67:midi.c        **** 
+  68:midi.c        **** int midi_note_octave(int note)
+  69:midi.c        **** {
+ 515              		.loc 1 69 0
+ 516              		.cfi_startproc
+ 517              		@ args = 0, pretend = 0, frame = 0
+ 518              		@ frame_needed = 0, uses_anonymous_args = 0
+ 519              		@ link register save eliminated.
+ 520              	.LVL65:
+  70:midi.c        **** 	return note / 12;
+ 521              		.loc 1 70 0
+ 522 0000 034A     		ldr	r2, .L39
+ 523 0002 C317     		asrs	r3, r0, #31
+ 524 0004 82FB0020 		smull	r2, r0, r2, r0
+ 525              	.LVL66:
+  71:midi.c        **** }
+ 526              		.loc 1 71 0
+ 527 0008 C3EB6000 		rsb	r0, r3, r0, asr #1
+ 528 000c 7047     		bx	lr
+ 529              	.L40:
+ 530 000e 00BF     		.align	2
+ 531              	.L39:
+ 532 0010 ABAAAA2A 		.word	715827883
+ 533              		.cfi_endproc
+ 534              	.LFE4:
+ 535              		.size	midi_note_octave, .-midi_note_octave
+ 536              		.section	.text.midi_note_shift_octave,"ax",%progbits
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 12
+
+
+ 537              		.align	2
+ 538              		.global	midi_note_shift_octave
+ 539              		.thumb
+ 540              		.thumb_func
+ 541              		.type	midi_note_shift_octave, %function
+ 542              	midi_note_shift_octave:
+ 543              	.LFB5:
+  72:midi.c        **** 
+  73:midi.c        **** int midi_note_shift_octave(int note, int new_octave)
+  74:midi.c        **** {
+ 544              		.loc 1 74 0
+ 545              		.cfi_startproc
+ 546              		@ args = 0, pretend = 0, frame = 0
+ 547              		@ frame_needed = 0, uses_anonymous_args = 0
+ 548              	.LVL67:
+ 549              	.LBB4:
+ 550              	.LBB5:
+  70:midi.c        **** }
+ 551              		.loc 1 70 0
+ 552 0000 074B     		ldr	r3, .L45
+ 553              	.LBE5:
+ 554              	.LBE4:
+ 555              		.loc 1 74 0
+ 556 0002 00B5     		push	{lr}
+ 557              		.cfi_def_cfa_offset 4
+ 558              		.cfi_offset 14, -4
+ 559              	.LBB7:
+ 560              	.LBB6:
+  70:midi.c        **** }
+ 561              		.loc 1 70 0
+ 562 0004 83FB00E3 		smull	lr, r3, r3, r0
+ 563 0008 C217     		asrs	r2, r0, #31
+ 564 000a C2EB6303 		rsb	r3, r2, r3, asr #1
+ 565              	.LBE6:
+ 566              	.LBE7:
+  75:midi.c        **** 	int oct = midi_note_octave(note);
+  76:midi.c        **** 	if (oct == new_octave) return note;
+ 567              		.loc 1 76 0
+ 568 000e 9942     		cmp	r1, r3
+ 569 0010 04D0     		beq	.L42
+  77:midi.c        **** 	return note - (12 * (oct - new_octave));
+ 570              		.loc 1 77 0
+ 571 0012 C91A     		subs	r1, r1, r3
+ 572              	.LVL68:
+ 573 0014 01EB4101 		add	r1, r1, r1, lsl #1
+ 574 0018 00EB8100 		add	r0, r0, r1, lsl #2
+ 575              	.LVL69:
+ 576              	.L42:
+  78:midi.c        **** }
+ 577              		.loc 1 78 0
+ 578 001c 5DF804FB 		ldr	pc, [sp], #4
+ 579              	.L46:
+ 580              		.align	2
+ 581              	.L45:
+ 582 0020 ABAAAA2A 		.word	715827883
+ 583              		.cfi_endproc
+ 584              	.LFE5:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 13
+
+
+ 585              		.size	midi_note_shift_octave, .-midi_note_shift_octave
+ 586              		.global	__aeabi_dcmpgt
+ 587              		.global	__aeabi_fcmplt
+ 588              		.section	.text.NoteSnap,"ax",%progbits
+ 589              		.align	2
+ 590              		.global	NoteSnap
+ 591              		.thumb
+ 592              		.thumb_func
+ 593              		.type	NoteSnap, %function
+ 594              	NoteSnap:
+ 595              	.LFB6:
+  79:midi.c        **** // REVISIONS:
+  80:midi.c        **** //  Trying to implement this design: freq<freqtable[key+startOctave+scale[i]]
+  81:midi.c        **** int scaleMajor[29]=    { 0, 2, 4, 5, 7, 9,11,        // first octave
+  82:midi.c        ****                         12,14,16,17,19,21,23,        // second octave
+  83:midi.c        ****                         24,26,28,29,31,33,35,        // third octave
+  84:midi.c        ****                         36,38,40,41,43,45,47,        // forth octave
+  85:midi.c        ****                         48};
+  86:midi.c        **** int scaleNatMinor[29]=
+  87:midi.c        ****                      { 0, 2, 3, 5, 7, 8,10,         // first octave
+  88:midi.c        ****                       12,14,15,17,19,20,22,        // second octave
+  89:midi.c        ****                       24,26,27,29,31,32,34,        // third octave
+  90:midi.c        ****                       36,38,39,41,43,44,46,        // forth octave
+  91:midi.c        ****                       48};
+  92:midi.c        **** #if 1
+  93:midi.c        **** int NoteSnap(double freqTable[MIDI_LEN], float freq, enum MusicKey key, enum MusicScale scale)
+  94:midi.c        **** {  
+ 596              		.loc 1 94 0
+ 597              		.cfi_startproc
+ 598              		@ args = 0, pretend = 0, frame = 16
+ 599              		@ frame_needed = 0, uses_anonymous_args = 0
+ 600              	.LVL70:
+  95:midi.c        ****     if(key<0 || key>=127){
+ 601              		.loc 1 95 0
+ 602 0000 7E2A     		cmp	r2, #126
+ 603 0002 00F2FE81 		bhi	.L144
+  94:midi.c        ****     if(key<0 || key>=127){
+ 604              		.loc 1 94 0
+ 605 0006 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 606              		.cfi_def_cfa_offset 36
+ 607              		.cfi_offset 4, -36
+ 608              		.cfi_offset 5, -32
+ 609              		.cfi_offset 6, -28
+ 610              		.cfi_offset 7, -24
+ 611              		.cfi_offset 8, -20
+ 612              		.cfi_offset 9, -16
+ 613              		.cfi_offset 10, -12
+ 614              		.cfi_offset 11, -8
+ 615              		.cfi_offset 14, -4
+ 616 000a 0646     		mov	r6, r0
+ 617 000c 85B0     		sub	sp, sp, #20
+ 618              		.cfi_def_cfa_offset 56
+  96:midi.c        ****         return -1;
+  97:midi.c        ****     }
+  98:midi.c        ****     
+  99:midi.c        ****     
+ 100:midi.c        ****     int i = key;    // Scrolls through our scale to find the proper note
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 14
+
+
+ 101:midi.c        ****     int note, prevNote;       // Our output, and temporary variable for storing the current MIDI no
+ 102:midi.c        ****     float lb,up; // lower and upper bounds for computing the rounded freq
+ 103:midi.c        **** 
+ 104:midi.c        **** 
+ 105:midi.c        ****     // error out for freq < keying point
+ 106:midi.c        ****     if(freq<freqTable[i]) {
+ 619              		.loc 1 106 0
+ 620 000e 0846     		mov	r0, r1
+ 621              	.LVL71:
+ 622 0010 D500     		lsls	r5, r2, #3
+ 623 0012 9846     		mov	r8, r3
+ 100:midi.c        ****     int note, prevNote;       // Our output, and temporary variable for storing the current MIDI no
+ 624              		.loc 1 100 0
+ 625 0014 1446     		mov	r4, r2
+ 626              	.LVL72:
+ 627              		.loc 1 106 0
+ 628 0016 FFF7FEFF 		bl	__aeabi_f2d
+ 629              	.LVL73:
+ 630 001a 7719     		adds	r7, r6, r5
+ 631 001c D7E90023 		ldrd	r2, [r7]
+ 632 0020 8246     		mov	r10, r0
+ 633 0022 8B46     		mov	fp, r1
+ 634 0024 FFF7FEFF 		bl	__aeabi_dcmplt
+ 635              	.LVL74:
+ 636 0028 80BB     		cbnz	r0, .L230
+ 107:midi.c        ****             return -1;
+ 108:midi.c        ****     } 
+ 109:midi.c        **** 
+ 110:midi.c        **** 
+ 111:midi.c        ****     // Major scale
+ 112:midi.c        ****     if(scale==MAJOR){
+ 637              		.loc 1 112 0
+ 638 002a B8F1000F 		cmp	r8, #0
+ 639 002e 32D1     		bne	.L49
+ 113:midi.c        ****         while(i<50)     //cycles through all the notes in the major scale
+ 640              		.loc 1 113 0
+ 641 0030 312C     		cmp	r4, #49
+ 642 0032 2BD8     		bhi	.L230
+ 114:midi.c        ****         {
+ 115:midi.c        ****             note = key + 24 + scaleMajor[i];        // The current MIDI note is the key+octave scal
+ 643              		.loc 1 115 0
+ 644 0034 A74B     		ldr	r3, .L278
+ 645 0036 04F11802 		add	r2, r4, #24
+ 646 003a 53F82450 		ldr	r5, [r3, r4, lsl #2]
+ 647 003e 0293     		str	r3, [sp, #8]
+ 648 0040 1544     		add	r5, r5, r2
+ 649              	.LVL75:
+ 116:midi.c        ****             if(freq<freqTable[note]){               // When freq<note, we've found a note with a fr
+ 650              		.loc 1 116 0
+ 651 0042 06EBC503 		add	r3, r6, r5, lsl #3
+ 652 0046 D3E90089 		ldrd	r8, [r3]
+ 115:midi.c        ****             if(freq<freqTable[note]){               // When freq<note, we've found a note with a fr
+ 653              		.loc 1 115 0
+ 654 004a 0092     		str	r2, [sp]
+ 655              		.loc 1 116 0
+ 656 004c 5046     		mov	r0, r10
+ 657 004e 5946     		mov	r1, fp
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 15
+
+
+ 658 0050 4246     		mov	r2, r8
+ 659 0052 4B46     		mov	r3, r9
+ 660 0054 FFF7FEFF 		bl	__aeabi_dcmplt
+ 661              	.LVL76:
+ 662 0058 0028     		cmp	r0, #0
+ 663 005a 40F08A80 		bne	.L50
+ 664 005e 029B     		ldr	r3, [sp, #8]
+ 665 0060 03EB8407 		add	r7, r3, r4, lsl #2
+ 666 0064 0FE0     		b	.L52
+ 667              	.L54:
+ 115:midi.c        ****             if(freq<freqTable[note]){               // When freq<note, we've found a note with a fr
+ 668              		.loc 1 115 0
+ 669 0066 009B     		ldr	r3, [sp]
+ 670 0068 57F8045F 		ldr	r5, [r7, #4]!
+ 671              	.LVL77:
+ 672              		.loc 1 116 0
+ 673 006c 5046     		mov	r0, r10
+ 115:midi.c        ****             if(freq<freqTable[note]){               // When freq<note, we've found a note with a fr
+ 674              		.loc 1 115 0
+ 675 006e 1D44     		add	r5, r5, r3
+ 676              	.LVL78:
+ 677              		.loc 1 116 0
+ 678 0070 06EBC503 		add	r3, r6, r5, lsl #3
+ 679 0074 D3E90089 		ldrd	r8, [r3]
+ 680 0078 5946     		mov	r1, fp
+ 681 007a 4246     		mov	r2, r8
+ 682 007c 4B46     		mov	r3, r9
+ 683 007e FFF7FEFF 		bl	__aeabi_dcmplt
+ 684              	.LVL79:
+ 685 0082 0028     		cmp	r0, #0
+ 686 0084 75D1     		bne	.L50
+ 687              	.L52:
+ 117:midi.c        ****                 prevNote = key + 24 + scaleMajor[i-1]; //Find the previous note, then compare which
+ 118:midi.c        ****                 if(freqTable[note]-freq > freq-freqTable[prevNote]){
+ 119:midi.c        ****                     return prevNote;                // If our input is closer to the previous note,
+ 120:midi.c        ****                 }
+ 121:midi.c        ****                 else{
+ 122:midi.c        ****                     return note;                    // If our input is closer to the current note, 
+ 123:midi.c        ****                 }      
+ 124:midi.c        ****             }
+ 125:midi.c        ****             i++;
+ 688              		.loc 1 125 0
+ 689 0086 0134     		adds	r4, r4, #1
+ 690              	.LVL80:
+ 113:midi.c        ****         {
+ 691              		.loc 1 113 0
+ 692 0088 322C     		cmp	r4, #50
+ 693 008a ECD1     		bne	.L54
+ 694              	.LVL81:
+ 695              	.L230:
+  96:midi.c        ****     }
+ 696              		.loc 1 96 0
+ 697 008c 4FF0FF30 		mov	r0, #-1
+ 698              	.L48:
+ 126:midi.c        ****             
+ 127:midi.c        ****         }
+ 128:midi.c        ****     }
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 16
+
+
+ 129:midi.c        **** 
+ 130:midi.c        **** 
+ 131:midi.c        ****     // Increment Minor scale
+ 132:midi.c        ****     else if(scale==NATURAL_MINOR) {        
+ 133:midi.c        ****         {
+ 134:midi.c        ****             while(i<50)     //cycles through all the notes in the major scale
+ 135:midi.c        ****             {
+ 136:midi.c        ****                 note = key + 24 + scaleNatMinor[i];        // The current MIDI note is the key+octa
+ 137:midi.c        ****                 if(freq<freqTable[note]){               // When freq<note, we've found a note with 
+ 138:midi.c        ****                     prevNote = key + 24 + scaleNatMinor[i-1]; //Find the previous note, then compar
+ 139:midi.c        ****                     if(freqTable[note]-freq > freq-freqTable[prevNote]){
+ 140:midi.c        ****                         return prevNote;                // If our input is closer to the previous n
+ 141:midi.c        ****                     }
+ 142:midi.c        ****                     else{
+ 143:midi.c        ****                         return note;                    // If our input is closer to the current no
+ 144:midi.c        ****                     }      
+ 145:midi.c        ****                 }
+ 146:midi.c        ****                 i++;
+ 147:midi.c        ****                 
+ 148:midi.c        ****             }
+ 149:midi.c        ****         }
+ 150:midi.c        ****     }
+ 151:midi.c        ****           // End of minor
+ 152:midi.c        **** 
+ 153:midi.c        **** 
+ 154:midi.c        ****     // increment major pentatonic scale
+ 155:midi.c        ****     else if(scale==MAJOR_PENT) {
+ 156:midi.c        ****             while(freq > freqTable[i] && i<127) {        //C
+ 157:midi.c        ****                     i=i+2;        // D 
+ 158:midi.c        ****                     if(freq<freqTable[i]) {
+ 159:midi.c        ****                         lb= freq - freqTable[i-2];
+ 160:midi.c        ****                         up= freqTable[i] - freq;
+ 161:midi.c        ****                                if(lb<up){
+ 162:midi.c        ****                                        return freqTable[i-2];
+ 163:midi.c        ****                                } 
+ 164:midi.c        ****                                return freqTable[i];
+ 165:midi.c        ****                        }
+ 166:midi.c        ****                        i=i+2;        // E
+ 167:midi.c        ****                        if(freq<freqTable[i]) {
+ 168:midi.c        ****                         lb= freq - freqTable[i-2];
+ 169:midi.c        ****                         up= freqTable[i] - freq;
+ 170:midi.c        ****                                if(lb<up){
+ 171:midi.c        ****                                        return freqTable[i-2];
+ 172:midi.c        ****                                } 
+ 173:midi.c        ****                                return freqTable[i];
+ 174:midi.c        ****                        }
+ 175:midi.c        ****                        i=i+3;        //G
+ 176:midi.c        ****                        if(freq<freqTable[i]) {
+ 177:midi.c        ****                         lb= freq - freqTable[i-3];
+ 178:midi.c        ****                         up= freqTable[i] - freq;
+ 179:midi.c        ****                                if(lb<up){
+ 180:midi.c        ****                                        return freqTable[i-3];
+ 181:midi.c        ****                                } 
+ 182:midi.c        ****                                return freqTable[i];
+ 183:midi.c        ****                        }
+ 184:midi.c        ****                        i=i+2;        //A
+ 185:midi.c        ****                        if(freq<freqTable[i]) {
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 17
+
+
+ 186:midi.c        ****                         lb= freq - freqTable[i-2];
+ 187:midi.c        ****                         up= freqTable[i] - freq;
+ 188:midi.c        ****                                if(lb<up){
+ 189:midi.c        ****                                        return freqTable[i-2];
+ 190:midi.c        ****                                } 
+ 191:midi.c        ****                                return freqTable[i];
+ 192:midi.c        ****                        }
+ 193:midi.c        ****                        i=i+3;        // C
+ 194:midi.c        ****                        if(freq<freqTable[i]) {
+ 195:midi.c        ****                         lb= freq - freqTable[i-3];
+ 196:midi.c        ****                         up= freqTable[i] - freq;
+ 197:midi.c        ****                                if(lb<up){
+ 198:midi.c        ****                                        return freqTable[i-3];
+ 199:midi.c        ****                                } 
+ 200:midi.c        ****                                return freqTable[i];
+ 201:midi.c        ****                        }
+ 202:midi.c        ****             }
+ 203:midi.c        ****     }        // end of major p
+ 204:midi.c        **** 
+ 205:midi.c        **** 
+ 206:midi.c        ****     // Minor Pentatonic scale
+ 207:midi.c        ****     else if(scale==MINOR_PENT) { 
+ 208:midi.c        ****             while(freq > freqTable[i] && i<127) {        // C
+ 209:midi.c        ****                     i=i+3;        //Eb
+ 210:midi.c        ****                     if(freq<freqTable[i]) {
+ 211:midi.c        ****                         lb= freq - freqTable[i-3];
+ 212:midi.c        ****                         up= freqTable[i] - freq;
+ 213:midi.c        ****                                if(lb<up){
+ 214:midi.c        ****                                        return freqTable[i-3];
+ 215:midi.c        ****                                } 
+ 216:midi.c        ****                                return freqTable[i];
+ 217:midi.c        ****                        }
+ 218:midi.c        ****                        i=i+2;        //F
+ 219:midi.c        ****                        if(freq<freqTable[i]) {
+ 220:midi.c        ****                         lb= freq - freqTable[i-2];
+ 221:midi.c        ****                         up= freqTable[i] - freq;
+ 222:midi.c        ****                                if(lb<up){
+ 223:midi.c        ****                                        return freqTable[i-2];
+ 224:midi.c        ****                                } 
+ 225:midi.c        ****                                return freqTable[i];
+ 226:midi.c        ****                        }
+ 227:midi.c        ****                        i=i+2;        //G
+ 228:midi.c        ****                        if(freq<freqTable[i]) {
+ 229:midi.c        ****                         lb= freq - freqTable[i-2];
+ 230:midi.c        ****                         up= freqTable[i] - freq;
+ 231:midi.c        ****                                if(lb<up){
+ 232:midi.c        ****                                        return freqTable[i-2];
+ 233:midi.c        ****                                } 
+ 234:midi.c        ****                                return freqTable[i];
+ 235:midi.c        ****                        }
+ 236:midi.c        ****                        i=i+3;        //Bb
+ 237:midi.c        ****                        if(freq<freqTable[i]) {
+ 238:midi.c        ****                         lb= freq - freqTable[i-3];
+ 239:midi.c        ****                         up= freqTable[i] - freq;
+ 240:midi.c        ****                                if(lb<up){
+ 241:midi.c        ****                                        return freqTable[i-3];
+ 242:midi.c        ****                                } 
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 18
+
+
+ 243:midi.c        ****                                return freqTable[i];
+ 244:midi.c        ****                        }
+ 245:midi.c        ****                        i=i+2;        // back at C
+ 246:midi.c        ****                        if(freq<freqTable[i]) {
+ 247:midi.c        ****                         lb= freq - freqTable[i-2];
+ 248:midi.c        ****                         up= freqTable[i] - freq;
+ 249:midi.c        ****                                if(lb<up){
+ 250:midi.c        ****                                        return freqTable[i-2];
+ 251:midi.c        ****                                } 
+ 252:midi.c        ****                                return freqTable[i];
+ 253:midi.c        ****                        }
+ 254:midi.c        ****             }
+ 255:midi.c        ****     }        // end of minor pentatonic scale
+ 256:midi.c        **** 
+ 257:midi.c        **** 
+ 258:midi.c        ****     // Whole tone scale
+ 259:midi.c        ****     else if(scale==WHOLE_TONE) {
+ 260:midi.c        ****             while(freq > freqTable[i] && i<127) {
+ 261:midi.c        ****                     i=i+2;
+ 262:midi.c        ****                     if(freq<freqTable[i]) {
+ 263:midi.c        ****                         lb= freq - freqTable[i-2];
+ 264:midi.c        ****                         up= freqTable[i] - freq;
+ 265:midi.c        ****                                if(lb<up){
+ 266:midi.c        ****                                        return freqTable[i-2];
+ 267:midi.c        ****                                } 
+ 268:midi.c        ****                                return freqTable[i];
+ 269:midi.c        ****                        }
+ 270:midi.c        ****             }
+ 271:midi.c        ****     }
+ 272:midi.c        **** 
+ 273:midi.c        **** 
+ 274:midi.c        ****     // Blues scale
+ 275:midi.c        ****     else if(scale==BLUES) {
+ 276:midi.c        ****             while(freq > freqTable[i] && i<127) {        //C
+ 277:midi.c        ****                     i=i+3;        //Eb
+ 278:midi.c        ****                     if(freq<freqTable[i]) {
+ 279:midi.c        ****                         lb= freq - freqTable[i-3];
+ 280:midi.c        ****                         up= freqTable[i] - freq;
+ 281:midi.c        ****                                if(lb<up){
+ 282:midi.c        ****                                        return freqTable[i-3];
+ 283:midi.c        ****                                } 
+ 284:midi.c        ****                                return freqTable[i];
+ 285:midi.c        ****                        }
+ 286:midi.c        ****                        i=i+2;        //F
+ 287:midi.c        ****                        if(freq<freqTable[i]) {
+ 288:midi.c        ****                         lb= freq - freqTable[i-2];
+ 289:midi.c        ****                         up= freqTable[i] - freq;
+ 290:midi.c        ****                                if(lb<up){
+ 291:midi.c        ****                                        return freqTable[i-2];
+ 292:midi.c        ****                                } 
+ 293:midi.c        ****                                return freqTable[i];
+ 294:midi.c        ****                        }
+ 295:midi.c        ****                        i++;        //Gb
+ 296:midi.c        ****                        if(freq<freqTable[i]) {
+ 297:midi.c        ****                         lb= freq - freqTable[i-1];
+ 298:midi.c        ****                         up= freqTable[i] - freq;
+ 299:midi.c        ****                                if(lb<up){
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 19
+
+
+ 300:midi.c        ****                                        return freqTable[i-1];
+ 301:midi.c        ****                                } 
+ 302:midi.c        ****                                return freqTable[i];
+ 303:midi.c        ****                        }
+ 304:midi.c        ****                        i++;        //G
+ 305:midi.c        ****                        if(freq<freqTable[i]) {
+ 306:midi.c        ****                         lb= freq - freqTable[i-1];
+ 307:midi.c        ****                         up= freqTable[i] - freq;
+ 308:midi.c        ****                                if(lb<up){
+ 309:midi.c        ****                                        return freqTable[i-1];
+ 310:midi.c        ****                                } 
+ 311:midi.c        ****                                return freqTable[i];
+ 312:midi.c        ****                        }
+ 313:midi.c        ****                        i=i+3;        //Bb
+ 314:midi.c        ****                        if(freq<freqTable[i]) {
+ 315:midi.c        ****                         lb= freq - freqTable[i-3];
+ 316:midi.c        ****                         up= freqTable[i] - freq;
+ 317:midi.c        ****                                if(lb<up){
+ 318:midi.c        ****                                        return freqTable[i-3];
+ 319:midi.c        ****                                } 
+ 320:midi.c        ****                                return freqTable[i];
+ 321:midi.c        ****                        }
+ 322:midi.c        ****                        i=i+2;        // back at C again
+ 323:midi.c        ****                        if(freq<freqTable[i]) {
+ 324:midi.c        ****                         lb= freq - freqTable[i-2];
+ 325:midi.c        ****                         up= freqTable[i] - freq;
+ 326:midi.c        ****                                if(lb<up){
+ 327:midi.c        ****                                        return freqTable[i-2];
+ 328:midi.c        ****                                } 
+ 329:midi.c        ****                                return freqTable[i];
+ 330:midi.c        ****                        }
+ 331:midi.c        ****             }
+ 332:midi.c        ****     }        // end of blues scale
+ 333:midi.c        ****     
+ 334:midi.c        ****     return -1;
+ 335:midi.c        **** 
+ 336:midi.c        **** 
+ 337:midi.c        **** 
+ 338:midi.c        **** 
+ 339:midi.c        **** }        // end of FrequencyMap
+ 699              		.loc 1 339 0
+ 700 0090 05B0     		add	sp, sp, #20
+ 701              		.cfi_remember_state
+ 702              		.cfi_def_cfa_offset 36
+ 703              		@ sp needed
+ 704 0092 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 705              	.LVL82:
+ 706              	.L49:
+ 707              		.cfi_restore_state
+ 132:midi.c        ****         {
+ 708              		.loc 1 132 0
+ 709 0096 B8F1010F 		cmp	r8, #1
+ 710 009a 00F0E280 		beq	.L255
+ 155:midi.c        ****             while(freq > freqTable[i] && i<127) {        //C
+ 711              		.loc 1 155 0
+ 712 009e B8F1020F 		cmp	r8, #2
+ 713 00a2 00F00E81 		beq	.L256
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 20
+
+
+ 207:midi.c        ****             while(freq > freqTable[i] && i<127) {        // C
+ 714              		.loc 1 207 0
+ 715 00a6 B8F1030F 		cmp	r8, #3
+ 716 00aa 00F08680 		beq	.L257
+ 259:midi.c        ****             while(freq > freqTable[i] && i<127) {
+ 717              		.loc 1 259 0
+ 718 00ae B8F1040F 		cmp	r8, #4
+ 719 00b2 00F07E81 		beq	.L258
+ 275:midi.c        ****             while(freq > freqTable[i] && i<127) {        //C
+ 720              		.loc 1 275 0
+ 721 00b6 B8F1050F 		cmp	r8, #5
+ 722 00ba E7D1     		bne	.L230
+ 723 00bc D7E90089 		ldrd	r8, [r7]
+ 724 00c0 04F10C05 		add	r5, r4, #12
+ 725 00c4 06EBC505 		add	r5, r6, r5, lsl #3
+ 726 00c8 0296     		str	r6, [sp, #8]
+ 727 00ca 44E0     		b	.L138
+ 728              	.LVL83:
+ 729              	.L265:
+ 276:midi.c        ****                     i=i+3;        //Eb
+ 730              		.loc 1 276 0 discriminator 1
+ 731 00cc 7E2C     		cmp	r4, #126
+ 732 00ce DDDC     		bgt	.L230
+ 278:midi.c        ****                         lb= freq - freqTable[i-3];
+ 733              		.loc 1 278 0
+ 734 00d0 55E91289 		ldrd	r8, [r5, #-72]
+ 735 00d4 5046     		mov	r0, r10
+ 736 00d6 5946     		mov	r1, fp
+ 737 00d8 4246     		mov	r2, r8
+ 738 00da 4B46     		mov	r3, r9
+ 739              	.LVL84:
+ 740 00dc FFF7FEFF 		bl	__aeabi_dcmplt
+ 741              	.LVL85:
+ 742 00e0 0028     		cmp	r0, #0
+ 743 00e2 40F0CA81 		bne	.L259
+ 287:midi.c        ****                         lb= freq - freqTable[i-2];
+ 744              		.loc 1 287 0
+ 745 00e6 55E90E89 		ldrd	r8, [r5, #-56]
+ 746 00ea 5046     		mov	r0, r10
+ 747 00ec 5946     		mov	r1, fp
+ 748 00ee 4246     		mov	r2, r8
+ 749 00f0 4B46     		mov	r3, r9
+ 750 00f2 FFF7FEFF 		bl	__aeabi_dcmplt
+ 751              	.LVL86:
+ 752 00f6 0028     		cmp	r0, #0
+ 753 00f8 40F0B981 		bne	.L260
+ 296:midi.c        ****                         lb= freq - freqTable[i-1];
+ 754              		.loc 1 296 0
+ 755 00fc 55E90C89 		ldrd	r8, [r5, #-48]
+ 756 0100 5046     		mov	r0, r10
+ 757 0102 5946     		mov	r1, fp
+ 758 0104 4246     		mov	r2, r8
+ 759 0106 4B46     		mov	r3, r9
+ 760 0108 FFF7FEFF 		bl	__aeabi_dcmplt
+ 761              	.LVL87:
+ 762 010c 0028     		cmp	r0, #0
+ 763 010e 40F0C381 		bne	.L261
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 21
+
+
+ 305:midi.c        ****                         lb= freq - freqTable[i-1];
+ 764              		.loc 1 305 0
+ 765 0112 55E90A89 		ldrd	r8, [r5, #-40]
+ 766 0116 5046     		mov	r0, r10
+ 767 0118 5946     		mov	r1, fp
+ 768 011a 4246     		mov	r2, r8
+ 769 011c 4B46     		mov	r3, r9
+ 770 011e FFF7FEFF 		bl	__aeabi_dcmplt
+ 771              	.LVL88:
+ 772 0122 0028     		cmp	r0, #0
+ 773 0124 40F0B081 		bne	.L262
+ 314:midi.c        ****                         lb= freq - freqTable[i-3];
+ 774              		.loc 1 314 0
+ 775 0128 55E90489 		ldrd	r8, [r5, #-16]
+ 776 012c 5046     		mov	r0, r10
+ 777 012e 5946     		mov	r1, fp
+ 778 0130 4246     		mov	r2, r8
+ 779 0132 4B46     		mov	r3, r9
+ 780 0134 FFF7FEFF 		bl	__aeabi_dcmplt
+ 781              	.LVL89:
+ 322:midi.c        ****                        if(freq<freqTable[i]) {
+ 782              		.loc 1 322 0
+ 783 0138 0C34     		adds	r4, r4, #12
+ 784              	.LVL90:
+ 314:midi.c        ****                         lb= freq - freqTable[i-3];
+ 785              		.loc 1 314 0
+ 786 013a 0028     		cmp	r0, #0
+ 787 013c 40F0BD81 		bne	.L263
+ 323:midi.c        ****                         lb= freq - freqTable[i-2];
+ 788              		.loc 1 323 0
+ 789 0140 F5E81889 		ldrd	r8, [r5], #96
+ 790 0144 5046     		mov	r0, r10
+ 791 0146 5946     		mov	r1, fp
+ 792 0148 4246     		mov	r2, r8
+ 793 014a 4B46     		mov	r3, r9
+ 794 014c FFF7FEFF 		bl	__aeabi_dcmplt
+ 795              	.LVL91:
+ 796 0150 0028     		cmp	r0, #0
+ 797 0152 40F0B081 		bne	.L264
+ 798              	.L138:
+ 276:midi.c        ****                     i=i+3;        //Eb
+ 799              		.loc 1 276 0
+ 800 0156 4B46     		mov	r3, r9
+ 801 0158 4246     		mov	r2, r8
+ 802 015a 5046     		mov	r0, r10
+ 803 015c 5946     		mov	r1, fp
+ 804 015e FFF7FEFF 		bl	__aeabi_dcmpgt
+ 805              	.LVL92:
+ 806 0162 E31C     		adds	r3, r4, #3
+ 807              	.LVL93:
+ 808 0164 0093     		str	r3, [sp]
+ 809 0166 671D     		adds	r7, r4, #5
+ 810 0168 04F10A06 		add	r6, r4, #10
+ 811 016c 0028     		cmp	r0, #0
+ 812 016e ADD1     		bne	.L265
+ 813 0170 8CE7     		b	.L230
+ 814              	.LVL94:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 22
+
+
+ 815              	.L50:
+ 117:midi.c        ****                 if(freqTable[note]-freq > freq-freqTable[prevNote]){
+ 816              		.loc 1 117 0
+ 817 0172 029B     		ldr	r3, [sp, #8]
+ 818 0174 013C     		subs	r4, r4, #1
+ 819              	.LVL95:
+ 820 0176 53F82430 		ldr	r3, [r3, r4, lsl #2]
+ 821 017a 009A     		ldr	r2, [sp]
+ 118:midi.c        ****                     return prevNote;                // If our input is closer to the previous note,
+ 822              		.loc 1 118 0
+ 823 017c 4046     		mov	r0, r8
+ 117:midi.c        ****                 if(freqTable[note]-freq > freq-freqTable[prevNote]){
+ 824              		.loc 1 117 0
+ 825 017e 1A44     		add	r2, r2, r3
+ 826 0180 1746     		mov	r7, r2
+ 827              	.LVL96:
+ 118:midi.c        ****                     return prevNote;                // If our input is closer to the previous note,
+ 828              		.loc 1 118 0
+ 829 0182 5B46     		mov	r3, fp
+ 830 0184 5246     		mov	r2, r10
+ 831              	.LVL97:
+ 832 0186 4946     		mov	r1, r9
+ 833 0188 FFF7FEFF 		bl	__aeabi_dsub
+ 834              	.LVL98:
+ 835 018c 06EBC706 		add	r6, r6, r7, lsl #3
+ 836              	.LVL99:
+ 837 0190 D6E90023 		ldrd	r2, [r6]
+ 838 0194 8046     		mov	r8, r0
+ 839 0196 8946     		mov	r9, r1
+ 840 0198 5046     		mov	r0, r10
+ 841 019a 5946     		mov	r1, fp
+ 842 019c FFF7FEFF 		bl	__aeabi_dsub
+ 843              	.LVL100:
+ 844 01a0 0246     		mov	r2, r0
+ 845 01a2 0B46     		mov	r3, r1
+ 846 01a4 4046     		mov	r0, r8
+ 847 01a6 4946     		mov	r1, r9
+ 848 01a8 FFF7FEFF 		bl	__aeabi_dcmpgt
+ 849              	.LVL101:
+ 122:midi.c        ****                 }      
+ 850              		.loc 1 122 0
+ 851 01ac 0028     		cmp	r0, #0
+ 852 01ae 14BF     		ite	ne
+ 853 01b0 3846     		movne	r0, r7
+ 854 01b2 2846     		moveq	r0, r5
+ 855              		.loc 1 339 0
+ 856 01b4 05B0     		add	sp, sp, #20
+ 857              		.cfi_remember_state
+ 858              		.cfi_def_cfa_offset 36
+ 859              		@ sp needed
+ 860 01b6 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 861              	.LVL102:
+ 862              	.L257:
+ 863              		.cfi_restore_state
+ 864 01ba 04F10C05 		add	r5, r4, #12
+ 865 01be 06EBC505 		add	r5, r6, r5, lsl #3
+ 866 01c2 D7E90089 		ldrd	r8, [r7]
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 23
+
+
+ 867 01c6 0396     		str	r6, [sp, #12]
+ 868 01c8 3BE0     		b	.L103
+ 869              	.LVL103:
+ 870              	.L270:
+ 208:midi.c        ****                     i=i+3;        //Eb
+ 871              		.loc 1 208 0 discriminator 1
+ 872 01ca 7E2C     		cmp	r4, #126
+ 245:midi.c        ****                        if(freq<freqTable[i]) {
+ 873              		.loc 1 245 0 discriminator 1
+ 874 01cc 04F10C04 		add	r4, r4, #12
+ 208:midi.c        ****                     i=i+3;        //Eb
+ 875              		.loc 1 208 0 discriminator 1
+ 876 01d0 3FF75CAF 		bgt	.L230
+ 210:midi.c        ****                         lb= freq - freqTable[i-3];
+ 877              		.loc 1 210 0
+ 878 01d4 55E91289 		ldrd	r8, [r5, #-72]
+ 879 01d8 5046     		mov	r0, r10
+ 880 01da 5946     		mov	r1, fp
+ 881 01dc 4246     		mov	r2, r8
+ 882 01de 4B46     		mov	r3, r9
+ 883 01e0 FFF7FEFF 		bl	__aeabi_dcmplt
+ 884              	.LVL104:
+ 885 01e4 0028     		cmp	r0, #0
+ 886 01e6 40F08581 		bne	.L266
+ 219:midi.c        ****                         lb= freq - freqTable[i-2];
+ 887              		.loc 1 219 0
+ 888 01ea 55E90E89 		ldrd	r8, [r5, #-56]
+ 889 01ee 5046     		mov	r0, r10
+ 890 01f0 5946     		mov	r1, fp
+ 891 01f2 4246     		mov	r2, r8
+ 892 01f4 4B46     		mov	r3, r9
+ 893 01f6 FFF7FEFF 		bl	__aeabi_dcmplt
+ 894              	.LVL105:
+ 895 01fa 0028     		cmp	r0, #0
+ 896 01fc 40F00481 		bne	.L251
+ 228:midi.c        ****                         lb= freq - freqTable[i-2];
+ 897              		.loc 1 228 0
+ 898 0200 55E90A89 		ldrd	r8, [r5, #-40]
+ 899 0204 5046     		mov	r0, r10
+ 900 0206 5946     		mov	r1, fp
+ 901 0208 4246     		mov	r2, r8
+ 902 020a 4B46     		mov	r3, r9
+ 903 020c FFF7FEFF 		bl	__aeabi_dcmplt
+ 904              	.LVL106:
+ 905 0210 0028     		cmp	r0, #0
+ 906 0212 40F07D81 		bne	.L267
+ 237:midi.c        ****                         lb= freq - freqTable[i-3];
+ 907              		.loc 1 237 0
+ 908 0216 55E90489 		ldrd	r8, [r5, #-16]
+ 909 021a 5046     		mov	r0, r10
+ 910 021c 5946     		mov	r1, fp
+ 911 021e 4246     		mov	r2, r8
+ 912 0220 4B46     		mov	r3, r9
+ 913 0222 FFF7FEFF 		bl	__aeabi_dcmplt
+ 914              	.LVL107:
+ 915 0226 0028     		cmp	r0, #0
+ 916 0228 40F06B81 		bne	.L268
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 24
+
+
+ 246:midi.c        ****                         lb= freq - freqTable[i-2];
+ 917              		.loc 1 246 0
+ 918 022c F5E81889 		ldrd	r8, [r5], #96
+ 919 0230 5046     		mov	r0, r10
+ 920 0232 5946     		mov	r1, fp
+ 921 0234 4246     		mov	r2, r8
+ 922 0236 4B46     		mov	r3, r9
+ 923 0238 FFF7FEFF 		bl	__aeabi_dcmplt
+ 924              	.LVL108:
+ 925 023c 0028     		cmp	r0, #0
+ 926 023e 40F06E81 		bne	.L269
+ 927              	.L103:
+ 208:midi.c        ****                     i=i+3;        //Eb
+ 928              		.loc 1 208 0
+ 929 0242 4B46     		mov	r3, r9
+ 930 0244 4246     		mov	r2, r8
+ 931 0246 5046     		mov	r0, r10
+ 932 0248 5946     		mov	r1, fp
+ 933 024a FFF7FEFF 		bl	__aeabi_dcmpgt
+ 934              	.LVL109:
+ 935 024e E31C     		adds	r3, r4, #3
+ 936              	.LVL110:
+ 937 0250 0293     		str	r3, [sp, #8]
+ 938 0252 04F10A03 		add	r3, r4, #10
+ 939              	.LVL111:
+ 940 0256 671D     		adds	r7, r4, #5
+ 941 0258 E61D     		adds	r6, r4, #7
+ 942 025a 0093     		str	r3, [sp]
+ 943 025c 0028     		cmp	r0, #0
+ 944 025e B4D1     		bne	.L270
+ 945 0260 14E7     		b	.L230
+ 946              	.LVL112:
+ 947              	.L255:
+ 134:midi.c        ****             {
+ 948              		.loc 1 134 0
+ 949 0262 312C     		cmp	r4, #49
+ 950 0264 3FF612AF 		bhi	.L230
+ 136:midi.c        ****                 if(freq<freqTable[note]){               // When freq<note, we've found a note with 
+ 951              		.loc 1 136 0
+ 952 0268 1A4B     		ldr	r3, .L278
+ 953 026a A700     		lsls	r7, r4, #2
+ 954 026c 0293     		str	r3, [sp, #8]
+ 955 026e 3B44     		add	r3, r3, r7
+ 956 0270 5D6F     		ldr	r5, [r3, #116]
+ 957 0272 04F11803 		add	r3, r4, #24
+ 958 0276 1D44     		add	r5, r5, r3
+ 959 0278 0093     		str	r3, [sp]
+ 137:midi.c        ****                     prevNote = key + 24 + scaleNatMinor[i-1]; //Find the previous note, then compar
+ 960              		.loc 1 137 0
+ 961 027a 06EBC503 		add	r3, r6, r5, lsl #3
+ 962 027e D3E90089 		ldrd	r8, [r3]
+ 963 0282 5046     		mov	r0, r10
+ 964 0284 5946     		mov	r1, fp
+ 965 0286 4246     		mov	r2, r8
+ 966 0288 4B46     		mov	r3, r9
+ 967 028a FFF7FEFF 		bl	__aeabi_dcmplt
+ 968              	.LVL113:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 25
+
+
+ 969 028e 0028     		cmp	r0, #0
+ 970 0290 6DD1     		bne	.L56
+ 971 0292 029B     		ldr	r3, [sp, #8]
+ 972 0294 7433     		adds	r3, r3, #116
+ 973 0296 1F44     		add	r7, r7, r3
+ 974 0298 0FE0     		b	.L58
+ 975              	.L60:
+ 136:midi.c        ****                 if(freq<freqTable[note]){               // When freq<note, we've found a note with 
+ 976              		.loc 1 136 0
+ 977 029a 009B     		ldr	r3, [sp]
+ 978 029c 57F8045F 		ldr	r5, [r7, #4]!
+ 979              	.LVL114:
+ 137:midi.c        ****                     prevNote = key + 24 + scaleNatMinor[i-1]; //Find the previous note, then compar
+ 980              		.loc 1 137 0
+ 981 02a0 5046     		mov	r0, r10
+ 136:midi.c        ****                 if(freq<freqTable[note]){               // When freq<note, we've found a note with 
+ 982              		.loc 1 136 0
+ 983 02a2 1D44     		add	r5, r5, r3
+ 984              	.LVL115:
+ 137:midi.c        ****                     prevNote = key + 24 + scaleNatMinor[i-1]; //Find the previous note, then compar
+ 985              		.loc 1 137 0
+ 986 02a4 06EBC503 		add	r3, r6, r5, lsl #3
+ 987 02a8 D3E90089 		ldrd	r8, [r3]
+ 988 02ac 5946     		mov	r1, fp
+ 989 02ae 4246     		mov	r2, r8
+ 990 02b0 4B46     		mov	r3, r9
+ 991 02b2 FFF7FEFF 		bl	__aeabi_dcmplt
+ 992              	.LVL116:
+ 993 02b6 0028     		cmp	r0, #0
+ 994 02b8 59D1     		bne	.L56
+ 995              	.LVL117:
+ 996              	.L58:
+ 146:midi.c        ****                 
+ 997              		.loc 1 146 0
+ 998 02ba 0134     		adds	r4, r4, #1
+ 999              	.LVL118:
+ 134:midi.c        ****             {
+ 1000              		.loc 1 134 0
+ 1001 02bc 322C     		cmp	r4, #50
+ 1002 02be ECD1     		bne	.L60
+ 1003 02c0 E4E6     		b	.L230
+ 1004              	.L256:
+ 1005 02c2 04F10C05 		add	r5, r4, #12
+ 1006 02c6 06EBC505 		add	r5, r6, r5, lsl #3
+ 1007 02ca D7E90089 		ldrd	r8, [r7]
+ 1008 02ce 0396     		str	r6, [sp, #12]
+ 1009 02d0 3DE0     		b	.L79
+ 1010              	.L279:
+ 1011 02d2 00BF     		.align	2
+ 1012              	.L278:
+ 1013 02d4 00000000 		.word	.LANCHOR0
+ 1014              	.LVL119:
+ 1015              	.L275:
+ 156:midi.c        ****                     i=i+2;        // D 
+ 1016              		.loc 1 156 0 discriminator 1
+ 1017 02d8 7E2C     		cmp	r4, #126
+ 193:midi.c        ****                        if(freq<freqTable[i]) {
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 26
+
+
+ 1018              		.loc 1 193 0 discriminator 1
+ 1019 02da 04F10C04 		add	r4, r4, #12
+ 156:midi.c        ****                     i=i+2;        // D 
+ 1020              		.loc 1 156 0 discriminator 1
+ 1021 02de 3FF7D5AE 		bgt	.L230
+ 158:midi.c        ****                         lb= freq - freqTable[i-2];
+ 1022              		.loc 1 158 0
+ 1023 02e2 55E91489 		ldrd	r8, [r5, #-80]
+ 1024 02e6 5046     		mov	r0, r10
+ 1025 02e8 5946     		mov	r1, fp
+ 1026 02ea 4246     		mov	r2, r8
+ 1027 02ec 4B46     		mov	r3, r9
+ 1028 02ee FFF7FEFF 		bl	__aeabi_dcmplt
+ 1029              	.LVL120:
+ 1030 02f2 0028     		cmp	r0, #0
+ 1031 02f4 40F0D880 		bne	.L271
+ 167:midi.c        ****                         lb= freq - freqTable[i-2];
+ 1032              		.loc 1 167 0
+ 1033 02f8 55E91089 		ldrd	r8, [r5, #-64]
+ 1034 02fc 5046     		mov	r0, r10
+ 1035 02fe 5946     		mov	r1, fp
+ 1036 0300 4246     		mov	r2, r8
+ 1037 0302 4B46     		mov	r3, r9
+ 1038 0304 FFF7FEFF 		bl	__aeabi_dcmplt
+ 1039              	.LVL121:
+ 1040 0308 0028     		cmp	r0, #0
+ 1041 030a 7DD1     		bne	.L251
+ 176:midi.c        ****                         lb= freq - freqTable[i-3];
+ 1042              		.loc 1 176 0
+ 1043 030c 55E90A89 		ldrd	r8, [r5, #-40]
+ 1044 0310 5046     		mov	r0, r10
+ 1045 0312 5946     		mov	r1, fp
+ 1046 0314 4246     		mov	r2, r8
+ 1047 0316 4B46     		mov	r3, r9
+ 1048 0318 FFF7FEFF 		bl	__aeabi_dcmplt
+ 1049              	.LVL122:
+ 1050 031c 0028     		cmp	r0, #0
+ 1051 031e 40F0D380 		bne	.L272
+ 185:midi.c        ****                         lb= freq - freqTable[i-2];
+ 1052              		.loc 1 185 0
+ 1053 0322 55E90689 		ldrd	r8, [r5, #-24]
+ 1054 0326 5046     		mov	r0, r10
+ 1055 0328 5946     		mov	r1, fp
+ 1056 032a 4246     		mov	r2, r8
+ 1057 032c 4B46     		mov	r3, r9
+ 1058 032e FFF7FEFF 		bl	__aeabi_dcmplt
+ 1059              	.LVL123:
+ 1060 0332 0028     		cmp	r0, #0
+ 1061 0334 40F0CF80 		bne	.L273
+ 194:midi.c        ****                         lb= freq - freqTable[i-3];
+ 1062              		.loc 1 194 0
+ 1063 0338 F5E81889 		ldrd	r8, [r5], #96
+ 1064 033c 5046     		mov	r0, r10
+ 1065 033e 5946     		mov	r1, fp
+ 1066 0340 4246     		mov	r2, r8
+ 1067 0342 4B46     		mov	r3, r9
+ 1068 0344 FFF7FEFF 		bl	__aeabi_dcmplt
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 27
+
+
+ 1069              	.LVL124:
+ 1070 0348 0028     		cmp	r0, #0
+ 1071 034a 40F0CB80 		bne	.L274
+ 1072              	.L79:
+ 156:midi.c        ****                     i=i+2;        // D 
+ 1073              		.loc 1 156 0
+ 1074 034e 4B46     		mov	r3, r9
+ 1075 0350 4246     		mov	r2, r8
+ 1076 0352 5046     		mov	r0, r10
+ 1077 0354 5946     		mov	r1, fp
+ 1078 0356 FFF7FEFF 		bl	__aeabi_dcmpgt
+ 1079              	.LVL125:
+ 1080 035a A31C     		adds	r3, r4, #2
+ 1081              	.LVL126:
+ 1082 035c 0293     		str	r3, [sp, #8]
+ 1083 035e 04F10903 		add	r3, r4, #9
+ 1084              	.LVL127:
+ 1085 0362 271D     		adds	r7, r4, #4
+ 1086 0364 E61D     		adds	r6, r4, #7
+ 1087 0366 0093     		str	r3, [sp]
+ 1088 0368 0028     		cmp	r0, #0
+ 1089 036a B5D1     		bne	.L275
+ 1090 036c 8EE6     		b	.L230
+ 1091              	.LVL128:
+ 1092              	.L56:
+ 138:midi.c        ****                     if(freqTable[note]-freq > freq-freqTable[prevNote]){
+ 1093              		.loc 1 138 0
+ 1094 036e 029B     		ldr	r3, [sp, #8]
+ 1095 0370 009A     		ldr	r2, [sp]
+ 1096 0372 03EB8404 		add	r4, r3, r4, lsl #2
+ 1097              	.LVL129:
+ 1098 0376 236F     		ldr	r3, [r4, #112]
+ 139:midi.c        ****                         return prevNote;                // If our input is closer to the previous n
+ 1099              		.loc 1 139 0
+ 1100 0378 4046     		mov	r0, r8
+ 138:midi.c        ****                     if(freqTable[note]-freq > freq-freqTable[prevNote]){
+ 1101              		.loc 1 138 0
+ 1102 037a 1A44     		add	r2, r2, r3
+ 1103 037c 9046     		mov	r8, r2
+ 1104              	.LVL130:
+ 139:midi.c        ****                         return prevNote;                // If our input is closer to the previous n
+ 1105              		.loc 1 139 0
+ 1106 037e 5B46     		mov	r3, fp
+ 1107 0380 5246     		mov	r2, r10
+ 1108              	.LVL131:
+ 1109 0382 4946     		mov	r1, r9
+ 1110 0384 FFF7FEFF 		bl	__aeabi_dsub
+ 1111              	.LVL132:
+ 1112 0388 06EBC806 		add	r6, r6, r8, lsl #3
+ 1113              	.LVL133:
+ 1114 038c CDE90001 		strd	r0, [sp]
+ 1115 0390 D6E90023 		ldrd	r2, [r6]
+ 1116 0394 5046     		mov	r0, r10
+ 1117 0396 5946     		mov	r1, fp
+ 1118 0398 FFF7FEFF 		bl	__aeabi_dsub
+ 1119              	.LVL134:
+ 1120 039c 0246     		mov	r2, r0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 28
+
+
+ 1121 039e 0B46     		mov	r3, r1
+ 1122 03a0 DDE90001 		ldrd	r0, [sp]
+ 1123 03a4 FFF7FEFF 		bl	__aeabi_dcmpgt
+ 1124              	.LVL135:
+ 143:midi.c        ****                     }      
+ 1125              		.loc 1 143 0
+ 1126 03a8 0028     		cmp	r0, #0
+ 1127 03aa 14BF     		ite	ne
+ 1128 03ac 4046     		movne	r0, r8
+ 1129 03ae 2846     		moveq	r0, r5
+ 1130 03b0 6EE6     		b	.L48
+ 1131              	.LVL136:
+ 1132              	.L258:
+ 1133 03b2 D7E90023 		ldrd	r2, [r7]
+ 1134 03b6 B846     		mov	r8, r7
+ 1135 03b8 C4EB4477 		rsb	r7, r4, r4, lsl #29
+ 1136 03bc FF00     		lsls	r7, r7, #3
+ 1137 03be B946     		mov	r9, r7
+ 1138 03c0 0096     		str	r6, [sp]
+ 1139 03c2 1F46     		mov	r7, r3
+ 1140 03c4 1646     		mov	r6, r2
+ 1141              	.LVL137:
+ 1142 03c6 0EE0     		b	.L111
+ 1143              	.L277:
+ 260:midi.c        ****                     i=i+2;
+ 1144              		.loc 1 260 0 discriminator 1
+ 1145 03c8 7E2C     		cmp	r4, #126
+ 261:midi.c        ****                     if(freq<freqTable[i]) {
+ 1146              		.loc 1 261 0 discriminator 1
+ 1147 03ca 04F10204 		add	r4, r4, #2
+ 1148              	.LVL138:
+ 260:midi.c        ****                     i=i+2;
+ 1149              		.loc 1 260 0 discriminator 1
+ 1150 03ce 3FF75DAE 		bgt	.L230
+ 262:midi.c        ****                         lb= freq - freqTable[i-2];
+ 1151              		.loc 1 262 0
+ 1152 03d2 D3E90067 		ldrd	r6, [r3]
+ 1153 03d6 5046     		mov	r0, r10
+ 1154 03d8 5946     		mov	r1, fp
+ 1155 03da 3246     		mov	r2, r6
+ 1156 03dc 3B46     		mov	r3, r7
+ 1157 03de FFF7FEFF 		bl	__aeabi_dcmplt
+ 1158              	.LVL139:
+ 1159 03e2 0028     		cmp	r0, #0
+ 1160 03e4 39D1     		bne	.L276
+ 1161              	.L111:
+ 260:midi.c        ****                     i=i+2;
+ 1162              		.loc 1 260 0
+ 1163 03e6 3B46     		mov	r3, r7
+ 1164 03e8 3246     		mov	r2, r6
+ 1165 03ea 5046     		mov	r0, r10
+ 1166 03ec 5946     		mov	r1, fp
+ 1167 03ee FFF7FEFF 		bl	__aeabi_dcmpgt
+ 1168              	.LVL140:
+ 1169 03f2 08F11008 		add	r8, r8, #16
+ 1170 03f6 09EB0803 		add	r3, r9, r8
+ 1171 03fa 2B44     		add	r3, r3, r5
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 29
+
+
+ 1172 03fc 0028     		cmp	r0, #0
+ 1173 03fe E3D1     		bne	.L277
+ 1174 0400 44E6     		b	.L230
+ 1175              	.LVL141:
+ 1176              	.L144:
+ 1177              		.cfi_def_cfa_offset 0
+ 1178              		.cfi_restore 4
+ 1179              		.cfi_restore 5
+ 1180              		.cfi_restore 6
+ 1181              		.cfi_restore 7
+ 1182              		.cfi_restore 8
+ 1183              		.cfi_restore 9
+ 1184              		.cfi_restore 10
+ 1185              		.cfi_restore 11
+ 1186              		.cfi_restore 14
+  96:midi.c        ****     }
+ 1187              		.loc 1 96 0
+ 1188 0402 4FF0FF30 		mov	r0, #-1
+ 1189              	.LVL142:
+ 1190              		.loc 1 339 0
+ 1191 0406 7047     		bx	lr
+ 1192              	.LVL143:
+ 1193              	.L251:
+ 1194              		.cfi_def_cfa_offset 56
+ 1195              		.cfi_offset 4, -36
+ 1196              		.cfi_offset 5, -32
+ 1197              		.cfi_offset 6, -28
+ 1198              		.cfi_offset 7, -24
+ 1199              		.cfi_offset 8, -20
+ 1200              		.cfi_offset 9, -16
+ 1201              		.cfi_offset 10, -12
+ 1202              		.cfi_offset 11, -8
+ 1203              		.cfi_offset 14, -4
+ 1204 0408 039E     		ldr	r6, [sp, #12]
+ 220:midi.c        ****                         up= freqTable[i] - freq;
+ 1205              		.loc 1 220 0
+ 1206 040a 06EBC706 		add	r6, r6, r7, lsl #3
+ 1207 040e 56E90445 		ldrd	r4, [r6, #-16]
+ 1208              	.LVL144:
+ 1209              	.L234:
+ 324:midi.c        ****                         up= freqTable[i] - freq;
+ 1210              		.loc 1 324 0
+ 1211 0412 2246     		mov	r2, r4
+ 1212 0414 2B46     		mov	r3, r5
+ 1213 0416 5046     		mov	r0, r10
+ 1214 0418 5946     		mov	r1, fp
+ 1215 041a FFF7FEFF 		bl	__aeabi_dsub
+ 1216              	.LVL145:
+ 1217 041e FFF7FEFF 		bl	__aeabi_d2f
+ 1218              	.LVL146:
+ 325:midi.c        ****                                if(lb<up){
+ 1219              		.loc 1 325 0
+ 1220 0422 5246     		mov	r2, r10
+ 324:midi.c        ****                         up= freqTable[i] - freq;
+ 1221              		.loc 1 324 0
+ 1222 0424 0646     		mov	r6, r0
+ 325:midi.c        ****                                if(lb<up){
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 30
+
+
+ 1223              		.loc 1 325 0
+ 1224 0426 5B46     		mov	r3, fp
+ 1225 0428 4046     		mov	r0, r8
+ 1226 042a 4946     		mov	r1, r9
+ 1227 042c FFF7FEFF 		bl	__aeabi_dsub
+ 1228              	.LVL147:
+ 1229 0430 FFF7FEFF 		bl	__aeabi_d2f
+ 1230              	.LVL148:
+ 1231 0434 0146     		mov	r1, r0
+ 326:midi.c        ****                                        return freqTable[i-2];
+ 1232              		.loc 1 326 0
+ 1233 0436 3046     		mov	r0, r6
+ 1234 0438 FFF7FEFF 		bl	__aeabi_fcmplt
+ 1235              	.LVL149:
+ 1236 043c 30B1     		cbz	r0, .L229
+ 327:midi.c        ****                                } 
+ 1237              		.loc 1 327 0
+ 1238 043e 2046     		mov	r0, r4
+ 1239 0440 2946     		mov	r1, r5
+ 1240 0442 FFF7FEFF 		bl	__aeabi_d2iz
+ 1241              	.LVL150:
+ 1242              		.loc 1 339 0
+ 1243 0446 05B0     		add	sp, sp, #20
+ 1244              		.cfi_remember_state
+ 1245              		.cfi_def_cfa_offset 36
+ 1246              		@ sp needed
+ 1247 0448 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 1248              	.LVL151:
+ 1249              	.L229:
+ 1250              		.cfi_restore_state
+ 329:midi.c        ****                        }
+ 1251              		.loc 1 329 0
+ 1252 044c 4046     		mov	r0, r8
+ 1253 044e 4946     		mov	r1, r9
+ 1254 0450 FFF7FEFF 		bl	__aeabi_d2iz
+ 1255              	.LVL152:
+ 1256              		.loc 1 339 0
+ 1257 0454 05B0     		add	sp, sp, #20
+ 1258              		.cfi_remember_state
+ 1259              		.cfi_def_cfa_offset 36
+ 1260              		@ sp needed
+ 1261 0456 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 1262              	.LVL153:
+ 1263              	.L276:
+ 1264              		.cfi_restore_state
+ 1265 045a B946     		mov	r9, r7
+ 1266 045c B046     		mov	r8, r6
+ 1267 045e 009E     		ldr	r6, [sp]
+ 1268              	.LVL154:
+ 1269              	.L240:
+ 324:midi.c        ****                         up= freqTable[i] - freq;
+ 1270              		.loc 1 324 0
+ 1271 0460 06EBC404 		add	r4, r6, r4, lsl #3
+ 1272              	.LVL155:
+ 1273 0464 A4F11005 		add	r5, r4, #-16
+ 1274 0468 D5E90045 		ldrd	r4, [r5]
+ 1275 046c D1E7     		b	.L234
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 31
+
+
+ 1276              	.LVL156:
+ 1277              	.L260:
+ 1278 046e 029E     		ldr	r6, [sp, #8]
+ 288:midi.c        ****                         up= freqTable[i] - freq;
+ 1279              		.loc 1 288 0
+ 1280 0470 06EBC706 		add	r6, r6, r7, lsl #3
+ 1281 0474 56E90445 		ldrd	r4, [r6, #-16]
+ 1282              	.LVL157:
+ 1283 0478 CBE7     		b	.L234
+ 1284              	.LVL158:
+ 1285              	.L259:
+ 1286 047a 029E     		ldr	r6, [sp, #8]
+ 279:midi.c        ****                         up= freqTable[i] - freq;
+ 1287              		.loc 1 279 0
+ 1288 047c 009B     		ldr	r3, [sp]
+ 1289 047e 06EBC306 		add	r6, r6, r3, lsl #3
+ 1290 0482 56E90645 		ldrd	r4, [r6, #-24]
+ 1291              	.LVL159:
+ 1292 0486 C4E7     		b	.L234
+ 1293              	.LVL160:
+ 1294              	.L262:
+ 1295 0488 029E     		ldr	r6, [sp, #8]
+ 306:midi.c        ****                         up= freqTable[i] - freq;
+ 1296              		.loc 1 306 0
+ 1297 048a 06EBC404 		add	r4, r6, r4, lsl #3
+ 1298              	.LVL161:
+ 1299 048e 04F13005 		add	r5, r4, #48
+ 1300 0492 D5E90045 		ldrd	r4, [r5]
+ 1301              	.LVL162:
+ 1302 0496 BCE7     		b	.L234
+ 1303              	.LVL163:
+ 1304              	.L261:
+ 1305 0498 029E     		ldr	r6, [sp, #8]
+ 297:midi.c        ****                         up= freqTable[i] - freq;
+ 1306              		.loc 1 297 0
+ 1307 049a 06EBC404 		add	r4, r6, r4, lsl #3
+ 1308              	.LVL164:
+ 1309 049e 04F12805 		add	r5, r4, #40
+ 1310 04a2 D5E90045 		ldrd	r4, [r5]
+ 1311              	.LVL165:
+ 1312 04a6 B4E7     		b	.L234
+ 1313              	.LVL166:
+ 1314              	.L271:
+ 1315 04a8 039E     		ldr	r6, [sp, #12]
+ 159:midi.c        ****                         up= freqTable[i] - freq;
+ 1316              		.loc 1 159 0
+ 1317 04aa 029B     		ldr	r3, [sp, #8]
+ 1318 04ac 06EBC306 		add	r6, r6, r3, lsl #3
+ 1319 04b0 56E90445 		ldrd	r4, [r6, #-16]
+ 1320              	.LVL167:
+ 1321 04b4 ADE7     		b	.L234
+ 1322              	.LVL168:
+ 1323              	.L264:
+ 1324 04b6 029E     		ldr	r6, [sp, #8]
+ 1325 04b8 D2E7     		b	.L240
+ 1326              	.L263:
+ 1327 04ba 3346     		mov	r3, r6
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 32
+
+
+ 1328 04bc 029E     		ldr	r6, [sp, #8]
+ 315:midi.c        ****                         up= freqTable[i] - freq;
+ 1329              		.loc 1 315 0
+ 1330 04be 06EBC306 		add	r6, r6, r3, lsl #3
+ 1331 04c2 56E90645 		ldrd	r4, [r6, #-24]
+ 1332              	.LVL169:
+ 1333 04c6 A4E7     		b	.L234
+ 1334              	.LVL170:
+ 1335              	.L272:
+ 1336 04c8 3346     		mov	r3, r6
+ 1337 04ca 039E     		ldr	r6, [sp, #12]
+ 177:midi.c        ****                         up= freqTable[i] - freq;
+ 1338              		.loc 1 177 0
+ 1339 04cc 06EBC306 		add	r6, r6, r3, lsl #3
+ 1340 04d0 56E90645 		ldrd	r4, [r6, #-24]
+ 1341              	.LVL171:
+ 1342 04d4 9DE7     		b	.L234
+ 1343              	.LVL172:
+ 1344              	.L273:
+ 1345 04d6 039E     		ldr	r6, [sp, #12]
+ 186:midi.c        ****                         up= freqTable[i] - freq;
+ 1346              		.loc 1 186 0
+ 1347 04d8 009B     		ldr	r3, [sp]
+ 1348 04da 06EBC306 		add	r6, r6, r3, lsl #3
+ 1349 04de 56E90445 		ldrd	r4, [r6, #-16]
+ 1350              	.LVL173:
+ 1351 04e2 96E7     		b	.L234
+ 1352              	.LVL174:
+ 1353              	.L274:
+ 1354 04e4 039E     		ldr	r6, [sp, #12]
+ 195:midi.c        ****                         up= freqTable[i] - freq;
+ 1355              		.loc 1 195 0
+ 1356 04e6 06EBC404 		add	r4, r6, r4, lsl #3
+ 1357              	.LVL175:
+ 1358 04ea A4F11805 		add	r5, r4, #-24
+ 1359 04ee D5E90045 		ldrd	r4, [r5]
+ 1360              	.LVL176:
+ 1361 04f2 8EE7     		b	.L234
+ 1362              	.LVL177:
+ 1363              	.L266:
+ 1364 04f4 039E     		ldr	r6, [sp, #12]
+ 211:midi.c        ****                         up= freqTable[i] - freq;
+ 1365              		.loc 1 211 0
+ 1366 04f6 029B     		ldr	r3, [sp, #8]
+ 1367 04f8 06EBC306 		add	r6, r6, r3, lsl #3
+ 1368 04fc 56E90645 		ldrd	r4, [r6, #-24]
+ 1369              	.LVL178:
+ 1370 0500 87E7     		b	.L234
+ 1371              	.LVL179:
+ 1372              	.L268:
+ 1373 0502 039E     		ldr	r6, [sp, #12]
+ 238:midi.c        ****                         up= freqTable[i] - freq;
+ 1374              		.loc 1 238 0
+ 1375 0504 009B     		ldr	r3, [sp]
+ 1376 0506 06EBC306 		add	r6, r6, r3, lsl #3
+ 1377 050a 56E90645 		ldrd	r4, [r6, #-24]
+ 1378              	.LVL180:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 33
+
+
+ 1379 050e 80E7     		b	.L234
+ 1380              	.LVL181:
+ 1381              	.L267:
+ 1382 0510 3346     		mov	r3, r6
+ 1383 0512 039E     		ldr	r6, [sp, #12]
+ 229:midi.c        ****                         up= freqTable[i] - freq;
+ 1384              		.loc 1 229 0
+ 1385 0514 06EBC306 		add	r6, r6, r3, lsl #3
+ 1386 0518 56E90445 		ldrd	r4, [r6, #-16]
+ 1387              	.LVL182:
+ 1388 051c 79E7     		b	.L234
+ 1389              	.LVL183:
+ 1390              	.L269:
+ 1391 051e 039E     		ldr	r6, [sp, #12]
+ 1392 0520 9EE7     		b	.L240
+ 1393              		.cfi_endproc
+ 1394              	.LFE6:
+ 1395              		.size	NoteSnap, .-NoteSnap
+ 1396              		.global	scaleNatMinor
+ 1397              		.global	scaleMajor
+ 1398 0522 00BF     		.data
+ 1399              		.align	2
+ 1400              		.set	.LANCHOR0,. + 0
+ 1401              		.type	scaleMajor, %object
+ 1402              		.size	scaleMajor, 116
+ 1403              	scaleMajor:
+ 1404 0000 00000000 		.word	0
+ 1405 0004 02000000 		.word	2
+ 1406 0008 04000000 		.word	4
+ 1407 000c 05000000 		.word	5
+ 1408 0010 07000000 		.word	7
+ 1409 0014 09000000 		.word	9
+ 1410 0018 0B000000 		.word	11
+ 1411 001c 0C000000 		.word	12
+ 1412 0020 0E000000 		.word	14
+ 1413 0024 10000000 		.word	16
+ 1414 0028 11000000 		.word	17
+ 1415 002c 13000000 		.word	19
+ 1416 0030 15000000 		.word	21
+ 1417 0034 17000000 		.word	23
+ 1418 0038 18000000 		.word	24
+ 1419 003c 1A000000 		.word	26
+ 1420 0040 1C000000 		.word	28
+ 1421 0044 1D000000 		.word	29
+ 1422 0048 1F000000 		.word	31
+ 1423 004c 21000000 		.word	33
+ 1424 0050 23000000 		.word	35
+ 1425 0054 24000000 		.word	36
+ 1426 0058 26000000 		.word	38
+ 1427 005c 28000000 		.word	40
+ 1428 0060 29000000 		.word	41
+ 1429 0064 2B000000 		.word	43
+ 1430 0068 2D000000 		.word	45
+ 1431 006c 2F000000 		.word	47
+ 1432 0070 30000000 		.word	48
+ 1433              		.type	scaleNatMinor, %object
+ 1434              		.size	scaleNatMinor, 116
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 34
+
+
+ 1435              	scaleNatMinor:
+ 1436 0074 00000000 		.word	0
+ 1437 0078 02000000 		.word	2
+ 1438 007c 03000000 		.word	3
+ 1439 0080 05000000 		.word	5
+ 1440 0084 07000000 		.word	7
+ 1441 0088 08000000 		.word	8
+ 1442 008c 0A000000 		.word	10
+ 1443 0090 0C000000 		.word	12
+ 1444 0094 0E000000 		.word	14
+ 1445 0098 0F000000 		.word	15
+ 1446 009c 11000000 		.word	17
+ 1447 00a0 13000000 		.word	19
+ 1448 00a4 14000000 		.word	20
+ 1449 00a8 16000000 		.word	22
+ 1450 00ac 18000000 		.word	24
+ 1451 00b0 1A000000 		.word	26
+ 1452 00b4 1B000000 		.word	27
+ 1453 00b8 1D000000 		.word	29
+ 1454 00bc 1F000000 		.word	31
+ 1455 00c0 20000000 		.word	32
+ 1456 00c4 22000000 		.word	34
+ 1457 00c8 24000000 		.word	36
+ 1458 00cc 26000000 		.word	38
+ 1459 00d0 27000000 		.word	39
+ 1460 00d4 29000000 		.word	41
+ 1461 00d8 2B000000 		.word	43
+ 1462 00dc 2C000000 		.word	44
+ 1463 00e0 2E000000 		.word	46
+ 1464 00e4 30000000 		.word	48
+ 1465              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 1466              		.align	2
+ 1467              	.LC0:
+ 1468 0000 4300     		.ascii	"C\000"
+ 1469 0002 0000     		.space	2
+ 1470              	.LC1:
+ 1471 0004 432300   		.ascii	"C#\000"
+ 1472 0007 00       		.space	1
+ 1473              	.LC2:
+ 1474 0008 4400     		.ascii	"D\000"
+ 1475 000a 0000     		.space	2
+ 1476              	.LC3:
+ 1477 000c 456200   		.ascii	"Eb\000"
+ 1478 000f 00       		.space	1
+ 1479              	.LC4:
+ 1480 0010 4500     		.ascii	"E\000"
+ 1481 0012 0000     		.space	2
+ 1482              	.LC5:
+ 1483 0014 4600     		.ascii	"F\000"
+ 1484 0016 0000     		.space	2
+ 1485              	.LC6:
+ 1486 0018 462300   		.ascii	"F#\000"
+ 1487 001b 00       		.space	1
+ 1488              	.LC7:
+ 1489 001c 4700     		.ascii	"G\000"
+ 1490 001e 0000     		.space	2
+ 1491              	.LC8:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 35
+
+
+ 1492 0020 472300   		.ascii	"G#\000"
+ 1493 0023 00       		.space	1
+ 1494              	.LC9:
+ 1495 0024 4100     		.ascii	"A\000"
+ 1496 0026 0000     		.space	2
+ 1497              	.LC10:
+ 1498 0028 426200   		.ascii	"Bb\000"
+ 1499 002b 00       		.space	1
+ 1500              	.LC11:
+ 1501 002c 4200     		.ascii	"B\000"
+ 1502 002e 0000     		.space	2
+ 1503              	.LC12:
+ 1504 0030 00       		.ascii	"\000"
+ 1505 0031 000000   		.text
+ 1506              	.Letext0:
+ 1507              		.file 2 "midi.h"
+ 1508              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 1509              		.section	.debug_info,"",%progbits
+ 1510              	.Ldebug_info0:
+ 1511 0000 CF030000 		.4byte	0x3cf
+ 1512 0004 0400     		.2byte	0x4
+ 1513 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1514 000a 04       		.byte	0x4
+ 1515 000b 01       		.uleb128 0x1
+ 1516 000c 65010000 		.4byte	.LASF53
+ 1517 0010 01       		.byte	0x1
+ 1518 0011 27030000 		.4byte	.LASF54
+ 1519 0015 1D020000 		.4byte	.LASF55
+ 1520 0019 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 1521 001d 00000000 		.4byte	0
+ 1522 0021 00000000 		.4byte	.Ldebug_line0
+ 1523 0025 02       		.uleb128 0x2
+ 1524 0026 08       		.byte	0x8
+ 1525 0027 04       		.byte	0x4
+ 1526 0028 ED000000 		.4byte	.LASF0
+ 1527 002c 02       		.uleb128 0x2
+ 1528 002d 04       		.byte	0x4
+ 1529 002e 04       		.byte	0x4
+ 1530 002f 8A020000 		.4byte	.LASF1
+ 1531 0033 03       		.uleb128 0x3
+ 1532 0034 04       		.byte	0x4
+ 1533 0035 05       		.byte	0x5
+ 1534 0036 696E7400 		.ascii	"int\000"
+ 1535 003a 02       		.uleb128 0x2
+ 1536 003b 04       		.byte	0x4
+ 1537 003c 07       		.byte	0x7
+ 1538 003d 12010000 		.4byte	.LASF2
+ 1539 0041 02       		.uleb128 0x2
+ 1540 0042 01       		.byte	0x1
+ 1541 0043 06       		.byte	0x6
+ 1542 0044 92000000 		.4byte	.LASF3
+ 1543 0048 02       		.uleb128 0x2
+ 1544 0049 01       		.byte	0x1
+ 1545 004a 08       		.byte	0x8
+ 1546 004b 90020000 		.4byte	.LASF4
+ 1547 004f 02       		.uleb128 0x2
+ 1548 0050 02       		.byte	0x2
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 36
+
+
+ 1549 0051 05       		.byte	0x5
+ 1550 0052 B1020000 		.4byte	.LASF5
+ 1551 0056 02       		.uleb128 0x2
+ 1552 0057 02       		.byte	0x2
+ 1553 0058 07       		.byte	0x7
+ 1554 0059 42010000 		.4byte	.LASF6
+ 1555 005d 02       		.uleb128 0x2
+ 1556 005e 04       		.byte	0x4
+ 1557 005f 05       		.byte	0x5
+ 1558 0060 D4000000 		.4byte	.LASF7
+ 1559 0064 02       		.uleb128 0x2
+ 1560 0065 04       		.byte	0x4
+ 1561 0066 07       		.byte	0x7
+ 1562 0067 1F010000 		.4byte	.LASF8
+ 1563 006b 02       		.uleb128 0x2
+ 1564 006c 08       		.byte	0x8
+ 1565 006d 05       		.byte	0x5
+ 1566 006e 84000000 		.4byte	.LASF9
+ 1567 0072 02       		.uleb128 0x2
+ 1568 0073 08       		.byte	0x8
+ 1569 0074 07       		.byte	0x7
+ 1570 0075 14000000 		.4byte	.LASF10
+ 1571 0079 02       		.uleb128 0x2
+ 1572 007a 04       		.byte	0x4
+ 1573 007b 07       		.byte	0x7
+ 1574 007c F3010000 		.4byte	.LASF11
+ 1575 0080 04       		.uleb128 0x4
+ 1576 0081 04       		.byte	0x4
+ 1577 0082 86000000 		.4byte	0x86
+ 1578 0086 02       		.uleb128 0x2
+ 1579 0087 01       		.byte	0x1
+ 1580 0088 08       		.byte	0x8
+ 1581 0089 DE020000 		.4byte	.LASF12
+ 1582 008d 02       		.uleb128 0x2
+ 1583 008e 08       		.byte	0x8
+ 1584 008f 04       		.byte	0x4
+ 1585 0090 FC010000 		.4byte	.LASF13
+ 1586 0094 05       		.uleb128 0x5
+ 1587 0095 E3020000 		.4byte	.LASF26
+ 1588 0099 01       		.byte	0x1
+ 1589 009a 02       		.byte	0x2
+ 1590 009b 07       		.byte	0x7
+ 1591 009c E9000000 		.4byte	0xe9
+ 1592 00a0 06       		.uleb128 0x6
+ 1593 00a1 43000000 		.4byte	.LASF14
+ 1594 00a5 00       		.sleb128 0
+ 1595 00a6 06       		.uleb128 0x6
+ 1596 00a7 EC020000 		.4byte	.LASF15
+ 1597 00ab 01       		.sleb128 1
+ 1598 00ac 06       		.uleb128 0x6
+ 1599 00ad 4C000000 		.4byte	.LASF16
+ 1600 00b1 02       		.sleb128 2
+ 1601 00b2 06       		.uleb128 0x6
+ 1602 00b3 34030000 		.4byte	.LASF17
+ 1603 00b7 03       		.sleb128 3
+ 1604 00b8 06       		.uleb128 0x6
+ 1605 00b9 55000000 		.4byte	.LASF18
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 37
+
+
+ 1606 00bd 04       		.sleb128 4
+ 1607 00be 06       		.uleb128 0x6
+ 1608 00bf 5E000000 		.4byte	.LASF19
+ 1609 00c3 05       		.sleb128 5
+ 1610 00c4 06       		.uleb128 0x6
+ 1611 00c5 DD000000 		.4byte	.LASF20
+ 1612 00c9 06       		.sleb128 6
+ 1613 00ca 06       		.uleb128 0x6
+ 1614 00cb 67000000 		.4byte	.LASF21
+ 1615 00cf 07       		.sleb128 7
+ 1616 00d0 06       		.uleb128 0x6
+ 1617 00d1 55010000 		.4byte	.LASF22
+ 1618 00d5 08       		.sleb128 8
+ 1619 00d6 06       		.uleb128 0x6
+ 1620 00d7 31000000 		.4byte	.LASF23
+ 1621 00db 09       		.sleb128 9
+ 1622 00dc 06       		.uleb128 0x6
+ 1623 00dd 13020000 		.4byte	.LASF24
+ 1624 00e1 0A       		.sleb128 10
+ 1625 00e2 06       		.uleb128 0x6
+ 1626 00e3 3A000000 		.4byte	.LASF25
+ 1627 00e7 0B       		.sleb128 11
+ 1628 00e8 00       		.byte	0
+ 1629 00e9 05       		.uleb128 0x5
+ 1630 00ea 07010000 		.4byte	.LASF27
+ 1631 00ee 01       		.byte	0x1
+ 1632 00ef 02       		.byte	0x2
+ 1633 00f0 0A       		.byte	0xa
+ 1634 00f1 1A010000 		.4byte	0x11a
+ 1635 00f5 06       		.uleb128 0x6
+ 1636 00f6 04030000 		.4byte	.LASF28
+ 1637 00fa 00       		.sleb128 0
+ 1638 00fb 06       		.uleb128 0x6
+ 1639 00fc 9E020000 		.4byte	.LASF29
+ 1640 0100 01       		.sleb128 1
+ 1641 0101 06       		.uleb128 0x6
+ 1642 0102 7F020000 		.4byte	.LASF30
+ 1643 0106 02       		.sleb128 2
+ 1644 0107 06       		.uleb128 0x6
+ 1645 0108 0A030000 		.4byte	.LASF31
+ 1646 010c 03       		.sleb128 3
+ 1647 010d 06       		.uleb128 0x6
+ 1648 010e 08020000 		.4byte	.LASF32
+ 1649 0112 04       		.sleb128 4
+ 1650 0113 06       		.uleb128 0x6
+ 1651 0114 5F010000 		.4byte	.LASF33
+ 1652 0118 05       		.sleb128 5
+ 1653 0119 00       		.byte	0
+ 1654 011a 07       		.uleb128 0x7
+ 1655 011b 31010000 		.4byte	.LASF52
+ 1656 011f 01       		.byte	0x1
+ 1657 0120 44       		.byte	0x44
+ 1658 0121 33000000 		.4byte	0x33
+ 1659 0125 01       		.byte	0x1
+ 1660 0126 36010000 		.4byte	0x136
+ 1661 012a 08       		.uleb128 0x8
+ 1662 012b AC020000 		.4byte	.LASF42
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 38
+
+
+ 1663 012f 01       		.byte	0x1
+ 1664 0130 44       		.byte	0x44
+ 1665 0131 33000000 		.4byte	0x33
+ 1666 0135 00       		.byte	0
+ 1667 0136 09       		.uleb128 0x9
+ 1668 0137 A3000000 		.4byte	.LASF56
+ 1669 013b 01       		.byte	0x1
+ 1670 013c 06       		.byte	0x6
+ 1671 013d 00000000 		.4byte	.LFB0
+ 1672 0141 48000000 		.4byte	.LFE0-.LFB0
+ 1673 0145 01       		.uleb128 0x1
+ 1674 0146 9C       		.byte	0x9c
+ 1675 0147 7E010000 		.4byte	0x17e
+ 1676 014b 0A       		.uleb128 0xa
+ 1677 014c 2E030000 		.4byte	.LASF35
+ 1678 0150 01       		.byte	0x1
+ 1679 0151 06       		.byte	0x6
+ 1680 0152 7E010000 		.4byte	0x17e
+ 1681 0156 00000000 		.4byte	.LLST0
+ 1682 015a 0B       		.uleb128 0xb
+ 1683 015b 49030000 		.4byte	.LASF34
+ 1684 015f 01       		.byte	0x1
+ 1685 0160 09       		.byte	0x9
+ 1686 0161 33000000 		.4byte	0x33
+ 1687 0165 B801     		.2byte	0x1b8
+ 1688 0167 0C       		.uleb128 0xc
+ 1689 0168 6900     		.ascii	"i\000"
+ 1690 016a 01       		.byte	0x1
+ 1691 016b 0C       		.byte	0xc
+ 1692 016c 33000000 		.4byte	0x33
+ 1693 0170 2F000000 		.4byte	.LLST1
+ 1694 0174 0D       		.uleb128 0xd
+ 1695 0175 28000000 		.4byte	.LVL4
+ 1696 0179 91030000 		.4byte	0x391
+ 1697 017d 00       		.byte	0
+ 1698 017e 04       		.uleb128 0x4
+ 1699 017f 04       		.byte	0x4
+ 1700 0180 25000000 		.4byte	0x25
+ 1701 0184 0E       		.uleb128 0xe
+ 1702 0185 70000000 		.4byte	.LASF37
+ 1703 0189 01       		.byte	0x1
+ 1704 018a 12       		.byte	0x12
+ 1705 018b 33000000 		.4byte	0x33
+ 1706 018f 00000000 		.4byte	.LFB1
+ 1707 0193 4C000000 		.4byte	.LFE1-.LFB1
+ 1708 0197 01       		.uleb128 0x1
+ 1709 0198 9C       		.byte	0x9c
+ 1710 0199 BF010000 		.4byte	0x1bf
+ 1711 019d 0A       		.uleb128 0xa
+ 1712 019e 9E000000 		.4byte	.LASF36
+ 1713 01a2 01       		.byte	0x1
+ 1714 01a3 12       		.byte	0x12
+ 1715 01a4 25000000 		.4byte	0x25
+ 1716 01a8 6A000000 		.4byte	.LLST2
+ 1717 01ac 0D       		.uleb128 0xd
+ 1718 01ad 0E000000 		.4byte	.LVL11
+ 1719 01b1 AB030000 		.4byte	0x3ab
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 39
+
+
+ 1720 01b5 0D       		.uleb128 0xd
+ 1721 01b6 2C000000 		.4byte	.LVL15
+ 1722 01ba C0030000 		.4byte	0x3c0
+ 1723 01be 00       		.byte	0
+ 1724 01bf 0E       		.uleb128 0xe
+ 1725 01c0 CC020000 		.4byte	.LASF38
+ 1726 01c4 01       		.byte	0x1
+ 1727 01c5 17       		.byte	0x17
+ 1728 01c6 33000000 		.4byte	0x33
+ 1729 01ca 00000000 		.4byte	.LFB2
+ 1730 01ce B8000000 		.4byte	.LFE2-.LFB2
+ 1731 01d2 01       		.uleb128 0x1
+ 1732 01d3 9C       		.byte	0x9c
+ 1733 01d4 20020000 		.4byte	0x220
+ 1734 01d8 0A       		.uleb128 0xa
+ 1735 01d9 9E000000 		.4byte	.LASF36
+ 1736 01dd 01       		.byte	0x1
+ 1737 01de 17       		.byte	0x17
+ 1738 01df 25000000 		.4byte	0x25
+ 1739 01e3 92000000 		.4byte	.LLST3
+ 1740 01e7 0A       		.uleb128 0xa
+ 1741 01e8 0A000000 		.4byte	.LASF39
+ 1742 01ec 01       		.byte	0x1
+ 1743 01ed 17       		.byte	0x17
+ 1744 01ee 33000000 		.4byte	0x33
+ 1745 01f2 DA000000 		.4byte	.LLST4
+ 1746 01f6 0A       		.uleb128 0xa
+ 1747 01f7 2E030000 		.4byte	.LASF35
+ 1748 01fb 01       		.byte	0x1
+ 1749 01fc 17       		.byte	0x17
+ 1750 01fd 7E010000 		.4byte	0x17e
+ 1751 0201 14010000 		.4byte	.LLST5
+ 1752 0205 0F       		.uleb128 0xf
+ 1753 0206 E7000000 		.4byte	.LASF45
+ 1754 020a 01       		.byte	0x1
+ 1755 020b 1F       		.byte	0x1f
+ 1756 020c 2C000000 		.4byte	0x2c
+ 1757 0210 10       		.uleb128 0x10
+ 1758 0211 2B000000 		.4byte	.LASF40
+ 1759 0215 01       		.byte	0x1
+ 1760 0216 20       		.byte	0x20
+ 1761 0217 2C000000 		.4byte	0x2c
+ 1762 021b 40010000 		.4byte	.LLST6
+ 1763 021f 00       		.byte	0
+ 1764 0220 11       		.uleb128 0x11
+ 1765 0221 F4000000 		.4byte	.LASF41
+ 1766 0225 01       		.byte	0x1
+ 1767 0226 25       		.byte	0x25
+ 1768 0227 80000000 		.4byte	0x80
+ 1769 022b 00000000 		.4byte	.LFB3
+ 1770 022f 90010000 		.4byte	.LFE3-.LFB3
+ 1771 0233 01       		.uleb128 0x1
+ 1772 0234 9C       		.byte	0x9c
+ 1773 0235 49020000 		.4byte	0x249
+ 1774 0239 0A       		.uleb128 0xa
+ 1775 023a AC020000 		.4byte	.LASF42
+ 1776 023e 01       		.byte	0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 40
+
+
+ 1777 023f 25       		.byte	0x25
+ 1778 0240 33000000 		.4byte	0x33
+ 1779 0244 6C010000 		.4byte	.LLST7
+ 1780 0248 00       		.byte	0
+ 1781 0249 12       		.uleb128 0x12
+ 1782 024a 1A010000 		.4byte	0x11a
+ 1783 024e 00000000 		.4byte	.LFB4
+ 1784 0252 14000000 		.4byte	.LFE4-.LFB4
+ 1785 0256 01       		.uleb128 0x1
+ 1786 0257 9C       		.byte	0x9c
+ 1787 0258 66020000 		.4byte	0x266
+ 1788 025c 13       		.uleb128 0x13
+ 1789 025d 2A010000 		.4byte	0x12a
+ 1790 0261 A4020000 		.4byte	.LLST8
+ 1791 0265 00       		.byte	0
+ 1792 0266 11       		.uleb128 0x11
+ 1793 0267 BD000000 		.4byte	.LASF43
+ 1794 026b 01       		.byte	0x1
+ 1795 026c 49       		.byte	0x49
+ 1796 026d 33000000 		.4byte	0x33
+ 1797 0271 00000000 		.4byte	.LFB5
+ 1798 0275 24000000 		.4byte	.LFE5-.LFB5
+ 1799 0279 01       		.uleb128 0x1
+ 1800 027a 9C       		.byte	0x9c
+ 1801 027b C2020000 		.4byte	0x2c2
+ 1802 027f 0A       		.uleb128 0xa
+ 1803 0280 AC020000 		.4byte	.LASF42
+ 1804 0284 01       		.byte	0x1
+ 1805 0285 49       		.byte	0x49
+ 1806 0286 33000000 		.4byte	0x33
+ 1807 028a C5020000 		.4byte	.LLST9
+ 1808 028e 0A       		.uleb128 0xa
+ 1809 028f 3E030000 		.4byte	.LASF44
+ 1810 0293 01       		.byte	0x1
+ 1811 0294 49       		.byte	0x49
+ 1812 0295 33000000 		.4byte	0x33
+ 1813 0299 E6020000 		.4byte	.LLST10
+ 1814 029d 14       		.uleb128 0x14
+ 1815 029e 6F637400 		.ascii	"oct\000"
+ 1816 02a2 01       		.byte	0x1
+ 1817 02a3 4B       		.byte	0x4b
+ 1818 02a4 33000000 		.4byte	0x33
+ 1819 02a8 15       		.uleb128 0x15
+ 1820 02a9 1A010000 		.4byte	0x11a
+ 1821 02ad 00000000 		.4byte	.LBB4
+ 1822 02b1 00000000 		.4byte	.Ldebug_ranges0+0
+ 1823 02b5 01       		.byte	0x1
+ 1824 02b6 4B       		.byte	0x4b
+ 1825 02b7 13       		.uleb128 0x13
+ 1826 02b8 2A010000 		.4byte	0x12a
+ 1827 02bc C5020000 		.4byte	.LLST9
+ 1828 02c0 00       		.byte	0
+ 1829 02c1 00       		.byte	0
+ 1830 02c2 0E       		.uleb128 0xe
+ 1831 02c3 1E030000 		.4byte	.LASF46
+ 1832 02c7 01       		.byte	0x1
+ 1833 02c8 5D       		.byte	0x5d
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 41
+
+
+ 1834 02c9 33000000 		.4byte	0x33
+ 1835 02cd 00000000 		.4byte	.LFB6
+ 1836 02d1 22050000 		.4byte	.LFE6-.LFB6
+ 1837 02d5 01       		.uleb128 0x1
+ 1838 02d6 9C       		.byte	0x9c
+ 1839 02d7 5F030000 		.4byte	0x35f
+ 1840 02db 0A       		.uleb128 0xa
+ 1841 02dc 00000000 		.4byte	.LASF47
+ 1842 02e0 01       		.byte	0x1
+ 1843 02e1 5D       		.byte	0x5d
+ 1844 02e2 7E010000 		.4byte	0x17e
+ 1845 02e6 07030000 		.4byte	.LLST12
+ 1846 02ea 0A       		.uleb128 0xa
+ 1847 02eb 9E000000 		.4byte	.LASF36
+ 1848 02ef 01       		.byte	0x1
+ 1849 02f0 5D       		.byte	0x5d
+ 1850 02f1 2C000000 		.4byte	0x2c
+ 1851 02f5 3E040000 		.4byte	.LLST13
+ 1852 02f9 16       		.uleb128 0x16
+ 1853 02fa 6B657900 		.ascii	"key\000"
+ 1854 02fe 01       		.byte	0x1
+ 1855 02ff 5D       		.byte	0x5d
+ 1856 0300 94000000 		.4byte	0x94
+ 1857 0304 7C040000 		.4byte	.LLST14
+ 1858 0308 0A       		.uleb128 0xa
+ 1859 0309 B7000000 		.4byte	.LASF48
+ 1860 030d 01       		.byte	0x1
+ 1861 030e 5D       		.byte	0x5d
+ 1862 030f E9000000 		.4byte	0xe9
+ 1863 0313 B6040000 		.4byte	.LLST15
+ 1864 0317 0C       		.uleb128 0xc
+ 1865 0318 6900     		.ascii	"i\000"
+ 1866 031a 01       		.byte	0x1
+ 1867 031b 64       		.byte	0x64
+ 1868 031c 33000000 		.4byte	0x33
+ 1869 0320 F0040000 		.4byte	.LLST16
+ 1870 0324 10       		.uleb128 0x10
+ 1871 0325 AC020000 		.4byte	.LASF42
+ 1872 0329 01       		.byte	0x1
+ 1873 032a 65       		.byte	0x65
+ 1874 032b 33000000 		.4byte	0x33
+ 1875 032f 1D070000 		.4byte	.LLST17
+ 1876 0333 10       		.uleb128 0x10
+ 1877 0334 15030000 		.4byte	.LASF49
+ 1878 0338 01       		.byte	0x1
+ 1879 0339 65       		.byte	0x65
+ 1880 033a 33000000 		.4byte	0x33
+ 1881 033e 71070000 		.4byte	.LLST18
+ 1882 0342 0C       		.uleb128 0xc
+ 1883 0343 6C6200   		.ascii	"lb\000"
+ 1884 0346 01       		.byte	0x1
+ 1885 0347 66       		.byte	0x66
+ 1886 0348 2C000000 		.4byte	0x2c
+ 1887 034c A5070000 		.4byte	.LLST19
+ 1888 0350 0C       		.uleb128 0xc
+ 1889 0351 757000   		.ascii	"up\000"
+ 1890 0354 01       		.byte	0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 42
+
+
+ 1891 0355 66       		.byte	0x66
+ 1892 0356 2C000000 		.4byte	0x2c
+ 1893 035a B1080000 		.4byte	.LLST20
+ 1894 035e 00       		.byte	0
+ 1895 035f 17       		.uleb128 0x17
+ 1896 0360 33000000 		.4byte	0x33
+ 1897 0364 6F030000 		.4byte	0x36f
+ 1898 0368 18       		.uleb128 0x18
+ 1899 0369 79000000 		.4byte	0x79
+ 1900 036d 1C       		.byte	0x1c
+ 1901 036e 00       		.byte	0
+ 1902 036f 19       		.uleb128 0x19
+ 1903 0370 C1020000 		.4byte	.LASF50
+ 1904 0374 01       		.byte	0x1
+ 1905 0375 51       		.byte	0x51
+ 1906 0376 5F030000 		.4byte	0x35f
+ 1907 037a 05       		.uleb128 0x5
+ 1908 037b 03       		.byte	0x3
+ 1909 037c 00000000 		.4byte	scaleMajor
+ 1910 0380 19       		.uleb128 0x19
+ 1911 0381 F6020000 		.4byte	.LASF51
+ 1912 0385 01       		.byte	0x1
+ 1913 0386 56       		.byte	0x56
+ 1914 0387 5F030000 		.4byte	0x35f
+ 1915 038b 05       		.uleb128 0x5
+ 1916 038c 03       		.byte	0x3
+ 1917 038d 00000000 		.4byte	scaleNatMinor
+ 1918 0391 1A       		.uleb128 0x1a
+ 1919 0392 706F7700 		.ascii	"pow\000"
+ 1920 0396 03       		.byte	0x3
+ 1921 0397 85       		.byte	0x85
+ 1922 0398 25000000 		.4byte	0x25
+ 1923 039c AB030000 		.4byte	0x3ab
+ 1924 03a0 1B       		.uleb128 0x1b
+ 1925 03a1 25000000 		.4byte	0x25
+ 1926 03a5 1B       		.uleb128 0x1b
+ 1927 03a6 25000000 		.4byte	0x25
+ 1928 03aa 00       		.byte	0
+ 1929 03ab 1A       		.uleb128 0x1a
+ 1930 03ac 6C6F6700 		.ascii	"log\000"
+ 1931 03b0 03       		.byte	0x3
+ 1932 03b1 83       		.byte	0x83
+ 1933 03b2 25000000 		.4byte	0x25
+ 1934 03b6 C0030000 		.4byte	0x3c0
+ 1935 03ba 1B       		.uleb128 0x1b
+ 1936 03bb 25000000 		.4byte	0x25
+ 1937 03bf 00       		.byte	0
+ 1938 03c0 1C       		.uleb128 0x1c
+ 1939 03c1 BB020000 		.4byte	.LASF57
+ 1940 03c5 03       		.byte	0x3
+ 1941 03c6 1A01     		.2byte	0x11a
+ 1942 03c8 25000000 		.4byte	0x25
+ 1943 03cc 1B       		.uleb128 0x1b
+ 1944 03cd 25000000 		.4byte	0x25
+ 1945 03d1 00       		.byte	0
+ 1946 03d2 00       		.byte	0
+ 1947              		.section	.debug_abbrev,"",%progbits
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 43
+
+
+ 1948              	.Ldebug_abbrev0:
+ 1949 0000 01       		.uleb128 0x1
+ 1950 0001 11       		.uleb128 0x11
+ 1951 0002 01       		.byte	0x1
+ 1952 0003 25       		.uleb128 0x25
+ 1953 0004 0E       		.uleb128 0xe
+ 1954 0005 13       		.uleb128 0x13
+ 1955 0006 0B       		.uleb128 0xb
+ 1956 0007 03       		.uleb128 0x3
+ 1957 0008 0E       		.uleb128 0xe
+ 1958 0009 1B       		.uleb128 0x1b
+ 1959 000a 0E       		.uleb128 0xe
+ 1960 000b 55       		.uleb128 0x55
+ 1961 000c 17       		.uleb128 0x17
+ 1962 000d 11       		.uleb128 0x11
+ 1963 000e 01       		.uleb128 0x1
+ 1964 000f 10       		.uleb128 0x10
+ 1965 0010 17       		.uleb128 0x17
+ 1966 0011 00       		.byte	0
+ 1967 0012 00       		.byte	0
+ 1968 0013 02       		.uleb128 0x2
+ 1969 0014 24       		.uleb128 0x24
+ 1970 0015 00       		.byte	0
+ 1971 0016 0B       		.uleb128 0xb
+ 1972 0017 0B       		.uleb128 0xb
+ 1973 0018 3E       		.uleb128 0x3e
+ 1974 0019 0B       		.uleb128 0xb
+ 1975 001a 03       		.uleb128 0x3
+ 1976 001b 0E       		.uleb128 0xe
+ 1977 001c 00       		.byte	0
+ 1978 001d 00       		.byte	0
+ 1979 001e 03       		.uleb128 0x3
+ 1980 001f 24       		.uleb128 0x24
+ 1981 0020 00       		.byte	0
+ 1982 0021 0B       		.uleb128 0xb
+ 1983 0022 0B       		.uleb128 0xb
+ 1984 0023 3E       		.uleb128 0x3e
+ 1985 0024 0B       		.uleb128 0xb
+ 1986 0025 03       		.uleb128 0x3
+ 1987 0026 08       		.uleb128 0x8
+ 1988 0027 00       		.byte	0
+ 1989 0028 00       		.byte	0
+ 1990 0029 04       		.uleb128 0x4
+ 1991 002a 0F       		.uleb128 0xf
+ 1992 002b 00       		.byte	0
+ 1993 002c 0B       		.uleb128 0xb
+ 1994 002d 0B       		.uleb128 0xb
+ 1995 002e 49       		.uleb128 0x49
+ 1996 002f 13       		.uleb128 0x13
+ 1997 0030 00       		.byte	0
+ 1998 0031 00       		.byte	0
+ 1999 0032 05       		.uleb128 0x5
+ 2000 0033 04       		.uleb128 0x4
+ 2001 0034 01       		.byte	0x1
+ 2002 0035 03       		.uleb128 0x3
+ 2003 0036 0E       		.uleb128 0xe
+ 2004 0037 0B       		.uleb128 0xb
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 44
+
+
+ 2005 0038 0B       		.uleb128 0xb
+ 2006 0039 3A       		.uleb128 0x3a
+ 2007 003a 0B       		.uleb128 0xb
+ 2008 003b 3B       		.uleb128 0x3b
+ 2009 003c 0B       		.uleb128 0xb
+ 2010 003d 01       		.uleb128 0x1
+ 2011 003e 13       		.uleb128 0x13
+ 2012 003f 00       		.byte	0
+ 2013 0040 00       		.byte	0
+ 2014 0041 06       		.uleb128 0x6
+ 2015 0042 28       		.uleb128 0x28
+ 2016 0043 00       		.byte	0
+ 2017 0044 03       		.uleb128 0x3
+ 2018 0045 0E       		.uleb128 0xe
+ 2019 0046 1C       		.uleb128 0x1c
+ 2020 0047 0D       		.uleb128 0xd
+ 2021 0048 00       		.byte	0
+ 2022 0049 00       		.byte	0
+ 2023 004a 07       		.uleb128 0x7
+ 2024 004b 2E       		.uleb128 0x2e
+ 2025 004c 01       		.byte	0x1
+ 2026 004d 3F       		.uleb128 0x3f
+ 2027 004e 19       		.uleb128 0x19
+ 2028 004f 03       		.uleb128 0x3
+ 2029 0050 0E       		.uleb128 0xe
+ 2030 0051 3A       		.uleb128 0x3a
+ 2031 0052 0B       		.uleb128 0xb
+ 2032 0053 3B       		.uleb128 0x3b
+ 2033 0054 0B       		.uleb128 0xb
+ 2034 0055 27       		.uleb128 0x27
+ 2035 0056 19       		.uleb128 0x19
+ 2036 0057 49       		.uleb128 0x49
+ 2037 0058 13       		.uleb128 0x13
+ 2038 0059 20       		.uleb128 0x20
+ 2039 005a 0B       		.uleb128 0xb
+ 2040 005b 01       		.uleb128 0x1
+ 2041 005c 13       		.uleb128 0x13
+ 2042 005d 00       		.byte	0
+ 2043 005e 00       		.byte	0
+ 2044 005f 08       		.uleb128 0x8
+ 2045 0060 05       		.uleb128 0x5
+ 2046 0061 00       		.byte	0
+ 2047 0062 03       		.uleb128 0x3
+ 2048 0063 0E       		.uleb128 0xe
+ 2049 0064 3A       		.uleb128 0x3a
+ 2050 0065 0B       		.uleb128 0xb
+ 2051 0066 3B       		.uleb128 0x3b
+ 2052 0067 0B       		.uleb128 0xb
+ 2053 0068 49       		.uleb128 0x49
+ 2054 0069 13       		.uleb128 0x13
+ 2055 006a 00       		.byte	0
+ 2056 006b 00       		.byte	0
+ 2057 006c 09       		.uleb128 0x9
+ 2058 006d 2E       		.uleb128 0x2e
+ 2059 006e 01       		.byte	0x1
+ 2060 006f 3F       		.uleb128 0x3f
+ 2061 0070 19       		.uleb128 0x19
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 45
+
+
+ 2062 0071 03       		.uleb128 0x3
+ 2063 0072 0E       		.uleb128 0xe
+ 2064 0073 3A       		.uleb128 0x3a
+ 2065 0074 0B       		.uleb128 0xb
+ 2066 0075 3B       		.uleb128 0x3b
+ 2067 0076 0B       		.uleb128 0xb
+ 2068 0077 27       		.uleb128 0x27
+ 2069 0078 19       		.uleb128 0x19
+ 2070 0079 11       		.uleb128 0x11
+ 2071 007a 01       		.uleb128 0x1
+ 2072 007b 12       		.uleb128 0x12
+ 2073 007c 06       		.uleb128 0x6
+ 2074 007d 40       		.uleb128 0x40
+ 2075 007e 18       		.uleb128 0x18
+ 2076 007f 9642     		.uleb128 0x2116
+ 2077 0081 19       		.uleb128 0x19
+ 2078 0082 01       		.uleb128 0x1
+ 2079 0083 13       		.uleb128 0x13
+ 2080 0084 00       		.byte	0
+ 2081 0085 00       		.byte	0
+ 2082 0086 0A       		.uleb128 0xa
+ 2083 0087 05       		.uleb128 0x5
+ 2084 0088 00       		.byte	0
+ 2085 0089 03       		.uleb128 0x3
+ 2086 008a 0E       		.uleb128 0xe
+ 2087 008b 3A       		.uleb128 0x3a
+ 2088 008c 0B       		.uleb128 0xb
+ 2089 008d 3B       		.uleb128 0x3b
+ 2090 008e 0B       		.uleb128 0xb
+ 2091 008f 49       		.uleb128 0x49
+ 2092 0090 13       		.uleb128 0x13
+ 2093 0091 02       		.uleb128 0x2
+ 2094 0092 17       		.uleb128 0x17
+ 2095 0093 00       		.byte	0
+ 2096 0094 00       		.byte	0
+ 2097 0095 0B       		.uleb128 0xb
+ 2098 0096 34       		.uleb128 0x34
+ 2099 0097 00       		.byte	0
+ 2100 0098 03       		.uleb128 0x3
+ 2101 0099 0E       		.uleb128 0xe
+ 2102 009a 3A       		.uleb128 0x3a
+ 2103 009b 0B       		.uleb128 0xb
+ 2104 009c 3B       		.uleb128 0x3b
+ 2105 009d 0B       		.uleb128 0xb
+ 2106 009e 49       		.uleb128 0x49
+ 2107 009f 13       		.uleb128 0x13
+ 2108 00a0 1C       		.uleb128 0x1c
+ 2109 00a1 05       		.uleb128 0x5
+ 2110 00a2 00       		.byte	0
+ 2111 00a3 00       		.byte	0
+ 2112 00a4 0C       		.uleb128 0xc
+ 2113 00a5 34       		.uleb128 0x34
+ 2114 00a6 00       		.byte	0
+ 2115 00a7 03       		.uleb128 0x3
+ 2116 00a8 08       		.uleb128 0x8
+ 2117 00a9 3A       		.uleb128 0x3a
+ 2118 00aa 0B       		.uleb128 0xb
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 46
+
+
+ 2119 00ab 3B       		.uleb128 0x3b
+ 2120 00ac 0B       		.uleb128 0xb
+ 2121 00ad 49       		.uleb128 0x49
+ 2122 00ae 13       		.uleb128 0x13
+ 2123 00af 02       		.uleb128 0x2
+ 2124 00b0 17       		.uleb128 0x17
+ 2125 00b1 00       		.byte	0
+ 2126 00b2 00       		.byte	0
+ 2127 00b3 0D       		.uleb128 0xd
+ 2128 00b4 898201   		.uleb128 0x4109
+ 2129 00b7 00       		.byte	0
+ 2130 00b8 11       		.uleb128 0x11
+ 2131 00b9 01       		.uleb128 0x1
+ 2132 00ba 31       		.uleb128 0x31
+ 2133 00bb 13       		.uleb128 0x13
+ 2134 00bc 00       		.byte	0
+ 2135 00bd 00       		.byte	0
+ 2136 00be 0E       		.uleb128 0xe
+ 2137 00bf 2E       		.uleb128 0x2e
+ 2138 00c0 01       		.byte	0x1
+ 2139 00c1 3F       		.uleb128 0x3f
+ 2140 00c2 19       		.uleb128 0x19
+ 2141 00c3 03       		.uleb128 0x3
+ 2142 00c4 0E       		.uleb128 0xe
+ 2143 00c5 3A       		.uleb128 0x3a
+ 2144 00c6 0B       		.uleb128 0xb
+ 2145 00c7 3B       		.uleb128 0x3b
+ 2146 00c8 0B       		.uleb128 0xb
+ 2147 00c9 27       		.uleb128 0x27
+ 2148 00ca 19       		.uleb128 0x19
+ 2149 00cb 49       		.uleb128 0x49
+ 2150 00cc 13       		.uleb128 0x13
+ 2151 00cd 11       		.uleb128 0x11
+ 2152 00ce 01       		.uleb128 0x1
+ 2153 00cf 12       		.uleb128 0x12
+ 2154 00d0 06       		.uleb128 0x6
+ 2155 00d1 40       		.uleb128 0x40
+ 2156 00d2 18       		.uleb128 0x18
+ 2157 00d3 9642     		.uleb128 0x2116
+ 2158 00d5 19       		.uleb128 0x19
+ 2159 00d6 01       		.uleb128 0x1
+ 2160 00d7 13       		.uleb128 0x13
+ 2161 00d8 00       		.byte	0
+ 2162 00d9 00       		.byte	0
+ 2163 00da 0F       		.uleb128 0xf
+ 2164 00db 34       		.uleb128 0x34
+ 2165 00dc 00       		.byte	0
+ 2166 00dd 03       		.uleb128 0x3
+ 2167 00de 0E       		.uleb128 0xe
+ 2168 00df 3A       		.uleb128 0x3a
+ 2169 00e0 0B       		.uleb128 0xb
+ 2170 00e1 3B       		.uleb128 0x3b
+ 2171 00e2 0B       		.uleb128 0xb
+ 2172 00e3 49       		.uleb128 0x49
+ 2173 00e4 13       		.uleb128 0x13
+ 2174 00e5 00       		.byte	0
+ 2175 00e6 00       		.byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 47
+
+
+ 2176 00e7 10       		.uleb128 0x10
+ 2177 00e8 34       		.uleb128 0x34
+ 2178 00e9 00       		.byte	0
+ 2179 00ea 03       		.uleb128 0x3
+ 2180 00eb 0E       		.uleb128 0xe
+ 2181 00ec 3A       		.uleb128 0x3a
+ 2182 00ed 0B       		.uleb128 0xb
+ 2183 00ee 3B       		.uleb128 0x3b
+ 2184 00ef 0B       		.uleb128 0xb
+ 2185 00f0 49       		.uleb128 0x49
+ 2186 00f1 13       		.uleb128 0x13
+ 2187 00f2 02       		.uleb128 0x2
+ 2188 00f3 17       		.uleb128 0x17
+ 2189 00f4 00       		.byte	0
+ 2190 00f5 00       		.byte	0
+ 2191 00f6 11       		.uleb128 0x11
+ 2192 00f7 2E       		.uleb128 0x2e
+ 2193 00f8 01       		.byte	0x1
+ 2194 00f9 3F       		.uleb128 0x3f
+ 2195 00fa 19       		.uleb128 0x19
+ 2196 00fb 03       		.uleb128 0x3
+ 2197 00fc 0E       		.uleb128 0xe
+ 2198 00fd 3A       		.uleb128 0x3a
+ 2199 00fe 0B       		.uleb128 0xb
+ 2200 00ff 3B       		.uleb128 0x3b
+ 2201 0100 0B       		.uleb128 0xb
+ 2202 0101 27       		.uleb128 0x27
+ 2203 0102 19       		.uleb128 0x19
+ 2204 0103 49       		.uleb128 0x49
+ 2205 0104 13       		.uleb128 0x13
+ 2206 0105 11       		.uleb128 0x11
+ 2207 0106 01       		.uleb128 0x1
+ 2208 0107 12       		.uleb128 0x12
+ 2209 0108 06       		.uleb128 0x6
+ 2210 0109 40       		.uleb128 0x40
+ 2211 010a 18       		.uleb128 0x18
+ 2212 010b 9742     		.uleb128 0x2117
+ 2213 010d 19       		.uleb128 0x19
+ 2214 010e 01       		.uleb128 0x1
+ 2215 010f 13       		.uleb128 0x13
+ 2216 0110 00       		.byte	0
+ 2217 0111 00       		.byte	0
+ 2218 0112 12       		.uleb128 0x12
+ 2219 0113 2E       		.uleb128 0x2e
+ 2220 0114 01       		.byte	0x1
+ 2221 0115 31       		.uleb128 0x31
+ 2222 0116 13       		.uleb128 0x13
+ 2223 0117 11       		.uleb128 0x11
+ 2224 0118 01       		.uleb128 0x1
+ 2225 0119 12       		.uleb128 0x12
+ 2226 011a 06       		.uleb128 0x6
+ 2227 011b 40       		.uleb128 0x40
+ 2228 011c 18       		.uleb128 0x18
+ 2229 011d 9742     		.uleb128 0x2117
+ 2230 011f 19       		.uleb128 0x19
+ 2231 0120 01       		.uleb128 0x1
+ 2232 0121 13       		.uleb128 0x13
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 48
+
+
+ 2233 0122 00       		.byte	0
+ 2234 0123 00       		.byte	0
+ 2235 0124 13       		.uleb128 0x13
+ 2236 0125 05       		.uleb128 0x5
+ 2237 0126 00       		.byte	0
+ 2238 0127 31       		.uleb128 0x31
+ 2239 0128 13       		.uleb128 0x13
+ 2240 0129 02       		.uleb128 0x2
+ 2241 012a 17       		.uleb128 0x17
+ 2242 012b 00       		.byte	0
+ 2243 012c 00       		.byte	0
+ 2244 012d 14       		.uleb128 0x14
+ 2245 012e 34       		.uleb128 0x34
+ 2246 012f 00       		.byte	0
+ 2247 0130 03       		.uleb128 0x3
+ 2248 0131 08       		.uleb128 0x8
+ 2249 0132 3A       		.uleb128 0x3a
+ 2250 0133 0B       		.uleb128 0xb
+ 2251 0134 3B       		.uleb128 0x3b
+ 2252 0135 0B       		.uleb128 0xb
+ 2253 0136 49       		.uleb128 0x49
+ 2254 0137 13       		.uleb128 0x13
+ 2255 0138 00       		.byte	0
+ 2256 0139 00       		.byte	0
+ 2257 013a 15       		.uleb128 0x15
+ 2258 013b 1D       		.uleb128 0x1d
+ 2259 013c 01       		.byte	0x1
+ 2260 013d 31       		.uleb128 0x31
+ 2261 013e 13       		.uleb128 0x13
+ 2262 013f 52       		.uleb128 0x52
+ 2263 0140 01       		.uleb128 0x1
+ 2264 0141 55       		.uleb128 0x55
+ 2265 0142 17       		.uleb128 0x17
+ 2266 0143 58       		.uleb128 0x58
+ 2267 0144 0B       		.uleb128 0xb
+ 2268 0145 59       		.uleb128 0x59
+ 2269 0146 0B       		.uleb128 0xb
+ 2270 0147 00       		.byte	0
+ 2271 0148 00       		.byte	0
+ 2272 0149 16       		.uleb128 0x16
+ 2273 014a 05       		.uleb128 0x5
+ 2274 014b 00       		.byte	0
+ 2275 014c 03       		.uleb128 0x3
+ 2276 014d 08       		.uleb128 0x8
+ 2277 014e 3A       		.uleb128 0x3a
+ 2278 014f 0B       		.uleb128 0xb
+ 2279 0150 3B       		.uleb128 0x3b
+ 2280 0151 0B       		.uleb128 0xb
+ 2281 0152 49       		.uleb128 0x49
+ 2282 0153 13       		.uleb128 0x13
+ 2283 0154 02       		.uleb128 0x2
+ 2284 0155 17       		.uleb128 0x17
+ 2285 0156 00       		.byte	0
+ 2286 0157 00       		.byte	0
+ 2287 0158 17       		.uleb128 0x17
+ 2288 0159 01       		.uleb128 0x1
+ 2289 015a 01       		.byte	0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 49
+
+
+ 2290 015b 49       		.uleb128 0x49
+ 2291 015c 13       		.uleb128 0x13
+ 2292 015d 01       		.uleb128 0x1
+ 2293 015e 13       		.uleb128 0x13
+ 2294 015f 00       		.byte	0
+ 2295 0160 00       		.byte	0
+ 2296 0161 18       		.uleb128 0x18
+ 2297 0162 21       		.uleb128 0x21
+ 2298 0163 00       		.byte	0
+ 2299 0164 49       		.uleb128 0x49
+ 2300 0165 13       		.uleb128 0x13
+ 2301 0166 2F       		.uleb128 0x2f
+ 2302 0167 0B       		.uleb128 0xb
+ 2303 0168 00       		.byte	0
+ 2304 0169 00       		.byte	0
+ 2305 016a 19       		.uleb128 0x19
+ 2306 016b 34       		.uleb128 0x34
+ 2307 016c 00       		.byte	0
+ 2308 016d 03       		.uleb128 0x3
+ 2309 016e 0E       		.uleb128 0xe
+ 2310 016f 3A       		.uleb128 0x3a
+ 2311 0170 0B       		.uleb128 0xb
+ 2312 0171 3B       		.uleb128 0x3b
+ 2313 0172 0B       		.uleb128 0xb
+ 2314 0173 49       		.uleb128 0x49
+ 2315 0174 13       		.uleb128 0x13
+ 2316 0175 3F       		.uleb128 0x3f
+ 2317 0176 19       		.uleb128 0x19
+ 2318 0177 02       		.uleb128 0x2
+ 2319 0178 18       		.uleb128 0x18
+ 2320 0179 00       		.byte	0
+ 2321 017a 00       		.byte	0
+ 2322 017b 1A       		.uleb128 0x1a
+ 2323 017c 2E       		.uleb128 0x2e
+ 2324 017d 01       		.byte	0x1
+ 2325 017e 3F       		.uleb128 0x3f
+ 2326 017f 19       		.uleb128 0x19
+ 2327 0180 03       		.uleb128 0x3
+ 2328 0181 08       		.uleb128 0x8
+ 2329 0182 3A       		.uleb128 0x3a
+ 2330 0183 0B       		.uleb128 0xb
+ 2331 0184 3B       		.uleb128 0x3b
+ 2332 0185 0B       		.uleb128 0xb
+ 2333 0186 27       		.uleb128 0x27
+ 2334 0187 19       		.uleb128 0x19
+ 2335 0188 49       		.uleb128 0x49
+ 2336 0189 13       		.uleb128 0x13
+ 2337 018a 3C       		.uleb128 0x3c
+ 2338 018b 19       		.uleb128 0x19
+ 2339 018c 01       		.uleb128 0x1
+ 2340 018d 13       		.uleb128 0x13
+ 2341 018e 00       		.byte	0
+ 2342 018f 00       		.byte	0
+ 2343 0190 1B       		.uleb128 0x1b
+ 2344 0191 05       		.uleb128 0x5
+ 2345 0192 00       		.byte	0
+ 2346 0193 49       		.uleb128 0x49
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 50
+
+
+ 2347 0194 13       		.uleb128 0x13
+ 2348 0195 00       		.byte	0
+ 2349 0196 00       		.byte	0
+ 2350 0197 1C       		.uleb128 0x1c
+ 2351 0198 2E       		.uleb128 0x2e
+ 2352 0199 01       		.byte	0x1
+ 2353 019a 3F       		.uleb128 0x3f
+ 2354 019b 19       		.uleb128 0x19
+ 2355 019c 03       		.uleb128 0x3
+ 2356 019d 0E       		.uleb128 0xe
+ 2357 019e 3A       		.uleb128 0x3a
+ 2358 019f 0B       		.uleb128 0xb
+ 2359 01a0 3B       		.uleb128 0x3b
+ 2360 01a1 05       		.uleb128 0x5
+ 2361 01a2 27       		.uleb128 0x27
+ 2362 01a3 19       		.uleb128 0x19
+ 2363 01a4 49       		.uleb128 0x49
+ 2364 01a5 13       		.uleb128 0x13
+ 2365 01a6 3C       		.uleb128 0x3c
+ 2366 01a7 19       		.uleb128 0x19
+ 2367 01a8 00       		.byte	0
+ 2368 01a9 00       		.byte	0
+ 2369 01aa 00       		.byte	0
+ 2370              		.section	.debug_loc,"",%progbits
+ 2371              	.Ldebug_loc0:
+ 2372              	.LLST0:
+ 2373 0000 00000000 		.4byte	.LVL0
+ 2374 0004 0C000000 		.4byte	.LVL1
+ 2375 0008 0100     		.2byte	0x1
+ 2376 000a 50       		.byte	0x50
+ 2377 000b 0C000000 		.4byte	.LVL1
+ 2378 000f 3E000000 		.4byte	.LVL8
+ 2379 0013 0400     		.2byte	0x4
+ 2380 0015 76       		.byte	0x76
+ 2381 0016 8878     		.sleb128 -1016
+ 2382 0018 9F       		.byte	0x9f
+ 2383 0019 3E000000 		.4byte	.LVL8
+ 2384 001d 48000000 		.4byte	.LFE0
+ 2385 0021 0400     		.2byte	0x4
+ 2386 0023 F3       		.byte	0xf3
+ 2387 0024 01       		.uleb128 0x1
+ 2388 0025 50       		.byte	0x50
+ 2389 0026 9F       		.byte	0x9f
+ 2390 0027 00000000 		.4byte	0
+ 2391 002b 00000000 		.4byte	0
+ 2392              	.LLST1:
+ 2393 002f 00000000 		.4byte	.LVL0
+ 2394 0033 0C000000 		.4byte	.LVL1
+ 2395 0037 0200     		.2byte	0x2
+ 2396 0039 30       		.byte	0x30
+ 2397 003a 9F       		.byte	0x9f
+ 2398 003b 0C000000 		.4byte	.LVL1
+ 2399 003f 34000000 		.4byte	.LVL6
+ 2400 0043 0300     		.2byte	0x3
+ 2401 0045 75       		.byte	0x75
+ 2402 0046 08       		.sleb128 8
+ 2403 0047 9F       		.byte	0x9f
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 51
+
+
+ 2404 0048 34000000 		.4byte	.LVL6
+ 2405 004c 3A000000 		.4byte	.LVL7
+ 2406 0050 0300     		.2byte	0x3
+ 2407 0052 75       		.byte	0x75
+ 2408 0053 09       		.sleb128 9
+ 2409 0054 9F       		.byte	0x9f
+ 2410 0055 3A000000 		.4byte	.LVL7
+ 2411 0059 3E000000 		.4byte	.LVL8
+ 2412 005d 0300     		.2byte	0x3
+ 2413 005f 75       		.byte	0x75
+ 2414 0060 08       		.sleb128 8
+ 2415 0061 9F       		.byte	0x9f
+ 2416 0062 00000000 		.4byte	0
+ 2417 0066 00000000 		.4byte	0
+ 2418              	.LLST2:
+ 2419 006a 00000000 		.4byte	.LVL9
+ 2420 006e 09000000 		.4byte	.LVL10-1
+ 2421 0072 0600     		.2byte	0x6
+ 2422 0074 50       		.byte	0x50
+ 2423 0075 93       		.byte	0x93
+ 2424 0076 04       		.uleb128 0x4
+ 2425 0077 51       		.byte	0x51
+ 2426 0078 93       		.byte	0x93
+ 2427 0079 04       		.uleb128 0x4
+ 2428 007a 09000000 		.4byte	.LVL10-1
+ 2429 007e 4C000000 		.4byte	.LFE1
+ 2430 0082 0600     		.2byte	0x6
+ 2431 0084 F3       		.byte	0xf3
+ 2432 0085 03       		.uleb128 0x3
+ 2433 0086 F5       		.byte	0xf5
+ 2434 0087 00       		.uleb128 0
+ 2435 0088 25       		.uleb128 0x25
+ 2436 0089 9F       		.byte	0x9f
+ 2437 008a 00000000 		.4byte	0
+ 2438 008e 00000000 		.4byte	0
+ 2439              	.LLST3:
+ 2440 0092 00000000 		.4byte	.LVL17
+ 2441 0096 1A000000 		.4byte	.LVL19
+ 2442 009a 0600     		.2byte	0x6
+ 2443 009c 50       		.byte	0x50
+ 2444 009d 93       		.byte	0x93
+ 2445 009e 04       		.uleb128 0x4
+ 2446 009f 51       		.byte	0x51
+ 2447 00a0 93       		.byte	0x93
+ 2448 00a1 04       		.uleb128 0x4
+ 2449 00a2 1A000000 		.4byte	.LVL19
+ 2450 00a6 A8000000 		.4byte	.LVL37
+ 2451 00aa 0600     		.2byte	0x6
+ 2452 00ac F3       		.byte	0xf3
+ 2453 00ad 03       		.uleb128 0x3
+ 2454 00ae F5       		.byte	0xf5
+ 2455 00af 00       		.uleb128 0
+ 2456 00b0 25       		.uleb128 0x25
+ 2457 00b1 9F       		.byte	0x9f
+ 2458 00b2 A8000000 		.4byte	.LVL37
+ 2459 00b6 AC000000 		.4byte	.LVL38
+ 2460 00ba 0600     		.2byte	0x6
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 52
+
+
+ 2461 00bc 50       		.byte	0x50
+ 2462 00bd 93       		.byte	0x93
+ 2463 00be 04       		.uleb128 0x4
+ 2464 00bf 51       		.byte	0x51
+ 2465 00c0 93       		.byte	0x93
+ 2466 00c1 04       		.uleb128 0x4
+ 2467 00c2 AC000000 		.4byte	.LVL38
+ 2468 00c6 B8000000 		.4byte	.LFE2
+ 2469 00ca 0600     		.2byte	0x6
+ 2470 00cc F3       		.byte	0xf3
+ 2471 00cd 03       		.uleb128 0x3
+ 2472 00ce F5       		.byte	0xf5
+ 2473 00cf 00       		.uleb128 0
+ 2474 00d0 25       		.uleb128 0x25
+ 2475 00d1 9F       		.byte	0x9f
+ 2476 00d2 00000000 		.4byte	0
+ 2477 00d6 00000000 		.4byte	0
+ 2478              	.LLST4:
+ 2479 00da 00000000 		.4byte	.LVL17
+ 2480 00de 12000000 		.4byte	.LVL18
+ 2481 00e2 0100     		.2byte	0x1
+ 2482 00e4 52       		.byte	0x52
+ 2483 00e5 12000000 		.4byte	.LVL18
+ 2484 00e9 1E000000 		.4byte	.LVL20
+ 2485 00ed 0400     		.2byte	0x4
+ 2486 00ef F3       		.byte	0xf3
+ 2487 00f0 01       		.uleb128 0x1
+ 2488 00f1 52       		.byte	0x52
+ 2489 00f2 9F       		.byte	0x9f
+ 2490 00f3 A8000000 		.4byte	.LVL37
+ 2491 00f7 AE000000 		.4byte	.LVL39
+ 2492 00fb 0100     		.2byte	0x1
+ 2493 00fd 52       		.byte	0x52
+ 2494 00fe AE000000 		.4byte	.LVL39
+ 2495 0102 B8000000 		.4byte	.LFE2
+ 2496 0106 0400     		.2byte	0x4
+ 2497 0108 F3       		.byte	0xf3
+ 2498 0109 01       		.uleb128 0x1
+ 2499 010a 52       		.byte	0x52
+ 2500 010b 9F       		.byte	0x9f
+ 2501 010c 00000000 		.4byte	0
+ 2502 0110 00000000 		.4byte	0
+ 2503              	.LLST5:
+ 2504 0114 00000000 		.4byte	.LVL17
+ 2505 0118 30000000 		.4byte	.LVL22
+ 2506 011c 0100     		.2byte	0x1
+ 2507 011e 53       		.byte	0x53
+ 2508 011f 30000000 		.4byte	.LVL22
+ 2509 0123 A8000000 		.4byte	.LVL37
+ 2510 0127 0400     		.2byte	0x4
+ 2511 0129 F3       		.byte	0xf3
+ 2512 012a 01       		.uleb128 0x1
+ 2513 012b 53       		.byte	0x53
+ 2514 012c 9F       		.byte	0x9f
+ 2515 012d A8000000 		.4byte	.LVL37
+ 2516 0131 B8000000 		.4byte	.LFE2
+ 2517 0135 0100     		.2byte	0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 53
+
+
+ 2518 0137 53       		.byte	0x53
+ 2519 0138 00000000 		.4byte	0
+ 2520 013c 00000000 		.4byte	0
+ 2521              	.LLST6:
+ 2522 0140 34000000 		.4byte	.LVL23
+ 2523 0144 A8000000 		.4byte	.LVL37
+ 2524 0148 1A00     		.2byte	0x1a
+ 2525 014a F5       		.byte	0xf5
+ 2526 014b 06       		.uleb128 0x6
+ 2527 014c 25       		.uleb128 0x25
+ 2528 014d F5       		.byte	0xf5
+ 2529 014e 06       		.uleb128 0x6
+ 2530 014f 25       		.uleb128 0x25
+ 2531 0150 F5       		.byte	0xf5
+ 2532 0151 08       		.uleb128 0x8
+ 2533 0152 25       		.uleb128 0x25
+ 2534 0153 1C       		.byte	0x1c
+ 2535 0154 F4       		.byte	0xf4
+ 2536 0155 25       		.uleb128 0x25
+ 2537 0156 08       		.byte	0x8
+ 2538 0157 CDCCCCCC 		.4byte	0xcccccccd
+ 2539 015b CCCCEC3F 		.4byte	0x3feccccc
+ 2540 015f 1E       		.byte	0x1e
+ 2541 0160 1C       		.byte	0x1c
+ 2542 0161 F7       		.byte	0xf7
+ 2543 0162 2C       		.uleb128 0x2c
+ 2544 0163 9F       		.byte	0x9f
+ 2545 0164 00000000 		.4byte	0
+ 2546 0168 00000000 		.4byte	0
+ 2547              	.LLST7:
+ 2548 016c 00000000 		.4byte	.LVL40
+ 2549 0170 00010000 		.4byte	.LVL41
+ 2550 0174 0100     		.2byte	0x1
+ 2551 0176 50       		.byte	0x50
+ 2552 0177 00010000 		.4byte	.LVL41
+ 2553 017b 1A010000 		.4byte	.LVL42
+ 2554 017f 0300     		.2byte	0x3
+ 2555 0181 70       		.byte	0x70
+ 2556 0182 0B       		.sleb128 11
+ 2557 0183 9F       		.byte	0x9f
+ 2558 0184 1A010000 		.4byte	.LVL42
+ 2559 0188 1E010000 		.4byte	.LVL43
+ 2560 018c 0400     		.2byte	0x4
+ 2561 018e F3       		.byte	0xf3
+ 2562 018f 01       		.uleb128 0x1
+ 2563 0190 50       		.byte	0x50
+ 2564 0191 9F       		.byte	0x9f
+ 2565 0192 1E010000 		.4byte	.LVL43
+ 2566 0196 20010000 		.4byte	.LVL44
+ 2567 019a 0100     		.2byte	0x1
+ 2568 019c 50       		.byte	0x50
+ 2569 019d 20010000 		.4byte	.LVL44
+ 2570 01a1 26010000 		.4byte	.LVL45
+ 2571 01a5 0400     		.2byte	0x4
+ 2572 01a7 F3       		.byte	0xf3
+ 2573 01a8 01       		.uleb128 0x1
+ 2574 01a9 50       		.byte	0x50
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 54
+
+
+ 2575 01aa 9F       		.byte	0x9f
+ 2576 01ab 26010000 		.4byte	.LVL45
+ 2577 01af 28010000 		.4byte	.LVL46
+ 2578 01b3 0100     		.2byte	0x1
+ 2579 01b5 50       		.byte	0x50
+ 2580 01b6 28010000 		.4byte	.LVL46
+ 2581 01ba 2E010000 		.4byte	.LVL47
+ 2582 01be 0400     		.2byte	0x4
+ 2583 01c0 F3       		.byte	0xf3
+ 2584 01c1 01       		.uleb128 0x1
+ 2585 01c2 50       		.byte	0x50
+ 2586 01c3 9F       		.byte	0x9f
+ 2587 01c4 2E010000 		.4byte	.LVL47
+ 2588 01c8 30010000 		.4byte	.LVL48
+ 2589 01cc 0100     		.2byte	0x1
+ 2590 01ce 50       		.byte	0x50
+ 2591 01cf 30010000 		.4byte	.LVL48
+ 2592 01d3 32010000 		.4byte	.LVL49
+ 2593 01d7 0300     		.2byte	0x3
+ 2594 01d9 71       		.byte	0x71
+ 2595 01da 03       		.sleb128 3
+ 2596 01db 9F       		.byte	0x9f
+ 2597 01dc 32010000 		.4byte	.LVL49
+ 2598 01e0 34010000 		.4byte	.LVL50
+ 2599 01e4 0100     		.2byte	0x1
+ 2600 01e6 50       		.byte	0x50
+ 2601 01e7 34010000 		.4byte	.LVL50
+ 2602 01eb 3A010000 		.4byte	.LVL51
+ 2603 01ef 0300     		.2byte	0x3
+ 2604 01f1 71       		.byte	0x71
+ 2605 01f2 02       		.sleb128 2
+ 2606 01f3 9F       		.byte	0x9f
+ 2607 01f4 3A010000 		.4byte	.LVL51
+ 2608 01f8 3C010000 		.4byte	.LVL52
+ 2609 01fc 0100     		.2byte	0x1
+ 2610 01fe 50       		.byte	0x50
+ 2611 01ff 3C010000 		.4byte	.LVL52
+ 2612 0203 3E010000 		.4byte	.LVL53
+ 2613 0207 0300     		.2byte	0x3
+ 2614 0209 71       		.byte	0x71
+ 2615 020a 04       		.sleb128 4
+ 2616 020b 9F       		.byte	0x9f
+ 2617 020c 3E010000 		.4byte	.LVL53
+ 2618 0210 40010000 		.4byte	.LVL54
+ 2619 0214 0100     		.2byte	0x1
+ 2620 0216 50       		.byte	0x50
+ 2621 0217 40010000 		.4byte	.LVL54
+ 2622 021b 42010000 		.4byte	.LVL55
+ 2623 021f 0300     		.2byte	0x3
+ 2624 0221 71       		.byte	0x71
+ 2625 0222 06       		.sleb128 6
+ 2626 0223 9F       		.byte	0x9f
+ 2627 0224 42010000 		.4byte	.LVL55
+ 2628 0228 44010000 		.4byte	.LVL56
+ 2629 022c 0100     		.2byte	0x1
+ 2630 022e 50       		.byte	0x50
+ 2631 022f 44010000 		.4byte	.LVL56
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 55
+
+
+ 2632 0233 46010000 		.4byte	.LVL57
+ 2633 0237 0300     		.2byte	0x3
+ 2634 0239 71       		.byte	0x71
+ 2635 023a 05       		.sleb128 5
+ 2636 023b 9F       		.byte	0x9f
+ 2637 023c 46010000 		.4byte	.LVL57
+ 2638 0240 48010000 		.4byte	.LVL58
+ 2639 0244 0100     		.2byte	0x1
+ 2640 0246 50       		.byte	0x50
+ 2641 0247 48010000 		.4byte	.LVL58
+ 2642 024b 4A010000 		.4byte	.LVL59
+ 2643 024f 0300     		.2byte	0x3
+ 2644 0251 71       		.byte	0x71
+ 2645 0252 07       		.sleb128 7
+ 2646 0253 9F       		.byte	0x9f
+ 2647 0254 4A010000 		.4byte	.LVL59
+ 2648 0258 4C010000 		.4byte	.LVL60
+ 2649 025c 0100     		.2byte	0x1
+ 2650 025e 50       		.byte	0x50
+ 2651 025f 4C010000 		.4byte	.LVL60
+ 2652 0263 4E010000 		.4byte	.LVL61
+ 2653 0267 0300     		.2byte	0x3
+ 2654 0269 71       		.byte	0x71
+ 2655 026a 08       		.sleb128 8
+ 2656 026b 9F       		.byte	0x9f
+ 2657 026c 4E010000 		.4byte	.LVL61
+ 2658 0270 50010000 		.4byte	.LVL62
+ 2659 0274 0100     		.2byte	0x1
+ 2660 0276 50       		.byte	0x50
+ 2661 0277 50010000 		.4byte	.LVL62
+ 2662 027b 52010000 		.4byte	.LVL63
+ 2663 027f 0300     		.2byte	0x3
+ 2664 0281 71       		.byte	0x71
+ 2665 0282 09       		.sleb128 9
+ 2666 0283 9F       		.byte	0x9f
+ 2667 0284 52010000 		.4byte	.LVL63
+ 2668 0288 54010000 		.4byte	.LVL64
+ 2669 028c 0100     		.2byte	0x1
+ 2670 028e 50       		.byte	0x50
+ 2671 028f 54010000 		.4byte	.LVL64
+ 2672 0293 90010000 		.4byte	.LFE3
+ 2673 0297 0300     		.2byte	0x3
+ 2674 0299 72       		.byte	0x72
+ 2675 029a 0A       		.sleb128 10
+ 2676 029b 9F       		.byte	0x9f
+ 2677 029c 00000000 		.4byte	0
+ 2678 02a0 00000000 		.4byte	0
+ 2679              	.LLST8:
+ 2680 02a4 00000000 		.4byte	.LVL65
+ 2681 02a8 08000000 		.4byte	.LVL66
+ 2682 02ac 0100     		.2byte	0x1
+ 2683 02ae 50       		.byte	0x50
+ 2684 02af 08000000 		.4byte	.LVL66
+ 2685 02b3 14000000 		.4byte	.LFE4
+ 2686 02b7 0400     		.2byte	0x4
+ 2687 02b9 F3       		.byte	0xf3
+ 2688 02ba 01       		.uleb128 0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 56
+
+
+ 2689 02bb 50       		.byte	0x50
+ 2690 02bc 9F       		.byte	0x9f
+ 2691 02bd 00000000 		.4byte	0
+ 2692 02c1 00000000 		.4byte	0
+ 2693              	.LLST9:
+ 2694 02c5 00000000 		.4byte	.LVL67
+ 2695 02c9 1C000000 		.4byte	.LVL69
+ 2696 02cd 0100     		.2byte	0x1
+ 2697 02cf 50       		.byte	0x50
+ 2698 02d0 1C000000 		.4byte	.LVL69
+ 2699 02d4 24000000 		.4byte	.LFE5
+ 2700 02d8 0400     		.2byte	0x4
+ 2701 02da F3       		.byte	0xf3
+ 2702 02db 01       		.uleb128 0x1
+ 2703 02dc 50       		.byte	0x50
+ 2704 02dd 9F       		.byte	0x9f
+ 2705 02de 00000000 		.4byte	0
+ 2706 02e2 00000000 		.4byte	0
+ 2707              	.LLST10:
+ 2708 02e6 00000000 		.4byte	.LVL67
+ 2709 02ea 14000000 		.4byte	.LVL68
+ 2710 02ee 0100     		.2byte	0x1
+ 2711 02f0 51       		.byte	0x51
+ 2712 02f1 14000000 		.4byte	.LVL68
+ 2713 02f5 24000000 		.4byte	.LFE5
+ 2714 02f9 0400     		.2byte	0x4
+ 2715 02fb F3       		.byte	0xf3
+ 2716 02fc 01       		.uleb128 0x1
+ 2717 02fd 51       		.byte	0x51
+ 2718 02fe 9F       		.byte	0x9f
+ 2719 02ff 00000000 		.4byte	0
+ 2720 0303 00000000 		.4byte	0
+ 2721              	.LLST12:
+ 2722 0307 00000000 		.4byte	.LVL70
+ 2723 030b 10000000 		.4byte	.LVL71
+ 2724 030f 0100     		.2byte	0x1
+ 2725 0311 50       		.byte	0x50
+ 2726 0312 10000000 		.4byte	.LVL71
+ 2727 0316 8C000000 		.4byte	.LVL81
+ 2728 031a 0100     		.2byte	0x1
+ 2729 031c 56       		.byte	0x56
+ 2730 031d 8C000000 		.4byte	.LVL81
+ 2731 0321 96000000 		.4byte	.LVL82
+ 2732 0325 0400     		.2byte	0x4
+ 2733 0327 F3       		.byte	0xf3
+ 2734 0328 01       		.uleb128 0x1
+ 2735 0329 50       		.byte	0x50
+ 2736 032a 9F       		.byte	0x9f
+ 2737 032b 96000000 		.4byte	.LVL82
+ 2738 032f CC000000 		.4byte	.LVL83
+ 2739 0333 0100     		.2byte	0x1
+ 2740 0335 56       		.byte	0x56
+ 2741 0336 CC000000 		.4byte	.LVL83
+ 2742 033a 72010000 		.4byte	.LVL94
+ 2743 033e 0200     		.2byte	0x2
+ 2744 0340 91       		.byte	0x91
+ 2745 0341 50       		.sleb128 -48
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 57
+
+
+ 2746 0342 72010000 		.4byte	.LVL94
+ 2747 0346 90010000 		.4byte	.LVL99
+ 2748 034a 0100     		.2byte	0x1
+ 2749 034c 56       		.byte	0x56
+ 2750 034d 90010000 		.4byte	.LVL99
+ 2751 0351 BA010000 		.4byte	.LVL102
+ 2752 0355 0400     		.2byte	0x4
+ 2753 0357 F3       		.byte	0xf3
+ 2754 0358 01       		.uleb128 0x1
+ 2755 0359 50       		.byte	0x50
+ 2756 035a 9F       		.byte	0x9f
+ 2757 035b BA010000 		.4byte	.LVL102
+ 2758 035f CA010000 		.4byte	.LVL103
+ 2759 0363 0100     		.2byte	0x1
+ 2760 0365 56       		.byte	0x56
+ 2761 0366 CA010000 		.4byte	.LVL103
+ 2762 036a 62020000 		.4byte	.LVL112
+ 2763 036e 0200     		.2byte	0x2
+ 2764 0370 91       		.byte	0x91
+ 2765 0371 54       		.sleb128 -44
+ 2766 0372 62020000 		.4byte	.LVL112
+ 2767 0376 D8020000 		.4byte	.LVL119
+ 2768 037a 0100     		.2byte	0x1
+ 2769 037c 56       		.byte	0x56
+ 2770 037d D8020000 		.4byte	.LVL119
+ 2771 0381 6E030000 		.4byte	.LVL128
+ 2772 0385 0200     		.2byte	0x2
+ 2773 0387 91       		.byte	0x91
+ 2774 0388 54       		.sleb128 -44
+ 2775 0389 6E030000 		.4byte	.LVL128
+ 2776 038d 8C030000 		.4byte	.LVL133
+ 2777 0391 0100     		.2byte	0x1
+ 2778 0393 56       		.byte	0x56
+ 2779 0394 8C030000 		.4byte	.LVL133
+ 2780 0398 B2030000 		.4byte	.LVL136
+ 2781 039c 0400     		.2byte	0x4
+ 2782 039e F3       		.byte	0xf3
+ 2783 039f 01       		.uleb128 0x1
+ 2784 03a0 50       		.byte	0x50
+ 2785 03a1 9F       		.byte	0x9f
+ 2786 03a2 B2030000 		.4byte	.LVL136
+ 2787 03a6 C6030000 		.4byte	.LVL137
+ 2788 03aa 0100     		.2byte	0x1
+ 2789 03ac 56       		.byte	0x56
+ 2790 03ad C6030000 		.4byte	.LVL137
+ 2791 03b1 02040000 		.4byte	.LVL141
+ 2792 03b5 0200     		.2byte	0x2
+ 2793 03b7 7D       		.byte	0x7d
+ 2794 03b8 00       		.sleb128 0
+ 2795 03b9 02040000 		.4byte	.LVL141
+ 2796 03bd 06040000 		.4byte	.LVL142
+ 2797 03c1 0100     		.2byte	0x1
+ 2798 03c3 50       		.byte	0x50
+ 2799 03c4 06040000 		.4byte	.LVL142
+ 2800 03c8 08040000 		.4byte	.LVL143
+ 2801 03cc 0400     		.2byte	0x4
+ 2802 03ce F3       		.byte	0xf3
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 58
+
+
+ 2803 03cf 01       		.uleb128 0x1
+ 2804 03d0 50       		.byte	0x50
+ 2805 03d1 9F       		.byte	0x9f
+ 2806 03d2 08040000 		.4byte	.LVL143
+ 2807 03d6 12040000 		.4byte	.LVL144
+ 2808 03da 0200     		.2byte	0x2
+ 2809 03dc 91       		.byte	0x91
+ 2810 03dd 54       		.sleb128 -44
+ 2811 03de 12040000 		.4byte	.LVL144
+ 2812 03e2 5A040000 		.4byte	.LVL153
+ 2813 03e6 0400     		.2byte	0x4
+ 2814 03e8 F3       		.byte	0xf3
+ 2815 03e9 01       		.uleb128 0x1
+ 2816 03ea 50       		.byte	0x50
+ 2817 03eb 9F       		.byte	0x9f
+ 2818 03ec 5A040000 		.4byte	.LVL153
+ 2819 03f0 60040000 		.4byte	.LVL154
+ 2820 03f4 0200     		.2byte	0x2
+ 2821 03f6 7D       		.byte	0x7d
+ 2822 03f7 00       		.sleb128 0
+ 2823 03f8 60040000 		.4byte	.LVL154
+ 2824 03fc 6E040000 		.4byte	.LVL156
+ 2825 0400 0400     		.2byte	0x4
+ 2826 0402 F3       		.byte	0xf3
+ 2827 0403 01       		.uleb128 0x1
+ 2828 0404 50       		.byte	0x50
+ 2829 0405 9F       		.byte	0x9f
+ 2830 0406 6E040000 		.4byte	.LVL156
+ 2831 040a A8040000 		.4byte	.LVL166
+ 2832 040e 0200     		.2byte	0x2
+ 2833 0410 91       		.byte	0x91
+ 2834 0411 50       		.sleb128 -48
+ 2835 0412 A8040000 		.4byte	.LVL166
+ 2836 0416 B6040000 		.4byte	.LVL168
+ 2837 041a 0200     		.2byte	0x2
+ 2838 041c 91       		.byte	0x91
+ 2839 041d 54       		.sleb128 -44
+ 2840 041e B6040000 		.4byte	.LVL168
+ 2841 0422 C8040000 		.4byte	.LVL170
+ 2842 0426 0200     		.2byte	0x2
+ 2843 0428 91       		.byte	0x91
+ 2844 0429 50       		.sleb128 -48
+ 2845 042a C8040000 		.4byte	.LVL170
+ 2846 042e 22050000 		.4byte	.LFE6
+ 2847 0432 0200     		.2byte	0x2
+ 2848 0434 91       		.byte	0x91
+ 2849 0435 54       		.sleb128 -44
+ 2850 0436 00000000 		.4byte	0
+ 2851 043a 00000000 		.4byte	0
+ 2852              	.LLST13:
+ 2853 043e 00000000 		.4byte	.LVL70
+ 2854 0442 19000000 		.4byte	.LVL73-1
+ 2855 0446 0100     		.2byte	0x1
+ 2856 0448 51       		.byte	0x51
+ 2857 0449 19000000 		.4byte	.LVL73-1
+ 2858 044d 02040000 		.4byte	.LVL141
+ 2859 0451 0600     		.2byte	0x6
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 59
+
+
+ 2860 0453 F3       		.byte	0xf3
+ 2861 0454 03       		.uleb128 0x3
+ 2862 0455 F5       		.byte	0xf5
+ 2863 0456 01       		.uleb128 0x1
+ 2864 0457 2C       		.uleb128 0x2c
+ 2865 0458 9F       		.byte	0x9f
+ 2866 0459 02040000 		.4byte	.LVL141
+ 2867 045d 08040000 		.4byte	.LVL143
+ 2868 0461 0100     		.2byte	0x1
+ 2869 0463 51       		.byte	0x51
+ 2870 0464 08040000 		.4byte	.LVL143
+ 2871 0468 22050000 		.4byte	.LFE6
+ 2872 046c 0600     		.2byte	0x6
+ 2873 046e F3       		.byte	0xf3
+ 2874 046f 03       		.uleb128 0x3
+ 2875 0470 F5       		.byte	0xf5
+ 2876 0471 01       		.uleb128 0x1
+ 2877 0472 2C       		.uleb128 0x2c
+ 2878 0473 9F       		.byte	0x9f
+ 2879 0474 00000000 		.4byte	0
+ 2880 0478 00000000 		.4byte	0
+ 2881              	.LLST14:
+ 2882 047c 00000000 		.4byte	.LVL70
+ 2883 0480 19000000 		.4byte	.LVL73-1
+ 2884 0484 0100     		.2byte	0x1
+ 2885 0486 52       		.byte	0x52
+ 2886 0487 19000000 		.4byte	.LVL73-1
+ 2887 048b 02040000 		.4byte	.LVL141
+ 2888 048f 0400     		.2byte	0x4
+ 2889 0491 F3       		.byte	0xf3
+ 2890 0492 01       		.uleb128 0x1
+ 2891 0493 52       		.byte	0x52
+ 2892 0494 9F       		.byte	0x9f
+ 2893 0495 02040000 		.4byte	.LVL141
+ 2894 0499 08040000 		.4byte	.LVL143
+ 2895 049d 0100     		.2byte	0x1
+ 2896 049f 52       		.byte	0x52
+ 2897 04a0 08040000 		.4byte	.LVL143
+ 2898 04a4 22050000 		.4byte	.LFE6
+ 2899 04a8 0400     		.2byte	0x4
+ 2900 04aa F3       		.byte	0xf3
+ 2901 04ab 01       		.uleb128 0x1
+ 2902 04ac 52       		.byte	0x52
+ 2903 04ad 9F       		.byte	0x9f
+ 2904 04ae 00000000 		.4byte	0
+ 2905 04b2 00000000 		.4byte	0
+ 2906              	.LLST15:
+ 2907 04b6 00000000 		.4byte	.LVL70
+ 2908 04ba 19000000 		.4byte	.LVL73-1
+ 2909 04be 0100     		.2byte	0x1
+ 2910 04c0 53       		.byte	0x53
+ 2911 04c1 19000000 		.4byte	.LVL73-1
+ 2912 04c5 02040000 		.4byte	.LVL141
+ 2913 04c9 0400     		.2byte	0x4
+ 2914 04cb F3       		.byte	0xf3
+ 2915 04cc 01       		.uleb128 0x1
+ 2916 04cd 53       		.byte	0x53
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 60
+
+
+ 2917 04ce 9F       		.byte	0x9f
+ 2918 04cf 02040000 		.4byte	.LVL141
+ 2919 04d3 08040000 		.4byte	.LVL143
+ 2920 04d7 0100     		.2byte	0x1
+ 2921 04d9 53       		.byte	0x53
+ 2922 04da 08040000 		.4byte	.LVL143
+ 2923 04de 22050000 		.4byte	.LFE6
+ 2924 04e2 0400     		.2byte	0x4
+ 2925 04e4 F3       		.byte	0xf3
+ 2926 04e5 01       		.uleb128 0x1
+ 2927 04e6 53       		.byte	0x53
+ 2928 04e7 9F       		.byte	0x9f
+ 2929 04e8 00000000 		.4byte	0
+ 2930 04ec 00000000 		.4byte	0
+ 2931              	.LLST16:
+ 2932 04f0 16000000 		.4byte	.LVL72
+ 2933 04f4 19000000 		.4byte	.LVL73-1
+ 2934 04f8 0100     		.2byte	0x1
+ 2935 04fa 52       		.byte	0x52
+ 2936 04fb 19000000 		.4byte	.LVL73-1
+ 2937 04ff 8C000000 		.4byte	.LVL81
+ 2938 0503 0100     		.2byte	0x1
+ 2939 0505 54       		.byte	0x54
+ 2940 0506 96000000 		.4byte	.LVL82
+ 2941 050a CC000000 		.4byte	.LVL83
+ 2942 050e 0100     		.2byte	0x1
+ 2943 0510 54       		.byte	0x54
+ 2944 0511 CC000000 		.4byte	.LVL83
+ 2945 0515 DC000000 		.4byte	.LVL84
+ 2946 0519 0100     		.2byte	0x1
+ 2947 051b 53       		.byte	0x53
+ 2948 051c DC000000 		.4byte	.LVL84
+ 2949 0520 E0000000 		.4byte	.LVL85
+ 2950 0524 0200     		.2byte	0x2
+ 2951 0526 7D       		.byte	0x7d
+ 2952 0527 00       		.sleb128 0
+ 2953 0528 E0000000 		.4byte	.LVL85
+ 2954 052c F6000000 		.4byte	.LVL86
+ 2955 0530 0300     		.2byte	0x3
+ 2956 0532 74       		.byte	0x74
+ 2957 0533 05       		.sleb128 5
+ 2958 0534 9F       		.byte	0x9f
+ 2959 0535 F6000000 		.4byte	.LVL86
+ 2960 0539 0C010000 		.4byte	.LVL87
+ 2961 053d 0300     		.2byte	0x3
+ 2962 053f 74       		.byte	0x74
+ 2963 0540 06       		.sleb128 6
+ 2964 0541 9F       		.byte	0x9f
+ 2965 0542 0C010000 		.4byte	.LVL87
+ 2966 0546 22010000 		.4byte	.LVL88
+ 2967 054a 0300     		.2byte	0x3
+ 2968 054c 74       		.byte	0x74
+ 2969 054d 07       		.sleb128 7
+ 2970 054e 9F       		.byte	0x9f
+ 2971 054f 22010000 		.4byte	.LVL88
+ 2972 0553 3A010000 		.4byte	.LVL90
+ 2973 0557 0300     		.2byte	0x3
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 61
+
+
+ 2974 0559 74       		.byte	0x74
+ 2975 055a 0A       		.sleb128 10
+ 2976 055b 9F       		.byte	0x9f
+ 2977 055c 3A010000 		.4byte	.LVL90
+ 2978 0560 62010000 		.4byte	.LVL92
+ 2979 0564 0100     		.2byte	0x1
+ 2980 0566 54       		.byte	0x54
+ 2981 0567 62010000 		.4byte	.LVL92
+ 2982 056b 64010000 		.4byte	.LVL93
+ 2983 056f 0300     		.2byte	0x3
+ 2984 0571 74       		.byte	0x74
+ 2985 0572 03       		.sleb128 3
+ 2986 0573 9F       		.byte	0x9f
+ 2987 0574 64010000 		.4byte	.LVL93
+ 2988 0578 72010000 		.4byte	.LVL94
+ 2989 057c 0100     		.2byte	0x1
+ 2990 057e 53       		.byte	0x53
+ 2991 057f 72010000 		.4byte	.LVL94
+ 2992 0583 76010000 		.4byte	.LVL95
+ 2993 0587 0100     		.2byte	0x1
+ 2994 0589 54       		.byte	0x54
+ 2995 058a 76010000 		.4byte	.LVL95
+ 2996 058e BA010000 		.4byte	.LVL102
+ 2997 0592 0300     		.2byte	0x3
+ 2998 0594 74       		.byte	0x74
+ 2999 0595 01       		.sleb128 1
+ 3000 0596 9F       		.byte	0x9f
+ 3001 0597 BA010000 		.4byte	.LVL102
+ 3002 059b CA010000 		.4byte	.LVL103
+ 3003 059f 0100     		.2byte	0x1
+ 3004 05a1 54       		.byte	0x54
+ 3005 05a2 CA010000 		.4byte	.LVL103
+ 3006 05a6 E4010000 		.4byte	.LVL104
+ 3007 05aa 0200     		.2byte	0x2
+ 3008 05ac 91       		.byte	0x91
+ 3009 05ad 50       		.sleb128 -48
+ 3010 05ae 26020000 		.4byte	.LVL107
+ 3011 05b2 4E020000 		.4byte	.LVL109
+ 3012 05b6 0100     		.2byte	0x1
+ 3013 05b8 54       		.byte	0x54
+ 3014 05b9 4E020000 		.4byte	.LVL109
+ 3015 05bd 50020000 		.4byte	.LVL110
+ 3016 05c1 0300     		.2byte	0x3
+ 3017 05c3 74       		.byte	0x74
+ 3018 05c4 03       		.sleb128 3
+ 3019 05c5 9F       		.byte	0x9f
+ 3020 05c6 50020000 		.4byte	.LVL110
+ 3021 05ca 56020000 		.4byte	.LVL111
+ 3022 05ce 0100     		.2byte	0x1
+ 3023 05d0 53       		.byte	0x53
+ 3024 05d1 56020000 		.4byte	.LVL111
+ 3025 05d5 62020000 		.4byte	.LVL112
+ 3026 05d9 0200     		.2byte	0x2
+ 3027 05db 91       		.byte	0x91
+ 3028 05dc 50       		.sleb128 -48
+ 3029 05dd 62020000 		.4byte	.LVL112
+ 3030 05e1 D8020000 		.4byte	.LVL119
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 62
+
+
+ 3031 05e5 0100     		.2byte	0x1
+ 3032 05e7 54       		.byte	0x54
+ 3033 05e8 D8020000 		.4byte	.LVL119
+ 3034 05ec F2020000 		.4byte	.LVL120
+ 3035 05f0 0200     		.2byte	0x2
+ 3036 05f2 91       		.byte	0x91
+ 3037 05f3 50       		.sleb128 -48
+ 3038 05f4 32030000 		.4byte	.LVL123
+ 3039 05f8 5A030000 		.4byte	.LVL125
+ 3040 05fc 0100     		.2byte	0x1
+ 3041 05fe 54       		.byte	0x54
+ 3042 05ff 5A030000 		.4byte	.LVL125
+ 3043 0603 5C030000 		.4byte	.LVL126
+ 3044 0607 0300     		.2byte	0x3
+ 3045 0609 74       		.byte	0x74
+ 3046 060a 02       		.sleb128 2
+ 3047 060b 9F       		.byte	0x9f
+ 3048 060c 5C030000 		.4byte	.LVL126
+ 3049 0610 62030000 		.4byte	.LVL127
+ 3050 0614 0100     		.2byte	0x1
+ 3051 0616 53       		.byte	0x53
+ 3052 0617 62030000 		.4byte	.LVL127
+ 3053 061b 6E030000 		.4byte	.LVL128
+ 3054 061f 0200     		.2byte	0x2
+ 3055 0621 91       		.byte	0x91
+ 3056 0622 50       		.sleb128 -48
+ 3057 0623 6E030000 		.4byte	.LVL128
+ 3058 0627 76030000 		.4byte	.LVL129
+ 3059 062b 0100     		.2byte	0x1
+ 3060 062d 54       		.byte	0x54
+ 3061 062e B2030000 		.4byte	.LVL136
+ 3062 0632 02040000 		.4byte	.LVL141
+ 3063 0636 0100     		.2byte	0x1
+ 3064 0638 54       		.byte	0x54
+ 3065 0639 5A040000 		.4byte	.LVL153
+ 3066 063d 64040000 		.4byte	.LVL155
+ 3067 0641 0100     		.2byte	0x1
+ 3068 0643 54       		.byte	0x54
+ 3069 0644 6E040000 		.4byte	.LVL156
+ 3070 0648 78040000 		.4byte	.LVL157
+ 3071 064c 0300     		.2byte	0x3
+ 3072 064e 74       		.byte	0x74
+ 3073 064f 06       		.sleb128 6
+ 3074 0650 9F       		.byte	0x9f
+ 3075 0651 78040000 		.4byte	.LVL157
+ 3076 0655 7A040000 		.4byte	.LVL158
+ 3077 0659 0300     		.2byte	0x3
+ 3078 065b 77       		.byte	0x77
+ 3079 065c 01       		.sleb128 1
+ 3080 065d 9F       		.byte	0x9f
+ 3081 065e 7A040000 		.4byte	.LVL158
+ 3082 0662 86040000 		.4byte	.LVL159
+ 3083 0666 0300     		.2byte	0x3
+ 3084 0668 74       		.byte	0x74
+ 3085 0669 05       		.sleb128 5
+ 3086 066a 9F       		.byte	0x9f
+ 3087 066b 86040000 		.4byte	.LVL159
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 63
+
+
+ 3088 066f 88040000 		.4byte	.LVL160
+ 3089 0673 0100     		.2byte	0x1
+ 3090 0675 57       		.byte	0x57
+ 3091 0676 88040000 		.4byte	.LVL160
+ 3092 067a 8E040000 		.4byte	.LVL161
+ 3093 067e 0300     		.2byte	0x3
+ 3094 0680 74       		.byte	0x74
+ 3095 0681 0A       		.sleb128 10
+ 3096 0682 9F       		.byte	0x9f
+ 3097 0683 8E040000 		.4byte	.LVL161
+ 3098 0687 98040000 		.4byte	.LVL163
+ 3099 068b 0300     		.2byte	0x3
+ 3100 068d 77       		.byte	0x77
+ 3101 068e 05       		.sleb128 5
+ 3102 068f 9F       		.byte	0x9f
+ 3103 0690 98040000 		.4byte	.LVL163
+ 3104 0694 9E040000 		.4byte	.LVL164
+ 3105 0698 0300     		.2byte	0x3
+ 3106 069a 74       		.byte	0x74
+ 3107 069b 07       		.sleb128 7
+ 3108 069c 9F       		.byte	0x9f
+ 3109 069d 9E040000 		.4byte	.LVL164
+ 3110 06a1 A8040000 		.4byte	.LVL166
+ 3111 06a5 0300     		.2byte	0x3
+ 3112 06a7 77       		.byte	0x77
+ 3113 06a8 02       		.sleb128 2
+ 3114 06a9 9F       		.byte	0x9f
+ 3115 06aa B6040000 		.4byte	.LVL168
+ 3116 06ae C6040000 		.4byte	.LVL169
+ 3117 06b2 0100     		.2byte	0x1
+ 3118 06b4 54       		.byte	0x54
+ 3119 06b5 C6040000 		.4byte	.LVL169
+ 3120 06b9 C8040000 		.4byte	.LVL170
+ 3121 06bd 0300     		.2byte	0x3
+ 3122 06bf 73       		.byte	0x73
+ 3123 06c0 02       		.sleb128 2
+ 3124 06c1 9F       		.byte	0x9f
+ 3125 06c2 D6040000 		.4byte	.LVL172
+ 3126 06c6 E2040000 		.4byte	.LVL173
+ 3127 06ca 0100     		.2byte	0x1
+ 3128 06cc 54       		.byte	0x54
+ 3129 06cd E2040000 		.4byte	.LVL173
+ 3130 06d1 E4040000 		.4byte	.LVL174
+ 3131 06d5 0300     		.2byte	0x3
+ 3132 06d7 77       		.byte	0x77
+ 3133 06d8 08       		.sleb128 8
+ 3134 06d9 9F       		.byte	0x9f
+ 3135 06da E4040000 		.4byte	.LVL174
+ 3136 06de EA040000 		.4byte	.LVL175
+ 3137 06e2 0100     		.2byte	0x1
+ 3138 06e4 54       		.byte	0x54
+ 3139 06e5 EA040000 		.4byte	.LVL175
+ 3140 06e9 F4040000 		.4byte	.LVL177
+ 3141 06ed 0300     		.2byte	0x3
+ 3142 06ef 77       		.byte	0x77
+ 3143 06f0 08       		.sleb128 8
+ 3144 06f1 9F       		.byte	0x9f
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 64
+
+
+ 3145 06f2 02050000 		.4byte	.LVL179
+ 3146 06f6 0E050000 		.4byte	.LVL180
+ 3147 06fa 0100     		.2byte	0x1
+ 3148 06fc 54       		.byte	0x54
+ 3149 06fd 0E050000 		.4byte	.LVL180
+ 3150 0701 10050000 		.4byte	.LVL181
+ 3151 0705 0300     		.2byte	0x3
+ 3152 0707 77       		.byte	0x77
+ 3153 0708 07       		.sleb128 7
+ 3154 0709 9F       		.byte	0x9f
+ 3155 070a 1E050000 		.4byte	.LVL183
+ 3156 070e 22050000 		.4byte	.LFE6
+ 3157 0712 0100     		.2byte	0x1
+ 3158 0714 54       		.byte	0x54
+ 3159 0715 00000000 		.4byte	0
+ 3160 0719 00000000 		.4byte	0
+ 3161              	.LLST17:
+ 3162 071d 42000000 		.4byte	.LVL75
+ 3163 0721 6C000000 		.4byte	.LVL77
+ 3164 0725 0100     		.2byte	0x1
+ 3165 0727 55       		.byte	0x55
+ 3166 0728 6C000000 		.4byte	.LVL77
+ 3167 072c 70000000 		.4byte	.LVL78
+ 3168 0730 0600     		.2byte	0x6
+ 3169 0732 73       		.byte	0x73
+ 3170 0733 00       		.sleb128 0
+ 3171 0734 75       		.byte	0x75
+ 3172 0735 00       		.sleb128 0
+ 3173 0736 22       		.byte	0x22
+ 3174 0737 9F       		.byte	0x9f
+ 3175 0738 70000000 		.4byte	.LVL78
+ 3176 073c 8C000000 		.4byte	.LVL81
+ 3177 0740 0100     		.2byte	0x1
+ 3178 0742 55       		.byte	0x55
+ 3179 0743 72010000 		.4byte	.LVL94
+ 3180 0747 BA010000 		.4byte	.LVL102
+ 3181 074b 0100     		.2byte	0x1
+ 3182 074d 55       		.byte	0x55
+ 3183 074e A0020000 		.4byte	.LVL114
+ 3184 0752 A4020000 		.4byte	.LVL115
+ 3185 0756 0600     		.2byte	0x6
+ 3186 0758 73       		.byte	0x73
+ 3187 0759 00       		.sleb128 0
+ 3188 075a 75       		.byte	0x75
+ 3189 075b 00       		.sleb128 0
+ 3190 075c 22       		.byte	0x22
+ 3191 075d 9F       		.byte	0x9f
+ 3192 075e A4020000 		.4byte	.LVL115
+ 3193 0762 BA020000 		.4byte	.LVL117
+ 3194 0766 0100     		.2byte	0x1
+ 3195 0768 55       		.byte	0x55
+ 3196 0769 00000000 		.4byte	0
+ 3197 076d 00000000 		.4byte	0
+ 3198              	.LLST18:
+ 3199 0771 82010000 		.4byte	.LVL96
+ 3200 0775 86010000 		.4byte	.LVL97
+ 3201 0779 0100     		.2byte	0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 65
+
+
+ 3202 077b 52       		.byte	0x52
+ 3203 077c 86010000 		.4byte	.LVL97
+ 3204 0780 BA010000 		.4byte	.LVL102
+ 3205 0784 0100     		.2byte	0x1
+ 3206 0786 57       		.byte	0x57
+ 3207 0787 7E030000 		.4byte	.LVL130
+ 3208 078b 82030000 		.4byte	.LVL131
+ 3209 078f 0100     		.2byte	0x1
+ 3210 0791 52       		.byte	0x52
+ 3211 0792 82030000 		.4byte	.LVL131
+ 3212 0796 B2030000 		.4byte	.LVL136
+ 3213 079a 0100     		.2byte	0x1
+ 3214 079c 58       		.byte	0x58
+ 3215 079d 00000000 		.4byte	0
+ 3216 07a1 00000000 		.4byte	0
+ 3217              	.LLST19:
+ 3218 07a5 12040000 		.4byte	.LVL144
+ 3219 07a9 5A040000 		.4byte	.LVL153
+ 3220 07ad 0A00     		.2byte	0xa
+ 3221 07af F5       		.byte	0xf5
+ 3222 07b0 0A       		.uleb128 0xa
+ 3223 07b1 25       		.uleb128 0x25
+ 3224 07b2 F5       		.byte	0xf5
+ 3225 07b3 04       		.uleb128 0x4
+ 3226 07b4 25       		.uleb128 0x25
+ 3227 07b5 1C       		.byte	0x1c
+ 3228 07b6 F7       		.byte	0xf7
+ 3229 07b7 2C       		.uleb128 0x2c
+ 3230 07b8 9F       		.byte	0x9f
+ 3231 07b9 78040000 		.4byte	.LVL157
+ 3232 07bd 7A040000 		.4byte	.LVL158
+ 3233 07c1 0A00     		.2byte	0xa
+ 3234 07c3 F5       		.byte	0xf5
+ 3235 07c4 0A       		.uleb128 0xa
+ 3236 07c5 25       		.uleb128 0x25
+ 3237 07c6 F5       		.byte	0xf5
+ 3238 07c7 04       		.uleb128 0x4
+ 3239 07c8 25       		.uleb128 0x25
+ 3240 07c9 1C       		.byte	0x1c
+ 3241 07ca F7       		.byte	0xf7
+ 3242 07cb 2C       		.uleb128 0x2c
+ 3243 07cc 9F       		.byte	0x9f
+ 3244 07cd 86040000 		.4byte	.LVL159
+ 3245 07d1 88040000 		.4byte	.LVL160
+ 3246 07d5 0A00     		.2byte	0xa
+ 3247 07d7 F5       		.byte	0xf5
+ 3248 07d8 0A       		.uleb128 0xa
+ 3249 07d9 25       		.uleb128 0x25
+ 3250 07da F5       		.byte	0xf5
+ 3251 07db 04       		.uleb128 0x4
+ 3252 07dc 25       		.uleb128 0x25
+ 3253 07dd 1C       		.byte	0x1c
+ 3254 07de F7       		.byte	0xf7
+ 3255 07df 2C       		.uleb128 0x2c
+ 3256 07e0 9F       		.byte	0x9f
+ 3257 07e1 96040000 		.4byte	.LVL162
+ 3258 07e5 98040000 		.4byte	.LVL163
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 66
+
+
+ 3259 07e9 0A00     		.2byte	0xa
+ 3260 07eb F5       		.byte	0xf5
+ 3261 07ec 0A       		.uleb128 0xa
+ 3262 07ed 25       		.uleb128 0x25
+ 3263 07ee F5       		.byte	0xf5
+ 3264 07ef 04       		.uleb128 0x4
+ 3265 07f0 25       		.uleb128 0x25
+ 3266 07f1 1C       		.byte	0x1c
+ 3267 07f2 F7       		.byte	0xf7
+ 3268 07f3 2C       		.uleb128 0x2c
+ 3269 07f4 9F       		.byte	0x9f
+ 3270 07f5 A6040000 		.4byte	.LVL165
+ 3271 07f9 A8040000 		.4byte	.LVL166
+ 3272 07fd 0A00     		.2byte	0xa
+ 3273 07ff F5       		.byte	0xf5
+ 3274 0800 0A       		.uleb128 0xa
+ 3275 0801 25       		.uleb128 0x25
+ 3276 0802 F5       		.byte	0xf5
+ 3277 0803 04       		.uleb128 0x4
+ 3278 0804 25       		.uleb128 0x25
+ 3279 0805 1C       		.byte	0x1c
+ 3280 0806 F7       		.byte	0xf7
+ 3281 0807 2C       		.uleb128 0x2c
+ 3282 0808 9F       		.byte	0x9f
+ 3283 0809 B4040000 		.4byte	.LVL167
+ 3284 080d B6040000 		.4byte	.LVL168
+ 3285 0811 0A00     		.2byte	0xa
+ 3286 0813 F5       		.byte	0xf5
+ 3287 0814 0A       		.uleb128 0xa
+ 3288 0815 25       		.uleb128 0x25
+ 3289 0816 F5       		.byte	0xf5
+ 3290 0817 04       		.uleb128 0x4
+ 3291 0818 25       		.uleb128 0x25
+ 3292 0819 1C       		.byte	0x1c
+ 3293 081a F7       		.byte	0xf7
+ 3294 081b 2C       		.uleb128 0x2c
+ 3295 081c 9F       		.byte	0x9f
+ 3296 081d C6040000 		.4byte	.LVL169
+ 3297 0821 C8040000 		.4byte	.LVL170
+ 3298 0825 0A00     		.2byte	0xa
+ 3299 0827 F5       		.byte	0xf5
+ 3300 0828 0A       		.uleb128 0xa
+ 3301 0829 25       		.uleb128 0x25
+ 3302 082a F5       		.byte	0xf5
+ 3303 082b 04       		.uleb128 0x4
+ 3304 082c 25       		.uleb128 0x25
+ 3305 082d 1C       		.byte	0x1c
+ 3306 082e F7       		.byte	0xf7
+ 3307 082f 2C       		.uleb128 0x2c
+ 3308 0830 9F       		.byte	0x9f
+ 3309 0831 D4040000 		.4byte	.LVL171
+ 3310 0835 D6040000 		.4byte	.LVL172
+ 3311 0839 0A00     		.2byte	0xa
+ 3312 083b F5       		.byte	0xf5
+ 3313 083c 0A       		.uleb128 0xa
+ 3314 083d 25       		.uleb128 0x25
+ 3315 083e F5       		.byte	0xf5
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 67
+
+
+ 3316 083f 04       		.uleb128 0x4
+ 3317 0840 25       		.uleb128 0x25
+ 3318 0841 1C       		.byte	0x1c
+ 3319 0842 F7       		.byte	0xf7
+ 3320 0843 2C       		.uleb128 0x2c
+ 3321 0844 9F       		.byte	0x9f
+ 3322 0845 E2040000 		.4byte	.LVL173
+ 3323 0849 E4040000 		.4byte	.LVL174
+ 3324 084d 0A00     		.2byte	0xa
+ 3325 084f F5       		.byte	0xf5
+ 3326 0850 0A       		.uleb128 0xa
+ 3327 0851 25       		.uleb128 0x25
+ 3328 0852 F5       		.byte	0xf5
+ 3329 0853 04       		.uleb128 0x4
+ 3330 0854 25       		.uleb128 0x25
+ 3331 0855 1C       		.byte	0x1c
+ 3332 0856 F7       		.byte	0xf7
+ 3333 0857 2C       		.uleb128 0x2c
+ 3334 0858 9F       		.byte	0x9f
+ 3335 0859 F2040000 		.4byte	.LVL176
+ 3336 085d F4040000 		.4byte	.LVL177
+ 3337 0861 0A00     		.2byte	0xa
+ 3338 0863 F5       		.byte	0xf5
+ 3339 0864 0A       		.uleb128 0xa
+ 3340 0865 25       		.uleb128 0x25
+ 3341 0866 F5       		.byte	0xf5
+ 3342 0867 04       		.uleb128 0x4
+ 3343 0868 25       		.uleb128 0x25
+ 3344 0869 1C       		.byte	0x1c
+ 3345 086a F7       		.byte	0xf7
+ 3346 086b 2C       		.uleb128 0x2c
+ 3347 086c 9F       		.byte	0x9f
+ 3348 086d 00050000 		.4byte	.LVL178
+ 3349 0871 02050000 		.4byte	.LVL179
+ 3350 0875 0A00     		.2byte	0xa
+ 3351 0877 F5       		.byte	0xf5
+ 3352 0878 0A       		.uleb128 0xa
+ 3353 0879 25       		.uleb128 0x25
+ 3354 087a F5       		.byte	0xf5
+ 3355 087b 04       		.uleb128 0x4
+ 3356 087c 25       		.uleb128 0x25
+ 3357 087d 1C       		.byte	0x1c
+ 3358 087e F7       		.byte	0xf7
+ 3359 087f 2C       		.uleb128 0x2c
+ 3360 0880 9F       		.byte	0x9f
+ 3361 0881 0E050000 		.4byte	.LVL180
+ 3362 0885 10050000 		.4byte	.LVL181
+ 3363 0889 0A00     		.2byte	0xa
+ 3364 088b F5       		.byte	0xf5
+ 3365 088c 0A       		.uleb128 0xa
+ 3366 088d 25       		.uleb128 0x25
+ 3367 088e F5       		.byte	0xf5
+ 3368 088f 04       		.uleb128 0x4
+ 3369 0890 25       		.uleb128 0x25
+ 3370 0891 1C       		.byte	0x1c
+ 3371 0892 F7       		.byte	0xf7
+ 3372 0893 2C       		.uleb128 0x2c
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 68
+
+
+ 3373 0894 9F       		.byte	0x9f
+ 3374 0895 1C050000 		.4byte	.LVL182
+ 3375 0899 1E050000 		.4byte	.LVL183
+ 3376 089d 0A00     		.2byte	0xa
+ 3377 089f F5       		.byte	0xf5
+ 3378 08a0 0A       		.uleb128 0xa
+ 3379 08a1 25       		.uleb128 0x25
+ 3380 08a2 F5       		.byte	0xf5
+ 3381 08a3 04       		.uleb128 0x4
+ 3382 08a4 25       		.uleb128 0x25
+ 3383 08a5 1C       		.byte	0x1c
+ 3384 08a6 F7       		.byte	0xf7
+ 3385 08a7 2C       		.uleb128 0x2c
+ 3386 08a8 9F       		.byte	0x9f
+ 3387 08a9 00000000 		.4byte	0
+ 3388 08ad 00000000 		.4byte	0
+ 3389              	.LLST20:
+ 3390 08b1 12040000 		.4byte	.LVL144
+ 3391 08b5 5A040000 		.4byte	.LVL153
+ 3392 08b9 0A00     		.2byte	0xa
+ 3393 08bb F5       		.byte	0xf5
+ 3394 08bc 08       		.uleb128 0x8
+ 3395 08bd 25       		.uleb128 0x25
+ 3396 08be F5       		.byte	0xf5
+ 3397 08bf 0A       		.uleb128 0xa
+ 3398 08c0 25       		.uleb128 0x25
+ 3399 08c1 1C       		.byte	0x1c
+ 3400 08c2 F7       		.byte	0xf7
+ 3401 08c3 2C       		.uleb128 0x2c
+ 3402 08c4 9F       		.byte	0x9f
+ 3403 08c5 78040000 		.4byte	.LVL157
+ 3404 08c9 7A040000 		.4byte	.LVL158
+ 3405 08cd 0A00     		.2byte	0xa
+ 3406 08cf F5       		.byte	0xf5
+ 3407 08d0 08       		.uleb128 0x8
+ 3408 08d1 25       		.uleb128 0x25
+ 3409 08d2 F5       		.byte	0xf5
+ 3410 08d3 0A       		.uleb128 0xa
+ 3411 08d4 25       		.uleb128 0x25
+ 3412 08d5 1C       		.byte	0x1c
+ 3413 08d6 F7       		.byte	0xf7
+ 3414 08d7 2C       		.uleb128 0x2c
+ 3415 08d8 9F       		.byte	0x9f
+ 3416 08d9 86040000 		.4byte	.LVL159
+ 3417 08dd 88040000 		.4byte	.LVL160
+ 3418 08e1 0A00     		.2byte	0xa
+ 3419 08e3 F5       		.byte	0xf5
+ 3420 08e4 08       		.uleb128 0x8
+ 3421 08e5 25       		.uleb128 0x25
+ 3422 08e6 F5       		.byte	0xf5
+ 3423 08e7 0A       		.uleb128 0xa
+ 3424 08e8 25       		.uleb128 0x25
+ 3425 08e9 1C       		.byte	0x1c
+ 3426 08ea F7       		.byte	0xf7
+ 3427 08eb 2C       		.uleb128 0x2c
+ 3428 08ec 9F       		.byte	0x9f
+ 3429 08ed 96040000 		.4byte	.LVL162
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 69
+
+
+ 3430 08f1 98040000 		.4byte	.LVL163
+ 3431 08f5 0A00     		.2byte	0xa
+ 3432 08f7 F5       		.byte	0xf5
+ 3433 08f8 08       		.uleb128 0x8
+ 3434 08f9 25       		.uleb128 0x25
+ 3435 08fa F5       		.byte	0xf5
+ 3436 08fb 0A       		.uleb128 0xa
+ 3437 08fc 25       		.uleb128 0x25
+ 3438 08fd 1C       		.byte	0x1c
+ 3439 08fe F7       		.byte	0xf7
+ 3440 08ff 2C       		.uleb128 0x2c
+ 3441 0900 9F       		.byte	0x9f
+ 3442 0901 A6040000 		.4byte	.LVL165
+ 3443 0905 A8040000 		.4byte	.LVL166
+ 3444 0909 0A00     		.2byte	0xa
+ 3445 090b F5       		.byte	0xf5
+ 3446 090c 08       		.uleb128 0x8
+ 3447 090d 25       		.uleb128 0x25
+ 3448 090e F5       		.byte	0xf5
+ 3449 090f 0A       		.uleb128 0xa
+ 3450 0910 25       		.uleb128 0x25
+ 3451 0911 1C       		.byte	0x1c
+ 3452 0912 F7       		.byte	0xf7
+ 3453 0913 2C       		.uleb128 0x2c
+ 3454 0914 9F       		.byte	0x9f
+ 3455 0915 B4040000 		.4byte	.LVL167
+ 3456 0919 B6040000 		.4byte	.LVL168
+ 3457 091d 0A00     		.2byte	0xa
+ 3458 091f F5       		.byte	0xf5
+ 3459 0920 08       		.uleb128 0x8
+ 3460 0921 25       		.uleb128 0x25
+ 3461 0922 F5       		.byte	0xf5
+ 3462 0923 0A       		.uleb128 0xa
+ 3463 0924 25       		.uleb128 0x25
+ 3464 0925 1C       		.byte	0x1c
+ 3465 0926 F7       		.byte	0xf7
+ 3466 0927 2C       		.uleb128 0x2c
+ 3467 0928 9F       		.byte	0x9f
+ 3468 0929 C6040000 		.4byte	.LVL169
+ 3469 092d C8040000 		.4byte	.LVL170
+ 3470 0931 0A00     		.2byte	0xa
+ 3471 0933 F5       		.byte	0xf5
+ 3472 0934 08       		.uleb128 0x8
+ 3473 0935 25       		.uleb128 0x25
+ 3474 0936 F5       		.byte	0xf5
+ 3475 0937 0A       		.uleb128 0xa
+ 3476 0938 25       		.uleb128 0x25
+ 3477 0939 1C       		.byte	0x1c
+ 3478 093a F7       		.byte	0xf7
+ 3479 093b 2C       		.uleb128 0x2c
+ 3480 093c 9F       		.byte	0x9f
+ 3481 093d D4040000 		.4byte	.LVL171
+ 3482 0941 D6040000 		.4byte	.LVL172
+ 3483 0945 0A00     		.2byte	0xa
+ 3484 0947 F5       		.byte	0xf5
+ 3485 0948 08       		.uleb128 0x8
+ 3486 0949 25       		.uleb128 0x25
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 70
+
+
+ 3487 094a F5       		.byte	0xf5
+ 3488 094b 0A       		.uleb128 0xa
+ 3489 094c 25       		.uleb128 0x25
+ 3490 094d 1C       		.byte	0x1c
+ 3491 094e F7       		.byte	0xf7
+ 3492 094f 2C       		.uleb128 0x2c
+ 3493 0950 9F       		.byte	0x9f
+ 3494 0951 E2040000 		.4byte	.LVL173
+ 3495 0955 E4040000 		.4byte	.LVL174
+ 3496 0959 0A00     		.2byte	0xa
+ 3497 095b F5       		.byte	0xf5
+ 3498 095c 08       		.uleb128 0x8
+ 3499 095d 25       		.uleb128 0x25
+ 3500 095e F5       		.byte	0xf5
+ 3501 095f 0A       		.uleb128 0xa
+ 3502 0960 25       		.uleb128 0x25
+ 3503 0961 1C       		.byte	0x1c
+ 3504 0962 F7       		.byte	0xf7
+ 3505 0963 2C       		.uleb128 0x2c
+ 3506 0964 9F       		.byte	0x9f
+ 3507 0965 F2040000 		.4byte	.LVL176
+ 3508 0969 F4040000 		.4byte	.LVL177
+ 3509 096d 0A00     		.2byte	0xa
+ 3510 096f F5       		.byte	0xf5
+ 3511 0970 08       		.uleb128 0x8
+ 3512 0971 25       		.uleb128 0x25
+ 3513 0972 F5       		.byte	0xf5
+ 3514 0973 0A       		.uleb128 0xa
+ 3515 0974 25       		.uleb128 0x25
+ 3516 0975 1C       		.byte	0x1c
+ 3517 0976 F7       		.byte	0xf7
+ 3518 0977 2C       		.uleb128 0x2c
+ 3519 0978 9F       		.byte	0x9f
+ 3520 0979 00050000 		.4byte	.LVL178
+ 3521 097d 02050000 		.4byte	.LVL179
+ 3522 0981 0A00     		.2byte	0xa
+ 3523 0983 F5       		.byte	0xf5
+ 3524 0984 08       		.uleb128 0x8
+ 3525 0985 25       		.uleb128 0x25
+ 3526 0986 F5       		.byte	0xf5
+ 3527 0987 0A       		.uleb128 0xa
+ 3528 0988 25       		.uleb128 0x25
+ 3529 0989 1C       		.byte	0x1c
+ 3530 098a F7       		.byte	0xf7
+ 3531 098b 2C       		.uleb128 0x2c
+ 3532 098c 9F       		.byte	0x9f
+ 3533 098d 0E050000 		.4byte	.LVL180
+ 3534 0991 10050000 		.4byte	.LVL181
+ 3535 0995 0A00     		.2byte	0xa
+ 3536 0997 F5       		.byte	0xf5
+ 3537 0998 08       		.uleb128 0x8
+ 3538 0999 25       		.uleb128 0x25
+ 3539 099a F5       		.byte	0xf5
+ 3540 099b 0A       		.uleb128 0xa
+ 3541 099c 25       		.uleb128 0x25
+ 3542 099d 1C       		.byte	0x1c
+ 3543 099e F7       		.byte	0xf7
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 71
+
+
+ 3544 099f 2C       		.uleb128 0x2c
+ 3545 09a0 9F       		.byte	0x9f
+ 3546 09a1 1C050000 		.4byte	.LVL182
+ 3547 09a5 1E050000 		.4byte	.LVL183
+ 3548 09a9 0A00     		.2byte	0xa
+ 3549 09ab F5       		.byte	0xf5
+ 3550 09ac 08       		.uleb128 0x8
+ 3551 09ad 25       		.uleb128 0x25
+ 3552 09ae F5       		.byte	0xf5
+ 3553 09af 0A       		.uleb128 0xa
+ 3554 09b0 25       		.uleb128 0x25
+ 3555 09b1 1C       		.byte	0x1c
+ 3556 09b2 F7       		.byte	0xf7
+ 3557 09b3 2C       		.uleb128 0x2c
+ 3558 09b4 9F       		.byte	0x9f
+ 3559 09b5 00000000 		.4byte	0
+ 3560 09b9 00000000 		.4byte	0
+ 3561              		.section	.debug_aranges,"",%progbits
+ 3562 0000 4C000000 		.4byte	0x4c
+ 3563 0004 0200     		.2byte	0x2
+ 3564 0006 00000000 		.4byte	.Ldebug_info0
+ 3565 000a 04       		.byte	0x4
+ 3566 000b 00       		.byte	0
+ 3567 000c 0000     		.2byte	0
+ 3568 000e 0000     		.2byte	0
+ 3569 0010 00000000 		.4byte	.LFB0
+ 3570 0014 48000000 		.4byte	.LFE0-.LFB0
+ 3571 0018 00000000 		.4byte	.LFB1
+ 3572 001c 4C000000 		.4byte	.LFE1-.LFB1
+ 3573 0020 00000000 		.4byte	.LFB2
+ 3574 0024 B8000000 		.4byte	.LFE2-.LFB2
+ 3575 0028 00000000 		.4byte	.LFB3
+ 3576 002c 90010000 		.4byte	.LFE3-.LFB3
+ 3577 0030 00000000 		.4byte	.LFB4
+ 3578 0034 14000000 		.4byte	.LFE4-.LFB4
+ 3579 0038 00000000 		.4byte	.LFB5
+ 3580 003c 24000000 		.4byte	.LFE5-.LFB5
+ 3581 0040 00000000 		.4byte	.LFB6
+ 3582 0044 22050000 		.4byte	.LFE6-.LFB6
+ 3583 0048 00000000 		.4byte	0
+ 3584 004c 00000000 		.4byte	0
+ 3585              		.section	.debug_ranges,"",%progbits
+ 3586              	.Ldebug_ranges0:
+ 3587 0000 00000000 		.4byte	.LBB4
+ 3588 0004 02000000 		.4byte	.LBE4
+ 3589 0008 04000000 		.4byte	.LBB7
+ 3590 000c 0E000000 		.4byte	.LBE7
+ 3591 0010 00000000 		.4byte	0
+ 3592 0014 00000000 		.4byte	0
+ 3593 0018 00000000 		.4byte	.LFB0
+ 3594 001c 48000000 		.4byte	.LFE0
+ 3595 0020 00000000 		.4byte	.LFB1
+ 3596 0024 4C000000 		.4byte	.LFE1
+ 3597 0028 00000000 		.4byte	.LFB2
+ 3598 002c B8000000 		.4byte	.LFE2
+ 3599 0030 00000000 		.4byte	.LFB3
+ 3600 0034 90010000 		.4byte	.LFE3
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 72
+
+
+ 3601 0038 00000000 		.4byte	.LFB4
+ 3602 003c 14000000 		.4byte	.LFE4
+ 3603 0040 00000000 		.4byte	.LFB5
+ 3604 0044 24000000 		.4byte	.LFE5
+ 3605 0048 00000000 		.4byte	.LFB6
+ 3606 004c 22050000 		.4byte	.LFE6
+ 3607 0050 00000000 		.4byte	0
+ 3608 0054 00000000 		.4byte	0
+ 3609              		.section	.debug_line,"",%progbits
+ 3610              	.Ldebug_line0:
+ 3611 0000 7F020000 		.section	.debug_str,"MS",%progbits,1
+ 3611      02009900 
+ 3611      00000201 
+ 3611      FB0E0D00 
+ 3611      01010101 
+ 3612              	.LASF47:
+ 3613 0000 66726571 		.ascii	"freqTable\000"
+ 3613      5461626C 
+ 3613      6500
+ 3614              	.LASF39:
+ 3615 000a 6C617374 		.ascii	"last_midi\000"
+ 3615      5F6D6964 
+ 3615      6900
+ 3616              	.LASF10:
+ 3617 0014 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3617      206C6F6E 
+ 3617      6720756E 
+ 3617      7369676E 
+ 3617      65642069 
+ 3618              	.LASF40:
+ 3619 002b 6C6F7765 		.ascii	"lower\000"
+ 3619      7200
+ 3620              	.LASF23:
+ 3621 0031 4B45595F 		.ascii	"KEY_OF_A\000"
+ 3621      4F465F41 
+ 3621      00
+ 3622              	.LASF25:
+ 3623 003a 4B45595F 		.ascii	"KEY_OF_B\000"
+ 3623      4F465F42 
+ 3623      00
+ 3624              	.LASF14:
+ 3625 0043 4B45595F 		.ascii	"KEY_OF_C\000"
+ 3625      4F465F43 
+ 3625      00
+ 3626              	.LASF16:
+ 3627 004c 4B45595F 		.ascii	"KEY_OF_D\000"
+ 3627      4F465F44 
+ 3627      00
+ 3628              	.LASF18:
+ 3629 0055 4B45595F 		.ascii	"KEY_OF_E\000"
+ 3629      4F465F45 
+ 3629      00
+ 3630              	.LASF19:
+ 3631 005e 4B45595F 		.ascii	"KEY_OF_F\000"
+ 3631      4F465F46 
+ 3631      00
+ 3632              	.LASF21:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 73
+
+
+ 3633 0067 4B45595F 		.ascii	"KEY_OF_G\000"
+ 3633      4F465F47 
+ 3633      00
+ 3634              	.LASF37:
+ 3635 0070 6D696469 		.ascii	"midi_note_from_freq\000"
+ 3635      5F6E6F74 
+ 3635      655F6672 
+ 3635      6F6D5F66 
+ 3635      72657100 
+ 3636              	.LASF9:
+ 3637 0084 6C6F6E67 		.ascii	"long long int\000"
+ 3637      206C6F6E 
+ 3637      6720696E 
+ 3637      7400
+ 3638              	.LASF3:
+ 3639 0092 7369676E 		.ascii	"signed char\000"
+ 3639      65642063 
+ 3639      68617200 
+ 3640              	.LASF36:
+ 3641 009e 66726571 		.ascii	"freq\000"
+ 3641      00
+ 3642              	.LASF56:
+ 3643 00a3 706F7075 		.ascii	"populate_midi_array\000"
+ 3643      6C617465 
+ 3643      5F6D6964 
+ 3643      695F6172 
+ 3643      72617900 
+ 3644              	.LASF48:
+ 3645 00b7 7363616C 		.ascii	"scale\000"
+ 3645      6500
+ 3646              	.LASF43:
+ 3647 00bd 6D696469 		.ascii	"midi_note_shift_octave\000"
+ 3647      5F6E6F74 
+ 3647      655F7368 
+ 3647      6966745F 
+ 3647      6F637461 
+ 3648              	.LASF7:
+ 3649 00d4 6C6F6E67 		.ascii	"long int\000"
+ 3649      20696E74 
+ 3649      00
+ 3650              	.LASF20:
+ 3651 00dd 4B45595F 		.ascii	"KEY_OF_Gb\000"
+ 3651      4F465F47 
+ 3651      6200
+ 3652              	.LASF45:
+ 3653 00e7 75707065 		.ascii	"upper\000"
+ 3653      7200
+ 3654              	.LASF0:
+ 3655 00ed 646F7562 		.ascii	"double\000"
+ 3655      6C6500
+ 3656              	.LASF41:
+ 3657 00f4 6D696469 		.ascii	"midi_note_basename\000"
+ 3657      5F6E6F74 
+ 3657      655F6261 
+ 3657      73656E61 
+ 3657      6D6500
+ 3658              	.LASF27:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 74
+
+
+ 3659 0107 4D757369 		.ascii	"MusicScale\000"
+ 3659      63536361 
+ 3659      6C6500
+ 3660              	.LASF2:
+ 3661 0112 756E7369 		.ascii	"unsigned int\000"
+ 3661      676E6564 
+ 3661      20696E74 
+ 3661      00
+ 3662              	.LASF8:
+ 3663 011f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3663      20756E73 
+ 3663      69676E65 
+ 3663      6420696E 
+ 3663      7400
+ 3664              	.LASF52:
+ 3665 0131 6D696469 		.ascii	"midi_note_octave\000"
+ 3665      5F6E6F74 
+ 3665      655F6F63 
+ 3665      74617665 
+ 3665      00
+ 3666              	.LASF6:
+ 3667 0142 73686F72 		.ascii	"short unsigned int\000"
+ 3667      7420756E 
+ 3667      7369676E 
+ 3667      65642069 
+ 3667      6E7400
+ 3668              	.LASF22:
+ 3669 0155 4B45595F 		.ascii	"KEY_OF_Ab\000"
+ 3669      4F465F41 
+ 3669      6200
+ 3670              	.LASF33:
+ 3671 015f 424C5545 		.ascii	"BLUES\000"
+ 3671      5300
+ 3672              	.LASF53:
+ 3673 0165 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 3673      4320342E 
+ 3673      392E3320 
+ 3673      32303135 
+ 3673      30333033 
+ 3674 0198 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 3674      20726576 
+ 3674      6973696F 
+ 3674      6E203232 
+ 3674      31323230 
+ 3675 01cb 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 3675      66756E63 
+ 3675      74696F6E 
+ 3675      2D736563 
+ 3675      74696F6E 
+ 3676              	.LASF11:
+ 3677 01f3 73697A65 		.ascii	"sizetype\000"
+ 3677      74797065 
+ 3677      00
+ 3678              	.LASF13:
+ 3679 01fc 6C6F6E67 		.ascii	"long double\000"
+ 3679      20646F75 
+ 3679      626C6500 
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 75
+
+
+ 3680              	.LASF32:
+ 3681 0208 57484F4C 		.ascii	"WHOLE_TONE\000"
+ 3681      455F544F 
+ 3681      4E4500
+ 3682              	.LASF24:
+ 3683 0213 4B45595F 		.ascii	"KEY_OF_Bb\000"
+ 3683      4F465F42 
+ 3683      6200
+ 3684              	.LASF55:
+ 3685 021d 433A5C55 		.ascii	"C:\\Users\\jmdevoto\\Desktop\\Builds\\(4-24-17)Humm"
+ 3685      73657273 
+ 3685      5C6A6D64 
+ 3685      65766F74 
+ 3685      6F5C4465 
+ 3686 024b 696E6762 		.ascii	"ingbird-059-v1\\Hummingbird(Continuous Output).cyds"
+ 3686      6972642D 
+ 3686      3035392D 
+ 3686      76315C48 
+ 3686      756D6D69 
+ 3687 027d 6E00     		.ascii	"n\000"
+ 3688              	.LASF30:
+ 3689 027f 4D414A4F 		.ascii	"MAJOR_PENT\000"
+ 3689      525F5045 
+ 3689      4E5400
+ 3690              	.LASF1:
+ 3691 028a 666C6F61 		.ascii	"float\000"
+ 3691      7400
+ 3692              	.LASF4:
+ 3693 0290 756E7369 		.ascii	"unsigned char\000"
+ 3693      676E6564 
+ 3693      20636861 
+ 3693      7200
+ 3694              	.LASF29:
+ 3695 029e 4E415455 		.ascii	"NATURAL_MINOR\000"
+ 3695      52414C5F 
+ 3695      4D494E4F 
+ 3695      5200
+ 3696              	.LASF42:
+ 3697 02ac 6E6F7465 		.ascii	"note\000"
+ 3697      00
+ 3698              	.LASF5:
+ 3699 02b1 73686F72 		.ascii	"short int\000"
+ 3699      7420696E 
+ 3699      7400
+ 3700              	.LASF57:
+ 3701 02bb 726F756E 		.ascii	"round\000"
+ 3701      6400
+ 3702              	.LASF50:
+ 3703 02c1 7363616C 		.ascii	"scaleMajor\000"
+ 3703      654D616A 
+ 3703      6F7200
+ 3704              	.LASF38:
+ 3705 02cc 6D696469 		.ascii	"midi_note_changed\000"
+ 3705      5F6E6F74 
+ 3705      655F6368 
+ 3705      616E6765 
+ 3705      6400
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cccFBlbc.s 			page 76
+
+
+ 3706              	.LASF12:
+ 3707 02de 63686172 		.ascii	"char\000"
+ 3707      00
+ 3708              	.LASF26:
+ 3709 02e3 4D757369 		.ascii	"MusicKey\000"
+ 3709      634B6579 
+ 3709      00
+ 3710              	.LASF15:
+ 3711 02ec 4B45595F 		.ascii	"KEY_OF_Db\000"
+ 3711      4F465F44 
+ 3711      6200
+ 3712              	.LASF51:
+ 3713 02f6 7363616C 		.ascii	"scaleNatMinor\000"
+ 3713      654E6174 
+ 3713      4D696E6F 
+ 3713      7200
+ 3714              	.LASF28:
+ 3715 0304 4D414A4F 		.ascii	"MAJOR\000"
+ 3715      5200
+ 3716              	.LASF31:
+ 3717 030a 4D494E4F 		.ascii	"MINOR_PENT\000"
+ 3717      525F5045 
+ 3717      4E5400
+ 3718              	.LASF49:
+ 3719 0315 70726576 		.ascii	"prevNote\000"
+ 3719      4E6F7465 
+ 3719      00
+ 3720              	.LASF46:
+ 3721 031e 4E6F7465 		.ascii	"NoteSnap\000"
+ 3721      536E6170 
+ 3721      00
+ 3722              	.LASF54:
+ 3723 0327 6D696469 		.ascii	"midi.c\000"
+ 3723      2E6300
+ 3724              	.LASF35:
+ 3725 032e 6E6F7465 		.ascii	"notes\000"
+ 3725      7300
+ 3726              	.LASF17:
+ 3727 0334 4B45595F 		.ascii	"KEY_OF_Eb\000"
+ 3727      4F465F45 
+ 3727      6200
+ 3728              	.LASF44:
+ 3729 033e 6E65775F 		.ascii	"new_octave\000"
+ 3729      6F637461 
+ 3729      766500
+ 3730              	.LASF34:
+ 3731 0349 66726571 		.ascii	"freq_a\000"
+ 3731      5F6100
+ 3732              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

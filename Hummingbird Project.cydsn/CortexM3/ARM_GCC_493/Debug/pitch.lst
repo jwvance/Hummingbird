@@ -1,0 +1,2199 @@
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"pitch.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.pitch_init,"ax",%progbits
+  19              		.align	2
+  20              		.global	pitch_init
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	pitch_init, %function
+  24              	pitch_init:
+  25              	.LFB56:
+  26              		.file 1 "pitch.c"
+   1:pitch.c       **** #include "pitch.h"
+   2:pitch.c       **** #include <project.h>
+   3:pitch.c       **** 
+   4:pitch.c       **** static float cos_table[FRAME_LEN];
+   5:pitch.c       **** static float sin_table[FRAME_LEN];
+   6:pitch.c       **** 
+   7:pitch.c       **** void pitch_init()
+   8:pitch.c       **** {
+  27              		.loc 1 8 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+   9:pitch.c       ****     fft_init(cos_table, sin_table, FRAME_LEN);
+  32              		.loc 1 9 0
+  33 0000 0348     		ldr	r0, .L2
+  34 0002 4FF48072 		mov	r2, #256
+  35 0006 00F58061 		add	r1, r0, #1024
+  36 000a FFF7FEBF 		b	fft_init
+  37              	.LVL0:
+  38              	.L3:
+  39 000e 00BF     		.align	2
+  40              	.L2:
+  41 0010 00000000 		.word	.LANCHOR0
+  42              		.cfi_endproc
+  43              	.LFE56:
+  44              		.size	pitch_init, .-pitch_init
+  45              		.global	__aeabi_i2d
+  46              		.global	__aeabi_dmul
+  47              		.global	__aeabi_ddiv
+  48              		.section	.text.pitch_zero_cross,"ax",%progbits
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 2
+
+
+  49              		.align	2
+  50              		.global	pitch_zero_cross
+  51              		.thumb
+  52              		.thumb_func
+  53              		.type	pitch_zero_cross, %function
+  54              	pitch_zero_cross:
+  55              	.LFB57:
+  10:pitch.c       **** }
+  11:pitch.c       **** 
+  12:pitch.c       **** double pitch_zero_cross(int16 samples[FRAME_LEN])
+  13:pitch.c       **** {
+  56              		.loc 1 13 0
+  57              		.cfi_startproc
+  58              		@ args = 0, pretend = 0, frame = 0
+  59              		@ frame_needed = 0, uses_anonymous_args = 0
+  60              	.LVL1:
+  61 0000 0346     		mov	r3, r0
+  62 0002 10B5     		push	{r4, lr}
+  63              		.cfi_def_cfa_offset 8
+  64              		.cfi_offset 4, -8
+  65              		.cfi_offset 14, -4
+  14:pitch.c       ****         int zc = 0;
+  66              		.loc 1 14 0
+  67 0004 0020     		movs	r0, #0
+  68              	.LVL2:
+  69 0006 03F5FF74 		add	r4, r3, #510
+  70              	.LVL3:
+  71              	.L6:
+  15:pitch.c       ****         int i;
+  16:pitch.c       ****         for (i = 0; i < FRAME_LEN - 1; i++) {
+  17:pitch.c       ****                 if (samples[i] * samples[i + 1] < 0) {
+  72              		.loc 1 17 0
+  73 000a B3F90010 		ldrsh	r1, [r3]
+  74 000e 33F9022F 		ldrsh	r2, [r3, #2]!
+  75 0012 02FB01F2 		mul	r2, r2, r1
+  76 0016 002A     		cmp	r2, #0
+  18:pitch.c       ****                         zc++;
+  77              		.loc 1 18 0
+  78 0018 B8BF     		it	lt
+  79 001a 0130     		addlt	r0, r0, #1
+  80              	.LVL4:
+  16:pitch.c       ****                 if (samples[i] * samples[i + 1] < 0) {
+  81              		.loc 1 16 0
+  82 001c A342     		cmp	r3, r4
+  83 001e F4D1     		bne	.L6
+  19:pitch.c       ****                 }
+  20:pitch.c       ****         }
+  21:pitch.c       **** 
+  22:pitch.c       ****         return ((double)zc / 2) / ((double)FRAME_LEN / SAMPLE_RATE);
+  84              		.loc 1 22 0
+  85 0020 FFF7FEFF 		bl	__aeabi_i2d
+  86              	.LVL5:
+  87 0024 0022     		movs	r2, #0
+  88 0026 064B     		ldr	r3, .L10+8
+  89 0028 FFF7FEFF 		bl	__aeabi_dmul
+  90              	.LVL6:
+  91 002c 02A3     		adr	r3, .L10
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 3
+
+
+  92 002e D3E90023 		ldrd	r2, [r3]
+  93 0032 FFF7FEFF 		bl	__aeabi_ddiv
+  94              	.LVL7:
+  23:pitch.c       **** }
+  95              		.loc 1 23 0
+  96 0036 10BD     		pop	{r4, pc}
+  97              	.LVL8:
+  98              	.L11:
+  99              		.align	3
+ 100              	.L10:
+ 101 0038 FCA9F1D2 		.word	-755914244
+ 102 003c 4D62B03F 		.word	1068524109
+ 103 0040 0000E03F 		.word	1071644672
+ 104              		.cfi_endproc
+ 105              	.LFE57:
+ 106              		.size	pitch_zero_cross, .-pitch_zero_cross
+ 107              		.global	__aeabi_i2f
+ 108              		.global	__aeabi_fmul
+ 109              		.global	__aeabi_fcmplt
+ 110              		.global	__aeabi_fdiv
+ 111 0044 AFF30080 		.section	.text.auto_correlate,"ax",%progbits
+ 112              		.align	2
+ 113              		.global	auto_correlate
+ 114              		.thumb
+ 115              		.thumb_func
+ 116              		.type	auto_correlate, %function
+ 117              	auto_correlate:
+ 118              	.LFB58:
+  24:pitch.c       **** 
+  25:pitch.c       **** float auto_correlate(int16 samples[FRAME_LEN]){
+ 119              		.loc 1 25 0
+ 120              		.cfi_startproc
+ 121              		@ args = 0, pretend = 0, frame = 0
+ 122              		@ frame_needed = 0, uses_anonymous_args = 0
+ 123              	.LVL9:
+ 124 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 125              		.cfi_def_cfa_offset 32
+ 126              		.cfi_offset 4, -32
+ 127              		.cfi_offset 5, -28
+ 128              		.cfi_offset 6, -24
+ 129              		.cfi_offset 7, -20
+ 130              		.cfi_offset 8, -16
+ 131              		.cfi_offset 9, -12
+ 132              		.cfi_offset 10, -8
+ 133              		.cfi_offset 14, -4
+ 134              		.loc 1 25 0
+ 135 0004 0746     		mov	r7, r0
+  26:pitch.c       ****     float r;
+  27:pitch.c       ****     float best_r = 0;
+  28:pitch.c       ****     int16 best_lag = -1;
+ 136              		.loc 1 28 0
+ 137 0006 4FF6FF76 		movw	r6, #65535
+ 138              	.LBB2:
+  29:pitch.c       ****     
+  30:pitch.c       ****   
+  31:pitch.c       ****     int16 lag;
+  32:pitch.c       ****     for(lag = LAG_MIN; lag < LAG_MAX + 1; lag++){
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 4
+
+
+  33:pitch.c       ****         int32 ac = 0;
+  34:pitch.c       ****         
+  35:pitch.c       ****         int16 i;
+  36:pitch.c       ****         for(i = 0; i < FRAME_LEN - lag; i++){
+  37:pitch.c       ****             ac = ac + samples[i] * samples[i + lag];              
+  38:pitch.c       ****         }
+  39:pitch.c       ****         
+  40:pitch.c       ****         //double r;
+  41:pitch.c       ****         r = (float)ac / (float)FRAME_LEN;
+  42:pitch.c       ****         
+  43:pitch.c       ****         if(r > best_r){
+  44:pitch.c       ****             best_r = r;
+ 139              		.loc 1 44 0
+ 140 000a 4FF00609 		mov	r9, #6
+ 141 000e 4FF0FA08 		mov	r8, #250
+ 142              	.LBE2:
+  27:pitch.c       ****     int16 best_lag = -1;
+ 143              		.loc 1 27 0
+ 144 0012 0024     		movs	r4, #0
+ 145              	.LVL10:
+ 146              	.L13:
+ 147              	.LBB3:
+  36:pitch.c       ****             ac = ac + samples[i] * samples[i + lag];              
+ 148              		.loc 1 36 0
+ 149 0014 B8F1000F 		cmp	r8, #0
+ 150 0018 1FFA89F5 		uxth	r5, r9
+ 151              	.LVL11:
+ 152 001c D8BF     		it	le
+ 153 001e 4FF0000A 		movle	r10, #0
+ 154 0022 17DD     		ble	.L18
+ 155 0024 0022     		movs	r2, #0
+ 156 0026 1346     		mov	r3, r2
+ 157 0028 1046     		mov	r0, r2
+ 158 002a 1146     		mov	r1, r2
+ 159              	.LVL12:
+ 160              	.L14:
+ 161 002c 0133     		adds	r3, r3, #1
+ 162              	.LVL13:
+  37:pitch.c       ****         }
+ 163              		.loc 1 37 0 discriminator 3
+ 164 002e 4A44     		add	r2, r2, r9
+ 165 0030 9BB2     		uxth	r3, r3
+ 166 0032 37F912E0 		ldrsh	lr, [r7, r2, lsl #1]
+ 167 0036 37F91120 		ldrsh	r2, [r7, r1, lsl #1]
+  36:pitch.c       ****             ac = ac + samples[i] * samples[i + lag];              
+ 168              		.loc 1 36 0 discriminator 3
+ 169 003a 19B2     		sxth	r1, r3
+ 170 003c 4145     		cmp	r1, r8
+  37:pitch.c       ****         }
+ 171              		.loc 1 37 0 discriminator 3
+ 172 003e 0EFB0200 		mla	r0, lr, r2, r0
+ 173              	.LVL14:
+  36:pitch.c       ****             ac = ac + samples[i] * samples[i + lag];              
+ 174              		.loc 1 36 0 discriminator 3
+ 175 0042 0A46     		mov	r2, r1
+ 176 0044 F2DB     		blt	.L14
+ 177 0046 FFF7FEFF 		bl	__aeabi_i2f
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 5
+
+
+ 178              	.LVL15:
+ 179 004a 4FF06E51 		mov	r1, #998244352
+ 180 004e FFF7FEFF 		bl	__aeabi_fmul
+ 181              	.LVL16:
+ 182 0052 8246     		mov	r10, r0
+ 183              	.L18:
+ 184              	.LVL17:
+  43:pitch.c       ****             best_r = r;
+ 185              		.loc 1 43 0
+ 186 0054 2046     		mov	r0, r4
+ 187 0056 5146     		mov	r1, r10
+ 188 0058 FFF7FEFF 		bl	__aeabi_fcmplt
+ 189              	.LVL18:
+ 190 005c 08B1     		cbz	r0, .L15
+ 191 005e 2E46     		mov	r6, r5
+ 192              		.loc 1 44 0
+ 193 0060 5446     		mov	r4, r10
+ 194              	.LVL19:
+ 195              	.L15:
+ 196 0062 08F1FF38 		add	r8, r8, #-1
+ 197              	.LBE3:
+  32:pitch.c       ****         int32 ac = 0;
+ 198              		.loc 1 32 0 discriminator 2
+ 199 0066 B8F1CD0F 		cmp	r8, #205
+ 200 006a 09F10109 		add	r9, r9, #1
+ 201              	.LVL20:
+ 202 006e D1D1     		bne	.L13
+  45:pitch.c       ****             best_lag = lag;
+  46:pitch.c       ****         }  
+  47:pitch.c       ****     }     
+  48:pitch.c       ****     return (float)SAMPLE_RATE / best_lag;    
+ 203              		.loc 1 48 0
+ 204 0070 30B2     		sxth	r0, r6
+ 205 0072 FFF7FEFF 		bl	__aeabi_i2f
+ 206              	.LVL21:
+ 207 0076 0146     		mov	r1, r0
+ 208 0078 0248     		ldr	r0, .L24
+ 209 007a FFF7FEFF 		bl	__aeabi_fdiv
+ 210              	.LVL22:
+  49:pitch.c       **** }
+ 211              		.loc 1 49 0
+ 212 007e BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 213              	.LVL23:
+ 214              	.L25:
+ 215 0082 00BF     		.align	2
+ 216              	.L24:
+ 217 0084 00007A45 		.word	1165623296
+ 218              		.cfi_endproc
+ 219              	.LFE58:
+ 220              		.size	auto_correlate, .-auto_correlate
+ 221              		.global	__aeabi_fadd
+ 222              		.global	__aeabi_fcmpgt
+ 223              		.section	.text.pitch_auto_fft,"ax",%progbits
+ 224              		.align	2
+ 225              		.global	pitch_auto_fft
+ 226              		.thumb
+ 227              		.thumb_func
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 6
+
+
+ 228              		.type	pitch_auto_fft, %function
+ 229              	pitch_auto_fft:
+ 230              	.LFB59:
+  50:pitch.c       **** 
+  51:pitch.c       **** float pitch_auto_fft(int16 samples[FRAME_LEN])
+  52:pitch.c       **** {
+ 231              		.loc 1 52 0
+ 232              		.cfi_startproc
+ 233              		@ args = 0, pretend = 0, frame = 2048
+ 234              		@ frame_needed = 0, uses_anonymous_args = 0
+ 235              	.LVL24:
+ 236 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 237              		.cfi_def_cfa_offset 28
+ 238              		.cfi_offset 4, -28
+ 239              		.cfi_offset 5, -24
+ 240              		.cfi_offset 6, -20
+ 241              		.cfi_offset 7, -16
+ 242              		.cfi_offset 8, -12
+ 243              		.cfi_offset 9, -8
+ 244              		.cfi_offset 14, -4
+ 245 0004 ADF60C0D 		subw	sp, sp, #2060
+ 246              		.cfi_def_cfa_offset 2088
+ 247              		.loc 1 52 0
+ 248 0008 0746     		mov	r7, r0
+  53:pitch.c       ****     float f[FRAME_LEN];
+  54:pitch.c       ****     float imag[FRAME_LEN] = {};
+ 249              		.loc 1 54 0
+ 250 000a 0021     		movs	r1, #0
+ 251 000c 0DF58160 		add	r0, sp, #1032
+ 252              	.LVL25:
+ 253 0010 4FF48062 		mov	r2, #1024
+ 254 0014 01AC     		add	r4, sp, #4
+ 255 0016 FFF7FEFF 		bl	memset
+ 256              	.LVL26:
+ 257 001a 2646     		mov	r6, r4
+ 258 001c BD1E     		subs	r5, r7, #2
+ 259 001e 07F5FF77 		add	r7, r7, #510
+ 260              	.LVL27:
+ 261              	.L27:
+  55:pitch.c       ****     
+  56:pitch.c       ****     int i;
+  57:pitch.c       ****     for (i = 0; i < FRAME_LEN; i++) {
+  58:pitch.c       ****         f[i] = (float)samples[i] / 100;
+ 262              		.loc 1 58 0 discriminator 3
+ 263 0022 35F9020F 		ldrsh	r0, [r5, #2]!
+ 264 0026 FFF7FEFF 		bl	__aeabi_i2f
+ 265              	.LVL28:
+ 266 002a 2949     		ldr	r1, .L37
+ 267 002c FFF7FEFF 		bl	__aeabi_fdiv
+ 268              	.LVL29:
+  57:pitch.c       ****         f[i] = (float)samples[i] / 100;
+ 269              		.loc 1 57 0 discriminator 3
+ 270 0030 BD42     		cmp	r5, r7
+ 271              		.loc 1 58 0 discriminator 3
+ 272 0032 46F8040F 		str	r0, [r6, #4]!	@ float
+  57:pitch.c       ****         f[i] = (float)samples[i] / 100;
+ 273              		.loc 1 57 0 discriminator 3
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 7
+
+
+ 274 0036 F4D1     		bne	.L27
+  59:pitch.c       ****     }
+  60:pitch.c       ****     
+  61:pitch.c       ****     transform(f, imag, cos_table, sin_table, FRAME_LEN);
+ 275              		.loc 1 61 0
+ 276 0038 264A     		ldr	r2, .L37+4
+ 277 003a 4FF48071 		mov	r1, #256
+ 278 003e 0091     		str	r1, [sp]
+ 279 0040 02F58063 		add	r3, r2, #1024
+ 280 0044 02A8     		add	r0, sp, #8
+ 281 0046 0DF58161 		add	r1, sp, #1032
+ 282 004a 0DF20445 		addw	r5, sp, #1028
+ 283 004e FFF7FEFF 		bl	transform
+ 284              	.LVL30:
+ 285 0052 A946     		mov	r9, r5
+  62:pitch.c       ****     
+  63:pitch.c       ****     for (i = 0; i < FRAME_LEN; i++) {
+  64:pitch.c       ****         // Multiply by conjugate
+  65:pitch.c       ****         f[i] = f[i] * f[i] + imag[i] * imag[i];
+  66:pitch.c       ****         imag[i] = 0;
+ 286              		.loc 1 66 0
+ 287 0054 4FF00008 		mov	r8, #0
+ 288              	.LVL31:
+ 289              	.L28:
+  65:pitch.c       ****         imag[i] = 0;
+ 290              		.loc 1 65 0 discriminator 3
+ 291 0058 54F8040F 		ldr	r0, [r4, #4]!	@ float
+ 292 005c 55F8047F 		ldr	r7, [r5, #4]!	@ float
+ 293 0060 0146     		mov	r1, r0
+ 294 0062 FFF7FEFF 		bl	__aeabi_fmul
+ 295              	.LVL32:
+ 296 0066 3946     		mov	r1, r7
+ 297 0068 0646     		mov	r6, r0
+ 298 006a 3846     		mov	r0, r7
+ 299 006c FFF7FEFF 		bl	__aeabi_fmul
+ 300              	.LVL33:
+ 301 0070 0146     		mov	r1, r0
+ 302 0072 3046     		mov	r0, r6
+ 303 0074 FFF7FEFF 		bl	__aeabi_fadd
+ 304              	.LVL34:
+  63:pitch.c       ****         // Multiply by conjugate
+ 305              		.loc 1 63 0 discriminator 3
+ 306 0078 4C45     		cmp	r4, r9
+ 307              		.loc 1 66 0 discriminator 3
+ 308 007a C5F80080 		str	r8, [r5]	@ float
+  65:pitch.c       ****         imag[i] = 0;
+ 309              		.loc 1 65 0 discriminator 3
+ 310 007e 2060     		str	r0, [r4]	@ float
+  63:pitch.c       ****         // Multiply by conjugate
+ 311              		.loc 1 63 0 discriminator 3
+ 312 0080 EAD1     		bne	.L28
+  67:pitch.c       ****     }
+  68:pitch.c       ****     
+  69:pitch.c       ****     inverse_transform(f, imag, cos_table, sin_table, FRAME_LEN);
+ 313              		.loc 1 69 0
+ 314 0082 144A     		ldr	r2, .L37+4
+ 315 0084 4FF48074 		mov	r4, #256
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 8
+
+
+ 316 0088 0094     		str	r4, [sp]
+ 317 008a 02A8     		add	r0, sp, #8
+ 318 008c 0DF58161 		add	r1, sp, #1032
+ 319 0090 02F58063 		add	r3, r2, #1024
+ 320 0094 FFF7FEFF 		bl	inverse_transform
+ 321              	.LVL35:
+  70:pitch.c       ****     
+  71:pitch.c       ****     int best_lag = 0;
+  72:pitch.c       ****     float max = 0;
+ 322              		.loc 1 72 0
+ 323 0098 0027     		movs	r7, #0
+ 324 009a 07AE     		add	r6, sp, #28
+  73:pitch.c       ****     int lag;
+  74:pitch.c       ****     for (lag = LAG_MIN; lag < LAG_MAX; lag++) {
+ 325              		.loc 1 74 0
+ 326 009c 0624     		movs	r4, #6
+  71:pitch.c       ****     float max = 0;
+ 327              		.loc 1 71 0
+ 328 009e 4FF00008 		mov	r8, #0
+ 329              	.LVL36:
+ 330              	.L31:
+  75:pitch.c       ****         if (f[lag] > max) {
+ 331              		.loc 1 75 0
+ 332 00a2 56F8045F 		ldr	r5, [r6, #4]!	@ float
+ 333 00a6 3946     		mov	r1, r7
+ 334 00a8 2846     		mov	r0, r5
+ 335 00aa FFF7FEFF 		bl	__aeabi_fcmpgt
+ 336              	.LVL37:
+ 337 00ae 08B1     		cbz	r0, .L29
+  76:pitch.c       ****             max = f[lag];
+ 338              		.loc 1 76 0
+ 339 00b0 2F46     		mov	r7, r5
+ 340              	.LVL38:
+  75:pitch.c       ****         if (f[lag] > max) {
+ 341              		.loc 1 75 0
+ 342 00b2 A046     		mov	r8, r4
+ 343              	.L29:
+ 344              	.LVL39:
+  74:pitch.c       ****         if (f[lag] > max) {
+ 345              		.loc 1 74 0 discriminator 2
+ 346 00b4 0134     		adds	r4, r4, #1
+ 347              	.LVL40:
+ 348 00b6 322C     		cmp	r4, #50
+ 349 00b8 F3D1     		bne	.L31
+  77:pitch.c       ****             best_lag = lag;
+  78:pitch.c       ****         }
+  79:pitch.c       ****     }
+  80:pitch.c       ****     
+  81:pitch.c       ****     return (float)SAMPLE_RATE / best_lag;
+ 350              		.loc 1 81 0
+ 351 00ba 4046     		mov	r0, r8
+ 352 00bc FFF7FEFF 		bl	__aeabi_i2f
+ 353              	.LVL41:
+ 354 00c0 0146     		mov	r1, r0
+ 355 00c2 0548     		ldr	r0, .L37+8
+ 356 00c4 FFF7FEFF 		bl	__aeabi_fdiv
+ 357              	.LVL42:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 9
+
+
+  82:pitch.c       **** }
+ 358              		.loc 1 82 0
+ 359 00c8 0DF60C0D 		addw	sp, sp, #2060
+ 360              		.cfi_def_cfa_offset 28
+ 361              		@ sp needed
+ 362 00cc BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 363              	.LVL43:
+ 364              	.L38:
+ 365              		.align	2
+ 366              	.L37:
+ 367 00d0 0000C842 		.word	1120403456
+ 368 00d4 00000000 		.word	.LANCHOR0
+ 369 00d8 00007A45 		.word	1165623296
+ 370              		.cfi_endproc
+ 371              	.LFE59:
+ 372              		.size	pitch_auto_fft, .-pitch_auto_fft
+ 373              		.section	.text.pitch_amdf,"ax",%progbits
+ 374              		.align	2
+ 375              		.global	pitch_amdf
+ 376              		.thumb
+ 377              		.thumb_func
+ 378              		.type	pitch_amdf, %function
+ 379              	pitch_amdf:
+ 380              	.LFB60:
+  83:pitch.c       **** 
+  84:pitch.c       **** float pitch_amdf(int16 samples[FRAME_LEN])
+  85:pitch.c       **** {
+ 381              		.loc 1 85 0
+ 382              		.cfi_startproc
+ 383              		@ args = 0, pretend = 0, frame = 0
+ 384              		@ frame_needed = 0, uses_anonymous_args = 0
+ 385              	.LVL44:
+ 386 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 387              		.cfi_def_cfa_offset 40
+ 388              		.cfi_offset 3, -40
+ 389              		.cfi_offset 4, -36
+ 390              		.cfi_offset 5, -32
+ 391              		.cfi_offset 6, -28
+ 392              		.cfi_offset 7, -24
+ 393              		.cfi_offset 8, -20
+ 394              		.cfi_offset 9, -16
+ 395              		.cfi_offset 10, -12
+ 396              		.cfi_offset 11, -8
+ 397              		.cfi_offset 14, -4
+ 398              		.loc 1 85 0
+ 399 0004 0746     		mov	r7, r0
+  86:pitch.c       ****     float r;
+  87:pitch.c       ****     float best_r = 1000;
+ 400              		.loc 1 87 0
+ 401 0006 204D     		ldr	r5, .L50
+ 402              	.LBB4:
+  88:pitch.c       ****     int best_lag = -1;
+  89:pitch.c       ****     
+  90:pitch.c       ****     uint16 lag;
+  91:pitch.c       ****     for (lag = LAG_MIN; lag < LAG_MAX + 1; lag++) {
+  92:pitch.c       ****         int amdf = 0;
+  93:pitch.c       ****         
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 10
+
+
+  94:pitch.c       ****         int i;
+  95:pitch.c       ****         for (i = 0; i < FRAME_LEN - lag; i++) {
+  96:pitch.c       ****             amdf += abs(samples[i] - samples[i + lag]);
+  97:pitch.c       ****         }
+  98:pitch.c       ****         
+  99:pitch.c       ****         r = (float)amdf / (float)FRAME_LEN;
+ 100:pitch.c       ****         
+ 101:pitch.c       ****         if (r < best_r) {
+ 102:pitch.c       ****             best_r = r;
+ 403              		.loc 1 102 0
+ 404 0008 4FF0FA0A 		mov	r10, #250
+ 405 000c 00F10C04 		add	r4, r0, #12
+ 406 0010 00F5FA79 		add	r9, r0, #500
+ 407              	.LBE4:
+  88:pitch.c       ****     int best_lag = -1;
+ 408              		.loc 1 88 0
+ 409 0014 4FF0FF38 		mov	r8, #-1
+ 410              	.LVL45:
+ 411              	.L40:
+ 412              	.LBB5:
+  95:pitch.c       ****             amdf += abs(samples[i] - samples[i + lag]);
+ 413              		.loc 1 95 0
+ 414 0018 BAF1000F 		cmp	r10, #0
+ 415 001c CAF58076 		rsb	r6, r10, #256
+ 416 0020 2EDD     		ble	.L46
+ 417 0022 3A46     		mov	r2, r7
+ 418 0024 2146     		mov	r1, r4
+ 419 0026 0020     		movs	r0, #0
+ 420              	.LVL46:
+ 421              	.L41:
+  96:pitch.c       ****         }
+ 422              		.loc 1 96 0 discriminator 3
+ 423 0028 32F9023B 		ldrsh	r3, [r2], #2
+ 424 002c 31F902EB 		ldrsh	lr, [r1], #2
+ 425 0030 CEEB0303 		rsb	r3, lr, r3
+ 426 0034 002B     		cmp	r3, #0
+ 427 0036 B8BF     		it	lt
+ 428 0038 5B42     		rsblt	r3, r3, #0
+  95:pitch.c       ****             amdf += abs(samples[i] - samples[i + lag]);
+ 429              		.loc 1 95 0 discriminator 3
+ 430 003a 9145     		cmp	r9, r2
+  96:pitch.c       ****         }
+ 431              		.loc 1 96 0 discriminator 3
+ 432 003c 1844     		add	r0, r0, r3
+ 433              	.LVL47:
+  95:pitch.c       ****             amdf += abs(samples[i] - samples[i + lag]);
+ 434              		.loc 1 95 0 discriminator 3
+ 435 003e F3D1     		bne	.L41
+ 436 0040 FFF7FEFF 		bl	__aeabi_i2f
+ 437              	.LVL48:
+ 438 0044 4FF06E51 		mov	r1, #998244352
+ 439 0048 FFF7FEFF 		bl	__aeabi_fmul
+ 440              	.LVL49:
+ 441 004c 8346     		mov	fp, r0
+ 442              	.L45:
+ 443              	.LVL50:
+ 101:pitch.c       ****             best_r = r;
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 11
+
+
+ 444              		.loc 1 101 0
+ 445 004e 2846     		mov	r0, r5
+ 446 0050 5946     		mov	r1, fp
+ 447 0052 FFF7FEFF 		bl	__aeabi_fcmpgt
+ 448              	.LVL51:
+ 449 0056 08B1     		cbz	r0, .L42
+ 103:pitch.c       ****             best_lag = lag;
+ 450              		.loc 1 103 0
+ 451 0058 B046     		mov	r8, r6
+ 102:pitch.c       ****             best_lag = lag;
+ 452              		.loc 1 102 0
+ 453 005a 5D46     		mov	r5, fp
+ 454              	.LVL52:
+ 455              	.L42:
+ 456 005c 0AF1FF3A 		add	r10, r10, #-1
+ 457              	.LVL53:
+ 458              	.LBE5:
+  91:pitch.c       ****         int amdf = 0;
+ 459              		.loc 1 91 0 discriminator 2
+ 460 0060 BAF1CD0F 		cmp	r10, #205
+ 461 0064 04F10204 		add	r4, r4, #2
+ 462 0068 A9F10209 		sub	r9, r9, #2
+ 463 006c D4D1     		bne	.L40
+ 104:pitch.c       ****         }
+ 105:pitch.c       ****     }
+ 106:pitch.c       ****     
+ 107:pitch.c       ****     return (float)SAMPLE_RATE / (float)best_lag;
+ 464              		.loc 1 107 0
+ 465 006e 4046     		mov	r0, r8
+ 466 0070 FFF7FEFF 		bl	__aeabi_i2f
+ 467              	.LVL54:
+ 468 0074 0146     		mov	r1, r0
+ 469 0076 0548     		ldr	r0, .L50+4
+ 470 0078 FFF7FEFF 		bl	__aeabi_fdiv
+ 471              	.LVL55:
+ 108:pitch.c       **** }
+ 472              		.loc 1 108 0
+ 473 007c BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 474              	.LVL56:
+ 475              	.L46:
+ 476              	.LBB6:
+  95:pitch.c       ****             amdf += abs(samples[i] - samples[i + lag]);
+ 477              		.loc 1 95 0
+ 478 0080 4FF0000B 		mov	fp, #0
+ 479 0084 E3E7     		b	.L45
+ 480              	.L51:
+ 481 0086 00BF     		.align	2
+ 482              	.L50:
+ 483 0088 00007A44 		.word	1148846080
+ 484 008c 00007A45 		.word	1165623296
+ 485              	.LBE6:
+ 486              		.cfi_endproc
+ 487              	.LFE60:
+ 488              		.size	pitch_amdf, .-pitch_amdf
+ 489              		.bss
+ 490              		.align	2
+ 491              		.set	.LANCHOR0,. + 0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 12
+
+
+ 492              		.type	cos_table, %object
+ 493              		.size	cos_table, 1024
+ 494              	cos_table:
+ 495 0000 00000000 		.space	1024
+ 495      00000000 
+ 495      00000000 
+ 495      00000000 
+ 495      00000000 
+ 496              		.type	sin_table, %object
+ 497              		.size	sin_table, 1024
+ 498              	sin_table:
+ 499 0400 00000000 		.space	1024
+ 499      00000000 
+ 499      00000000 
+ 499      00000000 
+ 499      00000000 
+ 500              		.text
+ 501              	.Letext0:
+ 502              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 503              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 504              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 505              		.file 5 "Generated_Source\\PSoC5/cytypes.h"
+ 506              		.file 6 "fft.h"
+ 507              		.file 7 "Generated_Source\\PSoC5/core_cm3.h"
+ 508              		.section	.debug_info,"",%progbits
+ 509              	.Ldebug_info0:
+ 510 0000 35040000 		.4byte	0x435
+ 511 0004 0400     		.2byte	0x4
+ 512 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 513 000a 04       		.byte	0x4
+ 514 000b 01       		.uleb128 0x1
+ 515 000c 5A000000 		.4byte	.LASF35
+ 516 0010 01       		.byte	0x1
+ 517 0011 8F010000 		.4byte	.LASF36
+ 518 0015 1B020000 		.4byte	.LASF37
+ 519 0019 38000000 		.4byte	.Ldebug_ranges0+0x38
+ 520 001d 00000000 		.4byte	0
+ 521 0021 00000000 		.4byte	.Ldebug_line0
+ 522 0025 02       		.uleb128 0x2
+ 523 0026 00000000 		.4byte	.LASF5
+ 524 002a 02       		.byte	0x2
+ 525 002b D4       		.byte	0xd4
+ 526 002c 30000000 		.4byte	0x30
+ 527 0030 03       		.uleb128 0x3
+ 528 0031 04       		.byte	0x4
+ 529 0032 07       		.byte	0x7
+ 530 0033 61010000 		.4byte	.LASF0
+ 531 0037 04       		.uleb128 0x4
+ 532 0038 04       		.byte	0x4
+ 533 0039 05       		.byte	0x5
+ 534 003a 696E7400 		.ascii	"int\000"
+ 535 003e 03       		.uleb128 0x3
+ 536 003f 01       		.byte	0x1
+ 537 0040 06       		.byte	0x6
+ 538 0041 EE000000 		.4byte	.LASF1
+ 539 0045 03       		.uleb128 0x3
+ 540 0046 01       		.byte	0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 13
+
+
+ 541 0047 08       		.byte	0x8
+ 542 0048 FA000000 		.4byte	.LASF2
+ 543 004c 03       		.uleb128 0x3
+ 544 004d 02       		.byte	0x2
+ 545 004e 05       		.byte	0x5
+ 546 004f D6010000 		.4byte	.LASF3
+ 547 0053 03       		.uleb128 0x3
+ 548 0054 02       		.byte	0x2
+ 549 0055 07       		.byte	0x7
+ 550 0056 35000000 		.4byte	.LASF4
+ 551 005a 02       		.uleb128 0x2
+ 552 005b 18000000 		.4byte	.LASF6
+ 553 005f 03       		.byte	0x3
+ 554 0060 3F       		.byte	0x3f
+ 555 0061 65000000 		.4byte	0x65
+ 556 0065 03       		.uleb128 0x3
+ 557 0066 04       		.byte	0x4
+ 558 0067 05       		.byte	0x5
+ 559 0068 2C000000 		.4byte	.LASF7
+ 560 006c 03       		.uleb128 0x3
+ 561 006d 04       		.byte	0x4
+ 562 006e 07       		.byte	0x7
+ 563 006f 43010000 		.4byte	.LASF8
+ 564 0073 03       		.uleb128 0x3
+ 565 0074 08       		.byte	0x8
+ 566 0075 05       		.byte	0x5
+ 567 0076 B9010000 		.4byte	.LASF9
+ 568 007a 03       		.uleb128 0x3
+ 569 007b 08       		.byte	0x8
+ 570 007c 07       		.byte	0x7
+ 571 007d 6E010000 		.4byte	.LASF10
+ 572 0081 03       		.uleb128 0x3
+ 573 0082 04       		.byte	0x4
+ 574 0083 07       		.byte	0x7
+ 575 0084 9F010000 		.4byte	.LASF11
+ 576 0088 05       		.uleb128 0x5
+ 577 0089 04       		.byte	0x4
+ 578 008a 03       		.uleb128 0x3
+ 579 008b 01       		.byte	0x1
+ 580 008c 08       		.byte	0x8
+ 581 008d C7010000 		.4byte	.LASF12
+ 582 0091 02       		.uleb128 0x2
+ 583 0092 97010000 		.4byte	.LASF13
+ 584 0096 04       		.byte	0x4
+ 585 0097 2C       		.byte	0x2c
+ 586 0098 5A000000 		.4byte	0x5a
+ 587 009c 02       		.uleb128 0x2
+ 588 009d 55010000 		.4byte	.LASF14
+ 589 00a1 05       		.byte	0x5
+ 590 00a2 5C       		.byte	0x5c
+ 591 00a3 53000000 		.4byte	0x53
+ 592 00a7 02       		.uleb128 0x2
+ 593 00a8 08010000 		.4byte	.LASF15
+ 594 00ac 05       		.byte	0x5
+ 595 00ad 5F       		.byte	0x5f
+ 596 00ae 4C000000 		.4byte	0x4c
+ 597 00b2 02       		.uleb128 0x2
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 14
+
+
+ 598 00b3 15010000 		.4byte	.LASF16
+ 599 00b7 05       		.byte	0x5
+ 600 00b8 60       		.byte	0x60
+ 601 00b9 65000000 		.4byte	0x65
+ 602 00bd 03       		.uleb128 0x3
+ 603 00be 04       		.byte	0x4
+ 604 00bf 04       		.byte	0x4
+ 605 00c0 E8000000 		.4byte	.LASF17
+ 606 00c4 03       		.uleb128 0x3
+ 607 00c5 08       		.byte	0x8
+ 608 00c6 04       		.byte	0x4
+ 609 00c7 48000000 		.4byte	.LASF18
+ 610 00cb 06       		.uleb128 0x6
+ 611 00cc 4F000000 		.4byte	.LASF38
+ 612 00d0 01       		.byte	0x1
+ 613 00d1 07       		.byte	0x7
+ 614 00d2 00000000 		.4byte	.LFB56
+ 615 00d6 14000000 		.4byte	.LFE56-.LFB56
+ 616 00da 01       		.uleb128 0x1
+ 617 00db 9C       		.byte	0x9c
+ 618 00dc 04010000 		.4byte	0x104
+ 619 00e0 07       		.uleb128 0x7
+ 620 00e1 0E000000 		.4byte	.LVL0
+ 621 00e5 A1030000 		.4byte	0x3a1
+ 622 00e9 08       		.uleb128 0x8
+ 623 00ea 01       		.uleb128 0x1
+ 624 00eb 52       		.byte	0x52
+ 625 00ec 03       		.uleb128 0x3
+ 626 00ed 0A       		.byte	0xa
+ 627 00ee 0001     		.2byte	0x100
+ 628 00f0 08       		.uleb128 0x8
+ 629 00f1 01       		.uleb128 0x1
+ 630 00f2 51       		.byte	0x51
+ 631 00f3 05       		.uleb128 0x5
+ 632 00f4 03       		.byte	0x3
+ 633 00f5 00040000 		.4byte	.LANCHOR0+1024
+ 634 00f9 08       		.uleb128 0x8
+ 635 00fa 01       		.uleb128 0x1
+ 636 00fb 50       		.byte	0x50
+ 637 00fc 05       		.uleb128 0x5
+ 638 00fd 03       		.byte	0x3
+ 639 00fe 00000000 		.4byte	.LANCHOR0
+ 640 0102 00       		.byte	0
+ 641 0103 00       		.byte	0
+ 642 0104 09       		.uleb128 0x9
+ 643 0105 A8010000 		.4byte	.LASF19
+ 644 0109 01       		.byte	0x1
+ 645 010a 0C       		.byte	0xc
+ 646 010b C4000000 		.4byte	0xc4
+ 647 010f 00000000 		.4byte	.LFB57
+ 648 0113 44000000 		.4byte	.LFE57-.LFB57
+ 649 0117 01       		.uleb128 0x1
+ 650 0118 9C       		.byte	0x9c
+ 651 0119 48010000 		.4byte	0x148
+ 652 011d 0A       		.uleb128 0xa
+ 653 011e 01020000 		.4byte	.LASF21
+ 654 0122 01       		.byte	0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 15
+
+
+ 655 0123 0C       		.byte	0xc
+ 656 0124 48010000 		.4byte	0x148
+ 657 0128 00000000 		.4byte	.LLST0
+ 658 012c 0B       		.uleb128 0xb
+ 659 012d 7A6300   		.ascii	"zc\000"
+ 660 0130 01       		.byte	0x1
+ 661 0131 0E       		.byte	0xe
+ 662 0132 37000000 		.4byte	0x37
+ 663 0136 3A000000 		.4byte	.LLST1
+ 664 013a 0B       		.uleb128 0xb
+ 665 013b 6900     		.ascii	"i\000"
+ 666 013d 01       		.byte	0x1
+ 667 013e 0F       		.byte	0xf
+ 668 013f 37000000 		.4byte	0x37
+ 669 0143 59000000 		.4byte	.LLST2
+ 670 0147 00       		.byte	0
+ 671 0148 0C       		.uleb128 0xc
+ 672 0149 04       		.byte	0x4
+ 673 014a A7000000 		.4byte	0xa7
+ 674 014e 09       		.uleb128 0x9
+ 675 014f 1B010000 		.4byte	.LASF20
+ 676 0153 01       		.byte	0x1
+ 677 0154 19       		.byte	0x19
+ 678 0155 BD000000 		.4byte	0xbd
+ 679 0159 00000000 		.4byte	.LFB58
+ 680 015d 88000000 		.4byte	.LFE58-.LFB58
+ 681 0161 01       		.uleb128 0x1
+ 682 0162 9C       		.byte	0x9c
+ 683 0163 D2010000 		.4byte	0x1d2
+ 684 0167 0A       		.uleb128 0xa
+ 685 0168 01020000 		.4byte	.LASF21
+ 686 016c 01       		.byte	0x1
+ 687 016d 19       		.byte	0x19
+ 688 016e 48010000 		.4byte	0x148
+ 689 0172 6D000000 		.4byte	.LLST3
+ 690 0176 0B       		.uleb128 0xb
+ 691 0177 7200     		.ascii	"r\000"
+ 692 0179 01       		.byte	0x1
+ 693 017a 1A       		.byte	0x1a
+ 694 017b BD000000 		.4byte	0xbd
+ 695 017f 99000000 		.4byte	.LLST4
+ 696 0183 0D       		.uleb128 0xd
+ 697 0184 0E010000 		.4byte	.LASF22
+ 698 0188 01       		.byte	0x1
+ 699 0189 1B       		.byte	0x1b
+ 700 018a BD000000 		.4byte	0xbd
+ 701 018e AC000000 		.4byte	.LLST5
+ 702 0192 0D       		.uleb128 0xd
+ 703 0193 E0010000 		.4byte	.LASF23
+ 704 0197 01       		.byte	0x1
+ 705 0198 1C       		.byte	0x1c
+ 706 0199 A7000000 		.4byte	0xa7
+ 707 019d CF000000 		.4byte	.LLST6
+ 708 01a1 0B       		.uleb128 0xb
+ 709 01a2 6C616700 		.ascii	"lag\000"
+ 710 01a6 01       		.byte	0x1
+ 711 01a7 1F       		.byte	0x1f
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 16
+
+
+ 712 01a8 A7000000 		.4byte	0xa7
+ 713 01ac E4000000 		.4byte	.LLST7
+ 714 01b0 0E       		.uleb128 0xe
+ 715 01b1 00000000 		.4byte	.Ldebug_ranges0+0
+ 716 01b5 0B       		.uleb128 0xb
+ 717 01b6 616300   		.ascii	"ac\000"
+ 718 01b9 01       		.byte	0x1
+ 719 01ba 21       		.byte	0x21
+ 720 01bb B2000000 		.4byte	0xb2
+ 721 01bf 1D010000 		.4byte	.LLST8
+ 722 01c3 0B       		.uleb128 0xb
+ 723 01c4 6900     		.ascii	"i\000"
+ 724 01c6 01       		.byte	0x1
+ 725 01c7 23       		.byte	0x23
+ 726 01c8 A7000000 		.4byte	0xa7
+ 727 01cc 3C010000 		.4byte	.LLST9
+ 728 01d0 00       		.byte	0
+ 729 01d1 00       		.byte	0
+ 730 01d2 09       		.uleb128 0x9
+ 731 01d3 F2010000 		.4byte	.LASF24
+ 732 01d7 01       		.byte	0x1
+ 733 01d8 33       		.byte	0x33
+ 734 01d9 BD000000 		.4byte	0xbd
+ 735 01dd 00000000 		.4byte	.LFB59
+ 736 01e1 DC000000 		.4byte	.LFE59-.LFB59
+ 737 01e5 01       		.uleb128 0x1
+ 738 01e6 9C       		.byte	0x9c
+ 739 01e7 D9020000 		.4byte	0x2d9
+ 740 01eb 0A       		.uleb128 0xa
+ 741 01ec 01020000 		.4byte	.LASF21
+ 742 01f0 01       		.byte	0x1
+ 743 01f1 33       		.byte	0x33
+ 744 01f2 48010000 		.4byte	0x148
+ 745 01f6 66010000 		.4byte	.LLST10
+ 746 01fa 0F       		.uleb128 0xf
+ 747 01fb 6600     		.ascii	"f\000"
+ 748 01fd 01       		.byte	0x1
+ 749 01fe 35       		.byte	0x35
+ 750 01ff D9020000 		.4byte	0x2d9
+ 751 0203 03       		.uleb128 0x3
+ 752 0204 91       		.byte	0x91
+ 753 0205 E06F     		.sleb128 -2080
+ 754 0207 10       		.uleb128 0x10
+ 755 0208 5C010000 		.4byte	.LASF25
+ 756 020c 01       		.byte	0x1
+ 757 020d 36       		.byte	0x36
+ 758 020e D9020000 		.4byte	0x2d9
+ 759 0212 03       		.uleb128 0x3
+ 760 0213 91       		.byte	0x91
+ 761 0214 E077     		.sleb128 -1056
+ 762 0216 0B       		.uleb128 0xb
+ 763 0217 6900     		.ascii	"i\000"
+ 764 0219 01       		.byte	0x1
+ 765 021a 38       		.byte	0x38
+ 766 021b 37000000 		.4byte	0x37
+ 767 021f A0010000 		.4byte	.LLST11
+ 768 0223 0D       		.uleb128 0xd
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 17
+
+
+ 769 0224 E0010000 		.4byte	.LASF23
+ 770 0228 01       		.byte	0x1
+ 771 0229 47       		.byte	0x47
+ 772 022a 37000000 		.4byte	0x37
+ 773 022e C0010000 		.4byte	.LLST12
+ 774 0232 0B       		.uleb128 0xb
+ 775 0233 6D617800 		.ascii	"max\000"
+ 776 0237 01       		.byte	0x1
+ 777 0238 48       		.byte	0x48
+ 778 0239 BD000000 		.4byte	0xbd
+ 779 023d D4010000 		.4byte	.LLST13
+ 780 0241 0B       		.uleb128 0xb
+ 781 0242 6C616700 		.ascii	"lag\000"
+ 782 0246 01       		.byte	0x1
+ 783 0247 49       		.byte	0x49
+ 784 0248 37000000 		.4byte	0x37
+ 785 024c 02020000 		.4byte	.LLST14
+ 786 0250 11       		.uleb128 0x11
+ 787 0251 1A000000 		.4byte	.LVL26
+ 788 0255 CD030000 		.4byte	0x3cd
+ 789 0259 71020000 		.4byte	0x271
+ 790 025d 08       		.uleb128 0x8
+ 791 025e 01       		.uleb128 0x1
+ 792 025f 52       		.byte	0x52
+ 793 0260 03       		.uleb128 0x3
+ 794 0261 0A       		.byte	0xa
+ 795 0262 0004     		.2byte	0x400
+ 796 0264 08       		.uleb128 0x8
+ 797 0265 01       		.uleb128 0x1
+ 798 0266 51       		.byte	0x51
+ 799 0267 01       		.uleb128 0x1
+ 800 0268 30       		.byte	0x30
+ 801 0269 08       		.uleb128 0x8
+ 802 026a 01       		.uleb128 0x1
+ 803 026b 50       		.byte	0x50
+ 804 026c 03       		.uleb128 0x3
+ 805 026d 91       		.byte	0x91
+ 806 026e E077     		.sleb128 -1056
+ 807 0270 00       		.byte	0
+ 808 0271 11       		.uleb128 0x11
+ 809 0272 52000000 		.4byte	.LVL30
+ 810 0276 EA030000 		.4byte	0x3ea
+ 811 027a A7020000 		.4byte	0x2a7
+ 812 027e 08       		.uleb128 0x8
+ 813 027f 01       		.uleb128 0x1
+ 814 0280 53       		.byte	0x53
+ 815 0281 05       		.uleb128 0x5
+ 816 0282 03       		.byte	0x3
+ 817 0283 00040000 		.4byte	.LANCHOR0+1024
+ 818 0287 08       		.uleb128 0x8
+ 819 0288 01       		.uleb128 0x1
+ 820 0289 52       		.byte	0x52
+ 821 028a 05       		.uleb128 0x5
+ 822 028b 03       		.byte	0x3
+ 823 028c 00000000 		.4byte	.LANCHOR0
+ 824 0290 08       		.uleb128 0x8
+ 825 0291 01       		.uleb128 0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 18
+
+
+ 826 0292 51       		.byte	0x51
+ 827 0293 03       		.uleb128 0x3
+ 828 0294 91       		.byte	0x91
+ 829 0295 E077     		.sleb128 -1056
+ 830 0297 08       		.uleb128 0x8
+ 831 0298 01       		.uleb128 0x1
+ 832 0299 50       		.byte	0x50
+ 833 029a 03       		.uleb128 0x3
+ 834 029b 91       		.byte	0x91
+ 835 029c E06F     		.sleb128 -2080
+ 836 029e 08       		.uleb128 0x8
+ 837 029f 02       		.uleb128 0x2
+ 838 02a0 7D       		.byte	0x7d
+ 839 02a1 00       		.sleb128 0
+ 840 02a2 03       		.uleb128 0x3
+ 841 02a3 0A       		.byte	0xa
+ 842 02a4 0001     		.2byte	0x100
+ 843 02a6 00       		.byte	0
+ 844 02a7 12       		.uleb128 0x12
+ 845 02a8 98000000 		.4byte	.LVL35
+ 846 02ac 13040000 		.4byte	0x413
+ 847 02b0 08       		.uleb128 0x8
+ 848 02b1 01       		.uleb128 0x1
+ 849 02b2 53       		.byte	0x53
+ 850 02b3 05       		.uleb128 0x5
+ 851 02b4 03       		.byte	0x3
+ 852 02b5 00040000 		.4byte	.LANCHOR0+1024
+ 853 02b9 08       		.uleb128 0x8
+ 854 02ba 01       		.uleb128 0x1
+ 855 02bb 52       		.byte	0x52
+ 856 02bc 05       		.uleb128 0x5
+ 857 02bd 03       		.byte	0x3
+ 858 02be 00000000 		.4byte	.LANCHOR0
+ 859 02c2 08       		.uleb128 0x8
+ 860 02c3 01       		.uleb128 0x1
+ 861 02c4 51       		.byte	0x51
+ 862 02c5 03       		.uleb128 0x3
+ 863 02c6 91       		.byte	0x91
+ 864 02c7 E077     		.sleb128 -1056
+ 865 02c9 08       		.uleb128 0x8
+ 866 02ca 01       		.uleb128 0x1
+ 867 02cb 50       		.byte	0x50
+ 868 02cc 03       		.uleb128 0x3
+ 869 02cd 91       		.byte	0x91
+ 870 02ce E06F     		.sleb128 -2080
+ 871 02d0 08       		.uleb128 0x8
+ 872 02d1 02       		.uleb128 0x2
+ 873 02d2 7D       		.byte	0x7d
+ 874 02d3 00       		.sleb128 0
+ 875 02d4 02       		.uleb128 0x2
+ 876 02d5 74       		.byte	0x74
+ 877 02d6 00       		.sleb128 0
+ 878 02d7 00       		.byte	0
+ 879 02d8 00       		.byte	0
+ 880 02d9 13       		.uleb128 0x13
+ 881 02da BD000000 		.4byte	0xbd
+ 882 02de E9020000 		.4byte	0x2e9
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 19
+
+
+ 883 02e2 14       		.uleb128 0x14
+ 884 02e3 81000000 		.4byte	0x81
+ 885 02e7 FF       		.byte	0xff
+ 886 02e8 00       		.byte	0
+ 887 02e9 09       		.uleb128 0x9
+ 888 02ea 07000000 		.4byte	.LASF26
+ 889 02ee 01       		.byte	0x1
+ 890 02ef 54       		.byte	0x54
+ 891 02f0 BD000000 		.4byte	0xbd
+ 892 02f4 00000000 		.4byte	.LFB60
+ 893 02f8 90000000 		.4byte	.LFE60-.LFB60
+ 894 02fc 01       		.uleb128 0x1
+ 895 02fd 9C       		.byte	0x9c
+ 896 02fe 6E030000 		.4byte	0x36e
+ 897 0302 0A       		.uleb128 0xa
+ 898 0303 01020000 		.4byte	.LASF21
+ 899 0307 01       		.byte	0x1
+ 900 0308 54       		.byte	0x54
+ 901 0309 48010000 		.4byte	0x148
+ 902 030d 21020000 		.4byte	.LLST15
+ 903 0311 0B       		.uleb128 0xb
+ 904 0312 7200     		.ascii	"r\000"
+ 905 0314 01       		.byte	0x1
+ 906 0315 56       		.byte	0x56
+ 907 0316 BD000000 		.4byte	0xbd
+ 908 031a 3F020000 		.4byte	.LLST16
+ 909 031e 0D       		.uleb128 0xd
+ 910 031f 0E010000 		.4byte	.LASF22
+ 911 0323 01       		.byte	0x1
+ 912 0324 57       		.byte	0x57
+ 913 0325 BD000000 		.4byte	0xbd
+ 914 0329 52020000 		.4byte	.LLST17
+ 915 032d 0D       		.uleb128 0xd
+ 916 032e E0010000 		.4byte	.LASF23
+ 917 0332 01       		.byte	0x1
+ 918 0333 58       		.byte	0x58
+ 919 0334 37000000 		.4byte	0x37
+ 920 0338 75020000 		.4byte	.LLST18
+ 921 033c 0B       		.uleb128 0xb
+ 922 033d 6C616700 		.ascii	"lag\000"
+ 923 0341 01       		.byte	0x1
+ 924 0342 5A       		.byte	0x5a
+ 925 0343 9C000000 		.4byte	0x9c
+ 926 0347 8A020000 		.4byte	.LLST19
+ 927 034b 0E       		.uleb128 0xe
+ 928 034c 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 929 0350 0D       		.uleb128 0xd
+ 930 0351 2A010000 		.4byte	.LASF27
+ 931 0355 01       		.byte	0x1
+ 932 0356 5C       		.byte	0x5c
+ 933 0357 37000000 		.4byte	0x37
+ 934 035b D1020000 		.4byte	.LLST20
+ 935 035f 0B       		.uleb128 0xb
+ 936 0360 6900     		.ascii	"i\000"
+ 937 0362 01       		.byte	0x1
+ 938 0363 5E       		.byte	0x5e
+ 939 0364 37000000 		.4byte	0x37
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 20
+
+
+ 940 0368 FC020000 		.4byte	.LLST21
+ 941 036c 00       		.byte	0
+ 942 036d 00       		.byte	0
+ 943 036e 10       		.uleb128 0x10
+ 944 036f 22000000 		.4byte	.LASF28
+ 945 0373 01       		.byte	0x1
+ 946 0374 04       		.byte	0x4
+ 947 0375 D9020000 		.4byte	0x2d9
+ 948 0379 05       		.uleb128 0x5
+ 949 037a 03       		.byte	0x3
+ 950 037b 00000000 		.4byte	cos_table
+ 951 037f 10       		.uleb128 0x10
+ 952 0380 CC010000 		.4byte	.LASF29
+ 953 0384 01       		.byte	0x1
+ 954 0385 05       		.byte	0x5
+ 955 0386 D9020000 		.4byte	0x2d9
+ 956 038a 05       		.uleb128 0x5
+ 957 038b 03       		.byte	0x3
+ 958 038c 00040000 		.4byte	sin_table
+ 959 0390 15       		.uleb128 0x15
+ 960 0391 2F010000 		.4byte	.LASF39
+ 961 0395 07       		.byte	0x7
+ 962 0396 1606     		.2byte	0x616
+ 963 0398 9C030000 		.4byte	0x39c
+ 964 039c 16       		.uleb128 0x16
+ 965 039d 91000000 		.4byte	0x91
+ 966 03a1 17       		.uleb128 0x17
+ 967 03a2 E9010000 		.4byte	.LASF31
+ 968 03a6 06       		.byte	0x6
+ 969 03a7 21       		.byte	0x21
+ 970 03a8 C0030000 		.4byte	0x3c0
+ 971 03ac C0030000 		.4byte	0x3c0
+ 972 03b0 18       		.uleb128 0x18
+ 973 03b1 C7030000 		.4byte	0x3c7
+ 974 03b5 18       		.uleb128 0x18
+ 975 03b6 C7030000 		.4byte	0x3c7
+ 976 03ba 18       		.uleb128 0x18
+ 977 03bb 25000000 		.4byte	0x25
+ 978 03bf 00       		.byte	0
+ 979 03c0 03       		.uleb128 0x3
+ 980 03c1 01       		.byte	0x1
+ 981 03c2 02       		.byte	0x2
+ 982 03c3 12000000 		.4byte	.LASF30
+ 983 03c7 0C       		.uleb128 0xc
+ 984 03c8 04       		.byte	0x4
+ 985 03c9 BD000000 		.4byte	0xbd
+ 986 03cd 19       		.uleb128 0x19
+ 987 03ce 3C010000 		.4byte	.LASF33
+ 988 03d2 88000000 		.4byte	0x88
+ 989 03d6 EA030000 		.4byte	0x3ea
+ 990 03da 18       		.uleb128 0x18
+ 991 03db 88000000 		.4byte	0x88
+ 992 03df 18       		.uleb128 0x18
+ 993 03e0 37000000 		.4byte	0x37
+ 994 03e4 18       		.uleb128 0x18
+ 995 03e5 81000000 		.4byte	0x81
+ 996 03e9 00       		.byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 21
+
+
+ 997 03ea 17       		.uleb128 0x17
+ 998 03eb 85010000 		.4byte	.LASF32
+ 999 03ef 06       		.byte	0x6
+ 1000 03f0 26       		.byte	0x26
+ 1001 03f1 C0030000 		.4byte	0x3c0
+ 1002 03f5 13040000 		.4byte	0x413
+ 1003 03f9 18       		.uleb128 0x18
+ 1004 03fa C7030000 		.4byte	0x3c7
+ 1005 03fe 18       		.uleb128 0x18
+ 1006 03ff C7030000 		.4byte	0x3c7
+ 1007 0403 18       		.uleb128 0x18
+ 1008 0404 C7030000 		.4byte	0x3c7
+ 1009 0408 18       		.uleb128 0x18
+ 1010 0409 C7030000 		.4byte	0x3c7
+ 1011 040d 18       		.uleb128 0x18
+ 1012 040e 25000000 		.4byte	0x25
+ 1013 0412 00       		.byte	0
+ 1014 0413 1A       		.uleb128 0x1a
+ 1015 0414 09020000 		.4byte	.LASF34
+ 1016 0418 06       		.byte	0x6
+ 1017 0419 29       		.byte	0x29
+ 1018 041a C0030000 		.4byte	0x3c0
+ 1019 041e 18       		.uleb128 0x18
+ 1020 041f C7030000 		.4byte	0x3c7
+ 1021 0423 18       		.uleb128 0x18
+ 1022 0424 C7030000 		.4byte	0x3c7
+ 1023 0428 18       		.uleb128 0x18
+ 1024 0429 C7030000 		.4byte	0x3c7
+ 1025 042d 18       		.uleb128 0x18
+ 1026 042e C7030000 		.4byte	0x3c7
+ 1027 0432 18       		.uleb128 0x18
+ 1028 0433 25000000 		.4byte	0x25
+ 1029 0437 00       		.byte	0
+ 1030 0438 00       		.byte	0
+ 1031              		.section	.debug_abbrev,"",%progbits
+ 1032              	.Ldebug_abbrev0:
+ 1033 0000 01       		.uleb128 0x1
+ 1034 0001 11       		.uleb128 0x11
+ 1035 0002 01       		.byte	0x1
+ 1036 0003 25       		.uleb128 0x25
+ 1037 0004 0E       		.uleb128 0xe
+ 1038 0005 13       		.uleb128 0x13
+ 1039 0006 0B       		.uleb128 0xb
+ 1040 0007 03       		.uleb128 0x3
+ 1041 0008 0E       		.uleb128 0xe
+ 1042 0009 1B       		.uleb128 0x1b
+ 1043 000a 0E       		.uleb128 0xe
+ 1044 000b 55       		.uleb128 0x55
+ 1045 000c 17       		.uleb128 0x17
+ 1046 000d 11       		.uleb128 0x11
+ 1047 000e 01       		.uleb128 0x1
+ 1048 000f 10       		.uleb128 0x10
+ 1049 0010 17       		.uleb128 0x17
+ 1050 0011 00       		.byte	0
+ 1051 0012 00       		.byte	0
+ 1052 0013 02       		.uleb128 0x2
+ 1053 0014 16       		.uleb128 0x16
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 22
+
+
+ 1054 0015 00       		.byte	0
+ 1055 0016 03       		.uleb128 0x3
+ 1056 0017 0E       		.uleb128 0xe
+ 1057 0018 3A       		.uleb128 0x3a
+ 1058 0019 0B       		.uleb128 0xb
+ 1059 001a 3B       		.uleb128 0x3b
+ 1060 001b 0B       		.uleb128 0xb
+ 1061 001c 49       		.uleb128 0x49
+ 1062 001d 13       		.uleb128 0x13
+ 1063 001e 00       		.byte	0
+ 1064 001f 00       		.byte	0
+ 1065 0020 03       		.uleb128 0x3
+ 1066 0021 24       		.uleb128 0x24
+ 1067 0022 00       		.byte	0
+ 1068 0023 0B       		.uleb128 0xb
+ 1069 0024 0B       		.uleb128 0xb
+ 1070 0025 3E       		.uleb128 0x3e
+ 1071 0026 0B       		.uleb128 0xb
+ 1072 0027 03       		.uleb128 0x3
+ 1073 0028 0E       		.uleb128 0xe
+ 1074 0029 00       		.byte	0
+ 1075 002a 00       		.byte	0
+ 1076 002b 04       		.uleb128 0x4
+ 1077 002c 24       		.uleb128 0x24
+ 1078 002d 00       		.byte	0
+ 1079 002e 0B       		.uleb128 0xb
+ 1080 002f 0B       		.uleb128 0xb
+ 1081 0030 3E       		.uleb128 0x3e
+ 1082 0031 0B       		.uleb128 0xb
+ 1083 0032 03       		.uleb128 0x3
+ 1084 0033 08       		.uleb128 0x8
+ 1085 0034 00       		.byte	0
+ 1086 0035 00       		.byte	0
+ 1087 0036 05       		.uleb128 0x5
+ 1088 0037 0F       		.uleb128 0xf
+ 1089 0038 00       		.byte	0
+ 1090 0039 0B       		.uleb128 0xb
+ 1091 003a 0B       		.uleb128 0xb
+ 1092 003b 00       		.byte	0
+ 1093 003c 00       		.byte	0
+ 1094 003d 06       		.uleb128 0x6
+ 1095 003e 2E       		.uleb128 0x2e
+ 1096 003f 01       		.byte	0x1
+ 1097 0040 3F       		.uleb128 0x3f
+ 1098 0041 19       		.uleb128 0x19
+ 1099 0042 03       		.uleb128 0x3
+ 1100 0043 0E       		.uleb128 0xe
+ 1101 0044 3A       		.uleb128 0x3a
+ 1102 0045 0B       		.uleb128 0xb
+ 1103 0046 3B       		.uleb128 0x3b
+ 1104 0047 0B       		.uleb128 0xb
+ 1105 0048 11       		.uleb128 0x11
+ 1106 0049 01       		.uleb128 0x1
+ 1107 004a 12       		.uleb128 0x12
+ 1108 004b 06       		.uleb128 0x6
+ 1109 004c 40       		.uleb128 0x40
+ 1110 004d 18       		.uleb128 0x18
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 23
+
+
+ 1111 004e 9742     		.uleb128 0x2117
+ 1112 0050 19       		.uleb128 0x19
+ 1113 0051 01       		.uleb128 0x1
+ 1114 0052 13       		.uleb128 0x13
+ 1115 0053 00       		.byte	0
+ 1116 0054 00       		.byte	0
+ 1117 0055 07       		.uleb128 0x7
+ 1118 0056 898201   		.uleb128 0x4109
+ 1119 0059 01       		.byte	0x1
+ 1120 005a 11       		.uleb128 0x11
+ 1121 005b 01       		.uleb128 0x1
+ 1122 005c 9542     		.uleb128 0x2115
+ 1123 005e 19       		.uleb128 0x19
+ 1124 005f 31       		.uleb128 0x31
+ 1125 0060 13       		.uleb128 0x13
+ 1126 0061 00       		.byte	0
+ 1127 0062 00       		.byte	0
+ 1128 0063 08       		.uleb128 0x8
+ 1129 0064 8A8201   		.uleb128 0x410a
+ 1130 0067 00       		.byte	0
+ 1131 0068 02       		.uleb128 0x2
+ 1132 0069 18       		.uleb128 0x18
+ 1133 006a 9142     		.uleb128 0x2111
+ 1134 006c 18       		.uleb128 0x18
+ 1135 006d 00       		.byte	0
+ 1136 006e 00       		.byte	0
+ 1137 006f 09       		.uleb128 0x9
+ 1138 0070 2E       		.uleb128 0x2e
+ 1139 0071 01       		.byte	0x1
+ 1140 0072 3F       		.uleb128 0x3f
+ 1141 0073 19       		.uleb128 0x19
+ 1142 0074 03       		.uleb128 0x3
+ 1143 0075 0E       		.uleb128 0xe
+ 1144 0076 3A       		.uleb128 0x3a
+ 1145 0077 0B       		.uleb128 0xb
+ 1146 0078 3B       		.uleb128 0x3b
+ 1147 0079 0B       		.uleb128 0xb
+ 1148 007a 27       		.uleb128 0x27
+ 1149 007b 19       		.uleb128 0x19
+ 1150 007c 49       		.uleb128 0x49
+ 1151 007d 13       		.uleb128 0x13
+ 1152 007e 11       		.uleb128 0x11
+ 1153 007f 01       		.uleb128 0x1
+ 1154 0080 12       		.uleb128 0x12
+ 1155 0081 06       		.uleb128 0x6
+ 1156 0082 40       		.uleb128 0x40
+ 1157 0083 18       		.uleb128 0x18
+ 1158 0084 9642     		.uleb128 0x2116
+ 1159 0086 19       		.uleb128 0x19
+ 1160 0087 01       		.uleb128 0x1
+ 1161 0088 13       		.uleb128 0x13
+ 1162 0089 00       		.byte	0
+ 1163 008a 00       		.byte	0
+ 1164 008b 0A       		.uleb128 0xa
+ 1165 008c 05       		.uleb128 0x5
+ 1166 008d 00       		.byte	0
+ 1167 008e 03       		.uleb128 0x3
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 24
+
+
+ 1168 008f 0E       		.uleb128 0xe
+ 1169 0090 3A       		.uleb128 0x3a
+ 1170 0091 0B       		.uleb128 0xb
+ 1171 0092 3B       		.uleb128 0x3b
+ 1172 0093 0B       		.uleb128 0xb
+ 1173 0094 49       		.uleb128 0x49
+ 1174 0095 13       		.uleb128 0x13
+ 1175 0096 02       		.uleb128 0x2
+ 1176 0097 17       		.uleb128 0x17
+ 1177 0098 00       		.byte	0
+ 1178 0099 00       		.byte	0
+ 1179 009a 0B       		.uleb128 0xb
+ 1180 009b 34       		.uleb128 0x34
+ 1181 009c 00       		.byte	0
+ 1182 009d 03       		.uleb128 0x3
+ 1183 009e 08       		.uleb128 0x8
+ 1184 009f 3A       		.uleb128 0x3a
+ 1185 00a0 0B       		.uleb128 0xb
+ 1186 00a1 3B       		.uleb128 0x3b
+ 1187 00a2 0B       		.uleb128 0xb
+ 1188 00a3 49       		.uleb128 0x49
+ 1189 00a4 13       		.uleb128 0x13
+ 1190 00a5 02       		.uleb128 0x2
+ 1191 00a6 17       		.uleb128 0x17
+ 1192 00a7 00       		.byte	0
+ 1193 00a8 00       		.byte	0
+ 1194 00a9 0C       		.uleb128 0xc
+ 1195 00aa 0F       		.uleb128 0xf
+ 1196 00ab 00       		.byte	0
+ 1197 00ac 0B       		.uleb128 0xb
+ 1198 00ad 0B       		.uleb128 0xb
+ 1199 00ae 49       		.uleb128 0x49
+ 1200 00af 13       		.uleb128 0x13
+ 1201 00b0 00       		.byte	0
+ 1202 00b1 00       		.byte	0
+ 1203 00b2 0D       		.uleb128 0xd
+ 1204 00b3 34       		.uleb128 0x34
+ 1205 00b4 00       		.byte	0
+ 1206 00b5 03       		.uleb128 0x3
+ 1207 00b6 0E       		.uleb128 0xe
+ 1208 00b7 3A       		.uleb128 0x3a
+ 1209 00b8 0B       		.uleb128 0xb
+ 1210 00b9 3B       		.uleb128 0x3b
+ 1211 00ba 0B       		.uleb128 0xb
+ 1212 00bb 49       		.uleb128 0x49
+ 1213 00bc 13       		.uleb128 0x13
+ 1214 00bd 02       		.uleb128 0x2
+ 1215 00be 17       		.uleb128 0x17
+ 1216 00bf 00       		.byte	0
+ 1217 00c0 00       		.byte	0
+ 1218 00c1 0E       		.uleb128 0xe
+ 1219 00c2 0B       		.uleb128 0xb
+ 1220 00c3 01       		.byte	0x1
+ 1221 00c4 55       		.uleb128 0x55
+ 1222 00c5 17       		.uleb128 0x17
+ 1223 00c6 00       		.byte	0
+ 1224 00c7 00       		.byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 25
+
+
+ 1225 00c8 0F       		.uleb128 0xf
+ 1226 00c9 34       		.uleb128 0x34
+ 1227 00ca 00       		.byte	0
+ 1228 00cb 03       		.uleb128 0x3
+ 1229 00cc 08       		.uleb128 0x8
+ 1230 00cd 3A       		.uleb128 0x3a
+ 1231 00ce 0B       		.uleb128 0xb
+ 1232 00cf 3B       		.uleb128 0x3b
+ 1233 00d0 0B       		.uleb128 0xb
+ 1234 00d1 49       		.uleb128 0x49
+ 1235 00d2 13       		.uleb128 0x13
+ 1236 00d3 02       		.uleb128 0x2
+ 1237 00d4 18       		.uleb128 0x18
+ 1238 00d5 00       		.byte	0
+ 1239 00d6 00       		.byte	0
+ 1240 00d7 10       		.uleb128 0x10
+ 1241 00d8 34       		.uleb128 0x34
+ 1242 00d9 00       		.byte	0
+ 1243 00da 03       		.uleb128 0x3
+ 1244 00db 0E       		.uleb128 0xe
+ 1245 00dc 3A       		.uleb128 0x3a
+ 1246 00dd 0B       		.uleb128 0xb
+ 1247 00de 3B       		.uleb128 0x3b
+ 1248 00df 0B       		.uleb128 0xb
+ 1249 00e0 49       		.uleb128 0x49
+ 1250 00e1 13       		.uleb128 0x13
+ 1251 00e2 02       		.uleb128 0x2
+ 1252 00e3 18       		.uleb128 0x18
+ 1253 00e4 00       		.byte	0
+ 1254 00e5 00       		.byte	0
+ 1255 00e6 11       		.uleb128 0x11
+ 1256 00e7 898201   		.uleb128 0x4109
+ 1257 00ea 01       		.byte	0x1
+ 1258 00eb 11       		.uleb128 0x11
+ 1259 00ec 01       		.uleb128 0x1
+ 1260 00ed 31       		.uleb128 0x31
+ 1261 00ee 13       		.uleb128 0x13
+ 1262 00ef 01       		.uleb128 0x1
+ 1263 00f0 13       		.uleb128 0x13
+ 1264 00f1 00       		.byte	0
+ 1265 00f2 00       		.byte	0
+ 1266 00f3 12       		.uleb128 0x12
+ 1267 00f4 898201   		.uleb128 0x4109
+ 1268 00f7 01       		.byte	0x1
+ 1269 00f8 11       		.uleb128 0x11
+ 1270 00f9 01       		.uleb128 0x1
+ 1271 00fa 31       		.uleb128 0x31
+ 1272 00fb 13       		.uleb128 0x13
+ 1273 00fc 00       		.byte	0
+ 1274 00fd 00       		.byte	0
+ 1275 00fe 13       		.uleb128 0x13
+ 1276 00ff 01       		.uleb128 0x1
+ 1277 0100 01       		.byte	0x1
+ 1278 0101 49       		.uleb128 0x49
+ 1279 0102 13       		.uleb128 0x13
+ 1280 0103 01       		.uleb128 0x1
+ 1281 0104 13       		.uleb128 0x13
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 26
+
+
+ 1282 0105 00       		.byte	0
+ 1283 0106 00       		.byte	0
+ 1284 0107 14       		.uleb128 0x14
+ 1285 0108 21       		.uleb128 0x21
+ 1286 0109 00       		.byte	0
+ 1287 010a 49       		.uleb128 0x49
+ 1288 010b 13       		.uleb128 0x13
+ 1289 010c 2F       		.uleb128 0x2f
+ 1290 010d 0B       		.uleb128 0xb
+ 1291 010e 00       		.byte	0
+ 1292 010f 00       		.byte	0
+ 1293 0110 15       		.uleb128 0x15
+ 1294 0111 34       		.uleb128 0x34
+ 1295 0112 00       		.byte	0
+ 1296 0113 03       		.uleb128 0x3
+ 1297 0114 0E       		.uleb128 0xe
+ 1298 0115 3A       		.uleb128 0x3a
+ 1299 0116 0B       		.uleb128 0xb
+ 1300 0117 3B       		.uleb128 0x3b
+ 1301 0118 05       		.uleb128 0x5
+ 1302 0119 49       		.uleb128 0x49
+ 1303 011a 13       		.uleb128 0x13
+ 1304 011b 3F       		.uleb128 0x3f
+ 1305 011c 19       		.uleb128 0x19
+ 1306 011d 3C       		.uleb128 0x3c
+ 1307 011e 19       		.uleb128 0x19
+ 1308 011f 00       		.byte	0
+ 1309 0120 00       		.byte	0
+ 1310 0121 16       		.uleb128 0x16
+ 1311 0122 35       		.uleb128 0x35
+ 1312 0123 00       		.byte	0
+ 1313 0124 49       		.uleb128 0x49
+ 1314 0125 13       		.uleb128 0x13
+ 1315 0126 00       		.byte	0
+ 1316 0127 00       		.byte	0
+ 1317 0128 17       		.uleb128 0x17
+ 1318 0129 2E       		.uleb128 0x2e
+ 1319 012a 01       		.byte	0x1
+ 1320 012b 3F       		.uleb128 0x3f
+ 1321 012c 19       		.uleb128 0x19
+ 1322 012d 03       		.uleb128 0x3
+ 1323 012e 0E       		.uleb128 0xe
+ 1324 012f 3A       		.uleb128 0x3a
+ 1325 0130 0B       		.uleb128 0xb
+ 1326 0131 3B       		.uleb128 0x3b
+ 1327 0132 0B       		.uleb128 0xb
+ 1328 0133 27       		.uleb128 0x27
+ 1329 0134 19       		.uleb128 0x19
+ 1330 0135 49       		.uleb128 0x49
+ 1331 0136 13       		.uleb128 0x13
+ 1332 0137 3C       		.uleb128 0x3c
+ 1333 0138 19       		.uleb128 0x19
+ 1334 0139 01       		.uleb128 0x1
+ 1335 013a 13       		.uleb128 0x13
+ 1336 013b 00       		.byte	0
+ 1337 013c 00       		.byte	0
+ 1338 013d 18       		.uleb128 0x18
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 27
+
+
+ 1339 013e 05       		.uleb128 0x5
+ 1340 013f 00       		.byte	0
+ 1341 0140 49       		.uleb128 0x49
+ 1342 0141 13       		.uleb128 0x13
+ 1343 0142 00       		.byte	0
+ 1344 0143 00       		.byte	0
+ 1345 0144 19       		.uleb128 0x19
+ 1346 0145 2E       		.uleb128 0x2e
+ 1347 0146 01       		.byte	0x1
+ 1348 0147 3F       		.uleb128 0x3f
+ 1349 0148 19       		.uleb128 0x19
+ 1350 0149 03       		.uleb128 0x3
+ 1351 014a 0E       		.uleb128 0xe
+ 1352 014b 27       		.uleb128 0x27
+ 1353 014c 19       		.uleb128 0x19
+ 1354 014d 49       		.uleb128 0x49
+ 1355 014e 13       		.uleb128 0x13
+ 1356 014f 34       		.uleb128 0x34
+ 1357 0150 19       		.uleb128 0x19
+ 1358 0151 3C       		.uleb128 0x3c
+ 1359 0152 19       		.uleb128 0x19
+ 1360 0153 01       		.uleb128 0x1
+ 1361 0154 13       		.uleb128 0x13
+ 1362 0155 00       		.byte	0
+ 1363 0156 00       		.byte	0
+ 1364 0157 1A       		.uleb128 0x1a
+ 1365 0158 2E       		.uleb128 0x2e
+ 1366 0159 01       		.byte	0x1
+ 1367 015a 3F       		.uleb128 0x3f
+ 1368 015b 19       		.uleb128 0x19
+ 1369 015c 03       		.uleb128 0x3
+ 1370 015d 0E       		.uleb128 0xe
+ 1371 015e 3A       		.uleb128 0x3a
+ 1372 015f 0B       		.uleb128 0xb
+ 1373 0160 3B       		.uleb128 0x3b
+ 1374 0161 0B       		.uleb128 0xb
+ 1375 0162 27       		.uleb128 0x27
+ 1376 0163 19       		.uleb128 0x19
+ 1377 0164 49       		.uleb128 0x49
+ 1378 0165 13       		.uleb128 0x13
+ 1379 0166 3C       		.uleb128 0x3c
+ 1380 0167 19       		.uleb128 0x19
+ 1381 0168 00       		.byte	0
+ 1382 0169 00       		.byte	0
+ 1383 016a 00       		.byte	0
+ 1384              		.section	.debug_loc,"",%progbits
+ 1385              	.Ldebug_loc0:
+ 1386              	.LLST0:
+ 1387 0000 00000000 		.4byte	.LVL1
+ 1388 0004 06000000 		.4byte	.LVL2
+ 1389 0008 0100     		.2byte	0x1
+ 1390 000a 50       		.byte	0x50
+ 1391 000b 06000000 		.4byte	.LVL2
+ 1392 000f 0A000000 		.4byte	.LVL3
+ 1393 0013 0100     		.2byte	0x1
+ 1394 0015 53       		.byte	0x53
+ 1395 0016 0A000000 		.4byte	.LVL3
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 28
+
+
+ 1396 001a 38000000 		.4byte	.LVL8
+ 1397 001e 0400     		.2byte	0x4
+ 1398 0020 74       		.byte	0x74
+ 1399 0021 827C     		.sleb128 -510
+ 1400 0023 9F       		.byte	0x9f
+ 1401 0024 38000000 		.4byte	.LVL8
+ 1402 0028 44000000 		.4byte	.LFE57
+ 1403 002c 0400     		.2byte	0x4
+ 1404 002e F3       		.byte	0xf3
+ 1405 002f 01       		.uleb128 0x1
+ 1406 0030 50       		.byte	0x50
+ 1407 0031 9F       		.byte	0x9f
+ 1408 0032 00000000 		.4byte	0
+ 1409 0036 00000000 		.4byte	0
+ 1410              	.LLST1:
+ 1411 003a 00000000 		.4byte	.LVL1
+ 1412 003e 0A000000 		.4byte	.LVL3
+ 1413 0042 0200     		.2byte	0x2
+ 1414 0044 30       		.byte	0x30
+ 1415 0045 9F       		.byte	0x9f
+ 1416 0046 0A000000 		.4byte	.LVL3
+ 1417 004a 23000000 		.4byte	.LVL5-1
+ 1418 004e 0100     		.2byte	0x1
+ 1419 0050 50       		.byte	0x50
+ 1420 0051 00000000 		.4byte	0
+ 1421 0055 00000000 		.4byte	0
+ 1422              	.LLST2:
+ 1423 0059 00000000 		.4byte	.LVL1
+ 1424 005d 0A000000 		.4byte	.LVL3
+ 1425 0061 0200     		.2byte	0x2
+ 1426 0063 30       		.byte	0x30
+ 1427 0064 9F       		.byte	0x9f
+ 1428 0065 00000000 		.4byte	0
+ 1429 0069 00000000 		.4byte	0
+ 1430              	.LLST3:
+ 1431 006d 00000000 		.4byte	.LVL9
+ 1432 0071 14000000 		.4byte	.LVL10
+ 1433 0075 0100     		.2byte	0x1
+ 1434 0077 50       		.byte	0x50
+ 1435 0078 14000000 		.4byte	.LVL10
+ 1436 007c 82000000 		.4byte	.LVL23
+ 1437 0080 0100     		.2byte	0x1
+ 1438 0082 57       		.byte	0x57
+ 1439 0083 82000000 		.4byte	.LVL23
+ 1440 0087 88000000 		.4byte	.LFE58
+ 1441 008b 0400     		.2byte	0x4
+ 1442 008d F3       		.byte	0xf3
+ 1443 008e 01       		.uleb128 0x1
+ 1444 008f 50       		.byte	0x50
+ 1445 0090 9F       		.byte	0x9f
+ 1446 0091 00000000 		.4byte	0
+ 1447 0095 00000000 		.4byte	0
+ 1448              	.LLST4:
+ 1449 0099 54000000 		.4byte	.LVL17
+ 1450 009d 82000000 		.4byte	.LVL23
+ 1451 00a1 0100     		.2byte	0x1
+ 1452 00a3 5A       		.byte	0x5a
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 29
+
+
+ 1453 00a4 00000000 		.4byte	0
+ 1454 00a8 00000000 		.4byte	0
+ 1455              	.LLST5:
+ 1456 00ac 00000000 		.4byte	.LVL9
+ 1457 00b0 14000000 		.4byte	.LVL10
+ 1458 00b4 0600     		.2byte	0x6
+ 1459 00b6 9E       		.byte	0x9e
+ 1460 00b7 04       		.uleb128 0x4
+ 1461 00b8 00000000 		.4byte	0
+ 1462 00bc 1C000000 		.4byte	.LVL11
+ 1463 00c0 82000000 		.4byte	.LVL23
+ 1464 00c4 0100     		.2byte	0x1
+ 1465 00c6 54       		.byte	0x54
+ 1466 00c7 00000000 		.4byte	0
+ 1467 00cb 00000000 		.4byte	0
+ 1468              	.LLST6:
+ 1469 00cf 00000000 		.4byte	.LVL9
+ 1470 00d3 14000000 		.4byte	.LVL10
+ 1471 00d7 0300     		.2byte	0x3
+ 1472 00d9 09       		.byte	0x9
+ 1473 00da FF       		.byte	0xff
+ 1474 00db 9F       		.byte	0x9f
+ 1475 00dc 00000000 		.4byte	0
+ 1476 00e0 00000000 		.4byte	0
+ 1477              	.LLST7:
+ 1478 00e4 00000000 		.4byte	.LVL9
+ 1479 00e8 14000000 		.4byte	.LVL10
+ 1480 00ec 0200     		.2byte	0x2
+ 1481 00ee 36       		.byte	0x36
+ 1482 00ef 9F       		.byte	0x9f
+ 1483 00f0 1C000000 		.4byte	.LVL11
+ 1484 00f4 62000000 		.4byte	.LVL19
+ 1485 00f8 0100     		.2byte	0x1
+ 1486 00fa 55       		.byte	0x55
+ 1487 00fb 62000000 		.4byte	.LVL19
+ 1488 00ff 6E000000 		.4byte	.LVL20
+ 1489 0103 0300     		.2byte	0x3
+ 1490 0105 79       		.byte	0x79
+ 1491 0106 01       		.sleb128 1
+ 1492 0107 9F       		.byte	0x9f
+ 1493 0108 6E000000 		.4byte	.LVL20
+ 1494 010c 82000000 		.4byte	.LVL23
+ 1495 0110 0300     		.2byte	0x3
+ 1496 0112 75       		.byte	0x75
+ 1497 0113 01       		.sleb128 1
+ 1498 0114 9F       		.byte	0x9f
+ 1499 0115 00000000 		.4byte	0
+ 1500 0119 00000000 		.4byte	0
+ 1501              	.LLST8:
+ 1502 011d 1C000000 		.4byte	.LVL11
+ 1503 0121 2C000000 		.4byte	.LVL12
+ 1504 0125 0200     		.2byte	0x2
+ 1505 0127 30       		.byte	0x30
+ 1506 0128 9F       		.byte	0x9f
+ 1507 0129 2C000000 		.4byte	.LVL12
+ 1508 012d 49000000 		.4byte	.LVL15-1
+ 1509 0131 0100     		.2byte	0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 30
+
+
+ 1510 0133 50       		.byte	0x50
+ 1511 0134 00000000 		.4byte	0
+ 1512 0138 00000000 		.4byte	0
+ 1513              	.LLST9:
+ 1514 013c 1C000000 		.4byte	.LVL11
+ 1515 0140 2C000000 		.4byte	.LVL12
+ 1516 0144 0200     		.2byte	0x2
+ 1517 0146 30       		.byte	0x30
+ 1518 0147 9F       		.byte	0x9f
+ 1519 0148 2C000000 		.4byte	.LVL12
+ 1520 014c 2E000000 		.4byte	.LVL13
+ 1521 0150 0100     		.2byte	0x1
+ 1522 0152 53       		.byte	0x53
+ 1523 0153 42000000 		.4byte	.LVL14
+ 1524 0157 49000000 		.4byte	.LVL15-1
+ 1525 015b 0100     		.2byte	0x1
+ 1526 015d 53       		.byte	0x53
+ 1527 015e 00000000 		.4byte	0
+ 1528 0162 00000000 		.4byte	0
+ 1529              	.LLST10:
+ 1530 0166 00000000 		.4byte	.LVL24
+ 1531 016a 10000000 		.4byte	.LVL25
+ 1532 016e 0100     		.2byte	0x1
+ 1533 0170 50       		.byte	0x50
+ 1534 0171 10000000 		.4byte	.LVL25
+ 1535 0175 22000000 		.4byte	.LVL27
+ 1536 0179 0100     		.2byte	0x1
+ 1537 017b 57       		.byte	0x57
+ 1538 017c 22000000 		.4byte	.LVL27
+ 1539 0180 58000000 		.4byte	.LVL31
+ 1540 0184 0400     		.2byte	0x4
+ 1541 0186 77       		.byte	0x77
+ 1542 0187 827C     		.sleb128 -510
+ 1543 0189 9F       		.byte	0x9f
+ 1544 018a 58000000 		.4byte	.LVL31
+ 1545 018e DC000000 		.4byte	.LFE59
+ 1546 0192 0400     		.2byte	0x4
+ 1547 0194 F3       		.byte	0xf3
+ 1548 0195 01       		.uleb128 0x1
+ 1549 0196 50       		.byte	0x50
+ 1550 0197 9F       		.byte	0x9f
+ 1551 0198 00000000 		.4byte	0
+ 1552 019c 00000000 		.4byte	0
+ 1553              	.LLST11:
+ 1554 01a0 1A000000 		.4byte	.LVL26
+ 1555 01a4 22000000 		.4byte	.LVL27
+ 1556 01a8 0200     		.2byte	0x2
+ 1557 01aa 30       		.byte	0x30
+ 1558 01ab 9F       		.byte	0x9f
+ 1559 01ac 52000000 		.4byte	.LVL30
+ 1560 01b0 58000000 		.4byte	.LVL31
+ 1561 01b4 0200     		.2byte	0x2
+ 1562 01b6 30       		.byte	0x30
+ 1563 01b7 9F       		.byte	0x9f
+ 1564 01b8 00000000 		.4byte	0
+ 1565 01bc 00000000 		.4byte	0
+ 1566              	.LLST12:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 31
+
+
+ 1567 01c0 98000000 		.4byte	.LVL35
+ 1568 01c4 A2000000 		.4byte	.LVL36
+ 1569 01c8 0200     		.2byte	0x2
+ 1570 01ca 30       		.byte	0x30
+ 1571 01cb 9F       		.byte	0x9f
+ 1572 01cc 00000000 		.4byte	0
+ 1573 01d0 00000000 		.4byte	0
+ 1574              	.LLST13:
+ 1575 01d4 98000000 		.4byte	.LVL35
+ 1576 01d8 A2000000 		.4byte	.LVL36
+ 1577 01dc 0600     		.2byte	0x6
+ 1578 01de 9E       		.byte	0x9e
+ 1579 01df 04       		.uleb128 0x4
+ 1580 01e0 00000000 		.4byte	0
+ 1581 01e4 A2000000 		.4byte	.LVL36
+ 1582 01e8 B2000000 		.4byte	.LVL38
+ 1583 01ec 0100     		.2byte	0x1
+ 1584 01ee 57       		.byte	0x57
+ 1585 01ef B4000000 		.4byte	.LVL39
+ 1586 01f3 D0000000 		.4byte	.LVL43
+ 1587 01f7 0100     		.2byte	0x1
+ 1588 01f9 57       		.byte	0x57
+ 1589 01fa 00000000 		.4byte	0
+ 1590 01fe 00000000 		.4byte	0
+ 1591              	.LLST14:
+ 1592 0202 98000000 		.4byte	.LVL35
+ 1593 0206 A2000000 		.4byte	.LVL36
+ 1594 020a 0200     		.2byte	0x2
+ 1595 020c 36       		.byte	0x36
+ 1596 020d 9F       		.byte	0x9f
+ 1597 020e A2000000 		.4byte	.LVL36
+ 1598 0212 D0000000 		.4byte	.LVL43
+ 1599 0216 0100     		.2byte	0x1
+ 1600 0218 54       		.byte	0x54
+ 1601 0219 00000000 		.4byte	0
+ 1602 021d 00000000 		.4byte	0
+ 1603              	.LLST15:
+ 1604 0221 00000000 		.4byte	.LVL44
+ 1605 0225 18000000 		.4byte	.LVL45
+ 1606 0229 0100     		.2byte	0x1
+ 1607 022b 50       		.byte	0x50
+ 1608 022c 18000000 		.4byte	.LVL45
+ 1609 0230 90000000 		.4byte	.LFE60
+ 1610 0234 0100     		.2byte	0x1
+ 1611 0236 57       		.byte	0x57
+ 1612 0237 00000000 		.4byte	0
+ 1613 023b 00000000 		.4byte	0
+ 1614              	.LLST16:
+ 1615 023f 4E000000 		.4byte	.LVL50
+ 1616 0243 80000000 		.4byte	.LVL56
+ 1617 0247 0100     		.2byte	0x1
+ 1618 0249 5B       		.byte	0x5b
+ 1619 024a 00000000 		.4byte	0
+ 1620 024e 00000000 		.4byte	0
+ 1621              	.LLST17:
+ 1622 0252 00000000 		.4byte	.LVL44
+ 1623 0256 18000000 		.4byte	.LVL45
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 32
+
+
+ 1624 025a 0600     		.2byte	0x6
+ 1625 025c 9E       		.byte	0x9e
+ 1626 025d 04       		.uleb128 0x4
+ 1627 025e 00007A44 		.4byte	0x447a0000
+ 1628 0262 18000000 		.4byte	.LVL45
+ 1629 0266 90000000 		.4byte	.LFE60
+ 1630 026a 0100     		.2byte	0x1
+ 1631 026c 55       		.byte	0x55
+ 1632 026d 00000000 		.4byte	0
+ 1633 0271 00000000 		.4byte	0
+ 1634              	.LLST18:
+ 1635 0275 00000000 		.4byte	.LVL44
+ 1636 0279 18000000 		.4byte	.LVL45
+ 1637 027d 0300     		.2byte	0x3
+ 1638 027f 09       		.byte	0x9
+ 1639 0280 FF       		.byte	0xff
+ 1640 0281 9F       		.byte	0x9f
+ 1641 0282 00000000 		.4byte	0
+ 1642 0286 00000000 		.4byte	0
+ 1643              	.LLST19:
+ 1644 028a 00000000 		.4byte	.LVL44
+ 1645 028e 18000000 		.4byte	.LVL45
+ 1646 0292 0200     		.2byte	0x2
+ 1647 0294 36       		.byte	0x36
+ 1648 0295 9F       		.byte	0x9f
+ 1649 0296 18000000 		.4byte	.LVL45
+ 1650 029a 5C000000 		.4byte	.LVL52
+ 1651 029e 0700     		.2byte	0x7
+ 1652 02a0 0A       		.byte	0xa
+ 1653 02a1 0001     		.2byte	0x100
+ 1654 02a3 7A       		.byte	0x7a
+ 1655 02a4 00       		.sleb128 0
+ 1656 02a5 1C       		.byte	0x1c
+ 1657 02a6 9F       		.byte	0x9f
+ 1658 02a7 5C000000 		.4byte	.LVL52
+ 1659 02ab 60000000 		.4byte	.LVL53
+ 1660 02af 0700     		.2byte	0x7
+ 1661 02b1 0A       		.byte	0xa
+ 1662 02b2 0101     		.2byte	0x101
+ 1663 02b4 7A       		.byte	0x7a
+ 1664 02b5 00       		.sleb128 0
+ 1665 02b6 1C       		.byte	0x1c
+ 1666 02b7 9F       		.byte	0x9f
+ 1667 02b8 80000000 		.4byte	.LVL56
+ 1668 02bc 90000000 		.4byte	.LFE60
+ 1669 02c0 0700     		.2byte	0x7
+ 1670 02c2 0A       		.byte	0xa
+ 1671 02c3 0001     		.2byte	0x100
+ 1672 02c5 7A       		.byte	0x7a
+ 1673 02c6 00       		.sleb128 0
+ 1674 02c7 1C       		.byte	0x1c
+ 1675 02c8 9F       		.byte	0x9f
+ 1676 02c9 00000000 		.4byte	0
+ 1677 02cd 00000000 		.4byte	0
+ 1678              	.LLST20:
+ 1679 02d1 18000000 		.4byte	.LVL45
+ 1680 02d5 28000000 		.4byte	.LVL46
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 33
+
+
+ 1681 02d9 0200     		.2byte	0x2
+ 1682 02db 30       		.byte	0x30
+ 1683 02dc 9F       		.byte	0x9f
+ 1684 02dd 28000000 		.4byte	.LVL46
+ 1685 02e1 43000000 		.4byte	.LVL48-1
+ 1686 02e5 0100     		.2byte	0x1
+ 1687 02e7 50       		.byte	0x50
+ 1688 02e8 80000000 		.4byte	.LVL56
+ 1689 02ec 90000000 		.4byte	.LFE60
+ 1690 02f0 0200     		.2byte	0x2
+ 1691 02f2 30       		.byte	0x30
+ 1692 02f3 9F       		.byte	0x9f
+ 1693 02f4 00000000 		.4byte	0
+ 1694 02f8 00000000 		.4byte	0
+ 1695              	.LLST21:
+ 1696 02fc 18000000 		.4byte	.LVL45
+ 1697 0300 28000000 		.4byte	.LVL46
+ 1698 0304 0200     		.2byte	0x2
+ 1699 0306 30       		.byte	0x30
+ 1700 0307 9F       		.byte	0x9f
+ 1701 0308 80000000 		.4byte	.LVL56
+ 1702 030c 90000000 		.4byte	.LFE60
+ 1703 0310 0200     		.2byte	0x2
+ 1704 0312 30       		.byte	0x30
+ 1705 0313 9F       		.byte	0x9f
+ 1706 0314 00000000 		.4byte	0
+ 1707 0318 00000000 		.4byte	0
+ 1708              		.section	.debug_aranges,"",%progbits
+ 1709 0000 3C000000 		.4byte	0x3c
+ 1710 0004 0200     		.2byte	0x2
+ 1711 0006 00000000 		.4byte	.Ldebug_info0
+ 1712 000a 04       		.byte	0x4
+ 1713 000b 00       		.byte	0
+ 1714 000c 0000     		.2byte	0
+ 1715 000e 0000     		.2byte	0
+ 1716 0010 00000000 		.4byte	.LFB56
+ 1717 0014 14000000 		.4byte	.LFE56-.LFB56
+ 1718 0018 00000000 		.4byte	.LFB57
+ 1719 001c 44000000 		.4byte	.LFE57-.LFB57
+ 1720 0020 00000000 		.4byte	.LFB58
+ 1721 0024 88000000 		.4byte	.LFE58-.LFB58
+ 1722 0028 00000000 		.4byte	.LFB59
+ 1723 002c DC000000 		.4byte	.LFE59-.LFB59
+ 1724 0030 00000000 		.4byte	.LFB60
+ 1725 0034 90000000 		.4byte	.LFE60-.LFB60
+ 1726 0038 00000000 		.4byte	0
+ 1727 003c 00000000 		.4byte	0
+ 1728              		.section	.debug_ranges,"",%progbits
+ 1729              	.Ldebug_ranges0:
+ 1730 0000 0A000000 		.4byte	.LBB2
+ 1731 0004 12000000 		.4byte	.LBE2
+ 1732 0008 14000000 		.4byte	.LBB3
+ 1733 000c 66000000 		.4byte	.LBE3
+ 1734 0010 00000000 		.4byte	0
+ 1735 0014 00000000 		.4byte	0
+ 1736 0018 08000000 		.4byte	.LBB4
+ 1737 001c 14000000 		.4byte	.LBE4
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 34
+
+
+ 1738 0020 18000000 		.4byte	.LBB5
+ 1739 0024 60000000 		.4byte	.LBE5
+ 1740 0028 80000000 		.4byte	.LBB6
+ 1741 002c 90000000 		.4byte	.LBE6
+ 1742 0030 00000000 		.4byte	0
+ 1743 0034 00000000 		.4byte	0
+ 1744 0038 00000000 		.4byte	.LFB56
+ 1745 003c 14000000 		.4byte	.LFE56
+ 1746 0040 00000000 		.4byte	.LFB57
+ 1747 0044 44000000 		.4byte	.LFE57
+ 1748 0048 00000000 		.4byte	.LFB58
+ 1749 004c 88000000 		.4byte	.LFE58
+ 1750 0050 00000000 		.4byte	.LFB59
+ 1751 0054 DC000000 		.4byte	.LFE59
+ 1752 0058 00000000 		.4byte	.LFB60
+ 1753 005c 90000000 		.4byte	.LFE60
+ 1754 0060 00000000 		.4byte	0
+ 1755 0064 00000000 		.4byte	0
+ 1756              		.section	.debug_line,"",%progbits
+ 1757              	.Ldebug_line0:
+ 1758 0000 C3020000 		.section	.debug_str,"MS",%progbits,1
+ 1758      0200D301 
+ 1758      00000201 
+ 1758      FB0E0D00 
+ 1758      01010101 
+ 1759              	.LASF5:
+ 1760 0000 73697A65 		.ascii	"size_t\000"
+ 1760      5F7400
+ 1761              	.LASF26:
+ 1762 0007 70697463 		.ascii	"pitch_amdf\000"
+ 1762      685F616D 
+ 1762      646600
+ 1763              	.LASF30:
+ 1764 0012 5F426F6F 		.ascii	"_Bool\000"
+ 1764      6C00
+ 1765              	.LASF6:
+ 1766 0018 5F5F696E 		.ascii	"__int32_t\000"
+ 1766      7433325F 
+ 1766      7400
+ 1767              	.LASF28:
+ 1768 0022 636F735F 		.ascii	"cos_table\000"
+ 1768      7461626C 
+ 1768      6500
+ 1769              	.LASF7:
+ 1770 002c 6C6F6E67 		.ascii	"long int\000"
+ 1770      20696E74 
+ 1770      00
+ 1771              	.LASF4:
+ 1772 0035 73686F72 		.ascii	"short unsigned int\000"
+ 1772      7420756E 
+ 1772      7369676E 
+ 1772      65642069 
+ 1772      6E7400
+ 1773              	.LASF18:
+ 1774 0048 646F7562 		.ascii	"double\000"
+ 1774      6C6500
+ 1775              	.LASF38:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 35
+
+
+ 1776 004f 70697463 		.ascii	"pitch_init\000"
+ 1776      685F696E 
+ 1776      697400
+ 1777              	.LASF35:
+ 1778 005a 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1778      4320342E 
+ 1778      392E3320 
+ 1778      32303135 
+ 1778      30333033 
+ 1779 008d 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1779      20726576 
+ 1779      6973696F 
+ 1779      6E203232 
+ 1779      31323230 
+ 1780 00c0 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 1780      66756E63 
+ 1780      74696F6E 
+ 1780      2D736563 
+ 1780      74696F6E 
+ 1781              	.LASF17:
+ 1782 00e8 666C6F61 		.ascii	"float\000"
+ 1782      7400
+ 1783              	.LASF1:
+ 1784 00ee 7369676E 		.ascii	"signed char\000"
+ 1784      65642063 
+ 1784      68617200 
+ 1785              	.LASF2:
+ 1786 00fa 756E7369 		.ascii	"unsigned char\000"
+ 1786      676E6564 
+ 1786      20636861 
+ 1786      7200
+ 1787              	.LASF15:
+ 1788 0108 696E7431 		.ascii	"int16\000"
+ 1788      3600
+ 1789              	.LASF22:
+ 1790 010e 62657374 		.ascii	"best_r\000"
+ 1790      5F7200
+ 1791              	.LASF16:
+ 1792 0115 696E7433 		.ascii	"int32\000"
+ 1792      3200
+ 1793              	.LASF20:
+ 1794 011b 6175746F 		.ascii	"auto_correlate\000"
+ 1794      5F636F72 
+ 1794      72656C61 
+ 1794      746500
+ 1795              	.LASF27:
+ 1796 012a 616D6466 		.ascii	"amdf\000"
+ 1796      00
+ 1797              	.LASF39:
+ 1798 012f 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1798      52784275 
+ 1798      66666572 
+ 1798      00
+ 1799              	.LASF33:
+ 1800 013c 6D656D73 		.ascii	"memset\000"
+ 1800      657400
+ 1801              	.LASF8:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 36
+
+
+ 1802 0143 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1802      20756E73 
+ 1802      69676E65 
+ 1802      6420696E 
+ 1802      7400
+ 1803              	.LASF14:
+ 1804 0155 75696E74 		.ascii	"uint16\000"
+ 1804      313600
+ 1805              	.LASF25:
+ 1806 015c 696D6167 		.ascii	"imag\000"
+ 1806      00
+ 1807              	.LASF0:
+ 1808 0161 756E7369 		.ascii	"unsigned int\000"
+ 1808      676E6564 
+ 1808      20696E74 
+ 1808      00
+ 1809              	.LASF10:
+ 1810 016e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1810      206C6F6E 
+ 1810      6720756E 
+ 1810      7369676E 
+ 1810      65642069 
+ 1811              	.LASF32:
+ 1812 0185 7472616E 		.ascii	"transform\000"
+ 1812      73666F72 
+ 1812      6D00
+ 1813              	.LASF36:
+ 1814 018f 70697463 		.ascii	"pitch.c\000"
+ 1814      682E6300 
+ 1815              	.LASF13:
+ 1816 0197 696E7433 		.ascii	"int32_t\000"
+ 1816      325F7400 
+ 1817              	.LASF11:
+ 1818 019f 73697A65 		.ascii	"sizetype\000"
+ 1818      74797065 
+ 1818      00
+ 1819              	.LASF19:
+ 1820 01a8 70697463 		.ascii	"pitch_zero_cross\000"
+ 1820      685F7A65 
+ 1820      726F5F63 
+ 1820      726F7373 
+ 1820      00
+ 1821              	.LASF9:
+ 1822 01b9 6C6F6E67 		.ascii	"long long int\000"
+ 1822      206C6F6E 
+ 1822      6720696E 
+ 1822      7400
+ 1823              	.LASF12:
+ 1824 01c7 63686172 		.ascii	"char\000"
+ 1824      00
+ 1825              	.LASF29:
+ 1826 01cc 73696E5F 		.ascii	"sin_table\000"
+ 1826      7461626C 
+ 1826      6500
+ 1827              	.LASF3:
+ 1828 01d6 73686F72 		.ascii	"short int\000"
+ 1828      7420696E 
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccMteWJn.s 			page 37
+
+
+ 1828      7400
+ 1829              	.LASF23:
+ 1830 01e0 62657374 		.ascii	"best_lag\000"
+ 1830      5F6C6167 
+ 1830      00
+ 1831              	.LASF31:
+ 1832 01e9 6666745F 		.ascii	"fft_init\000"
+ 1832      696E6974 
+ 1832      00
+ 1833              	.LASF24:
+ 1834 01f2 70697463 		.ascii	"pitch_auto_fft\000"
+ 1834      685F6175 
+ 1834      746F5F66 
+ 1834      667400
+ 1835              	.LASF21:
+ 1836 0201 73616D70 		.ascii	"samples\000"
+ 1836      6C657300 
+ 1837              	.LASF34:
+ 1838 0209 696E7665 		.ascii	"inverse_transform\000"
+ 1838      7273655F 
+ 1838      7472616E 
+ 1838      73666F72 
+ 1838      6D00
+ 1839              	.LASF37:
+ 1840 021b 433A5C55 		.ascii	"C:\\Users\\jmdevoto\\Desktop\\Builds\\(4-24-17)Humm"
+ 1840      73657273 
+ 1840      5C6A6D64 
+ 1840      65766F74 
+ 1840      6F5C4465 
+ 1841 0249 696E6762 		.ascii	"ingbird-059-v1\\Hummingbird(Continuous Output).cyds"
+ 1841      6972642D 
+ 1841      3035392D 
+ 1841      76315C48 
+ 1841      756D6D69 
+ 1842 027b 6E00     		.ascii	"n\000"
+ 1843              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -1,0 +1,879 @@
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccuXeskX.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"UI_TIMER_PM.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.UI_TIMER_SaveConfig,"ax",%progbits
+  19              		.align	2
+  20              		.global	UI_TIMER_SaveConfig
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	UI_TIMER_SaveConfig, %function
+  24              	UI_TIMER_SaveConfig:
+  25              	.LFB0:
+  26              		.file 1 "Generated_Source\\PSoC5\\UI_TIMER_PM.c"
+   1:Generated_Source\PSoC5/UI_TIMER_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/UI_TIMER_PM.c **** * File Name: UI_TIMER_PM.c
+   3:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Version 2.70
+   4:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+   5:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  Description:
+   6:Generated_Source\PSoC5/UI_TIMER_PM.c **** *     This file provides the power management source code to API for the
+   7:Generated_Source\PSoC5/UI_TIMER_PM.c **** *     Timer.
+   8:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+   9:Generated_Source\PSoC5/UI_TIMER_PM.c **** *   Note:
+  10:Generated_Source\PSoC5/UI_TIMER_PM.c **** *     None
+  11:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+  12:Generated_Source\PSoC5/UI_TIMER_PM.c **** *******************************************************************************
+  13:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC5/UI_TIMER_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:Generated_Source\PSoC5/UI_TIMER_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:Generated_Source\PSoC5/UI_TIMER_PM.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC5/UI_TIMER_PM.c **** ********************************************************************************/
+  18:Generated_Source\PSoC5/UI_TIMER_PM.c **** 
+  19:Generated_Source\PSoC5/UI_TIMER_PM.c **** #include "UI_TIMER.h"
+  20:Generated_Source\PSoC5/UI_TIMER_PM.c **** 
+  21:Generated_Source\PSoC5/UI_TIMER_PM.c **** static UI_TIMER_backupStruct UI_TIMER_backup;
+  22:Generated_Source\PSoC5/UI_TIMER_PM.c **** 
+  23:Generated_Source\PSoC5/UI_TIMER_PM.c **** 
+  24:Generated_Source\PSoC5/UI_TIMER_PM.c **** /*******************************************************************************
+  25:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Function Name: UI_TIMER_SaveConfig
+  26:Generated_Source\PSoC5/UI_TIMER_PM.c **** ********************************************************************************
+  27:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+  28:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Summary:
+  29:Generated_Source\PSoC5/UI_TIMER_PM.c **** *     Save the current user configuration
+  30:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+  31:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Parameters:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccuXeskX.s 			page 2
+
+
+  32:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  void
+  33:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+  34:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Return:
+  35:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  void
+  36:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+  37:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Global variables:
+  38:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  UI_TIMER_backup:  Variables of this global structure are modified to
+  39:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  store the values of non retention configuration registers when Sleep() API is
+  40:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  called.
+  41:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+  42:Generated_Source\PSoC5/UI_TIMER_PM.c **** *******************************************************************************/
+  43:Generated_Source\PSoC5/UI_TIMER_PM.c **** void UI_TIMER_SaveConfig(void) 
+  44:Generated_Source\PSoC5/UI_TIMER_PM.c **** {
+  27              		.loc 1 44 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32 0000 7047     		bx	lr
+  33              		.cfi_endproc
+  34              	.LFE0:
+  35              		.size	UI_TIMER_SaveConfig, .-UI_TIMER_SaveConfig
+  36 0002 00BF     		.section	.text.UI_TIMER_RestoreConfig,"ax",%progbits
+  37              		.align	2
+  38              		.global	UI_TIMER_RestoreConfig
+  39              		.thumb
+  40              		.thumb_func
+  41              		.type	UI_TIMER_RestoreConfig, %function
+  42              	UI_TIMER_RestoreConfig:
+  43              	.LFB1:
+  45:Generated_Source\PSoC5/UI_TIMER_PM.c ****     #if (!UI_TIMER_UsingFixedFunction)
+  46:Generated_Source\PSoC5/UI_TIMER_PM.c ****         UI_TIMER_backup.TimerUdb = UI_TIMER_ReadCounter();
+  47:Generated_Source\PSoC5/UI_TIMER_PM.c ****         UI_TIMER_backup.InterruptMaskValue = UI_TIMER_STATUS_MASK;
+  48:Generated_Source\PSoC5/UI_TIMER_PM.c ****         #if (UI_TIMER_UsingHWCaptureCounter)
+  49:Generated_Source\PSoC5/UI_TIMER_PM.c ****             UI_TIMER_backup.TimerCaptureCounter = UI_TIMER_ReadCaptureCount();
+  50:Generated_Source\PSoC5/UI_TIMER_PM.c ****         #endif /* Back Up capture counter register  */
+  51:Generated_Source\PSoC5/UI_TIMER_PM.c **** 
+  52:Generated_Source\PSoC5/UI_TIMER_PM.c ****         #if(!UI_TIMER_UDB_CONTROL_REG_REMOVED)
+  53:Generated_Source\PSoC5/UI_TIMER_PM.c ****             UI_TIMER_backup.TimerControlRegister = UI_TIMER_ReadControlRegister();
+  54:Generated_Source\PSoC5/UI_TIMER_PM.c ****         #endif /* Backup the enable state of the Timer component */
+  55:Generated_Source\PSoC5/UI_TIMER_PM.c ****     #endif /* Backup non retention registers in UDB implementation. All fixed function registers ar
+  56:Generated_Source\PSoC5/UI_TIMER_PM.c **** }
+  57:Generated_Source\PSoC5/UI_TIMER_PM.c **** 
+  58:Generated_Source\PSoC5/UI_TIMER_PM.c **** 
+  59:Generated_Source\PSoC5/UI_TIMER_PM.c **** /*******************************************************************************
+  60:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Function Name: UI_TIMER_RestoreConfig
+  61:Generated_Source\PSoC5/UI_TIMER_PM.c **** ********************************************************************************
+  62:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+  63:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Summary:
+  64:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  Restores the current user configuration.
+  65:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+  66:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Parameters:
+  67:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  void
+  68:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+  69:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Return:
+  70:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  void
+  71:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccuXeskX.s 			page 3
+
+
+  72:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Global variables:
+  73:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  UI_TIMER_backup:  Variables of this global structure are used to
+  74:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  restore the values of non retention registers on wakeup from sleep mode.
+  75:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+  76:Generated_Source\PSoC5/UI_TIMER_PM.c **** *******************************************************************************/
+  77:Generated_Source\PSoC5/UI_TIMER_PM.c **** void UI_TIMER_RestoreConfig(void) 
+  78:Generated_Source\PSoC5/UI_TIMER_PM.c **** {   
+  44              		.loc 1 78 0
+  45              		.cfi_startproc
+  46              		@ args = 0, pretend = 0, frame = 0
+  47              		@ frame_needed = 0, uses_anonymous_args = 0
+  48              		@ link register save eliminated.
+  49 0000 7047     		bx	lr
+  50              		.cfi_endproc
+  51              	.LFE1:
+  52              		.size	UI_TIMER_RestoreConfig, .-UI_TIMER_RestoreConfig
+  53 0002 00BF     		.section	.text.UI_TIMER_Sleep,"ax",%progbits
+  54              		.align	2
+  55              		.global	UI_TIMER_Sleep
+  56              		.thumb
+  57              		.thumb_func
+  58              		.type	UI_TIMER_Sleep, %function
+  59              	UI_TIMER_Sleep:
+  60              	.LFB2:
+  79:Generated_Source\PSoC5/UI_TIMER_PM.c ****     #if (!UI_TIMER_UsingFixedFunction)
+  80:Generated_Source\PSoC5/UI_TIMER_PM.c **** 
+  81:Generated_Source\PSoC5/UI_TIMER_PM.c ****         UI_TIMER_WriteCounter(UI_TIMER_backup.TimerUdb);
+  82:Generated_Source\PSoC5/UI_TIMER_PM.c ****         UI_TIMER_STATUS_MASK =UI_TIMER_backup.InterruptMaskValue;
+  83:Generated_Source\PSoC5/UI_TIMER_PM.c ****         #if (UI_TIMER_UsingHWCaptureCounter)
+  84:Generated_Source\PSoC5/UI_TIMER_PM.c ****             UI_TIMER_SetCaptureCount(UI_TIMER_backup.TimerCaptureCounter);
+  85:Generated_Source\PSoC5/UI_TIMER_PM.c ****         #endif /* Restore Capture counter register*/
+  86:Generated_Source\PSoC5/UI_TIMER_PM.c **** 
+  87:Generated_Source\PSoC5/UI_TIMER_PM.c ****         #if(!UI_TIMER_UDB_CONTROL_REG_REMOVED)
+  88:Generated_Source\PSoC5/UI_TIMER_PM.c ****             UI_TIMER_WriteControlRegister(UI_TIMER_backup.TimerControlRegister);
+  89:Generated_Source\PSoC5/UI_TIMER_PM.c ****         #endif /* Restore the enable state of the Timer component */
+  90:Generated_Source\PSoC5/UI_TIMER_PM.c ****     #endif /* Restore non retention registers in the UDB implementation only */
+  91:Generated_Source\PSoC5/UI_TIMER_PM.c **** }
+  92:Generated_Source\PSoC5/UI_TIMER_PM.c **** 
+  93:Generated_Source\PSoC5/UI_TIMER_PM.c **** 
+  94:Generated_Source\PSoC5/UI_TIMER_PM.c **** /*******************************************************************************
+  95:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Function Name: UI_TIMER_Sleep
+  96:Generated_Source\PSoC5/UI_TIMER_PM.c **** ********************************************************************************
+  97:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+  98:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Summary:
+  99:Generated_Source\PSoC5/UI_TIMER_PM.c **** *     Stop and Save the user configuration
+ 100:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+ 101:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Parameters:
+ 102:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  void
+ 103:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+ 104:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Return:
+ 105:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  void
+ 106:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+ 107:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Global variables:
+ 108:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  UI_TIMER_backup.TimerEnableState:  Is modified depending on the
+ 109:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  enable state of the block before entering sleep mode.
+ 110:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+ 111:Generated_Source\PSoC5/UI_TIMER_PM.c **** *******************************************************************************/
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccuXeskX.s 			page 4
+
+
+ 112:Generated_Source\PSoC5/UI_TIMER_PM.c **** void UI_TIMER_Sleep(void) 
+ 113:Generated_Source\PSoC5/UI_TIMER_PM.c **** {
+  61              		.loc 1 113 0
+  62              		.cfi_startproc
+  63              		@ args = 0, pretend = 0, frame = 0
+  64              		@ frame_needed = 0, uses_anonymous_args = 0
+  65              		@ link register save eliminated.
+ 114:Generated_Source\PSoC5/UI_TIMER_PM.c ****     #if(!UI_TIMER_UDB_CONTROL_REG_REMOVED)
+ 115:Generated_Source\PSoC5/UI_TIMER_PM.c ****         /* Save Counter's enable state */
+ 116:Generated_Source\PSoC5/UI_TIMER_PM.c ****         if(UI_TIMER_CTRL_ENABLE == (UI_TIMER_CONTROL & UI_TIMER_CTRL_ENABLE))
+  66              		.loc 1 116 0
+  67 0000 064B     		ldr	r3, .L8
+  68 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  69 0004 13F00103 		ands	r3, r3, #1
+  70 0008 03D1     		bne	.L7
+ 117:Generated_Source\PSoC5/UI_TIMER_PM.c ****         {
+ 118:Generated_Source\PSoC5/UI_TIMER_PM.c ****             /* Timer is enabled */
+ 119:Generated_Source\PSoC5/UI_TIMER_PM.c ****             UI_TIMER_backup.TimerEnableState = 1u;
+ 120:Generated_Source\PSoC5/UI_TIMER_PM.c ****         }
+ 121:Generated_Source\PSoC5/UI_TIMER_PM.c ****         else
+ 122:Generated_Source\PSoC5/UI_TIMER_PM.c ****         {
+ 123:Generated_Source\PSoC5/UI_TIMER_PM.c ****             /* Timer is disabled */
+ 124:Generated_Source\PSoC5/UI_TIMER_PM.c ****             UI_TIMER_backup.TimerEnableState = 0u;
+  71              		.loc 1 124 0
+  72 000a 054A     		ldr	r2, .L8+4
+  73 000c 1370     		strb	r3, [r2]
+ 125:Generated_Source\PSoC5/UI_TIMER_PM.c ****         }
+ 126:Generated_Source\PSoC5/UI_TIMER_PM.c ****     #endif /* Back up enable state from the Timer control register */
+ 127:Generated_Source\PSoC5/UI_TIMER_PM.c ****     UI_TIMER_Stop();
+  74              		.loc 1 127 0
+  75 000e FFF7FEBF 		b	UI_TIMER_Stop
+  76              	.LVL0:
+  77              	.L7:
+ 119:Generated_Source\PSoC5/UI_TIMER_PM.c ****         }
+  78              		.loc 1 119 0
+  79 0012 034B     		ldr	r3, .L8+4
+  80 0014 0122     		movs	r2, #1
+  81 0016 1A70     		strb	r2, [r3]
+  82              		.loc 1 127 0
+  83 0018 FFF7FEBF 		b	UI_TIMER_Stop
+  84              	.LVL1:
+  85              	.L9:
+  86              		.align	2
+  87              	.L8:
+  88 001c 004F0040 		.word	1073762048
+  89 0020 00000000 		.word	.LANCHOR0
+  90              		.cfi_endproc
+  91              	.LFE2:
+  92              		.size	UI_TIMER_Sleep, .-UI_TIMER_Sleep
+  93              		.section	.text.UI_TIMER_Wakeup,"ax",%progbits
+  94              		.align	2
+  95              		.global	UI_TIMER_Wakeup
+  96              		.thumb
+  97              		.thumb_func
+  98              		.type	UI_TIMER_Wakeup, %function
+  99              	UI_TIMER_Wakeup:
+ 100              	.LFB3:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccuXeskX.s 			page 5
+
+
+ 128:Generated_Source\PSoC5/UI_TIMER_PM.c ****     UI_TIMER_SaveConfig();
+ 129:Generated_Source\PSoC5/UI_TIMER_PM.c **** }
+ 130:Generated_Source\PSoC5/UI_TIMER_PM.c **** 
+ 131:Generated_Source\PSoC5/UI_TIMER_PM.c **** 
+ 132:Generated_Source\PSoC5/UI_TIMER_PM.c **** /*******************************************************************************
+ 133:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Function Name: UI_TIMER_Wakeup
+ 134:Generated_Source\PSoC5/UI_TIMER_PM.c **** ********************************************************************************
+ 135:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+ 136:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Summary:
+ 137:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  Restores and enables the user configuration
+ 138:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+ 139:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Parameters:
+ 140:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  void
+ 141:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+ 142:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Return:
+ 143:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  void
+ 144:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+ 145:Generated_Source\PSoC5/UI_TIMER_PM.c **** * Global variables:
+ 146:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  UI_TIMER_backup.enableState:  Is used to restore the enable state of
+ 147:Generated_Source\PSoC5/UI_TIMER_PM.c **** *  block on wakeup from sleep mode.
+ 148:Generated_Source\PSoC5/UI_TIMER_PM.c **** *
+ 149:Generated_Source\PSoC5/UI_TIMER_PM.c **** *******************************************************************************/
+ 150:Generated_Source\PSoC5/UI_TIMER_PM.c **** void UI_TIMER_Wakeup(void) 
+ 151:Generated_Source\PSoC5/UI_TIMER_PM.c **** {
+ 101              		.loc 1 151 0
+ 102              		.cfi_startproc
+ 103              		@ args = 0, pretend = 0, frame = 0
+ 104              		@ frame_needed = 0, uses_anonymous_args = 0
+ 105              		@ link register save eliminated.
+ 152:Generated_Source\PSoC5/UI_TIMER_PM.c ****     UI_TIMER_RestoreConfig();
+ 153:Generated_Source\PSoC5/UI_TIMER_PM.c ****     #if(!UI_TIMER_UDB_CONTROL_REG_REMOVED)
+ 154:Generated_Source\PSoC5/UI_TIMER_PM.c ****         if(UI_TIMER_backup.TimerEnableState == 1u)
+ 106              		.loc 1 154 0
+ 107 0000 034B     		ldr	r3, .L13
+ 108 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 109 0004 012B     		cmp	r3, #1
+ 110 0006 00D0     		beq	.L12
+ 111 0008 7047     		bx	lr
+ 112              	.L12:
+ 155:Generated_Source\PSoC5/UI_TIMER_PM.c ****         {     /* Enable Timer's operation */
+ 156:Generated_Source\PSoC5/UI_TIMER_PM.c ****                 UI_TIMER_Enable();
+ 113              		.loc 1 156 0
+ 114 000a FFF7FEBF 		b	UI_TIMER_Enable
+ 115              	.LVL2:
+ 116              	.L14:
+ 117 000e 00BF     		.align	2
+ 118              	.L13:
+ 119 0010 00000000 		.word	.LANCHOR0
+ 120              		.cfi_endproc
+ 121              	.LFE3:
+ 122              		.size	UI_TIMER_Wakeup, .-UI_TIMER_Wakeup
+ 123              		.bss
+ 124              		.align	2
+ 125              		.set	.LANCHOR0,. + 0
+ 126              		.type	UI_TIMER_backup, %object
+ 127              		.size	UI_TIMER_backup, 1
+ 128              	UI_TIMER_backup:
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccuXeskX.s 			page 6
+
+
+ 129 0000 00       		.space	1
+ 130 0001 000000   		.text
+ 131              	.Letext0:
+ 132              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 133              		.file 3 "Generated_Source\\PSoC5\\UI_TIMER.h"
+ 134              		.section	.debug_info,"",%progbits
+ 135              	.Ldebug_info0:
+ 136 0000 53010000 		.4byte	0x153
+ 137 0004 0400     		.2byte	0x4
+ 138 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 139 000a 04       		.byte	0x4
+ 140 000b 01       		.uleb128 0x1
+ 141 000c 94000000 		.4byte	.LASF22
+ 142 0010 01       		.byte	0x1
+ 143 0011 6E010000 		.4byte	.LASF23
+ 144 0015 F3010000 		.4byte	.LASF24
+ 145 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 146 001d 00000000 		.4byte	0
+ 147 0021 00000000 		.4byte	.Ldebug_line0
+ 148 0025 02       		.uleb128 0x2
+ 149 0026 01       		.byte	0x1
+ 150 0027 06       		.byte	0x6
+ 151 0028 A6010000 		.4byte	.LASF0
+ 152 002c 02       		.uleb128 0x2
+ 153 002d 01       		.byte	0x1
+ 154 002e 08       		.byte	0x8
+ 155 002f 33010000 		.4byte	.LASF1
+ 156 0033 02       		.uleb128 0x2
+ 157 0034 02       		.byte	0x2
+ 158 0035 05       		.byte	0x5
+ 159 0036 5D010000 		.4byte	.LASF2
+ 160 003a 02       		.uleb128 0x2
+ 161 003b 02       		.byte	0x2
+ 162 003c 07       		.byte	0x7
+ 163 003d 93010000 		.4byte	.LASF3
+ 164 0041 02       		.uleb128 0x2
+ 165 0042 04       		.byte	0x4
+ 166 0043 05       		.byte	0x5
+ 167 0044 46010000 		.4byte	.LASF4
+ 168 0048 02       		.uleb128 0x2
+ 169 0049 04       		.byte	0x4
+ 170 004a 07       		.byte	0x7
+ 171 004b 5B000000 		.4byte	.LASF5
+ 172 004f 02       		.uleb128 0x2
+ 173 0050 08       		.byte	0x8
+ 174 0051 05       		.byte	0x5
+ 175 0052 00000000 		.4byte	.LASF6
+ 176 0056 02       		.uleb128 0x2
+ 177 0057 08       		.byte	0x8
+ 178 0058 07       		.byte	0x7
+ 179 0059 6D000000 		.4byte	.LASF7
+ 180 005d 03       		.uleb128 0x3
+ 181 005e 04       		.byte	0x4
+ 182 005f 05       		.byte	0x5
+ 183 0060 696E7400 		.ascii	"int\000"
+ 184 0064 02       		.uleb128 0x2
+ 185 0065 04       		.byte	0x4
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccuXeskX.s 			page 7
+
+
+ 186 0066 07       		.byte	0x7
+ 187 0067 1E000000 		.4byte	.LASF8
+ 188 006b 04       		.uleb128 0x4
+ 189 006c 55000000 		.4byte	.LASF12
+ 190 0070 02       		.byte	0x2
+ 191 0071 5B       		.byte	0x5b
+ 192 0072 2C000000 		.4byte	0x2c
+ 193 0076 02       		.uleb128 0x2
+ 194 0077 04       		.byte	0x4
+ 195 0078 04       		.byte	0x4
+ 196 0079 B2010000 		.4byte	.LASF9
+ 197 007d 02       		.uleb128 0x2
+ 198 007e 08       		.byte	0x8
+ 199 007f 04       		.byte	0x4
+ 200 0080 67010000 		.4byte	.LASF10
+ 201 0084 02       		.uleb128 0x2
+ 202 0085 01       		.byte	0x1
+ 203 0086 08       		.byte	0x8
+ 204 0087 41010000 		.4byte	.LASF11
+ 205 008b 04       		.uleb128 0x4
+ 206 008c D7010000 		.4byte	.LASF13
+ 207 0090 02       		.byte	0x2
+ 208 0091 F0       		.byte	0xf0
+ 209 0092 96000000 		.4byte	0x96
+ 210 0096 05       		.uleb128 0x5
+ 211 0097 6B000000 		.4byte	0x6b
+ 212 009b 02       		.uleb128 0x2
+ 213 009c 04       		.byte	0x4
+ 214 009d 07       		.byte	0x7
+ 215 009e 55020000 		.4byte	.LASF14
+ 216 00a2 06       		.uleb128 0x6
+ 217 00a3 01       		.byte	0x1
+ 218 00a4 03       		.byte	0x3
+ 219 00a5 43       		.byte	0x43
+ 220 00a6 B7000000 		.4byte	0xb7
+ 221 00aa 07       		.uleb128 0x7
+ 222 00ab 22010000 		.4byte	.LASF25
+ 223 00af 03       		.byte	0x3
+ 224 00b0 45       		.byte	0x45
+ 225 00b1 6B000000 		.4byte	0x6b
+ 226 00b5 00       		.byte	0
+ 227 00b6 00       		.byte	0
+ 228 00b7 04       		.uleb128 0x4
+ 229 00b8 3F000000 		.4byte	.LASF15
+ 230 00bc 03       		.byte	0x3
+ 231 00bd 53       		.byte	0x53
+ 232 00be A2000000 		.4byte	0xa2
+ 233 00c2 08       		.uleb128 0x8
+ 234 00c3 2B000000 		.4byte	.LASF16
+ 235 00c7 01       		.byte	0x1
+ 236 00c8 2B       		.byte	0x2b
+ 237 00c9 01       		.byte	0x1
+ 238 00ca 08       		.uleb128 0x8
+ 239 00cb DC010000 		.4byte	.LASF17
+ 240 00cf 01       		.byte	0x1
+ 241 00d0 4D       		.byte	0x4d
+ 242 00d1 01       		.byte	0x1
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccuXeskX.s 			page 8
+
+
+ 243 00d2 09       		.uleb128 0x9
+ 244 00d3 C2000000 		.4byte	0xc2
+ 245 00d7 00000000 		.4byte	.LFB0
+ 246 00db 02000000 		.4byte	.LFE0-.LFB0
+ 247 00df 01       		.uleb128 0x1
+ 248 00e0 9C       		.byte	0x9c
+ 249 00e1 09       		.uleb128 0x9
+ 250 00e2 CA000000 		.4byte	0xca
+ 251 00e6 00000000 		.4byte	.LFB1
+ 252 00ea 02000000 		.4byte	.LFE1-.LFB1
+ 253 00ee 01       		.uleb128 0x1
+ 254 00ef 9C       		.byte	0x9c
+ 255 00f0 0A       		.uleb128 0xa
+ 256 00f1 B8010000 		.4byte	.LASF18
+ 257 00f5 01       		.byte	0x1
+ 258 00f6 70       		.byte	0x70
+ 259 00f7 00000000 		.4byte	.LFB2
+ 260 00fb 24000000 		.4byte	.LFE2-.LFB2
+ 261 00ff 01       		.uleb128 0x1
+ 262 0100 9C       		.byte	0x9c
+ 263 0101 18010000 		.4byte	0x118
+ 264 0105 0B       		.uleb128 0xb
+ 265 0106 12000000 		.4byte	.LVL0
+ 266 010a 48010000 		.4byte	0x148
+ 267 010e 0B       		.uleb128 0xb
+ 268 010f 1C000000 		.4byte	.LVL1
+ 269 0113 48010000 		.4byte	0x148
+ 270 0117 00       		.byte	0
+ 271 0118 0A       		.uleb128 0xa
+ 272 0119 C7010000 		.4byte	.LASF19
+ 273 011d 01       		.byte	0x1
+ 274 011e 96       		.byte	0x96
+ 275 011f 00000000 		.4byte	.LFB3
+ 276 0123 14000000 		.4byte	.LFE3-.LFB3
+ 277 0127 01       		.uleb128 0x1
+ 278 0128 9C       		.byte	0x9c
+ 279 0129 37010000 		.4byte	0x137
+ 280 012d 0B       		.uleb128 0xb
+ 281 012e 0E000000 		.4byte	.LVL2
+ 282 0132 4F010000 		.4byte	0x14f
+ 283 0136 00       		.byte	0
+ 284 0137 0C       		.uleb128 0xc
+ 285 0138 0E000000 		.4byte	.LASF26
+ 286 013c 01       		.byte	0x1
+ 287 013d 15       		.byte	0x15
+ 288 013e B7000000 		.4byte	0xb7
+ 289 0142 05       		.uleb128 0x5
+ 290 0143 03       		.byte	0x3
+ 291 0144 00000000 		.4byte	UI_TIMER_backup
+ 292 0148 0D       		.uleb128 0xd
+ 293 0149 4F010000 		.4byte	.LASF20
+ 294 014d 03       		.byte	0x3
+ 295 014e 5B       		.byte	0x5b
+ 296 014f 0D       		.uleb128 0xd
+ 297 0150 84000000 		.4byte	.LASF21
+ 298 0154 03       		.byte	0x3
+ 299 0155 8B       		.byte	0x8b
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccuXeskX.s 			page 9
+
+
+ 300 0156 00       		.byte	0
+ 301              		.section	.debug_abbrev,"",%progbits
+ 302              	.Ldebug_abbrev0:
+ 303 0000 01       		.uleb128 0x1
+ 304 0001 11       		.uleb128 0x11
+ 305 0002 01       		.byte	0x1
+ 306 0003 25       		.uleb128 0x25
+ 307 0004 0E       		.uleb128 0xe
+ 308 0005 13       		.uleb128 0x13
+ 309 0006 0B       		.uleb128 0xb
+ 310 0007 03       		.uleb128 0x3
+ 311 0008 0E       		.uleb128 0xe
+ 312 0009 1B       		.uleb128 0x1b
+ 313 000a 0E       		.uleb128 0xe
+ 314 000b 55       		.uleb128 0x55
+ 315 000c 17       		.uleb128 0x17
+ 316 000d 11       		.uleb128 0x11
+ 317 000e 01       		.uleb128 0x1
+ 318 000f 10       		.uleb128 0x10
+ 319 0010 17       		.uleb128 0x17
+ 320 0011 00       		.byte	0
+ 321 0012 00       		.byte	0
+ 322 0013 02       		.uleb128 0x2
+ 323 0014 24       		.uleb128 0x24
+ 324 0015 00       		.byte	0
+ 325 0016 0B       		.uleb128 0xb
+ 326 0017 0B       		.uleb128 0xb
+ 327 0018 3E       		.uleb128 0x3e
+ 328 0019 0B       		.uleb128 0xb
+ 329 001a 03       		.uleb128 0x3
+ 330 001b 0E       		.uleb128 0xe
+ 331 001c 00       		.byte	0
+ 332 001d 00       		.byte	0
+ 333 001e 03       		.uleb128 0x3
+ 334 001f 24       		.uleb128 0x24
+ 335 0020 00       		.byte	0
+ 336 0021 0B       		.uleb128 0xb
+ 337 0022 0B       		.uleb128 0xb
+ 338 0023 3E       		.uleb128 0x3e
+ 339 0024 0B       		.uleb128 0xb
+ 340 0025 03       		.uleb128 0x3
+ 341 0026 08       		.uleb128 0x8
+ 342 0027 00       		.byte	0
+ 343 0028 00       		.byte	0
+ 344 0029 04       		.uleb128 0x4
+ 345 002a 16       		.uleb128 0x16
+ 346 002b 00       		.byte	0
+ 347 002c 03       		.uleb128 0x3
+ 348 002d 0E       		.uleb128 0xe
+ 349 002e 3A       		.uleb128 0x3a
+ 350 002f 0B       		.uleb128 0xb
+ 351 0030 3B       		.uleb128 0x3b
+ 352 0031 0B       		.uleb128 0xb
+ 353 0032 49       		.uleb128 0x49
+ 354 0033 13       		.uleb128 0x13
+ 355 0034 00       		.byte	0
+ 356 0035 00       		.byte	0
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccuXeskX.s 			page 10
+
+
+ 357 0036 05       		.uleb128 0x5
+ 358 0037 35       		.uleb128 0x35
+ 359 0038 00       		.byte	0
+ 360 0039 49       		.uleb128 0x49
+ 361 003a 13       		.uleb128 0x13
+ 362 003b 00       		.byte	0
+ 363 003c 00       		.byte	0
+ 364 003d 06       		.uleb128 0x6
+ 365 003e 13       		.uleb128 0x13
+ 366 003f 01       		.byte	0x1
+ 367 0040 0B       		.uleb128 0xb
+ 368 0041 0B       		.uleb128 0xb
+ 369 0042 3A       		.uleb128 0x3a
+ 370 0043 0B       		.uleb128 0xb
+ 371 0044 3B       		.uleb128 0x3b
+ 372 0045 0B       		.uleb128 0xb
+ 373 0046 01       		.uleb128 0x1
+ 374 0047 13       		.uleb128 0x13
+ 375 0048 00       		.byte	0
+ 376 0049 00       		.byte	0
+ 377 004a 07       		.uleb128 0x7
+ 378 004b 0D       		.uleb128 0xd
+ 379 004c 00       		.byte	0
+ 380 004d 03       		.uleb128 0x3
+ 381 004e 0E       		.uleb128 0xe
+ 382 004f 3A       		.uleb128 0x3a
+ 383 0050 0B       		.uleb128 0xb
+ 384 0051 3B       		.uleb128 0x3b
+ 385 0052 0B       		.uleb128 0xb
+ 386 0053 49       		.uleb128 0x49
+ 387 0054 13       		.uleb128 0x13
+ 388 0055 38       		.uleb128 0x38
+ 389 0056 0B       		.uleb128 0xb
+ 390 0057 00       		.byte	0
+ 391 0058 00       		.byte	0
+ 392 0059 08       		.uleb128 0x8
+ 393 005a 2E       		.uleb128 0x2e
+ 394 005b 00       		.byte	0
+ 395 005c 3F       		.uleb128 0x3f
+ 396 005d 19       		.uleb128 0x19
+ 397 005e 03       		.uleb128 0x3
+ 398 005f 0E       		.uleb128 0xe
+ 399 0060 3A       		.uleb128 0x3a
+ 400 0061 0B       		.uleb128 0xb
+ 401 0062 3B       		.uleb128 0x3b
+ 402 0063 0B       		.uleb128 0xb
+ 403 0064 27       		.uleb128 0x27
+ 404 0065 19       		.uleb128 0x19
+ 405 0066 20       		.uleb128 0x20
+ 406 0067 0B       		.uleb128 0xb
+ 407 0068 00       		.byte	0
+ 408 0069 00       		.byte	0
+ 409 006a 09       		.uleb128 0x9
+ 410 006b 2E       		.uleb128 0x2e
+ 411 006c 00       		.byte	0
+ 412 006d 31       		.uleb128 0x31
+ 413 006e 13       		.uleb128 0x13
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccuXeskX.s 			page 11
+
+
+ 414 006f 11       		.uleb128 0x11
+ 415 0070 01       		.uleb128 0x1
+ 416 0071 12       		.uleb128 0x12
+ 417 0072 06       		.uleb128 0x6
+ 418 0073 40       		.uleb128 0x40
+ 419 0074 18       		.uleb128 0x18
+ 420 0075 9742     		.uleb128 0x2117
+ 421 0077 19       		.uleb128 0x19
+ 422 0078 00       		.byte	0
+ 423 0079 00       		.byte	0
+ 424 007a 0A       		.uleb128 0xa
+ 425 007b 2E       		.uleb128 0x2e
+ 426 007c 01       		.byte	0x1
+ 427 007d 3F       		.uleb128 0x3f
+ 428 007e 19       		.uleb128 0x19
+ 429 007f 03       		.uleb128 0x3
+ 430 0080 0E       		.uleb128 0xe
+ 431 0081 3A       		.uleb128 0x3a
+ 432 0082 0B       		.uleb128 0xb
+ 433 0083 3B       		.uleb128 0x3b
+ 434 0084 0B       		.uleb128 0xb
+ 435 0085 27       		.uleb128 0x27
+ 436 0086 19       		.uleb128 0x19
+ 437 0087 11       		.uleb128 0x11
+ 438 0088 01       		.uleb128 0x1
+ 439 0089 12       		.uleb128 0x12
+ 440 008a 06       		.uleb128 0x6
+ 441 008b 40       		.uleb128 0x40
+ 442 008c 18       		.uleb128 0x18
+ 443 008d 9742     		.uleb128 0x2117
+ 444 008f 19       		.uleb128 0x19
+ 445 0090 01       		.uleb128 0x1
+ 446 0091 13       		.uleb128 0x13
+ 447 0092 00       		.byte	0
+ 448 0093 00       		.byte	0
+ 449 0094 0B       		.uleb128 0xb
+ 450 0095 898201   		.uleb128 0x4109
+ 451 0098 00       		.byte	0
+ 452 0099 11       		.uleb128 0x11
+ 453 009a 01       		.uleb128 0x1
+ 454 009b 9542     		.uleb128 0x2115
+ 455 009d 19       		.uleb128 0x19
+ 456 009e 31       		.uleb128 0x31
+ 457 009f 13       		.uleb128 0x13
+ 458 00a0 00       		.byte	0
+ 459 00a1 00       		.byte	0
+ 460 00a2 0C       		.uleb128 0xc
+ 461 00a3 34       		.uleb128 0x34
+ 462 00a4 00       		.byte	0
+ 463 00a5 03       		.uleb128 0x3
+ 464 00a6 0E       		.uleb128 0xe
+ 465 00a7 3A       		.uleb128 0x3a
+ 466 00a8 0B       		.uleb128 0xb
+ 467 00a9 3B       		.uleb128 0x3b
+ 468 00aa 0B       		.uleb128 0xb
+ 469 00ab 49       		.uleb128 0x49
+ 470 00ac 13       		.uleb128 0x13
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccuXeskX.s 			page 12
+
+
+ 471 00ad 02       		.uleb128 0x2
+ 472 00ae 18       		.uleb128 0x18
+ 473 00af 00       		.byte	0
+ 474 00b0 00       		.byte	0
+ 475 00b1 0D       		.uleb128 0xd
+ 476 00b2 2E       		.uleb128 0x2e
+ 477 00b3 00       		.byte	0
+ 478 00b4 3F       		.uleb128 0x3f
+ 479 00b5 19       		.uleb128 0x19
+ 480 00b6 03       		.uleb128 0x3
+ 481 00b7 0E       		.uleb128 0xe
+ 482 00b8 3A       		.uleb128 0x3a
+ 483 00b9 0B       		.uleb128 0xb
+ 484 00ba 3B       		.uleb128 0x3b
+ 485 00bb 0B       		.uleb128 0xb
+ 486 00bc 27       		.uleb128 0x27
+ 487 00bd 19       		.uleb128 0x19
+ 488 00be 3C       		.uleb128 0x3c
+ 489 00bf 19       		.uleb128 0x19
+ 490 00c0 00       		.byte	0
+ 491 00c1 00       		.byte	0
+ 492 00c2 00       		.byte	0
+ 493              		.section	.debug_aranges,"",%progbits
+ 494 0000 34000000 		.4byte	0x34
+ 495 0004 0200     		.2byte	0x2
+ 496 0006 00000000 		.4byte	.Ldebug_info0
+ 497 000a 04       		.byte	0x4
+ 498 000b 00       		.byte	0
+ 499 000c 0000     		.2byte	0
+ 500 000e 0000     		.2byte	0
+ 501 0010 00000000 		.4byte	.LFB0
+ 502 0014 02000000 		.4byte	.LFE0-.LFB0
+ 503 0018 00000000 		.4byte	.LFB1
+ 504 001c 02000000 		.4byte	.LFE1-.LFB1
+ 505 0020 00000000 		.4byte	.LFB2
+ 506 0024 24000000 		.4byte	.LFE2-.LFB2
+ 507 0028 00000000 		.4byte	.LFB3
+ 508 002c 14000000 		.4byte	.LFE3-.LFB3
+ 509 0030 00000000 		.4byte	0
+ 510 0034 00000000 		.4byte	0
+ 511              		.section	.debug_ranges,"",%progbits
+ 512              	.Ldebug_ranges0:
+ 513 0000 00000000 		.4byte	.LFB0
+ 514 0004 02000000 		.4byte	.LFE0
+ 515 0008 00000000 		.4byte	.LFB1
+ 516 000c 02000000 		.4byte	.LFE1
+ 517 0010 00000000 		.4byte	.LFB2
+ 518 0014 24000000 		.4byte	.LFE2
+ 519 0018 00000000 		.4byte	.LFB3
+ 520 001c 14000000 		.4byte	.LFE3
+ 521 0020 00000000 		.4byte	0
+ 522 0024 00000000 		.4byte	0
+ 523              		.section	.debug_line,"",%progbits
+ 524              	.Ldebug_line0:
+ 525 0000 A4000000 		.section	.debug_str,"MS",%progbits,1
+ 525      02005600 
+ 525      00000201 
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccuXeskX.s 			page 13
+
+
+ 525      FB0E0D00 
+ 525      01010101 
+ 526              	.LASF6:
+ 527 0000 6C6F6E67 		.ascii	"long long int\000"
+ 527      206C6F6E 
+ 527      6720696E 
+ 527      7400
+ 528              	.LASF26:
+ 529 000e 55495F54 		.ascii	"UI_TIMER_backup\000"
+ 529      494D4552 
+ 529      5F626163 
+ 529      6B757000 
+ 530              	.LASF8:
+ 531 001e 756E7369 		.ascii	"unsigned int\000"
+ 531      676E6564 
+ 531      20696E74 
+ 531      00
+ 532              	.LASF16:
+ 533 002b 55495F54 		.ascii	"UI_TIMER_SaveConfig\000"
+ 533      494D4552 
+ 533      5F536176 
+ 533      65436F6E 
+ 533      66696700 
+ 534              	.LASF15:
+ 535 003f 55495F54 		.ascii	"UI_TIMER_backupStruct\000"
+ 535      494D4552 
+ 535      5F626163 
+ 535      6B757053 
+ 535      74727563 
+ 536              	.LASF12:
+ 537 0055 75696E74 		.ascii	"uint8\000"
+ 537      3800
+ 538              	.LASF5:
+ 539 005b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 539      20756E73 
+ 539      69676E65 
+ 539      6420696E 
+ 539      7400
+ 540              	.LASF7:
+ 541 006d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 541      206C6F6E 
+ 541      6720756E 
+ 541      7369676E 
+ 541      65642069 
+ 542              	.LASF21:
+ 543 0084 55495F54 		.ascii	"UI_TIMER_Enable\000"
+ 543      494D4552 
+ 543      5F456E61 
+ 543      626C6500 
+ 544              	.LASF22:
+ 545 0094 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 545      4320342E 
+ 545      392E3320 
+ 545      32303135 
+ 545      30333033 
+ 546 00c7 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 546      20726576 
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccuXeskX.s 			page 14
+
+
+ 546      6973696F 
+ 546      6E203232 
+ 546      31323230 
+ 547 00fa 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 547      66756E63 
+ 547      74696F6E 
+ 547      2D736563 
+ 547      74696F6E 
+ 548              	.LASF25:
+ 549 0122 54696D65 		.ascii	"TimerEnableState\000"
+ 549      72456E61 
+ 549      626C6553 
+ 549      74617465 
+ 549      00
+ 550              	.LASF1:
+ 551 0133 756E7369 		.ascii	"unsigned char\000"
+ 551      676E6564 
+ 551      20636861 
+ 551      7200
+ 552              	.LASF11:
+ 553 0141 63686172 		.ascii	"char\000"
+ 553      00
+ 554              	.LASF4:
+ 555 0146 6C6F6E67 		.ascii	"long int\000"
+ 555      20696E74 
+ 555      00
+ 556              	.LASF20:
+ 557 014f 55495F54 		.ascii	"UI_TIMER_Stop\000"
+ 557      494D4552 
+ 557      5F53746F 
+ 557      7000
+ 558              	.LASF2:
+ 559 015d 73686F72 		.ascii	"short int\000"
+ 559      7420696E 
+ 559      7400
+ 560              	.LASF10:
+ 561 0167 646F7562 		.ascii	"double\000"
+ 561      6C6500
+ 562              	.LASF23:
+ 563 016e 47656E65 		.ascii	"Generated_Source\\PSoC5\\UI_TIMER_PM.c\000"
+ 563      72617465 
+ 563      645F536F 
+ 563      75726365 
+ 563      5C50536F 
+ 564              	.LASF3:
+ 565 0193 73686F72 		.ascii	"short unsigned int\000"
+ 565      7420756E 
+ 565      7369676E 
+ 565      65642069 
+ 565      6E7400
+ 566              	.LASF0:
+ 567 01a6 7369676E 		.ascii	"signed char\000"
+ 567      65642063 
+ 567      68617200 
+ 568              	.LASF9:
+ 569 01b2 666C6F61 		.ascii	"float\000"
+ 569      7400
+ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccuXeskX.s 			page 15
+
+
+ 570              	.LASF18:
+ 571 01b8 55495F54 		.ascii	"UI_TIMER_Sleep\000"
+ 571      494D4552 
+ 571      5F536C65 
+ 571      657000
+ 572              	.LASF19:
+ 573 01c7 55495F54 		.ascii	"UI_TIMER_Wakeup\000"
+ 573      494D4552 
+ 573      5F57616B 
+ 573      65757000 
+ 574              	.LASF13:
+ 575 01d7 72656738 		.ascii	"reg8\000"
+ 575      00
+ 576              	.LASF17:
+ 577 01dc 55495F54 		.ascii	"UI_TIMER_RestoreConfig\000"
+ 577      494D4552 
+ 577      5F526573 
+ 577      746F7265 
+ 577      436F6E66 
+ 578              	.LASF24:
+ 579 01f3 433A5C55 		.ascii	"C:\\Users\\jmdevoto\\Desktop\\Builds\\(4-24-17)Humm"
+ 579      73657273 
+ 579      5C6A6D64 
+ 579      65766F74 
+ 579      6F5C4465 
+ 580 0221 696E6762 		.ascii	"ingbird-059-v1\\Hummingbird(Continuous Output).cyds"
+ 580      6972642D 
+ 580      3035392D 
+ 580      76315C48 
+ 580      756D6D69 
+ 581 0253 6E00     		.ascii	"n\000"
+ 582              	.LASF14:
+ 583 0255 73697A65 		.ascii	"sizetype\000"
+ 583      74797065 
+ 583      00
+ 584              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

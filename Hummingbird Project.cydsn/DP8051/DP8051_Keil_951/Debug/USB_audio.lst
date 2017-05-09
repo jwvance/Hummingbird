@@ -1,0 +1,553 @@
+C51 COMPILER V9.51   USB_AUDIO                                                             02/21/2017 15:19:24 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE USB_AUDIO
+OBJECT MODULE PLACED IN .\DP8051\DP8051_Keil_951\Debug\USB_audio.obj
+COMPILER INVOKED BY: C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\import\keil\pk51\9.51\C51\BIN\c51.exe 
+                    -Generated_Source\PSoC3\USB_audio.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP INCDIR(.,Generated_Source\PSoC3) FF(3) DB WL(2) PR(
+                    -.\DP8051\DP8051_Keil_951\Debug/USB_audio.lst) CD OT(2,SIZE) OJ(.\DP8051\DP8051_Keil_951\Debug\USB_audio.obj)
+
+line level    source
+
+   1          /*******************************************************************************
+   2          * File Name: USB_audio.c
+   3          * Version 2.70
+   4          *
+   5          * Description:
+   6          *  USB AUDIO Class request handler.
+   7          *
+   8          * Related Document:
+   9          *  Universal Serial Bus Device Class Definition for Audio Devices Release 1.0
+  10          *
+  11          ********************************************************************************
+  12          * Copyright 2008-2013, Cypress Semiconductor Corporation.  All rights reserved.
+  13          * You may use this file only in accordance with the license, terms, conditions,
+  14          * disclaimers, and limitations in the end user license agreement accompanying
+  15          * the software package with which this file was provided.
+  16          *******************************************************************************/
+  17          
+  18          #include "USB.h"
+  19          
+  20          #if defined(USB_ENABLE_AUDIO_CLASS)
+  21          
+  22          #include "USB_audio.h"
+  23          #include "USB_pvt.h"
+  24          #if defined(USB_ENABLE_MIDI_STREAMING)
+  25              #include "USB_midi.h"
+  26          #endif /*  USB_ENABLE_MIDI_STREAMING*/
+  27          
+  28          
+  29          /***************************************
+  30          * Custom Declarations
+  31          ***************************************/
+  32          
+  33          /* `#START CUSTOM_DECLARATIONS` Place your declaration here */
+  34          
+  35          /* `#END` */
+  36          
+  37          
+  38          #if !defined(USER_SUPPLIED_AUDIO_HANDLER)
+  39          
+  40          
+  41          /***************************************
+  42          *    AUDIO Variables
+  43          ***************************************/
+  44          
+  45          #if defined(USB_ENABLE_AUDIO_STREAMING)
+                  volatile uint8 USB_currentSampleFrequency[USB_MAX_EP][USB_SAMPLE_FREQ_LEN];
+                  volatile uint8 USB_frequencyChanged;
+                  volatile uint8 USB_currentMute;
+                  volatile uint8 USB_currentVolume[USB_VOLUME_LEN];
+                  volatile uint8 USB_minimumVolume[USB_VOLUME_LEN] = {USB_VOL_MIN_LSB,
+                                                                                                USB_VOL_MIN_MSB};
+                  volatile uint8 USB_maximumVolume[USB_VOLUME_LEN] = {USB_VOL_MAX_LSB,
+                                                                                                USB_VOL_MAX_MSB};
+C51 COMPILER V9.51   USB_AUDIO                                                             02/21/2017 15:19:24 PAGE 2   
+
+                  volatile uint8 USB_resolutionVolume[USB_VOLUME_LEN] = {USB_VOL_RES_LSB,
+                                                                                                   USB_VOL_RES_MSB};
+              #endif /*  USB_ENABLE_AUDIO_STREAMING */
+  57          
+  58          
+  59          /*******************************************************************************
+  60          * Function Name: USB_DispatchAUDIOClassRqst
+  61          ********************************************************************************
+  62          *
+  63          * Summary:
+  64          *  This routine dispatches class requests
+  65          *
+  66          * Parameters:
+  67          *  None.
+  68          *
+  69          * Return:
+  70          *  requestHandled
+  71          *
+  72          * Global variables:
+  73          *   USB_currentSampleFrequency: Contains the current audio Sample
+  74          *       Frequency. It is set by the Host using SET_CUR request to the endpoint.
+  75          *   USB_frequencyChanged: This variable is used as a flag for the
+  76          *       user code, to be aware that Host has been sent request for changing
+  77          *       Sample Frequency. Sample frequency will be sent on the next OUT
+  78          *       transaction. It is contains endpoint address when set. The following
+  79          *       code is recommended for detecting new Sample Frequency in main code:
+  80          *       if((USB_frequencyChanged != 0) &&
+  81          *       (USB_transferState == USB_TRANS_STATE_IDLE))
+  82          *       {
+  83          *          USB_frequencyChanged = 0;
+  84          *       }
+  85          *       USB_transferState variable is checked to be sure that
+  86          *             transfer completes.
+  87          *   USB_currentMute: Contains mute configuration set by Host.
+  88          *   USB_currentVolume: Contains volume level set by Host.
+  89          *
+  90          * Reentrant:
+  91          *  No.
+  92          *
+  93          *******************************************************************************/
+  94          uint8 USB_DispatchAUDIOClassRqst(void) 
+  95          {
+  96   1          uint8 requestHandled = USB_FALSE;
+  97   1          uint8 bmRequestType  = CY_GET_REG8(USB_bmRequestType);
+  98   1          
+  99   1          #if defined(USB_ENABLE_AUDIO_STREAMING)
+                      uint8 epNumber;
+                      epNumber = CY_GET_REG8(USB_wIndexLo) & USB_DIR_UNUSED;
+                  #endif /*  USB_ENABLE_AUDIO_STREAMING */
+ 103   1          
+ 104   1      
+ 105   1          if ((bmRequestType & USB_RQST_DIR_MASK) == USB_RQST_DIR_D2H)
+ 106   1          {
+ 107   2              /* Control Read */
+ 108   2              if((bmRequestType & USB_RQST_RCPT_MASK) == USB_RQST_RCPT_EP)
+ 109   2              {
+ 110   3                  /* Endpoint */
+ 111   3                  switch (CY_GET_REG8(USB_bRequest))
+ 112   3                  {
+ 113   4                      case USB_GET_CUR:
+ 114   4                      #if defined(USB_ENABLE_AUDIO_STREAMING)
+                                  if(CY_GET_REG8(USB_wValueHi) == USB_SAMPLING_FREQ_CONTROL)
+C51 COMPILER V9.51   USB_AUDIO                                                             02/21/2017 15:19:24 PAGE 3   
+
+                                  {
+                                       /* point Control Selector is Sampling Frequency */
+                                      USB_currentTD.wCount = USB_SAMPLE_FREQ_LEN;
+                                      USB_currentTD.pData  = USB_currentSampleFrequency[epNumber];
+                                      requestHandled   = USB_InitControlRead();
+                                  }
+                              #endif /*  USB_ENABLE_AUDIO_STREAMING */
+ 123   4      
+ 124   4                      /* `#START AUDIO_READ_REQUESTS` Place other request handler here */
+ 125   4      
+ 126   4                      /* `#END` */
+ 127   4                          break;
+ 128   4                      default:
+ 129   4                          break;
+ 130   4                  }
+ 131   3              }
+ 132   2              else if((bmRequestType & USB_RQST_RCPT_MASK) == USB_RQST_RCPT_IFC)
+ 133   2              {
+ 134   3                  /* Interface or Entity ID */
+ 135   3                  switch (CY_GET_REG8(USB_bRequest))
+ 136   3                  {
+ 137   4                      case USB_GET_CUR:
+ 138   4                      #if defined(USB_ENABLE_AUDIO_STREAMING)
+                                  if(CY_GET_REG8(USB_wValueHi) == USB_MUTE_CONTROL)
+                                  {
+                                      /* `#START MUTE_CONTROL_GET_REQUEST` Place multi-channel handler here */
+              
+                                      /* `#END` */
+              
+                                       /* Entity ID Control Selector is MUTE */
+                                      USB_currentTD.wCount = 1u;
+                                      USB_currentTD.pData  = &USB_currentMute;
+                                      requestHandled   = USB_InitControlRead();
+                                  }
+                                  else if(CY_GET_REG8(USB_wValueHi) == USB_VOLUME_CONTROL)
+                                  {
+                                      /* `#START VOLUME_CONTROL_GET_REQUEST` Place multi-channel handler here */
+              
+                                      /* `#END` */
+              
+                                      /* Entity ID Control Selector is VOLUME, */
+                                      USB_currentTD.wCount = USB_VOLUME_LEN;
+                                      USB_currentTD.pData  = USB_currentVolume;
+                                      requestHandled   = USB_InitControlRead();
+                                  }
+                                  else
+                                  {
+                                      /* `#START OTHER_GET_CUR_REQUESTS` Place other request handler here */
+              
+                                      /* `#END` */
+                                  }
+                                  break;
+                              case USB_GET_MIN:    /* GET_MIN */
+                                  if(CY_GET_REG8(USB_wValueHi) == USB_VOLUME_CONTROL)
+                                  {
+                                      /* Entity ID Control Selector is VOLUME, */
+                                      USB_currentTD.wCount = USB_VOLUME_LEN;
+                                      USB_currentTD.pData  = &USB_minimumVolume[0];
+                                      requestHandled   = USB_InitControlRead();
+                                  }
+                                  break;
+                              case USB_GET_MAX:    /* GET_MAX */
+C51 COMPILER V9.51   USB_AUDIO                                                             02/21/2017 15:19:24 PAGE 4   
+
+                                  if(CY_GET_REG8(USB_wValueHi) == USB_VOLUME_CONTROL)
+                                  {
+                                      /* Entity ID Control Selector is VOLUME, */
+                                      USB_currentTD.wCount = USB_VOLUME_LEN;
+                                      USB_currentTD.pData  = &USB_maximumVolume[0];
+                                      requestHandled   = USB_InitControlRead();
+                                  }
+                                  break;
+                              case USB_GET_RES:    /* GET_RES */
+                                  if(CY_GET_REG8(USB_wValueHi) == USB_VOLUME_CONTROL)
+                                  {
+                                       /* Entity ID Control Selector is VOLUME, */
+                                      USB_currentTD.wCount = USB_VOLUME_LEN;
+                                      USB_currentTD.pData  = &USB_resolutionVolume[0];
+                                      requestHandled   = USB_InitControlRead();
+                                  }
+                                  break;
+                              /* The contents of the status message is reserved for future use.
+                              *  For the time being, a null packet should be returned in the data stage of the
+                              *  control transfer, and the received null packet should be ACKed.
+                              */
+                              case USB_GET_STAT:
+                                      USB_currentTD.wCount = 0u;
+                                      requestHandled   = USB_InitControlWrite();
+              
+                              #endif /*  USB_ENABLE_AUDIO_STREAMING */
+ 204   4      
+ 205   4                      /* `#START AUDIO_WRITE_REQUESTS` Place other request handler here */
+ 206   4      
+ 207   4                      /* `#END` */
+ 208   4                          break;
+ 209   4                      default:
+ 210   4                          break;
+ 211   4                  }
+ 212   3              }
+ 213   2              else
+ 214   2              {   /* USB_RQST_RCPT_OTHER */
+ 215   3              }
+ 216   2          }
+ 217   1          else if ((bmRequestType & USB_RQST_DIR_MASK) == USB_RQST_DIR_H2D)
+ 218   1          {
+ 219   2              /* Control Write */
+ 220   2              if((bmRequestType & USB_RQST_RCPT_MASK) == USB_RQST_RCPT_EP)
+ 221   2              {
+ 222   3                  /* point */
+ 223   3                  switch (CY_GET_REG8(USB_bRequest))
+ 224   3                  {
+ 225   4                      case USB_SET_CUR:
+ 226   4                      #if defined(USB_ENABLE_AUDIO_STREAMING)
+                                  if(CY_GET_REG8(USB_wValueHi) == USB_SAMPLING_FREQ_CONTROL)
+                                  {
+                                       /* point Control Selector is Sampling Frequency */
+                                      USB_currentTD.wCount = USB_SAMPLE_FREQ_LEN;
+                                      USB_currentTD.pData  = USB_currentSampleFrequency[epNumber];
+                                      requestHandled   = USB_InitControlWrite();
+                                      USB_frequencyChanged = epNumber;
+                                  }
+                              #endif /*  USB_ENABLE_AUDIO_STREAMING */
+ 236   4      
+ 237   4                      /* `#START AUDIO_SAMPLING_FREQ_REQUESTS` Place other request handler here */
+ 238   4      
+ 239   4                      /* `#END` */
+C51 COMPILER V9.51   USB_AUDIO                                                             02/21/2017 15:19:24 PAGE 5   
+
+ 240   4                          break;
+ 241   4                      default:
+ 242   4                          break;
+ 243   4                  }
+ 244   3              }
+ 245   2              else if((bmRequestType & USB_RQST_RCPT_MASK) == USB_RQST_RCPT_IFC)
+ 246   2              {
+ 247   3                  /* Interface or Entity ID */
+ 248   3                  switch (CY_GET_REG8(USB_bRequest))
+ 249   3                  {
+ 250   4                      case USB_SET_CUR:
+ 251   4                      #if defined(USB_ENABLE_AUDIO_STREAMING)
+                                  if(CY_GET_REG8(USB_wValueHi) == USB_MUTE_CONTROL)
+                                  {
+                                      /* `#START MUTE_SET_REQUEST` Place multi-channel handler here */
+              
+                                      /* `#END` */
+              
+                                      /* Entity ID Control Selector is MUTE */
+                                      USB_currentTD.wCount = 1u;
+                                      USB_currentTD.pData  = &USB_currentMute;
+                                      requestHandled   = USB_InitControlWrite();
+                                  }
+                                  else if(CY_GET_REG8(USB_wValueHi) == USB_VOLUME_CONTROL)
+                                  {
+                                      /* `#START VOLUME_CONTROL_SET_REQUEST` Place multi-channel handler here */
+              
+                                      /* `#END` */
+              
+                                      /* Entity ID Control Selector is VOLUME */
+                                      USB_currentTD.wCount = USB_VOLUME_LEN;
+                                      USB_currentTD.pData  = USB_currentVolume;
+                                      requestHandled   = USB_InitControlWrite();
+                                  }
+                                  else
+                                  {
+                                      /* `#START OTHER_SET_CUR_REQUESTS` Place other request handler here */
+              
+                                      /* `#END` */
+                                  }
+                              #endif /*  USB_ENABLE_AUDIO_STREAMING */
+ 281   4      
+ 282   4                      /* `#START AUDIO_CONTROL_SEL_REQUESTS` Place other request handler here */
+ 283   4      
+ 284   4                      /* `#END` */
+ 285   4                          break;
+ 286   4                      default:
+ 287   4                          break;
+ 288   4                  }
+ 289   3              }
+ 290   2              else
+ 291   2              {   
+ 292   3                  /* USB_RQST_RCPT_OTHER */
+ 293   3              }
+ 294   2          }
+ 295   1          else
+ 296   1          {   
+ 297   2              /* requestHandled is initialized as FALSE by default */
+ 298   2          }
+ 299   1      
+ 300   1          return(requestHandled);
+ 301   1      }
+C51 COMPILER V9.51   USB_AUDIO                                                             02/21/2017 15:19:24 PAGE 6   
+
+ 302          
+ 303          #endif /* USER_SUPPLIED_AUDIO_HANDLER */
+ 304          
+ 305          
+ 306          /*******************************************************************************
+ 307          * Additional user functions supporting AUDIO Requests
+ 308          ********************************************************************************/
+ 309          
+ 310          /* `#START AUDIO_FUNCTIONS` Place any additional functions here */
+ 311          
+ 312          /* `#END` */
+ 313          
+ 314          #endif  /*  USB_ENABLE_AUDIO_CLASS */
+ 315          
+ 316          
+ 317          /* [] END OF FILE */
+C51 COMPILER V9.51   USB_AUDIO                                                             02/21/2017 15:19:24 PAGE 7   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION USB_DispatchAUDIOClassRqst (BEGIN)
+                                           ; SOURCE LINE # 94
+                                           ; SOURCE LINE # 95
+                                           ; SOURCE LINE # 96
+0000 900000      R     MOV     DPTR,#requestHandled
+0003 E4                CLR     A
+0004 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 97
+0005 906000            MOV     DPTR,#06000H
+0008 E0                MOVX    A,@DPTR
+0009 FF                MOV     R7,A
+000A 900000      R     MOV     DPTR,#bmRequestType
+000D EF                MOV     A,R7
+000E F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 105
+000F 900000      R     MOV     DPTR,#bmRequestType
+0012 E0                MOVX    A,@DPTR
+0013 FF                MOV     R7,A
+0014 EF                MOV     A,R7
+0015 5480              ANL     A,#080H
+0017 FF                MOV     R7,A
+0018 7E00              MOV     R6,#00H
+001A EF                MOV     A,R7
+001B 6480              XRL     A,#080H
+001D 4E                ORL     A,R6
+001E 704A              JNZ     ?C0001
+                                           ; SOURCE LINE # 106
+                                           ; SOURCE LINE # 108
+0020 900000      R     MOV     DPTR,#bmRequestType
+0023 E0                MOVX    A,@DPTR
+0024 FF                MOV     R7,A
+0025 EF                MOV     A,R7
+0026 5403              ANL     A,#03H
+0028 FF                MOV     R7,A
+0029 7E00              MOV     R6,#00H
+002B EF                MOV     A,R7
+002C 6402              XRL     A,#02H
+002E 4E                ORL     A,R6
+002F 7014              JNZ     ?C0002
+                                           ; SOURCE LINE # 109
+                                           ; SOURCE LINE # 111
+0031 906001            MOV     DPTR,#06001H
+0034 E0                MOVX    A,@DPTR
+0035 FF                MOV     R7,A
+0036 EF                MOV     A,R7
+0037 120000      E     LCALL   ?C?CCASE
+003A 0000        R     DW      ?C0012
+003C 81                DB      081H
+003D 0000              DW      00H
+003F 0000        R     DW      ?C0012
+                                           ; SOURCE LINE # 112
+                                           ; SOURCE LINE # 113
+                                           ; SOURCE LINE # 127
+                                           ; SOURCE LINE # 128
+                                           ; SOURCE LINE # 129
+0041 807C              SJMP    ?C0012
+                                           ; SOURCE LINE # 130
+                                           ; SOURCE LINE # 131
+0043 807A              SJMP    ?C0012
+C51 COMPILER V9.51   USB_AUDIO                                                             02/21/2017 15:19:24 PAGE 8   
+
+0045         ?C0002:
+                                           ; SOURCE LINE # 132
+0045 900000      R     MOV     DPTR,#bmRequestType
+0048 E0                MOVX    A,@DPTR
+0049 FF                MOV     R7,A
+004A EF                MOV     A,R7
+004B 5403              ANL     A,#03H
+004D FF                MOV     R7,A
+004E 7E00              MOV     R6,#00H
+0050 EF                MOV     A,R7
+0051 6401              XRL     A,#01H
+0053 4E                ORL     A,R6
+0054 7069              JNZ     ?C0012
+                                           ; SOURCE LINE # 133
+                                           ; SOURCE LINE # 135
+0056 906001            MOV     DPTR,#06001H
+0059 E0                MOVX    A,@DPTR
+005A FF                MOV     R7,A
+005B EF                MOV     A,R7
+005C 120000      E     LCALL   ?C?CCASE
+005F 0000        R     DW      ?C0012
+0061 81                DB      081H
+0062 0000              DW      00H
+0064 0000        R     DW      ?C0012
+                                           ; SOURCE LINE # 136
+                                           ; SOURCE LINE # 137
+                                           ; SOURCE LINE # 208
+                                           ; SOURCE LINE # 209
+                                           ; SOURCE LINE # 210
+0066 8057              SJMP    ?C0012
+                                           ; SOURCE LINE # 211
+                                           ; SOURCE LINE # 212
+0068 8055              SJMP    ?C0012
+                                           ; SOURCE LINE # 214
+                                           ; SOURCE LINE # 215
+                                           ; SOURCE LINE # 216
+006A         ?C0001:
+                                           ; SOURCE LINE # 217
+006A 900000      R     MOV     DPTR,#bmRequestType
+006D E0                MOVX    A,@DPTR
+006E FF                MOV     R7,A
+006F EF                MOV     A,R7
+0070 5480              ANL     A,#080H
+0072 FF                MOV     R7,A
+0073 7E00              MOV     R6,#00H
+0075 EF                MOV     A,R7
+0076 4E                ORL     A,R6
+0077 7046              JNZ     ?C0012
+                                           ; SOURCE LINE # 218
+                                           ; SOURCE LINE # 220
+0079 900000      R     MOV     DPTR,#bmRequestType
+007C E0                MOVX    A,@DPTR
+007D FF                MOV     R7,A
+007E EF                MOV     A,R7
+007F 5403              ANL     A,#03H
+0081 FF                MOV     R7,A
+0082 7E00              MOV     R6,#00H
+0084 EF                MOV     A,R7
+0085 6402              XRL     A,#02H
+0087 4E                ORL     A,R6
+0088 7014              JNZ     ?C0014
+                                           ; SOURCE LINE # 221
+C51 COMPILER V9.51   USB_AUDIO                                                             02/21/2017 15:19:24 PAGE 9   
+
+                                           ; SOURCE LINE # 223
+008A 906001            MOV     DPTR,#06001H
+008D E0                MOVX    A,@DPTR
+008E FF                MOV     R7,A
+008F EF                MOV     A,R7
+0090 120000      E     LCALL   ?C?CCASE
+0093 0000        R     DW      ?C0012
+0095 01                DB      01H
+0096 0000              DW      00H
+0098 0000        R     DW      ?C0012
+                                           ; SOURCE LINE # 224
+                                           ; SOURCE LINE # 225
+                                           ; SOURCE LINE # 240
+                                           ; SOURCE LINE # 241
+                                           ; SOURCE LINE # 242
+009A 8023              SJMP    ?C0012
+                                           ; SOURCE LINE # 243
+                                           ; SOURCE LINE # 244
+009C 8021              SJMP    ?C0012
+009E         ?C0014:
+                                           ; SOURCE LINE # 245
+009E 900000      R     MOV     DPTR,#bmRequestType
+00A1 E0                MOVX    A,@DPTR
+00A2 FF                MOV     R7,A
+00A3 EF                MOV     A,R7
+00A4 5403              ANL     A,#03H
+00A6 FF                MOV     R7,A
+00A7 7E00              MOV     R6,#00H
+00A9 EF                MOV     A,R7
+00AA 6401              XRL     A,#01H
+00AC 4E                ORL     A,R6
+00AD 7010              JNZ     ?C0012
+                                           ; SOURCE LINE # 246
+                                           ; SOURCE LINE # 248
+00AF 906001            MOV     DPTR,#06001H
+00B2 E0                MOVX    A,@DPTR
+00B3 FF                MOV     R7,A
+00B4 EF                MOV     A,R7
+00B5 120000      E     LCALL   ?C?CCASE
+00B8 0000        R     DW      ?C0012
+00BA 01                DB      01H
+00BB 0000              DW      00H
+00BD 0000        R     DW      ?C0012
+                                           ; SOURCE LINE # 249
+                                           ; SOURCE LINE # 250
+                                           ; SOURCE LINE # 285
+                                           ; SOURCE LINE # 286
+                                           ; SOURCE LINE # 287
+                                           ; SOURCE LINE # 288
+                                           ; SOURCE LINE # 289
+                                           ; SOURCE LINE # 291
+                                           ; SOURCE LINE # 293
+                                           ; SOURCE LINE # 294
+                                           ; SOURCE LINE # 296
+                                           ; SOURCE LINE # 298
+00BF         ?C0012:
+                                           ; SOURCE LINE # 300
+00BF 900000      R     MOV     DPTR,#requestHandled
+00C2 E0                MOVX    A,@DPTR
+00C3 FF                MOV     R7,A
+                                           ; SOURCE LINE # 301
+00C4         ?C0025:
+C51 COMPILER V9.51   USB_AUDIO                                                             02/21/2017 15:19:24 PAGE 10  
+
+00C4 22                RET     
+             ; FUNCTION USB_DispatchAUDIOClassRqst (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    197    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----       2
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
