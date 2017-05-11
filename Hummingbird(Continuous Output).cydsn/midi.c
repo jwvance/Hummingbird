@@ -1,7 +1,5 @@
 #include <math.h>
 #include "midi.h"
-#define HYST 0.90
-
 
 void populate_midi_array(double notes[MIDI_LEN])
 {
@@ -20,7 +18,7 @@ int midi_note_from_freq(double freq)
 	return (int)(round((69 + (12 * log(freq / 440) / log(2.0)))));
 }
 
-int midi_note_changed(double freq, int last_midi, double notes[MIDI_LEN])
+int midi_note_changed(double freq, int last_midi, double notes[MIDI_LEN], int hystVal)
 {
     if (last_midi < 1) {
         last_midi = 1;
@@ -28,8 +26,8 @@ int midi_note_changed(double freq, int last_midi, double notes[MIDI_LEN])
         last_midi = 126;
     }
     
-    float upper = notes[last_midi] + HYST*(notes[last_midi + 1] - notes[last_midi]);
-    float lower = notes[last_midi] - HYST*(notes[last_midi] - notes[last_midi - 1]);
+    float upper = notes[last_midi] + hystVal*(notes[last_midi + 1] - notes[last_midi]);
+    float lower = notes[last_midi] - hystVal*(notes[last_midi] - notes[last_midi - 1]);
     
     return (freq > upper) || (freq < lower);
 }
@@ -43,7 +41,7 @@ char *midi_note_basename(int note)
 	} else if ((note - 2) % 12 == 0) {
 		return "D";
 	} else if ((note - 3) % 12 == 0) {
-		return "Eb";
+		return "D#";
 	} else if ((note - 4) % 12 == 0) {
 		return "E";
 	} else if ((note - 5) % 12 == 0) {
@@ -57,7 +55,7 @@ char *midi_note_basename(int note)
 	} else if ((note - 9) % 12 == 0) {
 		return "A";
 	} else if ((note - 10) % 12 == 0) {
-		return "Bb";
+		return "A#";
 	} else if ((note - 11) % 12 == 0) {
 		return "B";
 	}
@@ -107,7 +105,10 @@ int NoteSnap(double freqTable[MIDI_LEN], float freq, enum MusicKey key, enum Mus
             return -1;
     } 
 
-
+    if (scale == CHROMATIC) {
+        return (float)midi_note_from_freq(freq);
+    }
+    
     // Major scale
     if(scale==MAJOR){
         while(i<50)     //cycles through all the notes in the major scale

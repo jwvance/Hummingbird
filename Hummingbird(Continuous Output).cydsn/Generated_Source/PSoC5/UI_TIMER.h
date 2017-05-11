@@ -36,8 +36,8 @@ extern uint8 UI_TIMER_initVar;
 *           Parameter Defaults
 **************************************/
 
-#define UI_TIMER_Resolution                 8u
-#define UI_TIMER_UsingFixedFunction         1u
+#define UI_TIMER_Resolution                 24u
+#define UI_TIMER_UsingFixedFunction         0u
 #define UI_TIMER_UsingHWCaptureCounter      0u
 #define UI_TIMER_SoftwareCaptureMode        0u
 #define UI_TIMER_SoftwareTriggerMode        0u
@@ -69,7 +69,7 @@ typedef struct
     uint8 TimerEnableState;
     #if(!UI_TIMER_UsingFixedFunction)
 
-        uint8 TimerUdb;
+        uint32 TimerUdb;
         uint8 InterruptMaskValue;
         #if (UI_TIMER_UsingHWCaptureCounter)
             uint8 TimerCaptureCounter;
@@ -100,11 +100,11 @@ uint8   UI_TIMER_ReadStatusRegister(void) ;
     void    UI_TIMER_WriteControlRegister(uint8 control) ;
 #endif /* (!UI_TIMER_UDB_CONTROL_REG_REMOVED) */
 
-uint8  UI_TIMER_ReadPeriod(void) ;
-void    UI_TIMER_WritePeriod(uint8 period) ;
-uint8  UI_TIMER_ReadCounter(void) ;
-void    UI_TIMER_WriteCounter(uint8 counter) ;
-uint8  UI_TIMER_ReadCapture(void) ;
+uint32  UI_TIMER_ReadPeriod(void) ;
+void    UI_TIMER_WritePeriod(uint32 period) ;
+uint32  UI_TIMER_ReadCounter(void) ;
+void    UI_TIMER_WriteCounter(uint32 counter) ;
+uint32  UI_TIMER_ReadCapture(void) ;
 void    UI_TIMER_SoftwareCapture(void) ;
 
 #if(!UI_TIMER_UsingFixedFunction) /* UDB Prototypes */
@@ -168,14 +168,14 @@ void UI_TIMER_Wakeup(void)        ;
 *    Initialial Parameter Constants
 ***************************************/
 
-#define UI_TIMER_INIT_PERIOD             9u
-#define UI_TIMER_INIT_CAPTURE_MODE       ((uint8)((uint8)1u << UI_TIMER_CTRL_CAP_MODE_SHIFT))
+#define UI_TIMER_INIT_PERIOD             4999999u
+#define UI_TIMER_INIT_CAPTURE_MODE       ((uint8)((uint8)0u << UI_TIMER_CTRL_CAP_MODE_SHIFT))
 #define UI_TIMER_INIT_TRIGGER_MODE       ((uint8)((uint8)0u << UI_TIMER_CTRL_TRIG_MODE_SHIFT))
 #if (UI_TIMER_UsingFixedFunction)
-    #define UI_TIMER_INIT_INTERRUPT_MODE (((uint8)((uint8)0u << UI_TIMER_STATUS_TC_INT_MASK_SHIFT)) | \
+    #define UI_TIMER_INIT_INTERRUPT_MODE (((uint8)((uint8)1u << UI_TIMER_STATUS_TC_INT_MASK_SHIFT)) | \
                                                   ((uint8)((uint8)0 << UI_TIMER_STATUS_CAPTURE_INT_MASK_SHIFT)))
 #else
-    #define UI_TIMER_INIT_INTERRUPT_MODE (((uint8)((uint8)0u << UI_TIMER_STATUS_TC_INT_MASK_SHIFT)) | \
+    #define UI_TIMER_INIT_INTERRUPT_MODE (((uint8)((uint8)1u << UI_TIMER_STATUS_TC_INT_MASK_SHIFT)) | \
                                                  ((uint8)((uint8)0 << UI_TIMER_STATUS_CAPTURE_INT_MASK_SHIFT)) | \
                                                  ((uint8)((uint8)0 << UI_TIMER_STATUS_FIFOFULL_INT_MASK_SHIFT)))
 #endif /* (UI_TIMER_UsingFixedFunction) */
@@ -313,54 +313,54 @@ void UI_TIMER_Wakeup(void)        ;
     #define UI_TIMER_CONTROL             (* (reg8 *) UI_TIMER_TimerUDB_sCTRLReg_SyncCtl_ctrlreg__CONTROL_REG )
     
     #if(UI_TIMER_Resolution <= 8u) /* 8-bit Timer */
-        #define UI_TIMER_CAPTURE_LSB         (* (reg8 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__F0_REG )
-        #define UI_TIMER_CAPTURE_LSB_PTR       ((reg8 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__F0_REG )
-        #define UI_TIMER_PERIOD_LSB          (* (reg8 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__D0_REG )
-        #define UI_TIMER_PERIOD_LSB_PTR        ((reg8 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__D0_REG )
-        #define UI_TIMER_COUNTER_LSB         (* (reg8 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__A0_REG )
-        #define UI_TIMER_COUNTER_LSB_PTR       ((reg8 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__A0_REG )
+        #define UI_TIMER_CAPTURE_LSB         (* (reg8 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__F0_REG )
+        #define UI_TIMER_CAPTURE_LSB_PTR       ((reg8 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__F0_REG )
+        #define UI_TIMER_PERIOD_LSB          (* (reg8 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__D0_REG )
+        #define UI_TIMER_PERIOD_LSB_PTR        ((reg8 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__D0_REG )
+        #define UI_TIMER_COUNTER_LSB         (* (reg8 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__A0_REG )
+        #define UI_TIMER_COUNTER_LSB_PTR       ((reg8 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__A0_REG )
     #elif(UI_TIMER_Resolution <= 16u) /* 8-bit Timer */
         #if(CY_PSOC3) /* 8-bit addres space */
-            #define UI_TIMER_CAPTURE_LSB         (* (reg16 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__F0_REG )
-            #define UI_TIMER_CAPTURE_LSB_PTR       ((reg16 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__F0_REG )
-            #define UI_TIMER_PERIOD_LSB          (* (reg16 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__D0_REG )
-            #define UI_TIMER_PERIOD_LSB_PTR        ((reg16 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__D0_REG )
-            #define UI_TIMER_COUNTER_LSB         (* (reg16 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__A0_REG )
-            #define UI_TIMER_COUNTER_LSB_PTR       ((reg16 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__A0_REG )
+            #define UI_TIMER_CAPTURE_LSB         (* (reg16 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__F0_REG )
+            #define UI_TIMER_CAPTURE_LSB_PTR       ((reg16 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__F0_REG )
+            #define UI_TIMER_PERIOD_LSB          (* (reg16 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__D0_REG )
+            #define UI_TIMER_PERIOD_LSB_PTR        ((reg16 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__D0_REG )
+            #define UI_TIMER_COUNTER_LSB         (* (reg16 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__A0_REG )
+            #define UI_TIMER_COUNTER_LSB_PTR       ((reg16 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__A0_REG )
         #else /* 16-bit address space */
-            #define UI_TIMER_CAPTURE_LSB         (* (reg16 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__16BIT_F0_REG )
-            #define UI_TIMER_CAPTURE_LSB_PTR       ((reg16 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__16BIT_F0_REG )
-            #define UI_TIMER_PERIOD_LSB          (* (reg16 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__16BIT_D0_REG )
-            #define UI_TIMER_PERIOD_LSB_PTR        ((reg16 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__16BIT_D0_REG )
-            #define UI_TIMER_COUNTER_LSB         (* (reg16 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__16BIT_A0_REG )
-            #define UI_TIMER_COUNTER_LSB_PTR       ((reg16 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__16BIT_A0_REG )
+            #define UI_TIMER_CAPTURE_LSB         (* (reg16 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__16BIT_F0_REG )
+            #define UI_TIMER_CAPTURE_LSB_PTR       ((reg16 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__16BIT_F0_REG )
+            #define UI_TIMER_PERIOD_LSB          (* (reg16 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__16BIT_D0_REG )
+            #define UI_TIMER_PERIOD_LSB_PTR        ((reg16 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__16BIT_D0_REG )
+            #define UI_TIMER_COUNTER_LSB         (* (reg16 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__16BIT_A0_REG )
+            #define UI_TIMER_COUNTER_LSB_PTR       ((reg16 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__16BIT_A0_REG )
         #endif /* CY_PSOC3 */
     #elif(UI_TIMER_Resolution <= 24u)/* 24-bit Timer */
-        #define UI_TIMER_CAPTURE_LSB         (* (reg32 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__F0_REG )
-        #define UI_TIMER_CAPTURE_LSB_PTR       ((reg32 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__F0_REG )
-        #define UI_TIMER_PERIOD_LSB          (* (reg32 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__D0_REG )
-        #define UI_TIMER_PERIOD_LSB_PTR        ((reg32 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__D0_REG )
-        #define UI_TIMER_COUNTER_LSB         (* (reg32 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__A0_REG )
-        #define UI_TIMER_COUNTER_LSB_PTR       ((reg32 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__A0_REG )
+        #define UI_TIMER_CAPTURE_LSB         (* (reg32 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__F0_REG )
+        #define UI_TIMER_CAPTURE_LSB_PTR       ((reg32 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__F0_REG )
+        #define UI_TIMER_PERIOD_LSB          (* (reg32 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__D0_REG )
+        #define UI_TIMER_PERIOD_LSB_PTR        ((reg32 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__D0_REG )
+        #define UI_TIMER_COUNTER_LSB         (* (reg32 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__A0_REG )
+        #define UI_TIMER_COUNTER_LSB_PTR       ((reg32 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__A0_REG )
     #else /* 32-bit Timer */
         #if(CY_PSOC3 || CY_PSOC5) /* 8-bit address space */
-            #define UI_TIMER_CAPTURE_LSB         (* (reg32 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__F0_REG )
-            #define UI_TIMER_CAPTURE_LSB_PTR       ((reg32 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__F0_REG )
-            #define UI_TIMER_PERIOD_LSB          (* (reg32 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__D0_REG )
-            #define UI_TIMER_PERIOD_LSB_PTR        ((reg32 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__D0_REG )
-            #define UI_TIMER_COUNTER_LSB         (* (reg32 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__A0_REG )
-            #define UI_TIMER_COUNTER_LSB_PTR       ((reg32 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__A0_REG )
+            #define UI_TIMER_CAPTURE_LSB         (* (reg32 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__F0_REG )
+            #define UI_TIMER_CAPTURE_LSB_PTR       ((reg32 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__F0_REG )
+            #define UI_TIMER_PERIOD_LSB          (* (reg32 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__D0_REG )
+            #define UI_TIMER_PERIOD_LSB_PTR        ((reg32 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__D0_REG )
+            #define UI_TIMER_COUNTER_LSB         (* (reg32 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__A0_REG )
+            #define UI_TIMER_COUNTER_LSB_PTR       ((reg32 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__A0_REG )
         #else /* 32-bit address space */
-            #define UI_TIMER_CAPTURE_LSB         (* (reg32 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__32BIT_F0_REG )
-            #define UI_TIMER_CAPTURE_LSB_PTR       ((reg32 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__32BIT_F0_REG )
-            #define UI_TIMER_PERIOD_LSB          (* (reg32 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__32BIT_D0_REG )
-            #define UI_TIMER_PERIOD_LSB_PTR        ((reg32 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__32BIT_D0_REG )
-            #define UI_TIMER_COUNTER_LSB         (* (reg32 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__32BIT_A0_REG )
-            #define UI_TIMER_COUNTER_LSB_PTR       ((reg32 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__32BIT_A0_REG )
+            #define UI_TIMER_CAPTURE_LSB         (* (reg32 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__32BIT_F0_REG )
+            #define UI_TIMER_CAPTURE_LSB_PTR       ((reg32 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__32BIT_F0_REG )
+            #define UI_TIMER_PERIOD_LSB          (* (reg32 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__32BIT_D0_REG )
+            #define UI_TIMER_PERIOD_LSB_PTR        ((reg32 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__32BIT_D0_REG )
+            #define UI_TIMER_COUNTER_LSB         (* (reg32 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__32BIT_A0_REG )
+            #define UI_TIMER_COUNTER_LSB_PTR       ((reg32 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__32BIT_A0_REG )
         #endif /* CY_PSOC3 || CY_PSOC5 */ 
     #endif
 
-    #define UI_TIMER_COUNTER_LSB_PTR_8BIT       ((reg8 *) UI_TIMER_TimerUDB_sT8_timerdp_u0__A0_REG )
+    #define UI_TIMER_COUNTER_LSB_PTR_8BIT       ((reg8 *) UI_TIMER_TimerUDB_sT24_timerdp_u0__A0_REG )
     
     #if (UI_TIMER_UsingHWCaptureCounter)
         #define UI_TIMER_CAP_COUNT              (*(reg8 *) UI_TIMER_TimerUDB_sCapCount_counter__PERIOD_REG )

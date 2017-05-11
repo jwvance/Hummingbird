@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
   30:Generated_Source\PSoC5/cyPm.c **** 
   31:Generated_Source\PSoC5/cyPm.c **** static CY_PM_BACKUP_STRUCT          cyPmBackup;
   32:Generated_Source\PSoC5/cyPm.c **** static CY_PM_CLOCK_BACKUP_STRUCT    cyPmClockBackup;
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 2
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 2
 
 
   33:Generated_Source\PSoC5/cyPm.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
   87:Generated_Source\PSoC5/cyPm.c **** 
   88:Generated_Source\PSoC5/cyPm.c ****     /* Save current flash wait cycles and set the maximum value */
   89:Generated_Source\PSoC5/cyPm.c ****     cyPmClockBackup.flashWaitCycles = CY_PM_CACHE_CR_CYCLES_MASK & CY_PM_CACHE_CR_REG;
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 3
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 3
 
 
   90:Generated_Source\PSoC5/cyPm.c ****     CyFlash_SetWaitCycles(CY_PM_MAX_FLASH_WAIT_CYCLES);
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  144:Generated_Source\PSoC5/cyPm.c ****         cyPmClockBackup.pllEnableState = CY_PM_DISABLED;
  145:Generated_Source\PSoC5/cyPm.c ****     }
  146:Generated_Source\PSoC5/cyPm.c **** 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 4
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 4
 
 
  147:Generated_Source\PSoC5/cyPm.c ****     /* IMO - set appropriate frequency for LPM */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  201:Generated_Source\PSoC5/cyPm.c ****     /* Master clock - save divider and set it to divide-by-one (if no yet) */
  202:Generated_Source\PSoC5/cyPm.c ****     cyPmClockBackup.clkSyncDiv = CY_PM_CLKDIST_MSTR0_REG;
  203:Generated_Source\PSoC5/cyPm.c ****     if(CY_PM_DIV_BY_ONE != cyPmClockBackup.clkSyncDiv)
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 5
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 5
 
 
  204:Generated_Source\PSoC5/cyPm.c ****     {
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  258:Generated_Source\PSoC5/cyPm.c **** *
  259:Generated_Source\PSoC5/cyPm.c **** * Summary:
  260:Generated_Source\PSoC5/cyPm.c **** *  Restores any state that was preserved by the last call to CyPmSaveClocks().
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 6
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 6
 
 
  261:Generated_Source\PSoC5/cyPm.c **** *  The Flash wait state setting is also restored.
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  315:Generated_Source\PSoC5/cyPm.c ****         (void) CyXTAL_Start(CY_PM_XTAL_MHZ_NO_WAIT);
  316:Generated_Source\PSoC5/cyPm.c **** 
  317:Generated_Source\PSoC5/cyPm.c ****         /* Read XERR bit to clear it */
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 7
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 7
 
 
  318:Generated_Source\PSoC5/cyPm.c ****         (void) CY_PM_FASTCLK_XMHZ_CSR_REG;
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  372:Generated_Source\PSoC5/cyPm.c ****     else
  373:Generated_Source\PSoC5/cyPm.c ****     {
  374:Generated_Source\PSoC5/cyPm.c ****         /* Restore IMO frequency */
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 8
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 8
 
 
  375:Generated_Source\PSoC5/cyPm.c ****         CyIMO_SetFreq(cyPmImoFreqMhz2Reg[cyPmClockBackup.imoFreq]);
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  429:Generated_Source\PSoC5/cyPm.c **** 
  430:Generated_Source\PSoC5/cyPm.c ****         /* It should take 250 us lock: 251-80 = 171 */
  431:Generated_Source\PSoC5/cyPm.c ****         for(i = 171u; i > 0u; i--)
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 9
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 9
 
 
  432:Generated_Source\PSoC5/cyPm.c ****         {
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  486:Generated_Source\PSoC5/cyPm.c ****     CY_PM_CACHE_CR_REG = ((CY_PM_CACHE_CR_REG & ((uint8)(~CY_PM_CACHE_CR_CYCLES_MASK))) |
  487:Generated_Source\PSoC5/cyPm.c ****                            cyPmClockBackup.flashWaitCycles);
  488:Generated_Source\PSoC5/cyPm.c **** 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 10
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 10
 
 
  489:Generated_Source\PSoC5/cyPm.c ****     /* Digital and analog clocks - restore state */
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  543:Generated_Source\PSoC5/cyPm.c **** *  Sleep Timer component and one second interval should be configured with the
  544:Generated_Source\PSoC5/cyPm.c **** *  RTC component.
  545:Generated_Source\PSoC5/cyPm.c **** *
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 11
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 11
 
 
  546:Generated_Source\PSoC5/cyPm.c **** *  The wakeup behavior depends on the wakeupSource parameter in the following
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  600:Generated_Source\PSoC5/cyPm.c **** *  PM_ALT_ACT_SRC_PICU              PICU
  601:Generated_Source\PSoC5/cyPm.c **** *  PM_ALT_ACT_SRC_I2C               I2C
  602:Generated_Source\PSoC5/cyPm.c **** *  PM_ALT_ACT_SRC_BOOSTCONVERTER    Boost Converter
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 12
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 12
 
 
  603:Generated_Source\PSoC5/cyPm.c **** *  PM_ALT_ACT_SRC_FTW               Fast Timewheel*
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  657:Generated_Source\PSoC5/cyPm.c **** 
  658:Generated_Source\PSoC5/cyPm.c ****             /* Include associated timer to wakeupSource */
  659:Generated_Source\PSoC5/cyPm.c ****             wakeupSource |= PM_ALT_ACT_SRC_FTW;
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 13
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 13
 
 
  660:Generated_Source\PSoC5/cyPm.c ****         }
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  714:Generated_Source\PSoC5/cyPm.c **** 
  715:Generated_Source\PSoC5/cyPm.c ****     /* Restore wake up configuration */
  716:Generated_Source\PSoC5/cyPm.c ****     CY_PM_WAKEUP_CFG0_REG = cyPmBackup.wakeupCfg0;
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 14
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 14
 
 
  717:Generated_Source\PSoC5/cyPm.c ****     CY_PM_WAKEUP_CFG1_REG = cyPmBackup.wakeupCfg1;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  771:Generated_Source\PSoC5/cyPm.c **** *  PM_SLEEP_TIME_CTW_2MS            CTW: 2 ms
  772:Generated_Source\PSoC5/cyPm.c **** *  PM_SLEEP_TIME_CTW_4MS            CTW: 4 ms
  773:Generated_Source\PSoC5/cyPm.c **** *  PM_SLEEP_TIME_CTW_8MS            CTW: 8 ms
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 15
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 15
 
 
  774:Generated_Source\PSoC5/cyPm.c **** *  PM_SLEEP_TIME_CTW_16MS           CTW: 16 ms
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  828:Generated_Source\PSoC5/cyPm.c **** *  delay is measured using rising edges of the 1 kHz ILO.
  829:Generated_Source\PSoC5/cyPm.c **** *
  830:Generated_Source\PSoC5/cyPm.c **** *  For PSoC 3 silicon hardware buzz should be disabled before entering a sleep
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 16
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 16
 
 
  831:Generated_Source\PSoC5/cyPm.c **** *  power mode. It is disabled by PSoC Creator during startup.
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  885:Generated_Source\PSoC5/cyPm.c ****             /* Hardware buzz expected to be disabled in Sleep mode */
  886:Generated_Source\PSoC5/cyPm.c ****             CYASSERT(0u == (CY_PM_PWRSYS_WAKE_TR2_REG & CY_PM_PWRSYS_WAKE_TR2_EN_BUZZ));
  887:Generated_Source\PSoC5/cyPm.c ****         }
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 17
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 17
 
 
  888:Generated_Source\PSoC5/cyPm.c **** 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  942:Generated_Source\PSoC5/cyPm.c ****         {
  943:Generated_Source\PSoC5/cyPm.c ****             /* Save current and set new configuration of CTW */
  944:Generated_Source\PSoC5/cyPm.c ****             CyPmCtwSetInterval((uint8)(wakeupTime - 1u));
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 18
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 18
 
 
  945:Generated_Source\PSoC5/cyPm.c **** 
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  999:Generated_Source\PSoC5/cyPm.c ****         cyPmBackup.imoActFreq = CY_PM_FASTCLK_IMO_CR_REG & CY_PM_FASTCLK_IMO_CR_FREQ_MASK;
 1000:Generated_Source\PSoC5/cyPm.c **** 
 1001:Generated_Source\PSoC5/cyPm.c ****         /* Set IMO frequency to 12 MHz */
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 19
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 19
 
 
 1002:Generated_Source\PSoC5/cyPm.c ****         CY_PM_FASTCLK_IMO_CR_REG &= ((uint8) (~CY_PM_FASTCLK_IMO_CR_FREQ_MASK));
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1056:Generated_Source\PSoC5/cyPm.c ****     #endif /* (CY_PSOC3) */
 1057:Generated_Source\PSoC5/cyPm.c **** 
 1058:Generated_Source\PSoC5/cyPm.c **** 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 20
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 20
 
 
 1059:Generated_Source\PSoC5/cyPm.c ****     /* Restore current wake up configuration */
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1113:Generated_Source\PSoC5/cyPm.c **** {
 1114:Generated_Source\PSoC5/cyPm.c ****     uint8 interruptState;
 1115:Generated_Source\PSoC5/cyPm.c **** 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 21
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 21
 
 
 1116:Generated_Source\PSoC5/cyPm.c ****     /* Save current global interrupt enable and disable it */
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1170:Generated_Source\PSoC5/cyPm.c ****     }
 1171:Generated_Source\PSoC5/cyPm.c **** 
 1172:Generated_Source\PSoC5/cyPm.c **** 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 22
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 22
 
 
 1173:Generated_Source\PSoC5/cyPm.c ****     /* Switch to Hibernate Mode */
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1227:Generated_Source\PSoC5/cyPm.c **** *
 1228:Generated_Source\PSoC5/cyPm.c **** * Parameters:
 1229:Generated_Source\PSoC5/cyPm.c **** *  mask: Bits in the shadow register to clear.
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 23
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 23
 
 
 1230:Generated_Source\PSoC5/cyPm.c **** *
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1284:Generated_Source\PSoC5/cyPm.c **** static void CyPmHibSaveSet(void) 
 1285:Generated_Source\PSoC5/cyPm.c **** {
 1286:Generated_Source\PSoC5/cyPm.c ****     /* I2C backup reg must be off when the sleep regulator is unavailable */
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 24
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 24
 
 
 1287:Generated_Source\PSoC5/cyPm.c ****     if(0u != (CY_PM_PWRSYS_CR1_REG & CY_PM_PWRSYS_CR1_I2CREG_BACKUP))
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1341:Generated_Source\PSoC5/cyPm.c ****     CyPmHibSlpSaveSet();
 1342:Generated_Source\PSoC5/cyPm.c **** 
 1343:Generated_Source\PSoC5/cyPm.c **** 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 25
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 25
 
 
 1344:Generated_Source\PSoC5/cyPm.c ****     /***************************************************************************
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1398:Generated_Source\PSoC5/cyPm.c **** 
 1399:Generated_Source\PSoC5/cyPm.c **** 
 1400:Generated_Source\PSoC5/cyPm.c ****     if(CY_PM_DISABLED == cyPmBackup.slpTrBypass)
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 26
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 26
 
 
 1401:Generated_Source\PSoC5/cyPm.c ****     {
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1455:Generated_Source\PSoC5/cyPm.c ****     else
 1456:Generated_Source\PSoC5/cyPm.c ****     {
 1457:Generated_Source\PSoC5/cyPm.c ****         /* Set CTW interval if needed */
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 27
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 27
 
 
 1458:Generated_Source\PSoC5/cyPm.c ****         if(CY_PM_TW_CFG1_REG != ctwInterval)
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1512:Generated_Source\PSoC5/cyPm.c **** *  - Sets a new FTW interval.
 1513:Generated_Source\PSoC5/cyPm.c **** *
 1514:Generated_Source\PSoC5/cyPm.c **** * Parameters:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 28
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 28
 
 
 1515:Generated_Source\PSoC5/cyPm.c **** *  ftwInterval - FTW counter interval.
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1569:Generated_Source\PSoC5/cyPm.c **** *  - Saves the boost reference selection and sets it to internal
 1570:Generated_Source\PSoC5/cyPm.c **** *
 1571:Generated_Source\PSoC5/cyPm.c **** * Parameters:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 29
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 29
 
 
 1572:Generated_Source\PSoC5/cyPm.c **** *  None
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
   56              		.loc 1 1590 0
   57 0020 0430     		adds	r0, r0, #4
 1586:Generated_Source\PSoC5/cyPm.c ****     cyPmBackup.scctData[3u]   = CY_GET_REG8(CYREG_SC0_SW4 );
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 30
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 30
 
 
   58              		.loc 1 1586 0
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
   86              		.loc 1 1594 0
   87 004c 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
 1587:Generated_Source\PSoC5/cyPm.c ****     cyPmBackup.scctData[4u]   = CY_GET_REG8(CYREG_SC0_SW6 );
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 31
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 31
 
 
   88              		.loc 1 1587 0
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  117 006e 83F811B0 		strb	fp, [r3, #17]
 1601:Generated_Source\PSoC5/cyPm.c ****     cyPmBackup.scctData[16u]  = CY_GET_REG8(CYREG_SC2_SW3 );
  118              		.loc 1 1601 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 32
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 32
 
 
  119 0072 97F818B0 		ldrb	fp, [r7, #24]	@ zero_extendqisi2
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1611:Generated_Source\PSoC5/cyPm.c ****     cyPmBackup.scctData[25u]  = CY_GET_REG8(CYREG_SC3_SW6 );
  156              		.loc 1 1611 0
  157 00a4 3D4D     		ldr	r5, .L7+56
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 33
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 33
 
 
 1606:Generated_Source\PSoC5/cyPm.c **** 
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1614:Generated_Source\PSoC5/cyPm.c **** 
  194              		.loc 1 1614 0
  195 00da 91F800B0 		ldrb	fp, [r1]	@ zero_extendqisi2
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 34
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 34
 
 
 1613:Generated_Source\PSoC5/cyPm.c ****     cyPmBackup.scctData[27u]  = CY_GET_REG8(CYREG_SC3_SW10);
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1665:Generated_Source\PSoC5/cyPm.c **** 
 1666:Generated_Source\PSoC5/cyPm.c ****             /* Disable SWV clocks */
 1667:Generated_Source\PSoC5/cyPm.c ****             CY_PM_MLOGIC_DBG_REG &= ((uint8)(~CY_PM_MLOGIC_DBG_SWV_CLK_EN));
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 35
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 35
 
 
 1668:Generated_Source\PSoC5/cyPm.c ****         }
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  230              		.loc 1 1630 0
  231 0112 3A74     		strb	r2, [r7, #16]
 1632:Generated_Source\PSoC5/cyPm.c ****     CY_SET_REG8(CYREG_SC2_SW2 , 0u);
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 36
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 36
 
 
  232              		.loc 1 1632 0
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  266 0144 83F82E10 		strb	r1, [r3, #46]
  267 0148 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
  268              	.L6:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 37
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 37
 
 
 1685:Generated_Source\PSoC5/cyPm.c ****     }
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1692:Generated_Source\PSoC5/cyPm.c **** 
 1693:Generated_Source\PSoC5/cyPm.c **** 
 1694:Generated_Source\PSoC5/cyPm.c **** /*******************************************************************************
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 38
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 38
 
 
 1695:Generated_Source\PSoC5/cyPm.c **** * Function Name: CyPmHibSlpRestore
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  345              		.loc 1 1720 0
  346 001c 93F80E90 		ldrb	r9, [r3, #14]	@ zero_extendqisi2
 1721:Generated_Source\PSoC5/cyPm.c ****     CY_SET_REG8(CYREG_SC0_SW10, cyPmBackup.scctData[6u] );
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 39
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 39
 
 
  347              		.loc 1 1721 0
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1729:Generated_Source\PSoC5/cyPm.c ****     CY_SET_REG8(CYREG_SC1_SW10, cyPmBackup.scctData[13u]);
  383              		.loc 1 1729 0
  384 005c 93F81680 		ldrb	r8, [r3, #22]	@ zero_extendqisi2
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 40
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 40
 
 
 1723:Generated_Source\PSoC5/cyPm.c ****     CY_SET_REG8(CYREG_SC1_SW2 , cyPmBackup.scctData[8u] );
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1738:Generated_Source\PSoC5/cyPm.c **** 
 1739:Generated_Source\PSoC5/cyPm.c ****     CY_SET_REG8(CYREG_SC3_SW0 , cyPmBackup.scctData[21u]);
  421              		.loc 1 1739 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 41
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 41
 
 
  422 009a 93F81EB0 		ldrb	fp, [r3, #30]	@ zero_extendqisi2
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  445              		.loc 1 1739 0
  446 00ca DFF868A0 		ldr	r10, .L12+48
 1740:Generated_Source\PSoC5/cyPm.c ****     CY_SET_REG8(CYREG_SC3_SW3 , cyPmBackup.scctData[23u]);
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 42
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 42
 
 
  447              		.loc 1 1740 0
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  488 0110 035A0040 		.word	1073764867
  489 0114 045A0040 		.word	1073764868
  490 0118 065A0040 		.word	1073764870
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 43
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 43
 
 
  491 011c 085A0040 		.word	1073764872
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  536              		.loc 1 86 0
  537 0014 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
  538 0016 1C70     		strb	r4, [r3]
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 44
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 44
 
 
   89:Generated_Source\PSoC5/cyPm.c ****     CyFlash_SetWaitCycles(CY_PM_MAX_FLASH_WAIT_CYCLES);
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  576 0058 002B     		cmp	r3, #0
  577 005a 75D0     		beq	.L15
  100:Generated_Source\PSoC5/cyPm.c ****     }
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 45
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 45
 
 
  578              		.loc 1 100 0
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  622 00ae 48D0     		beq	.L26
  173:Generated_Source\PSoC5/cyPm.c **** 
  623              		.loc 1 173 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 46
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 46
 
 
  624 00b0 4FF04023 		mov	r3, #1073758208
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  668 00fe 34D1     		bne	.L61
  669              	.L32:
  215:Generated_Source\PSoC5/cyPm.c ****     cyPmClockBackup.clkBusDiv |= CY_PM_CLK_BUS_LSB_DIV_REG;
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 47
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 47
 
 
  670              		.loc 1 215 0
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  712              		.loc 1 181 0
  713 0142 84F83720 		strb	r2, [r4, #55]
  714 0146 C0E7     		b	.L28
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 48
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 48
 
 
  715              	.L15:
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  759 0182 84F83620 		strb	r2, [r4, #54]
  162:Generated_Source\PSoC5/cyPm.c **** 
  760              		.loc 1 162 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 49
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 49
 
 
  761 0186 FFF7FEFF 		bl	CyIMO_Start
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  805 01c8 54E7     		b	.L17
  806              	.L65:
  129:Generated_Source\PSoC5/cyPm.c ****             break;
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 50
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 50
 
 
  807              		.loc 1 129 0 discriminator 1
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  857 0006 824D     		ldr	r5, .L111+4
  290:Generated_Source\PSoC5/cyPm.c ****         CY_IMO_FREQ_12MHZ, CY_IMO_FREQ_6MHZ,  CY_IMO_FREQ_24MHZ, CY_IMO_FREQ_3MHZ,
  858              		.loc 1 290 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 51
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 51
 
 
  859 0008 3346     		mov	r3, r6
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  900              		.loc 1 367 0
  901 0052 02AA     		add	r2, sp, #8
  902 0054 1344     		add	r3, r3, r2
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 52
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 52
 
 
  903 0056 13F8080C 		ldrb	r0, [r3, #-8]	@ zero_extendqisi2
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  945 00a0 02F03002 		and	r2, r2, #48
  946 00a4 9A42     		cmp	r2, r3
  947 00a6 04D0     		beq	.L82
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 53
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 53
 
 
  407:Generated_Source\PSoC5/cyPm.c ****                                 cyPmClockBackup.clkImoSrc;
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  482:Generated_Source\PSoC5/cyPm.c ****     }
  991              		.loc 1 482 0
  992 00e6 FFF7FEFF 		bl	CyBusClk_SetDivider
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 54
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 54
 
 
  993              	.LVL23:
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  1035              		.loc 1 461 0
  1036 0126 424A     		ldr	r2, .L111+36
  1037 0128 94F83A30 		ldrb	r3, [r4, #58]	@ zero_extendqisi2
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 55
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 55
 
 
  1038 012c 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  1083              		.loc 1 298 0
  1084 0172 F05C     		ldrb	r0, [r6, r3]	@ zero_extendqisi2
  1085 0174 00EB8000 		add	r0, r0, r0, lsl #2
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 56
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 56
 
 
  1086 0178 C0EB0010 		rsb	r0, r0, r0, lsl #4
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  1130              		.loc 1 321 0 discriminator 2
  1131 01ca 002C     		cmp	r4, #0
  1132 01cc ECD1     		bne	.L74
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 57
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 57
 
 
  1133 01ce 30E7     		b	.L73
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  1176 0206 FFF7FEFF 		bl	CyIMO_SetFreq
  1177              	.LVL42:
  1178 020a 38E7     		b	.L78
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 58
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 58
 
 
  1179              	.L112:
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  688:Generated_Source\PSoC5/cyPm.c ****     CY_PM_WAKEUP_CFG0_REG = (uint8) (wakeupSource >> 4u);
  1229              		.loc 1 688 0 is_stmt 1
  1230 000c 154D     		ldr	r5, .L119
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 59
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 59
 
 
  689:Generated_Source\PSoC5/cyPm.c **** 
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  1267              		.loc 1 696 0
  1268 0046 9F71     		strb	r7, [r3, #6]
  704:Generated_Source\PSoC5/cyPm.c **** 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 60
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 60
 
 
  1269              		.loc 1 704 0
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  1314              		.thumb
  1315              		.thumb_func
  1316              		.type	CyPmSleep, %function
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 61
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 61
 
 
  1317              	CyPmSleep:
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  1362 0030 C4F30710 		ubfx	r0, r4, #4, #8
  970:Generated_Source\PSoC5/cyPm.c ****     CY_PM_WAKEUP_CFG1_REG = (((uint8) wakeupSource) & CY_PM_WAKEUP_SRC_CMPS_MASK);
  1363              		.loc 1 970 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 62
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 62
 
 
  1364 0034 2C4B     		ldr	r3, .L135+12
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  1400              		.loc 1 1002 0
  1401 0060 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
  999:Generated_Source\PSoC5/cyPm.c **** 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 63
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 63
 
 
  1402              		.loc 1 999 0
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  1444              		.loc 1 1023 0
  1445 0096 1649     		ldr	r1, .L135+20
  1446 0098 92F82C20 		ldrb	r2, [r2, #44]	@ zero_extendqisi2
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 64
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 64
 
 
  1447 009c 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  1488              	.LVL51:
  1489              	.L134:
  1490              		.cfi_restore_state
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 65
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 65
 
 
  991:Generated_Source\PSoC5/cyPm.c ****     }
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  1540 0008 904B     		ldr	r3, .L177
  1541 000a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  1542 000c 1D07     		lsls	r5, r3, #28
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 66
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 66
 
 
  1543              	.LVL54:
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  1585 0040 3378     		ldrb	r3, [r6]	@ zero_extendqisi2
 1314:Generated_Source\PSoC5/cyPm.c **** 
  1586              		.loc 1 1314 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 67
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 67
 
 
  1587 0042 C2F38002 		ubfx	r2, r2, #2, #1
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1792:Generated_Source\PSoC5/cyPm.c ****     {
 1793:Generated_Source\PSoC5/cyPm.c ****         cyPmBackup.lvidEn = CY_PM_ENABLED;
 1794:Generated_Source\PSoC5/cyPm.c ****         cyPmBackup.lvidTrip = CY_VD_LVI_TRIP_REG & CY_VD_LVI_TRIP_LVID_MASK;
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 68
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 68
 
 
 1795:Generated_Source\PSoC5/cyPm.c **** 
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1829:Generated_Source\PSoC5/cyPm.c ****     {
 1830:Generated_Source\PSoC5/cyPm.c ****         cyPmBackup.hviaEn = CY_PM_DISABLED;
  1631              		.loc 1 1830 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 69
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 69
 
 
  1632 0098 84F82920 		strb	r2, [r4, #41]
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  1674              	.LBE29:
 1144:Generated_Source\PSoC5/cyPm.c ****     CY_PM_WAKEUP_CFG0_REG = CY_PM_WAKEUP_PICU;
  1675              		.loc 1 1144 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 70
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 70
 
 
  1676 00be 93F80080 		ldrb	r8, [r3]	@ zero_extendqisi2
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1150:Generated_Source\PSoC5/cyPm.c ****     CY_PM_WAKEUP_CFG2_REG = 0x00u;
  1715              		.loc 1 1150 0
  1716 00ea A671     		strb	r6, [r4, #6]
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 71
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 71
 
 
 1155:Generated_Source\PSoC5/cyPm.c ****     {
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  1762              	.LBB34:
  1763              	.LBB35:
 1831:Generated_Source\PSoC5/cyPm.c ****     }
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 72
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 72
 
 
 1832:Generated_Source\PSoC5/cyPm.c **** }
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  1783              		.loc 1 1380 0
  1784 0142 FFF7FEFF 		bl	CyPmHibSlpRestore
  1785              	.LVL57:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 73
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 73
 
 
 1383:Generated_Source\PSoC5/cyPm.c ****     {
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1410:Generated_Source\PSoC5/cyPm.c ****     CY_PM_PWRSYS_WAKE_TR1_REG = cyPmBackup.wakeupTrim1;
  1829              		.loc 1 1410 0
  1830 0178 DFF8E890 		ldr	r9, .L177+24
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 74
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 74
 
 
 1411:Generated_Source\PSoC5/cyPm.c **** }
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  1874              	.LBB24:
 1322:Generated_Source\PSoC5/cyPm.c ****     }
  1875              		.loc 1 1322 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 75
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 75
 
 
  1876 019e 3378     		ldrb	r3, [r6]	@ zero_extendqisi2
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  1916              	.LBE16:
  1917              	.LBE24:
  1918              	.LBE47:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 76
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 76
 
 
 1166:Generated_Source\PSoC5/cyPm.c **** 
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1809:Generated_Source\PSoC5/cyPm.c ****         cyPmBackup.lviaTrip = CY_VD_LVI_TRIP_REG >> 4u;
  1957              		.loc 1 1809 0
  1958 0206 84F82710 		strb	r1, [r4, #39]
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 77
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 77
 
 
 1816:Generated_Source\PSoC5/cyPm.c ****     }
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2005              	.L172:
 1857:Generated_Source\PSoC5/cyPm.c ****     }
  2006              		.loc 1 1857 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 78
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 78
 
 
  2007 023c 92F82A00 		ldrb	r0, [r2, #42]	@ zero_extendqisi2
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2058 0004 FFF7FEFF 		bl	CyEnterCriticalSection
  2059              	.LVL69:
 1250:Generated_Source\PSoC5/cyPm.c ****     tmpStatus = interruptStatus;
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 79
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 79
 
 
  2060              		.loc 1 1250 0
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1438:Generated_Source\PSoC5/cyPm.c **** 
  2108              		.loc 1 1438 0
  2109 0006 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 80
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 80
 
 
  2110 0008 03F0F703 		and	r3, r3, #247
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2154 004c 82430040 		.word	1073759106
  2155 0050 81430040 		.word	1073759105
  2156              		.cfi_endproc
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 81
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 81
 
 
  2157              	.LFE8:
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2206              		.thumb_func
  2207              		.type	CyPmFtwSetInterval, %function
  2208              	CyPmFtwSetInterval:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 82
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 82
 
 
  2209              	.LFB10:
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
 1547:Generated_Source\PSoC5/cyPm.c ****         {
  2253              		.loc 1 1547 0
  2254 0034 064B     		ldr	r3, .L200+4
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 83
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 83
 
 
  2255 0036 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2304      00000000 
  2304      00000000 
  2304      00000000 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 84
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 84
 
 
  2305 002f 00       		.space	1
@@ -5010,7 +5010,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2327 000c 74030000 		.4byte	.LASF113
  2328 0010 01       		.byte	0x1
  2329 0011 EA020000 		.4byte	.LASF114
- 2330 0015 6F040000 		.4byte	.LASF115
+ 2330 0015 DE050000 		.4byte	.LASF115
  2331 0019 C0000000 		.4byte	.Ldebug_ranges0+0xc0
  2332 001d 00000000 		.4byte	0
  2333 0021 00000000 		.4byte	.Ldebug_line0
@@ -5021,11 +5021,11 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2338 002c 02       		.uleb128 0x2
  2339 002d 01       		.byte	0x1
  2340 002e 08       		.byte	0x8
- 2341 002f 3A050000 		.4byte	.LASF1
+ 2341 002f D8040000 		.4byte	.LASF1
  2342 0033 02       		.uleb128 0x2
  2343 0034 02       		.byte	0x2
  2344 0035 05       		.byte	0x5
- 2345 0036 73050000 		.4byte	.LASF2
+ 2345 0036 11050000 		.4byte	.LASF2
  2346 003a 02       		.uleb128 0x2
  2347 003b 02       		.byte	0x2
  2348 003c 07       		.byte	0x7
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2355 0049 04       		.byte	0x4
  2356 004a 07       		.byte	0x7
  2357 004b 12020000 		.4byte	.LASF5
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 85
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 85
 
 
  2358 004f 02       		.uleb128 0x2
@@ -5075,7 +5075,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2389 008c 02       		.uleb128 0x2
  2390 008d 04       		.byte	0x4
  2391 008e 04       		.byte	0x4
- 2392 008f DB040000 		.4byte	.LASF12
+ 2392 008f 79040000 		.4byte	.LASF12
  2393 0093 02       		.uleb128 0x2
  2394 0094 08       		.byte	0x8
  2395 0095 04       		.byte	0x4
@@ -5083,14 +5083,14 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2397 009a 02       		.uleb128 0x2
  2398 009b 01       		.byte	0x1
  2399 009c 08       		.byte	0x8
- 2400 009d 9D050000 		.4byte	.LASF14
+ 2400 009d 3B050000 		.4byte	.LASF14
  2401 00a1 04       		.uleb128 0x4
- 2402 00a2 BD060000 		.4byte	.LASF15
+ 2402 00a2 A5060000 		.4byte	.LASF15
  2403 00a6 02       		.byte	0x2
  2404 00a7 E8       		.byte	0xe8
  2405 00a8 48000000 		.4byte	0x48
  2406 00ac 04       		.uleb128 0x4
- 2407 00ad 22050000 		.4byte	.LASF16
+ 2407 00ad C0040000 		.4byte	.LASF16
  2408 00b1 02       		.byte	0x2
  2409 00b2 F0       		.byte	0xf0
  2410 00b3 B7000000 		.4byte	0xb7
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2412 00b8 6B000000 		.4byte	0x6b
  2413 00bc 02       		.uleb128 0x2
  2414 00bd 04       		.byte	0x4
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 86
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 86
 
 
  2415 00be 07       		.byte	0x7
@@ -5140,25 +5140,25 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2451 0106 6B000000 		.4byte	0x6b
  2452 010a 04       		.byte	0x4
  2453 010b 07       		.uleb128 0x7
- 2454 010c C6060000 		.4byte	.LASF23
+ 2454 010c AE060000 		.4byte	.LASF23
  2455 0110 03       		.byte	0x3
  2456 0111 F9       		.byte	0xf9
  2457 0112 6B000000 		.4byte	0x6b
  2458 0116 05       		.byte	0x5
  2459 0117 07       		.uleb128 0x7
- 2460 0118 11070000 		.4byte	.LASF24
+ 2460 0118 F9060000 		.4byte	.LASF24
  2461 011c 03       		.byte	0x3
  2462 011d FA       		.byte	0xfa
  2463 011e 6B000000 		.4byte	0x6b
  2464 0122 06       		.byte	0x6
  2465 0123 07       		.uleb128 0x7
- 2466 0124 D1040000 		.4byte	.LASF25
+ 2466 0124 6F040000 		.4byte	.LASF25
  2467 0128 03       		.byte	0x3
  2468 0129 FB       		.byte	0xfb
  2469 012a 6B000000 		.4byte	0x6b
  2470 012e 07       		.byte	0x7
  2471 012f 07       		.uleb128 0x7
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 87
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 87
 
 
  2472 0130 42030000 		.4byte	.LASF26
@@ -5185,7 +5185,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2493 015a 76000000 		.4byte	0x76
  2494 015e 0C       		.byte	0xc
  2495 015f 08       		.uleb128 0x8
- 2496 0160 58050000 		.4byte	.LASF30
+ 2496 0160 F6040000 		.4byte	.LASF30
  2497 0164 03       		.byte	0x3
  2498 0165 0001     		.2byte	0x100
  2499 0167 6B000000 		.4byte	0x6b
@@ -5197,7 +5197,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2505 0174 6B000000 		.4byte	0x6b
  2506 0178 0F       		.byte	0xf
  2507 0179 08       		.uleb128 0x8
- 2508 017a 40060000 		.4byte	.LASF32
+ 2508 017a 28060000 		.4byte	.LASF32
  2509 017e 03       		.byte	0x3
  2510 017f 0201     		.2byte	0x102
  2511 0181 6B000000 		.4byte	0x6b
@@ -5218,19 +5218,19 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2526 01a1 18010000 		.4byte	.LASF36
  2527 01a5 03       		.byte	0x3
  2528 01a6 0901     		.2byte	0x109
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 88
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 88
 
 
  2529 01a8 6B000000 		.4byte	0x6b
  2530 01ac 00       		.byte	0
  2531 01ad 08       		.uleb128 0x8
- 2532 01ae 67050000 		.4byte	.LASF37
+ 2532 01ae 05050000 		.4byte	.LASF37
  2533 01b2 03       		.byte	0x3
  2534 01b3 0A01     		.2byte	0x10a
  2535 01b5 6B000000 		.4byte	0x6b
  2536 01b9 01       		.byte	0x1
  2537 01ba 08       		.uleb128 0x8
- 2538 01bb 8F050000 		.4byte	.LASF38
+ 2538 01bb 2D050000 		.4byte	.LASF38
  2539 01bf 03       		.byte	0x3
  2540 01c0 0B01     		.2byte	0x10b
  2541 01c2 6B000000 		.4byte	0x6b
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2583 021d A5020000 		.4byte	0x2a5
  2584 0221 09       		.byte	0x9
  2585 0222 08       		.uleb128 0x8
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 89
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 89
 
 
  2586 0223 24020000 		.4byte	.LASF46
@@ -5287,13 +5287,13 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2589 022a 6B000000 		.4byte	0x6b
  2590 022e 25       		.byte	0x25
  2591 022f 08       		.uleb128 0x8
- 2592 0230 08070000 		.4byte	.LASF47
+ 2592 0230 F0060000 		.4byte	.LASF47
  2593 0234 03       		.byte	0x3
  2594 0235 2201     		.2byte	0x122
  2595 0237 6B000000 		.4byte	0x6b
  2596 023b 26       		.byte	0x26
  2597 023c 08       		.uleb128 0x8
- 2598 023d 67060000 		.4byte	.LASF48
+ 2598 023d 4F060000 		.4byte	.LASF48
  2599 0241 03       		.byte	0x3
  2600 0242 2301     		.2byte	0x123
  2601 0244 6B000000 		.4byte	0x6b
@@ -5311,13 +5311,13 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2613 025e 6B000000 		.4byte	0x6b
  2614 0262 29       		.byte	0x29
  2615 0263 08       		.uleb128 0x8
- 2616 0264 01050000 		.4byte	.LASF51
+ 2616 0264 9F040000 		.4byte	.LASF51
  2617 0268 03       		.byte	0x3
  2618 0269 2601     		.2byte	0x126
  2619 026b 6B000000 		.4byte	0x6b
  2620 026f 2A       		.byte	0x2a
  2621 0270 08       		.uleb128 0x8
- 2622 0271 D6060000 		.4byte	.LASF52
+ 2622 0271 BE060000 		.4byte	.LASF52
  2623 0275 03       		.byte	0x3
  2624 0276 2701     		.2byte	0x127
  2625 0278 6B000000 		.4byte	0x6b
@@ -5329,7 +5329,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2631 0285 6B000000 		.4byte	0x6b
  2632 0289 2C       		.byte	0x2c
  2633 028a 08       		.uleb128 0x8
- 2634 028b CA050000 		.4byte	.LASF54
+ 2634 028b 68050000 		.4byte	.LASF54
  2635 028f 03       		.byte	0x3
  2636 0290 2A01     		.2byte	0x12a
  2637 0292 6B000000 		.4byte	0x6b
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2640 0298 36030000 		.4byte	.LASF55
  2641 029c 03       		.byte	0x3
  2642 029d 2C01     		.2byte	0x12c
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 90
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 90
 
 
  2643 029f 6B000000 		.4byte	0x6b
@@ -5357,7 +5357,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2656 02bb 2E01     		.2byte	0x12e
  2657 02bd 93010000 		.4byte	0x193
  2658 02c1 0D       		.uleb128 0xd
- 2659 02c2 7D050000 		.4byte	.LASF57
+ 2659 02c2 1B050000 		.4byte	.LASF57
  2660 02c6 01       		.byte	0x1
  2661 02c7 2D06     		.2byte	0x62d
  2662 02c9 00000000 		.4byte	.LFB11
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2697 0317 21030000 		.4byte	0x321
  2698 031b 10       		.uleb128 0x10
  2699 031c 01       		.uleb128 0x1
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 91
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 91
 
 
  2700 031d 50       		.byte	0x50
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2754 0389 8A010000 		.4byte	.LVL9
  2755 038d B4080000 		.4byte	0x8b4
  2756 0391 0F       		.uleb128 0xf
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 92
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 92
 
 
  2757 0392 90010000 		.4byte	.LVL10
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2811 03fb 01       		.byte	0x1
  2812 03fc 1A01     		.2byte	0x11a
  2813 03fe 00000000 		.4byte	.LFB1
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 93
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 93
 
 
  2814 0402 40020000 		.4byte	.LFE1-.LFB1
@@ -5526,7 +5526,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2816 0407 9C       		.byte	0x9c
  2817 0408 23050000 		.4byte	0x523
  2818 040c 14       		.uleb128 0x14
- 2819 040d 60060000 		.4byte	.LASF61
+ 2819 040d 48060000 		.4byte	.LASF61
  2820 0411 01       		.byte	0x1
  2821 0412 1C01     		.2byte	0x11c
  2822 0414 A1000000 		.4byte	0xa1
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2868 047f 38010000 		.4byte	.LVL25
  2869 0483 9C080000 		.4byte	0x89c
  2870 0487 11       		.uleb128 0x11
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 94
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 94
 
 
  2871 0488 40010000 		.4byte	.LVL26
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2925 0509 13050000 		.4byte	0x513
  2926 050d 10       		.uleb128 0x10
  2927 050e 01       		.uleb128 0x1
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 95
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 95
 
 
  2928 050f 50       		.byte	0x50
@@ -5665,7 +5665,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2949 0533 18       		.uleb128 0x18
  2950 0534 23050000 		.4byte	0x523
  2951 0538 13       		.uleb128 0x13
- 2952 0539 09050000 		.4byte	.LASF64
+ 2952 0539 A7040000 		.4byte	.LASF64
  2953 053d 01       		.byte	0x1
  2954 053e 7C02     		.2byte	0x27c
  2955 0540 00000000 		.4byte	.LFB2
@@ -5674,7 +5674,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2958 0549 9C       		.byte	0x9c
  2959 054a 7E050000 		.4byte	0x57e
  2960 054e 19       		.uleb128 0x19
- 2961 054f 9F060000 		.4byte	.LASF65
+ 2961 054f 87060000 		.4byte	.LASF65
  2962 0553 01       		.byte	0x1
  2963 0554 7C02     		.2byte	0x27c
  2964 0556 76000000 		.4byte	0x76
@@ -5696,9 +5696,9 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2980 057c 00       		.byte	0
  2981 057d 00       		.byte	0
  2982 057e 13       		.uleb128 0x13
- 2983 057f F7040000 		.4byte	.LASF67
+ 2983 057f 95040000 		.4byte	.LASF67
  2984 0583 01       		.byte	0x1
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 96
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 96
 
 
  2985 0584 4803     		.2byte	0x348
@@ -5708,7 +5708,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  2989 058f 9C       		.byte	0x9c
  2990 0590 F2050000 		.4byte	0x5f2
  2991 0594 19       		.uleb128 0x19
- 2992 0595 9F060000 		.4byte	.LASF65
+ 2992 0595 87060000 		.4byte	.LASF65
  2993 0599 01       		.byte	0x1
  2994 059a 4803     		.2byte	0x348
  2995 059c 6B000000 		.4byte	0x6b
@@ -5742,7 +5742,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3023 05ed DD080000 		.4byte	0x8dd
  3024 05f1 00       		.byte	0
  3025 05f2 1B       		.uleb128 0x1b
- 3026 05f3 90060000 		.4byte	.LASF69
+ 3026 05f3 78060000 		.4byte	.LASF69
  3027 05f7 01       		.byte	0x1
  3028 05f8 0405     		.2byte	0x504
  3029 05fa 01       		.byte	0x1
@@ -5758,14 +5758,14 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3039 060c 01       		.byte	0x1
  3040 060d 1B       		.uleb128 0x1b
  3041 060e 75010000 		.4byte	.LASF72
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 97
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 97
 
 
  3042 0612 01       		.byte	0x1
  3043 0613 3C07     		.2byte	0x73c
  3044 0615 01       		.byte	0x1
  3045 0616 13       		.uleb128 0x13
- 3046 0617 DA050000 		.4byte	.LASF73
+ 3046 0617 78050000 		.4byte	.LASF73
  3047 061b 01       		.byte	0x1
  3048 061c 5804     		.2byte	0x458
  3049 061e 00000000 		.4byte	.LFB4
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3096 0698 C1020000 		.4byte	0x2c1
  3097 069c 00       		.byte	0
  3098 069d 1C       		.uleb128 0x1c
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 98
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 98
 
 
  3099 069e 04060000 		.4byte	0x604
@@ -5865,7 +5865,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3140 0714 42090000 		.4byte	0x942
  3141 0718 00       		.byte	0
  3142 0719 1D       		.uleb128 0x1d
- 3143 071a 1D060000 		.4byte	.LASF116
+ 3143 071a BB050000 		.4byte	.LASF116
  3144 071e 01       		.byte	0x1
  3145 071f D804     		.2byte	0x4d8
  3146 0721 6B000000 		.4byte	0x6b
@@ -5878,13 +5878,13 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3153 0734 D4010000 		.4byte	.LASF74
  3154 0738 01       		.byte	0x1
  3155 0739 D804     		.2byte	0x4d8
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 99
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 99
 
 
  3156 073b 6B000000 		.4byte	0x6b
  3157 073f 0D010000 		.4byte	.LLST8
  3158 0743 17       		.uleb128 0x17
- 3159 0744 1B070000 		.4byte	.LASF75
+ 3159 0744 03070000 		.4byte	.LASF75
  3160 0748 01       		.byte	0x1
  3161 0749 DA04     		.2byte	0x4da
  3162 074b 6B000000 		.4byte	0x6b
@@ -5911,7 +5911,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3183 0783 42090000 		.4byte	0x942
  3184 0787 00       		.byte	0
  3185 0788 13       		.uleb128 0x13
- 3186 0789 4D060000 		.4byte	.LASF77
+ 3186 0789 35060000 		.4byte	.LASF77
  3187 078d 01       		.byte	0x1
  3188 078e 9B05     		.2byte	0x59b
  3189 0790 00000000 		.4byte	.LFB8
@@ -5930,7 +5930,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3202 07b3 B7090000 		.4byte	0x9b7
  3203 07b7 00       		.byte	0
  3204 07b8 13       		.uleb128 0x13
- 3205 07b9 2E050000 		.4byte	.LASF79
+ 3205 07b9 CC040000 		.4byte	.LASF79
  3206 07bd 01       		.byte	0x1
  3207 07be CF05     		.2byte	0x5cf
  3208 07c0 00000000 		.4byte	.LFB9
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3210 07c8 01       		.uleb128 0x1
  3211 07c9 9C       		.byte	0x9c
  3212 07ca D8070000 		.4byte	0x7d8
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 100
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 100
 
 
  3213 07ce 11       		.uleb128 0x11
@@ -5955,7 +5955,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3224 07e9 9C       		.byte	0x9c
  3225 07ea 08080000 		.4byte	0x808
  3226 07ee 19       		.uleb128 0x19
- 3227 07ef FE050000 		.4byte	.LASF81
+ 3227 07ef 9C050000 		.4byte	.LASF81
  3228 07f3 01       		.byte	0x1
  3229 07f4 F405     		.2byte	0x5f4
  3230 07f6 6B000000 		.4byte	0x6b
@@ -5965,7 +5965,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3234 0803 B0090000 		.4byte	0x9b0
  3235 0807 00       		.byte	0
  3236 0808 1E       		.uleb128 0x1e
- 3237 0809 FD060000 		.4byte	.LASF82
+ 3237 0809 E5060000 		.4byte	.LASF82
  3238 080d 01       		.byte	0x1
  3239 080e 1F       		.byte	0x1f
  3240 080f B5020000 		.4byte	0x2b5
@@ -5973,7 +5973,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3242 0814 03       		.byte	0x3
  3243 0815 00000000 		.4byte	cyPmBackup
  3244 0819 1E       		.uleb128 0x1e
- 3245 081a 48050000 		.4byte	.LASF83
+ 3245 081a E6040000 		.4byte	.LASF83
  3246 081e 01       		.byte	0x1
  3247 081f 20       		.byte	0x20
  3248 0820 87010000 		.4byte	0x187
@@ -5981,7 +5981,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3250 0825 03       		.byte	0x3
  3251 0826 30000000 		.4byte	cyPmClockBackup
  3252 082a 1E       		.uleb128 0x1e
- 3253 082b 0A060000 		.4byte	.LASF84
+ 3253 082b A8050000 		.4byte	.LASF84
  3254 082f 01       		.byte	0x1
  3255 0830 23       		.byte	0x23
  3256 0831 3B080000 		.4byte	0x83b
@@ -5991,18 +5991,18 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3260 083b 18       		.uleb128 0x18
  3261 083c 23050000 		.4byte	0x523
  3262 0840 1F       		.uleb128 0x1f
- 3263 0841 E8050000 		.4byte	.LASF85
+ 3263 0841 86050000 		.4byte	.LASF85
  3264 0845 04       		.byte	0x4
  3265 0846 4B       		.byte	0x4b
  3266 0847 51080000 		.4byte	0x851
  3267 084b 20       		.uleb128 0x20
  3268 084c 6B000000 		.4byte	0x6b
  3269 0850 00       		.byte	0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 101
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 101
 
 
  3270 0851 1F       		.uleb128 0x1f
- 3271 0852 6E060000 		.4byte	.LASF86
+ 3271 0852 56060000 		.4byte	.LASF86
  3272 0856 05       		.byte	0x5
  3273 0857 49       		.byte	0x49
  3274 0858 62080000 		.4byte	0x862
@@ -6018,11 +6018,11 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3284 086e 6B000000 		.4byte	0x6b
  3285 0872 00       		.byte	0
  3286 0873 21       		.uleb128 0x21
- 3287 0874 F1060000 		.4byte	.LASF91
+ 3287 0874 D9060000 		.4byte	.LASF91
  3288 0878 05       		.byte	0x5
  3289 0879 67       		.byte	0x67
  3290 087a 1F       		.uleb128 0x1f
- 3291 087b 2C060000 		.4byte	.LASF88
+ 3291 087b CA050000 		.4byte	.LASF88
  3292 087f 05       		.byte	0x5
  3293 0880 50       		.byte	0x50
  3294 0881 8B080000 		.4byte	0x88b
@@ -6046,7 +6046,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3312 08a8 6B000000 		.4byte	0x6b
  3313 08ac 00       		.byte	0
  3314 08ad 21       		.uleb128 0x21
- 3315 08ae A2050000 		.4byte	.LASF92
+ 3315 08ae 40050000 		.4byte	.LASF92
  3316 08b2 05       		.byte	0x5
  3317 08b3 4C       		.byte	0x4c
  3318 08b4 1F       		.uleb128 0x1f
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3324 08c0 6B000000 		.4byte	0x6b
  3325 08c4 00       		.byte	0
  3326 08c5 1F       		.uleb128 0x1f
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 102
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 102
 
 
  3327 08c6 9D010000 		.4byte	.LASF94
@@ -6073,7 +6073,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3336 08db 05       		.byte	0x5
  3337 08dc 43       		.byte	0x43
  3338 08dd 1F       		.uleb128 0x1f
- 3339 08de 27050000 		.4byte	.LASF96
+ 3339 08de C5040000 		.4byte	.LASF96
  3340 08e2 05       		.byte	0x5
  3341 08e3 80       		.byte	0x80
  3342 08e4 EE080000 		.4byte	0x8ee
@@ -6085,11 +6085,11 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3348 08f3 05       		.byte	0x5
  3349 08f4 48       		.byte	0x48
  3350 08f5 21       		.uleb128 0x21
- 3351 08f6 7C060000 		.4byte	.LASF98
+ 3351 08f6 64060000 		.4byte	.LASF98
  3352 08fa 05       		.byte	0x5
  3353 08fb 4B       		.byte	0x4b
  3354 08fc 1F       		.uleb128 0x1f
- 3355 08fd 14050000 		.4byte	.LASF99
+ 3355 08fd B2040000 		.4byte	.LASF99
  3356 0901 05       		.byte	0x5
  3357 0902 7A       		.byte	0x7a
  3358 0903 0D090000 		.4byte	0x90d
@@ -6118,12 +6118,12 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3381 0938 41020000 		.4byte	.LASF117
  3382 093c 05       		.byte	0x5
  3383 093d 7E       		.byte	0x7e
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 103
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 103
 
 
  3384 093e 6B000000 		.4byte	0x6b
  3385 0942 1F       		.uleb128 0x1f
- 3386 0943 E1040000 		.4byte	.LASF102
+ 3386 0943 7F040000 		.4byte	.LASF102
  3387 0947 05       		.byte	0x5
  3388 0948 7F       		.byte	0x7f
  3389 0949 53090000 		.4byte	0x953
@@ -6131,7 +6131,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3391 094e 6B000000 		.4byte	0x6b
  3392 0952 00       		.byte	0
  3393 0953 21       		.uleb128 0x21
- 3394 0954 B7050000 		.4byte	.LASF103
+ 3394 0954 55050000 		.4byte	.LASF103
  3395 0958 05       		.byte	0x5
  3396 0959 9D       		.byte	0x9d
  3397 095a 21       		.uleb128 0x21
@@ -6152,11 +6152,11 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3412 0978 6B000000 		.4byte	0x6b
  3413 097c 00       		.byte	0
  3414 097d 21       		.uleb128 0x21
- 3415 097e DE060000 		.4byte	.LASF107
+ 3415 097e C6060000 		.4byte	.LASF107
  3416 0982 05       		.byte	0x5
  3417 0983 9F       		.byte	0x9f
  3418 0984 1F       		.uleb128 0x1f
- 3419 0985 AA060000 		.4byte	.LASF108
+ 3419 0985 92060000 		.4byte	.LASF108
  3420 0989 05       		.byte	0x5
  3421 098a 9C       		.byte	0x9c
  3422 098b 9A090000 		.4byte	0x99a
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3438 09b0 21       		.uleb128 0x21
  3439 09b1 2C040000 		.4byte	.LASF110
  3440 09b5 05       		.byte	0x5
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 104
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 104
 
 
  3441 09b6 5A       		.byte	0x5a
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3495 002a 16       		.uleb128 0x16
  3496 002b 00       		.byte	0
  3497 002c 03       		.uleb128 0x3
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 105
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 105
 
 
  3498 002d 0E       		.uleb128 0xe
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3552 0063 05       		.uleb128 0x5
  3553 0064 49       		.uleb128 0x49
  3554 0065 13       		.uleb128 0x13
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 106
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 106
 
 
  3555 0066 38       		.uleb128 0x38
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3609 009c 0E       		.uleb128 0xe
  3610 009d 3A       		.uleb128 0x3a
  3611 009e 0B       		.uleb128 0xb
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 107
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 107
 
 
  3612 009f 3B       		.uleb128 0x3b
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3666 00db 18       		.uleb128 0x18
  3667 00dc 9142     		.uleb128 0x2111
  3668 00de 18       		.uleb128 0x18
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 108
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 108
 
 
  3669 00df 00       		.byte	0
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3723 011a 49       		.uleb128 0x49
  3724 011b 13       		.uleb128 0x13
  3725 011c 1C       		.uleb128 0x1c
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 109
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 109
 
 
  3726 011d 0B       		.uleb128 0xb
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3780 0153 00       		.byte	0
  3781 0154 19       		.uleb128 0x19
  3782 0155 05       		.uleb128 0x5
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 110
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 110
 
 
  3783 0156 00       		.byte	0
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3837 018f 00       		.byte	0
  3838 0190 00       		.byte	0
  3839 0191 1D       		.uleb128 0x1d
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 111
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 111
 
 
  3840 0192 2E       		.uleb128 0x2e
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3894 01c9 3C       		.uleb128 0x3c
  3895 01ca 19       		.uleb128 0x19
  3896 01cb 01       		.uleb128 0x1
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 112
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 112
 
 
  3897 01cc 13       		.uleb128 0x13
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  3951 0202 0E       		.uleb128 0xe
  3952 0203 3A       		.uleb128 0x3a
  3953 0204 0B       		.uleb128 0xb
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 113
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 113
 
 
  3954 0205 3B       		.uleb128 0x3b
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  4008 0057 FF       		.byte	0xff
  4009 0058 1A       		.byte	0x1a
  4010 0059 21       		.byte	0x21
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 114
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 114
 
 
  4011 005a 9F       		.byte	0x9f
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  4065 00dc 01       		.uleb128 0x1
  4066 00dd 51       		.byte	0x51
  4067 00de 9F       		.byte	0x9f
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 115
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 115
 
 
  4068 00df 00000000 		.4byte	0
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  4122 016e 54000000 		.4byte	.LFE8
  4123 0172 0400     		.2byte	0x4
  4124 0174 F3       		.byte	0xf3
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 116
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 116
 
 
  4125 0175 01       		.uleb128 0x1
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  4179 0004 16000000 		.4byte	.LBE10
  4180 0008 20000000 		.4byte	.LBB26
  4181 000c A4000000 		.4byte	.LBE26
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 117
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 117
 
 
  4182 0010 A6000000 		.4byte	.LBB27
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  4236 00e8 00000000 		.4byte	.LFB3
  4237 00ec F8000000 		.4byte	.LFE3
  4238 00f0 00000000 		.4byte	.LFB4
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 118
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 118
 
 
  4239 00f4 84020000 		.4byte	.LFE4
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  4268      5F535452 
  4268      55435400 
  4269              	.LASF112:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 119
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 119
 
 
  4270 0072 43795854 		.ascii	"CyXTAL_32KHZ_Start\000"
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  4291              	.LASF36:
  4292 0118 696C6F50 		.ascii	"iloPowerMode\000"
  4292      6F776572 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 120
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 120
 
 
  4292      4D6F6465 
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  4318 01ae 75696E74 		.ascii	"uint32\000"
  4318      333200
  4319              	.LASF31:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 121
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 121
 
 
  4320 01b5 786D687A 		.ascii	"xmhzEnableState\000"
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  4343              	.LASF35:
  4344 0258 6379506D 		.ascii	"cyPmBackupStruct\000"
  4344      4261636B 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 122
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 122
 
 
  4344      75705374 
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  4364      673100
  4365              	.LASF42:
  4366 031e 77616B65 		.ascii	"wakeupCfg2\000"
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 123
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 123
 
 
  4366      75704366 
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  4386      656700
  4387              	.LASF18:
  4388 041e 656E436C 		.ascii	"enClkA\000"
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 124
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 124
 
 
  4388      6B4100
@@ -7406,235 +7406,234 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 1
  4398      436C6B5F 
  4398      53657444 
  4398      69766964 
- 4399              	.LASF115:
- 4400 046f 433A5C55 		.ascii	"C:\\Users\\jmdevoto\\Desktop\\Builds\\(4-24-17)Humm"
- 4400      73657273 
- 4400      5C6A6D64 
- 4400      65766F74 
- 4400      6F5C4465 
- 4401 049d 696E6762 		.ascii	"ingbird-059-v1\\Hummingbird(Continuous Output).cyds"
- 4401      6972642D 
- 4401      3035392D 
- 4401      76315C48 
- 4401      756D6D69 
- 4402 04cf 6E00     		.ascii	"n\000"
- 4403              	.LASF25:
- 4404 04d1 696D6F43 		.ascii	"imoClkSrc\000"
- 4404      6C6B5372 
- 4404      6300
- 4405              	.LASF12:
- 4406 04db 666C6F61 		.ascii	"float\000"
- 4406      7400
- 4407              	.LASF102:
- 4408 04e1 43794578 		.ascii	"CyExitCriticalSection\000"
- 4408      69744372 
- 4408      69746963 
- 4408      616C5365 
- 4408      6374696F 
- 4409              	.LASF67:
- 4410 04f7 4379506D 		.ascii	"CyPmSleep\000"
- 4410      536C6565 
- 4410      7000
- 4411              	.LASF51:
- 4412 0501 6C766964 		.ascii	"lvidRst\000"
- 4412      52737400 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 125
+ 4399              	.LASF25:
+ 4400 046f 696D6F43 		.ascii	"imoClkSrc\000"
+ 4400      6C6B5372 
+ 4400      6300
+ 4401              	.LASF12:
+ 4402 0479 666C6F61 		.ascii	"float\000"
+ 4402      7400
+ 4403              	.LASF102:
+ 4404 047f 43794578 		.ascii	"CyExitCriticalSection\000"
+ 4404      69744372 
+ 4404      69746963 
+ 4404      616C5365 
+ 4404      6374696F 
+ 4405              	.LASF67:
+ 4406 0495 4379506D 		.ascii	"CyPmSleep\000"
+ 4406      536C6565 
+ 4406      7000
+ 4407              	.LASF51:
+ 4408 049f 6C766964 		.ascii	"lvidRst\000"
+ 4408      52737400 
+ 4409              	.LASF64:
+ 4410 04a7 4379506D 		.ascii	"CyPmAltAct\000"
+ 4410      416C7441 
+ 4410      637400
+ 4411              	.LASF99:
+ 4412 04b2 43794465 		.ascii	"CyDelayCycles\000"
+ 4412      6C617943 
+ 4412      79636C65 
+ 4412      7300
+ 4413              	.LASF16:
+ 4414 04c0 72656738 		.ascii	"reg8\000"
+ 4414      00
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 125
 
 
- 4413              	.LASF64:
- 4414 0509 4379506D 		.ascii	"CyPmAltAct\000"
- 4414      416C7441 
- 4414      637400
- 4415              	.LASF99:
- 4416 0514 43794465 		.ascii	"CyDelayCycles\000"
- 4416      6C617943 
- 4416      79636C65 
- 4416      7300
- 4417              	.LASF16:
- 4418 0522 72656738 		.ascii	"reg8\000"
- 4418      00
- 4419              	.LASF96:
- 4420 0527 43794861 		.ascii	"CyHalt\000"
- 4420      6C7400
- 4421              	.LASF79:
- 4422 052e 4379506D 		.ascii	"CyPmOppsSet\000"
- 4422      4F707073 
- 4422      53657400 
- 4423              	.LASF1:
- 4424 053a 756E7369 		.ascii	"unsigned char\000"
- 4424      676E6564 
- 4424      20636861 
- 4424      7200
- 4425              	.LASF83:
- 4426 0548 6379506D 		.ascii	"cyPmClockBackup\000"
- 4426      436C6F63 
- 4426      6B426163 
- 4426      6B757000 
- 4427              	.LASF30:
- 4428 0558 706C6C45 		.ascii	"pllEnableState\000"
- 4428      6E61626C 
- 4428      65537461 
- 4428      746500
- 4429              	.LASF37:
- 4430 0567 696C6F31 		.ascii	"ilo1kEnable\000"
- 4430      6B456E61 
- 4430      626C6500 
- 4431              	.LASF2:
- 4432 0573 73686F72 		.ascii	"short int\000"
- 4432      7420696E 
- 4432      7400
- 4433              	.LASF57:
- 4434 057d 4379506D 		.ascii	"CyPmHibSlpSaveSet\000"
- 4434      48696253 
- 4434      6C705361 
- 4434      76655365 
- 4434      7400
- 4435              	.LASF38:
- 4436 058f 696C6F31 		.ascii	"ilo100kEnable\000"
- 4436      30306B45 
- 4436      6E61626C 
- 4436      6500
- 4437              	.LASF14:
- 4438 059d 63686172 		.ascii	"char\000"
- 4438      00
- 4439              	.LASF92:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 126
+ 4415              	.LASF96:
+ 4416 04c5 43794861 		.ascii	"CyHalt\000"
+ 4416      6C7400
+ 4417              	.LASF79:
+ 4418 04cc 4379506D 		.ascii	"CyPmOppsSet\000"
+ 4418      4F707073 
+ 4418      53657400 
+ 4419              	.LASF1:
+ 4420 04d8 756E7369 		.ascii	"unsigned char\000"
+ 4420      676E6564 
+ 4420      20636861 
+ 4420      7200
+ 4421              	.LASF83:
+ 4422 04e6 6379506D 		.ascii	"cyPmClockBackup\000"
+ 4422      436C6F63 
+ 4422      6B426163 
+ 4422      6B757000 
+ 4423              	.LASF30:
+ 4424 04f6 706C6C45 		.ascii	"pllEnableState\000"
+ 4424      6E61626C 
+ 4424      65537461 
+ 4424      746500
+ 4425              	.LASF37:
+ 4426 0505 696C6F31 		.ascii	"ilo1kEnable\000"
+ 4426      6B456E61 
+ 4426      626C6500 
+ 4427              	.LASF2:
+ 4428 0511 73686F72 		.ascii	"short int\000"
+ 4428      7420696E 
+ 4428      7400
+ 4429              	.LASF57:
+ 4430 051b 4379506D 		.ascii	"CyPmHibSlpSaveSet\000"
+ 4430      48696253 
+ 4430      6C705361 
+ 4430      76655365 
+ 4430      7400
+ 4431              	.LASF38:
+ 4432 052d 696C6F31 		.ascii	"ilo100kEnable\000"
+ 4432      30306B45 
+ 4432      6E61626C 
+ 4432      6500
+ 4433              	.LASF14:
+ 4434 053b 63686172 		.ascii	"char\000"
+ 4434      00
+ 4435              	.LASF92:
+ 4436 0540 4379494D 		.ascii	"CyIMO_DisableDoubler\000"
+ 4436      4F5F4469 
+ 4436      7361626C 
+ 4436      65446F75 
+ 4436      626C6572 
+ 4437              	.LASF103:
+ 4438 0555 43795664 		.ascii	"CyVdLvDigitDisable\000"
+ 4438      4C764469 
+ 4438      67697444 
+ 4438      69736162 
+ 4438      6C6500
+ 4439              	.LASF54:
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 126
 
 
- 4440 05a2 4379494D 		.ascii	"CyIMO_DisableDoubler\000"
- 4440      4F5F4469 
- 4440      7361626C 
- 4440      65446F75 
- 4440      626C6572 
- 4441              	.LASF103:
- 4442 05b7 43795664 		.ascii	"CyVdLvDigitDisable\000"
- 4442      4C764469 
- 4442      67697444 
- 4442      69736162 
- 4442      6C6500
- 4443              	.LASF54:
- 4444 05ca 696D6F41 		.ascii	"imoActFreq12Mhz\000"
- 4444      63744672 
- 4444      65713132 
- 4444      4D687A00 
- 4445              	.LASF73:
- 4446 05da 4379506D 		.ascii	"CyPmHibernate\000"
- 4446      48696265 
- 4446      726E6174 
- 4446      6500
- 4447              	.LASF85:
- 4448 05e8 4379466C 		.ascii	"CyFlash_SetWaitCycles\000"
- 4448      6173685F 
- 4448      53657457 
- 4448      61697443 
- 4448      79636C65 
- 4449              	.LASF81:
- 4450 05fe 66747749 		.ascii	"ftwInterval\000"
- 4450      6E746572 
- 4450      76616C00 
- 4451              	.LASF84:
- 4452 060a 6379506D 		.ascii	"cyPmImoFreqReg2Mhz\000"
- 4452      496D6F46 
- 4452      72657152 
- 4452      6567324D 
- 4452      687A00
- 4453              	.LASF116:
- 4454 061d 4379506D 		.ascii	"CyPmReadStatus\000"
- 4454      52656164 
- 4454      53746174 
- 4454      757300
- 4455              	.LASF88:
- 4456 062c 43794275 		.ascii	"CyBusClk_SetDivider\000"
- 4456      73436C6B 
- 4456      5F536574 
- 4456      44697669 
- 4456      64657200 
- 4457              	.LASF32:
- 4458 0640 636C6B44 		.ascii	"clkDistDelay\000"
- 4458      69737444 
- 4458      656C6179 
- 4458      00
- 4459              	.LASF77:
- 4460 064d 4379506D 		.ascii	"CyPmCtwSetInterval\000"
- 4460      43747753 
- 4460      6574496E 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 127
+ 4440 0568 696D6F41 		.ascii	"imoActFreq12Mhz\000"
+ 4440      63744672 
+ 4440      65713132 
+ 4440      4D687A00 
+ 4441              	.LASF73:
+ 4442 0578 4379506D 		.ascii	"CyPmHibernate\000"
+ 4442      48696265 
+ 4442      726E6174 
+ 4442      6500
+ 4443              	.LASF85:
+ 4444 0586 4379466C 		.ascii	"CyFlash_SetWaitCycles\000"
+ 4444      6173685F 
+ 4444      53657457 
+ 4444      61697443 
+ 4444      79636C65 
+ 4445              	.LASF81:
+ 4446 059c 66747749 		.ascii	"ftwInterval\000"
+ 4446      6E746572 
+ 4446      76616C00 
+ 4447              	.LASF84:
+ 4448 05a8 6379506D 		.ascii	"cyPmImoFreqReg2Mhz\000"
+ 4448      496D6F46 
+ 4448      72657152 
+ 4448      6567324D 
+ 4448      687A00
+ 4449              	.LASF116:
+ 4450 05bb 4379506D 		.ascii	"CyPmReadStatus\000"
+ 4450      52656164 
+ 4450      53746174 
+ 4450      757300
+ 4451              	.LASF88:
+ 4452 05ca 43794275 		.ascii	"CyBusClk_SetDivider\000"
+ 4452      73436C6B 
+ 4452      5F536574 
+ 4452      44697669 
+ 4452      64657200 
+ 4453              	.LASF115:
+ 4454 05de 433A5C55 		.ascii	"C:\\Users\\jwvance\\Desktop\\Hummingbird\\Hummingbi"
+ 4454      73657273 
+ 4454      5C6A7776 
+ 4454      616E6365 
+ 4454      5C446573 
+ 4455 060c 72642843 		.ascii	"rd(Continuous Output).cydsn\000"
+ 4455      6F6E7469 
+ 4455      6E756F75 
+ 4455      73204F75 
+ 4455      74707574 
+ 4456              	.LASF32:
+ 4457 0628 636C6B44 		.ascii	"clkDistDelay\000"
+ 4457      69737444 
+ 4457      656C6179 
+ 4457      00
+ 4458              	.LASF77:
+ 4459 0635 4379506D 		.ascii	"CyPmCtwSetInterval\000"
+ 4459      43747753 
+ 4459      6574496E 
+ 4459      74657276 
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 127
 
 
- 4460      74657276 
- 4460      616C00
- 4461              	.LASF61:
- 4462 0660 73746174 		.ascii	"status\000"
- 4462      757300
- 4463              	.LASF48:
- 4464 0667 6C766961 		.ascii	"lviaEn\000"
- 4464      456E00
- 4465              	.LASF86:
- 4466 066e 4379494D 		.ascii	"CyIMO_SetFreq\000"
- 4466      4F5F5365 
- 4466      74467265 
- 4466      7100
- 4467              	.LASF98:
- 4468 067c 4379494D 		.ascii	"CyIMO_EnableDoubler\000"
- 4468      4F5F456E 
- 4468      61626C65 
- 4468      446F7562 
- 4468      6C657200 
- 4469              	.LASF69:
- 4470 0690 4379506D 		.ascii	"CyPmHibSaveSet\000"
- 4470      48696253 
- 4470      61766553 
- 4470      657400
- 4471              	.LASF65:
- 4472 069f 77616B65 		.ascii	"wakeupTime\000"
- 4472      75705469 
- 4472      6D6500
- 4473              	.LASF108:
- 4474 06aa 43795664 		.ascii	"CyVdLvAnalogEnable\000"
- 4474      4C76416E 
- 4474      616C6F67 
- 4474      456E6162 
- 4474      6C6500
- 4475              	.LASF15:
- 4476 06bd 63797374 		.ascii	"cystatus\000"
- 4476      61747573 
- 4476      00
- 4477              	.LASF23:
- 4478 06c6 666C6173 		.ascii	"flashWaitCycles\000"
- 4478      68576169 
- 4478      74437963 
- 4478      6C657300 
- 4479              	.LASF52:
- 4480 06d6 6C766961 		.ascii	"lviaRst\000"
- 4480      52737400 
- 4481              	.LASF107:
- 4482 06de 43795664 		.ascii	"CyVdHvAnalogEnable\000"
- 4482      4876416E 
- 4482      616C6F67 
- 4482      456E6162 
- 4482      6C6500
- 4483              	.LASF91:
- 4484 06f1 43795854 		.ascii	"CyXTAL_Stop\000"
- 4484      414C5F53 
- 4484      746F7000 
- 4485              	.LASF82:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccqiMuw9.s 			page 128
+ 4459      616C00
+ 4460              	.LASF61:
+ 4461 0648 73746174 		.ascii	"status\000"
+ 4461      757300
+ 4462              	.LASF48:
+ 4463 064f 6C766961 		.ascii	"lviaEn\000"
+ 4463      456E00
+ 4464              	.LASF86:
+ 4465 0656 4379494D 		.ascii	"CyIMO_SetFreq\000"
+ 4465      4F5F5365 
+ 4465      74467265 
+ 4465      7100
+ 4466              	.LASF98:
+ 4467 0664 4379494D 		.ascii	"CyIMO_EnableDoubler\000"
+ 4467      4F5F456E 
+ 4467      61626C65 
+ 4467      446F7562 
+ 4467      6C657200 
+ 4468              	.LASF69:
+ 4469 0678 4379506D 		.ascii	"CyPmHibSaveSet\000"
+ 4469      48696253 
+ 4469      61766553 
+ 4469      657400
+ 4470              	.LASF65:
+ 4471 0687 77616B65 		.ascii	"wakeupTime\000"
+ 4471      75705469 
+ 4471      6D6500
+ 4472              	.LASF108:
+ 4473 0692 43795664 		.ascii	"CyVdLvAnalogEnable\000"
+ 4473      4C76416E 
+ 4473      616C6F67 
+ 4473      456E6162 
+ 4473      6C6500
+ 4474              	.LASF15:
+ 4475 06a5 63797374 		.ascii	"cystatus\000"
+ 4475      61747573 
+ 4475      00
+ 4476              	.LASF23:
+ 4477 06ae 666C6173 		.ascii	"flashWaitCycles\000"
+ 4477      68576169 
+ 4477      74437963 
+ 4477      6C657300 
+ 4478              	.LASF52:
+ 4479 06be 6C766961 		.ascii	"lviaRst\000"
+ 4479      52737400 
+ 4480              	.LASF107:
+ 4481 06c6 43795664 		.ascii	"CyVdHvAnalogEnable\000"
+ 4481      4876416E 
+ 4481      616C6F67 
+ 4481      456E6162 
+ 4481      6C6500
+ 4482              	.LASF91:
+ 4483 06d9 43795854 		.ascii	"CyXTAL_Stop\000"
+ 4483      414C5F53 
+ 4483      746F7000 
+ 4484              	.LASF82:
+ 4485 06e5 6379506D 		.ascii	"cyPmBackup\000"
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccByeM0z.s 			page 128
 
 
- 4486 06fd 6379506D 		.ascii	"cyPmBackup\000"
- 4486      4261636B 
- 4486      757000
- 4487              	.LASF47:
- 4488 0708 6C766964 		.ascii	"lvidTrip\000"
- 4488      54726970 
- 4488      00
- 4489              	.LASF24:
- 4490 0711 696D6F45 		.ascii	"imoEnable\000"
- 4490      6E61626C 
- 4490      6500
- 4491              	.LASF75:
- 4492 071b 696E7465 		.ascii	"interruptStatus\000"
- 4492      72727570 
- 4492      74537461 
- 4492      74757300 
- 4493              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 4485      4261636B 
+ 4485      757000
+ 4486              	.LASF47:
+ 4487 06f0 6C766964 		.ascii	"lvidTrip\000"
+ 4487      54726970 
+ 4487      00
+ 4488              	.LASF24:
+ 4489 06f9 696D6F45 		.ascii	"imoEnable\000"
+ 4489      6E61626C 
+ 4489      6500
+ 4490              	.LASF75:
+ 4491 0703 696E7465 		.ascii	"interruptStatus\000"
+ 4491      72727570 
+ 4491      74537461 
+ 4491      74757300 
+ 4492              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

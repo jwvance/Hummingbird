@@ -1,5 +1,5 @@
 # Hummingbird(Continuous Output)
-# 2017-05-09 21:54:18Z
+# 2017-05-11 05:54:51Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -14,11 +14,13 @@ set_io "\USB:Dm(0)\" iocell 15 7
 set_io "\USB:Dp(0)\" iocell 15 6
 set_io "MIC_IN(0)" iocell 2 6
 set_io "MIC_GND(0)" iocell 2 5
-set_io "POT_IN_KEY(0)" iocell 3 2
-set_io "POT_IN_SCALE(0)" iocell 15 2
-set_io "Tx_1(0)" iocell 3 0
+set_io "POT_IN_KEY(0)" iocell 1 6
+set_io "POT_IN_SCALE(0)" iocell 1 7
+set_io "MIDI_OUT(0)" iocell 3 0
 set_io "SDA_1(0)" iocell 12 1
 set_io "SCL_1(0)" iocell 12 0
+set_io "POT_IN_HYST(0)" iocell 2 0
+set_io "POT_IN_VELO(0)" iocell 2 1
 set_location "\USB:USB\" usbcell -1 -1 0
-set_location "\ADC_SAR_1:ADC_SAR\" sarcell -1 -1 0
-set_location "\UI_ADC:SAR:ADC_SAR\" sarcell -1 -1 1
+set_location "\ADC_SAR_1:ADC_SAR\" sarcell -1 -1 1
+set_location "\UI_ADC:SAR:ADC_SAR\" sarcell -1 -1 0

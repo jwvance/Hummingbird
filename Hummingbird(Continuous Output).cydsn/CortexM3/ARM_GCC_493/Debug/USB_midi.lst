@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
   29:Generated_Source\PSoC5/USB_midi.c **** /***************************************
   30:Generated_Source\PSoC5/USB_midi.c **** *    MIDI Constants
   31:Generated_Source\PSoC5/USB_midi.c **** ***************************************/
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 2
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 2
 
 
   32:Generated_Source\PSoC5/USB_midi.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
   86:Generated_Source\PSoC5/USB_midi.c ****     #endif /* (USB_MIDI_EXT_MODE >= USB_TWO_EXT_INTRF) */
   87:Generated_Source\PSoC5/USB_midi.c **** #endif /* (USB_MIDI_EXT_MODE >= USB_ONE_EXT_INTRF) */
   88:Generated_Source\PSoC5/USB_midi.c **** 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 3
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 3
 
 
   89:Generated_Source\PSoC5/USB_midi.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  143:Generated_Source\PSoC5/USB_midi.c **** 
  144:Generated_Source\PSoC5/USB_midi.c ****     #if(USB_EP_MM == USB__EP_DMAAUTO)
  145:Generated_Source\PSoC5/USB_midi.c ****         #if (USB_MIDI_IN_BUFF_SIZE > 0)
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 4
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 4
 
 
  146:Generated_Source\PSoC5/USB_midi.c ****             /* Init DMA configurations for IN EP*/
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  200:Generated_Source\PSoC5/USB_midi.c ****     {
  201:Generated_Source\PSoC5/USB_midi.c ****         #if USB_MIDI_OUT_BUFF_SIZE >= 256
  202:Generated_Source\PSoC5/USB_midi.c ****             uint16 outLength;
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 5
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 5
 
 
  203:Generated_Source\PSoC5/USB_midi.c ****             uint16 outPointer;
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  257:Generated_Source\PSoC5/USB_midi.c ****                             USB_MIDI_CABLE_00)
  258:Generated_Source\PSoC5/USB_midi.c ****                         {
  259:Generated_Source\PSoC5/USB_midi.c ****                             USB_MIDI1_ProcessUsbOut(&USB_midiOutBuffer[outPointer]);
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 6
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 6
 
 
  260:Generated_Source\PSoC5/USB_midi.c ****                         }
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  314:Generated_Source\PSoC5/USB_midi.c ****     *  USB_midiInBuffer: Function loads the data from this buffer to
  315:Generated_Source\PSoC5/USB_midi.c ****     *    the USB IN endpoint.
  316:Generated_Source\PSoC5/USB_midi.c ****     *   USB_midiInPointer: Cleared to zero when data are sent.
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 7
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 7
 
 
  317:Generated_Source\PSoC5/USB_midi.c ****     *
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  339:Generated_Source\PSoC5/USB_midi.c ****             #if(USB_EP_MM == USB__EP_MANUAL)
  340:Generated_Source\PSoC5/USB_midi.c ****                 USB_midiInPointer = 0u;
   59              		.loc 1 340 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 8
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 8
 
 
   60 0020 0023     		movs	r3, #0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  373:Generated_Source\PSoC5/USB_midi.c ****     *******************************************************************************/
  374:Generated_Source\PSoC5/USB_midi.c ****     void USB_MIDI_IN_Service(void) 
  375:Generated_Source\PSoC5/USB_midi.c ****     {
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 9
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 9
 
 
  376:Generated_Source\PSoC5/USB_midi.c ****         /* Service the MIDI UART inputs until either both receivers have no more
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  430:Generated_Source\PSoC5/USB_midi.c ****     *
  431:Generated_Source\PSoC5/USB_midi.c ****     * Parameters:
  432:Generated_Source\PSoC5/USB_midi.c ****     *  ic:   0 = No message (should never happen)
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 10
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 10
 
 
  433:Generated_Source\PSoC5/USB_midi.c ****     *        1 - 3 = Complete MIDI message in midiMsg
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  487:Generated_Source\PSoC5/USB_midi.c ****                 msgIndex = 0u;
  488:Generated_Source\PSoC5/USB_midi.c ****                 do
  489:Generated_Source\PSoC5/USB_midi.c ****                 {
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 11
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 11
 
 
  490:Generated_Source\PSoC5/USB_midi.c ****                     USB_PrepareInBuffer(USB_MIDI_SYSEX, &midiMsg[msgIndex],
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  544:Generated_Source\PSoC5/USB_midi.c ****     *                     (put eventLen bytes in buffer)
  545:Generated_Source\PSoC5/USB_midi.c ****     *        MIDI_EOSEX = End of SysEx message
  546:Generated_Source\PSoC5/USB_midi.c ****     *                     (put eventLen bytes in buffer,
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 12
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 12
 
 
  547:Generated_Source\PSoC5/USB_midi.c ****     *                      and append MIDI_EOSEX)
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  102              		.loc 1 578 0
  103 0008 1DD8     		bhi	.L25
  579:Generated_Source\PSoC5/USB_midi.c ****         {
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 13
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 13
 
 
  580:Generated_Source\PSoC5/USB_midi.c ****             USB_midiInBuffer[USB_midiInPointer] = USB_SINGLE_BYTE | cable;
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  110              		.loc 1 627 0 is_stmt 1
  111 0012 F728     		cmp	r0, #247
  112 0014 5BD0     		beq	.L27
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 14
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 14
 
 
  113              	.LVL5:
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  154              		.loc 1 580 0
  155 0046 6A4A     		ldr	r2, .L31+4
  156              	.LVL11:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 15
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 15
 
 
  157 0048 684C     		ldr	r4, .L31
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  197 007a 5FFA8CFC 		uxtb	ip, ip
  587:Generated_Source\PSoC5/USB_midi.c ****         }
  198              		.loc 1 587 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 16
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 16
 
 
  199 007e 0131     		adds	r1, r1, #1
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  239 00aa 8455     		strb	r4, [r0, r6]
  621:Generated_Source\PSoC5/USB_midi.c ****             USB_midiInBuffer[USB_midiInPointer] = srcBuffOne;
  240              		.loc 1 621 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 17
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 17
 
 
  241 00ac 0133     		adds	r3, r3, #1
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  282              		.loc 1 593 0
  283 00da 454A     		ldr	r2, .L31+4
  284              	.LVL27:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 18
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 18
 
 
  285 00dc 4348     		ldr	r0, .L31
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  323 0102 1178     		ldrb	r1, [r2]	@ zero_extendqisi2
  632:Generated_Source\PSoC5/USB_midi.c ****                                                                         USB_SYSEX_ENDS_WITH1 | cabl
  324              		.loc 1 632 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 19
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 19
 
 
  325 0104 43F00503 		orr	r3, r3, #5
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  609:Generated_Source\PSoC5/USB_midi.c ****             }
  367              		.loc 1 609 0
  368 013e 1678     		ldrb	r6, [r2]	@ zero_extendqisi2
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 20
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 20
 
 
  608:Generated_Source\PSoC5/USB_midi.c ****                 USB_midiInPointer++;
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  652:Generated_Source\PSoC5/USB_midi.c ****                     break;
  653:Generated_Source\PSoC5/USB_midi.c ****                 case 2u:
  654:Generated_Source\PSoC5/USB_midi.c ****                     USB_midiInBuffer[USB_midiInPointer] =
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 21
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 21
 
 
  403              		.loc 1 654 0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  445              	.LVL49:
  446              		.loc 1 662 0
  447 0198 0133     		adds	r3, r3, #1
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 22
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 22
 
 
  448 019a DBB2     		uxtb	r3, r3
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  489 01c8 0026     		movs	r6, #0
  649:Generated_Source\PSoC5/USB_midi.c ****                     USB_midiInBuffer[USB_midiInPointer] = 0u;
  490              		.loc 1 649 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 23
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 23
 
 
  491 01ca 0133     		adds	r3, r3, #1
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  535 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
  536              		.cfi_def_cfa_offset 36
  537              		.cfi_offset 4, -36
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 24
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 24
 
 
  538              		.cfi_offset 5, -32
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  581 0034 03EB4303 		add	r3, r3, r3, lsl #1
  582 0038 06EB8303 		add	r3, r6, r3, lsl #2
  583 003c 1B89     		ldrh	r3, [r3, #8]
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 25
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 25
 
 
  584 003e 9BB2     		uxth	r3, r3
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  627              	.LVL64:
  495:Generated_Source\PSoC5/USB_midi.c ****                     {
  628              		.loc 1 495 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 26
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 26
 
 
  629 007e 9BB2     		uxth	r3, r3
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  673              		.loc 1 511 0
  674 00bc 2246     		mov	r2, r4
  675 00be 0199     		ldr	r1, [sp, #4]
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 27
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 27
 
 
  676 00c0 4346     		mov	r3, r8
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  674:Generated_Source\PSoC5/USB_midi.c **** 
  675:Generated_Source\PSoC5/USB_midi.c **** 
  676:Generated_Source\PSoC5/USB_midi.c **** /* The implementation for external serial input and output connections
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 28
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 28
 
 
  677:Generated_Source\PSoC5/USB_midi.c **** *  to route USB MIDI data to and from those connections.
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  734 0008 2C72     		strb	r4, [r5, #8]
  706:Generated_Source\PSoC5/USB_midi.c ****         USB_MIDI1_Event.length = 0u;
  735              		.loc 1 706 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 29
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 29
 
 
  736 000a 2C70     		strb	r4, [r5]
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  722:Generated_Source\PSoC5/USB_midi.c ****             USB_MIDI2_TxRunStat = 0u;
  770              		.loc 1 722 0
  771 0034 EC73     		strb	r4, [r5, #15]
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 30
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 30
 
 
  725:Generated_Source\PSoC5/USB_midi.c ****             /* Start second UART block */
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  812              		@ frame_needed = 0, uses_anonymous_args = 0
  813 0000 08B5     		push	{r3, lr}
  814              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 31
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 31
 
 
  815              		.cfi_offset 3, -8
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  748:Generated_Source\PSoC5/USB_midi.c ****     *   *rxStat = pointer to a MIDI_RX_STATUS structure
  749:Generated_Source\PSoC5/USB_midi.c ****     *
  750:Generated_Source\PSoC5/USB_midi.c ****     * Return:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 32
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 32
 
 
  751:Generated_Source\PSoC5/USB_midi.c ****     *   0, if no complete message
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  789:Generated_Source\PSoC5/USB_midi.c ****                             break;
  790:Generated_Source\PSoC5/USB_midi.c ****                         case USB_MIDI_SPP:
  791:Generated_Source\PSoC5/USB_midi.c ****                             rxStat->msgBuff[0u] = USB_MIDI_SPP;
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 33
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 33
 
 
  792:Generated_Source\PSoC5/USB_midi.c ****                             rxStat->runstat = 0u;
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  846:Generated_Source\PSoC5/USB_midi.c ****         /* Otherwise, it's a data byte */
  847:Generated_Source\PSoC5/USB_midi.c ****         else
  848:Generated_Source\PSoC5/USB_midi.c ****         {
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 34
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 34
 
 
  849:Generated_Source\PSoC5/USB_midi.c ****             if (rxStat->runstat == USB_MIDI_SYSEX)
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  868:Generated_Source\PSoC5/USB_midi.c ****                     midiReturn = rxStat->size;
  869:Generated_Source\PSoC5/USB_midi.c ****                 }
  870:Generated_Source\PSoC5/USB_midi.c ****             }
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 35
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 35
 
 
  871:Generated_Source\PSoC5/USB_midi.c ****             else if (rxStat->runstat != 0u)
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  873:Generated_Source\PSoC5/USB_midi.c ****                 rxStat->msgBuff[1u] = mData;
  916              		.loc 1 873 0
  917 0032 0B71     		strb	r3, [r1, #4]
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 36
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 36
 
 
  874:Generated_Source\PSoC5/USB_midi.c ****                 rxStat->count = 2u;
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  960 006a 3BD0     		beq	.L80
  961 006c C02B     		cmp	r3, #192
  962 006e 31D0     		beq	.L74
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 37
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 37
 
 
  963              	.L71:
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  1002 0092 30BC     		pop	{r4, r5}
  1003              		.cfi_remember_state
  1004              		.cfi_restore 4
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 38
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 38
 
 
  1005              		.cfi_restore 5
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  836:Generated_Source\PSoC5/USB_midi.c ****                         break;
  1053              		.loc 1 836 0
  1054 00d4 0223     		movs	r3, #2
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 39
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 39
 
 
  1055 00d6 0B70     		strb	r3, [r1]
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  786:Generated_Source\PSoC5/USB_midi.c ****                             rxStat->count = 0u;
  1101              		.loc 1 786 0
  1102 0102 4A78     		ldrb	r2, [r1, #1]	@ zero_extendqisi2
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 40
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 40
 
 
  785:Generated_Source\PSoC5/USB_midi.c ****                             rxStat->size = rxStat->count;
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  805:Generated_Source\PSoC5/USB_midi.c ****                             rxStat->length = 2u;
  1142              		.loc 1 805 0
  1143 0122 0122     		movs	r2, #1
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 41
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 41
 
 
  806:Generated_Source\PSoC5/USB_midi.c ****                             break;
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  1182              	.L64:
  779:Generated_Source\PSoC5/USB_midi.c ****                             rxStat->runstat = USB_MIDI_SYSEX;
  1183              		.loc 1 779 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 42
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 42
 
 
  1184 0146 F023     		movs	r3, #240
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  919:Generated_Source\PSoC5/USB_midi.c ****     *   MIDI_EOSEX, if end of system exclusive
  920:Generated_Source\PSoC5/USB_midi.c ****     *   0xf8 - 0xff, if single byte real time message
  921:Generated_Source\PSoC5/USB_midi.c ****     *
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 43
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 43
 
 
  922:Generated_Source\PSoC5/USB_midi.c ****     * Global variables:
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  1242 0016 9142     		cmp	r1, r2
  1243 0018 28D0     		beq	.L152
  1244              	.L139:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 44
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 44
 
 
  945:Generated_Source\PSoC5/USB_midi.c ****         {
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  1259              		.loc 1 969 0
  1260 0028 154F     		ldr	r7, .L154+8
  971:Generated_Source\PSoC5/USB_midi.c ****                     if(rxBufferRead >= MIDI1_UART_RXBUFFERSIZE)
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 45
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 45
 
 
  1261              		.loc 1 971 0
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  995:Generated_Source\PSoC5/USB_midi.c ****                     rxBufferLoopDetect = MIDI1_UART_rxBufferLoopDetect;
  1293              		.loc 1 995 0
  1294 0050 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 46
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 46
 
 
  966:Generated_Source\PSoC5/USB_midi.c ****             #endif /*  ((MIDI1_UART_RXBUFFERSIZE >= 256u) && (CY_PSOC3)) */
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  1325 0072 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
  1326              	.LVL124:
  1327              	.L155:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 47
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 47
 
 
  1328 0076 00BF     		.align	2
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
 1043:Generated_Source\PSoC5/USB_midi.c ****         uint8 i;
 1044:Generated_Source\PSoC5/USB_midi.c **** 
 1045:Generated_Source\PSoC5/USB_midi.c ****         /* User code is required at the beginning of the procedure */
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 48
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 48
 
 
 1046:Generated_Source\PSoC5/USB_midi.c ****         /* `#START MIDI1_PROCESS_OUT_BEGIN` */
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
 1071:Generated_Source\PSoC5/USB_midi.c ****             }
 1072:Generated_Source\PSoC5/USB_midi.c ****             else if(cmd == USB_SYSEX_ENDS_WITH2)
  1378              		.loc 1 1072 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 49
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 49
 
 
  1379 001a 062B     		cmp	r3, #6
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
 1108:Generated_Source\PSoC5/USB_midi.c ****                 USB_MIDI1_TxRunStat = 0u;
  1398              		.loc 1 1108 0
  1399 0032 1A72     		strb	r2, [r3, #8]
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 50
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 50
 
 
 1054:Generated_Source\PSoC5/USB_midi.c ****             /* Universal System Exclusive message parsing */
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  1440 005a F02B     		cmp	r3, #240
  1441 005c F4D1     		bne	.L176
 1058:Generated_Source\PSoC5/USB_midi.c ****                    (epBuf[USB_EVENT_BYTE2] == USB_MIDI_SYSEX_NON_REAL_TIME))
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 51
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 51
 
 
  1442              		.loc 1 1058 0 is_stmt 0 discriminator 1
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  1488              	.LVL144:
 1082:Generated_Source\PSoC5/USB_midi.c ****                     (epBuf[USB_EVENT_BYTE2] == USB_MIDI_SYSEX_IDENTITY_REQ))
  1489              		.loc 1 1082 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 52
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 52
 
 
  1490 0088 E2D1     		bne	.L165
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
 1141:Generated_Source\PSoC5/USB_midi.c ****     *   1 - 4, if message complete
 1142:Generated_Source\PSoC5/USB_midi.c ****     *   MIDI_SYSEX, if start or continuation of system exclusive
 1143:Generated_Source\PSoC5/USB_midi.c ****     *   MIDI_EOSEX, if end of system exclusive
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 53
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 53
 
 
 1144:Generated_Source\PSoC5/USB_midi.c ****     *   0xf8 - 0xff, if single byte real time message
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  1544              	.LVL146:
  1545              		.loc 1 1168 0
  1546 0016 9142     		cmp	r1, r2
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 54
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 54
 
 
  1547 0018 28D0     		beq	.L198
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
 1193:Generated_Source\PSoC5/USB_midi.c ****                     rxBufferRead++;
  1563              		.loc 1 1193 0
  1564 0028 154F     		ldr	r7, .L200+8
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 55
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 55
 
 
 1194:Generated_Source\PSoC5/USB_midi.c ****                     if(rxBufferRead >= MIDI2_UART_RXBUFFERSIZE)
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
 1217:Generated_Source\PSoC5/USB_midi.c ****                     /* Read buffer loop condition to the local variable */
 1218:Generated_Source\PSoC5/USB_midi.c ****                     rxBufferLoopDetect = MIDI2_UART_rxBufferLoopDetect;
  1597              		.loc 1 1218 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 56
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 56
 
 
  1598 0050 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  1628              		.loc 1 1234 0
  1629 0072 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
  1630              	.LVL156:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 57
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 57
 
 
  1631              	.L201:
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  1679 0010 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
  1680 0012 1C2B     		cmp	r3, #28
  1681 0014 0AD9     		bls	.L216
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 58
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 58
 
 
  1682              	.LVL160:
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  1727              	.L215:
  388:Generated_Source\PSoC5/USB_midi.c ****                     if (m1 != 0u)
  1728              		.loc 1 388 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 59
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 59
 
 
  1729 0042 FFF7FEFF 		bl	USB_MIDI1_GetEvent
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
 1256:Generated_Source\PSoC5/USB_midi.c ****     *  USB_INQ_SYSEX_FLAG: Non-Real Time SySEx message received.
 1257:Generated_Source\PSoC5/USB_midi.c ****     *  USB_INQ_IDENTITY_REQ_FLAG: Identity Request received.
 1258:Generated_Source\PSoC5/USB_midi.c ****     *    This bit should be cleared by user when Identity Reply message generated.
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 60
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 60
 
 
 1259:Generated_Source\PSoC5/USB_midi.c ****     *
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
 1282:Generated_Source\PSoC5/USB_midi.c ****                    (epBuf[USB_EVENT_BYTE2] == USB_MIDI_SYSEX_NON_REAL_TIME))
 1283:Generated_Source\PSoC5/USB_midi.c ****                 {   /* SySEx starts */
 1284:Generated_Source\PSoC5/USB_midi.c ****                     USB_MIDI2_InqFlags |= USB_INQ_SYSEX_FLAG;
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 61
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 61
 
 
 1285:Generated_Source\PSoC5/USB_midi.c ****                 }
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  1807 002c 197D     		ldrb	r1, [r3, #20]	@ zero_extendqisi2
  1808 002e 8A42     		cmp	r2, r1
  1809 0030 1ED0     		beq	.L244
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 62
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 62
 
 
  1810              	.LVL173:
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  1842              		.loc 1 1331 0
  1843 0050 134B     		ldr	r3, .L245+4
  1844 0052 0022     		movs	r2, #0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 63
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 63
 
 
  1845 0054 EDE7     		b	.L241
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
 1304:Generated_Source\PSoC5/USB_midi.c ****                     if((epBuf[USB_EVENT_BYTE1] == USB_MIDI_SYSEX_GEN_INFORMATION) &&
  1892              		.loc 1 1304 0
  1893 007c 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 64
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 64
 
 
 1305:Generated_Source\PSoC5/USB_midi.c ****                        (epBuf[USB_EVENT_BYTE2] == USB_MIDI_SYSEX_IDENTITY_REQ))
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  1940              		.cfi_offset 5, -16
  1941              		.cfi_offset 6, -12
  1942              		.cfi_offset 7, -8
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 65
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 65
 
 
  1943              		.cfi_offset 14, -4
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  1988 0038 2944     		add	r1, r1, r5
  280:Generated_Source\PSoC5/USB_midi.c ****                 }
  1989              		.loc 1 280 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 66
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 66
 
 
  1990 003a E4B2     		uxtb	r4, r4
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2038              		.set	.LANCHOR1,. + 0
  2039              		.type	USB_MIDI_SIZE, %object
  2040              		.size	USB_MIDI_SIZE, 16
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 67
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 67
 
 
  2041              	USB_MIDI_SIZE:
@@ -4018,11 +4018,11 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2093 000b 01       		.uleb128 0x1
  2094 000c 9B020000 		.4byte	.LASF96
  2095 0010 01       		.byte	0x1
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 68
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 68
 
 
- 2096 0011 F4040000 		.4byte	.LASF97
- 2097 0015 F8030000 		.4byte	.LASF98
+ 2096 0011 92040000 		.4byte	.LASF97
+ 2097 0015 B6050000 		.4byte	.LASF98
  2098 0019 00000000 		.4byte	.Ldebug_ranges0+0
  2099 001d 00000000 		.4byte	0
  2100 0021 00000000 		.4byte	.Ldebug_line0
@@ -4033,11 +4033,11 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2105 002c 02       		.uleb128 0x2
  2106 002d 01       		.byte	0x1
  2107 002e 08       		.byte	0x8
- 2108 002f E6040000 		.4byte	.LASF1
+ 2108 002f 84040000 		.4byte	.LASF1
  2109 0033 02       		.uleb128 0x2
  2110 0034 02       		.byte	0x2
  2111 0035 05       		.byte	0x5
- 2112 0036 16050000 		.4byte	.LASF2
+ 2112 0036 B4040000 		.4byte	.LASF2
  2113 003a 02       		.uleb128 0x2
  2114 003b 02       		.byte	0x2
  2115 003c 07       		.byte	0x7
@@ -4078,11 +4078,11 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2150 007d 3A000000 		.4byte	0x3a
  2151 0081 02       		.uleb128 0x2
  2152 0082 04       		.byte	0x4
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 69
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 69
 
 
  2153 0083 04       		.byte	0x4
- 2154 0084 80040000 		.4byte	.LASF11
+ 2154 0084 1E040000 		.4byte	.LASF11
  2155 0088 02       		.uleb128 0x2
  2156 0089 08       		.byte	0x8
  2157 008a 04       		.byte	0x4
@@ -4090,7 +4090,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2159 008f 02       		.uleb128 0x2
  2160 0090 01       		.byte	0x1
  2161 0091 08       		.byte	0x8
- 2162 0092 A6050000 		.4byte	.LASF13
+ 2162 0092 44050000 		.4byte	.LASF13
  2163 0096 05       		.uleb128 0x5
  2164 0097 6B000000 		.4byte	0x6b
  2165 009b 02       		.uleb128 0x2
@@ -4109,7 +4109,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2178 00b1 6B000000 		.4byte	0x6b
  2179 00b5 00       		.byte	0
  2180 00b6 07       		.uleb128 0x7
- 2181 00b7 96040000 		.4byte	.LASF16
+ 2181 00b7 34040000 		.4byte	.LASF16
  2182 00bb 03       		.byte	0x3
  2183 00bc 80       		.byte	0x80
  2184 00bd 6B000000 		.4byte	0x6b
@@ -4138,17 +4138,17 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2207 00ec 84       		.byte	0x84
  2208 00ed 6B000000 		.4byte	0x6b
  2209 00f1 05       		.byte	0x5
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 70
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 70
 
 
  2210 00f2 07       		.uleb128 0x7
- 2211 00f3 E8050000 		.4byte	.LASF21
+ 2211 00f3 86050000 		.4byte	.LASF21
  2212 00f7 03       		.byte	0x3
  2213 00f8 85       		.byte	0x85
  2214 00f9 76000000 		.4byte	0x76
  2215 00fd 06       		.byte	0x6
  2216 00fe 07       		.uleb128 0x7
- 2217 00ff AB050000 		.4byte	.LASF22
+ 2217 00ff 49050000 		.4byte	.LASF22
  2218 0103 03       		.byte	0x3
  2219 0104 86       		.byte	0x86
  2220 0105 76000000 		.4byte	0x76
@@ -4171,7 +4171,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2237 0125 21       		.byte	0x21
  2238 0126 67010000 		.4byte	0x167
  2239 012a 07       		.uleb128 0x7
- 2240 012b 9F050000 		.4byte	.LASF25
+ 2240 012b 3D050000 		.4byte	.LASF25
  2241 012f 04       		.byte	0x4
  2242 0130 23       		.byte	0x23
  2243 0131 6B000000 		.4byte	0x6b
@@ -4195,10 +4195,10 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2261 0155 6B000000 		.4byte	0x6b
  2262 0159 03       		.byte	0x3
  2263 015a 07       		.uleb128 0x7
- 2264 015b 22060000 		.4byte	.LASF29
+ 2264 015b 0A060000 		.4byte	.LASF29
  2265 015f 04       		.byte	0x4
  2266 0160 27       		.byte	0x27
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 71
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 71
 
 
  2267 0161 67010000 		.4byte	0x167
@@ -4217,7 +4217,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2280 017d 28       		.byte	0x28
  2281 017e 22010000 		.4byte	0x122
  2282 0182 0A       		.uleb128 0xa
- 2283 0183 A1040000 		.4byte	.LASF81
+ 2283 0183 3F040000 		.4byte	.LASF81
  2284 0187 01       		.byte	0x1
  2285 0188 4201     		.2byte	0x142
  2286 018a 01       		.byte	0x1
@@ -4243,7 +4243,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2306 01b9 00       		.byte	0
  2307 01ba 00       		.byte	0
  2308 01bb 0F       		.uleb128 0xf
- 2309 01bc 9C060000 		.4byte	.LASF38
+ 2309 01bc 84060000 		.4byte	.LASF38
  2310 01c0 01       		.byte	0x1
  2311 01c1 3902     		.2byte	0x239
  2312 01c3 00000000 		.4byte	.LFB5
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2321 01d8 6B000000 		.4byte	0x6b
  2322 01dc 00000000 		.4byte	.LLST0
  2323 01e0 11       		.uleb128 0x11
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 72
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 72
 
 
  2324 01e1 9E010000 		.4byte	.LASF31
@@ -4267,19 +4267,19 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2327 01e8 31020000 		.4byte	0x231
  2328 01ec 90000000 		.4byte	.LLST1
  2329 01f0 11       		.uleb128 0x11
- 2330 01f1 DD040000 		.4byte	.LASF32
+ 2330 01f1 7B040000 		.4byte	.LASF32
  2331 01f5 01       		.byte	0x1
  2332 01f6 3902     		.2byte	0x239
  2333 01f8 6B000000 		.4byte	0x6b
  2334 01fc 2E010000 		.4byte	.LLST2
  2335 0200 11       		.uleb128 0x11
- 2336 0201 56050000 		.4byte	.LASF33
+ 2336 0201 F4040000 		.4byte	.LASF33
  2337 0205 01       		.byte	0x1
  2338 0206 3902     		.2byte	0x239
  2339 0208 6B000000 		.4byte	0x6b
  2340 020c 17020000 		.4byte	.LLST3
  2341 0210 12       		.uleb128 0x12
- 2342 0211 58060000 		.4byte	.LASF34
+ 2342 0211 40060000 		.4byte	.LASF34
  2343 0215 01       		.byte	0x1
  2344 0216 3C02     		.2byte	0x23c
  2345 0218 6B000000 		.4byte	0x6b
@@ -4297,7 +4297,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2357 0237 14       		.uleb128 0x14
  2358 0238 6B000000 		.4byte	0x6b
  2359 023c 15       		.uleb128 0x15
- 2360 023d 33060000 		.4byte	.LASF41
+ 2360 023d 1B060000 		.4byte	.LASF41
  2361 0241 01       		.byte	0x1
  2362 0242 CB01     		.2byte	0x1cb
  2363 0244 6B000000 		.4byte	0x6b
@@ -4318,23 +4318,23 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2378 026b CB01     		.2byte	0x1cb
  2379 026d 31020000 		.4byte	0x231
  2380 0271 59040000 		.4byte	.LLST7
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 73
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 73
 
 
  2381 0275 11       		.uleb128 0x11
- 2382 0276 56050000 		.4byte	.LASF33
+ 2382 0276 F4040000 		.4byte	.LASF33
  2383 027a 01       		.byte	0x1
  2384 027b CB01     		.2byte	0x1cb
  2385 027d 6B000000 		.4byte	0x6b
  2386 0281 78040000 		.4byte	.LLST8
  2387 0285 12       		.uleb128 0x12
- 2388 0286 20050000 		.4byte	.LASF37
+ 2388 0286 BE040000 		.4byte	.LASF37
  2389 028a 01       		.byte	0x1
  2390 028b CE01     		.2byte	0x1ce
  2391 028d 6B000000 		.4byte	0x6b
  2392 0291 99040000 		.4byte	.LLST9
  2393 0295 16       		.uleb128 0x16
- 2394 0296 DF050000 		.4byte	.LASF99
+ 2394 0296 7D050000 		.4byte	.LASF99
  2395 029a 01       		.byte	0x1
  2396 029b CF01     		.2byte	0x1cf
  2397 029d 6B000000 		.4byte	0x6b
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2435 02e1 0C       		.uleb128 0xc
  2436 02e2 B0000000 		.4byte	.LVL68
  2437 02e6 BC080000 		.4byte	0x8bc
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 74
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 74
 
 
  2438 02ea 0C       		.uleb128 0xc
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2492 033b 03       		.uleb128 0x3
  2493 033c 91       		.byte	0x91
  2494 033d 54       		.sleb128 -44
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 75
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 75
 
 
  2495 033e 06       		.byte	0x6
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2549 039f 17       		.uleb128 0x17
  2550 03a0 42000000 		.4byte	.LVL80
  2551 03a4 D1080000 		.4byte	0x8d1
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 76
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 76
 
 
  2552 03a8 B7030000 		.4byte	0x3b7
@@ -4529,7 +4529,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2577 03ca 00       		.byte	0
  2578 03cb 00       		.byte	0
  2579 03cc 19       		.uleb128 0x19
- 2580 03cd 8B060000 		.4byte	.LASF40
+ 2580 03cd 73060000 		.4byte	.LASF40
  2581 03d1 01       		.byte	0x1
  2582 03d2 8A       		.byte	0x8a
  2583 03d3 00000000 		.4byte	.LFB0
@@ -4555,10 +4555,10 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2603 0409 9C       		.byte	0x9c
  2604 040a 3D040000 		.4byte	0x43d
  2605 040e 11       		.uleb128 0x11
- 2606 040f 03060000 		.4byte	.LASF43
+ 2606 040f A1050000 		.4byte	.LASF43
  2607 0413 01       		.byte	0x1
  2608 0414 F602     		.2byte	0x2f6
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 77
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 77
 
 
  2609 0416 6B000000 		.4byte	0x6b
@@ -4571,7 +4571,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2616 042a 01       		.uleb128 0x1
  2617 042b 51       		.byte	0x51
  2618 042c 12       		.uleb128 0x12
- 2619 042d 8D050000 		.4byte	.LASF45
+ 2619 042d 2B050000 		.4byte	.LASF45
  2620 0431 01       		.byte	0x1
  2621 0432 F902     		.2byte	0x2f9
  2622 0434 6B000000 		.4byte	0x6b
@@ -4597,7 +4597,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2642 0465 6B000000 		.4byte	0x6b
  2643 0469 86060000 		.4byte	.LLST12
  2644 046d 12       		.uleb128 0x12
- 2645 046e 98050000 		.4byte	.LASF48
+ 2645 046e 36050000 		.4byte	.LASF48
  2646 0472 01       		.byte	0x1
  2647 0473 A203     		.2byte	0x3a2
  2648 0475 6B000000 		.4byte	0x6b
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2663 049e 50000000 		.4byte	.LVL120
  2664 04a2 F4030000 		.4byte	0x3f4
  2665 04a6 00       		.byte	0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 78
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 78
 
 
  2666 04a7 0F       		.uleb128 0xf
@@ -4675,10 +4675,10 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2717 0527 6B000000 		.4byte	0x6b
  2718 052b 4B080000 		.4byte	.LLST20
  2719 052f 12       		.uleb128 0x12
- 2720 0530 98050000 		.4byte	.LASF48
+ 2720 0530 36050000 		.4byte	.LASF48
  2721 0534 01       		.byte	0x1
  2722 0535 8204     		.2byte	0x482
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 79
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 79
 
 
  2723 0537 6B000000 		.4byte	0x6b
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2777 05c1 0E       		.uleb128 0xe
  2778 05c2 01       		.uleb128 0x1
  2779 05c3 51       		.byte	0x51
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 80
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 80
 
 
  2780 05c4 05       		.uleb128 0x5
@@ -4777,7 +4777,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2813 05f7 00       		.byte	0
  2814 05f8 00       		.byte	0
  2815 05f9 0F       		.uleb128 0xf
- 2816 05fa 73060000 		.4byte	.LASF55
+ 2816 05fa 5B060000 		.4byte	.LASF55
  2817 05fe 01       		.byte	0x1
  2818 05ff ED04     		.2byte	0x4ed
  2819 0601 00000000 		.4byte	.LFB11
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2834 0627 6B000000 		.4byte	0x6b
  2835 062b 84090000 		.4byte	.LLST27
  2836 062f 1C       		.uleb128 0x1c
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 81
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 81
 
 
  2837 0630 6C656E00 		.ascii	"len\000"
@@ -4817,7 +4817,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2850 0652 10090000 		.4byte	0x910
  2851 0656 00       		.byte	0
  2852 0657 19       		.uleb128 0x19
- 2853 0658 6A050000 		.4byte	.LASF56
+ 2853 0658 08050000 		.4byte	.LASF56
  2854 065c 01       		.byte	0x1
  2855 065d C7       		.byte	0xc7
  2856 065e 00000000 		.4byte	.LFB1
@@ -4826,19 +4826,19 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2859 0667 9C       		.byte	0x9c
  2860 0668 F3060000 		.4byte	0x6f3
  2861 066c 1D       		.uleb128 0x1d
- 2862 066d 18060000 		.4byte	.LASF57
+ 2862 066d 00060000 		.4byte	.LASF57
  2863 0671 01       		.byte	0x1
  2864 0672 CD       		.byte	0xcd
  2865 0673 6B000000 		.4byte	0x6b
  2866 0677 850A0000 		.4byte	.LLST30
  2867 067b 1D       		.uleb128 0x1d
- 2868 067c 82050000 		.4byte	.LASF58
+ 2868 067c 20050000 		.4byte	.LASF58
  2869 0680 01       		.byte	0x1
  2870 0681 CE       		.byte	0xce
  2871 0682 6B000000 		.4byte	0x6b
  2872 0686 AE0A0000 		.4byte	.LLST31
  2873 068a 1E       		.uleb128 0x1e
- 2874 068b 2A060000 		.4byte	.LASF59
+ 2874 068b 12060000 		.4byte	.LASF59
  2875 068f 01       		.byte	0x1
  2876 0690 D1       		.byte	0xd1
  2877 0691 6B000000 		.4byte	0x6b
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2891 06b7 51       		.byte	0x51
  2892 06b8 05       		.uleb128 0x5
  2893 06b9 03       		.byte	0x3
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 82
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 82
 
 
  2894 06ba 00000000 		.4byte	USB_midiOutBuffer
@@ -4912,13 +4912,13 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2942 0714 14       		.uleb128 0x14
  2943 0715 F3060000 		.4byte	0x6f3
  2944 0719 1F       		.uleb128 0x1f
- 2945 071a 86040000 		.4byte	.LASF61
+ 2945 071a 24040000 		.4byte	.LASF61
  2946 071e 01       		.byte	0x1
  2947 071f 4E       		.byte	0x4e
  2948 0720 77010000 		.4byte	0x177
  2949 0724 05       		.uleb128 0x5
  2950 0725 03       		.byte	0x3
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 83
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 83
 
 
  2951 0726 00000000 		.4byte	USB_MIDI1_Event
@@ -4939,7 +4939,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  2966 0747 03       		.byte	0x3
  2967 0748 0C000000 		.4byte	USB_MIDI2_Event
  2968 074c 1F       		.uleb128 0x1f
- 2969 074d 44060000 		.4byte	.LASF64
+ 2969 074d 2C060000 		.4byte	.LASF64
  2970 0751 01       		.byte	0x1
  2971 0752 54       		.byte	0x54
  2972 0753 96000000 		.4byte	0x96
@@ -4976,9 +4976,9 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3003 079c 5501     		.2byte	0x155
  3004 079e 96000000 		.4byte	0x96
  3005 07a2 20       		.uleb128 0x20
- 3006 07a3 42050000 		.4byte	.LASF69
+ 3006 07a3 E0040000 		.4byte	.LASF69
  3007 07a7 06       		.byte	0x6
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 84
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 84
 
 
  3008 07a8 5201     		.2byte	0x152
@@ -4991,7 +4991,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3015 07b9 5301     		.2byte	0x153
  3016 07bb 96000000 		.4byte	0x96
  3017 07bf 20       		.uleb128 0x20
- 3018 07c0 29050000 		.4byte	.LASF71
+ 3018 07c0 C7040000 		.4byte	.LASF71
  3019 07c4 06       		.byte	0x6
  3020 07c5 5401     		.2byte	0x154
  3021 07c7 96000000 		.4byte	0x96
@@ -5001,7 +5001,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3025 07d1 5501     		.2byte	0x155
  3026 07d3 96000000 		.4byte	0x96
  3027 07d7 21       		.uleb128 0x21
- 3028 07d8 CB040000 		.4byte	.LASF73
+ 3028 07d8 69040000 		.4byte	.LASF73
  3029 07dc 01       		.byte	0x1
  3030 07dd 42       		.byte	0x42
  3031 07de 96000000 		.4byte	0x96
@@ -5032,13 +5032,13 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3056 0815 03       		.byte	0x3
  3057 0816 00000000 		.4byte	USB_midiInBuffer
  3058 081a 21       		.uleb128 0x21
- 3059 081b F3050000 		.4byte	.LASF76
+ 3059 081b 91050000 		.4byte	.LASF76
  3060 081f 01       		.byte	0x1
  3061 0820 49       		.byte	0x49
  3062 0821 96000000 		.4byte	0x96
  3063 0825 05       		.uleb128 0x5
  3064 0826 03       		.byte	0x3
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 85
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 85
 
 
  3065 0827 00000000 		.4byte	USB_midi_out_ep
@@ -5051,7 +5051,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3072 0837 03       		.byte	0x3
  3073 0838 00000000 		.4byte	USB_midiOutBuffer
  3074 083c 21       		.uleb128 0x21
- 3075 083d 5A040000 		.4byte	.LASF78
+ 3075 083d F8030000 		.4byte	.LASF78
  3076 0841 01       		.byte	0x1
  3077 0842 50       		.byte	0x50
  3078 0843 96000000 		.4byte	0x96
@@ -5059,7 +5059,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3080 0848 03       		.byte	0x3
  3081 0849 00000000 		.4byte	USB_MIDI1_InqFlags
  3082 084d 21       		.uleb128 0x21
- 3083 084e 6D040000 		.4byte	.LASF79
+ 3083 084e 0B040000 		.4byte	.LASF79
  3084 0852 01       		.byte	0x1
  3085 0853 55       		.byte	0x55
  3086 0854 96000000 		.4byte	0x96
@@ -5081,7 +5081,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3102 0879 05       		.uleb128 0x5
  3103 087a 5E080000 		.4byte	0x85e
  3104 087e 23       		.uleb128 0x23
- 3105 087f 09060000 		.4byte	.LASF93
+ 3105 087f A7050000 		.4byte	.LASF93
  3106 0883 03       		.byte	0x3
  3107 0884 CC       		.byte	0xcc
  3108 0885 6B000000 		.4byte	0x6b
@@ -5098,14 +5098,14 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3119 089f 6B000000 		.4byte	0x6b
  3120 08a3 24       		.uleb128 0x24
  3121 08a4 31020000 		.4byte	0x231
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 86
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 86
 
 
  3122 08a8 24       		.uleb128 0x24
  3123 08a9 76000000 		.4byte	0x76
  3124 08ad 00       		.byte	0
  3125 08ae 26       		.uleb128 0x26
- 3126 08af C7050000 		.4byte	.LASF82
+ 3126 08af 65050000 		.4byte	.LASF82
  3127 08b3 05       		.byte	0x5
  3128 08b4 7C       		.byte	0x7c
  3129 08b5 26       		.uleb128 0x26
@@ -5135,7 +5135,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3153 08e2 6B000000 		.4byte	0x6b
  3154 08e6 00       		.byte	0
  3155 08e7 26       		.uleb128 0x26
- 3156 08e8 B6050000 		.4byte	.LASF89
+ 3156 08e8 54050000 		.4byte	.LASF89
  3157 08ec 06       		.byte	0x6
  3158 08ed 6B       		.byte	0x6b
  3159 08ee 25       		.uleb128 0x25
@@ -5147,7 +5147,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3165 08fa 6B000000 		.4byte	0x6b
  3166 08fe 00       		.byte	0
  3167 08ff 25       		.uleb128 0x25
- 3168 0900 B8040000 		.4byte	.LASF91
+ 3168 0900 56040000 		.4byte	.LASF91
  3169 0904 05       		.byte	0x5
  3170 0905 9F       		.byte	0x9f
  3171 0906 10090000 		.4byte	0x910
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3176 0911 88020000 		.4byte	.LASF92
  3177 0915 06       		.byte	0x6
  3178 0916 9F       		.byte	0x9f
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 87
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 87
 
 
  3179 0917 21090000 		.4byte	0x921
@@ -5166,7 +5166,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3181 091c 6B000000 		.4byte	0x6b
  3182 0920 00       		.byte	0
  3183 0921 23       		.uleb128 0x23
- 3184 0922 64060000 		.4byte	.LASF94
+ 3184 0922 4C060000 		.4byte	.LASF94
  3185 0926 03       		.byte	0x3
  3186 0927 CD       		.byte	0xcd
  3187 0928 76000000 		.4byte	0x76
@@ -5175,7 +5175,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3190 0931 6B000000 		.4byte	0x6b
  3191 0935 00       		.byte	0
  3192 0936 23       		.uleb128 0x23
- 3193 0937 5C050000 		.4byte	.LASF95
+ 3193 0937 FA040000 		.4byte	.LASF95
  3194 093b 03       		.byte	0x3
  3195 093c D0       		.byte	0xd0
  3196 093d 76000000 		.4byte	0x76
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3233 000d 11       		.uleb128 0x11
  3234 000e 01       		.uleb128 0x1
  3235 000f 10       		.uleb128 0x10
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 88
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 88
 
 
  3236 0010 17       		.uleb128 0x17
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3290 0046 01       		.uleb128 0x1
  3291 0047 13       		.uleb128 0x13
  3292 0048 00       		.byte	0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 89
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 89
 
 
  3293 0049 00       		.byte	0
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3347 007f 31       		.uleb128 0x31
  3348 0080 13       		.uleb128 0x13
  3349 0081 11       		.uleb128 0x11
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 90
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 90
 
 
  3350 0082 01       		.uleb128 0x1
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3404 00c0 06       		.uleb128 0x6
  3405 00c1 40       		.uleb128 0x40
  3406 00c2 18       		.uleb128 0x18
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 91
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 91
 
 
  3407 00c3 9742     		.uleb128 0x2117
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3461 00fa 0B       		.uleb128 0xb
  3462 00fb 0B       		.uleb128 0xb
  3463 00fc 49       		.uleb128 0x49
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 92
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 92
 
 
  3464 00fd 13       		.uleb128 0x13
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3518 0136 01       		.uleb128 0x1
  3519 0137 31       		.uleb128 0x31
  3520 0138 13       		.uleb128 0x13
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 93
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 93
 
 
  3521 0139 01       		.uleb128 0x1
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3575 0176 03       		.uleb128 0x3
  3576 0177 0E       		.uleb128 0xe
  3577 0178 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 94
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 94
 
 
  3578 0179 0B       		.uleb128 0xb
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3632 01af 1F       		.uleb128 0x1f
  3633 01b0 34       		.uleb128 0x34
  3634 01b1 00       		.byte	0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 95
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 95
 
 
  3635 01b2 03       		.uleb128 0x3
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3689 01e8 0B       		.uleb128 0xb
  3690 01e9 49       		.uleb128 0x49
  3691 01ea 13       		.uleb128 0x13
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 96
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 96
 
 
  3692 01eb 3F       		.uleb128 0x3f
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3746 0221 2E       		.uleb128 0x2e
  3747 0222 00       		.byte	0
  3748 0223 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 97
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 97
 
 
  3749 0224 19       		.uleb128 0x19
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3803 0030 50       		.byte	0x50
  3804 0031 9F       		.byte	0x9f
  3805 0032 CE000000 		.4byte	.LVL25
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 98
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 98
 
 
  3806 0036 DE000000 		.4byte	.LVL28
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3860 00b4 4E000000 		.4byte	.LVL13
  3861 00b8 92000000 		.4byte	.LVL18
  3862 00bc 0400     		.2byte	0x4
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 99
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 99
 
 
  3863 00be F3       		.byte	0xf3
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3917 0138 52       		.byte	0x52
  3918 0139 16000000 		.4byte	.LVL5
  3919 013d 18000000 		.4byte	.LVL6
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 100
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 100
 
 
  3920 0141 0400     		.2byte	0x4
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  3974 01ba 4E010000 		.4byte	.LVL40
  3975 01be 0400     		.2byte	0x4
  3976 01c0 F3       		.byte	0xf3
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 101
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 101
 
 
  3977 01c1 01       		.uleb128 0x1
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  4031 023b 3C000000 		.4byte	.LVL9
  4032 023f 46000000 		.4byte	.LVL10
  4033 0243 0400     		.2byte	0x4
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 102
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 102
 
 
  4034 0245 F3       		.byte	0xf3
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  4088 02c0 0400     		.2byte	0x4
  4089 02c2 F3       		.byte	0xf3
  4090 02c3 01       		.uleb128 0x1
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 103
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 103
 
 
  4091 02c4 53       		.byte	0x53
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  4145 0345 F3       		.byte	0xf3
  4146 0346 01       		.uleb128 0x1
  4147 0347 51       		.byte	0x51
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 104
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 104
 
 
  4148 0348 92000000 		.4byte	.LVL18
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  4202 03c9 01       		.uleb128 0x1
  4203 03ca 51       		.byte	0x51
  4204 03cb 23       		.byte	0x23
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 105
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 105
 
 
  4205 03cc 01       		.uleb128 0x1
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  4259 044d F3       		.byte	0xf3
  4260 044e 01       		.uleb128 0x1
  4261 044f 50       		.byte	0x50
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 106
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 106
 
 
  4262 0450 9F       		.byte	0x9f
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  4316 04d9 74       		.byte	0x74
  4317 04da 04       		.sleb128 4
  4318 04db 20000000 		.4byte	.LVL86
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 107
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 107
 
 
  4319 04df 26000000 		.4byte	.LVL88
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  4373 055f 04       		.sleb128 4
  4374 0560 DC000000 		.4byte	.LVL100
  4375 0564 EA000000 		.4byte	.LVL101
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 108
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 108
 
 
  4376 0568 0100     		.2byte	0x1
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  4430 05e1 00000000 		.4byte	0
  4431              	.LLST11:
  4432 05e5 00000000 		.4byte	.LVL84
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 109
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 109
 
 
  4433 05e9 22000000 		.4byte	.LVL87
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  4487 0670 31       		.byte	0x31
  4488 0671 9F       		.byte	0x9f
  4489 0672 1E010000 		.4byte	.LVL107
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 110
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 110
 
 
  4490 0676 58010000 		.4byte	.LFE7
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  4544 0703 56000000 		.4byte	.LVL121
  4545 0707 76000000 		.4byte	.LVL124
  4546 070b 0100     		.2byte	0x1
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 111
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 111
 
 
  4547 070d 53       		.byte	0x53
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  4601 078c 3F       		.byte	0x3f
  4602 078d 1A       		.byte	0x1a
  4603 078e 9F       		.byte	0x9f
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 112
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 112
 
 
  4604 078f 56000000 		.4byte	.LVL137
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  4658 0805 00000000 		.4byte	0
  4659              	.LLST19:
  4660 0809 14000000 		.4byte	.LVL127
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 113
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 113
 
 
  4661 080d 36000000 		.4byte	.LVL131
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  4715 0897 00000000 		.4byte	0
  4716 089b 00000000 		.4byte	0
  4717              	.LLST22:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 114
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 114
 
 
  4718 089f 22000000 		.4byte	.LVL147
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  4772 0931 56       		.byte	0x56
  4773 0932 2C000000 		.4byte	.LVL162
  4774 0936 30000000 		.4byte	.LVL163
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 115
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 115
 
 
  4775 093a 0100     		.2byte	0x1
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  4829 09c0 0700     		.2byte	0x7
  4830 09c2 70       		.byte	0x70
  4831 09c3 00       		.sleb128 0
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 116
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 116
 
 
  4832 09c4 94       		.byte	0x94
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  4886 0a30 70000000 		.4byte	.LVL184
  4887 0a34 A8000000 		.4byte	.LFE11
  4888 0a38 0100     		.2byte	0x1
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 117
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 117
 
 
  4889 0a3a 56       		.byte	0x56
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  4943 0ac8 00000000 		.4byte	0
  4944              		.section	.debug_aranges,"",%progbits
  4945 0000 74000000 		.4byte	0x74
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 118
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 118
 
 
  4946 0004 0200     		.2byte	0x2
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  5000 0050 00000000 		.4byte	.LFB11
  5001 0054 A8000000 		.4byte	.LFE11
  5002 0058 00000000 		.4byte	.LFB1
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 119
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 119
 
 
  5003 005c 74000000 		.4byte	.LFE1
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  5027              	.LASF85:
  5028 0094 4D494449 		.ascii	"MIDI2_UART_EnableRxInt\000"
  5028      325F5541 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 120
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 120
 
 
  5028      52545F45 
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  5053              	.LASF52:
  5054 013e 65704275 		.ascii	"epBuf\000"
  5054      6600
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 121
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 121
 
 
  5055              	.LASF60:
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  5077              	.LASF46:
  5078 01e9 5553425F 		.ascii	"USB_MIDI1_GetEvent\000"
  5078      4D494449 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 122
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 122
 
 
  5078      315F4765 
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  5097              	.LASF96:
  5098 029b 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  5098      4320342E 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 123
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 123
 
 
  5098      392E3320 
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  5120      325F5541 
  5120      52545F72 
  5120      78427566 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 124
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 124
 
 
  5120      6665724C 
@@ -7402,223 +7402,222 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 1
  5128      5072696F 
  5128      72697479 
  5128      00
- 5129              	.LASF98:
- 5130 03f8 433A5C55 		.ascii	"C:\\Users\\jmdevoto\\Desktop\\Builds\\(4-24-17)Humm"
- 5130      73657273 
- 5130      5C6A6D64 
- 5130      65766F74 
- 5130      6F5C4465 
- 5131 0426 696E6762 		.ascii	"ingbird-059-v1\\Hummingbird(Continuous Output).cyds"
- 5131      6972642D 
- 5131      3035392D 
- 5131      76315C48 
- 5131      756D6D69 
- 5132 0458 6E00     		.ascii	"n\000"
- 5133              	.LASF78:
- 5134 045a 5553425F 		.ascii	"USB_MIDI1_InqFlags\000"
- 5134      4D494449 
- 5134      315F496E 
- 5134      71466C61 
- 5134      677300
- 5135              	.LASF79:
- 5136 046d 5553425F 		.ascii	"USB_MIDI2_InqFlags\000"
+ 5129              	.LASF78:
+ 5130 03f8 5553425F 		.ascii	"USB_MIDI1_InqFlags\000"
+ 5130      4D494449 
+ 5130      315F496E 
+ 5130      71466C61 
+ 5130      677300
+ 5131              	.LASF79:
+ 5132 040b 5553425F 		.ascii	"USB_MIDI2_InqFlags\000"
+ 5132      4D494449 
+ 5132      325F496E 
+ 5132      71466C61 
+ 5132      677300
+ 5133              	.LASF11:
+ 5134 041e 666C6F61 		.ascii	"float\000"
+ 5134      7400
+ 5135              	.LASF61:
+ 5136 0424 5553425F 		.ascii	"USB_MIDI1_Event\000"
  5136      4D494449 
- 5136      325F496E 
- 5136      71466C61 
- 5136      677300
- 5137              	.LASF11:
- 5138 0480 666C6F61 		.ascii	"float\000"
- 5138      7400
- 5139              	.LASF61:
- 5140 0486 5553425F 		.ascii	"USB_MIDI1_Event\000"
+ 5136      315F4576 
+ 5136      656E7400 
+ 5137              	.LASF16:
+ 5138 0434 61706945 		.ascii	"apiEpState\000"
+ 5138      70537461 
+ 5138      746500
+ 5139              	.LASF81:
+ 5140 043f 5553425F 		.ascii	"USB_MIDI_IN_EP_Service\000"
  5140      4D494449 
- 5140      315F4576 
- 5140      656E7400 
- 5141              	.LASF16:
- 5142 0496 61706945 		.ascii	"apiEpState\000"
- 5142      70537461 
- 5142      746500
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 125
+ 5140      5F494E5F 
+ 5140      45505F53 
+ 5140      65727669 
+ 5141              	.LASF91:
+ 5142 0456 4D494449 		.ascii	"MIDI1_UART_PutChar\000"
+ 5142      315F5541 
+ 5142      52545F50 
+ 5142      75744368 
+ 5142      617200
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 125
 
 
- 5143              	.LASF81:
- 5144 04a1 5553425F 		.ascii	"USB_MIDI_IN_EP_Service\000"
- 5144      4D494449 
- 5144      5F494E5F 
- 5144      45505F53 
- 5144      65727669 
- 5145              	.LASF91:
- 5146 04b8 4D494449 		.ascii	"MIDI1_UART_PutChar\000"
- 5146      315F5541 
- 5146      52545F50 
- 5146      75744368 
- 5146      617200
- 5147              	.LASF73:
- 5148 04cb 5553425F 		.ascii	"USB_midiInPointer\000"
- 5148      6D696469 
- 5148      496E506F 
- 5148      696E7465 
+ 5143              	.LASF73:
+ 5144 0469 5553425F 		.ascii	"USB_midiInPointer\000"
+ 5144      6D696469 
+ 5144      496E506F 
+ 5144      696E7465 
+ 5144      7200
+ 5145              	.LASF32:
+ 5146 047b 6576656E 		.ascii	"eventLen\000"
+ 5146      744C656E 
+ 5146      00
+ 5147              	.LASF1:
+ 5148 0484 756E7369 		.ascii	"unsigned char\000"
+ 5148      676E6564 
+ 5148      20636861 
  5148      7200
- 5149              	.LASF32:
- 5150 04dd 6576656E 		.ascii	"eventLen\000"
- 5150      744C656E 
- 5150      00
- 5151              	.LASF1:
- 5152 04e6 756E7369 		.ascii	"unsigned char\000"
- 5152      676E6564 
- 5152      20636861 
- 5152      7200
- 5153              	.LASF97:
- 5154 04f4 47656E65 		.ascii	"Generated_Source\\PSoC5\\USB_midi.c\000"
- 5154      72617465 
- 5154      645F536F 
- 5154      75726365 
- 5154      5C50536F 
- 5155              	.LASF2:
- 5156 0516 73686F72 		.ascii	"short int\000"
- 5156      7420696E 
- 5156      7400
- 5157              	.LASF37:
- 5158 0520 72657445 		.ascii	"retError\000"
- 5158      72726F72 
- 5158      00
- 5159              	.LASF71:
- 5160 0529 4D494449 		.ascii	"MIDI2_UART_rxBufferWrite\000"
- 5160      325F5541 
- 5160      52545F72 
- 5160      78427566 
- 5160      66657257 
- 5161              	.LASF69:
- 5162 0542 4D494449 		.ascii	"MIDI2_UART_rxBuffer\000"
- 5162      325F5541 
- 5162      52545F72 
- 5162      78427566 
- 5162      66657200 
- 5163              	.LASF33:
- 5164 0556 6361626C 		.ascii	"cable\000"
- 5164      6500
- 5165              	.LASF95:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 126
+ 5149              	.LASF97:
+ 5150 0492 47656E65 		.ascii	"Generated_Source\\PSoC5\\USB_midi.c\000"
+ 5150      72617465 
+ 5150      645F536F 
+ 5150      75726365 
+ 5150      5C50536F 
+ 5151              	.LASF2:
+ 5152 04b4 73686F72 		.ascii	"short int\000"
+ 5152      7420696E 
+ 5152      7400
+ 5153              	.LASF37:
+ 5154 04be 72657445 		.ascii	"retError\000"
+ 5154      72726F72 
+ 5154      00
+ 5155              	.LASF71:
+ 5156 04c7 4D494449 		.ascii	"MIDI2_UART_rxBufferWrite\000"
+ 5156      325F5541 
+ 5156      52545F72 
+ 5156      78427566 
+ 5156      66657257 
+ 5157              	.LASF69:
+ 5158 04e0 4D494449 		.ascii	"MIDI2_UART_rxBuffer\000"
+ 5158      325F5541 
+ 5158      52545F72 
+ 5158      78427566 
+ 5158      66657200 
+ 5159              	.LASF33:
+ 5160 04f4 6361626C 		.ascii	"cable\000"
+ 5160      6500
+ 5161              	.LASF95:
+ 5162 04fa 5553425F 		.ascii	"USB_ReadOutEP\000"
+ 5162      52656164 
+ 5162      4F757445 
+ 5162      5000
+ 5163              	.LASF56:
+ 5164 0508 5553425F 		.ascii	"USB_MIDI_OUT_EP_Service\000"
+ 5164      4D494449 
+ 5164      5F4F5554 
+ 5164      5F45505F 
+ 5164      53657276 
+ 5165              	.LASF58:
+ 5166 0520 6F757450 		.ascii	"outPointer\000"
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 126
 
 
- 5166 055c 5553425F 		.ascii	"USB_ReadOutEP\000"
- 5166      52656164 
- 5166      4F757445 
- 5166      5000
- 5167              	.LASF56:
- 5168 056a 5553425F 		.ascii	"USB_MIDI_OUT_EP_Service\000"
- 5168      4D494449 
- 5168      5F4F5554 
- 5168      5F45505F 
- 5168      53657276 
- 5169              	.LASF58:
- 5170 0582 6F757450 		.ascii	"outPointer\000"
- 5170      6F696E74 
- 5170      657200
- 5171              	.LASF45:
- 5172 058d 6D696469 		.ascii	"midiReturn\000"
- 5172      52657475 
- 5172      726E00
- 5173              	.LASF48:
- 5174 0598 72784461 		.ascii	"rxData\000"
- 5174      746100
- 5175              	.LASF25:
- 5176 059f 6C656E67 		.ascii	"length\000"
- 5176      746800
- 5177              	.LASF13:
- 5178 05a6 63686172 		.ascii	"char\000"
+ 5166      6F696E74 
+ 5166      657200
+ 5167              	.LASF45:
+ 5168 052b 6D696469 		.ascii	"midiReturn\000"
+ 5168      52657475 
+ 5168      726E00
+ 5169              	.LASF48:
+ 5170 0536 72784461 		.ascii	"rxData\000"
+ 5170      746100
+ 5171              	.LASF25:
+ 5172 053d 6C656E67 		.ascii	"length\000"
+ 5172      746800
+ 5173              	.LASF13:
+ 5174 0544 63686172 		.ascii	"char\000"
+ 5174      00
+ 5175              	.LASF22:
+ 5176 0549 62756666 		.ascii	"bufferSize\000"
+ 5176      65725369 
+ 5176      7A6500
+ 5177              	.LASF89:
+ 5178 0554 4D494449 		.ascii	"MIDI2_UART_Start\000"
+ 5178      325F5541 
+ 5178      52545F53 
+ 5178      74617274 
  5178      00
- 5179              	.LASF22:
- 5180 05ab 62756666 		.ascii	"bufferSize\000"
- 5180      65725369 
- 5180      7A6500
- 5181              	.LASF89:
- 5182 05b6 4D494449 		.ascii	"MIDI2_UART_Start\000"
- 5182      325F5541 
- 5182      52545F53 
- 5182      74617274 
+ 5179              	.LASF82:
+ 5180 0565 4D494449 		.ascii	"MIDI1_UART_DisableRxInt\000"
+ 5180      315F5541 
+ 5180      52545F44 
+ 5180      69736162 
+ 5180      6C655278 
+ 5181              	.LASF99:
+ 5182 057d 6D736749 		.ascii	"msgIndex\000"
+ 5182      6E646578 
  5182      00
- 5183              	.LASF82:
- 5184 05c7 4D494449 		.ascii	"MIDI1_UART_DisableRxInt\000"
- 5184      315F5541 
- 5184      52545F44 
- 5184      69736162 
- 5184      6C655278 
- 5185              	.LASF99:
- 5186 05df 6D736749 		.ascii	"msgIndex\000"
- 5186      6E646578 
- 5186      00
- 5187              	.LASF21:
- 5188 05e8 62756666 		.ascii	"buffOffset\000"
- 5188      4F666673 
- 5188      657400
- 5189              	.LASF76:
- 5190 05f3 5553425F 		.ascii	"USB_midi_out_ep\000"
- 5190      6D696469 
- 5190      5F6F7574 
- 5190      5F657000 
- 5191              	.LASF43:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 127
+ 5183              	.LASF21:
+ 5184 0586 62756666 		.ascii	"buffOffset\000"
+ 5184      4F666673 
+ 5184      657400
+ 5185              	.LASF76:
+ 5186 0591 5553425F 		.ascii	"USB_midi_out_ep\000"
+ 5186      6D696469 
+ 5186      5F6F7574 
+ 5186      5F657000 
+ 5187              	.LASF43:
+ 5188 05a1 6D446174 		.ascii	"mData\000"
+ 5188      6100
+ 5189              	.LASF93:
+ 5190 05a7 5553425F 		.ascii	"USB_GetEPState\000"
+ 5190      47657445 
+ 5190      50537461 
+ 5190      746500
+ 5191              	.LASF98:
+ 5192 05b6 433A5C55 		.ascii	"C:\\Users\\jwvance\\Desktop\\Hummingbird\\Hummingbi"
+ 5192      73657273 
+ 5192      5C6A7776 
+ 5192      616E6365 
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 127
 
 
- 5192 0603 6D446174 		.ascii	"mData\000"
- 5192      6100
- 5193              	.LASF93:
- 5194 0609 5553425F 		.ascii	"USB_GetEPState\000"
- 5194      47657445 
- 5194      50537461 
- 5194      746500
- 5195              	.LASF57:
- 5196 0618 6F75744C 		.ascii	"outLength\000"
- 5196      656E6774 
- 5196      6800
- 5197              	.LASF29:
- 5198 0622 6D736742 		.ascii	"msgBuff\000"
- 5198      75666600 
- 5199              	.LASF59:
- 5200 062a 646D6153 		.ascii	"dmaState\000"
- 5200      74617465 
- 5200      00
- 5201              	.LASF41:
- 5202 0633 5553425F 		.ascii	"USB_PutUsbMidiIn\000"
- 5202      50757455 
- 5202      73624D69 
- 5202      6469496E 
- 5202      00
- 5203              	.LASF64:
- 5204 0644 5553425F 		.ascii	"USB_MIDI2_TxRunStat\000"
- 5204      4D494449 
- 5204      325F5478 
- 5204      52756E53 
- 5204      74617400 
- 5205              	.LASF34:
- 5206 0658 73726342 		.ascii	"srcBuffZero\000"
- 5206      7566665A 
- 5206      65726F00 
- 5207              	.LASF94:
- 5208 0664 5553425F 		.ascii	"USB_GetEPCount\000"
- 5208      47657445 
- 5208      50436F75 
- 5208      6E7400
- 5209              	.LASF55:
- 5210 0673 5553425F 		.ascii	"USB_MIDI2_ProcessUsbOut\000"
- 5210      4D494449 
- 5210      325F5072 
- 5210      6F636573 
- 5210      73557362 
- 5211              	.LASF40:
- 5212 068b 5553425F 		.ascii	"USB_MIDI_EP_Init\000"
- 5212      4D494449 
- 5212      5F45505F 
- 5212      496E6974 
- 5212      00
- 5213              	.LASF38:
- 5214 069c 5553425F 		.ascii	"USB_PrepareInBuffer\000"
- 5214      50726570 
- 5214      61726549 
- 5214      6E427566 
- 5214      66657200 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\ccLBbQpI.s 			page 128
+ 5192      5C446573 
+ 5193 05e4 72642843 		.ascii	"rd(Continuous Output).cydsn\000"
+ 5193      6F6E7469 
+ 5193      6E756F75 
+ 5193      73204F75 
+ 5193      74707574 
+ 5194              	.LASF57:
+ 5195 0600 6F75744C 		.ascii	"outLength\000"
+ 5195      656E6774 
+ 5195      6800
+ 5196              	.LASF29:
+ 5197 060a 6D736742 		.ascii	"msgBuff\000"
+ 5197      75666600 
+ 5198              	.LASF59:
+ 5199 0612 646D6153 		.ascii	"dmaState\000"
+ 5199      74617465 
+ 5199      00
+ 5200              	.LASF41:
+ 5201 061b 5553425F 		.ascii	"USB_PutUsbMidiIn\000"
+ 5201      50757455 
+ 5201      73624D69 
+ 5201      6469496E 
+ 5201      00
+ 5202              	.LASF64:
+ 5203 062c 5553425F 		.ascii	"USB_MIDI2_TxRunStat\000"
+ 5203      4D494449 
+ 5203      325F5478 
+ 5203      52756E53 
+ 5203      74617400 
+ 5204              	.LASF34:
+ 5205 0640 73726342 		.ascii	"srcBuffZero\000"
+ 5205      7566665A 
+ 5205      65726F00 
+ 5206              	.LASF94:
+ 5207 064c 5553425F 		.ascii	"USB_GetEPCount\000"
+ 5207      47657445 
+ 5207      50436F75 
+ 5207      6E7400
+ 5208              	.LASF55:
+ 5209 065b 5553425F 		.ascii	"USB_MIDI2_ProcessUsbOut\000"
+ 5209      4D494449 
+ 5209      325F5072 
+ 5209      6F636573 
+ 5209      73557362 
+ 5210              	.LASF40:
+ 5211 0673 5553425F 		.ascii	"USB_MIDI_EP_Init\000"
+ 5211      4D494449 
+ 5211      5F45505F 
+ 5211      496E6974 
+ 5211      00
+ 5212              	.LASF38:
+ 5213 0684 5553425F 		.ascii	"USB_PrepareInBuffer\000"
+ 5213      50726570 
+ 5213      61726549 
+ 5213      6E427566 
+ 5213      66657200 
+ 5214              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc9Igobc.s 			page 128
 
 
- 5215              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

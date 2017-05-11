@@ -1,30 +1,6 @@
 /*******************************************************************************
 * File Name: main.c
-*
-* Version: 1.0
-*
-* Description:
-*  This is source code for the datasheet example of the USBFS component.
-*   
-* Related Document:
-*  Universal Serial Bus Specification Revision 2.0 
-*  Universal Serial Bus Device Class Definition for MIDI Devices Release 1.0
-*  MIDI 1.0 Detailed Specification Document Version 4.2
-*
-********************************************************************************
-* Copyright 2012-2013, Cypress Semiconductor Corporation. All rights reserved.
-* This software is owned by Cypress Semiconductor Corporation and is protected
-* by and subject to worldwide patent and copyright laws and treaties.
-* Therefore, you may use this software only as provided in the license agreement
-* accompanying the software package from which you obtained this software.
-* CYPRESS AND ITS SUPPLIERS MAKE NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-* WITH REGARD TO THIS SOFTWARE, INCLUDING, BUT NOT LIMITED TO, NONINFRINGEMENT,
-* IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-*******************************************************************************/
-
-// Comment
-// Comment again
-// Comment 3
+*/
 
 #include <device.h>
 // Hummingbird Includes
@@ -34,10 +10,20 @@
 #include <hbird.h>
 
 /**** Defines ****/
-#define BUTT1	(0x01u)
-#define BUTT2	(0x02u)
-
 #define THRESHHOLD 110
+#define HYST_VAL 0.9
+#define VELO_VAL 100
+int start = 1;
+
+#define UI_THRES 10
+
+uint8 UI_Update_Mask = 0;
+
+//previous POT values for UI
+uint16 lastKey = 0;
+uint16 lastScale = 0;
+uint16 lastHyst = (float)HYST_VAL;
+uint16 lastVelo = VELO_VAL;
 
 // Variables for Button I/O
 uint8 csButtStates = 0u;
@@ -56,7 +42,7 @@ uint8 sampleFrame = 0;              // Frame for main to process on.
 
 int max_value = 0;
 
-// Flags
+//Flags
 bool frameReady[2] = {};          // Flag frame as valid for processing.
 bool frameLocked[2] = {};          // Sample is being processed and should not be overwritten
 bool sustain = false;                   // flag for holding a note until the user is done singing
@@ -70,11 +56,8 @@ float pitchHz;
 double noteTable[MIDI_LEN]; //(index=midi note, value=frequency)
 uint8 frame1InUse=0;
 uint8 frame2InUse=0;
-enum MusicScale curScale=MAJOR;
+enum MusicScale curScale=CHROMATIC;
 enum MusicKey   curKey=KEY_OF_C;
-
-int test_max;
-
 
 /* Identity Reply message */
 const uint8 CYCODE MIDI_IDENTITY_REPLY[] = {
@@ -95,8 +78,6 @@ extern volatile uint8 USB_MIDI1_InqFlags;
 extern volatile uint8 USB_MIDI2_InqFlags;
 
 volatile uint8 usbActivityCounter = 0u;
-
-
 
 
 /*******************************************************************************
@@ -136,29 +117,34 @@ void GenerateMidiArray(uint8 midiArray[4], uint8 cmd, uint8 note, uint8 vel)
 
 int main()
 {
-    /**** Initilizations ****/
+    /******* Initilizations *******/
         
-    // Enable global interrupts 
+    //Enable global interrupts 
     CyGlobalIntEnable;
-    CY_ISR_PROTO(GetSample);  //declare the audio sampling interrupt
-    //CY_ISR_PROTO(UI_isr_Interrupt);     //declare the user interface interrupt
     
+    //declare interrupts
+    CY_ISR_PROTO(GetSample);    //audio sampling interrupt  
+    CY_ISR_PROTO(UserInterfaceISR);     //UI interrupt
+    
+    //Start interrupts
+    isr_1_StartEx(GetSample);
+    UI_isr_StartEx(UserInterfaceISR);
+    
+    //Start LCD over I2C Protocol
     I2C_CharLCD_Start();
     CharLCD_Start();
-    
-    // Start the interrupt
-    isr_1_StartEx(GetSample);
-    //UI_isr_StartEx(UI_isr_Interrupt);
-        
-    // Start the data sample timer
+            
+    //Start the data sample and UI timers
     Timer_1_Start();
+    UI_TIMER_Start();
     
-    // Start the ADC conversion
+    //Start ADC conversions
     ADC_SAR_1_Start();
     ADC_SAR_1_StartConvert();
     UI_ADC_Start();
     UI_ADC_StartConvert();
      
+    //Start MIDI transfers
     UART_Start();
     
     pitch_init();
@@ -169,11 +155,29 @@ int main()
     /* Start USBFS device 0 with VDDD operation */
     USB_Start(0u, USB_DWR_VDDD_OPERATION); 
     
-    /**** End of initilizations ****/
+    /******* End of initilizations *******/
+    
+    //Boot-Up Message
+    CharLCD_ClearDisplay();
+    CharLCD_Position(0,0);
+    CharLCD_PrintString("   -HUMMINGBIRD-  ");
+    CharLCD_Position(1,0);
+    CharLCD_PrintString("       v0.8  ");
+    CharLCD_Position(3,0);
+    CharLCD_PrintString("Hum when ready...");
+    
+    /*
+    while(1){
+        CharLCD_ClearDisplay();
+        CharLCD_Position(2,7);
+        CharLCD_PrintNumber(UI_ADC_GetResult16(KEY));
+        CyDelay(50);
+    }
+    */
     
     /****************************************************** M A I N  L O O P ***************************************************************/
     while(1u)
-    {
+    {        
         #if 0
         if(USB_IsConfigurationChanged() != 0u) /* Host could send double SET_INTERFACE request */
         {
@@ -224,10 +228,47 @@ int main()
             #endif /* End USB_MIDI_EXT_MODE >= USB_TWO_EXT_INTRF */
             #endif
             
+            /*********************** L C D  U P D A T E ****************************/
+            if(UI_Update_Mask){
+                
+                if (start) {
+                    initDisplay();
+                    start = 0;
+                }
+                
+                if(UI_Update_Mask & 0b0001){
+                    UI_Update_Mask &= 0b1110;   //clear KEY bit
+                    curKey = UpdateKeyLCD(lastKey);
+                }
+                if(UI_Update_Mask & 0b0010){
+                    UI_Update_Mask &= 0b1101;   //clear SCALE bit
+                    curScale = UpdateScaleLCD(lastScale);
+                }
+                if(UI_Update_Mask & 0b0100){
+                    UI_Update_Mask &= 0b1011;   //clear SCALE bit
+                    CharLCD_PosPrintString(2,11,"          ");
+                    CharLCD_PosPrintString(2,11,"Hist:");
+                    float tempHyst = (float)map(UI_ADC_GetResult16(HYST),0,255,50,100);
+                    tempHyst /= 100;
+                    CharLCD_PrintNumber(tempHyst);
+                    CharLCD_PrintString("%");
+                }
+                if(UI_Update_Mask & 0b1000){
+                    UI_Update_Mask &= 0b0111;   //clear SCALE bit
+                    CharLCD_PosPrintString(2,0,"          ");
+                    CharLCD_PosPrintString(2,0,"Vel:"); 
+                    CharLCD_PrintNumber(map(lastVelo,0,255,0,100));
+                }  
+            }
+            
             /*********************** M I D I  O U T P U T ****************************/
             // This is the frame we are operating on. It is always the opposite of the current frame, which is being written
             sampleFrame = currFrame ^ 0b01; 
             if (frameReady[sampleFrame]&&!frameProcessed) {
+                if (start) {
+                    CharLCD_ClearDisplay();
+                    start = 0;
+                }
                 // Lock the current frame and unset the current flag.
                 frameLocked[sampleFrame] = true;
                 frameProcessed = true;
@@ -245,11 +286,13 @@ int main()
                 int note = lastNote;
                 
                 if(pitchHz < 600 && pitchHz > 80){  //eliminate extreme, unintentional freqs
-                    if (midi_note_changed(pitchHz, lastNote, noteTable)) {
+                    if (midi_note_changed(pitchHz, lastNote, noteTable, lastHyst)) {
                         note = NoteSnap(noteTable, pitchHz, curKey, curScale);
                         //note = midi_note_from_freq(pitchHz);
                     }
                 }
+                
+                int changed = note != lastNote && note != -1;
                 
                 // If the new note is not the same as the last and does not = -1, the error value from note snap
                 if (note != lastNote && note != -1) {
@@ -263,13 +306,12 @@ int main()
                         UART_PutChar(midiMsg[1]);
                         UART_PutChar(midiMsg[2]);
                         //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);
-                        
-                        
+  
                     }
                     
                     midiMsg[0] = USB_MIDI_NOTE_ON;
                     midiMsg[1] = note;
-                    midiMsg[2] = 100u;
+                    midiMsg[2] = lastVelo;
                     
                     UART_PutChar(midiMsg[0]);
                     UART_PutChar(midiMsg[1]);
@@ -277,35 +319,38 @@ int main()
                     //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);                                       
                     
                     lastNote = note;
+                    
                 }
          
                 // Updates display for debugging
-                CharLCD_ClearDisplay();
+                //CharLCD_ClearDisplay();
                 CharLCD_Position(0,0);
                 CharLCD_PrintNumber(pitchHz);
-                CharLCD_Position(1,0);
-                CharLCD_PrintString(midi_note_basename(midiMsg[1]));
-                CharLCD_Position(1,2);
-                CharLCD_PrintNumber(midiMsg[1]);
-                
-                /**** TEST: Output for UI ADC (Disabled for testing note on/off functionallity)****/
-                curScale = UpdateScaleLCD();
-                curKey = UpdateKeyLCD();
+                if (changed) {
+                    CharLCD_Position(1,0);
+                    CharLCD_PrintString("  ");
+                    CharLCD_Position(1,0);
+                    CharLCD_PrintString(midi_note_basename(midiMsg[1]));
+                    CharLCD_Position(1,2);
+                    CharLCD_PrintNumber(midiMsg[1]);
+                }
+             
                                             
                 
             } // If the frameReady was low, meaning no note is being hummed, send MIDI note off
-                if(!frameReady[sampleFrame])
-                {
-                    midiMsg[0] = USB_MIDI_NOTE_OFF;
-                    midiMsg[1] = lastNote;
-                    midiMsg[2] = 0u;
-                    
-                    UART_PutChar(midiMsg[0]);
-                    UART_PutChar(midiMsg[1]);
-                    UART_PutChar(midiMsg[2]);
+            
+            if(!frameReady[sampleFrame])
+            {
+                midiMsg[0] = USB_MIDI_NOTE_OFF;
+                midiMsg[1] = lastNote;
+                midiMsg[2] = 0u;
+                
+                UART_PutChar(midiMsg[0]);
+                UART_PutChar(midiMsg[1]);
+                UART_PutChar(midiMsg[2]);
 
-                    //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);  
-                }
+                //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);  
+            }
            
 
                 #if 0
@@ -389,10 +434,7 @@ void USB_callbackLocalMidiEvent(uint8 cable, uint8 *midiMsg) CYREENTRANT
 // ***** GetSample ISR *****
 // This ISR fills each audio frame. It runs on a timer which gives us our sampling rate.
 // Each frame is 1024 samples stored in an array.
-
 CY_ISR(GetSample){
-    /* Clear pending Interrupt */
-    //isr_1_ClearPending();
     Timer_1_STATUS;
     
     if (ADC_SAR_1_IsEndConversion(ADC_SAR_1_WAIT_FOR_RESULT)) {
@@ -408,8 +450,6 @@ CY_ISR(GetSample){
                 frameIndex++;
             } else {                                            // Frame is getting the last value before switching.
                 frameReady[currFrame] = max_value >= THRESHHOLD;  // Sets the frameReady (note is on) high if the voice went over the
-                                                                    //  noise threshold
-                test_max = max_value;
                 frameIndex = 0;
                 max_value = 0;
                 currFrame = currFrame ^ 0b01;                   // Swap current frame index.
@@ -418,41 +458,41 @@ CY_ISR(GetSample){
         } else {
             currFrame = currFrame ^ 0b01;                       // If a frame is processing, update a single frame only.
         }
+    }  
+}
+
+// ***** Update UI ISR *****
+// This ISR checks each POT and updates the LCD if necessary
+CY_ISR(UserInterfaceISR){
+    UI_TIMER_STATUS;
+    
+    UI_ADC_IsEndConversion(UI_ADC_WAIT_FOR_RESULT);
+    uint16 currKey, currScale, currHyst, currVelo;
+    currKey = UI_ADC_GetResult16(KEY);
+    currScale = UI_ADC_GetResult16(SCALE);
+    currHyst = UI_ADC_GetResult16(HYST);
+    currVelo = UI_ADC_GetResult16(VELO);
+
+    if(currKey < lastKey - UI_THRES || currKey > lastKey + UI_THRES){
+        lastKey = currKey;
+        UI_Update_Mask |= 0b0001;   //set bit for LCD update
     }
     
+    if(currScale < lastScale - UI_THRES || currScale > lastScale + UI_THRES){
+        lastScale = currScale;
+        UI_Update_Mask |= 0b0010;   //set bit for LCD  update
+    }
+    
+    if(currHyst < lastHyst - 1 || currHyst > lastHyst + 1){
+        lastHyst = currHyst;
+        UI_Update_Mask |= 0b0100;   //set bit for LCD  update
+    }
+    
+    if(currVelo < lastVelo - UI_THRES || currVelo > lastVelo + UI_THRES){
+        lastVelo = currVelo;
+        UI_Update_Mask |= 0b1000;   //set bit for LCD  update
+    }    
 }
-//UI_ISR(UserInterfaceISR){
-//    UI_ISR_ClearPending();
-    /* Clear pending Interrupt */
-//    isr_1_ClearPending();
-//    
-//    if(ADC_SAR_1_IsEndConversion(ADC_SAR_1_WAIT_FOR_RESULT)) {
-//        if((currFrame==1)&&(!frame1InUse)){    // Populates the first frame when it's the current frame and we aren't using it in main
-//            ADCoutput = ADC_SAR_1_GetResult16();
-//            // Pushes the sample onto the frame if we have room
-//            if(frameIndex < DATA_LENGTH){
-//                dataFrame1[frameIndex] = ADCoutput;    
-//                frameIndex++;
-//                
-//            }else{          // Tells the main our frame1 is full, resets frame index
-//                frameIndex = 0; 
-//                currFrame  = 2; // Switches to frame 2
-//            }
-//        }
-//        else if((currFrame==2)&&(!frame2InUse)){       // If the current frame is frame2 and It's not being processed
-//               ADCoutput = ADC_SAR_1_GetResult16();
-//            // Pushes the sample onto the frame if we have room
-//            if(frameIndex < DATA_LENGTH){
-//                dataFrame2[frameIndex] = ADCoutput;    
-//                frameIndex++;
-//                
-//            }else{          // Tells the main our frame1 is full, resets frame index
-//                frameIndex = 0; 
-//                currFrame  = 1; // Switches to frame 1
-//        }
-//    }  
-// }
-//}
 
 
 /* [] END OF FILE */

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc3GFAzV.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
   29:Generated_Source\PSoC5/MIDI2_UART_PM.c **** 
   30:Generated_Source\PSoC5/MIDI2_UART_PM.c **** 
   31:Generated_Source\PSoC5/MIDI2_UART_PM.c **** 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 2
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc3GFAzV.s 			page 2
 
 
   32:Generated_Source\PSoC5/MIDI2_UART_PM.c **** /*******************************************************************************
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
   69:Generated_Source\PSoC5/MIDI2_UART_PM.c ****         #if(MIDI2_UART_TX_ENABLED)
   70:Generated_Source\PSoC5/MIDI2_UART_PM.c ****             #if(MIDI2_UART_TXCLKGEN_DP)
   71:Generated_Source\PSoC5/MIDI2_UART_PM.c ****                 MIDI2_UART_backup.tx_clk_ctr = MIDI2_UART_TXBITCLKGEN_CTR_REG;
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 3
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc3GFAzV.s 			page 3
 
 
   72:Generated_Source\PSoC5/MIDI2_UART_PM.c ****                 MIDI2_UART_backup.tx_clk_compl = MIDI2_UART_TXBITCLKTX_COMPLETE_REG;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
   58              		.type	MIDI2_UART_Sleep, %function
   59              	MIDI2_UART_Sleep:
   60              	.LFB2:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 4
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc3GFAzV.s 			page 4
 
 
  112:Generated_Source\PSoC5/MIDI2_UART_PM.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
  166:Generated_Source\PSoC5/MIDI2_UART_PM.c **** * Reentrant:
  167:Generated_Source\PSoC5/MIDI2_UART_PM.c **** *  No.
  168:Generated_Source\PSoC5/MIDI2_UART_PM.c **** *
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 5
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc3GFAzV.s 			page 5
 
 
  169:Generated_Source\PSoC5/MIDI2_UART_PM.c **** *******************************************************************************/
@@ -295,10 +295,10 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
   86              	.L9:
   87              		.align	2
   88              	.L8:
-  89 0020 96640040 		.word	1073767574
+  89 0020 9B650040 		.word	1073767835
   90 0024 00000000 		.word	.LANCHOR0
   91              		.cfi_endproc
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 6
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc3GFAzV.s 			page 6
 
 
   92              	.LFE2:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
  113              		.loc 1 226 0
  114 0006 FFF7FEFF 		bl	MIDI2_UART_ClearTxBuffer
  115              	.LVL3:
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 7
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc3GFAzV.s 			page 7
 
 
  227:Generated_Source\PSoC5/MIDI2_UART_PM.c ****     #endif /* End MIDI2_UART_TX_ENABLED || MIDI2_UART_HD_ENABLED */
@@ -410,18 +410,18 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
  154 000b 01       		.uleb128 0x1
  155 000c 25000000 		.4byte	.LASF27
  156 0010 01       		.byte	0x1
- 157 0011 A5020000 		.4byte	.LASF28
- 158 0015 43020000 		.4byte	.LASF29
+ 157 0011 8D020000 		.4byte	.LASF28
+ 158 0015 F8010000 		.4byte	.LASF29
  159 0019 00000000 		.4byte	.Ldebug_ranges0+0
  160 001d 00000000 		.4byte	0
  161 0021 00000000 		.4byte	.Ldebug_line0
  162 0025 02       		.uleb128 0x2
  163 0026 01       		.byte	0x1
  164 0027 06       		.byte	0x6
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 8
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc3GFAzV.s 			page 8
 
 
- 165 0028 37020000 		.4byte	.LASF0
+ 165 0028 81020000 		.4byte	.LASF0
  166 002c 02       		.uleb128 0x2
  167 002d 01       		.byte	0x1
  168 002e 08       		.byte	0x8
@@ -437,7 +437,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
  178 0041 02       		.uleb128 0x2
  179 0042 04       		.byte	0x4
  180 0043 05       		.byte	0x5
- 181 0044 11020000 		.4byte	.LASF4
+ 181 0044 5B020000 		.4byte	.LASF4
  182 0048 02       		.uleb128 0x2
  183 0049 04       		.byte	0x4
  184 004a 07       		.byte	0x7
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
  219 008b 04       		.uleb128 0x4
  220 008c D9000000 		.4byte	.LASF13
  221 0090 02       		.byte	0x2
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 9
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc3GFAzV.s 			page 9
 
 
  222 0091 F0       		.byte	0xf0
@@ -496,7 +496,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
  234 00a9 45       		.byte	0x45
  235 00aa D3000000 		.4byte	0xd3
  236 00ae 07       		.uleb128 0x7
- 237 00af 1A020000 		.4byte	.LASF15
+ 237 00af 64020000 		.4byte	.LASF15
  238 00b3 03       		.byte	0x3
  239 00b4 47       		.byte	0x47
  240 00b5 6B000000 		.4byte	0x6b
@@ -538,14 +538,14 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
  276 00fd 09       		.uleb128 0x9
  277 00fe E6000000 		.4byte	0xe6
  278 0102 00000000 		.4byte	.LFB1
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 10
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc3GFAzV.s 			page 10
 
 
  279 0106 02000000 		.4byte	.LFE1-.LFB1
  280 010a 01       		.uleb128 0x1
  281 010b 9C       		.byte	0x9c
  282 010c 0A       		.uleb128 0xa
- 283 010d 26020000 		.4byte	.LASF21
+ 283 010d 70020000 		.4byte	.LASF21
  284 0111 01       		.byte	0x1
  285 0112 AA       		.byte	0xaa
  286 0113 00000000 		.4byte	.LFB2
@@ -592,13 +592,13 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
  327 017b 03       		.byte	0x3
  328 017c 6C       		.byte	0x6c
  329 017d 0E       		.uleb128 0xe
- 330 017e F8010000 		.4byte	.LASF24
+ 330 017e 42020000 		.4byte	.LASF24
  331 0182 03       		.byte	0x3
  332 0183 8C       		.byte	0x8c
  333 0184 0E       		.uleb128 0xe
  334 0185 19010000 		.4byte	.LASF25
  335 0189 03       		.byte	0x3
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 11
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc3GFAzV.s 			page 11
 
 
  336 018a A4       		.byte	0xa4
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
  390 002e 3A       		.uleb128 0x3a
  391 002f 0B       		.uleb128 0xb
  392 0030 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 12
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc3GFAzV.s 			page 12
 
 
  393 0031 0B       		.uleb128 0xb
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
  447 0067 19       		.uleb128 0x19
  448 0068 20       		.uleb128 0x20
  449 0069 0B       		.uleb128 0xb
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 13
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc3GFAzV.s 			page 13
 
 
  450 006a 00       		.byte	0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
  504 00a5 898201   		.uleb128 0x4109
  505 00a8 00       		.byte	0
  506 00a9 11       		.uleb128 0x11
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 14
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc3GFAzV.s 			page 14
 
 
  507 00aa 01       		.uleb128 0x1
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
  561 0030 00000000 		.4byte	0
  562 0034 00000000 		.4byte	0
  563              		.section	.debug_ranges,"",%progbits
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 15
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc3GFAzV.s 			page 15
 
 
  564              	.Ldebug_ranges0:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
  589      7000
  590              	.LASF1:
  591 00cb 756E7369 		.ascii	"unsigned char\000"
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 16
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc3GFAzV.s 			page 16
 
 
  591      676E6564 
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
  614              	.LASF18:
  615 0178 4D494449 		.ascii	"MIDI2_UART_BACKUP_STRUCT\000"
  615      325F5541 
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 17
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc3GFAzV.s 			page 17
 
 
  615      52545F42 
@@ -998,49 +998,48 @@ ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 1
  629 01ee 72785F70 		.ascii	"rx_period\000"
  629      6572696F 
  629      6400
- 630              	.LASF24:
- 631 01f8 4D494449 		.ascii	"MIDI2_UART_ClearRxBuffer\000"
- 631      325F5541 
- 631      52545F43 
- 631      6C656172 
- 631      52784275 
- 632              	.LASF4:
- 633 0211 6C6F6E67 		.ascii	"long int\000"
- 633      20696E74 
- 633      00
- 634              	.LASF15:
- 635 021a 656E6162 		.ascii	"enableState\000"
- 635      6C655374 
- 635      61746500 
- 636              	.LASF21:
- 637 0226 4D494449 		.ascii	"MIDI2_UART_Sleep\000"
- 637      325F5541 
- 637      52545F53 
- 637      6C656570 
- 637      00
-ARM GAS  C:\Users\jmdevoto\AppData\Local\Temp\cclnQhzs.s 			page 18
+ 630              	.LASF29:
+ 631 01f8 433A5C55 		.ascii	"C:\\Users\\jwvance\\Desktop\\Hummingbird\\Hummingbi"
+ 631      73657273 
+ 631      5C6A7776 
+ 631      616E6365 
+ 631      5C446573 
+ 632 0226 72642843 		.ascii	"rd(Continuous Output).cydsn\000"
+ 632      6F6E7469 
+ 632      6E756F75 
+ 632      73204F75 
+ 632      74707574 
+ 633              	.LASF24:
+ 634 0242 4D494449 		.ascii	"MIDI2_UART_ClearRxBuffer\000"
+ 634      325F5541 
+ 634      52545F43 
+ 634      6C656172 
+ 634      52784275 
+ 635              	.LASF4:
+ 636 025b 6C6F6E67 		.ascii	"long int\000"
+ 636      20696E74 
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\cc3GFAzV.s 			page 18
 
 
- 638              	.LASF0:
- 639 0237 7369676E 		.ascii	"signed char\000"
- 639      65642063 
- 639      68617200 
- 640              	.LASF29:
- 641 0243 433A5C55 		.ascii	"C:\\Users\\jmdevoto\\Desktop\\Builds\\(4-24-17)Humm"
- 641      73657273 
- 641      5C6A6D64 
- 641      65766F74 
- 641      6F5C4465 
- 642 0271 696E6762 		.ascii	"ingbird-059-v1\\Hummingbird(Continuous Output).cyds"
- 642      6972642D 
- 642      3035392D 
- 642      76315C48 
- 642      756D6D69 
- 643 02a3 6E00     		.ascii	"n\000"
- 644              	.LASF28:
- 645 02a5 47656E65 		.ascii	"Generated_Source\\PSoC5\\MIDI2_UART_PM.c\000"
- 645      72617465 
- 645      645F536F 
- 645      75726365 
- 645      5C50536F 
- 646              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 636      00
+ 637              	.LASF15:
+ 638 0264 656E6162 		.ascii	"enableState\000"
+ 638      6C655374 
+ 638      61746500 
+ 639              	.LASF21:
+ 640 0270 4D494449 		.ascii	"MIDI2_UART_Sleep\000"
+ 640      325F5541 
+ 640      52545F53 
+ 640      6C656570 
+ 640      00
+ 641              	.LASF0:
+ 642 0281 7369676E 		.ascii	"signed char\000"
+ 642      65642063 
+ 642      68617200 
+ 643              	.LASF28:
+ 644 028d 47656E65 		.ascii	"Generated_Source\\PSoC5\\MIDI2_UART_PM.c\000"
+ 644      72617465 
+ 644      645F536F 
+ 644      75726365 
+ 644      5C50536F 
+ 645              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
