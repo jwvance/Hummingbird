@@ -1,0 +1,3536 @@
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"ADC_UI.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.ADC_UI_Disable,"ax",%progbits
+  19              		.align	2
+  20              		.global	ADC_UI_Disable
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	ADC_UI_Disable, %function
+  24              	ADC_UI_Disable:
+  25              	.LFB0:
+  26              		.file 1 "Generated_Source\\PSoC5\\ADC_UI.c"
+   1:Generated_Source\PSoC5/ADC_UI.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/ADC_UI.c **** * File Name: ADC_UI.c
+   3:Generated_Source\PSoC5/ADC_UI.c **** * Version 2.0
+   4:Generated_Source\PSoC5/ADC_UI.c **** *
+   5:Generated_Source\PSoC5/ADC_UI.c **** * Description:
+   6:Generated_Source\PSoC5/ADC_UI.c **** *  This file provides the API functionality of the ADC SAR Sequencer Component
+   7:Generated_Source\PSoC5/ADC_UI.c **** *
+   8:Generated_Source\PSoC5/ADC_UI.c **** * Note:
+   9:Generated_Source\PSoC5/ADC_UI.c **** *  None
+  10:Generated_Source\PSoC5/ADC_UI.c **** *
+  11:Generated_Source\PSoC5/ADC_UI.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/ADC_UI.c **** * Copyright 2012-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/ADC_UI.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC5/ADC_UI.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC5/ADC_UI.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/ADC_UI.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/ADC_UI.c **** 
+  18:Generated_Source\PSoC5/ADC_UI.c **** #include "ADC_UI.h"
+  19:Generated_Source\PSoC5/ADC_UI.c **** #if(ADC_UI_IRQ_REMOVE == 0u)
+  20:Generated_Source\PSoC5/ADC_UI.c ****     #include "ADC_UI_IRQ.h"
+  21:Generated_Source\PSoC5/ADC_UI.c **** #endif   /* End ADC_UI_IRQ_REMOVE */
+  22:Generated_Source\PSoC5/ADC_UI.c **** 
+  23:Generated_Source\PSoC5/ADC_UI.c **** int16  ADC_UI_finalArray[ADC_UI_NUMBER_OF_CHANNELS];
+  24:Generated_Source\PSoC5/ADC_UI.c **** uint32 ADC_UI_initVar = 0u;
+  25:Generated_Source\PSoC5/ADC_UI.c **** static uint8 ADC_UI_tempChan;
+  26:Generated_Source\PSoC5/ADC_UI.c **** static uint8 ADC_UI_finalChan;
+  27:Generated_Source\PSoC5/ADC_UI.c **** static uint8 ADC_UI_tempTD = CY_DMA_INVALID_TD;
+  28:Generated_Source\PSoC5/ADC_UI.c **** static uint8 ADC_UI_finalTD = CY_DMA_INVALID_TD;
+  29:Generated_Source\PSoC5/ADC_UI.c **** 
+  30:Generated_Source\PSoC5/ADC_UI.c **** 
+  31:Generated_Source\PSoC5/ADC_UI.c **** /****************************************************************************
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 2
+
+
+  32:Generated_Source\PSoC5/ADC_UI.c **** * Function Name: ADC_UI_Disable()
+  33:Generated_Source\PSoC5/ADC_UI.c **** *****************************************************************************
+  34:Generated_Source\PSoC5/ADC_UI.c **** *
+  35:Generated_Source\PSoC5/ADC_UI.c **** * Summary:
+  36:Generated_Source\PSoC5/ADC_UI.c **** *  Disables the component without disabling the ADC SAR.
+  37:Generated_Source\PSoC5/ADC_UI.c **** *
+  38:Generated_Source\PSoC5/ADC_UI.c **** * Parameters:
+  39:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+  40:Generated_Source\PSoC5/ADC_UI.c **** *
+  41:Generated_Source\PSoC5/ADC_UI.c **** * Return:
+  42:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+  43:Generated_Source\PSoC5/ADC_UI.c **** *
+  44:Generated_Source\PSoC5/ADC_UI.c **** * Side Effects:
+  45:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+  46:Generated_Source\PSoC5/ADC_UI.c **** *
+  47:Generated_Source\PSoC5/ADC_UI.c **** * Reentrant:
+  48:Generated_Source\PSoC5/ADC_UI.c **** *  No.
+  49:Generated_Source\PSoC5/ADC_UI.c **** *
+  50:Generated_Source\PSoC5/ADC_UI.c **** ****************************************************************************/
+  51:Generated_Source\PSoC5/ADC_UI.c **** void ADC_UI_Disable(void)
+  52:Generated_Source\PSoC5/ADC_UI.c **** {
+  27              		.loc 1 52 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 70B5     		push	{r4, r5, r6, lr}
+  32              		.cfi_def_cfa_offset 16
+  33              		.cfi_offset 4, -16
+  34              		.cfi_offset 5, -12
+  35              		.cfi_offset 6, -8
+  36              		.cfi_offset 14, -4
+  53:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_CONTROL_REG &= ((uint8)(~ADC_UI_BASE_COMPONENT_ENABLE));
+  37              		.loc 1 53 0
+  38 0002 0B4A     		ldr	r2, .L3
+  54:Generated_Source\PSoC5/ADC_UI.c **** 
+  55:Generated_Source\PSoC5/ADC_UI.c ****     (void) CyDmaChDisable(ADC_UI_tempChan);
+  39              		.loc 1 55 0
+  40 0004 0B4E     		ldr	r6, .L3+4
+  53:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_CONTROL_REG &= ((uint8)(~ADC_UI_BASE_COMPONENT_ENABLE));
+  41              		.loc 1 53 0
+  42 0006 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  56:Generated_Source\PSoC5/ADC_UI.c ****     CyDmaTdFree(ADC_UI_tempTD);
+  43              		.loc 1 56 0
+  44 0008 0B4C     		ldr	r4, .L3+8
+  53:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_CONTROL_REG &= ((uint8)(~ADC_UI_BASE_COMPONENT_ENABLE));
+  45              		.loc 1 53 0
+  46 000a 03F0FE03 		and	r3, r3, #254
+  47 000e 1370     		strb	r3, [r2]
+  55:Generated_Source\PSoC5/ADC_UI.c ****     CyDmaTdFree(ADC_UI_tempTD);
+  48              		.loc 1 55 0
+  49 0010 3078     		ldrb	r0, [r6]	@ zero_extendqisi2
+  50 0012 FFF7FEFF 		bl	CyDmaChDisable
+  51              	.LVL0:
+  52              		.loc 1 56 0
+  53 0016 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+  54 0018 FFF7FEFF 		bl	CyDmaTdFree
+  55              	.LVL1:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 3
+
+
+  57:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_tempTD = CY_DMA_INVALID_TD;
+  56              		.loc 1 57 0
+  57 001c FF25     		movs	r5, #255
+  58:Generated_Source\PSoC5/ADC_UI.c **** 
+  59:Generated_Source\PSoC5/ADC_UI.c ****     (void) CyDmaChDisable(ADC_UI_finalChan);
+  58              		.loc 1 59 0
+  59 001e 7078     		ldrb	r0, [r6, #1]	@ zero_extendqisi2
+  57:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_tempTD = CY_DMA_INVALID_TD;
+  60              		.loc 1 57 0
+  61 0020 2570     		strb	r5, [r4]
+  62              		.loc 1 59 0
+  63 0022 FFF7FEFF 		bl	CyDmaChDisable
+  64              	.LVL2:
+  60:Generated_Source\PSoC5/ADC_UI.c ****     CyDmaTdFree(ADC_UI_finalTD);
+  65              		.loc 1 60 0
+  66 0026 6078     		ldrb	r0, [r4, #1]	@ zero_extendqisi2
+  67 0028 FFF7FEFF 		bl	CyDmaTdFree
+  68              	.LVL3:
+  61:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_finalTD = CY_DMA_INVALID_TD;
+  69              		.loc 1 61 0
+  70 002c 6570     		strb	r5, [r4, #1]
+  71 002e 70BD     		pop	{r4, r5, r6, pc}
+  72              	.L4:
+  73              		.align	2
+  74              	.L3:
+  75 0030 7C640040 		.word	1073767548
+  76 0034 00000000 		.word	.LANCHOR0
+  77 0038 00000000 		.word	.LANCHOR1
+  78              		.cfi_endproc
+  79              	.LFE0:
+  80              		.size	ADC_UI_Disable, .-ADC_UI_Disable
+  81              		.section	.text.ADC_UI_Init,"ax",%progbits
+  82              		.align	2
+  83              		.global	ADC_UI_Init
+  84              		.thumb
+  85              		.thumb_func
+  86              		.type	ADC_UI_Init, %function
+  87              	ADC_UI_Init:
+  88              	.LFB1:
+  62:Generated_Source\PSoC5/ADC_UI.c **** }
+  63:Generated_Source\PSoC5/ADC_UI.c **** 
+  64:Generated_Source\PSoC5/ADC_UI.c **** 
+  65:Generated_Source\PSoC5/ADC_UI.c **** /*******************************************************************************
+  66:Generated_Source\PSoC5/ADC_UI.c **** * Function Name: ADC_UI_Init
+  67:Generated_Source\PSoC5/ADC_UI.c **** ********************************************************************************
+  68:Generated_Source\PSoC5/ADC_UI.c **** *
+  69:Generated_Source\PSoC5/ADC_UI.c **** * Summary:
+  70:Generated_Source\PSoC5/ADC_UI.c **** *  Inits channels for DMA transfer. Provides loading period to the AMUX address
+  71:Generated_Source\PSoC5/ADC_UI.c **** *  selection counter
+  72:Generated_Source\PSoC5/ADC_UI.c **** *
+  73:Generated_Source\PSoC5/ADC_UI.c **** * Parameters:
+  74:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+  75:Generated_Source\PSoC5/ADC_UI.c **** *
+  76:Generated_Source\PSoC5/ADC_UI.c **** * Return:
+  77:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+  78:Generated_Source\PSoC5/ADC_UI.c **** *
+  79:Generated_Source\PSoC5/ADC_UI.c **** * Reentrant:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 4
+
+
+  80:Generated_Source\PSoC5/ADC_UI.c **** *  No.
+  81:Generated_Source\PSoC5/ADC_UI.c **** *
+  82:Generated_Source\PSoC5/ADC_UI.c **** *******************************************************************************/
+  83:Generated_Source\PSoC5/ADC_UI.c **** void ADC_UI_Init(void)
+  84:Generated_Source\PSoC5/ADC_UI.c **** {
+  89              		.loc 1 84 0
+  90              		.cfi_startproc
+  91              		@ args = 0, pretend = 0, frame = 0
+  92              		@ frame_needed = 0, uses_anonymous_args = 0
+  93 0000 10B5     		push	{r4, lr}
+  94              		.cfi_def_cfa_offset 8
+  95              		.cfi_offset 4, -8
+  96              		.cfi_offset 14, -4
+  85:Generated_Source\PSoC5/ADC_UI.c ****     /* Init DMA, 2 bytes bursts, each burst requires a request */
+  86:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_tempChan = ADC_UI_TempBuf_DmaInitialize(ADC_UI_TEMP_BYTES_PER_BURST,
+  97              		.loc 1 86 0
+  98 0002 0121     		movs	r1, #1
+  99 0004 4FF48042 		mov	r2, #16384
+ 100 0008 41F6FF73 		movw	r3, #8191
+ 101 000c 0220     		movs	r0, #2
+ 102 000e FFF7FEFF 		bl	ADC_UI_TempBuf_DmaInitialize
+ 103              	.LVL4:
+  87:Generated_Source\PSoC5/ADC_UI.c ****         ADC_UI_REQUEST_PER_BURST, (uint16)(HI16(CYDEV_PERIPH_BASE)), (uint16)(HI16(CYDEV_SRAM_BASE)
+  88:Generated_Source\PSoC5/ADC_UI.c **** 
+  89:Generated_Source\PSoC5/ADC_UI.c ****     /* Init DMA, (ADC_UI_NUMBER_OF_CHANNELS << 1u) bytes bursts, each burst requires a request */
+  90:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_finalChan = ADC_UI_FinalBuf_DmaInitialize((uint8)ADC_UI_FINAL_BYTES_PER_BURST,
+ 104              		.loc 1 90 0
+ 105 0012 41F6FF72 		movw	r2, #8191
+  86:Generated_Source\PSoC5/ADC_UI.c ****         ADC_UI_REQUEST_PER_BURST, (uint16)(HI16(CYDEV_PERIPH_BASE)), (uint16)(HI16(CYDEV_SRAM_BASE)
+ 106              		.loc 1 86 0
+ 107 0016 084C     		ldr	r4, .L7
+ 108              		.loc 1 90 0
+ 109 0018 1346     		mov	r3, r2
+  86:Generated_Source\PSoC5/ADC_UI.c ****         ADC_UI_REQUEST_PER_BURST, (uint16)(HI16(CYDEV_PERIPH_BASE)), (uint16)(HI16(CYDEV_SRAM_BASE)
+ 110              		.loc 1 86 0
+ 111 001a 2070     		strb	r0, [r4]
+ 112              		.loc 1 90 0
+ 113 001c 0121     		movs	r1, #1
+ 114 001e 0820     		movs	r0, #8
+ 115 0020 FFF7FEFF 		bl	ADC_UI_FinalBuf_DmaInitialize
+ 116              	.LVL5:
+ 117 0024 6070     		strb	r0, [r4, #1]
+  91:Generated_Source\PSoC5/ADC_UI.c ****         ADC_UI_REQUEST_PER_BURST, (uint16)(HI16(CYDEV_SRAM_BASE)), (uint16)(HI16(CYDEV_SRAM_BASE)))
+  92:Generated_Source\PSoC5/ADC_UI.c **** 
+  93:Generated_Source\PSoC5/ADC_UI.c ****     #if(ADC_UI_IRQ_REMOVE == 0u)
+  94:Generated_Source\PSoC5/ADC_UI.c ****         /* Set the ISR to point to the ADC_UI_IRQ Interrupt. */
+  95:Generated_Source\PSoC5/ADC_UI.c ****         ADC_UI_IRQ_SetVector(&ADC_UI_ISR);
+ 118              		.loc 1 95 0
+ 119 0026 0548     		ldr	r0, .L7+4
+ 120 0028 FFF7FEFF 		bl	ADC_UI_IRQ_SetVector
+ 121              	.LVL6:
+  96:Generated_Source\PSoC5/ADC_UI.c ****         /* Set the priority. */
+  97:Generated_Source\PSoC5/ADC_UI.c ****         ADC_UI_IRQ_SetPriority((uint8)ADC_UI_INTC_NUMBER);
+  98:Generated_Source\PSoC5/ADC_UI.c ****     #endif   /* End ADC_UI_IRQ_REMOVE */
+  99:Generated_Source\PSoC5/ADC_UI.c **** 
+ 100:Generated_Source\PSoC5/ADC_UI.c **** }
+ 122              		.loc 1 100 0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 5
+
+
+ 123 002c BDE81040 		pop	{r4, lr}
+ 124              		.cfi_restore 14
+ 125              		.cfi_restore 4
+ 126              		.cfi_def_cfa_offset 0
+  97:Generated_Source\PSoC5/ADC_UI.c ****     #endif   /* End ADC_UI_IRQ_REMOVE */
+ 127              		.loc 1 97 0
+ 128 0030 0220     		movs	r0, #2
+ 129 0032 FFF7FEBF 		b	ADC_UI_IRQ_SetPriority
+ 130              	.LVL7:
+ 131              	.L8:
+ 132 0036 00BF     		.align	2
+ 133              	.L7:
+ 134 0038 00000000 		.word	.LANCHOR0
+ 135 003c 00000000 		.word	ADC_UI_ISR
+ 136              		.cfi_endproc
+ 137              	.LFE1:
+ 138              		.size	ADC_UI_Init, .-ADC_UI_Init
+ 139              		.section	.text.ADC_UI_Enable,"ax",%progbits
+ 140              		.align	2
+ 141              		.global	ADC_UI_Enable
+ 142              		.thumb
+ 143              		.thumb_func
+ 144              		.type	ADC_UI_Enable, %function
+ 145              	ADC_UI_Enable:
+ 146              	.LFB2:
+ 101:Generated_Source\PSoC5/ADC_UI.c **** 
+ 102:Generated_Source\PSoC5/ADC_UI.c **** 
+ 103:Generated_Source\PSoC5/ADC_UI.c **** /*******************************************************************************
+ 104:Generated_Source\PSoC5/ADC_UI.c **** * Function Name: ADC_UI_Enable
+ 105:Generated_Source\PSoC5/ADC_UI.c **** ********************************************************************************
+ 106:Generated_Source\PSoC5/ADC_UI.c **** *
+ 107:Generated_Source\PSoC5/ADC_UI.c **** * Summary:
+ 108:Generated_Source\PSoC5/ADC_UI.c **** *  Enables DMA channels, address selection counter and FSM of Base component
+ 109:Generated_Source\PSoC5/ADC_UI.c **** *
+ 110:Generated_Source\PSoC5/ADC_UI.c **** * Parameters:
+ 111:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+ 112:Generated_Source\PSoC5/ADC_UI.c **** *
+ 113:Generated_Source\PSoC5/ADC_UI.c **** * Return:
+ 114:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+ 115:Generated_Source\PSoC5/ADC_UI.c **** *
+ 116:Generated_Source\PSoC5/ADC_UI.c **** * Side Effects:
+ 117:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+ 118:Generated_Source\PSoC5/ADC_UI.c **** *
+ 119:Generated_Source\PSoC5/ADC_UI.c **** * Reentrant:
+ 120:Generated_Source\PSoC5/ADC_UI.c **** *  No.
+ 121:Generated_Source\PSoC5/ADC_UI.c **** *
+ 122:Generated_Source\PSoC5/ADC_UI.c **** *******************************************************************************/
+ 123:Generated_Source\PSoC5/ADC_UI.c **** void ADC_UI_Enable(void)
+ 124:Generated_Source\PSoC5/ADC_UI.c **** {
+ 147              		.loc 1 124 0
+ 148              		.cfi_startproc
+ 149              		@ args = 0, pretend = 0, frame = 0
+ 150              		@ frame_needed = 0, uses_anonymous_args = 0
+ 151 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 152              		.cfi_def_cfa_offset 24
+ 153              		.cfi_offset 3, -24
+ 154              		.cfi_offset 4, -20
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 6
+
+
+ 155              		.cfi_offset 5, -16
+ 156              		.cfi_offset 6, -12
+ 157              		.cfi_offset 7, -8
+ 158              		.cfi_offset 14, -4
+ 125:Generated_Source\PSoC5/ADC_UI.c ****     uint8 enableInterrupts;
+ 126:Generated_Source\PSoC5/ADC_UI.c **** 
+ 127:Generated_Source\PSoC5/ADC_UI.c ****     static int16 ADC_UI_tempArray[ADC_UI_NUMBER_OF_CHANNELS];
+ 128:Generated_Source\PSoC5/ADC_UI.c ****     
+ 129:Generated_Source\PSoC5/ADC_UI.c ****     (void)CyDmaClearPendingDrq(ADC_UI_tempChan);
+ 159              		.loc 1 129 0
+ 160 0002 2A4D     		ldr	r5, .L16
+ 130:Generated_Source\PSoC5/ADC_UI.c ****     (void)CyDmaClearPendingDrq(ADC_UI_finalChan);
+ 131:Generated_Source\PSoC5/ADC_UI.c ****     
+ 132:Generated_Source\PSoC5/ADC_UI.c ****     
+ 133:Generated_Source\PSoC5/ADC_UI.c ****     /* Provides initialization procedure for the TempBuf DMA
+ 134:Generated_Source\PSoC5/ADC_UI.c ****     * Configure this Td as follows:
+ 135:Generated_Source\PSoC5/ADC_UI.c ****     *  - The TD is looping on itself
+ 136:Generated_Source\PSoC5/ADC_UI.c ****     *  - Increment the destination address, but not the source address
+ 137:Generated_Source\PSoC5/ADC_UI.c ****     */
+ 138:Generated_Source\PSoC5/ADC_UI.c **** 
+ 139:Generated_Source\PSoC5/ADC_UI.c ****     if (ADC_UI_tempTD == DMA_INVALID_TD)
+ 161              		.loc 1 139 0
+ 162 0004 2A4C     		ldr	r4, .L16+4
+ 129:Generated_Source\PSoC5/ADC_UI.c ****     (void)CyDmaClearPendingDrq(ADC_UI_finalChan);
+ 163              		.loc 1 129 0
+ 164 0006 2878     		ldrb	r0, [r5]	@ zero_extendqisi2
+ 165 0008 FFF7FEFF 		bl	CyDmaClearPendingDrq
+ 166              	.LVL8:
+ 130:Generated_Source\PSoC5/ADC_UI.c ****     (void)CyDmaClearPendingDrq(ADC_UI_finalChan);
+ 167              		.loc 1 130 0
+ 168 000c 6878     		ldrb	r0, [r5, #1]	@ zero_extendqisi2
+ 169 000e FFF7FEFF 		bl	CyDmaClearPendingDrq
+ 170              	.LVL9:
+ 171              		.loc 1 139 0
+ 172 0012 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+ 173 0014 FF28     		cmp	r0, #255
+ 174 0016 45D0     		beq	.L14
+ 175              	.L10:
+ 140:Generated_Source\PSoC5/ADC_UI.c ****     {
+ 141:Generated_Source\PSoC5/ADC_UI.c ****         ADC_UI_tempTD = CyDmaTdAllocate();
+ 142:Generated_Source\PSoC5/ADC_UI.c ****     }
+ 143:Generated_Source\PSoC5/ADC_UI.c **** 
+ 144:Generated_Source\PSoC5/ADC_UI.c ****     (void) CyDmaTdSetConfiguration(ADC_UI_tempTD, ADC_UI_TEMP_TRANSFER_COUNT,
+ 145:Generated_Source\PSoC5/ADC_UI.c ****         ADC_UI_tempTD, ((uint8)ADC_UI_TempBuf__TD_TERMOUT_EN | (uint8)TD_INC_DST_ADR));
+ 146:Generated_Source\PSoC5/ADC_UI.c **** 
+ 147:Generated_Source\PSoC5/ADC_UI.c ****     /* From the SAR to the TempArray */
+ 148:Generated_Source\PSoC5/ADC_UI.c ****     (void) CyDmaTdSetAddress(ADC_UI_tempTD, (uint16)(LO16((uint32)ADC_UI_SAR_DATA_ADDR_0)),
+ 176              		.loc 1 148 0
+ 177 0018 264E     		ldr	r6, .L16+8
+ 144:Generated_Source\PSoC5/ADC_UI.c ****         ADC_UI_tempTD, ((uint8)ADC_UI_TempBuf__TD_TERMOUT_EN | (uint8)TD_INC_DST_ADR));
+ 178              		.loc 1 144 0
+ 179 001a 0623     		movs	r3, #6
+ 180 001c 0246     		mov	r2, r0
+ 181 001e 0821     		movs	r1, #8
+ 182              		.loc 1 148 0
+ 183 0020 B6B2     		uxth	r6, r6
+ 144:Generated_Source\PSoC5/ADC_UI.c ****         ADC_UI_tempTD, ((uint8)ADC_UI_TempBuf__TD_TERMOUT_EN | (uint8)TD_INC_DST_ADR));
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 7
+
+
+ 184              		.loc 1 144 0
+ 185 0022 FFF7FEFF 		bl	CyDmaTdSetConfiguration
+ 186              	.LVL10:
+ 187              		.loc 1 148 0
+ 188 0026 3246     		mov	r2, r6
+ 189 0028 45F6A031 		movw	r1, #23456
+ 190 002c 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+ 191 002e FFF7FEFF 		bl	CyDmaTdSetAddress
+ 192              	.LVL11:
+ 149:Generated_Source\PSoC5/ADC_UI.c ****         (uint16)(LO16((uint32)ADC_UI_tempArray)));
+ 150:Generated_Source\PSoC5/ADC_UI.c **** 
+ 151:Generated_Source\PSoC5/ADC_UI.c ****     /* Associate the TD with the channel */
+ 152:Generated_Source\PSoC5/ADC_UI.c ****     (void) CyDmaChSetInitialTd(ADC_UI_tempChan, ADC_UI_tempTD);
+ 193              		.loc 1 152 0
+ 194 0032 2878     		ldrb	r0, [r5]	@ zero_extendqisi2
+ 195 0034 2178     		ldrb	r1, [r4]	@ zero_extendqisi2
+ 196 0036 FFF7FEFF 		bl	CyDmaChSetInitialTd
+ 197              	.LVL12:
+ 153:Generated_Source\PSoC5/ADC_UI.c **** 
+ 154:Generated_Source\PSoC5/ADC_UI.c **** 
+ 155:Generated_Source\PSoC5/ADC_UI.c ****     /* Provides initialization procedure for the FinalBuf DMA
+ 156:Generated_Source\PSoC5/ADC_UI.c ****     * Configure this Td as follows:
+ 157:Generated_Source\PSoC5/ADC_UI.c ****     *  - The TD is looping on itself
+ 158:Generated_Source\PSoC5/ADC_UI.c ****     *  - Increment the source and destination address
+ 159:Generated_Source\PSoC5/ADC_UI.c ****     */
+ 160:Generated_Source\PSoC5/ADC_UI.c **** 
+ 161:Generated_Source\PSoC5/ADC_UI.c ****     if (ADC_UI_finalTD == DMA_INVALID_TD)
+ 198              		.loc 1 161 0
+ 199 003a 6078     		ldrb	r0, [r4, #1]	@ zero_extendqisi2
+ 148:Generated_Source\PSoC5/ADC_UI.c ****         (uint16)(LO16((uint32)ADC_UI_tempArray)));
+ 200              		.loc 1 148 0
+ 201 003c 1C4F     		ldr	r7, .L16+4
+ 202              		.loc 1 161 0
+ 203 003e FF28     		cmp	r0, #255
+ 204 0040 2CD0     		beq	.L15
+ 205              	.L11:
+ 162:Generated_Source\PSoC5/ADC_UI.c ****     {
+ 163:Generated_Source\PSoC5/ADC_UI.c ****         ADC_UI_finalTD = CyDmaTdAllocate();
+ 164:Generated_Source\PSoC5/ADC_UI.c ****     }
+ 165:Generated_Source\PSoC5/ADC_UI.c ****     
+ 166:Generated_Source\PSoC5/ADC_UI.c ****     (void) CyDmaTdSetConfiguration(ADC_UI_finalTD, (ADC_UI_FINAL_BYTES_PER_BURST),
+ 206              		.loc 1 166 0
+ 207 0042 0723     		movs	r3, #7
+ 208 0044 0246     		mov	r2, r0
+ 209 0046 0821     		movs	r1, #8
+ 210 0048 FFF7FEFF 		bl	CyDmaTdSetConfiguration
+ 211              	.LVL13:
+ 167:Generated_Source\PSoC5/ADC_UI.c ****         ADC_UI_finalTD, ((uint8)(ADC_UI_FinalBuf__TD_TERMOUT_EN) | (uint8)TD_INC_SRC_ADR |
+ 168:Generated_Source\PSoC5/ADC_UI.c ****             (uint8)TD_INC_DST_ADR));
+ 169:Generated_Source\PSoC5/ADC_UI.c **** 
+ 170:Generated_Source\PSoC5/ADC_UI.c ****     /* From the the TempArray to Final Array */
+ 171:Generated_Source\PSoC5/ADC_UI.c ****     (void) CyDmaTdSetAddress(ADC_UI_finalTD, (uint16)(LO16((uint32)ADC_UI_tempArray)),
+ 212              		.loc 1 171 0
+ 213 004c 1A4A     		ldr	r2, .L16+12
+ 214 004e 3146     		mov	r1, r6
+ 215 0050 92B2     		uxth	r2, r2
+ 216 0052 6078     		ldrb	r0, [r4, #1]	@ zero_extendqisi2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 8
+
+
+ 217 0054 FFF7FEFF 		bl	CyDmaTdSetAddress
+ 218              	.LVL14:
+ 172:Generated_Source\PSoC5/ADC_UI.c ****         (uint16)(LO16((uint32)ADC_UI_finalArray)));
+ 173:Generated_Source\PSoC5/ADC_UI.c **** 
+ 174:Generated_Source\PSoC5/ADC_UI.c ****     /* Associate the TD with the channel */
+ 175:Generated_Source\PSoC5/ADC_UI.c ****     (void) CyDmaChSetInitialTd(ADC_UI_finalChan, ADC_UI_finalTD);
+ 219              		.loc 1 175 0
+ 220 0058 6178     		ldrb	r1, [r4, #1]	@ zero_extendqisi2
+ 221 005a 6878     		ldrb	r0, [r5, #1]	@ zero_extendqisi2
+ 222 005c FFF7FEFF 		bl	CyDmaChSetInitialTd
+ 223              	.LVL15:
+ 176:Generated_Source\PSoC5/ADC_UI.c ****     
+ 177:Generated_Source\PSoC5/ADC_UI.c ****     (void) CyDmaChEnable(ADC_UI_tempChan, 1u);
+ 224              		.loc 1 177 0
+ 225 0060 0121     		movs	r1, #1
+ 226 0062 2878     		ldrb	r0, [r5]	@ zero_extendqisi2
+ 227 0064 FFF7FEFF 		bl	CyDmaChEnable
+ 228              	.LVL16:
+ 178:Generated_Source\PSoC5/ADC_UI.c ****     (void) CyDmaChEnable(ADC_UI_finalChan, 1u);
+ 229              		.loc 1 178 0
+ 230 0068 0121     		movs	r1, #1
+ 231 006a 6878     		ldrb	r0, [r5, #1]	@ zero_extendqisi2
+ 232 006c FFF7FEFF 		bl	CyDmaChEnable
+ 233              	.LVL17:
+ 179:Generated_Source\PSoC5/ADC_UI.c **** 
+ 180:Generated_Source\PSoC5/ADC_UI.c ****     /* Enable Counter and give Enable pulse to set an address of the last channel */
+ 181:Generated_Source\PSoC5/ADC_UI.c ****     enableInterrupts = CyEnterCriticalSection();
+ 234              		.loc 1 181 0
+ 235 0070 FFF7FEFF 		bl	CyEnterCriticalSection
+ 236              	.LVL18:
+ 182:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_CYCLE_COUNTER_AUX_CONTROL_REG |= ((uint8)(ADC_UI_CYCLE_COUNTER_ENABLE));
+ 237              		.loc 1 182 0
+ 238 0074 114A     		ldr	r2, .L16+16
+ 239 0076 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 240 0078 43F02003 		orr	r3, r3, #32
+ 241 007c 1370     		strb	r3, [r2]
+ 183:Generated_Source\PSoC5/ADC_UI.c ****     CyExitCriticalSection(enableInterrupts);
+ 242              		.loc 1 183 0
+ 243 007e FFF7FEFF 		bl	CyExitCriticalSection
+ 244              	.LVL19:
+ 184:Generated_Source\PSoC5/ADC_UI.c **** 
+ 185:Generated_Source\PSoC5/ADC_UI.c ****     /* Enable FSM of the Base Component */
+ 186:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_CONTROL_REG |= ((uint8)(ADC_UI_BASE_COMPONENT_ENABLE));
+ 245              		.loc 1 186 0
+ 246 0082 0F4B     		ldr	r3, .L16+20
+ 187:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_CONTROL_REG |= ((uint8)(ADC_UI_LOAD_COUNTER_PERIOD));
+ 188:Generated_Source\PSoC5/ADC_UI.c **** 
+ 189:Generated_Source\PSoC5/ADC_UI.c ****     #if(ADC_UI_IRQ_REMOVE == 0u)
+ 190:Generated_Source\PSoC5/ADC_UI.c ****         /* Clear a pending interrupt */
+ 191:Generated_Source\PSoC5/ADC_UI.c ****         CyIntClearPending(ADC_UI_INTC_NUMBER);
+ 247              		.loc 1 191 0
+ 248 0084 0F49     		ldr	r1, .L16+24
+ 186:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_CONTROL_REG |= ((uint8)(ADC_UI_LOAD_COUNTER_PERIOD));
+ 249              		.loc 1 186 0
+ 250 0086 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 251              		.loc 1 191 0
+ 252 0088 0420     		movs	r0, #4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 9
+
+
+ 186:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_CONTROL_REG |= ((uint8)(ADC_UI_LOAD_COUNTER_PERIOD));
+ 253              		.loc 1 186 0
+ 254 008a 42F00102 		orr	r2, r2, #1
+ 255 008e 1A70     		strb	r2, [r3]
+ 187:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_CONTROL_REG |= ((uint8)(ADC_UI_LOAD_COUNTER_PERIOD));
+ 256              		.loc 1 187 0
+ 257 0090 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 258 0092 42F00202 		orr	r2, r2, #2
+ 259 0096 1A70     		strb	r2, [r3]
+ 260              		.loc 1 191 0
+ 261 0098 0860     		str	r0, [r1]
+ 262 009a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 263              	.L15:
+ 163:Generated_Source\PSoC5/ADC_UI.c ****     }
+ 264              		.loc 1 163 0
+ 265 009c FFF7FEFF 		bl	CyDmaTdAllocate
+ 266              	.LVL20:
+ 267 00a0 7870     		strb	r0, [r7, #1]
+ 268 00a2 CEE7     		b	.L11
+ 269              	.L14:
+ 141:Generated_Source\PSoC5/ADC_UI.c ****     }
+ 270              		.loc 1 141 0
+ 271 00a4 FFF7FEFF 		bl	CyDmaTdAllocate
+ 272              	.LVL21:
+ 273 00a8 2070     		strb	r0, [r4]
+ 274 00aa B5E7     		b	.L10
+ 275              	.L17:
+ 276              		.align	2
+ 277              	.L16:
+ 278 00ac 00000000 		.word	.LANCHOR0
+ 279 00b0 00000000 		.word	.LANCHOR1
+ 280 00b4 04000000 		.word	.LANCHOR0+4
+ 281 00b8 00000000 		.word	ADC_UI_finalArray
+ 282 00bc 9D640040 		.word	1073767581
+ 283 00c0 7C640040 		.word	1073767548
+ 284 00c4 80E200E0 		.word	-536812928
+ 285              		.cfi_endproc
+ 286              	.LFE2:
+ 287              		.size	ADC_UI_Enable, .-ADC_UI_Enable
+ 288              		.section	.text.ADC_UI_Start,"ax",%progbits
+ 289              		.align	2
+ 290              		.global	ADC_UI_Start
+ 291              		.thumb
+ 292              		.thumb_func
+ 293              		.type	ADC_UI_Start, %function
+ 294              	ADC_UI_Start:
+ 295              	.LFB3:
+ 192:Generated_Source\PSoC5/ADC_UI.c ****     #endif   /* End ADC_UI_IRQ_REMOVE */
+ 193:Generated_Source\PSoC5/ADC_UI.c **** }
+ 194:Generated_Source\PSoC5/ADC_UI.c **** 
+ 195:Generated_Source\PSoC5/ADC_UI.c **** 
+ 196:Generated_Source\PSoC5/ADC_UI.c **** /*******************************************************************************
+ 197:Generated_Source\PSoC5/ADC_UI.c **** * Function Name: ADC_UI_Start
+ 198:Generated_Source\PSoC5/ADC_UI.c **** ********************************************************************************
+ 199:Generated_Source\PSoC5/ADC_UI.c **** *
+ 200:Generated_Source\PSoC5/ADC_UI.c **** * Summary:
+ 201:Generated_Source\PSoC5/ADC_UI.c **** *  Starts component
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 10
+
+
+ 202:Generated_Source\PSoC5/ADC_UI.c **** *
+ 203:Generated_Source\PSoC5/ADC_UI.c **** * Parameters:
+ 204:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+ 205:Generated_Source\PSoC5/ADC_UI.c **** *
+ 206:Generated_Source\PSoC5/ADC_UI.c **** * Return:
+ 207:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+ 208:Generated_Source\PSoC5/ADC_UI.c **** *
+ 209:Generated_Source\PSoC5/ADC_UI.c **** * Side Effects:
+ 210:Generated_Source\PSoC5/ADC_UI.c **** *  If the initVar variable is already set, this function only calls the 
+ 211:Generated_Source\PSoC5/ADC_UI.c **** *  ADC_UI_Enable() function
+ 212:Generated_Source\PSoC5/ADC_UI.c **** *
+ 213:Generated_Source\PSoC5/ADC_UI.c **** * Reentrant:
+ 214:Generated_Source\PSoC5/ADC_UI.c **** *  No.
+ 215:Generated_Source\PSoC5/ADC_UI.c **** *
+ 216:Generated_Source\PSoC5/ADC_UI.c **** *******************************************************************************/
+ 217:Generated_Source\PSoC5/ADC_UI.c **** void ADC_UI_Start(void)
+ 218:Generated_Source\PSoC5/ADC_UI.c **** {
+ 296              		.loc 1 218 0
+ 297              		.cfi_startproc
+ 298              		@ args = 0, pretend = 0, frame = 0
+ 299              		@ frame_needed = 0, uses_anonymous_args = 0
+ 300 0000 10B5     		push	{r4, lr}
+ 301              		.cfi_def_cfa_offset 8
+ 302              		.cfi_offset 4, -8
+ 303              		.cfi_offset 14, -4
+ 219:Generated_Source\PSoC5/ADC_UI.c ****     if(ADC_UI_initVar == 0u)
+ 304              		.loc 1 219 0
+ 305 0002 074C     		ldr	r4, .L21
+ 306 0004 E368     		ldr	r3, [r4, #12]
+ 307 0006 1BB9     		cbnz	r3, .L19
+ 220:Generated_Source\PSoC5/ADC_UI.c ****     {
+ 221:Generated_Source\PSoC5/ADC_UI.c ****         ADC_UI_Init();
+ 308              		.loc 1 221 0
+ 309 0008 FFF7FEFF 		bl	ADC_UI_Init
+ 310              	.LVL22:
+ 222:Generated_Source\PSoC5/ADC_UI.c ****         ADC_UI_initVar = 1u;
+ 311              		.loc 1 222 0
+ 312 000c 0123     		movs	r3, #1
+ 313 000e E360     		str	r3, [r4, #12]
+ 314              	.L19:
+ 223:Generated_Source\PSoC5/ADC_UI.c ****     }
+ 224:Generated_Source\PSoC5/ADC_UI.c **** 
+ 225:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_Enable();
+ 315              		.loc 1 225 0
+ 316 0010 FFF7FEFF 		bl	ADC_UI_Enable
+ 317              	.LVL23:
+ 226:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_SAR_Start();
+ 318              		.loc 1 226 0
+ 319 0014 FFF7FEFF 		bl	ADC_UI_SAR_Start
+ 320              	.LVL24:
+ 227:Generated_Source\PSoC5/ADC_UI.c ****     (void) CY_GET_REG8(ADC_UI_STATUS_PTR);
+ 321              		.loc 1 227 0
+ 322 0018 024B     		ldr	r3, .L21+4
+ 323 001a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 324 001c 10BD     		pop	{r4, pc}
+ 325              	.L22:
+ 326 001e 00BF     		.align	2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 11
+
+
+ 327              	.L21:
+ 328 0020 00000000 		.word	.LANCHOR0
+ 329 0024 6A640040 		.word	1073767530
+ 330              		.cfi_endproc
+ 331              	.LFE3:
+ 332              		.size	ADC_UI_Start, .-ADC_UI_Start
+ 333              		.section	.text.ADC_UI_Stop,"ax",%progbits
+ 334              		.align	2
+ 335              		.global	ADC_UI_Stop
+ 336              		.thumb
+ 337              		.thumb_func
+ 338              		.type	ADC_UI_Stop, %function
+ 339              	ADC_UI_Stop:
+ 340              	.LFB4:
+ 228:Generated_Source\PSoC5/ADC_UI.c **** 
+ 229:Generated_Source\PSoC5/ADC_UI.c **** }
+ 230:Generated_Source\PSoC5/ADC_UI.c **** 
+ 231:Generated_Source\PSoC5/ADC_UI.c **** 
+ 232:Generated_Source\PSoC5/ADC_UI.c **** /*******************************************************************************
+ 233:Generated_Source\PSoC5/ADC_UI.c **** * Function Name: ADC_UI_Stop
+ 234:Generated_Source\PSoC5/ADC_UI.c **** ********************************************************************************
+ 235:Generated_Source\PSoC5/ADC_UI.c **** *
+ 236:Generated_Source\PSoC5/ADC_UI.c **** * Summary:
+ 237:Generated_Source\PSoC5/ADC_UI.c **** *  Stops component.
+ 238:Generated_Source\PSoC5/ADC_UI.c **** *
+ 239:Generated_Source\PSoC5/ADC_UI.c **** * Parameters:
+ 240:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+ 241:Generated_Source\PSoC5/ADC_UI.c **** *
+ 242:Generated_Source\PSoC5/ADC_UI.c **** * Return:
+ 243:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+ 244:Generated_Source\PSoC5/ADC_UI.c **** *
+ 245:Generated_Source\PSoC5/ADC_UI.c **** * Side Effects:
+ 246:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+ 247:Generated_Source\PSoC5/ADC_UI.c **** *
+ 248:Generated_Source\PSoC5/ADC_UI.c **** * Reentrant:
+ 249:Generated_Source\PSoC5/ADC_UI.c **** *  No.
+ 250:Generated_Source\PSoC5/ADC_UI.c **** *
+ 251:Generated_Source\PSoC5/ADC_UI.c **** *******************************************************************************/
+ 252:Generated_Source\PSoC5/ADC_UI.c **** void ADC_UI_Stop(void)
+ 253:Generated_Source\PSoC5/ADC_UI.c **** {
+ 341              		.loc 1 253 0
+ 342              		.cfi_startproc
+ 343              		@ args = 0, pretend = 0, frame = 0
+ 344              		@ frame_needed = 0, uses_anonymous_args = 0
+ 345 0000 08B5     		push	{r3, lr}
+ 346              		.cfi_def_cfa_offset 8
+ 347              		.cfi_offset 3, -8
+ 348              		.cfi_offset 14, -4
+ 254:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_SAR_Stop();
+ 349              		.loc 1 254 0
+ 350 0002 FFF7FEFF 		bl	ADC_UI_SAR_Stop
+ 351              	.LVL25:
+ 255:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_Disable();
+ 256:Generated_Source\PSoC5/ADC_UI.c **** }
+ 352              		.loc 1 256 0
+ 353 0006 BDE80840 		pop	{r3, lr}
+ 354              		.cfi_restore 14
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 12
+
+
+ 355              		.cfi_restore 3
+ 356              		.cfi_def_cfa_offset 0
+ 255:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_Disable();
+ 357              		.loc 1 255 0
+ 358 000a FFF7FEBF 		b	ADC_UI_Disable
+ 359              	.LVL26:
+ 360              		.cfi_endproc
+ 361              	.LFE4:
+ 362              		.size	ADC_UI_Stop, .-ADC_UI_Stop
+ 363 000e 00BF     		.section	.text.ADC_UI_StartConvert,"ax",%progbits
+ 364              		.align	2
+ 365              		.global	ADC_UI_StartConvert
+ 366              		.thumb
+ 367              		.thumb_func
+ 368              		.type	ADC_UI_StartConvert, %function
+ 369              	ADC_UI_StartConvert:
+ 370              	.LFB5:
+ 257:Generated_Source\PSoC5/ADC_UI.c **** 
+ 258:Generated_Source\PSoC5/ADC_UI.c **** #if(ADC_UI_SAMPLE_MODE != ADC_UI_SAMPLE_MODE_HW_TRIGGERED)
+ 259:Generated_Source\PSoC5/ADC_UI.c **** 
+ 260:Generated_Source\PSoC5/ADC_UI.c ****     /*******************************************************************************
+ 261:Generated_Source\PSoC5/ADC_UI.c ****     * Function Name: ADC_UI_StartConvert
+ 262:Generated_Source\PSoC5/ADC_UI.c ****     ********************************************************************************
+ 263:Generated_Source\PSoC5/ADC_UI.c ****     *
+ 264:Generated_Source\PSoC5/ADC_UI.c ****     * Summary:
+ 265:Generated_Source\PSoC5/ADC_UI.c ****     *  When the Sample Mode parameter is set to 'Free Running', the component will
+ 266:Generated_Source\PSoC5/ADC_UI.c ****     * operate in a continuous mode. The channels will be scanned continuously until
+ 267:Generated_Source\PSoC5/ADC_UI.c ****     * _StopConvert()or  _Stop() is called
+ 268:Generated_Source\PSoC5/ADC_UI.c ****     *
+ 269:Generated_Source\PSoC5/ADC_UI.c ****     * Parameters:
+ 270:Generated_Source\PSoC5/ADC_UI.c ****     *  None.
+ 271:Generated_Source\PSoC5/ADC_UI.c ****     *
+ 272:Generated_Source\PSoC5/ADC_UI.c ****     * Return:
+ 273:Generated_Source\PSoC5/ADC_UI.c ****     *  None.
+ 274:Generated_Source\PSoC5/ADC_UI.c ****     *
+ 275:Generated_Source\PSoC5/ADC_UI.c ****     * Side Effects:
+ 276:Generated_Source\PSoC5/ADC_UI.c ****     *  Calling ADC_UI_StartConvert() disables the external SOC pin.
+ 277:Generated_Source\PSoC5/ADC_UI.c ****     *
+ 278:Generated_Source\PSoC5/ADC_UI.c ****     * Reentrant:
+ 279:Generated_Source\PSoC5/ADC_UI.c ****     *  No.
+ 280:Generated_Source\PSoC5/ADC_UI.c ****     *
+ 281:Generated_Source\PSoC5/ADC_UI.c ****     *******************************************************************************/
+ 282:Generated_Source\PSoC5/ADC_UI.c ****     void ADC_UI_StartConvert(void)
+ 283:Generated_Source\PSoC5/ADC_UI.c ****     {
+ 371              		.loc 1 283 0
+ 372              		.cfi_startproc
+ 373              		@ args = 0, pretend = 0, frame = 0
+ 374              		@ frame_needed = 0, uses_anonymous_args = 0
+ 375              		@ link register save eliminated.
+ 284:Generated_Source\PSoC5/ADC_UI.c ****         #if(ADC_UI_SAMPLE_MODE != ADC_UI_SAMPLE_MODE_FREE_RUNNING)
+ 285:Generated_Source\PSoC5/ADC_UI.c **** 
+ 286:Generated_Source\PSoC5/ADC_UI.c ****             ADC_UI_CONTROL_REG |= ((uint8)(ADC_UI_SOFTWARE_SOC_PULSE));
+ 287:Generated_Source\PSoC5/ADC_UI.c **** 
+ 288:Generated_Source\PSoC5/ADC_UI.c ****         #else
+ 289:Generated_Source\PSoC5/ADC_UI.c **** 
+ 290:Generated_Source\PSoC5/ADC_UI.c ****             ADC_UI_SAR_StartConvert();
+ 376              		.loc 1 290 0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 13
+
+
+ 377 0000 FFF7FEBF 		b	ADC_UI_SAR_StartConvert
+ 378              	.LVL27:
+ 379              		.cfi_endproc
+ 380              	.LFE5:
+ 381              		.size	ADC_UI_StartConvert, .-ADC_UI_StartConvert
+ 382              		.section	.text.ADC_UI_StopConvert,"ax",%progbits
+ 383              		.align	2
+ 384              		.global	ADC_UI_StopConvert
+ 385              		.thumb
+ 386              		.thumb_func
+ 387              		.type	ADC_UI_StopConvert, %function
+ 388              	ADC_UI_StopConvert:
+ 389              	.LFB6:
+ 291:Generated_Source\PSoC5/ADC_UI.c **** 
+ 292:Generated_Source\PSoC5/ADC_UI.c ****         #endif /*
+ 293:Generated_Source\PSoC5/ADC_UI.c ****                  #if(ADC_UI_SAMPLE_MODE !=
+ 294:Generated_Source\PSoC5/ADC_UI.c ****                  ADC_UI_SAMPLE_MODE_FREE_RUNNING)
+ 295:Generated_Source\PSoC5/ADC_UI.c ****                */
+ 296:Generated_Source\PSoC5/ADC_UI.c ****     }
+ 297:Generated_Source\PSoC5/ADC_UI.c **** 
+ 298:Generated_Source\PSoC5/ADC_UI.c **** 
+ 299:Generated_Source\PSoC5/ADC_UI.c ****     /*******************************************************************************
+ 300:Generated_Source\PSoC5/ADC_UI.c ****     * Function Name: ADC_UI_StopConvert
+ 301:Generated_Source\PSoC5/ADC_UI.c ****     ********************************************************************************
+ 302:Generated_Source\PSoC5/ADC_UI.c ****     *
+ 303:Generated_Source\PSoC5/ADC_UI.c ****     * Summary:
+ 304:Generated_Source\PSoC5/ADC_UI.c ****     *  Forces the component to stop all conversions
+ 305:Generated_Source\PSoC5/ADC_UI.c ****     *
+ 306:Generated_Source\PSoC5/ADC_UI.c ****     * Parameters:
+ 307:Generated_Source\PSoC5/ADC_UI.c ****     *  None.
+ 308:Generated_Source\PSoC5/ADC_UI.c ****     *
+ 309:Generated_Source\PSoC5/ADC_UI.c ****     * Return:
+ 310:Generated_Source\PSoC5/ADC_UI.c ****     *  None.
+ 311:Generated_Source\PSoC5/ADC_UI.c ****     *
+ 312:Generated_Source\PSoC5/ADC_UI.c ****     * Side Effects:
+ 313:Generated_Source\PSoC5/ADC_UI.c ****     *  In free-running and software trigger mode, this function sets a software 
+ 314:Generated_Source\PSoC5/ADC_UI.c ****     *  version of the SOC to low level and switches the SOC source to hardware SOC 
+ 315:Generated_Source\PSoC5/ADC_UI.c ****     *  input (Hardware trigger).
+ 316:Generated_Source\PSoC5/ADC_UI.c ****     *
+ 317:Generated_Source\PSoC5/ADC_UI.c ****     * Reentrant:
+ 318:Generated_Source\PSoC5/ADC_UI.c ****     *  No.
+ 319:Generated_Source\PSoC5/ADC_UI.c ****     *
+ 320:Generated_Source\PSoC5/ADC_UI.c ****     *******************************************************************************/
+ 321:Generated_Source\PSoC5/ADC_UI.c ****     void ADC_UI_StopConvert(void)
+ 322:Generated_Source\PSoC5/ADC_UI.c ****     {
+ 390              		.loc 1 322 0
+ 391              		.cfi_startproc
+ 392              		@ args = 0, pretend = 0, frame = 0
+ 393              		@ frame_needed = 0, uses_anonymous_args = 0
+ 394              		@ link register save eliminated.
+ 323:Generated_Source\PSoC5/ADC_UI.c ****         ADC_UI_SAR_StopConvert();
+ 395              		.loc 1 323 0
+ 396 0000 FFF7FEBF 		b	ADC_UI_SAR_StopConvert
+ 397              	.LVL28:
+ 398              		.cfi_endproc
+ 399              	.LFE6:
+ 400              		.size	ADC_UI_StopConvert, .-ADC_UI_StopConvert
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 14
+
+
+ 401              		.section	.text.ADC_UI_IsEndConversion,"ax",%progbits
+ 402              		.align	2
+ 403              		.global	ADC_UI_IsEndConversion
+ 404              		.thumb
+ 405              		.thumb_func
+ 406              		.type	ADC_UI_IsEndConversion, %function
+ 407              	ADC_UI_IsEndConversion:
+ 408              	.LFB7:
+ 324:Generated_Source\PSoC5/ADC_UI.c ****     }
+ 325:Generated_Source\PSoC5/ADC_UI.c **** 
+ 326:Generated_Source\PSoC5/ADC_UI.c **** #endif /* ADC_UI_SAMPLE_MODE != ADC_UI_SAMPLE_MODE_HW_TRIGGERED */
+ 327:Generated_Source\PSoC5/ADC_UI.c **** 
+ 328:Generated_Source\PSoC5/ADC_UI.c **** 
+ 329:Generated_Source\PSoC5/ADC_UI.c **** /*******************************************************************************
+ 330:Generated_Source\PSoC5/ADC_UI.c **** * Function Name: ADC_UI_IsEndConversion
+ 331:Generated_Source\PSoC5/ADC_UI.c **** ********************************************************************************
+ 332:Generated_Source\PSoC5/ADC_UI.c **** *
+ 333:Generated_Source\PSoC5/ADC_UI.c **** * Summary:
+ 334:Generated_Source\PSoC5/ADC_UI.c **** *  Checks for ADC end of conversion for the case one channel and end of scan
+ 335:Generated_Source\PSoC5/ADC_UI.c **** *  for the case of multiple channels
+ 336:Generated_Source\PSoC5/ADC_UI.c **** *
+ 337:Generated_Source\PSoC5/ADC_UI.c **** * Parameters:
+ 338:Generated_Source\PSoC5/ADC_UI.c **** *  retMode: Check conversion return mode
+ 339:Generated_Source\PSoC5/ADC_UI.c **** *   Values:
+ 340:Generated_Source\PSoC5/ADC_UI.c **** *         - ADC_UI_RETURN_STATUS      - Immediately returns the 
+ 341:Generated_Source\PSoC5/ADC_UI.c **** *                                                 status
+ 342:Generated_Source\PSoC5/ADC_UI.c **** *         - ADC_UI_WAIT_FOR_RESULT    - Does not return a result 
+ 343:Generated_Source\PSoC5/ADC_UI.c **** *                                                 until the conversion 
+ 344:Generated_Source\PSoC5/ADC_UI.c **** *                                                 is complete
+ 345:Generated_Source\PSoC5/ADC_UI.c **** *
+ 346:Generated_Source\PSoC5/ADC_UI.c **** * Return:
+ 347:Generated_Source\PSoC5/ADC_UI.c **** *  If a nonzero value is returned, the last conversion is complete. If the 
+ 348:Generated_Source\PSoC5/ADC_UI.c **** *  returned value is zero, the ADC_SAR_Seq is still calculating the last result
+ 349:Generated_Source\PSoC5/ADC_UI.c **** *
+ 350:Generated_Source\PSoC5/ADC_UI.c **** * Side Effects:
+ 351:Generated_Source\PSoC5/ADC_UI.c **** *  This function reads the end of conversion status, which is cleared on read
+ 352:Generated_Source\PSoC5/ADC_UI.c **** *
+ 353:Generated_Source\PSoC5/ADC_UI.c **** * Reentrant:
+ 354:Generated_Source\PSoC5/ADC_UI.c **** *  No.
+ 355:Generated_Source\PSoC5/ADC_UI.c **** *
+ 356:Generated_Source\PSoC5/ADC_UI.c **** *******************************************************************************/
+ 357:Generated_Source\PSoC5/ADC_UI.c **** uint32 ADC_UI_IsEndConversion(uint8 retMode)
+ 358:Generated_Source\PSoC5/ADC_UI.c **** {
+ 409              		.loc 1 358 0
+ 410              		.cfi_startproc
+ 411              		@ args = 0, pretend = 0, frame = 0
+ 412              		@ frame_needed = 0, uses_anonymous_args = 0
+ 413              		@ link register save eliminated.
+ 414              	.LVL29:
+ 359:Generated_Source\PSoC5/ADC_UI.c ****     uint8 status;
+ 360:Generated_Source\PSoC5/ADC_UI.c **** 
+ 361:Generated_Source\PSoC5/ADC_UI.c ****     do
+ 362:Generated_Source\PSoC5/ADC_UI.c ****     {
+ 363:Generated_Source\PSoC5/ADC_UI.c ****       status = ADC_UI_STATUS_REG;
+ 415              		.loc 1 363 0
+ 416 0000 0449     		ldr	r1, .L34
+ 417 0002 00E0     		b	.L30
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 15
+
+
+ 418              	.LVL30:
+ 419              	.L33:
+ 364:Generated_Source\PSoC5/ADC_UI.c ****     } while ((status == 0u) && (retMode == ADC_UI_WAIT_FOR_RESULT));
+ 420              		.loc 1 364 0 discriminator 1
+ 421 0004 20B9     		cbnz	r0, .L29
+ 422              	.LVL31:
+ 423              	.L30:
+ 363:Generated_Source\PSoC5/ADC_UI.c ****     } while ((status == 0u) && (retMode == ADC_UI_WAIT_FOR_RESULT));
+ 424              		.loc 1 363 0 discriminator 2
+ 425 0006 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 426              	.LVL32:
+ 427              		.loc 1 364 0 discriminator 2
+ 428 0008 03F0FF02 		and	r2, r3, #255
+ 429 000c 002B     		cmp	r3, #0
+ 430 000e F9D0     		beq	.L33
+ 431              	.L29:
+ 365:Generated_Source\PSoC5/ADC_UI.c **** 
+ 366:Generated_Source\PSoC5/ADC_UI.c ****     return((uint32)status);
+ 367:Generated_Source\PSoC5/ADC_UI.c **** }
+ 432              		.loc 1 367 0
+ 433 0010 1046     		mov	r0, r2
+ 434              	.LVL33:
+ 435 0012 7047     		bx	lr
+ 436              	.L35:
+ 437              		.align	2
+ 438              	.L34:
+ 439 0014 6A640040 		.word	1073767530
+ 440              		.cfi_endproc
+ 441              	.LFE7:
+ 442              		.size	ADC_UI_IsEndConversion, .-ADC_UI_IsEndConversion
+ 443              		.section	.text.ADC_UI_GetResult16,"ax",%progbits
+ 444              		.align	2
+ 445              		.global	ADC_UI_GetResult16
+ 446              		.thumb
+ 447              		.thumb_func
+ 448              		.type	ADC_UI_GetResult16, %function
+ 449              	ADC_UI_GetResult16:
+ 450              	.LFB8:
+ 368:Generated_Source\PSoC5/ADC_UI.c **** 
+ 369:Generated_Source\PSoC5/ADC_UI.c **** 
+ 370:Generated_Source\PSoC5/ADC_UI.c **** /*******************************************************************************
+ 371:Generated_Source\PSoC5/ADC_UI.c **** * Function Name: ADC_UI_GetResult16
+ 372:Generated_Source\PSoC5/ADC_UI.c **** ********************************************************************************
+ 373:Generated_Source\PSoC5/ADC_UI.c **** *
+ 374:Generated_Source\PSoC5/ADC_UI.c **** * Summary:
+ 375:Generated_Source\PSoC5/ADC_UI.c **** *  Returns the ADC result for channel chan
+ 376:Generated_Source\PSoC5/ADC_UI.c **** *
+ 377:Generated_Source\PSoC5/ADC_UI.c **** * Parameters:
+ 378:Generated_Source\PSoC5/ADC_UI.c **** *  chan: The ADC channel in which to return the result. The first channel is 0 
+ 379:Generated_Source\PSoC5/ADC_UI.c **** *        and the last channel is the total number of channels - 1
+ 380:Generated_Source\PSoC5/ADC_UI.c **** *
+ 381:Generated_Source\PSoC5/ADC_UI.c **** * Return:
+ 382:Generated_Source\PSoC5/ADC_UI.c **** *  Returns converted data as a signed 16-bit integer
+ 383:Generated_Source\PSoC5/ADC_UI.c **** *
+ 384:Generated_Source\PSoC5/ADC_UI.c **** * Side Effects:
+ 385:Generated_Source\PSoC5/ADC_UI.c **** *  Converts the ADC counts to the 2's complement form
+ 386:Generated_Source\PSoC5/ADC_UI.c **** *
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 16
+
+
+ 387:Generated_Source\PSoC5/ADC_UI.c **** * Reentrant:
+ 388:Generated_Source\PSoC5/ADC_UI.c **** *  No.
+ 389:Generated_Source\PSoC5/ADC_UI.c **** *
+ 390:Generated_Source\PSoC5/ADC_UI.c **** *******************************************************************************/
+ 391:Generated_Source\PSoC5/ADC_UI.c **** int16 ADC_UI_GetResult16(uint16 chan)
+ 392:Generated_Source\PSoC5/ADC_UI.c **** {
+ 451              		.loc 1 392 0
+ 452              		.cfi_startproc
+ 453              		@ args = 0, pretend = 0, frame = 0
+ 454              		@ frame_needed = 0, uses_anonymous_args = 0
+ 455              		@ link register save eliminated.
+ 456              	.LVL34:
+ 393:Generated_Source\PSoC5/ADC_UI.c ****     return (ADC_UI_finalArray[ADC_UI_GET_RESULT_INDEX_OFFSET - chan] - ADC_UI_SAR_shift);
+ 457              		.loc 1 393 0
+ 458 0000 044A     		ldr	r2, .L37
+ 459 0002 054B     		ldr	r3, .L37+4
+ 460 0004 C0F10300 		rsb	r0, r0, #3
+ 461              	.LVL35:
+ 462 0008 33F81030 		ldrh	r3, [r3, r0, lsl #1]
+ 463 000c 1088     		ldrh	r0, [r2]
+ 464 000e 181A     		subs	r0, r3, r0
+ 394:Generated_Source\PSoC5/ADC_UI.c **** }
+ 465              		.loc 1 394 0
+ 466 0010 00B2     		sxth	r0, r0
+ 467 0012 7047     		bx	lr
+ 468              	.L38:
+ 469              		.align	2
+ 470              	.L37:
+ 471 0014 00000000 		.word	ADC_UI_SAR_shift
+ 472 0018 00000000 		.word	ADC_UI_finalArray
+ 473              		.cfi_endproc
+ 474              	.LFE8:
+ 475              		.size	ADC_UI_GetResult16, .-ADC_UI_GetResult16
+ 476              		.section	.text.ADC_UI_GetAdcResult,"ax",%progbits
+ 477              		.align	2
+ 478              		.global	ADC_UI_GetAdcResult
+ 479              		.thumb
+ 480              		.thumb_func
+ 481              		.type	ADC_UI_GetAdcResult, %function
+ 482              	ADC_UI_GetAdcResult:
+ 483              	.LFB9:
+ 395:Generated_Source\PSoC5/ADC_UI.c **** 
+ 396:Generated_Source\PSoC5/ADC_UI.c **** 
+ 397:Generated_Source\PSoC5/ADC_UI.c **** /*******************************************************************************
+ 398:Generated_Source\PSoC5/ADC_UI.c **** * Function Name: ADC_UI_GetAdcResult
+ 399:Generated_Source\PSoC5/ADC_UI.c **** ********************************************************************************
+ 400:Generated_Source\PSoC5/ADC_UI.c **** *
+ 401:Generated_Source\PSoC5/ADC_UI.c **** * Summary:
+ 402:Generated_Source\PSoC5/ADC_UI.c **** *  Gets the data available in the SAR DATA register, not the results buffer
+ 403:Generated_Source\PSoC5/ADC_UI.c **** *
+ 404:Generated_Source\PSoC5/ADC_UI.c **** * Parameters:
+ 405:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+ 406:Generated_Source\PSoC5/ADC_UI.c **** *
+ 407:Generated_Source\PSoC5/ADC_UI.c **** * Return:
+ 408:Generated_Source\PSoC5/ADC_UI.c **** *  The last ADC conversion result
+ 409:Generated_Source\PSoC5/ADC_UI.c **** *
+ 410:Generated_Source\PSoC5/ADC_UI.c **** * Side Effects:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 17
+
+
+ 411:Generated_Source\PSoC5/ADC_UI.c **** *  Converts the ADC counts to the 2's complement form
+ 412:Generated_Source\PSoC5/ADC_UI.c **** *
+ 413:Generated_Source\PSoC5/ADC_UI.c **** * Reentrant:
+ 414:Generated_Source\PSoC5/ADC_UI.c **** *  No.
+ 415:Generated_Source\PSoC5/ADC_UI.c **** *
+ 416:Generated_Source\PSoC5/ADC_UI.c **** *******************************************************************************/
+ 417:Generated_Source\PSoC5/ADC_UI.c **** int16 ADC_UI_GetAdcResult(void)
+ 418:Generated_Source\PSoC5/ADC_UI.c **** {
+ 484              		.loc 1 418 0
+ 485              		.cfi_startproc
+ 486              		@ args = 0, pretend = 0, frame = 0
+ 487              		@ frame_needed = 0, uses_anonymous_args = 0
+ 488              		@ link register save eliminated.
+ 419:Generated_Source\PSoC5/ADC_UI.c ****     return (ADC_UI_SAR_GetResult16());
+ 489              		.loc 1 419 0
+ 490 0000 FFF7FEBF 		b	ADC_UI_SAR_GetResult16
+ 491              	.LVL36:
+ 492              		.cfi_endproc
+ 493              	.LFE9:
+ 494              		.size	ADC_UI_GetAdcResult, .-ADC_UI_GetAdcResult
+ 495              		.section	.text.ADC_UI_SetOffset,"ax",%progbits
+ 496              		.align	2
+ 497              		.global	ADC_UI_SetOffset
+ 498              		.thumb
+ 499              		.thumb_func
+ 500              		.type	ADC_UI_SetOffset, %function
+ 501              	ADC_UI_SetOffset:
+ 502              	.LFB10:
+ 420:Generated_Source\PSoC5/ADC_UI.c **** }
+ 421:Generated_Source\PSoC5/ADC_UI.c **** 
+ 422:Generated_Source\PSoC5/ADC_UI.c **** 
+ 423:Generated_Source\PSoC5/ADC_UI.c **** /*******************************************************************************
+ 424:Generated_Source\PSoC5/ADC_UI.c **** * Function Name: ADC_UI_SetOffset
+ 425:Generated_Source\PSoC5/ADC_UI.c **** ********************************************************************************
+ 426:Generated_Source\PSoC5/ADC_UI.c **** *
+ 427:Generated_Source\PSoC5/ADC_UI.c **** * Summary:
+ 428:Generated_Source\PSoC5/ADC_UI.c **** *  Sets the ADC offset which is used by the functions _CountsTo_uVolts(),
+ 429:Generated_Source\PSoC5/ADC_UI.c **** *  _CountsTo_mVolts() and _CountsTo_Volts() to substract the offset from the
+ 430:Generated_Source\PSoC5/ADC_UI.c **** *  given reading before calculating the voltage conversion
+ 431:Generated_Source\PSoC5/ADC_UI.c **** *
+ 432:Generated_Source\PSoC5/ADC_UI.c **** * Parameters:
+ 433:Generated_Source\PSoC5/ADC_UI.c **** *  offset: This value is measured when the inputs are shorted or connected to
+ 434:Generated_Source\PSoC5/ADC_UI.c **** *  the same input voltage
+ 435:Generated_Source\PSoC5/ADC_UI.c **** *
+ 436:Generated_Source\PSoC5/ADC_UI.c **** * Return:
+ 437:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+ 438:Generated_Source\PSoC5/ADC_UI.c **** *
+ 439:Generated_Source\PSoC5/ADC_UI.c **** * Side Effects:
+ 440:Generated_Source\PSoC5/ADC_UI.c **** *  Affects ADC_UI_CountsTo_Volts(), 
+ 441:Generated_Source\PSoC5/ADC_UI.c **** *  ADC_UI_CountsTo_mVolts(), and ADC_UI_CountsTo_uVolts() 
+ 442:Generated_Source\PSoC5/ADC_UI.c **** *  by subtracting the given offset.
+ 443:Generated_Source\PSoC5/ADC_UI.c **** *
+ 444:Generated_Source\PSoC5/ADC_UI.c **** * Reentrant:
+ 445:Generated_Source\PSoC5/ADC_UI.c **** *  No.
+ 446:Generated_Source\PSoC5/ADC_UI.c **** *
+ 447:Generated_Source\PSoC5/ADC_UI.c **** *******************************************************************************/
+ 448:Generated_Source\PSoC5/ADC_UI.c **** void ADC_UI_SetOffset(int32 offset)
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 18
+
+
+ 449:Generated_Source\PSoC5/ADC_UI.c **** {
+ 503              		.loc 1 449 0
+ 504              		.cfi_startproc
+ 505              		@ args = 0, pretend = 0, frame = 0
+ 506              		@ frame_needed = 0, uses_anonymous_args = 0
+ 507              		@ link register save eliminated.
+ 508              	.LVL37:
+ 450:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_SAR_SetOffset((int16)offset);
+ 509              		.loc 1 450 0
+ 510 0000 00B2     		sxth	r0, r0
+ 511              	.LVL38:
+ 512 0002 FFF7FEBF 		b	ADC_UI_SAR_SetOffset
+ 513              	.LVL39:
+ 514              		.cfi_endproc
+ 515              	.LFE10:
+ 516              		.size	ADC_UI_SetOffset, .-ADC_UI_SetOffset
+ 517 0006 00BF     		.section	.text.ADC_UI_SetResolution,"ax",%progbits
+ 518              		.align	2
+ 519              		.global	ADC_UI_SetResolution
+ 520              		.thumb
+ 521              		.thumb_func
+ 522              		.type	ADC_UI_SetResolution, %function
+ 523              	ADC_UI_SetResolution:
+ 524              	.LFB11:
+ 451:Generated_Source\PSoC5/ADC_UI.c **** }
+ 452:Generated_Source\PSoC5/ADC_UI.c **** 
+ 453:Generated_Source\PSoC5/ADC_UI.c **** 
+ 454:Generated_Source\PSoC5/ADC_UI.c **** /*******************************************************************************
+ 455:Generated_Source\PSoC5/ADC_UI.c **** * Function Name: ADC_UI_SetResolution
+ 456:Generated_Source\PSoC5/ADC_UI.c **** ********************************************************************************
+ 457:Generated_Source\PSoC5/ADC_UI.c **** *
+ 458:Generated_Source\PSoC5/ADC_UI.c **** * Summary:
+ 459:Generated_Source\PSoC5/ADC_UI.c **** *  Sets the Relution of the SAR.
+ 460:Generated_Source\PSoC5/ADC_UI.c **** *  This function does not affect the actual conversion with PSoC5 ES1 silicon.
+ 461:Generated_Source\PSoC5/ADC_UI.c **** *
+ 462:Generated_Source\PSoC5/ADC_UI.c **** * Parameters:
+ 463:Generated_Source\PSoC5/ADC_UI.c **** *  resolution:
+ 464:Generated_Source\PSoC5/ADC_UI.c **** *  12 ->    RES12
+ 465:Generated_Source\PSoC5/ADC_UI.c **** *  10 ->    RES10
+ 466:Generated_Source\PSoC5/ADC_UI.c **** *  8  ->    RES8
+ 467:Generated_Source\PSoC5/ADC_UI.c **** *
+ 468:Generated_Source\PSoC5/ADC_UI.c **** * Return:
+ 469:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+ 470:Generated_Source\PSoC5/ADC_UI.c **** *
+ 471:Generated_Source\PSoC5/ADC_UI.c **** * Side Effects:
+ 472:Generated_Source\PSoC5/ADC_UI.c **** *  The ADC_SAR_Seq resolution cannot be changed during a conversion cycle. The
+ 473:Generated_Source\PSoC5/ADC_UI.c **** *  recommended best practice is to stop conversions with
+ 474:Generated_Source\PSoC5/ADC_UI.c **** *  ADC_UI_StopConvert(), change the resolution, then restart the
+ 475:Generated_Source\PSoC5/ADC_UI.c **** *  conversions with ADC_UI_StartConvert().
+ 476:Generated_Source\PSoC5/ADC_UI.c **** *  If you decide not to stop conversions before calling this API, you
+ 477:Generated_Source\PSoC5/ADC_UI.c **** *  should use ADC_UI_IsEndConversion() to wait until conversion is 
+ 478:Generated_Source\PSoC5/ADC_UI.c **** *  complete  before changing the resolution.
+ 479:Generated_Source\PSoC5/ADC_UI.c **** *  If you call ADC_SetResolution() during a conversion, the resolution will
+ 480:Generated_Source\PSoC5/ADC_UI.c **** *  not be changed until the current conversion is complete. Data will not be
+ 481:Generated_Source\PSoC5/ADC_UI.c **** *  available in the new resolution for another 6 + "New Resolution(in bits)"
+ 482:Generated_Source\PSoC5/ADC_UI.c **** *  clock cycles.
+ 483:Generated_Source\PSoC5/ADC_UI.c **** *  You may need add a delay of this number of clock cycles after
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 19
+
+
+ 484:Generated_Source\PSoC5/ADC_UI.c **** *  ADC_UI_SetResolution() is called before data is valid again.
+ 485:Generated_Source\PSoC5/ADC_UI.c **** *  Affects ADC_UI_CountsTo_Volts(), ADC_UI_CountsTo_mVolts(), 
+ 486:Generated_Source\PSoC5/ADC_UI.c **** *  and ADC_UI_CountsTo_uVolts() by calculating the correct conversion 
+ 487:Generated_Source\PSoC5/ADC_UI.c **** *  between ADC counts and the applied input voltage. Calculation depends on 
+ 488:Generated_Source\PSoC5/ADC_UI.c **** *  resolution, input range, and voltage reference.
+ 489:Generated_Source\PSoC5/ADC_UI.c **** *
+ 490:Generated_Source\PSoC5/ADC_UI.c **** *******************************************************************************/
+ 491:Generated_Source\PSoC5/ADC_UI.c **** void ADC_UI_SetResolution(uint8 resolution)
+ 492:Generated_Source\PSoC5/ADC_UI.c **** {
+ 525              		.loc 1 492 0
+ 526              		.cfi_startproc
+ 527              		@ args = 0, pretend = 0, frame = 0
+ 528              		@ frame_needed = 0, uses_anonymous_args = 0
+ 529              		@ link register save eliminated.
+ 530              	.LVL40:
+ 493:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_SAR_SetResolution(resolution);
+ 531              		.loc 1 493 0
+ 532 0000 FFF7FEBF 		b	ADC_UI_SAR_SetResolution
+ 533              	.LVL41:
+ 534              		.cfi_endproc
+ 535              	.LFE11:
+ 536              		.size	ADC_UI_SetResolution, .-ADC_UI_SetResolution
+ 537              		.section	.text.ADC_UI_SetGain,"ax",%progbits
+ 538              		.align	2
+ 539              		.global	ADC_UI_SetGain
+ 540              		.thumb
+ 541              		.thumb_func
+ 542              		.type	ADC_UI_SetGain, %function
+ 543              	ADC_UI_SetGain:
+ 544              	.LFB12:
+ 494:Generated_Source\PSoC5/ADC_UI.c **** }
+ 495:Generated_Source\PSoC5/ADC_UI.c **** 
+ 496:Generated_Source\PSoC5/ADC_UI.c **** 
+ 497:Generated_Source\PSoC5/ADC_UI.c **** /*******************************************************************************
+ 498:Generated_Source\PSoC5/ADC_UI.c **** * Function Name: ADC_UI_SetGain
+ 499:Generated_Source\PSoC5/ADC_UI.c **** ********************************************************************************
+ 500:Generated_Source\PSoC5/ADC_UI.c **** *
+ 501:Generated_Source\PSoC5/ADC_UI.c **** * Summary:
+ 502:Generated_Source\PSoC5/ADC_UI.c **** *  Sets the ADC gain in counts per volt for the voltage conversion
+ 503:Generated_Source\PSoC5/ADC_UI.c **** *
+ 504:Generated_Source\PSoC5/ADC_UI.c **** * Parameters:
+ 505:Generated_Source\PSoC5/ADC_UI.c **** *  adcGain: counts per volt
+ 506:Generated_Source\PSoC5/ADC_UI.c **** *
+ 507:Generated_Source\PSoC5/ADC_UI.c **** * Return:
+ 508:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+ 509:Generated_Source\PSoC5/ADC_UI.c **** *
+ 510:Generated_Source\PSoC5/ADC_UI.c **** * Side Effects:
+ 511:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+ 512:Generated_Source\PSoC5/ADC_UI.c **** *
+ 513:Generated_Source\PSoC5/ADC_UI.c **** * Reentrant:
+ 514:Generated_Source\PSoC5/ADC_UI.c **** *  No.
+ 515:Generated_Source\PSoC5/ADC_UI.c **** *
+ 516:Generated_Source\PSoC5/ADC_UI.c **** *******************************************************************************/
+ 517:Generated_Source\PSoC5/ADC_UI.c **** void ADC_UI_SetGain(int32 adcGain)
+ 518:Generated_Source\PSoC5/ADC_UI.c **** {
+ 545              		.loc 1 518 0
+ 546              		.cfi_startproc
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 20
+
+
+ 547              		@ args = 0, pretend = 0, frame = 0
+ 548              		@ frame_needed = 0, uses_anonymous_args = 0
+ 549              		@ link register save eliminated.
+ 550              	.LVL42:
+ 519:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_SAR_SetGain((int16)adcGain);
+ 551              		.loc 1 519 0
+ 552 0000 00B2     		sxth	r0, r0
+ 553              	.LVL43:
+ 554 0002 FFF7FEBF 		b	ADC_UI_SAR_SetGain
+ 555              	.LVL44:
+ 556              		.cfi_endproc
+ 557              	.LFE12:
+ 558              		.size	ADC_UI_SetGain, .-ADC_UI_SetGain
+ 559 0006 00BF     		.section	.text.ADC_UI_SetScaledGain,"ax",%progbits
+ 560              		.align	2
+ 561              		.global	ADC_UI_SetScaledGain
+ 562              		.thumb
+ 563              		.thumb_func
+ 564              		.type	ADC_UI_SetScaledGain, %function
+ 565              	ADC_UI_SetScaledGain:
+ 566              	.LFB13:
+ 520:Generated_Source\PSoC5/ADC_UI.c **** }
+ 521:Generated_Source\PSoC5/ADC_UI.c **** 
+ 522:Generated_Source\PSoC5/ADC_UI.c **** 
+ 523:Generated_Source\PSoC5/ADC_UI.c **** /*******************************************************************************
+ 524:Generated_Source\PSoC5/ADC_UI.c **** * Function Name: ADC_UI_SetScaledGain
+ 525:Generated_Source\PSoC5/ADC_UI.c **** ********************************************************************************
+ 526:Generated_Source\PSoC5/ADC_UI.c **** *
+ 527:Generated_Source\PSoC5/ADC_UI.c **** * Summary:
+ 528:Generated_Source\PSoC5/ADC_UI.c **** *  Sets the ADC gain in counts per 10 volts for the voltage conversion functions
+ 529:Generated_Source\PSoC5/ADC_UI.c **** *  that follow. This value is set by default by the reference and input range
+ 530:Generated_Source\PSoC5/ADC_UI.c **** *  settings. It should only be used to further calibrate the ADC with a known
+ 531:Generated_Source\PSoC5/ADC_UI.c **** *  input or if the ADC is using an external reference.
+ 532:Generated_Source\PSoC5/ADC_UI.c **** *
+ 533:Generated_Source\PSoC5/ADC_UI.c **** * Parameters:
+ 534:Generated_Source\PSoC5/ADC_UI.c **** *  int32  adcGain  counts per 10 volt
+ 535:Generated_Source\PSoC5/ADC_UI.c **** *
+ 536:Generated_Source\PSoC5/ADC_UI.c **** * Return:
+ 537:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+ 538:Generated_Source\PSoC5/ADC_UI.c **** *
+ 539:Generated_Source\PSoC5/ADC_UI.c **** * Side Effects:
+ 540:Generated_Source\PSoC5/ADC_UI.c **** *  Affects ADC_UI_CountsTo_Volts(), ADC_UI_CountsTo_mVolts(),
+ 541:Generated_Source\PSoC5/ADC_UI.c **** *  ADC_UI_CountsTo_uVolts() by supplying the correct conversion 
+ 542:Generated_Source\PSoC5/ADC_UI.c **** *  between ADC counts and the applied input voltage
+ 543:Generated_Source\PSoC5/ADC_UI.c **** *
+ 544:Generated_Source\PSoC5/ADC_UI.c **** * Reentrant:
+ 545:Generated_Source\PSoC5/ADC_UI.c **** *  No.
+ 546:Generated_Source\PSoC5/ADC_UI.c **** *
+ 547:Generated_Source\PSoC5/ADC_UI.c **** *******************************************************************************/
+ 548:Generated_Source\PSoC5/ADC_UI.c **** void ADC_UI_SetScaledGain(int32 adcGain)
+ 549:Generated_Source\PSoC5/ADC_UI.c **** {
+ 567              		.loc 1 549 0
+ 568              		.cfi_startproc
+ 569              		@ args = 0, pretend = 0, frame = 0
+ 570              		@ frame_needed = 0, uses_anonymous_args = 0
+ 571              		@ link register save eliminated.
+ 572              	.LVL45:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 21
+
+
+ 550:Generated_Source\PSoC5/ADC_UI.c ****     ADC_UI_SAR_SetScaledGain(adcGain);
+ 573              		.loc 1 550 0
+ 574 0000 FFF7FEBF 		b	ADC_UI_SAR_SetScaledGain
+ 575              	.LVL46:
+ 576              		.cfi_endproc
+ 577              	.LFE13:
+ 578              		.size	ADC_UI_SetScaledGain, .-ADC_UI_SetScaledGain
+ 579              		.section	.text.ADC_UI_CountsTo_mVolts,"ax",%progbits
+ 580              		.align	2
+ 581              		.global	ADC_UI_CountsTo_mVolts
+ 582              		.thumb
+ 583              		.thumb_func
+ 584              		.type	ADC_UI_CountsTo_mVolts, %function
+ 585              	ADC_UI_CountsTo_mVolts:
+ 586              	.LFB14:
+ 551:Generated_Source\PSoC5/ADC_UI.c **** }
+ 552:Generated_Source\PSoC5/ADC_UI.c **** 
+ 553:Generated_Source\PSoC5/ADC_UI.c **** 
+ 554:Generated_Source\PSoC5/ADC_UI.c **** /*******************************************************************************
+ 555:Generated_Source\PSoC5/ADC_UI.c **** * Function Name: ADC_UI_CountsTo_mVolts
+ 556:Generated_Source\PSoC5/ADC_UI.c **** ********************************************************************************
+ 557:Generated_Source\PSoC5/ADC_UI.c **** *
+ 558:Generated_Source\PSoC5/ADC_UI.c **** * Summary:
+ 559:Generated_Source\PSoC5/ADC_UI.c **** *  Converts the ADC output to mVolts as a 32-bit integer
+ 560:Generated_Source\PSoC5/ADC_UI.c **** *
+ 561:Generated_Source\PSoC5/ADC_UI.c **** * Parameters:
+ 562:Generated_Source\PSoC5/ADC_UI.c **** *  adcCounts: Result from the ADC_SAR_Seq conversion
+ 563:Generated_Source\PSoC5/ADC_UI.c **** *
+ 564:Generated_Source\PSoC5/ADC_UI.c **** * Return:
+ 565:Generated_Source\PSoC5/ADC_UI.c **** *  Result in mV
+ 566:Generated_Source\PSoC5/ADC_UI.c **** *
+ 567:Generated_Source\PSoC5/ADC_UI.c **** * Side Effects:
+ 568:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+ 569:Generated_Source\PSoC5/ADC_UI.c **** *
+ 570:Generated_Source\PSoC5/ADC_UI.c **** * Reentrant:
+ 571:Generated_Source\PSoC5/ADC_UI.c **** *  No.
+ 572:Generated_Source\PSoC5/ADC_UI.c **** *
+ 573:Generated_Source\PSoC5/ADC_UI.c **** *******************************************************************************/
+ 574:Generated_Source\PSoC5/ADC_UI.c **** int32 ADC_UI_CountsTo_mVolts(int16 adcCounts)
+ 575:Generated_Source\PSoC5/ADC_UI.c **** {
+ 587              		.loc 1 575 0
+ 588              		.cfi_startproc
+ 589              		@ args = 0, pretend = 0, frame = 0
+ 590              		@ frame_needed = 0, uses_anonymous_args = 0
+ 591              	.LVL47:
+ 592 0000 08B5     		push	{r3, lr}
+ 593              		.cfi_def_cfa_offset 8
+ 594              		.cfi_offset 3, -8
+ 595              		.cfi_offset 14, -4
+ 576:Generated_Source\PSoC5/ADC_UI.c ****     return ((int32) ADC_UI_SAR_CountsTo_mVolts(adcCounts));
+ 596              		.loc 1 576 0
+ 597 0002 FFF7FEFF 		bl	ADC_UI_SAR_CountsTo_mVolts
+ 598              	.LVL48:
+ 577:Generated_Source\PSoC5/ADC_UI.c **** }
+ 599              		.loc 1 577 0
+ 600 0006 08BD     		pop	{r3, pc}
+ 601              		.cfi_endproc
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 22
+
+
+ 602              	.LFE14:
+ 603              		.size	ADC_UI_CountsTo_mVolts, .-ADC_UI_CountsTo_mVolts
+ 604              		.section	.text.ADC_UI_CountsTo_uVolts,"ax",%progbits
+ 605              		.align	2
+ 606              		.global	ADC_UI_CountsTo_uVolts
+ 607              		.thumb
+ 608              		.thumb_func
+ 609              		.type	ADC_UI_CountsTo_uVolts, %function
+ 610              	ADC_UI_CountsTo_uVolts:
+ 611              	.LFB15:
+ 578:Generated_Source\PSoC5/ADC_UI.c **** 
+ 579:Generated_Source\PSoC5/ADC_UI.c **** 
+ 580:Generated_Source\PSoC5/ADC_UI.c **** /*******************************************************************************
+ 581:Generated_Source\PSoC5/ADC_UI.c **** * Function Name: ADC_UI_CountsTo_uVolts
+ 582:Generated_Source\PSoC5/ADC_UI.c **** ********************************************************************************
+ 583:Generated_Source\PSoC5/ADC_UI.c **** *
+ 584:Generated_Source\PSoC5/ADC_UI.c **** * Summary:
+ 585:Generated_Source\PSoC5/ADC_UI.c **** *  Converts the ADC output to uVolts as a 32-bit integer
+ 586:Generated_Source\PSoC5/ADC_UI.c **** *
+ 587:Generated_Source\PSoC5/ADC_UI.c **** * Parameters:
+ 588:Generated_Source\PSoC5/ADC_UI.c **** *  adcCounts: Result from the ADC conversion
+ 589:Generated_Source\PSoC5/ADC_UI.c **** *
+ 590:Generated_Source\PSoC5/ADC_UI.c **** * Return:
+ 591:Generated_Source\PSoC5/ADC_UI.c **** *  Result in uV
+ 592:Generated_Source\PSoC5/ADC_UI.c **** *
+ 593:Generated_Source\PSoC5/ADC_UI.c **** * Side Effects:
+ 594:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+ 595:Generated_Source\PSoC5/ADC_UI.c **** *
+ 596:Generated_Source\PSoC5/ADC_UI.c **** * Reentrant:
+ 597:Generated_Source\PSoC5/ADC_UI.c **** *  No.
+ 598:Generated_Source\PSoC5/ADC_UI.c **** *
+ 599:Generated_Source\PSoC5/ADC_UI.c **** *******************************************************************************/
+ 600:Generated_Source\PSoC5/ADC_UI.c **** int32 ADC_UI_CountsTo_uVolts(int16 adcCounts)
+ 601:Generated_Source\PSoC5/ADC_UI.c **** {
+ 612              		.loc 1 601 0
+ 613              		.cfi_startproc
+ 614              		@ args = 0, pretend = 0, frame = 0
+ 615              		@ frame_needed = 0, uses_anonymous_args = 0
+ 616              		@ link register save eliminated.
+ 617              	.LVL49:
+ 602:Generated_Source\PSoC5/ADC_UI.c ****     return (ADC_UI_SAR_CountsTo_uVolts(adcCounts));
+ 618              		.loc 1 602 0
+ 619 0000 FFF7FEBF 		b	ADC_UI_SAR_CountsTo_uVolts
+ 620              	.LVL50:
+ 621              		.cfi_endproc
+ 622              	.LFE15:
+ 623              		.size	ADC_UI_CountsTo_uVolts, .-ADC_UI_CountsTo_uVolts
+ 624              		.section	.text.ADC_UI_CountsTo_Volts,"ax",%progbits
+ 625              		.align	2
+ 626              		.global	ADC_UI_CountsTo_Volts
+ 627              		.thumb
+ 628              		.thumb_func
+ 629              		.type	ADC_UI_CountsTo_Volts, %function
+ 630              	ADC_UI_CountsTo_Volts:
+ 631              	.LFB16:
+ 603:Generated_Source\PSoC5/ADC_UI.c **** }
+ 604:Generated_Source\PSoC5/ADC_UI.c **** 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 23
+
+
+ 605:Generated_Source\PSoC5/ADC_UI.c **** 
+ 606:Generated_Source\PSoC5/ADC_UI.c **** /*******************************************************************************
+ 607:Generated_Source\PSoC5/ADC_UI.c **** * Function Name: ADC_UI_CountsTo_Volts
+ 608:Generated_Source\PSoC5/ADC_UI.c **** ********************************************************************************
+ 609:Generated_Source\PSoC5/ADC_UI.c **** *
+ 610:Generated_Source\PSoC5/ADC_UI.c **** * Summary:
+ 611:Generated_Source\PSoC5/ADC_UI.c **** *  Converts the ADC output to Volts as a floating point number
+ 612:Generated_Source\PSoC5/ADC_UI.c **** *
+ 613:Generated_Source\PSoC5/ADC_UI.c **** * Parameters:
+ 614:Generated_Source\PSoC5/ADC_UI.c **** *  adcCounts: Result from the ADC_SAR_Seq conversion
+ 615:Generated_Source\PSoC5/ADC_UI.c **** *
+ 616:Generated_Source\PSoC5/ADC_UI.c **** * Return:
+ 617:Generated_Source\PSoC5/ADC_UI.c **** *  Result in volts
+ 618:Generated_Source\PSoC5/ADC_UI.c **** *
+ 619:Generated_Source\PSoC5/ADC_UI.c **** * Side Effects:
+ 620:Generated_Source\PSoC5/ADC_UI.c **** *  None.
+ 621:Generated_Source\PSoC5/ADC_UI.c **** *
+ 622:Generated_Source\PSoC5/ADC_UI.c **** * Reentrant:
+ 623:Generated_Source\PSoC5/ADC_UI.c **** *  No.
+ 624:Generated_Source\PSoC5/ADC_UI.c **** *
+ 625:Generated_Source\PSoC5/ADC_UI.c **** *******************************************************************************/
+ 626:Generated_Source\PSoC5/ADC_UI.c **** float32 ADC_UI_CountsTo_Volts(int16 adcCounts)
+ 627:Generated_Source\PSoC5/ADC_UI.c **** {
+ 632              		.loc 1 627 0
+ 633              		.cfi_startproc
+ 634              		@ args = 0, pretend = 0, frame = 0
+ 635              		@ frame_needed = 0, uses_anonymous_args = 0
+ 636              		@ link register save eliminated.
+ 637              	.LVL51:
+ 628:Generated_Source\PSoC5/ADC_UI.c ****     return (ADC_UI_SAR_CountsTo_Volts(adcCounts));
+ 638              		.loc 1 628 0
+ 639 0000 FFF7FEBF 		b	ADC_UI_SAR_CountsTo_Volts
+ 640              	.LVL52:
+ 641              		.cfi_endproc
+ 642              	.LFE16:
+ 643              		.size	ADC_UI_CountsTo_Volts, .-ADC_UI_CountsTo_Volts
+ 644              		.global	ADC_UI_initVar
+ 645              		.comm	ADC_UI_finalArray,8,4
+ 646              		.data
+ 647              		.set	.LANCHOR1,. + 0
+ 648              		.type	ADC_UI_tempTD, %object
+ 649              		.size	ADC_UI_tempTD, 1
+ 650              	ADC_UI_tempTD:
+ 651 0000 FF       		.byte	-1
+ 652              		.type	ADC_UI_finalTD, %object
+ 653              		.size	ADC_UI_finalTD, 1
+ 654              	ADC_UI_finalTD:
+ 655 0001 FF       		.byte	-1
+ 656              		.bss
+ 657              		.align	2
+ 658              		.set	.LANCHOR0,. + 0
+ 659              		.type	ADC_UI_tempChan, %object
+ 660              		.size	ADC_UI_tempChan, 1
+ 661              	ADC_UI_tempChan:
+ 662 0000 00       		.space	1
+ 663              		.type	ADC_UI_finalChan, %object
+ 664              		.size	ADC_UI_finalChan, 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 24
+
+
+ 665              	ADC_UI_finalChan:
+ 666 0001 00       		.space	1
+ 667 0002 0000     		.space	2
+ 668              		.type	ADC_UI_tempArray.5002, %object
+ 669              		.size	ADC_UI_tempArray.5002, 8
+ 670              	ADC_UI_tempArray.5002:
+ 671 0004 00000000 		.space	8
+ 671      00000000 
+ 672              		.type	ADC_UI_initVar, %object
+ 673              		.size	ADC_UI_initVar, 4
+ 674              	ADC_UI_initVar:
+ 675 000c 00000000 		.space	4
+ 676              		.text
+ 677              	.Letext0:
+ 678              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 679              		.file 3 "Generated_Source\\PSoC5\\ADC_UI_SAR.h"
+ 680              		.file 4 "Generated_Source\\PSoC5/CYDMAC.H"
+ 681              		.file 5 "Generated_Source\\PSoC5\\ADC_UI_TempBuf_dma.h"
+ 682              		.file 6 "Generated_Source\\PSoC5\\ADC_UI_FinalBuf_dma.h"
+ 683              		.file 7 "Generated_Source\\PSoC5\\ADC_UI_IRQ.h"
+ 684              		.file 8 "Generated_Source\\PSoC5\\CyLib.h"
+ 685              		.section	.debug_info,"",%progbits
+ 686              	.Ldebug_info0:
+ 687 0000 CA070000 		.4byte	0x7ca
+ 688 0004 0400     		.2byte	0x4
+ 689 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 690 000a 04       		.byte	0x4
+ 691 000b 01       		.uleb128 0x1
+ 692 000c E4020000 		.4byte	.LASF82
+ 693 0010 01       		.byte	0x1
+ 694 0011 64040000 		.4byte	.LASF83
+ 695 0015 41010000 		.4byte	.LASF84
+ 696 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 697 001d 00000000 		.4byte	0
+ 698 0021 00000000 		.4byte	.Ldebug_line0
+ 699 0025 02       		.uleb128 0x2
+ 700 0026 01       		.byte	0x1
+ 701 0027 06       		.byte	0x6
+ 702 0028 35010000 		.4byte	.LASF0
+ 703 002c 02       		.uleb128 0x2
+ 704 002d 01       		.byte	0x1
+ 705 002e 08       		.byte	0x8
+ 706 002f 84040000 		.4byte	.LASF1
+ 707 0033 02       		.uleb128 0x2
+ 708 0034 02       		.byte	0x2
+ 709 0035 05       		.byte	0x5
+ 710 0036 B8040000 		.4byte	.LASF2
+ 711 003a 02       		.uleb128 0x2
+ 712 003b 02       		.byte	0x2
+ 713 003c 07       		.byte	0x7
+ 714 003d 9E020000 		.4byte	.LASF3
+ 715 0041 02       		.uleb128 0x2
+ 716 0042 04       		.byte	0x4
+ 717 0043 05       		.byte	0x5
+ 718 0044 AD010000 		.4byte	.LASF4
+ 719 0048 02       		.uleb128 0x2
+ 720 0049 04       		.byte	0x4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 25
+
+
+ 721 004a 07       		.byte	0x7
+ 722 004b 4F020000 		.4byte	.LASF5
+ 723 004f 02       		.uleb128 0x2
+ 724 0050 08       		.byte	0x8
+ 725 0051 05       		.byte	0x5
+ 726 0052 27010000 		.4byte	.LASF6
+ 727 0056 02       		.uleb128 0x2
+ 728 0057 08       		.byte	0x8
+ 729 0058 07       		.byte	0x7
+ 730 0059 D8000000 		.4byte	.LASF7
+ 731 005d 03       		.uleb128 0x3
+ 732 005e 04       		.byte	0x4
+ 733 005f 05       		.byte	0x5
+ 734 0060 696E7400 		.ascii	"int\000"
+ 735 0064 02       		.uleb128 0x2
+ 736 0065 04       		.byte	0x4
+ 737 0066 07       		.byte	0x7
+ 738 0067 1C020000 		.4byte	.LASF8
+ 739 006b 04       		.uleb128 0x4
+ 740 006c C5010000 		.4byte	.LASF9
+ 741 0070 02       		.byte	0x2
+ 742 0071 5B       		.byte	0x5b
+ 743 0072 2C000000 		.4byte	0x2c
+ 744 0076 04       		.uleb128 0x4
+ 745 0077 00000000 		.4byte	.LASF10
+ 746 007b 02       		.byte	0x2
+ 747 007c 5C       		.byte	0x5c
+ 748 007d 3A000000 		.4byte	0x3a
+ 749 0081 04       		.uleb128 0x4
+ 750 0082 D2010000 		.4byte	.LASF11
+ 751 0086 02       		.byte	0x2
+ 752 0087 5D       		.byte	0x5d
+ 753 0088 48000000 		.4byte	0x48
+ 754 008c 04       		.uleb128 0x4
+ 755 008d BC050000 		.4byte	.LASF12
+ 756 0091 02       		.byte	0x2
+ 757 0092 5F       		.byte	0x5f
+ 758 0093 33000000 		.4byte	0x33
+ 759 0097 04       		.uleb128 0x4
+ 760 0098 8C010000 		.4byte	.LASF13
+ 761 009c 02       		.byte	0x2
+ 762 009d 60       		.byte	0x60
+ 763 009e 41000000 		.4byte	0x41
+ 764 00a2 04       		.uleb128 0x4
+ 765 00a3 89030000 		.4byte	.LASF14
+ 766 00a7 02       		.byte	0x2
+ 767 00a8 61       		.byte	0x61
+ 768 00a9 AD000000 		.4byte	0xad
+ 769 00ad 02       		.uleb128 0x2
+ 770 00ae 04       		.byte	0x4
+ 771 00af 04       		.byte	0x4
+ 772 00b0 14040000 		.4byte	.LASF15
+ 773 00b4 02       		.uleb128 0x2
+ 774 00b5 08       		.byte	0x8
+ 775 00b6 04       		.byte	0x4
+ 776 00b7 CB010000 		.4byte	.LASF16
+ 777 00bb 02       		.uleb128 0x2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 26
+
+
+ 778 00bc 01       		.byte	0x1
+ 779 00bd 08       		.byte	0x8
+ 780 00be 01050000 		.4byte	.LASF17
+ 781 00c2 04       		.uleb128 0x4
+ 782 00c3 D6050000 		.4byte	.LASF18
+ 783 00c7 02       		.byte	0x2
+ 784 00c8 E8       		.byte	0xe8
+ 785 00c9 48000000 		.4byte	0x48
+ 786 00cd 04       		.uleb128 0x4
+ 787 00ce 5F040000 		.4byte	.LASF19
+ 788 00d2 02       		.byte	0x2
+ 789 00d3 F0       		.byte	0xf0
+ 790 00d4 D8000000 		.4byte	0xd8
+ 791 00d8 05       		.uleb128 0x5
+ 792 00d9 6B000000 		.4byte	0x6b
+ 793 00dd 04       		.uleb128 0x4
+ 794 00de DE020000 		.4byte	.LASF20
+ 795 00e2 02       		.byte	0x2
+ 796 00e3 F2       		.byte	0xf2
+ 797 00e4 E8000000 		.4byte	0xe8
+ 798 00e8 05       		.uleb128 0x5
+ 799 00e9 81000000 		.4byte	0x81
+ 800 00ed 06       		.uleb128 0x6
+ 801 00ee 06050000 		.4byte	.LASF21
+ 802 00f2 02       		.byte	0x2
+ 803 00f3 0201     		.2byte	0x102
+ 804 00f5 F9000000 		.4byte	0xf9
+ 805 00f9 07       		.uleb128 0x7
+ 806 00fa 04       		.byte	0x4
+ 807 00fb FF000000 		.4byte	0xff
+ 808 00ff 08       		.uleb128 0x8
+ 809 0100 02       		.uleb128 0x2
+ 810 0101 04       		.byte	0x4
+ 811 0102 07       		.byte	0x7
+ 812 0103 AA030000 		.4byte	.LASF22
+ 813 0107 09       		.uleb128 0x9
+ 814 0108 B6010000 		.4byte	.LASF23
+ 815 010c 01       		.byte	0x1
+ 816 010d 33       		.byte	0x33
+ 817 010e 00000000 		.4byte	.LFB0
+ 818 0112 3C000000 		.4byte	.LFE0-.LFB0
+ 819 0116 01       		.uleb128 0x1
+ 820 0117 9C       		.byte	0x9c
+ 821 0118 41010000 		.4byte	0x141
+ 822 011c 0A       		.uleb128 0xa
+ 823 011d 16000000 		.4byte	.LVL0
+ 824 0121 E4050000 		.4byte	0x5e4
+ 825 0125 0A       		.uleb128 0xa
+ 826 0126 1C000000 		.4byte	.LVL1
+ 827 012a F9050000 		.4byte	0x5f9
+ 828 012e 0A       		.uleb128 0xa
+ 829 012f 26000000 		.4byte	.LVL2
+ 830 0133 E4050000 		.4byte	0x5e4
+ 831 0137 0A       		.uleb128 0xa
+ 832 0138 2C000000 		.4byte	.LVL3
+ 833 013c F9050000 		.4byte	0x5f9
+ 834 0140 00       		.byte	0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 27
+
+
+ 835 0141 09       		.uleb128 0x9
+ 836 0142 D2040000 		.4byte	.LASF24
+ 837 0146 01       		.byte	0x1
+ 838 0147 53       		.byte	0x53
+ 839 0148 00000000 		.4byte	.LFB1
+ 840 014c 40000000 		.4byte	.LFE1-.LFB1
+ 841 0150 01       		.uleb128 0x1
+ 842 0151 9C       		.byte	0x9c
+ 843 0152 BB010000 		.4byte	0x1bb
+ 844 0156 0B       		.uleb128 0xb
+ 845 0157 12000000 		.4byte	.LVL4
+ 846 015b 0A060000 		.4byte	0x60a
+ 847 015f 7C010000 		.4byte	0x17c
+ 848 0163 0C       		.uleb128 0xc
+ 849 0164 01       		.uleb128 0x1
+ 850 0165 53       		.byte	0x53
+ 851 0166 03       		.uleb128 0x3
+ 852 0167 0A       		.byte	0xa
+ 853 0168 FF1F     		.2byte	0x1fff
+ 854 016a 0C       		.uleb128 0xc
+ 855 016b 01       		.uleb128 0x1
+ 856 016c 52       		.byte	0x52
+ 857 016d 03       		.uleb128 0x3
+ 858 016e 0A       		.byte	0xa
+ 859 016f 0040     		.2byte	0x4000
+ 860 0171 0C       		.uleb128 0xc
+ 861 0172 01       		.uleb128 0x1
+ 862 0173 51       		.byte	0x51
+ 863 0174 01       		.uleb128 0x1
+ 864 0175 31       		.byte	0x31
+ 865 0176 0C       		.uleb128 0xc
+ 866 0177 01       		.uleb128 0x1
+ 867 0178 50       		.byte	0x50
+ 868 0179 01       		.uleb128 0x1
+ 869 017a 32       		.byte	0x32
+ 870 017b 00       		.byte	0
+ 871 017c 0B       		.uleb128 0xb
+ 872 017d 24000000 		.4byte	.LVL5
+ 873 0181 2E060000 		.4byte	0x62e
+ 874 0185 A2010000 		.4byte	0x1a2
+ 875 0189 0C       		.uleb128 0xc
+ 876 018a 01       		.uleb128 0x1
+ 877 018b 53       		.byte	0x53
+ 878 018c 03       		.uleb128 0x3
+ 879 018d 0A       		.byte	0xa
+ 880 018e FF1F     		.2byte	0x1fff
+ 881 0190 0C       		.uleb128 0xc
+ 882 0191 01       		.uleb128 0x1
+ 883 0192 52       		.byte	0x52
+ 884 0193 03       		.uleb128 0x3
+ 885 0194 0A       		.byte	0xa
+ 886 0195 FF1F     		.2byte	0x1fff
+ 887 0197 0C       		.uleb128 0xc
+ 888 0198 01       		.uleb128 0x1
+ 889 0199 51       		.byte	0x51
+ 890 019a 01       		.uleb128 0x1
+ 891 019b 31       		.byte	0x31
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 28
+
+
+ 892 019c 0C       		.uleb128 0xc
+ 893 019d 01       		.uleb128 0x1
+ 894 019e 50       		.byte	0x50
+ 895 019f 01       		.uleb128 0x1
+ 896 01a0 38       		.byte	0x38
+ 897 01a1 00       		.byte	0
+ 898 01a2 0A       		.uleb128 0xa
+ 899 01a3 2C000000 		.4byte	.LVL6
+ 900 01a7 52060000 		.4byte	0x652
+ 901 01ab 0D       		.uleb128 0xd
+ 902 01ac 36000000 		.4byte	.LVL7
+ 903 01b0 63060000 		.4byte	0x663
+ 904 01b4 0C       		.uleb128 0xc
+ 905 01b5 01       		.uleb128 0x1
+ 906 01b6 50       		.byte	0x50
+ 907 01b7 01       		.uleb128 0x1
+ 908 01b8 32       		.byte	0x32
+ 909 01b9 00       		.byte	0
+ 910 01ba 00       		.byte	0
+ 911 01bb 09       		.uleb128 0x9
+ 912 01bc 13050000 		.4byte	.LASF25
+ 913 01c0 01       		.byte	0x1
+ 914 01c1 7B       		.byte	0x7b
+ 915 01c2 00000000 		.4byte	.LFB2
+ 916 01c6 C8000000 		.4byte	.LFE2-.LFB2
+ 917 01ca 01       		.uleb128 0x1
+ 918 01cb 9C       		.byte	0x9c
+ 919 01cc C7020000 		.4byte	0x2c7
+ 920 01d0 0E       		.uleb128 0xe
+ 921 01d1 A4050000 		.4byte	.LASF26
+ 922 01d5 01       		.byte	0x1
+ 923 01d6 7D       		.byte	0x7d
+ 924 01d7 6B000000 		.4byte	0x6b
+ 925 01db 00000000 		.4byte	.LLST0
+ 926 01df 0F       		.uleb128 0xf
+ 927 01e0 EF000000 		.4byte	.LASF27
+ 928 01e4 01       		.byte	0x1
+ 929 01e5 7F       		.byte	0x7f
+ 930 01e6 C7020000 		.4byte	0x2c7
+ 931 01ea 05       		.uleb128 0x5
+ 932 01eb 03       		.byte	0x3
+ 933 01ec 04000000 		.4byte	ADC_UI_tempArray.5002
+ 934 01f0 0A       		.uleb128 0xa
+ 935 01f1 0C000000 		.4byte	.LVL8
+ 936 01f5 74060000 		.4byte	0x674
+ 937 01f9 0A       		.uleb128 0xa
+ 938 01fa 12000000 		.4byte	.LVL9
+ 939 01fe 74060000 		.4byte	0x674
+ 940 0202 0B       		.uleb128 0xb
+ 941 0203 26000000 		.4byte	.LVL10
+ 942 0207 89060000 		.4byte	0x689
+ 943 020b 1A020000 		.4byte	0x21a
+ 944 020f 0C       		.uleb128 0xc
+ 945 0210 01       		.uleb128 0x1
+ 946 0211 53       		.byte	0x53
+ 947 0212 01       		.uleb128 0x1
+ 948 0213 36       		.byte	0x36
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 29
+
+
+ 949 0214 0C       		.uleb128 0xc
+ 950 0215 01       		.uleb128 0x1
+ 951 0216 51       		.byte	0x51
+ 952 0217 01       		.uleb128 0x1
+ 953 0218 38       		.byte	0x38
+ 954 0219 00       		.byte	0
+ 955 021a 0B       		.uleb128 0xb
+ 956 021b 32000000 		.4byte	.LVL11
+ 957 021f AD060000 		.4byte	0x6ad
+ 958 0223 35020000 		.4byte	0x235
+ 959 0227 0C       		.uleb128 0xc
+ 960 0228 01       		.uleb128 0x1
+ 961 0229 52       		.byte	0x52
+ 962 022a 02       		.uleb128 0x2
+ 963 022b 76       		.byte	0x76
+ 964 022c 00       		.sleb128 0
+ 965 022d 0C       		.uleb128 0xc
+ 966 022e 01       		.uleb128 0x1
+ 967 022f 51       		.byte	0x51
+ 968 0230 03       		.uleb128 0x3
+ 969 0231 0A       		.byte	0xa
+ 970 0232 A05B     		.2byte	0x5ba0
+ 971 0234 00       		.byte	0
+ 972 0235 0A       		.uleb128 0xa
+ 973 0236 3A000000 		.4byte	.LVL12
+ 974 023a CC060000 		.4byte	0x6cc
+ 975 023e 0B       		.uleb128 0xb
+ 976 023f 4C000000 		.4byte	.LVL13
+ 977 0243 89060000 		.4byte	0x689
+ 978 0247 56020000 		.4byte	0x256
+ 979 024b 0C       		.uleb128 0xc
+ 980 024c 01       		.uleb128 0x1
+ 981 024d 53       		.byte	0x53
+ 982 024e 01       		.uleb128 0x1
+ 983 024f 37       		.byte	0x37
+ 984 0250 0C       		.uleb128 0xc
+ 985 0251 01       		.uleb128 0x1
+ 986 0252 51       		.byte	0x51
+ 987 0253 01       		.uleb128 0x1
+ 988 0254 38       		.byte	0x38
+ 989 0255 00       		.byte	0
+ 990 0256 0B       		.uleb128 0xb
+ 991 0257 58000000 		.4byte	.LVL14
+ 992 025b AD060000 		.4byte	0x6ad
+ 993 025f 73020000 		.4byte	0x273
+ 994 0263 0C       		.uleb128 0xc
+ 995 0264 01       		.uleb128 0x1
+ 996 0265 52       		.byte	0x52
+ 997 0266 05       		.uleb128 0x5
+ 998 0267 03       		.byte	0x3
+ 999 0268 00000000 		.4byte	ADC_UI_finalArray
+ 1000 026c 0C       		.uleb128 0xc
+ 1001 026d 01       		.uleb128 0x1
+ 1002 026e 51       		.byte	0x51
+ 1003 026f 02       		.uleb128 0x2
+ 1004 0270 76       		.byte	0x76
+ 1005 0271 00       		.sleb128 0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 30
+
+
+ 1006 0272 00       		.byte	0
+ 1007 0273 0A       		.uleb128 0xa
+ 1008 0274 60000000 		.4byte	.LVL15
+ 1009 0278 CC060000 		.4byte	0x6cc
+ 1010 027c 0B       		.uleb128 0xb
+ 1011 027d 68000000 		.4byte	.LVL16
+ 1012 0281 E6060000 		.4byte	0x6e6
+ 1013 0285 8F020000 		.4byte	0x28f
+ 1014 0289 0C       		.uleb128 0xc
+ 1015 028a 01       		.uleb128 0x1
+ 1016 028b 51       		.byte	0x51
+ 1017 028c 01       		.uleb128 0x1
+ 1018 028d 31       		.byte	0x31
+ 1019 028e 00       		.byte	0
+ 1020 028f 0B       		.uleb128 0xb
+ 1021 0290 70000000 		.4byte	.LVL17
+ 1022 0294 E6060000 		.4byte	0x6e6
+ 1023 0298 A2020000 		.4byte	0x2a2
+ 1024 029c 0C       		.uleb128 0xc
+ 1025 029d 01       		.uleb128 0x1
+ 1026 029e 51       		.byte	0x51
+ 1027 029f 01       		.uleb128 0x1
+ 1028 02a0 31       		.byte	0x31
+ 1029 02a1 00       		.byte	0
+ 1030 02a2 0A       		.uleb128 0xa
+ 1031 02a3 74000000 		.4byte	.LVL18
+ 1032 02a7 00070000 		.4byte	0x700
+ 1033 02ab 0A       		.uleb128 0xa
+ 1034 02ac 82000000 		.4byte	.LVL19
+ 1035 02b0 0B070000 		.4byte	0x70b
+ 1036 02b4 0A       		.uleb128 0xa
+ 1037 02b5 A0000000 		.4byte	.LVL20
+ 1038 02b9 1C070000 		.4byte	0x71c
+ 1039 02bd 0A       		.uleb128 0xa
+ 1040 02be A8000000 		.4byte	.LVL21
+ 1041 02c2 1C070000 		.4byte	0x71c
+ 1042 02c6 00       		.byte	0
+ 1043 02c7 10       		.uleb128 0x10
+ 1044 02c8 8C000000 		.4byte	0x8c
+ 1045 02cc D7020000 		.4byte	0x2d7
+ 1046 02d0 11       		.uleb128 0x11
+ 1047 02d1 00010000 		.4byte	0x100
+ 1048 02d5 03       		.byte	0x3
+ 1049 02d6 00       		.byte	0
+ 1050 02d7 09       		.uleb128 0x9
+ 1051 02d8 29020000 		.4byte	.LASF28
+ 1052 02dc 01       		.byte	0x1
+ 1053 02dd D9       		.byte	0xd9
+ 1054 02de 00000000 		.4byte	.LFB3
+ 1055 02e2 28000000 		.4byte	.LFE3-.LFB3
+ 1056 02e6 01       		.uleb128 0x1
+ 1057 02e7 9C       		.byte	0x9c
+ 1058 02e8 08030000 		.4byte	0x308
+ 1059 02ec 0A       		.uleb128 0xa
+ 1060 02ed 0C000000 		.4byte	.LVL22
+ 1061 02f1 41010000 		.4byte	0x141
+ 1062 02f5 0A       		.uleb128 0xa
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 31
+
+
+ 1063 02f6 14000000 		.4byte	.LVL23
+ 1064 02fa BB010000 		.4byte	0x1bb
+ 1065 02fe 0A       		.uleb128 0xa
+ 1066 02ff 18000000 		.4byte	.LVL24
+ 1067 0303 27070000 		.4byte	0x727
+ 1068 0307 00       		.byte	0
+ 1069 0308 09       		.uleb128 0x9
+ 1070 0309 02020000 		.4byte	.LASF29
+ 1071 030d 01       		.byte	0x1
+ 1072 030e FC       		.byte	0xfc
+ 1073 030f 00000000 		.4byte	.LFB4
+ 1074 0313 0E000000 		.4byte	.LFE4-.LFB4
+ 1075 0317 01       		.uleb128 0x1
+ 1076 0318 9C       		.byte	0x9c
+ 1077 0319 30030000 		.4byte	0x330
+ 1078 031d 0A       		.uleb128 0xa
+ 1079 031e 06000000 		.4byte	.LVL25
+ 1080 0322 2E070000 		.4byte	0x72e
+ 1081 0326 12       		.uleb128 0x12
+ 1082 0327 0E000000 		.4byte	.LVL26
+ 1083 032b 07010000 		.4byte	0x107
+ 1084 032f 00       		.byte	0
+ 1085 0330 13       		.uleb128 0x13
+ 1086 0331 9B000000 		.4byte	.LASF30
+ 1087 0335 01       		.byte	0x1
+ 1088 0336 1A01     		.2byte	0x11a
+ 1089 0338 00000000 		.4byte	.LFB5
+ 1090 033c 04000000 		.4byte	.LFE5-.LFB5
+ 1091 0340 01       		.uleb128 0x1
+ 1092 0341 9C       		.byte	0x9c
+ 1093 0342 50030000 		.4byte	0x350
+ 1094 0346 12       		.uleb128 0x12
+ 1095 0347 04000000 		.4byte	.LVL27
+ 1096 034b 35070000 		.4byte	0x735
+ 1097 034f 00       		.byte	0
+ 1098 0350 13       		.uleb128 0x13
+ 1099 0351 E9040000 		.4byte	.LASF31
+ 1100 0355 01       		.byte	0x1
+ 1101 0356 4101     		.2byte	0x141
+ 1102 0358 00000000 		.4byte	.LFB6
+ 1103 035c 04000000 		.4byte	.LFE6-.LFB6
+ 1104 0360 01       		.uleb128 0x1
+ 1105 0361 9C       		.byte	0x9c
+ 1106 0362 70030000 		.4byte	0x370
+ 1107 0366 12       		.uleb128 0x12
+ 1108 0367 04000000 		.4byte	.LVL28
+ 1109 036b 3C070000 		.4byte	0x73c
+ 1110 036f 00       		.byte	0
+ 1111 0370 14       		.uleb128 0x14
+ 1112 0371 72030000 		.4byte	.LASF33
+ 1113 0375 01       		.byte	0x1
+ 1114 0376 6501     		.2byte	0x165
+ 1115 0378 81000000 		.4byte	0x81
+ 1116 037c 00000000 		.4byte	.LFB7
+ 1117 0380 18000000 		.4byte	.LFE7-.LFB7
+ 1118 0384 01       		.uleb128 0x1
+ 1119 0385 9C       		.byte	0x9c
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 32
+
+
+ 1120 0386 AB030000 		.4byte	0x3ab
+ 1121 038a 15       		.uleb128 0x15
+ 1122 038b FA010000 		.4byte	.LASF35
+ 1123 038f 01       		.byte	0x1
+ 1124 0390 6501     		.2byte	0x165
+ 1125 0392 6B000000 		.4byte	0x6b
+ 1126 0396 13000000 		.4byte	.LLST1
+ 1127 039a 16       		.uleb128 0x16
+ 1128 039b B5050000 		.4byte	.LASF32
+ 1129 039f 01       		.byte	0x1
+ 1130 03a0 6701     		.2byte	0x167
+ 1131 03a2 6B000000 		.4byte	0x6b
+ 1132 03a6 34000000 		.4byte	.LLST2
+ 1133 03aa 00       		.byte	0
+ 1134 03ab 14       		.uleb128 0x14
+ 1135 03ac C9030000 		.4byte	.LASF34
+ 1136 03b0 01       		.byte	0x1
+ 1137 03b1 8701     		.2byte	0x187
+ 1138 03b3 8C000000 		.4byte	0x8c
+ 1139 03b7 00000000 		.4byte	.LFB8
+ 1140 03bb 1C000000 		.4byte	.LFE8-.LFB8
+ 1141 03bf 01       		.uleb128 0x1
+ 1142 03c0 9C       		.byte	0x9c
+ 1143 03c1 D6030000 		.4byte	0x3d6
+ 1144 03c5 15       		.uleb128 0x15
+ 1145 03c6 FC040000 		.4byte	.LASF36
+ 1146 03ca 01       		.byte	0x1
+ 1147 03cb 8701     		.2byte	0x187
+ 1148 03cd 76000000 		.4byte	0x76
+ 1149 03d1 52000000 		.4byte	.LLST3
+ 1150 03d5 00       		.byte	0
+ 1151 03d6 14       		.uleb128 0x14
+ 1152 03d7 7F050000 		.4byte	.LASF37
+ 1153 03db 01       		.byte	0x1
+ 1154 03dc A101     		.2byte	0x1a1
+ 1155 03de 8C000000 		.4byte	0x8c
+ 1156 03e2 00000000 		.4byte	.LFB9
+ 1157 03e6 04000000 		.4byte	.LFE9-.LFB9
+ 1158 03ea 01       		.uleb128 0x1
+ 1159 03eb 9C       		.byte	0x9c
+ 1160 03ec FA030000 		.4byte	0x3fa
+ 1161 03f0 12       		.uleb128 0x12
+ 1162 03f1 04000000 		.4byte	.LVL36
+ 1163 03f5 43070000 		.4byte	0x743
+ 1164 03f9 00       		.byte	0
+ 1165 03fa 13       		.uleb128 0x13
+ 1166 03fb 92040000 		.4byte	.LASF38
+ 1167 03ff 01       		.byte	0x1
+ 1168 0400 C001     		.2byte	0x1c0
+ 1169 0402 00000000 		.4byte	.LFB10
+ 1170 0406 06000000 		.4byte	.LFE10-.LFB10
+ 1171 040a 01       		.uleb128 0x1
+ 1172 040b 9C       		.byte	0x9c
+ 1173 040c 32040000 		.4byte	0x432
+ 1174 0410 15       		.uleb128 0x15
+ 1175 0411 21050000 		.4byte	.LASF39
+ 1176 0415 01       		.byte	0x1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 33
+
+
+ 1177 0416 C001     		.2byte	0x1c0
+ 1178 0418 97000000 		.4byte	0x97
+ 1179 041c 73000000 		.4byte	.LLST4
+ 1180 0420 0D       		.uleb128 0xd
+ 1181 0421 06000000 		.4byte	.LVL39
+ 1182 0425 4E070000 		.4byte	0x74e
+ 1183 0429 0C       		.uleb128 0xc
+ 1184 042a 01       		.uleb128 0x1
+ 1185 042b 50       		.byte	0x50
+ 1186 042c 03       		.uleb128 0x3
+ 1187 042d F3       		.byte	0xf3
+ 1188 042e 01       		.uleb128 0x1
+ 1189 042f 50       		.byte	0x50
+ 1190 0430 00       		.byte	0
+ 1191 0431 00       		.byte	0
+ 1192 0432 13       		.uleb128 0x13
+ 1193 0433 A3040000 		.4byte	.LASF40
+ 1194 0437 01       		.byte	0x1
+ 1195 0438 EB01     		.2byte	0x1eb
+ 1196 043a 00000000 		.4byte	.LFB11
+ 1197 043e 04000000 		.4byte	.LFE11-.LFB11
+ 1198 0442 01       		.uleb128 0x1
+ 1199 0443 9C       		.byte	0x9c
+ 1200 0444 62040000 		.4byte	0x462
+ 1201 0448 15       		.uleb128 0x15
+ 1202 0449 DE040000 		.4byte	.LASF41
+ 1203 044d 01       		.byte	0x1
+ 1204 044e EB01     		.2byte	0x1eb
+ 1205 0450 6B000000 		.4byte	0x6b
+ 1206 0454 94000000 		.4byte	.LLST5
+ 1207 0458 12       		.uleb128 0x12
+ 1208 0459 04000000 		.4byte	.LVL41
+ 1209 045d 5F070000 		.4byte	0x75f
+ 1210 0461 00       		.byte	0
+ 1211 0462 13       		.uleb128 0x13
+ 1212 0463 D9010000 		.4byte	.LASF42
+ 1213 0467 01       		.byte	0x1
+ 1214 0468 0502     		.2byte	0x205
+ 1215 046a 00000000 		.4byte	.LFB12
+ 1216 046e 06000000 		.4byte	.LFE12-.LFB12
+ 1217 0472 01       		.uleb128 0x1
+ 1218 0473 9C       		.byte	0x9c
+ 1219 0474 9A040000 		.4byte	0x49a
+ 1220 0478 15       		.uleb128 0x15
+ 1221 0479 1E000000 		.4byte	.LASF43
+ 1222 047d 01       		.byte	0x1
+ 1223 047e 0502     		.2byte	0x205
+ 1224 0480 97000000 		.4byte	0x97
+ 1225 0484 B5000000 		.4byte	.LLST6
+ 1226 0488 0D       		.uleb128 0xd
+ 1227 0489 06000000 		.4byte	.LVL44
+ 1228 048d 70070000 		.4byte	0x770
+ 1229 0491 0C       		.uleb128 0xc
+ 1230 0492 01       		.uleb128 0x1
+ 1231 0493 50       		.byte	0x50
+ 1232 0494 03       		.uleb128 0x3
+ 1233 0495 F3       		.byte	0xf3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 34
+
+
+ 1234 0496 01       		.uleb128 0x1
+ 1235 0497 50       		.byte	0x50
+ 1236 0498 00       		.byte	0
+ 1237 0499 00       		.byte	0
+ 1238 049a 13       		.uleb128 0x13
+ 1239 049b 28050000 		.4byte	.LASF44
+ 1240 049f 01       		.byte	0x1
+ 1241 04a0 2402     		.2byte	0x224
+ 1242 04a2 00000000 		.4byte	.LFB13
+ 1243 04a6 04000000 		.4byte	.LFE13-.LFB13
+ 1244 04aa 01       		.uleb128 0x1
+ 1245 04ab 9C       		.byte	0x9c
+ 1246 04ac D2040000 		.4byte	0x4d2
+ 1247 04b0 15       		.uleb128 0x15
+ 1248 04b1 1E000000 		.4byte	.LASF43
+ 1249 04b5 01       		.byte	0x1
+ 1250 04b6 2402     		.2byte	0x224
+ 1251 04b8 97000000 		.4byte	0x97
+ 1252 04bc D6000000 		.4byte	.LLST7
+ 1253 04c0 0D       		.uleb128 0xd
+ 1254 04c1 04000000 		.4byte	.LVL46
+ 1255 04c5 81070000 		.4byte	0x781
+ 1256 04c9 0C       		.uleb128 0xc
+ 1257 04ca 01       		.uleb128 0x1
+ 1258 04cb 50       		.byte	0x50
+ 1259 04cc 03       		.uleb128 0x3
+ 1260 04cd F3       		.byte	0xf3
+ 1261 04ce 01       		.uleb128 0x1
+ 1262 04cf 50       		.byte	0x50
+ 1263 04d0 00       		.byte	0
+ 1264 04d1 00       		.byte	0
+ 1265 04d2 14       		.uleb128 0x14
+ 1266 04d3 31040000 		.4byte	.LASF45
+ 1267 04d7 01       		.byte	0x1
+ 1268 04d8 3E02     		.2byte	0x23e
+ 1269 04da 97000000 		.4byte	0x97
+ 1270 04de 00000000 		.4byte	.LFB14
+ 1271 04e2 08000000 		.4byte	.LFE14-.LFB14
+ 1272 04e6 01       		.uleb128 0x1
+ 1273 04e7 9C       		.byte	0x9c
+ 1274 04e8 06050000 		.4byte	0x506
+ 1275 04ec 15       		.uleb128 0x15
+ 1276 04ed 52050000 		.4byte	.LASF46
+ 1277 04f1 01       		.byte	0x1
+ 1278 04f2 3E02     		.2byte	0x23e
+ 1279 04f4 8C000000 		.4byte	0x8c
+ 1280 04f8 F7000000 		.4byte	.LLST8
+ 1281 04fc 0A       		.uleb128 0xa
+ 1282 04fd 06000000 		.4byte	.LVL48
+ 1283 0501 92070000 		.4byte	0x792
+ 1284 0505 00       		.byte	0
+ 1285 0506 14       		.uleb128 0x14
+ 1286 0507 68000000 		.4byte	.LASF47
+ 1287 050b 01       		.byte	0x1
+ 1288 050c 5802     		.2byte	0x258
+ 1289 050e 97000000 		.4byte	0x97
+ 1290 0512 00000000 		.4byte	.LFB15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 35
+
+
+ 1291 0516 04000000 		.4byte	.LFE15-.LFB15
+ 1292 051a 01       		.uleb128 0x1
+ 1293 051b 9C       		.byte	0x9c
+ 1294 051c 3A050000 		.4byte	0x53a
+ 1295 0520 15       		.uleb128 0x15
+ 1296 0521 52050000 		.4byte	.LASF46
+ 1297 0525 01       		.byte	0x1
+ 1298 0526 5802     		.2byte	0x258
+ 1299 0528 8C000000 		.4byte	0x8c
+ 1300 052c 18010000 		.4byte	.LLST9
+ 1301 0530 12       		.uleb128 0x12
+ 1302 0531 04000000 		.4byte	.LVL50
+ 1303 0535 A7070000 		.4byte	0x7a7
+ 1304 0539 00       		.byte	0
+ 1305 053a 14       		.uleb128 0x14
+ 1306 053b B3030000 		.4byte	.LASF48
+ 1307 053f 01       		.byte	0x1
+ 1308 0540 7202     		.2byte	0x272
+ 1309 0542 A2000000 		.4byte	0xa2
+ 1310 0546 00000000 		.4byte	.LFB16
+ 1311 054a 04000000 		.4byte	.LFE16-.LFB16
+ 1312 054e 01       		.uleb128 0x1
+ 1313 054f 9C       		.byte	0x9c
+ 1314 0550 6E050000 		.4byte	0x56e
+ 1315 0554 15       		.uleb128 0x15
+ 1316 0555 52050000 		.4byte	.LASF46
+ 1317 0559 01       		.byte	0x1
+ 1318 055a 7202     		.2byte	0x272
+ 1319 055c 8C000000 		.4byte	0x8c
+ 1320 0560 39010000 		.4byte	.LLST10
+ 1321 0564 12       		.uleb128 0x12
+ 1322 0565 04000000 		.4byte	.LVL52
+ 1323 0569 BC070000 		.4byte	0x7bc
+ 1324 056d 00       		.byte	0
+ 1325 056e 0F       		.uleb128 0xf
+ 1326 056f C2040000 		.4byte	.LASF49
+ 1327 0573 01       		.byte	0x1
+ 1328 0574 19       		.byte	0x19
+ 1329 0575 6B000000 		.4byte	0x6b
+ 1330 0579 05       		.uleb128 0x5
+ 1331 057a 03       		.byte	0x3
+ 1332 057b 00000000 		.4byte	ADC_UI_tempChan
+ 1333 057f 0F       		.uleb128 0xf
+ 1334 0580 61020000 		.4byte	.LASF50
+ 1335 0584 01       		.byte	0x1
+ 1336 0585 1A       		.byte	0x1a
+ 1337 0586 6B000000 		.4byte	0x6b
+ 1338 058a 05       		.uleb128 0x5
+ 1339 058b 03       		.byte	0x3
+ 1340 058c 01000000 		.4byte	ADC_UI_finalChan
+ 1341 0590 0F       		.uleb128 0xf
+ 1342 0591 0E020000 		.4byte	.LASF51
+ 1343 0595 01       		.byte	0x1
+ 1344 0596 1B       		.byte	0x1b
+ 1345 0597 6B000000 		.4byte	0x6b
+ 1346 059b 05       		.uleb128 0x5
+ 1347 059c 03       		.byte	0x3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 36
+
+
+ 1348 059d 00000000 		.4byte	ADC_UI_tempTD
+ 1349 05a1 0F       		.uleb128 0xf
+ 1350 05a2 18010000 		.4byte	.LASF52
+ 1351 05a6 01       		.byte	0x1
+ 1352 05a7 1C       		.byte	0x1c
+ 1353 05a8 6B000000 		.4byte	0x6b
+ 1354 05ac 05       		.uleb128 0x5
+ 1355 05ad 03       		.byte	0x3
+ 1356 05ae 01000000 		.4byte	ADC_UI_finalTD
+ 1357 05b2 17       		.uleb128 0x17
+ 1358 05b3 03040000 		.4byte	.LASF53
+ 1359 05b7 03       		.byte	0x3
+ 1360 05b8 5B       		.byte	0x5b
+ 1361 05b9 BD050000 		.4byte	0x5bd
+ 1362 05bd 05       		.uleb128 0x5
+ 1363 05be 8C000000 		.4byte	0x8c
+ 1364 05c2 18       		.uleb128 0x18
+ 1365 05c3 E8010000 		.4byte	.LASF54
+ 1366 05c7 01       		.byte	0x1
+ 1367 05c8 17       		.byte	0x17
+ 1368 05c9 C7020000 		.4byte	0x2c7
+ 1369 05cd 05       		.uleb128 0x5
+ 1370 05ce 03       		.byte	0x3
+ 1371 05cf 00000000 		.4byte	ADC_UI_finalArray
+ 1372 05d3 18       		.uleb128 0x18
+ 1373 05d4 CF020000 		.4byte	.LASF55
+ 1374 05d8 01       		.byte	0x1
+ 1375 05d9 18       		.byte	0x18
+ 1376 05da 81000000 		.4byte	0x81
+ 1377 05de 05       		.uleb128 0x5
+ 1378 05df 03       		.byte	0x3
+ 1379 05e0 00000000 		.4byte	ADC_UI_initVar
+ 1380 05e4 19       		.uleb128 0x19
+ 1381 05e5 59000000 		.4byte	.LASF56
+ 1382 05e9 04       		.byte	0x4
+ 1383 05ea 2B       		.byte	0x2b
+ 1384 05eb C2000000 		.4byte	0xc2
+ 1385 05ef F9050000 		.4byte	0x5f9
+ 1386 05f3 1A       		.uleb128 0x1a
+ 1387 05f4 6B000000 		.4byte	0x6b
+ 1388 05f8 00       		.byte	0
+ 1389 05f9 1B       		.uleb128 0x1b
+ 1390 05fa 8F000000 		.4byte	.LASF59
+ 1391 05fe 04       		.byte	0x4
+ 1392 05ff 3A       		.byte	0x3a
+ 1393 0600 0A060000 		.4byte	0x60a
+ 1394 0604 1A       		.uleb128 0x1a
+ 1395 0605 6B000000 		.4byte	0x6b
+ 1396 0609 00       		.byte	0
+ 1397 060a 19       		.uleb128 0x19
+ 1398 060b 3C000000 		.4byte	.LASF57
+ 1399 060f 05       		.byte	0x5
+ 1400 0610 1E       		.byte	0x1e
+ 1401 0611 6B000000 		.4byte	0x6b
+ 1402 0615 2E060000 		.4byte	0x62e
+ 1403 0619 1A       		.uleb128 0x1a
+ 1404 061a 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 37
+
+
+ 1405 061e 1A       		.uleb128 0x1a
+ 1406 061f 6B000000 		.4byte	0x6b
+ 1407 0623 1A       		.uleb128 0x1a
+ 1408 0624 76000000 		.4byte	0x76
+ 1409 0628 1A       		.uleb128 0x1a
+ 1410 0629 76000000 		.4byte	0x76
+ 1411 062d 00       		.byte	0
+ 1412 062e 19       		.uleb128 0x19
+ 1413 062f B1020000 		.4byte	.LASF58
+ 1414 0633 06       		.byte	0x6
+ 1415 0634 1E       		.byte	0x1e
+ 1416 0635 6B000000 		.4byte	0x6b
+ 1417 0639 52060000 		.4byte	0x652
+ 1418 063d 1A       		.uleb128 0x1a
+ 1419 063e 6B000000 		.4byte	0x6b
+ 1420 0642 1A       		.uleb128 0x1a
+ 1421 0643 6B000000 		.4byte	0x6b
+ 1422 0647 1A       		.uleb128 0x1a
+ 1423 0648 76000000 		.4byte	0x76
+ 1424 064c 1A       		.uleb128 0x1a
+ 1425 064d 76000000 		.4byte	0x76
+ 1426 0651 00       		.byte	0
+ 1427 0652 1B       		.uleb128 0x1b
+ 1428 0653 3D050000 		.4byte	.LASF60
+ 1429 0657 07       		.byte	0x7
+ 1430 0658 1D       		.byte	0x1d
+ 1431 0659 63060000 		.4byte	0x663
+ 1432 065d 1A       		.uleb128 0x1a
+ 1433 065e ED000000 		.4byte	0xed
+ 1434 0662 00       		.byte	0
+ 1435 0663 1B       		.uleb128 0x1b
+ 1436 0664 48040000 		.4byte	.LASF61
+ 1437 0668 07       		.byte	0x7
+ 1438 0669 20       		.byte	0x20
+ 1439 066a 74060000 		.4byte	0x674
+ 1440 066e 1A       		.uleb128 0x1a
+ 1441 066f 6B000000 		.4byte	0x6b
+ 1442 0673 00       		.byte	0
+ 1443 0674 19       		.uleb128 0x19
+ 1444 0675 EE030000 		.4byte	.LASF62
+ 1445 0679 04       		.byte	0x4
+ 1446 067a 2C       		.byte	0x2c
+ 1447 067b C2000000 		.4byte	0xc2
+ 1448 067f 89060000 		.4byte	0x689
+ 1449 0683 1A       		.uleb128 0x1a
+ 1450 0684 6B000000 		.4byte	0x6b
+ 1451 0688 00       		.byte	0
+ 1452 0689 19       		.uleb128 0x19
+ 1453 068a 00010000 		.4byte	.LASF63
+ 1454 068e 04       		.byte	0x4
+ 1455 068f 3C       		.byte	0x3c
+ 1456 0690 C2000000 		.4byte	0xc2
+ 1457 0694 AD060000 		.4byte	0x6ad
+ 1458 0698 1A       		.uleb128 0x1a
+ 1459 0699 6B000000 		.4byte	0x6b
+ 1460 069d 1A       		.uleb128 0x1a
+ 1461 069e 76000000 		.4byte	0x76
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 38
+
+
+ 1462 06a2 1A       		.uleb128 0x1a
+ 1463 06a3 6B000000 		.4byte	0x6b
+ 1464 06a7 1A       		.uleb128 0x1a
+ 1465 06a8 6B000000 		.4byte	0x6b
+ 1466 06ac 00       		.byte	0
+ 1467 06ad 19       		.uleb128 0x19
+ 1468 06ae DC030000 		.4byte	.LASF64
+ 1469 06b2 04       		.byte	0x4
+ 1470 06b3 40       		.byte	0x40
+ 1471 06b4 C2000000 		.4byte	0xc2
+ 1472 06b8 CC060000 		.4byte	0x6cc
+ 1473 06bc 1A       		.uleb128 0x1a
+ 1474 06bd 6B000000 		.4byte	0x6b
+ 1475 06c1 1A       		.uleb128 0x1a
+ 1476 06c2 76000000 		.4byte	0x76
+ 1477 06c6 1A       		.uleb128 0x1a
+ 1478 06c7 76000000 		.4byte	0x76
+ 1479 06cb 00       		.byte	0
+ 1480 06cc 19       		.uleb128 0x19
+ 1481 06cd C2050000 		.4byte	.LASF65
+ 1482 06d1 04       		.byte	0x4
+ 1483 06d2 30       		.byte	0x30
+ 1484 06d3 C2000000 		.4byte	0xc2
+ 1485 06d7 E6060000 		.4byte	0x6e6
+ 1486 06db 1A       		.uleb128 0x1a
+ 1487 06dc 6B000000 		.4byte	0x6b
+ 1488 06e0 1A       		.uleb128 0x1a
+ 1489 06e1 6B000000 		.4byte	0x6b
+ 1490 06e5 00       		.byte	0
+ 1491 06e6 19       		.uleb128 0x19
+ 1492 06e7 AF000000 		.4byte	.LASF66
+ 1493 06eb 04       		.byte	0x4
+ 1494 06ec 2A       		.byte	0x2a
+ 1495 06ed C2000000 		.4byte	0xc2
+ 1496 06f1 00070000 		.4byte	0x700
+ 1497 06f5 1A       		.uleb128 0x1a
+ 1498 06f6 6B000000 		.4byte	0x6b
+ 1499 06fa 1A       		.uleb128 0x1a
+ 1500 06fb 6B000000 		.4byte	0x6b
+ 1501 06ff 00       		.byte	0
+ 1502 0700 1C       		.uleb128 0x1c
+ 1503 0701 72020000 		.4byte	.LASF68
+ 1504 0705 08       		.byte	0x8
+ 1505 0706 7E       		.byte	0x7e
+ 1506 0707 6B000000 		.4byte	0x6b
+ 1507 070b 1B       		.uleb128 0x1b
+ 1508 070c 26000000 		.4byte	.LASF67
+ 1509 0710 08       		.byte	0x8
+ 1510 0711 7F       		.byte	0x7f
+ 1511 0712 1C070000 		.4byte	0x71c
+ 1512 0716 1A       		.uleb128 0x1a
+ 1513 0717 6B000000 		.4byte	0x6b
+ 1514 071b 00       		.byte	0
+ 1515 071c 1C       		.uleb128 0x1c
+ 1516 071d 7F000000 		.4byte	.LASF69
+ 1517 0721 04       		.byte	0x4
+ 1518 0722 39       		.byte	0x39
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 39
+
+
+ 1519 0723 6B000000 		.4byte	0x6b
+ 1520 0727 1D       		.uleb128 0x1d
+ 1521 0728 93050000 		.4byte	.LASF70
+ 1522 072c 03       		.byte	0x3
+ 1523 072d 34       		.byte	0x34
+ 1524 072e 1D       		.uleb128 0x1d
+ 1525 072f 5C050000 		.4byte	.LASF71
+ 1526 0733 03       		.byte	0x3
+ 1527 0734 35       		.byte	0x35
+ 1528 0735 1D       		.uleb128 0x1d
+ 1529 0736 DF050000 		.4byte	.LASF72
+ 1530 073a 03       		.byte	0x3
+ 1531 073b D1       		.byte	0xd1
+ 1532 073c 1D       		.uleb128 0x1d
+ 1533 073d 07000000 		.4byte	.LASF73
+ 1534 0741 03       		.byte	0x3
+ 1535 0742 D2       		.byte	0xd2
+ 1536 0743 1C       		.uleb128 0x1c
+ 1537 0744 1A040000 		.4byte	.LASF74
+ 1538 0748 03       		.byte	0x3
+ 1539 0749 3B       		.byte	0x3b
+ 1540 074a 8C000000 		.4byte	0x8c
+ 1541 074e 1B       		.uleb128 0x1b
+ 1542 074f 89020000 		.4byte	.LASF75
+ 1543 0753 03       		.byte	0x3
+ 1544 0754 3D       		.byte	0x3d
+ 1545 0755 5F070000 		.4byte	0x75f
+ 1546 0759 1A       		.uleb128 0x1a
+ 1547 075a 8C000000 		.4byte	0x8c
+ 1548 075e 00       		.byte	0
+ 1549 075f 1B       		.uleb128 0x1b
+ 1550 0760 36020000 		.4byte	.LASF76
+ 1551 0764 03       		.byte	0x3
+ 1552 0765 37       		.byte	0x37
+ 1553 0766 70070000 		.4byte	0x770
+ 1554 076a 1A       		.uleb128 0x1a
+ 1555 076b 6B000000 		.4byte	0x6b
+ 1556 076f 00       		.byte	0
+ 1557 0770 1B       		.uleb128 0x1b
+ 1558 0771 6C050000 		.4byte	.LASF77
+ 1559 0775 03       		.byte	0x3
+ 1560 0776 50       		.byte	0x50
+ 1561 0777 81070000 		.4byte	0x781
+ 1562 077b 1A       		.uleb128 0x1a
+ 1563 077c 8C000000 		.4byte	0x8c
+ 1564 0780 00       		.byte	0
+ 1565 0781 1B       		.uleb128 0x1b
+ 1566 0782 91030000 		.4byte	.LASF78
+ 1567 0786 03       		.byte	0x3
+ 1568 0787 3E       		.byte	0x3e
+ 1569 0788 92070000 		.4byte	0x792
+ 1570 078c 1A       		.uleb128 0x1a
+ 1571 078d 97000000 		.4byte	0x97
+ 1572 0791 00       		.byte	0
+ 1573 0792 19       		.uleb128 0x19
+ 1574 0793 92010000 		.4byte	.LASF79
+ 1575 0797 03       		.byte	0x3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 40
+
+
+ 1576 0798 3F       		.byte	0x3f
+ 1577 0799 8C000000 		.4byte	0x8c
+ 1578 079d A7070000 		.4byte	0x7a7
+ 1579 07a1 1A       		.uleb128 0x1a
+ 1580 07a2 8C000000 		.4byte	0x8c
+ 1581 07a6 00       		.byte	0
+ 1582 07a7 19       		.uleb128 0x19
+ 1583 07a8 BD000000 		.4byte	.LASF80
+ 1584 07ac 03       		.byte	0x3
+ 1585 07ad 40       		.byte	0x40
+ 1586 07ae 97000000 		.4byte	0x97
+ 1587 07b2 BC070000 		.4byte	0x7bc
+ 1588 07b6 1A       		.uleb128 0x1a
+ 1589 07b7 8C000000 		.4byte	0x8c
+ 1590 07bb 00       		.byte	0
+ 1591 07bc 1E       		.uleb128 0x1e
+ 1592 07bd F7050000 		.4byte	.LASF81
+ 1593 07c1 03       		.byte	0x3
+ 1594 07c2 41       		.byte	0x41
+ 1595 07c3 A2000000 		.4byte	0xa2
+ 1596 07c7 1A       		.uleb128 0x1a
+ 1597 07c8 8C000000 		.4byte	0x8c
+ 1598 07cc 00       		.byte	0
+ 1599 07cd 00       		.byte	0
+ 1600              		.section	.debug_abbrev,"",%progbits
+ 1601              	.Ldebug_abbrev0:
+ 1602 0000 01       		.uleb128 0x1
+ 1603 0001 11       		.uleb128 0x11
+ 1604 0002 01       		.byte	0x1
+ 1605 0003 25       		.uleb128 0x25
+ 1606 0004 0E       		.uleb128 0xe
+ 1607 0005 13       		.uleb128 0x13
+ 1608 0006 0B       		.uleb128 0xb
+ 1609 0007 03       		.uleb128 0x3
+ 1610 0008 0E       		.uleb128 0xe
+ 1611 0009 1B       		.uleb128 0x1b
+ 1612 000a 0E       		.uleb128 0xe
+ 1613 000b 55       		.uleb128 0x55
+ 1614 000c 17       		.uleb128 0x17
+ 1615 000d 11       		.uleb128 0x11
+ 1616 000e 01       		.uleb128 0x1
+ 1617 000f 10       		.uleb128 0x10
+ 1618 0010 17       		.uleb128 0x17
+ 1619 0011 00       		.byte	0
+ 1620 0012 00       		.byte	0
+ 1621 0013 02       		.uleb128 0x2
+ 1622 0014 24       		.uleb128 0x24
+ 1623 0015 00       		.byte	0
+ 1624 0016 0B       		.uleb128 0xb
+ 1625 0017 0B       		.uleb128 0xb
+ 1626 0018 3E       		.uleb128 0x3e
+ 1627 0019 0B       		.uleb128 0xb
+ 1628 001a 03       		.uleb128 0x3
+ 1629 001b 0E       		.uleb128 0xe
+ 1630 001c 00       		.byte	0
+ 1631 001d 00       		.byte	0
+ 1632 001e 03       		.uleb128 0x3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 41
+
+
+ 1633 001f 24       		.uleb128 0x24
+ 1634 0020 00       		.byte	0
+ 1635 0021 0B       		.uleb128 0xb
+ 1636 0022 0B       		.uleb128 0xb
+ 1637 0023 3E       		.uleb128 0x3e
+ 1638 0024 0B       		.uleb128 0xb
+ 1639 0025 03       		.uleb128 0x3
+ 1640 0026 08       		.uleb128 0x8
+ 1641 0027 00       		.byte	0
+ 1642 0028 00       		.byte	0
+ 1643 0029 04       		.uleb128 0x4
+ 1644 002a 16       		.uleb128 0x16
+ 1645 002b 00       		.byte	0
+ 1646 002c 03       		.uleb128 0x3
+ 1647 002d 0E       		.uleb128 0xe
+ 1648 002e 3A       		.uleb128 0x3a
+ 1649 002f 0B       		.uleb128 0xb
+ 1650 0030 3B       		.uleb128 0x3b
+ 1651 0031 0B       		.uleb128 0xb
+ 1652 0032 49       		.uleb128 0x49
+ 1653 0033 13       		.uleb128 0x13
+ 1654 0034 00       		.byte	0
+ 1655 0035 00       		.byte	0
+ 1656 0036 05       		.uleb128 0x5
+ 1657 0037 35       		.uleb128 0x35
+ 1658 0038 00       		.byte	0
+ 1659 0039 49       		.uleb128 0x49
+ 1660 003a 13       		.uleb128 0x13
+ 1661 003b 00       		.byte	0
+ 1662 003c 00       		.byte	0
+ 1663 003d 06       		.uleb128 0x6
+ 1664 003e 16       		.uleb128 0x16
+ 1665 003f 00       		.byte	0
+ 1666 0040 03       		.uleb128 0x3
+ 1667 0041 0E       		.uleb128 0xe
+ 1668 0042 3A       		.uleb128 0x3a
+ 1669 0043 0B       		.uleb128 0xb
+ 1670 0044 3B       		.uleb128 0x3b
+ 1671 0045 05       		.uleb128 0x5
+ 1672 0046 49       		.uleb128 0x49
+ 1673 0047 13       		.uleb128 0x13
+ 1674 0048 00       		.byte	0
+ 1675 0049 00       		.byte	0
+ 1676 004a 07       		.uleb128 0x7
+ 1677 004b 0F       		.uleb128 0xf
+ 1678 004c 00       		.byte	0
+ 1679 004d 0B       		.uleb128 0xb
+ 1680 004e 0B       		.uleb128 0xb
+ 1681 004f 49       		.uleb128 0x49
+ 1682 0050 13       		.uleb128 0x13
+ 1683 0051 00       		.byte	0
+ 1684 0052 00       		.byte	0
+ 1685 0053 08       		.uleb128 0x8
+ 1686 0054 15       		.uleb128 0x15
+ 1687 0055 00       		.byte	0
+ 1688 0056 27       		.uleb128 0x27
+ 1689 0057 19       		.uleb128 0x19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 42
+
+
+ 1690 0058 00       		.byte	0
+ 1691 0059 00       		.byte	0
+ 1692 005a 09       		.uleb128 0x9
+ 1693 005b 2E       		.uleb128 0x2e
+ 1694 005c 01       		.byte	0x1
+ 1695 005d 3F       		.uleb128 0x3f
+ 1696 005e 19       		.uleb128 0x19
+ 1697 005f 03       		.uleb128 0x3
+ 1698 0060 0E       		.uleb128 0xe
+ 1699 0061 3A       		.uleb128 0x3a
+ 1700 0062 0B       		.uleb128 0xb
+ 1701 0063 3B       		.uleb128 0x3b
+ 1702 0064 0B       		.uleb128 0xb
+ 1703 0065 27       		.uleb128 0x27
+ 1704 0066 19       		.uleb128 0x19
+ 1705 0067 11       		.uleb128 0x11
+ 1706 0068 01       		.uleb128 0x1
+ 1707 0069 12       		.uleb128 0x12
+ 1708 006a 06       		.uleb128 0x6
+ 1709 006b 40       		.uleb128 0x40
+ 1710 006c 18       		.uleb128 0x18
+ 1711 006d 9742     		.uleb128 0x2117
+ 1712 006f 19       		.uleb128 0x19
+ 1713 0070 01       		.uleb128 0x1
+ 1714 0071 13       		.uleb128 0x13
+ 1715 0072 00       		.byte	0
+ 1716 0073 00       		.byte	0
+ 1717 0074 0A       		.uleb128 0xa
+ 1718 0075 898201   		.uleb128 0x4109
+ 1719 0078 00       		.byte	0
+ 1720 0079 11       		.uleb128 0x11
+ 1721 007a 01       		.uleb128 0x1
+ 1722 007b 31       		.uleb128 0x31
+ 1723 007c 13       		.uleb128 0x13
+ 1724 007d 00       		.byte	0
+ 1725 007e 00       		.byte	0
+ 1726 007f 0B       		.uleb128 0xb
+ 1727 0080 898201   		.uleb128 0x4109
+ 1728 0083 01       		.byte	0x1
+ 1729 0084 11       		.uleb128 0x11
+ 1730 0085 01       		.uleb128 0x1
+ 1731 0086 31       		.uleb128 0x31
+ 1732 0087 13       		.uleb128 0x13
+ 1733 0088 01       		.uleb128 0x1
+ 1734 0089 13       		.uleb128 0x13
+ 1735 008a 00       		.byte	0
+ 1736 008b 00       		.byte	0
+ 1737 008c 0C       		.uleb128 0xc
+ 1738 008d 8A8201   		.uleb128 0x410a
+ 1739 0090 00       		.byte	0
+ 1740 0091 02       		.uleb128 0x2
+ 1741 0092 18       		.uleb128 0x18
+ 1742 0093 9142     		.uleb128 0x2111
+ 1743 0095 18       		.uleb128 0x18
+ 1744 0096 00       		.byte	0
+ 1745 0097 00       		.byte	0
+ 1746 0098 0D       		.uleb128 0xd
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 43
+
+
+ 1747 0099 898201   		.uleb128 0x4109
+ 1748 009c 01       		.byte	0x1
+ 1749 009d 11       		.uleb128 0x11
+ 1750 009e 01       		.uleb128 0x1
+ 1751 009f 9542     		.uleb128 0x2115
+ 1752 00a1 19       		.uleb128 0x19
+ 1753 00a2 31       		.uleb128 0x31
+ 1754 00a3 13       		.uleb128 0x13
+ 1755 00a4 00       		.byte	0
+ 1756 00a5 00       		.byte	0
+ 1757 00a6 0E       		.uleb128 0xe
+ 1758 00a7 34       		.uleb128 0x34
+ 1759 00a8 00       		.byte	0
+ 1760 00a9 03       		.uleb128 0x3
+ 1761 00aa 0E       		.uleb128 0xe
+ 1762 00ab 3A       		.uleb128 0x3a
+ 1763 00ac 0B       		.uleb128 0xb
+ 1764 00ad 3B       		.uleb128 0x3b
+ 1765 00ae 0B       		.uleb128 0xb
+ 1766 00af 49       		.uleb128 0x49
+ 1767 00b0 13       		.uleb128 0x13
+ 1768 00b1 02       		.uleb128 0x2
+ 1769 00b2 17       		.uleb128 0x17
+ 1770 00b3 00       		.byte	0
+ 1771 00b4 00       		.byte	0
+ 1772 00b5 0F       		.uleb128 0xf
+ 1773 00b6 34       		.uleb128 0x34
+ 1774 00b7 00       		.byte	0
+ 1775 00b8 03       		.uleb128 0x3
+ 1776 00b9 0E       		.uleb128 0xe
+ 1777 00ba 3A       		.uleb128 0x3a
+ 1778 00bb 0B       		.uleb128 0xb
+ 1779 00bc 3B       		.uleb128 0x3b
+ 1780 00bd 0B       		.uleb128 0xb
+ 1781 00be 49       		.uleb128 0x49
+ 1782 00bf 13       		.uleb128 0x13
+ 1783 00c0 02       		.uleb128 0x2
+ 1784 00c1 18       		.uleb128 0x18
+ 1785 00c2 00       		.byte	0
+ 1786 00c3 00       		.byte	0
+ 1787 00c4 10       		.uleb128 0x10
+ 1788 00c5 01       		.uleb128 0x1
+ 1789 00c6 01       		.byte	0x1
+ 1790 00c7 49       		.uleb128 0x49
+ 1791 00c8 13       		.uleb128 0x13
+ 1792 00c9 01       		.uleb128 0x1
+ 1793 00ca 13       		.uleb128 0x13
+ 1794 00cb 00       		.byte	0
+ 1795 00cc 00       		.byte	0
+ 1796 00cd 11       		.uleb128 0x11
+ 1797 00ce 21       		.uleb128 0x21
+ 1798 00cf 00       		.byte	0
+ 1799 00d0 49       		.uleb128 0x49
+ 1800 00d1 13       		.uleb128 0x13
+ 1801 00d2 2F       		.uleb128 0x2f
+ 1802 00d3 0B       		.uleb128 0xb
+ 1803 00d4 00       		.byte	0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 44
+
+
+ 1804 00d5 00       		.byte	0
+ 1805 00d6 12       		.uleb128 0x12
+ 1806 00d7 898201   		.uleb128 0x4109
+ 1807 00da 00       		.byte	0
+ 1808 00db 11       		.uleb128 0x11
+ 1809 00dc 01       		.uleb128 0x1
+ 1810 00dd 9542     		.uleb128 0x2115
+ 1811 00df 19       		.uleb128 0x19
+ 1812 00e0 31       		.uleb128 0x31
+ 1813 00e1 13       		.uleb128 0x13
+ 1814 00e2 00       		.byte	0
+ 1815 00e3 00       		.byte	0
+ 1816 00e4 13       		.uleb128 0x13
+ 1817 00e5 2E       		.uleb128 0x2e
+ 1818 00e6 01       		.byte	0x1
+ 1819 00e7 3F       		.uleb128 0x3f
+ 1820 00e8 19       		.uleb128 0x19
+ 1821 00e9 03       		.uleb128 0x3
+ 1822 00ea 0E       		.uleb128 0xe
+ 1823 00eb 3A       		.uleb128 0x3a
+ 1824 00ec 0B       		.uleb128 0xb
+ 1825 00ed 3B       		.uleb128 0x3b
+ 1826 00ee 05       		.uleb128 0x5
+ 1827 00ef 27       		.uleb128 0x27
+ 1828 00f0 19       		.uleb128 0x19
+ 1829 00f1 11       		.uleb128 0x11
+ 1830 00f2 01       		.uleb128 0x1
+ 1831 00f3 12       		.uleb128 0x12
+ 1832 00f4 06       		.uleb128 0x6
+ 1833 00f5 40       		.uleb128 0x40
+ 1834 00f6 18       		.uleb128 0x18
+ 1835 00f7 9742     		.uleb128 0x2117
+ 1836 00f9 19       		.uleb128 0x19
+ 1837 00fa 01       		.uleb128 0x1
+ 1838 00fb 13       		.uleb128 0x13
+ 1839 00fc 00       		.byte	0
+ 1840 00fd 00       		.byte	0
+ 1841 00fe 14       		.uleb128 0x14
+ 1842 00ff 2E       		.uleb128 0x2e
+ 1843 0100 01       		.byte	0x1
+ 1844 0101 3F       		.uleb128 0x3f
+ 1845 0102 19       		.uleb128 0x19
+ 1846 0103 03       		.uleb128 0x3
+ 1847 0104 0E       		.uleb128 0xe
+ 1848 0105 3A       		.uleb128 0x3a
+ 1849 0106 0B       		.uleb128 0xb
+ 1850 0107 3B       		.uleb128 0x3b
+ 1851 0108 05       		.uleb128 0x5
+ 1852 0109 27       		.uleb128 0x27
+ 1853 010a 19       		.uleb128 0x19
+ 1854 010b 49       		.uleb128 0x49
+ 1855 010c 13       		.uleb128 0x13
+ 1856 010d 11       		.uleb128 0x11
+ 1857 010e 01       		.uleb128 0x1
+ 1858 010f 12       		.uleb128 0x12
+ 1859 0110 06       		.uleb128 0x6
+ 1860 0111 40       		.uleb128 0x40
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 45
+
+
+ 1861 0112 18       		.uleb128 0x18
+ 1862 0113 9742     		.uleb128 0x2117
+ 1863 0115 19       		.uleb128 0x19
+ 1864 0116 01       		.uleb128 0x1
+ 1865 0117 13       		.uleb128 0x13
+ 1866 0118 00       		.byte	0
+ 1867 0119 00       		.byte	0
+ 1868 011a 15       		.uleb128 0x15
+ 1869 011b 05       		.uleb128 0x5
+ 1870 011c 00       		.byte	0
+ 1871 011d 03       		.uleb128 0x3
+ 1872 011e 0E       		.uleb128 0xe
+ 1873 011f 3A       		.uleb128 0x3a
+ 1874 0120 0B       		.uleb128 0xb
+ 1875 0121 3B       		.uleb128 0x3b
+ 1876 0122 05       		.uleb128 0x5
+ 1877 0123 49       		.uleb128 0x49
+ 1878 0124 13       		.uleb128 0x13
+ 1879 0125 02       		.uleb128 0x2
+ 1880 0126 17       		.uleb128 0x17
+ 1881 0127 00       		.byte	0
+ 1882 0128 00       		.byte	0
+ 1883 0129 16       		.uleb128 0x16
+ 1884 012a 34       		.uleb128 0x34
+ 1885 012b 00       		.byte	0
+ 1886 012c 03       		.uleb128 0x3
+ 1887 012d 0E       		.uleb128 0xe
+ 1888 012e 3A       		.uleb128 0x3a
+ 1889 012f 0B       		.uleb128 0xb
+ 1890 0130 3B       		.uleb128 0x3b
+ 1891 0131 05       		.uleb128 0x5
+ 1892 0132 49       		.uleb128 0x49
+ 1893 0133 13       		.uleb128 0x13
+ 1894 0134 02       		.uleb128 0x2
+ 1895 0135 17       		.uleb128 0x17
+ 1896 0136 00       		.byte	0
+ 1897 0137 00       		.byte	0
+ 1898 0138 17       		.uleb128 0x17
+ 1899 0139 34       		.uleb128 0x34
+ 1900 013a 00       		.byte	0
+ 1901 013b 03       		.uleb128 0x3
+ 1902 013c 0E       		.uleb128 0xe
+ 1903 013d 3A       		.uleb128 0x3a
+ 1904 013e 0B       		.uleb128 0xb
+ 1905 013f 3B       		.uleb128 0x3b
+ 1906 0140 0B       		.uleb128 0xb
+ 1907 0141 49       		.uleb128 0x49
+ 1908 0142 13       		.uleb128 0x13
+ 1909 0143 3F       		.uleb128 0x3f
+ 1910 0144 19       		.uleb128 0x19
+ 1911 0145 3C       		.uleb128 0x3c
+ 1912 0146 19       		.uleb128 0x19
+ 1913 0147 00       		.byte	0
+ 1914 0148 00       		.byte	0
+ 1915 0149 18       		.uleb128 0x18
+ 1916 014a 34       		.uleb128 0x34
+ 1917 014b 00       		.byte	0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 46
+
+
+ 1918 014c 03       		.uleb128 0x3
+ 1919 014d 0E       		.uleb128 0xe
+ 1920 014e 3A       		.uleb128 0x3a
+ 1921 014f 0B       		.uleb128 0xb
+ 1922 0150 3B       		.uleb128 0x3b
+ 1923 0151 0B       		.uleb128 0xb
+ 1924 0152 49       		.uleb128 0x49
+ 1925 0153 13       		.uleb128 0x13
+ 1926 0154 3F       		.uleb128 0x3f
+ 1927 0155 19       		.uleb128 0x19
+ 1928 0156 02       		.uleb128 0x2
+ 1929 0157 18       		.uleb128 0x18
+ 1930 0158 00       		.byte	0
+ 1931 0159 00       		.byte	0
+ 1932 015a 19       		.uleb128 0x19
+ 1933 015b 2E       		.uleb128 0x2e
+ 1934 015c 01       		.byte	0x1
+ 1935 015d 3F       		.uleb128 0x3f
+ 1936 015e 19       		.uleb128 0x19
+ 1937 015f 03       		.uleb128 0x3
+ 1938 0160 0E       		.uleb128 0xe
+ 1939 0161 3A       		.uleb128 0x3a
+ 1940 0162 0B       		.uleb128 0xb
+ 1941 0163 3B       		.uleb128 0x3b
+ 1942 0164 0B       		.uleb128 0xb
+ 1943 0165 27       		.uleb128 0x27
+ 1944 0166 19       		.uleb128 0x19
+ 1945 0167 49       		.uleb128 0x49
+ 1946 0168 13       		.uleb128 0x13
+ 1947 0169 3C       		.uleb128 0x3c
+ 1948 016a 19       		.uleb128 0x19
+ 1949 016b 01       		.uleb128 0x1
+ 1950 016c 13       		.uleb128 0x13
+ 1951 016d 00       		.byte	0
+ 1952 016e 00       		.byte	0
+ 1953 016f 1A       		.uleb128 0x1a
+ 1954 0170 05       		.uleb128 0x5
+ 1955 0171 00       		.byte	0
+ 1956 0172 49       		.uleb128 0x49
+ 1957 0173 13       		.uleb128 0x13
+ 1958 0174 00       		.byte	0
+ 1959 0175 00       		.byte	0
+ 1960 0176 1B       		.uleb128 0x1b
+ 1961 0177 2E       		.uleb128 0x2e
+ 1962 0178 01       		.byte	0x1
+ 1963 0179 3F       		.uleb128 0x3f
+ 1964 017a 19       		.uleb128 0x19
+ 1965 017b 03       		.uleb128 0x3
+ 1966 017c 0E       		.uleb128 0xe
+ 1967 017d 3A       		.uleb128 0x3a
+ 1968 017e 0B       		.uleb128 0xb
+ 1969 017f 3B       		.uleb128 0x3b
+ 1970 0180 0B       		.uleb128 0xb
+ 1971 0181 27       		.uleb128 0x27
+ 1972 0182 19       		.uleb128 0x19
+ 1973 0183 3C       		.uleb128 0x3c
+ 1974 0184 19       		.uleb128 0x19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 47
+
+
+ 1975 0185 01       		.uleb128 0x1
+ 1976 0186 13       		.uleb128 0x13
+ 1977 0187 00       		.byte	0
+ 1978 0188 00       		.byte	0
+ 1979 0189 1C       		.uleb128 0x1c
+ 1980 018a 2E       		.uleb128 0x2e
+ 1981 018b 00       		.byte	0
+ 1982 018c 3F       		.uleb128 0x3f
+ 1983 018d 19       		.uleb128 0x19
+ 1984 018e 03       		.uleb128 0x3
+ 1985 018f 0E       		.uleb128 0xe
+ 1986 0190 3A       		.uleb128 0x3a
+ 1987 0191 0B       		.uleb128 0xb
+ 1988 0192 3B       		.uleb128 0x3b
+ 1989 0193 0B       		.uleb128 0xb
+ 1990 0194 27       		.uleb128 0x27
+ 1991 0195 19       		.uleb128 0x19
+ 1992 0196 49       		.uleb128 0x49
+ 1993 0197 13       		.uleb128 0x13
+ 1994 0198 3C       		.uleb128 0x3c
+ 1995 0199 19       		.uleb128 0x19
+ 1996 019a 00       		.byte	0
+ 1997 019b 00       		.byte	0
+ 1998 019c 1D       		.uleb128 0x1d
+ 1999 019d 2E       		.uleb128 0x2e
+ 2000 019e 00       		.byte	0
+ 2001 019f 3F       		.uleb128 0x3f
+ 2002 01a0 19       		.uleb128 0x19
+ 2003 01a1 03       		.uleb128 0x3
+ 2004 01a2 0E       		.uleb128 0xe
+ 2005 01a3 3A       		.uleb128 0x3a
+ 2006 01a4 0B       		.uleb128 0xb
+ 2007 01a5 3B       		.uleb128 0x3b
+ 2008 01a6 0B       		.uleb128 0xb
+ 2009 01a7 27       		.uleb128 0x27
+ 2010 01a8 19       		.uleb128 0x19
+ 2011 01a9 3C       		.uleb128 0x3c
+ 2012 01aa 19       		.uleb128 0x19
+ 2013 01ab 00       		.byte	0
+ 2014 01ac 00       		.byte	0
+ 2015 01ad 1E       		.uleb128 0x1e
+ 2016 01ae 2E       		.uleb128 0x2e
+ 2017 01af 01       		.byte	0x1
+ 2018 01b0 3F       		.uleb128 0x3f
+ 2019 01b1 19       		.uleb128 0x19
+ 2020 01b2 03       		.uleb128 0x3
+ 2021 01b3 0E       		.uleb128 0xe
+ 2022 01b4 3A       		.uleb128 0x3a
+ 2023 01b5 0B       		.uleb128 0xb
+ 2024 01b6 3B       		.uleb128 0x3b
+ 2025 01b7 0B       		.uleb128 0xb
+ 2026 01b8 27       		.uleb128 0x27
+ 2027 01b9 19       		.uleb128 0x19
+ 2028 01ba 49       		.uleb128 0x49
+ 2029 01bb 13       		.uleb128 0x13
+ 2030 01bc 3C       		.uleb128 0x3c
+ 2031 01bd 19       		.uleb128 0x19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 48
+
+
+ 2032 01be 00       		.byte	0
+ 2033 01bf 00       		.byte	0
+ 2034 01c0 00       		.byte	0
+ 2035              		.section	.debug_loc,"",%progbits
+ 2036              	.Ldebug_loc0:
+ 2037              	.LLST0:
+ 2038 0000 74000000 		.4byte	.LVL18
+ 2039 0004 81000000 		.4byte	.LVL19-1
+ 2040 0008 0100     		.2byte	0x1
+ 2041 000a 50       		.byte	0x50
+ 2042 000b 00000000 		.4byte	0
+ 2043 000f 00000000 		.4byte	0
+ 2044              	.LLST1:
+ 2045 0013 00000000 		.4byte	.LVL29
+ 2046 0017 12000000 		.4byte	.LVL33
+ 2047 001b 0100     		.2byte	0x1
+ 2048 001d 50       		.byte	0x50
+ 2049 001e 12000000 		.4byte	.LVL33
+ 2050 0022 18000000 		.4byte	.LFE7
+ 2051 0026 0400     		.2byte	0x4
+ 2052 0028 F3       		.byte	0xf3
+ 2053 0029 01       		.uleb128 0x1
+ 2054 002a 50       		.byte	0x50
+ 2055 002b 9F       		.byte	0x9f
+ 2056 002c 00000000 		.4byte	0
+ 2057 0030 00000000 		.4byte	0
+ 2058              	.LLST2:
+ 2059 0034 04000000 		.4byte	.LVL30
+ 2060 0038 06000000 		.4byte	.LVL31
+ 2061 003c 0100     		.2byte	0x1
+ 2062 003e 53       		.byte	0x53
+ 2063 003f 08000000 		.4byte	.LVL32
+ 2064 0043 18000000 		.4byte	.LFE7
+ 2065 0047 0100     		.2byte	0x1
+ 2066 0049 53       		.byte	0x53
+ 2067 004a 00000000 		.4byte	0
+ 2068 004e 00000000 		.4byte	0
+ 2069              	.LLST3:
+ 2070 0052 00000000 		.4byte	.LVL34
+ 2071 0056 08000000 		.4byte	.LVL35
+ 2072 005a 0100     		.2byte	0x1
+ 2073 005c 50       		.byte	0x50
+ 2074 005d 08000000 		.4byte	.LVL35
+ 2075 0061 1C000000 		.4byte	.LFE8
+ 2076 0065 0400     		.2byte	0x4
+ 2077 0067 F3       		.byte	0xf3
+ 2078 0068 01       		.uleb128 0x1
+ 2079 0069 50       		.byte	0x50
+ 2080 006a 9F       		.byte	0x9f
+ 2081 006b 00000000 		.4byte	0
+ 2082 006f 00000000 		.4byte	0
+ 2083              	.LLST4:
+ 2084 0073 00000000 		.4byte	.LVL37
+ 2085 0077 02000000 		.4byte	.LVL38
+ 2086 007b 0100     		.2byte	0x1
+ 2087 007d 50       		.byte	0x50
+ 2088 007e 02000000 		.4byte	.LVL38
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 49
+
+
+ 2089 0082 06000000 		.4byte	.LFE10
+ 2090 0086 0400     		.2byte	0x4
+ 2091 0088 F3       		.byte	0xf3
+ 2092 0089 01       		.uleb128 0x1
+ 2093 008a 50       		.byte	0x50
+ 2094 008b 9F       		.byte	0x9f
+ 2095 008c 00000000 		.4byte	0
+ 2096 0090 00000000 		.4byte	0
+ 2097              	.LLST5:
+ 2098 0094 00000000 		.4byte	.LVL40
+ 2099 0098 03000000 		.4byte	.LVL41-1
+ 2100 009c 0100     		.2byte	0x1
+ 2101 009e 50       		.byte	0x50
+ 2102 009f 03000000 		.4byte	.LVL41-1
+ 2103 00a3 04000000 		.4byte	.LFE11
+ 2104 00a7 0400     		.2byte	0x4
+ 2105 00a9 F3       		.byte	0xf3
+ 2106 00aa 01       		.uleb128 0x1
+ 2107 00ab 50       		.byte	0x50
+ 2108 00ac 9F       		.byte	0x9f
+ 2109 00ad 00000000 		.4byte	0
+ 2110 00b1 00000000 		.4byte	0
+ 2111              	.LLST6:
+ 2112 00b5 00000000 		.4byte	.LVL42
+ 2113 00b9 02000000 		.4byte	.LVL43
+ 2114 00bd 0100     		.2byte	0x1
+ 2115 00bf 50       		.byte	0x50
+ 2116 00c0 02000000 		.4byte	.LVL43
+ 2117 00c4 06000000 		.4byte	.LFE12
+ 2118 00c8 0400     		.2byte	0x4
+ 2119 00ca F3       		.byte	0xf3
+ 2120 00cb 01       		.uleb128 0x1
+ 2121 00cc 50       		.byte	0x50
+ 2122 00cd 9F       		.byte	0x9f
+ 2123 00ce 00000000 		.4byte	0
+ 2124 00d2 00000000 		.4byte	0
+ 2125              	.LLST7:
+ 2126 00d6 00000000 		.4byte	.LVL45
+ 2127 00da 03000000 		.4byte	.LVL46-1
+ 2128 00de 0100     		.2byte	0x1
+ 2129 00e0 50       		.byte	0x50
+ 2130 00e1 03000000 		.4byte	.LVL46-1
+ 2131 00e5 04000000 		.4byte	.LFE13
+ 2132 00e9 0400     		.2byte	0x4
+ 2133 00eb F3       		.byte	0xf3
+ 2134 00ec 01       		.uleb128 0x1
+ 2135 00ed 50       		.byte	0x50
+ 2136 00ee 9F       		.byte	0x9f
+ 2137 00ef 00000000 		.4byte	0
+ 2138 00f3 00000000 		.4byte	0
+ 2139              	.LLST8:
+ 2140 00f7 00000000 		.4byte	.LVL47
+ 2141 00fb 05000000 		.4byte	.LVL48-1
+ 2142 00ff 0100     		.2byte	0x1
+ 2143 0101 50       		.byte	0x50
+ 2144 0102 05000000 		.4byte	.LVL48-1
+ 2145 0106 08000000 		.4byte	.LFE14
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 50
+
+
+ 2146 010a 0400     		.2byte	0x4
+ 2147 010c F3       		.byte	0xf3
+ 2148 010d 01       		.uleb128 0x1
+ 2149 010e 50       		.byte	0x50
+ 2150 010f 9F       		.byte	0x9f
+ 2151 0110 00000000 		.4byte	0
+ 2152 0114 00000000 		.4byte	0
+ 2153              	.LLST9:
+ 2154 0118 00000000 		.4byte	.LVL49
+ 2155 011c 03000000 		.4byte	.LVL50-1
+ 2156 0120 0100     		.2byte	0x1
+ 2157 0122 50       		.byte	0x50
+ 2158 0123 03000000 		.4byte	.LVL50-1
+ 2159 0127 04000000 		.4byte	.LFE15
+ 2160 012b 0400     		.2byte	0x4
+ 2161 012d F3       		.byte	0xf3
+ 2162 012e 01       		.uleb128 0x1
+ 2163 012f 50       		.byte	0x50
+ 2164 0130 9F       		.byte	0x9f
+ 2165 0131 00000000 		.4byte	0
+ 2166 0135 00000000 		.4byte	0
+ 2167              	.LLST10:
+ 2168 0139 00000000 		.4byte	.LVL51
+ 2169 013d 03000000 		.4byte	.LVL52-1
+ 2170 0141 0100     		.2byte	0x1
+ 2171 0143 50       		.byte	0x50
+ 2172 0144 03000000 		.4byte	.LVL52-1
+ 2173 0148 04000000 		.4byte	.LFE16
+ 2174 014c 0400     		.2byte	0x4
+ 2175 014e F3       		.byte	0xf3
+ 2176 014f 01       		.uleb128 0x1
+ 2177 0150 50       		.byte	0x50
+ 2178 0151 9F       		.byte	0x9f
+ 2179 0152 00000000 		.4byte	0
+ 2180 0156 00000000 		.4byte	0
+ 2181              		.section	.debug_aranges,"",%progbits
+ 2182 0000 9C000000 		.4byte	0x9c
+ 2183 0004 0200     		.2byte	0x2
+ 2184 0006 00000000 		.4byte	.Ldebug_info0
+ 2185 000a 04       		.byte	0x4
+ 2186 000b 00       		.byte	0
+ 2187 000c 0000     		.2byte	0
+ 2188 000e 0000     		.2byte	0
+ 2189 0010 00000000 		.4byte	.LFB0
+ 2190 0014 3C000000 		.4byte	.LFE0-.LFB0
+ 2191 0018 00000000 		.4byte	.LFB1
+ 2192 001c 40000000 		.4byte	.LFE1-.LFB1
+ 2193 0020 00000000 		.4byte	.LFB2
+ 2194 0024 C8000000 		.4byte	.LFE2-.LFB2
+ 2195 0028 00000000 		.4byte	.LFB3
+ 2196 002c 28000000 		.4byte	.LFE3-.LFB3
+ 2197 0030 00000000 		.4byte	.LFB4
+ 2198 0034 0E000000 		.4byte	.LFE4-.LFB4
+ 2199 0038 00000000 		.4byte	.LFB5
+ 2200 003c 04000000 		.4byte	.LFE5-.LFB5
+ 2201 0040 00000000 		.4byte	.LFB6
+ 2202 0044 04000000 		.4byte	.LFE6-.LFB6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 51
+
+
+ 2203 0048 00000000 		.4byte	.LFB7
+ 2204 004c 18000000 		.4byte	.LFE7-.LFB7
+ 2205 0050 00000000 		.4byte	.LFB8
+ 2206 0054 1C000000 		.4byte	.LFE8-.LFB8
+ 2207 0058 00000000 		.4byte	.LFB9
+ 2208 005c 04000000 		.4byte	.LFE9-.LFB9
+ 2209 0060 00000000 		.4byte	.LFB10
+ 2210 0064 06000000 		.4byte	.LFE10-.LFB10
+ 2211 0068 00000000 		.4byte	.LFB11
+ 2212 006c 04000000 		.4byte	.LFE11-.LFB11
+ 2213 0070 00000000 		.4byte	.LFB12
+ 2214 0074 06000000 		.4byte	.LFE12-.LFB12
+ 2215 0078 00000000 		.4byte	.LFB13
+ 2216 007c 04000000 		.4byte	.LFE13-.LFB13
+ 2217 0080 00000000 		.4byte	.LFB14
+ 2218 0084 08000000 		.4byte	.LFE14-.LFB14
+ 2219 0088 00000000 		.4byte	.LFB15
+ 2220 008c 04000000 		.4byte	.LFE15-.LFB15
+ 2221 0090 00000000 		.4byte	.LFB16
+ 2222 0094 04000000 		.4byte	.LFE16-.LFB16
+ 2223 0098 00000000 		.4byte	0
+ 2224 009c 00000000 		.4byte	0
+ 2225              		.section	.debug_ranges,"",%progbits
+ 2226              	.Ldebug_ranges0:
+ 2227 0000 00000000 		.4byte	.LFB0
+ 2228 0004 3C000000 		.4byte	.LFE0
+ 2229 0008 00000000 		.4byte	.LFB1
+ 2230 000c 40000000 		.4byte	.LFE1
+ 2231 0010 00000000 		.4byte	.LFB2
+ 2232 0014 C8000000 		.4byte	.LFE2
+ 2233 0018 00000000 		.4byte	.LFB3
+ 2234 001c 28000000 		.4byte	.LFE3
+ 2235 0020 00000000 		.4byte	.LFB4
+ 2236 0024 0E000000 		.4byte	.LFE4
+ 2237 0028 00000000 		.4byte	.LFB5
+ 2238 002c 04000000 		.4byte	.LFE5
+ 2239 0030 00000000 		.4byte	.LFB6
+ 2240 0034 04000000 		.4byte	.LFE6
+ 2241 0038 00000000 		.4byte	.LFB7
+ 2242 003c 18000000 		.4byte	.LFE7
+ 2243 0040 00000000 		.4byte	.LFB8
+ 2244 0044 1C000000 		.4byte	.LFE8
+ 2245 0048 00000000 		.4byte	.LFB9
+ 2246 004c 04000000 		.4byte	.LFE9
+ 2247 0050 00000000 		.4byte	.LFB10
+ 2248 0054 06000000 		.4byte	.LFE10
+ 2249 0058 00000000 		.4byte	.LFB11
+ 2250 005c 04000000 		.4byte	.LFE11
+ 2251 0060 00000000 		.4byte	.LFB12
+ 2252 0064 06000000 		.4byte	.LFE12
+ 2253 0068 00000000 		.4byte	.LFB13
+ 2254 006c 04000000 		.4byte	.LFE13
+ 2255 0070 00000000 		.4byte	.LFB14
+ 2256 0074 08000000 		.4byte	.LFE14
+ 2257 0078 00000000 		.4byte	.LFB15
+ 2258 007c 04000000 		.4byte	.LFE15
+ 2259 0080 00000000 		.4byte	.LFB16
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 52
+
+
+ 2260 0084 04000000 		.4byte	.LFE16
+ 2261 0088 00000000 		.4byte	0
+ 2262 008c 00000000 		.4byte	0
+ 2263              		.section	.debug_line,"",%progbits
+ 2264              	.Ldebug_line0:
+ 2265 0000 2E020000 		.section	.debug_str,"MS",%progbits,1
+ 2265      0200AB00 
+ 2265      00000201 
+ 2265      FB0E0D00 
+ 2265      01010101 
+ 2266              	.LASF10:
+ 2267 0000 75696E74 		.ascii	"uint16\000"
+ 2267      313600
+ 2268              	.LASF73:
+ 2269 0007 4144435F 		.ascii	"ADC_UI_SAR_StopConvert\000"
+ 2269      55495F53 
+ 2269      41525F53 
+ 2269      746F7043 
+ 2269      6F6E7665 
+ 2270              	.LASF43:
+ 2271 001e 61646347 		.ascii	"adcGain\000"
+ 2271      61696E00 
+ 2272              	.LASF67:
+ 2273 0026 43794578 		.ascii	"CyExitCriticalSection\000"
+ 2273      69744372 
+ 2273      69746963 
+ 2273      616C5365 
+ 2273      6374696F 
+ 2274              	.LASF57:
+ 2275 003c 4144435F 		.ascii	"ADC_UI_TempBuf_DmaInitialize\000"
+ 2275      55495F54 
+ 2275      656D7042 
+ 2275      75665F44 
+ 2275      6D61496E 
+ 2276              	.LASF56:
+ 2277 0059 4379446D 		.ascii	"CyDmaChDisable\000"
+ 2277      61436844 
+ 2277      69736162 
+ 2277      6C6500
+ 2278              	.LASF47:
+ 2279 0068 4144435F 		.ascii	"ADC_UI_CountsTo_uVolts\000"
+ 2279      55495F43 
+ 2279      6F756E74 
+ 2279      73546F5F 
+ 2279      75566F6C 
+ 2280              	.LASF69:
+ 2281 007f 4379446D 		.ascii	"CyDmaTdAllocate\000"
+ 2281      61546441 
+ 2281      6C6C6F63 
+ 2281      61746500 
+ 2282              	.LASF59:
+ 2283 008f 4379446D 		.ascii	"CyDmaTdFree\000"
+ 2283      61546446 
+ 2283      72656500 
+ 2284              	.LASF30:
+ 2285 009b 4144435F 		.ascii	"ADC_UI_StartConvert\000"
+ 2285      55495F53 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 53
+
+
+ 2285      74617274 
+ 2285      436F6E76 
+ 2285      65727400 
+ 2286              	.LASF66:
+ 2287 00af 4379446D 		.ascii	"CyDmaChEnable\000"
+ 2287      61436845 
+ 2287      6E61626C 
+ 2287      6500
+ 2288              	.LASF80:
+ 2289 00bd 4144435F 		.ascii	"ADC_UI_SAR_CountsTo_uVolts\000"
+ 2289      55495F53 
+ 2289      41525F43 
+ 2289      6F756E74 
+ 2289      73546F5F 
+ 2290              	.LASF7:
+ 2291 00d8 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2291      206C6F6E 
+ 2291      6720756E 
+ 2291      7369676E 
+ 2291      65642069 
+ 2292              	.LASF27:
+ 2293 00ef 4144435F 		.ascii	"ADC_UI_tempArray\000"
+ 2293      55495F74 
+ 2293      656D7041 
+ 2293      72726179 
+ 2293      00
+ 2294              	.LASF63:
+ 2295 0100 4379446D 		.ascii	"CyDmaTdSetConfiguration\000"
+ 2295      61546453 
+ 2295      6574436F 
+ 2295      6E666967 
+ 2295      75726174 
+ 2296              	.LASF52:
+ 2297 0118 4144435F 		.ascii	"ADC_UI_finalTD\000"
+ 2297      55495F66 
+ 2297      696E616C 
+ 2297      544400
+ 2298              	.LASF6:
+ 2299 0127 6C6F6E67 		.ascii	"long long int\000"
+ 2299      206C6F6E 
+ 2299      6720696E 
+ 2299      7400
+ 2300              	.LASF0:
+ 2301 0135 7369676E 		.ascii	"signed char\000"
+ 2301      65642063 
+ 2301      68617200 
+ 2302              	.LASF84:
+ 2303 0141 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
+ 2303      73657273 
+ 2303      5C6D6772 
+ 2303      6F6E6265 
+ 2303      725C4465 
+ 2304 016f 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 2304      436F6E74 
+ 2304      696E756F 
+ 2304      7573204F 
+ 2304      75747075 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 54
+
+
+ 2305              	.LASF13:
+ 2306 018c 696E7433 		.ascii	"int32\000"
+ 2306      3200
+ 2307              	.LASF79:
+ 2308 0192 4144435F 		.ascii	"ADC_UI_SAR_CountsTo_mVolts\000"
+ 2308      55495F53 
+ 2308      41525F43 
+ 2308      6F756E74 
+ 2308      73546F5F 
+ 2309              	.LASF4:
+ 2310 01ad 6C6F6E67 		.ascii	"long int\000"
+ 2310      20696E74 
+ 2310      00
+ 2311              	.LASF23:
+ 2312 01b6 4144435F 		.ascii	"ADC_UI_Disable\000"
+ 2312      55495F44 
+ 2312      69736162 
+ 2312      6C6500
+ 2313              	.LASF9:
+ 2314 01c5 75696E74 		.ascii	"uint8\000"
+ 2314      3800
+ 2315              	.LASF16:
+ 2316 01cb 646F7562 		.ascii	"double\000"
+ 2316      6C6500
+ 2317              	.LASF11:
+ 2318 01d2 75696E74 		.ascii	"uint32\000"
+ 2318      333200
+ 2319              	.LASF42:
+ 2320 01d9 4144435F 		.ascii	"ADC_UI_SetGain\000"
+ 2320      55495F53 
+ 2320      65744761 
+ 2320      696E00
+ 2321              	.LASF54:
+ 2322 01e8 4144435F 		.ascii	"ADC_UI_finalArray\000"
+ 2322      55495F66 
+ 2322      696E616C 
+ 2322      41727261 
+ 2322      7900
+ 2323              	.LASF35:
+ 2324 01fa 7265744D 		.ascii	"retMode\000"
+ 2324      6F646500 
+ 2325              	.LASF29:
+ 2326 0202 4144435F 		.ascii	"ADC_UI_Stop\000"
+ 2326      55495F53 
+ 2326      746F7000 
+ 2327              	.LASF51:
+ 2328 020e 4144435F 		.ascii	"ADC_UI_tempTD\000"
+ 2328      55495F74 
+ 2328      656D7054 
+ 2328      4400
+ 2329              	.LASF8:
+ 2330 021c 756E7369 		.ascii	"unsigned int\000"
+ 2330      676E6564 
+ 2330      20696E74 
+ 2330      00
+ 2331              	.LASF28:
+ 2332 0229 4144435F 		.ascii	"ADC_UI_Start\000"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 55
+
+
+ 2332      55495F53 
+ 2332      74617274 
+ 2332      00
+ 2333              	.LASF76:
+ 2334 0236 4144435F 		.ascii	"ADC_UI_SAR_SetResolution\000"
+ 2334      55495F53 
+ 2334      41525F53 
+ 2334      65745265 
+ 2334      736F6C75 
+ 2335              	.LASF5:
+ 2336 024f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2336      20756E73 
+ 2336      69676E65 
+ 2336      6420696E 
+ 2336      7400
+ 2337              	.LASF50:
+ 2338 0261 4144435F 		.ascii	"ADC_UI_finalChan\000"
+ 2338      55495F66 
+ 2338      696E616C 
+ 2338      4368616E 
+ 2338      00
+ 2339              	.LASF68:
+ 2340 0272 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 2340      74657243 
+ 2340      72697469 
+ 2340      63616C53 
+ 2340      65637469 
+ 2341              	.LASF75:
+ 2342 0289 4144435F 		.ascii	"ADC_UI_SAR_SetOffset\000"
+ 2342      55495F53 
+ 2342      41525F53 
+ 2342      65744F66 
+ 2342      66736574 
+ 2343              	.LASF3:
+ 2344 029e 73686F72 		.ascii	"short unsigned int\000"
+ 2344      7420756E 
+ 2344      7369676E 
+ 2344      65642069 
+ 2344      6E7400
+ 2345              	.LASF58:
+ 2346 02b1 4144435F 		.ascii	"ADC_UI_FinalBuf_DmaInitialize\000"
+ 2346      55495F46 
+ 2346      696E616C 
+ 2346      4275665F 
+ 2346      446D6149 
+ 2347              	.LASF55:
+ 2348 02cf 4144435F 		.ascii	"ADC_UI_initVar\000"
+ 2348      55495F69 
+ 2348      6E697456 
+ 2348      617200
+ 2349              	.LASF20:
+ 2350 02de 72656733 		.ascii	"reg32\000"
+ 2350      3200
+ 2351              	.LASF82:
+ 2352 02e4 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2352      4320342E 
+ 2352      392E3320 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 56
+
+
+ 2352      32303135 
+ 2352      30333033 
+ 2353 0317 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 2353      20726576 
+ 2353      6973696F 
+ 2353      6E203232 
+ 2353      31323230 
+ 2354 034a 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 2354      66756E63 
+ 2354      74696F6E 
+ 2354      2D736563 
+ 2354      74696F6E 
+ 2355              	.LASF33:
+ 2356 0372 4144435F 		.ascii	"ADC_UI_IsEndConversion\000"
+ 2356      55495F49 
+ 2356      73456E64 
+ 2356      436F6E76 
+ 2356      65727369 
+ 2357              	.LASF14:
+ 2358 0389 666C6F61 		.ascii	"float32\000"
+ 2358      74333200 
+ 2359              	.LASF78:
+ 2360 0391 4144435F 		.ascii	"ADC_UI_SAR_SetScaledGain\000"
+ 2360      55495F53 
+ 2360      41525F53 
+ 2360      65745363 
+ 2360      616C6564 
+ 2361              	.LASF22:
+ 2362 03aa 73697A65 		.ascii	"sizetype\000"
+ 2362      74797065 
+ 2362      00
+ 2363              	.LASF48:
+ 2364 03b3 4144435F 		.ascii	"ADC_UI_CountsTo_Volts\000"
+ 2364      55495F43 
+ 2364      6F756E74 
+ 2364      73546F5F 
+ 2364      566F6C74 
+ 2365              	.LASF34:
+ 2366 03c9 4144435F 		.ascii	"ADC_UI_GetResult16\000"
+ 2366      55495F47 
+ 2366      65745265 
+ 2366      73756C74 
+ 2366      313600
+ 2367              	.LASF64:
+ 2368 03dc 4379446D 		.ascii	"CyDmaTdSetAddress\000"
+ 2368      61546453 
+ 2368      65744164 
+ 2368      64726573 
+ 2368      7300
+ 2369              	.LASF62:
+ 2370 03ee 4379446D 		.ascii	"CyDmaClearPendingDrq\000"
+ 2370      61436C65 
+ 2370      61725065 
+ 2370      6E64696E 
+ 2370      67447271 
+ 2371              	.LASF53:
+ 2372 0403 4144435F 		.ascii	"ADC_UI_SAR_shift\000"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 57
+
+
+ 2372      55495F53 
+ 2372      41525F73 
+ 2372      68696674 
+ 2372      00
+ 2373              	.LASF15:
+ 2374 0414 666C6F61 		.ascii	"float\000"
+ 2374      7400
+ 2375              	.LASF74:
+ 2376 041a 4144435F 		.ascii	"ADC_UI_SAR_GetResult16\000"
+ 2376      55495F53 
+ 2376      41525F47 
+ 2376      65745265 
+ 2376      73756C74 
+ 2377              	.LASF45:
+ 2378 0431 4144435F 		.ascii	"ADC_UI_CountsTo_mVolts\000"
+ 2378      55495F43 
+ 2378      6F756E74 
+ 2378      73546F5F 
+ 2378      6D566F6C 
+ 2379              	.LASF61:
+ 2380 0448 4144435F 		.ascii	"ADC_UI_IRQ_SetPriority\000"
+ 2380      55495F49 
+ 2380      52515F53 
+ 2380      65745072 
+ 2380      696F7269 
+ 2381              	.LASF19:
+ 2382 045f 72656738 		.ascii	"reg8\000"
+ 2382      00
+ 2383              	.LASF83:
+ 2384 0464 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_UI.c\000"
+ 2384      72617465 
+ 2384      645F536F 
+ 2384      75726365 
+ 2384      5C50536F 
+ 2385              	.LASF1:
+ 2386 0484 756E7369 		.ascii	"unsigned char\000"
+ 2386      676E6564 
+ 2386      20636861 
+ 2386      7200
+ 2387              	.LASF38:
+ 2388 0492 4144435F 		.ascii	"ADC_UI_SetOffset\000"
+ 2388      55495F53 
+ 2388      65744F66 
+ 2388      66736574 
+ 2388      00
+ 2389              	.LASF40:
+ 2390 04a3 4144435F 		.ascii	"ADC_UI_SetResolution\000"
+ 2390      55495F53 
+ 2390      65745265 
+ 2390      736F6C75 
+ 2390      74696F6E 
+ 2391              	.LASF2:
+ 2392 04b8 73686F72 		.ascii	"short int\000"
+ 2392      7420696E 
+ 2392      7400
+ 2393              	.LASF49:
+ 2394 04c2 4144435F 		.ascii	"ADC_UI_tempChan\000"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 58
+
+
+ 2394      55495F74 
+ 2394      656D7043 
+ 2394      68616E00 
+ 2395              	.LASF24:
+ 2396 04d2 4144435F 		.ascii	"ADC_UI_Init\000"
+ 2396      55495F49 
+ 2396      6E697400 
+ 2397              	.LASF41:
+ 2398 04de 7265736F 		.ascii	"resolution\000"
+ 2398      6C757469 
+ 2398      6F6E00
+ 2399              	.LASF31:
+ 2400 04e9 4144435F 		.ascii	"ADC_UI_StopConvert\000"
+ 2400      55495F53 
+ 2400      746F7043 
+ 2400      6F6E7665 
+ 2400      727400
+ 2401              	.LASF36:
+ 2402 04fc 6368616E 		.ascii	"chan\000"
+ 2402      00
+ 2403              	.LASF17:
+ 2404 0501 63686172 		.ascii	"char\000"
+ 2404      00
+ 2405              	.LASF21:
+ 2406 0506 63796973 		.ascii	"cyisraddress\000"
+ 2406      72616464 
+ 2406      72657373 
+ 2406      00
+ 2407              	.LASF25:
+ 2408 0513 4144435F 		.ascii	"ADC_UI_Enable\000"
+ 2408      55495F45 
+ 2408      6E61626C 
+ 2408      6500
+ 2409              	.LASF39:
+ 2410 0521 6F666673 		.ascii	"offset\000"
+ 2410      657400
+ 2411              	.LASF44:
+ 2412 0528 4144435F 		.ascii	"ADC_UI_SetScaledGain\000"
+ 2412      55495F53 
+ 2412      65745363 
+ 2412      616C6564 
+ 2412      4761696E 
+ 2413              	.LASF60:
+ 2414 053d 4144435F 		.ascii	"ADC_UI_IRQ_SetVector\000"
+ 2414      55495F49 
+ 2414      52515F53 
+ 2414      65745665 
+ 2414      63746F72 
+ 2415              	.LASF46:
+ 2416 0552 61646343 		.ascii	"adcCounts\000"
+ 2416      6F756E74 
+ 2416      7300
+ 2417              	.LASF71:
+ 2418 055c 4144435F 		.ascii	"ADC_UI_SAR_Stop\000"
+ 2418      55495F53 
+ 2418      41525F53 
+ 2418      746F7000 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccZLVjir.s 			page 59
+
+
+ 2419              	.LASF77:
+ 2420 056c 4144435F 		.ascii	"ADC_UI_SAR_SetGain\000"
+ 2420      55495F53 
+ 2420      41525F53 
+ 2420      65744761 
+ 2420      696E00
+ 2421              	.LASF37:
+ 2422 057f 4144435F 		.ascii	"ADC_UI_GetAdcResult\000"
+ 2422      55495F47 
+ 2422      65744164 
+ 2422      63526573 
+ 2422      756C7400 
+ 2423              	.LASF70:
+ 2424 0593 4144435F 		.ascii	"ADC_UI_SAR_Start\000"
+ 2424      55495F53 
+ 2424      41525F53 
+ 2424      74617274 
+ 2424      00
+ 2425              	.LASF26:
+ 2426 05a4 656E6162 		.ascii	"enableInterrupts\000"
+ 2426      6C65496E 
+ 2426      74657272 
+ 2426      75707473 
+ 2426      00
+ 2427              	.LASF32:
+ 2428 05b5 73746174 		.ascii	"status\000"
+ 2428      757300
+ 2429              	.LASF12:
+ 2430 05bc 696E7431 		.ascii	"int16\000"
+ 2430      3600
+ 2431              	.LASF65:
+ 2432 05c2 4379446D 		.ascii	"CyDmaChSetInitialTd\000"
+ 2432      61436853 
+ 2432      6574496E 
+ 2432      69746961 
+ 2432      6C546400 
+ 2433              	.LASF18:
+ 2434 05d6 63797374 		.ascii	"cystatus\000"
+ 2434      61747573 
+ 2434      00
+ 2435              	.LASF72:
+ 2436 05df 4144435F 		.ascii	"ADC_UI_SAR_StartConvert\000"
+ 2436      55495F53 
+ 2436      41525F53 
+ 2436      74617274 
+ 2436      436F6E76 
+ 2437              	.LASF81:
+ 2438 05f7 4144435F 		.ascii	"ADC_UI_SAR_CountsTo_Volts\000"
+ 2438      55495F53 
+ 2438      41525F43 
+ 2438      6F756E74 
+ 2438      73546F5F 
+ 2439              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

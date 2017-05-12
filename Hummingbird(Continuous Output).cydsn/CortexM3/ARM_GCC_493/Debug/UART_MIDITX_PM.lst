@@ -1,0 +1,957 @@
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccfLTxTf.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"UART_MIDITX_PM.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.UART_MIDITX_SaveConfig,"ax",%progbits
+  19              		.align	2
+  20              		.global	UART_MIDITX_SaveConfig
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	UART_MIDITX_SaveConfig, %function
+  24              	UART_MIDITX_SaveConfig:
+  25              	.LFB0:
+  26              		.file 1 "Generated_Source\\PSoC5\\UART_MIDITX_PM.c"
+   1:Generated_Source\PSoC5/UART_MIDITX_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * File Name: UART_MIDITX_PM.c
+   3:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Version 2.50
+   4:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+   5:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Description:
+   6:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  This file provides Sleep/WakeUp APIs functionality.
+   7:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+   8:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Note:
+   9:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+  10:Generated_Source\PSoC5/UART_MIDITX_PM.c **** ********************************************************************************
+  11:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  13:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  14:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *******************************************************************************/
+  16:Generated_Source\PSoC5/UART_MIDITX_PM.c **** 
+  17:Generated_Source\PSoC5/UART_MIDITX_PM.c **** #include "UART_MIDITX.h"
+  18:Generated_Source\PSoC5/UART_MIDITX_PM.c **** 
+  19:Generated_Source\PSoC5/UART_MIDITX_PM.c **** 
+  20:Generated_Source\PSoC5/UART_MIDITX_PM.c **** /***************************************
+  21:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Local data allocation
+  22:Generated_Source\PSoC5/UART_MIDITX_PM.c **** ***************************************/
+  23:Generated_Source\PSoC5/UART_MIDITX_PM.c **** 
+  24:Generated_Source\PSoC5/UART_MIDITX_PM.c **** static UART_MIDITX_BACKUP_STRUCT  UART_MIDITX_backup =
+  25:Generated_Source\PSoC5/UART_MIDITX_PM.c **** {
+  26:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     /* enableState - disabled */
+  27:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     0u,
+  28:Generated_Source\PSoC5/UART_MIDITX_PM.c **** };
+  29:Generated_Source\PSoC5/UART_MIDITX_PM.c **** 
+  30:Generated_Source\PSoC5/UART_MIDITX_PM.c **** 
+  31:Generated_Source\PSoC5/UART_MIDITX_PM.c **** 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccfLTxTf.s 			page 2
+
+
+  32:Generated_Source\PSoC5/UART_MIDITX_PM.c **** /*******************************************************************************
+  33:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Function Name: UART_MIDITX_SaveConfig
+  34:Generated_Source\PSoC5/UART_MIDITX_PM.c **** ********************************************************************************
+  35:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+  36:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Summary:
+  37:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  This function saves the component nonretention control register.
+  38:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  Does not save the FIFO which is a set of nonretention registers.
+  39:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  This function is called by the UART_MIDITX_Sleep() function.
+  40:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+  41:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Parameters:
+  42:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  None.
+  43:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+  44:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Return:
+  45:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  None.
+  46:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+  47:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Global Variables:
+  48:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  UART_MIDITX_backup - modified when non-retention registers are saved.
+  49:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+  50:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Reentrant:
+  51:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  No.
+  52:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+  53:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *******************************************************************************/
+  54:Generated_Source\PSoC5/UART_MIDITX_PM.c **** void UART_MIDITX_SaveConfig(void)
+  55:Generated_Source\PSoC5/UART_MIDITX_PM.c **** {
+  27              		.loc 1 55 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32 0000 7047     		bx	lr
+  33              		.cfi_endproc
+  34              	.LFE0:
+  35              		.size	UART_MIDITX_SaveConfig, .-UART_MIDITX_SaveConfig
+  36 0002 00BF     		.section	.text.UART_MIDITX_RestoreConfig,"ax",%progbits
+  37              		.align	2
+  38              		.global	UART_MIDITX_RestoreConfig
+  39              		.thumb
+  40              		.thumb_func
+  41              		.type	UART_MIDITX_RestoreConfig, %function
+  42              	UART_MIDITX_RestoreConfig:
+  43              	.LFB1:
+  56:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     #if(UART_MIDITX_CONTROL_REG_REMOVED == 0u)
+  57:Generated_Source\PSoC5/UART_MIDITX_PM.c ****         UART_MIDITX_backup.cr = UART_MIDITX_CONTROL_REG;
+  58:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     #endif /* End UART_MIDITX_CONTROL_REG_REMOVED */
+  59:Generated_Source\PSoC5/UART_MIDITX_PM.c **** }
+  60:Generated_Source\PSoC5/UART_MIDITX_PM.c **** 
+  61:Generated_Source\PSoC5/UART_MIDITX_PM.c **** 
+  62:Generated_Source\PSoC5/UART_MIDITX_PM.c **** /*******************************************************************************
+  63:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Function Name: UART_MIDITX_RestoreConfig
+  64:Generated_Source\PSoC5/UART_MIDITX_PM.c **** ********************************************************************************
+  65:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+  66:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Summary:
+  67:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  Restores the nonretention control register except FIFO.
+  68:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  Does not restore the FIFO which is a set of nonretention registers.
+  69:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+  70:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Parameters:
+  71:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  None.
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccfLTxTf.s 			page 3
+
+
+  72:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+  73:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Return:
+  74:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  None.
+  75:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+  76:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Global Variables:
+  77:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  UART_MIDITX_backup - used when non-retention registers are restored.
+  78:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+  79:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Reentrant:
+  80:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  No.
+  81:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+  82:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Notes:
+  83:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  If this function is called without calling UART_MIDITX_SaveConfig() 
+  84:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  first, the data loaded may be incorrect.
+  85:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+  86:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *******************************************************************************/
+  87:Generated_Source\PSoC5/UART_MIDITX_PM.c **** void UART_MIDITX_RestoreConfig(void)
+  88:Generated_Source\PSoC5/UART_MIDITX_PM.c **** {
+  44              		.loc 1 88 0
+  45              		.cfi_startproc
+  46              		@ args = 0, pretend = 0, frame = 0
+  47              		@ frame_needed = 0, uses_anonymous_args = 0
+  48              		@ link register save eliminated.
+  49 0000 7047     		bx	lr
+  50              		.cfi_endproc
+  51              	.LFE1:
+  52              		.size	UART_MIDITX_RestoreConfig, .-UART_MIDITX_RestoreConfig
+  53 0002 00BF     		.section	.text.UART_MIDITX_Sleep,"ax",%progbits
+  54              		.align	2
+  55              		.global	UART_MIDITX_Sleep
+  56              		.thumb
+  57              		.thumb_func
+  58              		.type	UART_MIDITX_Sleep, %function
+  59              	UART_MIDITX_Sleep:
+  60              	.LFB2:
+  89:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     #if(UART_MIDITX_CONTROL_REG_REMOVED == 0u)
+  90:Generated_Source\PSoC5/UART_MIDITX_PM.c ****         UART_MIDITX_CONTROL_REG = UART_MIDITX_backup.cr;
+  91:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     #endif /* End UART_MIDITX_CONTROL_REG_REMOVED */
+  92:Generated_Source\PSoC5/UART_MIDITX_PM.c **** }
+  93:Generated_Source\PSoC5/UART_MIDITX_PM.c **** 
+  94:Generated_Source\PSoC5/UART_MIDITX_PM.c **** 
+  95:Generated_Source\PSoC5/UART_MIDITX_PM.c **** /*******************************************************************************
+  96:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Function Name: UART_MIDITX_Sleep
+  97:Generated_Source\PSoC5/UART_MIDITX_PM.c **** ********************************************************************************
+  98:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+  99:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Summary:
+ 100:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  This is the preferred API to prepare the component for sleep. 
+ 101:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  The UART_MIDITX_Sleep() API saves the current component state. Then it
+ 102:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  calls the UART_MIDITX_Stop() function and calls 
+ 103:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  UART_MIDITX_SaveConfig() to save the hardware configuration.
+ 104:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  Call the UART_MIDITX_Sleep() function before calling the CyPmSleep() 
+ 105:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  or the CyPmHibernate() function. 
+ 106:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+ 107:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Parameters:
+ 108:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  None.
+ 109:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+ 110:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Return:
+ 111:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  None.
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccfLTxTf.s 			page 4
+
+
+ 112:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+ 113:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Global Variables:
+ 114:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  UART_MIDITX_backup - modified when non-retention registers are saved.
+ 115:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+ 116:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Reentrant:
+ 117:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  No.
+ 118:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+ 119:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *******************************************************************************/
+ 120:Generated_Source\PSoC5/UART_MIDITX_PM.c **** void UART_MIDITX_Sleep(void)
+ 121:Generated_Source\PSoC5/UART_MIDITX_PM.c **** {
+  61              		.loc 1 121 0
+  62              		.cfi_startproc
+  63              		@ args = 0, pretend = 0, frame = 0
+  64              		@ frame_needed = 0, uses_anonymous_args = 0
+  65              		@ link register save eliminated.
+ 122:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     #if(UART_MIDITX_RX_ENABLED || UART_MIDITX_HD_ENABLED)
+ 123:Generated_Source\PSoC5/UART_MIDITX_PM.c ****         if((UART_MIDITX_RXSTATUS_ACTL_REG  & UART_MIDITX_INT_ENABLE) != 0u)
+ 124:Generated_Source\PSoC5/UART_MIDITX_PM.c ****         {
+ 125:Generated_Source\PSoC5/UART_MIDITX_PM.c ****             UART_MIDITX_backup.enableState = 1u;
+ 126:Generated_Source\PSoC5/UART_MIDITX_PM.c ****         }
+ 127:Generated_Source\PSoC5/UART_MIDITX_PM.c ****         else
+ 128:Generated_Source\PSoC5/UART_MIDITX_PM.c ****         {
+ 129:Generated_Source\PSoC5/UART_MIDITX_PM.c ****             UART_MIDITX_backup.enableState = 0u;
+ 130:Generated_Source\PSoC5/UART_MIDITX_PM.c ****         }
+ 131:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     #else
+ 132:Generated_Source\PSoC5/UART_MIDITX_PM.c ****         if((UART_MIDITX_TXSTATUS_ACTL_REG  & UART_MIDITX_INT_ENABLE) !=0u)
+  66              		.loc 1 132 0
+  67 0000 074B     		ldr	r3, .L8
+  68 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  69 0004 03F01003 		and	r3, r3, #16
+  70 0008 03F0FF02 		and	r2, r3, #255
+  71 000c 1BB9     		cbnz	r3, .L7
+ 133:Generated_Source\PSoC5/UART_MIDITX_PM.c ****         {
+ 134:Generated_Source\PSoC5/UART_MIDITX_PM.c ****             UART_MIDITX_backup.enableState = 1u;
+ 135:Generated_Source\PSoC5/UART_MIDITX_PM.c ****         }
+ 136:Generated_Source\PSoC5/UART_MIDITX_PM.c ****         else
+ 137:Generated_Source\PSoC5/UART_MIDITX_PM.c ****         {
+ 138:Generated_Source\PSoC5/UART_MIDITX_PM.c ****             UART_MIDITX_backup.enableState = 0u;
+  72              		.loc 1 138 0
+  73 000e 054B     		ldr	r3, .L8+4
+  74 0010 1A70     		strb	r2, [r3]
+ 139:Generated_Source\PSoC5/UART_MIDITX_PM.c ****         }
+ 140:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     #endif /* End UART_MIDITX_RX_ENABLED || UART_MIDITX_HD_ENABLED*/
+ 141:Generated_Source\PSoC5/UART_MIDITX_PM.c **** 
+ 142:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     UART_MIDITX_Stop();
+  75              		.loc 1 142 0
+  76 0012 FFF7FEBF 		b	UART_MIDITX_Stop
+  77              	.LVL0:
+  78              	.L7:
+ 134:Generated_Source\PSoC5/UART_MIDITX_PM.c ****         }
+  79              		.loc 1 134 0
+  80 0016 034B     		ldr	r3, .L8+4
+  81 0018 0122     		movs	r2, #1
+  82 001a 1A70     		strb	r2, [r3]
+  83              		.loc 1 142 0
+  84 001c FFF7FEBF 		b	UART_MIDITX_Stop
+  85              	.LVL1:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccfLTxTf.s 			page 5
+
+
+  86              	.L9:
+  87              		.align	2
+  88              	.L8:
+  89 0020 97650040 		.word	1073767831
+  90 0024 00000000 		.word	.LANCHOR0
+  91              		.cfi_endproc
+  92              	.LFE2:
+  93              		.size	UART_MIDITX_Sleep, .-UART_MIDITX_Sleep
+  94              		.section	.text.UART_MIDITX_Wakeup,"ax",%progbits
+  95              		.align	2
+  96              		.global	UART_MIDITX_Wakeup
+  97              		.thumb
+  98              		.thumb_func
+  99              		.type	UART_MIDITX_Wakeup, %function
+ 100              	UART_MIDITX_Wakeup:
+ 101              	.LFB3:
+ 143:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     UART_MIDITX_SaveConfig();
+ 144:Generated_Source\PSoC5/UART_MIDITX_PM.c **** }
+ 145:Generated_Source\PSoC5/UART_MIDITX_PM.c **** 
+ 146:Generated_Source\PSoC5/UART_MIDITX_PM.c **** 
+ 147:Generated_Source\PSoC5/UART_MIDITX_PM.c **** /*******************************************************************************
+ 148:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Function Name: UART_MIDITX_Wakeup
+ 149:Generated_Source\PSoC5/UART_MIDITX_PM.c **** ********************************************************************************
+ 150:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+ 151:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Summary:
+ 152:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  This is the preferred API to restore the component to the state when 
+ 153:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  UART_MIDITX_Sleep() was called. The UART_MIDITX_Wakeup() function
+ 154:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  calls the UART_MIDITX_RestoreConfig() function to restore the 
+ 155:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  configuration. If the component was enabled before the 
+ 156:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  UART_MIDITX_Sleep() function was called, the UART_MIDITX_Wakeup()
+ 157:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  function will also re-enable the component.
+ 158:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+ 159:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Parameters:
+ 160:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  None.
+ 161:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+ 162:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Return:
+ 163:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  None.
+ 164:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+ 165:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Global Variables:
+ 166:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  UART_MIDITX_backup - used when non-retention registers are restored.
+ 167:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+ 168:Generated_Source\PSoC5/UART_MIDITX_PM.c **** * Reentrant:
+ 169:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *  No.
+ 170:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *
+ 171:Generated_Source\PSoC5/UART_MIDITX_PM.c **** *******************************************************************************/
+ 172:Generated_Source\PSoC5/UART_MIDITX_PM.c **** void UART_MIDITX_Wakeup(void)
+ 173:Generated_Source\PSoC5/UART_MIDITX_PM.c **** {
+ 102              		.loc 1 173 0
+ 103              		.cfi_startproc
+ 104              		@ args = 0, pretend = 0, frame = 0
+ 105              		@ frame_needed = 0, uses_anonymous_args = 0
+ 106 0000 08B5     		push	{r3, lr}
+ 107              		.cfi_def_cfa_offset 8
+ 108              		.cfi_offset 3, -8
+ 109              		.cfi_offset 14, -4
+ 174:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     UART_MIDITX_RestoreConfig();
+ 175:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     #if( (UART_MIDITX_RX_ENABLED) || (UART_MIDITX_HD_ENABLED) )
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccfLTxTf.s 			page 6
+
+
+ 176:Generated_Source\PSoC5/UART_MIDITX_PM.c ****         UART_MIDITX_ClearRxBuffer();
+ 177:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     #endif /* End (UART_MIDITX_RX_ENABLED) || (UART_MIDITX_HD_ENABLED) */
+ 178:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     #if(UART_MIDITX_TX_ENABLED || UART_MIDITX_HD_ENABLED)
+ 179:Generated_Source\PSoC5/UART_MIDITX_PM.c ****         UART_MIDITX_ClearTxBuffer();
+ 110              		.loc 1 179 0
+ 111 0002 FFF7FEFF 		bl	UART_MIDITX_ClearTxBuffer
+ 112              	.LVL2:
+ 180:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     #endif /* End UART_MIDITX_TX_ENABLED || UART_MIDITX_HD_ENABLED */
+ 181:Generated_Source\PSoC5/UART_MIDITX_PM.c **** 
+ 182:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     if(UART_MIDITX_backup.enableState != 0u)
+ 113              		.loc 1 182 0
+ 114 0006 044B     		ldr	r3, .L14
+ 115 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 116 000a 03B9     		cbnz	r3, .L13
+ 117 000c 08BD     		pop	{r3, pc}
+ 118              	.L13:
+ 183:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     {
+ 184:Generated_Source\PSoC5/UART_MIDITX_PM.c ****         UART_MIDITX_Enable();
+ 185:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     }
+ 186:Generated_Source\PSoC5/UART_MIDITX_PM.c **** }
+ 119              		.loc 1 186 0
+ 120 000e BDE80840 		pop	{r3, lr}
+ 121              		.cfi_restore 14
+ 122              		.cfi_restore 3
+ 123              		.cfi_def_cfa_offset 0
+ 184:Generated_Source\PSoC5/UART_MIDITX_PM.c ****     }
+ 124              		.loc 1 184 0
+ 125 0012 FFF7FEBF 		b	UART_MIDITX_Enable
+ 126              	.LVL3:
+ 127              	.L15:
+ 128 0016 00BF     		.align	2
+ 129              	.L14:
+ 130 0018 00000000 		.word	.LANCHOR0
+ 131              		.cfi_endproc
+ 132              	.LFE3:
+ 133              		.size	UART_MIDITX_Wakeup, .-UART_MIDITX_Wakeup
+ 134              		.bss
+ 135              		.align	2
+ 136              		.set	.LANCHOR0,. + 0
+ 137              		.type	UART_MIDITX_backup, %object
+ 138              		.size	UART_MIDITX_backup, 1
+ 139              	UART_MIDITX_backup:
+ 140 0000 00       		.space	1
+ 141 0001 000000   		.text
+ 142              	.Letext0:
+ 143              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 144              		.file 3 "Generated_Source\\PSoC5\\UART_MIDITX.h"
+ 145              		.section	.debug_info,"",%progbits
+ 146              	.Ldebug_info0:
+ 147 0000 67010000 		.4byte	0x167
+ 148 0004 0400     		.2byte	0x4
+ 149 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 150 000a 04       		.byte	0x4
+ 151 000b 01       		.uleb128 0x1
+ 152 000c B3000000 		.4byte	.LASF23
+ 153 0010 01       		.byte	0x1
+ 154 0011 1A000000 		.4byte	.LASF24
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccfLTxTf.s 			page 7
+
+
+ 155 0015 2C020000 		.4byte	.LASF25
+ 156 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 157 001d 00000000 		.4byte	0
+ 158 0021 00000000 		.4byte	.Ldebug_line0
+ 159 0025 02       		.uleb128 0x2
+ 160 0026 01       		.byte	0x1
+ 161 0027 06       		.byte	0x6
+ 162 0028 ED010000 		.4byte	.LASF0
+ 163 002c 02       		.uleb128 0x2
+ 164 002d 01       		.byte	0x1
+ 165 002e 08       		.byte	0x8
+ 166 002f 72010000 		.4byte	.LASF1
+ 167 0033 02       		.uleb128 0x2
+ 168 0034 02       		.byte	0x2
+ 169 0035 05       		.byte	0x5
+ 170 0036 92000000 		.4byte	.LASF2
+ 171 003a 02       		.uleb128 0x2
+ 172 003b 02       		.byte	0x2
+ 173 003c 07       		.byte	0x7
+ 174 003d DA010000 		.4byte	.LASF3
+ 175 0041 02       		.uleb128 0x2
+ 176 0042 04       		.byte	0x4
+ 177 0043 05       		.byte	0x5
+ 178 0044 D1010000 		.4byte	.LASF4
+ 179 0048 02       		.uleb128 0x2
+ 180 0049 04       		.byte	0x4
+ 181 004a 07       		.byte	0x7
+ 182 004b 80000000 		.4byte	.LASF5
+ 183 004f 02       		.uleb128 0x2
+ 184 0050 08       		.byte	0x8
+ 185 0051 05       		.byte	0x5
+ 186 0052 00000000 		.4byte	.LASF6
+ 187 0056 02       		.uleb128 0x2
+ 188 0057 08       		.byte	0x8
+ 189 0058 07       		.byte	0x7
+ 190 0059 9C000000 		.4byte	.LASF7
+ 191 005d 03       		.uleb128 0x3
+ 192 005e 04       		.byte	0x4
+ 193 005f 05       		.byte	0x5
+ 194 0060 696E7400 		.ascii	"int\000"
+ 195 0064 02       		.uleb128 0x2
+ 196 0065 04       		.byte	0x4
+ 197 0066 07       		.byte	0x7
+ 198 0067 77020000 		.4byte	.LASF8
+ 199 006b 04       		.uleb128 0x4
+ 200 006c 7A000000 		.4byte	.LASF12
+ 201 0070 02       		.byte	0x2
+ 202 0071 5B       		.byte	0x5b
+ 203 0072 2C000000 		.4byte	0x2c
+ 204 0076 02       		.uleb128 0x2
+ 205 0077 04       		.byte	0x4
+ 206 0078 04       		.byte	0x4
+ 207 0079 13020000 		.4byte	.LASF9
+ 208 007d 02       		.uleb128 0x2
+ 209 007e 08       		.byte	0x8
+ 210 007f 04       		.byte	0x4
+ 211 0080 CA010000 		.4byte	.LASF10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccfLTxTf.s 			page 8
+
+
+ 212 0084 02       		.uleb128 0x2
+ 213 0085 01       		.byte	0x1
+ 214 0086 08       		.byte	0x8
+ 215 0087 80010000 		.4byte	.LASF11
+ 216 008b 04       		.uleb128 0x4
+ 217 008c 84020000 		.4byte	.LASF13
+ 218 0090 02       		.byte	0x2
+ 219 0091 F0       		.byte	0xf0
+ 220 0092 96000000 		.4byte	0x96
+ 221 0096 05       		.uleb128 0x5
+ 222 0097 6B000000 		.4byte	0x6b
+ 223 009b 02       		.uleb128 0x2
+ 224 009c 04       		.byte	0x4
+ 225 009d 07       		.byte	0x7
+ 226 009e 89020000 		.4byte	.LASF14
+ 227 00a2 06       		.uleb128 0x6
+ 228 00a3 41010000 		.4byte	.LASF26
+ 229 00a7 01       		.byte	0x1
+ 230 00a8 03       		.byte	0x3
+ 231 00a9 45       		.byte	0x45
+ 232 00aa BB000000 		.4byte	0xbb
+ 233 00ae 07       		.uleb128 0x7
+ 234 00af 0E000000 		.4byte	.LASF27
+ 235 00b3 03       		.byte	0x3
+ 236 00b4 47       		.byte	0x47
+ 237 00b5 6B000000 		.4byte	0x6b
+ 238 00b9 00       		.byte	0
+ 239 00ba 00       		.byte	0
+ 240 00bb 04       		.uleb128 0x4
+ 241 00bc 96010000 		.4byte	.LASF15
+ 242 00c0 03       		.byte	0x3
+ 243 00c1 4D       		.byte	0x4d
+ 244 00c2 A2000000 		.4byte	0xa2
+ 245 00c6 08       		.uleb128 0x8
+ 246 00c7 5B010000 		.4byte	.LASF16
+ 247 00cb 01       		.byte	0x1
+ 248 00cc 36       		.byte	0x36
+ 249 00cd 01       		.byte	0x1
+ 250 00ce 08       		.uleb128 0x8
+ 251 00cf F9010000 		.4byte	.LASF17
+ 252 00d3 01       		.byte	0x1
+ 253 00d4 57       		.byte	0x57
+ 254 00d5 01       		.byte	0x1
+ 255 00d6 09       		.uleb128 0x9
+ 256 00d7 C6000000 		.4byte	0xc6
+ 257 00db 00000000 		.4byte	.LFB0
+ 258 00df 02000000 		.4byte	.LFE0-.LFB0
+ 259 00e3 01       		.uleb128 0x1
+ 260 00e4 9C       		.byte	0x9c
+ 261 00e5 09       		.uleb128 0x9
+ 262 00e6 CE000000 		.4byte	0xce
+ 263 00ea 00000000 		.4byte	.LFB1
+ 264 00ee 02000000 		.4byte	.LFE1-.LFB1
+ 265 00f2 01       		.uleb128 0x1
+ 266 00f3 9C       		.byte	0x9c
+ 267 00f4 0A       		.uleb128 0xa
+ 268 00f5 55000000 		.4byte	.LASF18
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccfLTxTf.s 			page 9
+
+
+ 269 00f9 01       		.byte	0x1
+ 270 00fa 78       		.byte	0x78
+ 271 00fb 00000000 		.4byte	.LFB2
+ 272 00ff 28000000 		.4byte	.LFE2-.LFB2
+ 273 0103 01       		.uleb128 0x1
+ 274 0104 9C       		.byte	0x9c
+ 275 0105 1C010000 		.4byte	0x11c
+ 276 0109 0B       		.uleb128 0xb
+ 277 010a 16000000 		.4byte	.LVL0
+ 278 010e 55010000 		.4byte	0x155
+ 279 0112 0B       		.uleb128 0xb
+ 280 0113 20000000 		.4byte	.LVL1
+ 281 0117 55010000 		.4byte	0x155
+ 282 011b 00       		.byte	0
+ 283 011c 0A       		.uleb128 0xa
+ 284 011d 42000000 		.4byte	.LASF19
+ 285 0121 01       		.byte	0x1
+ 286 0122 AC       		.byte	0xac
+ 287 0123 00000000 		.4byte	.LFB3
+ 288 0127 1C000000 		.4byte	.LFE3-.LFB3
+ 289 012b 01       		.uleb128 0x1
+ 290 012c 9C       		.byte	0x9c
+ 291 012d 44010000 		.4byte	0x144
+ 292 0131 0C       		.uleb128 0xc
+ 293 0132 06000000 		.4byte	.LVL2
+ 294 0136 5C010000 		.4byte	0x15c
+ 295 013a 0B       		.uleb128 0xb
+ 296 013b 16000000 		.4byte	.LVL3
+ 297 013f 63010000 		.4byte	0x163
+ 298 0143 00       		.byte	0
+ 299 0144 0D       		.uleb128 0xd
+ 300 0145 19020000 		.4byte	.LASF28
+ 301 0149 01       		.byte	0x1
+ 302 014a 18       		.byte	0x18
+ 303 014b BB000000 		.4byte	0xbb
+ 304 014f 05       		.uleb128 0x5
+ 305 0150 03       		.byte	0x3
+ 306 0151 00000000 		.4byte	UART_MIDITX_backup
+ 307 0155 0E       		.uleb128 0xe
+ 308 0156 85010000 		.4byte	.LASF20
+ 309 015a 03       		.byte	0x3
+ 310 015b 55       		.byte	0x55
+ 311 015c 0E       		.uleb128 0xe
+ 312 015d B0010000 		.4byte	.LASF21
+ 313 0161 03       		.byte	0x3
+ 314 0162 8F       		.byte	0x8f
+ 315 0163 0E       		.uleb128 0xe
+ 316 0164 67000000 		.4byte	.LASF22
+ 317 0168 03       		.byte	0x3
+ 318 0169 5A       		.byte	0x5a
+ 319 016a 00       		.byte	0
+ 320              		.section	.debug_abbrev,"",%progbits
+ 321              	.Ldebug_abbrev0:
+ 322 0000 01       		.uleb128 0x1
+ 323 0001 11       		.uleb128 0x11
+ 324 0002 01       		.byte	0x1
+ 325 0003 25       		.uleb128 0x25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccfLTxTf.s 			page 10
+
+
+ 326 0004 0E       		.uleb128 0xe
+ 327 0005 13       		.uleb128 0x13
+ 328 0006 0B       		.uleb128 0xb
+ 329 0007 03       		.uleb128 0x3
+ 330 0008 0E       		.uleb128 0xe
+ 331 0009 1B       		.uleb128 0x1b
+ 332 000a 0E       		.uleb128 0xe
+ 333 000b 55       		.uleb128 0x55
+ 334 000c 17       		.uleb128 0x17
+ 335 000d 11       		.uleb128 0x11
+ 336 000e 01       		.uleb128 0x1
+ 337 000f 10       		.uleb128 0x10
+ 338 0010 17       		.uleb128 0x17
+ 339 0011 00       		.byte	0
+ 340 0012 00       		.byte	0
+ 341 0013 02       		.uleb128 0x2
+ 342 0014 24       		.uleb128 0x24
+ 343 0015 00       		.byte	0
+ 344 0016 0B       		.uleb128 0xb
+ 345 0017 0B       		.uleb128 0xb
+ 346 0018 3E       		.uleb128 0x3e
+ 347 0019 0B       		.uleb128 0xb
+ 348 001a 03       		.uleb128 0x3
+ 349 001b 0E       		.uleb128 0xe
+ 350 001c 00       		.byte	0
+ 351 001d 00       		.byte	0
+ 352 001e 03       		.uleb128 0x3
+ 353 001f 24       		.uleb128 0x24
+ 354 0020 00       		.byte	0
+ 355 0021 0B       		.uleb128 0xb
+ 356 0022 0B       		.uleb128 0xb
+ 357 0023 3E       		.uleb128 0x3e
+ 358 0024 0B       		.uleb128 0xb
+ 359 0025 03       		.uleb128 0x3
+ 360 0026 08       		.uleb128 0x8
+ 361 0027 00       		.byte	0
+ 362 0028 00       		.byte	0
+ 363 0029 04       		.uleb128 0x4
+ 364 002a 16       		.uleb128 0x16
+ 365 002b 00       		.byte	0
+ 366 002c 03       		.uleb128 0x3
+ 367 002d 0E       		.uleb128 0xe
+ 368 002e 3A       		.uleb128 0x3a
+ 369 002f 0B       		.uleb128 0xb
+ 370 0030 3B       		.uleb128 0x3b
+ 371 0031 0B       		.uleb128 0xb
+ 372 0032 49       		.uleb128 0x49
+ 373 0033 13       		.uleb128 0x13
+ 374 0034 00       		.byte	0
+ 375 0035 00       		.byte	0
+ 376 0036 05       		.uleb128 0x5
+ 377 0037 35       		.uleb128 0x35
+ 378 0038 00       		.byte	0
+ 379 0039 49       		.uleb128 0x49
+ 380 003a 13       		.uleb128 0x13
+ 381 003b 00       		.byte	0
+ 382 003c 00       		.byte	0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccfLTxTf.s 			page 11
+
+
+ 383 003d 06       		.uleb128 0x6
+ 384 003e 13       		.uleb128 0x13
+ 385 003f 01       		.byte	0x1
+ 386 0040 03       		.uleb128 0x3
+ 387 0041 0E       		.uleb128 0xe
+ 388 0042 0B       		.uleb128 0xb
+ 389 0043 0B       		.uleb128 0xb
+ 390 0044 3A       		.uleb128 0x3a
+ 391 0045 0B       		.uleb128 0xb
+ 392 0046 3B       		.uleb128 0x3b
+ 393 0047 0B       		.uleb128 0xb
+ 394 0048 01       		.uleb128 0x1
+ 395 0049 13       		.uleb128 0x13
+ 396 004a 00       		.byte	0
+ 397 004b 00       		.byte	0
+ 398 004c 07       		.uleb128 0x7
+ 399 004d 0D       		.uleb128 0xd
+ 400 004e 00       		.byte	0
+ 401 004f 03       		.uleb128 0x3
+ 402 0050 0E       		.uleb128 0xe
+ 403 0051 3A       		.uleb128 0x3a
+ 404 0052 0B       		.uleb128 0xb
+ 405 0053 3B       		.uleb128 0x3b
+ 406 0054 0B       		.uleb128 0xb
+ 407 0055 49       		.uleb128 0x49
+ 408 0056 13       		.uleb128 0x13
+ 409 0057 38       		.uleb128 0x38
+ 410 0058 0B       		.uleb128 0xb
+ 411 0059 00       		.byte	0
+ 412 005a 00       		.byte	0
+ 413 005b 08       		.uleb128 0x8
+ 414 005c 2E       		.uleb128 0x2e
+ 415 005d 00       		.byte	0
+ 416 005e 3F       		.uleb128 0x3f
+ 417 005f 19       		.uleb128 0x19
+ 418 0060 03       		.uleb128 0x3
+ 419 0061 0E       		.uleb128 0xe
+ 420 0062 3A       		.uleb128 0x3a
+ 421 0063 0B       		.uleb128 0xb
+ 422 0064 3B       		.uleb128 0x3b
+ 423 0065 0B       		.uleb128 0xb
+ 424 0066 27       		.uleb128 0x27
+ 425 0067 19       		.uleb128 0x19
+ 426 0068 20       		.uleb128 0x20
+ 427 0069 0B       		.uleb128 0xb
+ 428 006a 00       		.byte	0
+ 429 006b 00       		.byte	0
+ 430 006c 09       		.uleb128 0x9
+ 431 006d 2E       		.uleb128 0x2e
+ 432 006e 00       		.byte	0
+ 433 006f 31       		.uleb128 0x31
+ 434 0070 13       		.uleb128 0x13
+ 435 0071 11       		.uleb128 0x11
+ 436 0072 01       		.uleb128 0x1
+ 437 0073 12       		.uleb128 0x12
+ 438 0074 06       		.uleb128 0x6
+ 439 0075 40       		.uleb128 0x40
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccfLTxTf.s 			page 12
+
+
+ 440 0076 18       		.uleb128 0x18
+ 441 0077 9742     		.uleb128 0x2117
+ 442 0079 19       		.uleb128 0x19
+ 443 007a 00       		.byte	0
+ 444 007b 00       		.byte	0
+ 445 007c 0A       		.uleb128 0xa
+ 446 007d 2E       		.uleb128 0x2e
+ 447 007e 01       		.byte	0x1
+ 448 007f 3F       		.uleb128 0x3f
+ 449 0080 19       		.uleb128 0x19
+ 450 0081 03       		.uleb128 0x3
+ 451 0082 0E       		.uleb128 0xe
+ 452 0083 3A       		.uleb128 0x3a
+ 453 0084 0B       		.uleb128 0xb
+ 454 0085 3B       		.uleb128 0x3b
+ 455 0086 0B       		.uleb128 0xb
+ 456 0087 27       		.uleb128 0x27
+ 457 0088 19       		.uleb128 0x19
+ 458 0089 11       		.uleb128 0x11
+ 459 008a 01       		.uleb128 0x1
+ 460 008b 12       		.uleb128 0x12
+ 461 008c 06       		.uleb128 0x6
+ 462 008d 40       		.uleb128 0x40
+ 463 008e 18       		.uleb128 0x18
+ 464 008f 9742     		.uleb128 0x2117
+ 465 0091 19       		.uleb128 0x19
+ 466 0092 01       		.uleb128 0x1
+ 467 0093 13       		.uleb128 0x13
+ 468 0094 00       		.byte	0
+ 469 0095 00       		.byte	0
+ 470 0096 0B       		.uleb128 0xb
+ 471 0097 898201   		.uleb128 0x4109
+ 472 009a 00       		.byte	0
+ 473 009b 11       		.uleb128 0x11
+ 474 009c 01       		.uleb128 0x1
+ 475 009d 9542     		.uleb128 0x2115
+ 476 009f 19       		.uleb128 0x19
+ 477 00a0 31       		.uleb128 0x31
+ 478 00a1 13       		.uleb128 0x13
+ 479 00a2 00       		.byte	0
+ 480 00a3 00       		.byte	0
+ 481 00a4 0C       		.uleb128 0xc
+ 482 00a5 898201   		.uleb128 0x4109
+ 483 00a8 00       		.byte	0
+ 484 00a9 11       		.uleb128 0x11
+ 485 00aa 01       		.uleb128 0x1
+ 486 00ab 31       		.uleb128 0x31
+ 487 00ac 13       		.uleb128 0x13
+ 488 00ad 00       		.byte	0
+ 489 00ae 00       		.byte	0
+ 490 00af 0D       		.uleb128 0xd
+ 491 00b0 34       		.uleb128 0x34
+ 492 00b1 00       		.byte	0
+ 493 00b2 03       		.uleb128 0x3
+ 494 00b3 0E       		.uleb128 0xe
+ 495 00b4 3A       		.uleb128 0x3a
+ 496 00b5 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccfLTxTf.s 			page 13
+
+
+ 497 00b6 3B       		.uleb128 0x3b
+ 498 00b7 0B       		.uleb128 0xb
+ 499 00b8 49       		.uleb128 0x49
+ 500 00b9 13       		.uleb128 0x13
+ 501 00ba 02       		.uleb128 0x2
+ 502 00bb 18       		.uleb128 0x18
+ 503 00bc 00       		.byte	0
+ 504 00bd 00       		.byte	0
+ 505 00be 0E       		.uleb128 0xe
+ 506 00bf 2E       		.uleb128 0x2e
+ 507 00c0 00       		.byte	0
+ 508 00c1 3F       		.uleb128 0x3f
+ 509 00c2 19       		.uleb128 0x19
+ 510 00c3 03       		.uleb128 0x3
+ 511 00c4 0E       		.uleb128 0xe
+ 512 00c5 3A       		.uleb128 0x3a
+ 513 00c6 0B       		.uleb128 0xb
+ 514 00c7 3B       		.uleb128 0x3b
+ 515 00c8 0B       		.uleb128 0xb
+ 516 00c9 27       		.uleb128 0x27
+ 517 00ca 19       		.uleb128 0x19
+ 518 00cb 3C       		.uleb128 0x3c
+ 519 00cc 19       		.uleb128 0x19
+ 520 00cd 00       		.byte	0
+ 521 00ce 00       		.byte	0
+ 522 00cf 00       		.byte	0
+ 523              		.section	.debug_aranges,"",%progbits
+ 524 0000 34000000 		.4byte	0x34
+ 525 0004 0200     		.2byte	0x2
+ 526 0006 00000000 		.4byte	.Ldebug_info0
+ 527 000a 04       		.byte	0x4
+ 528 000b 00       		.byte	0
+ 529 000c 0000     		.2byte	0
+ 530 000e 0000     		.2byte	0
+ 531 0010 00000000 		.4byte	.LFB0
+ 532 0014 02000000 		.4byte	.LFE0-.LFB0
+ 533 0018 00000000 		.4byte	.LFB1
+ 534 001c 02000000 		.4byte	.LFE1-.LFB1
+ 535 0020 00000000 		.4byte	.LFB2
+ 536 0024 28000000 		.4byte	.LFE2-.LFB2
+ 537 0028 00000000 		.4byte	.LFB3
+ 538 002c 1C000000 		.4byte	.LFE3-.LFB3
+ 539 0030 00000000 		.4byte	0
+ 540 0034 00000000 		.4byte	0
+ 541              		.section	.debug_ranges,"",%progbits
+ 542              	.Ldebug_ranges0:
+ 543 0000 00000000 		.4byte	.LFB0
+ 544 0004 02000000 		.4byte	.LFE0
+ 545 0008 00000000 		.4byte	.LFB1
+ 546 000c 02000000 		.4byte	.LFE1
+ 547 0010 00000000 		.4byte	.LFB2
+ 548 0014 28000000 		.4byte	.LFE2
+ 549 0018 00000000 		.4byte	.LFB3
+ 550 001c 1C000000 		.4byte	.LFE3
+ 551 0020 00000000 		.4byte	0
+ 552 0024 00000000 		.4byte	0
+ 553              		.section	.debug_line,"",%progbits
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccfLTxTf.s 			page 14
+
+
+ 554              	.Ldebug_line0:
+ 555 0000 AE000000 		.section	.debug_str,"MS",%progbits,1
+ 555      02005C00 
+ 555      00000201 
+ 555      FB0E0D00 
+ 555      01010101 
+ 556              	.LASF6:
+ 557 0000 6C6F6E67 		.ascii	"long long int\000"
+ 557      206C6F6E 
+ 557      6720696E 
+ 557      7400
+ 558              	.LASF27:
+ 559 000e 656E6162 		.ascii	"enableState\000"
+ 559      6C655374 
+ 559      61746500 
+ 560              	.LASF24:
+ 561 001a 47656E65 		.ascii	"Generated_Source\\PSoC5\\UART_MIDITX_PM.c\000"
+ 561      72617465 
+ 561      645F536F 
+ 561      75726365 
+ 561      5C50536F 
+ 562              	.LASF19:
+ 563 0042 55415254 		.ascii	"UART_MIDITX_Wakeup\000"
+ 563      5F4D4944 
+ 563      4954585F 
+ 563      57616B65 
+ 563      757000
+ 564              	.LASF18:
+ 565 0055 55415254 		.ascii	"UART_MIDITX_Sleep\000"
+ 565      5F4D4944 
+ 565      4954585F 
+ 565      536C6565 
+ 565      7000
+ 566              	.LASF22:
+ 567 0067 55415254 		.ascii	"UART_MIDITX_Enable\000"
+ 567      5F4D4944 
+ 567      4954585F 
+ 567      456E6162 
+ 567      6C6500
+ 568              	.LASF12:
+ 569 007a 75696E74 		.ascii	"uint8\000"
+ 569      3800
+ 570              	.LASF5:
+ 571 0080 6C6F6E67 		.ascii	"long unsigned int\000"
+ 571      20756E73 
+ 571      69676E65 
+ 571      6420696E 
+ 571      7400
+ 572              	.LASF2:
+ 573 0092 73686F72 		.ascii	"short int\000"
+ 573      7420696E 
+ 573      7400
+ 574              	.LASF7:
+ 575 009c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 575      206C6F6E 
+ 575      6720756E 
+ 575      7369676E 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccfLTxTf.s 			page 15
+
+
+ 575      65642069 
+ 576              	.LASF23:
+ 577 00b3 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 577      4320342E 
+ 577      392E3320 
+ 577      32303135 
+ 577      30333033 
+ 578 00e6 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 578      20726576 
+ 578      6973696F 
+ 578      6E203232 
+ 578      31323230 
+ 579 0119 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 579      66756E63 
+ 579      74696F6E 
+ 579      2D736563 
+ 579      74696F6E 
+ 580              	.LASF26:
+ 581 0141 55415254 		.ascii	"UART_MIDITX_backupStruct_\000"
+ 581      5F4D4944 
+ 581      4954585F 
+ 581      6261636B 
+ 581      75705374 
+ 582              	.LASF16:
+ 583 015b 55415254 		.ascii	"UART_MIDITX_SaveConfig\000"
+ 583      5F4D4944 
+ 583      4954585F 
+ 583      53617665 
+ 583      436F6E66 
+ 584              	.LASF1:
+ 585 0172 756E7369 		.ascii	"unsigned char\000"
+ 585      676E6564 
+ 585      20636861 
+ 585      7200
+ 586              	.LASF11:
+ 587 0180 63686172 		.ascii	"char\000"
+ 587      00
+ 588              	.LASF20:
+ 589 0185 55415254 		.ascii	"UART_MIDITX_Stop\000"
+ 589      5F4D4944 
+ 589      4954585F 
+ 589      53746F70 
+ 589      00
+ 590              	.LASF15:
+ 591 0196 55415254 		.ascii	"UART_MIDITX_BACKUP_STRUCT\000"
+ 591      5F4D4944 
+ 591      4954585F 
+ 591      4241434B 
+ 591      55505F53 
+ 592              	.LASF21:
+ 593 01b0 55415254 		.ascii	"UART_MIDITX_ClearTxBuffer\000"
+ 593      5F4D4944 
+ 593      4954585F 
+ 593      436C6561 
+ 593      72547842 
+ 594              	.LASF10:
+ 595 01ca 646F7562 		.ascii	"double\000"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccfLTxTf.s 			page 16
+
+
+ 595      6C6500
+ 596              	.LASF4:
+ 597 01d1 6C6F6E67 		.ascii	"long int\000"
+ 597      20696E74 
+ 597      00
+ 598              	.LASF3:
+ 599 01da 73686F72 		.ascii	"short unsigned int\000"
+ 599      7420756E 
+ 599      7369676E 
+ 599      65642069 
+ 599      6E7400
+ 600              	.LASF0:
+ 601 01ed 7369676E 		.ascii	"signed char\000"
+ 601      65642063 
+ 601      68617200 
+ 602              	.LASF17:
+ 603 01f9 55415254 		.ascii	"UART_MIDITX_RestoreConfig\000"
+ 603      5F4D4944 
+ 603      4954585F 
+ 603      52657374 
+ 603      6F726543 
+ 604              	.LASF9:
+ 605 0213 666C6F61 		.ascii	"float\000"
+ 605      7400
+ 606              	.LASF28:
+ 607 0219 55415254 		.ascii	"UART_MIDITX_backup\000"
+ 607      5F4D4944 
+ 607      4954585F 
+ 607      6261636B 
+ 607      757000
+ 608              	.LASF25:
+ 609 022c 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
+ 609      73657273 
+ 609      5C6D6772 
+ 609      6F6E6265 
+ 609      725C4465 
+ 610 025a 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 610      436F6E74 
+ 610      696E756F 
+ 610      7573204F 
+ 610      75747075 
+ 611              	.LASF8:
+ 612 0277 756E7369 		.ascii	"unsigned int\000"
+ 612      676E6564 
+ 612      20696E74 
+ 612      00
+ 613              	.LASF13:
+ 614 0284 72656738 		.ascii	"reg8\000"
+ 614      00
+ 615              	.LASF14:
+ 616 0289 73697A65 		.ascii	"sizetype\000"
+ 616      74797065 
+ 616      00
+ 617              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

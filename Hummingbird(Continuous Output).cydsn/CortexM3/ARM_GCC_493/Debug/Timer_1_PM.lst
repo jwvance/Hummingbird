@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
   29:Generated_Source\PSoC5/Timer_1_PM.c **** *     Save the current user configuration
   30:Generated_Source\PSoC5/Timer_1_PM.c **** *
   31:Generated_Source\PSoC5/Timer_1_PM.c **** * Parameters:
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 2
 
 
   32:Generated_Source\PSoC5/Timer_1_PM.c **** *  void
@@ -114,11 +114,11 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
   53              	.L4:
   54              		.align	2
   55              	.L3:
-  56 0018 87640040 		.word	1073767559
+  56 0018 84640040 		.word	1073767556
   57 001c 00000000 		.word	.LANCHOR0
   58              		.cfi_endproc
   59              	.LFE0:
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 3
 
 
   60              		.size	Timer_1_SaveConfig, .-Timer_1_SaveConfig
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
   83:Generated_Source\PSoC5/Timer_1_PM.c ****         #if (Timer_1_UsingHWCaptureCounter)
   84:Generated_Source\PSoC5/Timer_1_PM.c ****             Timer_1_SetCaptureCount(Timer_1_backup.TimerCaptureCounter);
   85:Generated_Source\PSoC5/Timer_1_PM.c ****         #endif /* Restore Capture counter register*/
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 4
 
 
   86:Generated_Source\PSoC5/Timer_1_PM.c **** 
@@ -205,7 +205,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
   98 001a 00BF     		.align	2
   99              	.L7:
  100 001c 00000000 		.word	.LANCHOR0
- 101 0020 87640040 		.word	1073767559
+ 101 0020 84640040 		.word	1073767556
  102              		.cfi_endproc
  103              	.LFE1:
  104              		.size	Timer_1_RestoreConfig, .-Timer_1_RestoreConfig
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  110:Generated_Source\PSoC5/Timer_1_PM.c **** *
  111:Generated_Source\PSoC5/Timer_1_PM.c **** *******************************************************************************/
  112:Generated_Source\PSoC5/Timer_1_PM.c **** void Timer_1_Sleep(void) 
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 5
 
 
  113:Generated_Source\PSoC5/Timer_1_PM.c **** {
@@ -292,13 +292,13 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  143              	.L14:
  144              		.align	2
  145              	.L13:
- 146 0020 75640040 		.word	1073767541
+ 146 0020 70640040 		.word	1073767536
  147 0024 00000000 		.word	.LANCHOR0
  148              		.cfi_endproc
  149              	.LFE2:
  150              		.size	Timer_1_Sleep, .-Timer_1_Sleep
  151              		.section	.text.Timer_1_Wakeup,"ax",%progbits
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 6
 
 
  152              		.align	2
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  159:Generated_Source\PSoC5/Timer_1_PM.c **** }
  177              		.loc 1 159 0
  178 0010 BDE80840 		pop	{r3, lr}
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 7
 
 
  179              		.cfi_restore 14
@@ -395,48 +395,48 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  207 0006 00000000 		.4byte	.Ldebug_abbrev0
  208 000a 04       		.byte	0x4
  209 000b 01       		.uleb128 0x1
- 210 000c 9F000000 		.4byte	.LASF31
+ 210 000c A0000000 		.4byte	.LASF31
  211 0010 01       		.byte	0x1
- 212 0011 33010000 		.4byte	.LASF32
- 213 0015 26000000 		.4byte	.LASF33
+ 212 0011 34010000 		.4byte	.LASF32
+ 213 0015 55000000 		.4byte	.LASF33
  214 0019 00000000 		.4byte	.Ldebug_ranges0+0
  215 001d 00000000 		.4byte	0
  216 0021 00000000 		.4byte	.Ldebug_line0
  217 0025 02       		.uleb128 0x2
  218 0026 01       		.byte	0x1
  219 0027 06       		.byte	0x6
- 220 0028 96020000 		.4byte	.LASF0
+ 220 0028 97020000 		.4byte	.LASF0
  221 002c 02       		.uleb128 0x2
  222 002d 01       		.byte	0x1
  223 002e 08       		.byte	0x8
- 224 002f 57010000 		.4byte	.LASF1
+ 224 002f 58010000 		.4byte	.LASF1
  225 0033 02       		.uleb128 0x2
  226 0034 02       		.byte	0x2
  227 0035 05       		.byte	0x5
- 228 0036 74020000 		.4byte	.LASF2
+ 228 0036 75020000 		.4byte	.LASF2
  229 003a 02       		.uleb128 0x2
  230 003b 02       		.byte	0x2
  231 003c 07       		.byte	0x7
- 232 003d 70000000 		.4byte	.LASF3
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 8
+ 232 003d 26000000 		.4byte	.LASF3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 8
 
 
  233 0041 02       		.uleb128 0x2
  234 0042 04       		.byte	0x4
  235 0043 05       		.byte	0x5
- 236 0044 7E020000 		.4byte	.LASF4
+ 236 0044 7F020000 		.4byte	.LASF4
  237 0048 02       		.uleb128 0x2
  238 0049 04       		.byte	0x4
  239 004a 07       		.byte	0x7
- 240 004b 6A010000 		.4byte	.LASF5
+ 240 004b 6B010000 		.4byte	.LASF5
  241 004f 02       		.uleb128 0x2
  242 0050 08       		.byte	0x8
  243 0051 05       		.byte	0x5
- 244 0052 3E020000 		.4byte	.LASF6
+ 244 0052 3F020000 		.4byte	.LASF6
  245 0056 02       		.uleb128 0x2
  246 0057 08       		.byte	0x8
  247 0058 07       		.byte	0x7
- 248 0059 F3010000 		.4byte	.LASF7
+ 248 0059 F4010000 		.4byte	.LASF7
  249 005d 03       		.uleb128 0x3
  250 005e 04       		.byte	0x4
  251 005f 05       		.byte	0x5
@@ -444,31 +444,31 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  253 0064 02       		.uleb128 0x2
  254 0065 04       		.byte	0x4
  255 0066 07       		.byte	0x7
- 256 0067 E6010000 		.4byte	.LASF8
+ 256 0067 E7010000 		.4byte	.LASF8
  257 006b 04       		.uleb128 0x4
- 258 006c 8A010000 		.4byte	.LASF9
+ 258 006c 8B010000 		.4byte	.LASF9
  259 0070 02       		.byte	0x2
  260 0071 5B       		.byte	0x5b
  261 0072 2C000000 		.4byte	0x2c
  262 0076 04       		.uleb128 0x4
- 263 0077 C3010000 		.4byte	.LASF10
+ 263 0077 C4010000 		.4byte	.LASF10
  264 007b 02       		.byte	0x2
  265 007c 5D       		.byte	0x5d
  266 007d 48000000 		.4byte	0x48
  267 0081 02       		.uleb128 0x2
  268 0082 04       		.byte	0x4
  269 0083 04       		.byte	0x4
- 270 0084 2D010000 		.4byte	.LASF11
+ 270 0084 2E010000 		.4byte	.LASF11
  271 0088 02       		.uleb128 0x2
  272 0089 08       		.byte	0x8
  273 008a 04       		.byte	0x4
- 274 008b 9F010000 		.4byte	.LASF12
+ 274 008b A0010000 		.4byte	.LASF12
  275 008f 02       		.uleb128 0x2
  276 0090 01       		.byte	0x1
  277 0091 08       		.byte	0x8
- 278 0092 4C020000 		.4byte	.LASF13
+ 278 0092 4D020000 		.4byte	.LASF13
  279 0096 04       		.uleb128 0x4
- 280 0097 65010000 		.4byte	.LASF14
+ 280 0097 66010000 		.4byte	.LASF14
  281 009b 02       		.byte	0x2
  282 009c F0       		.byte	0xf0
  283 009d A1000000 		.4byte	0xa1
@@ -477,8 +477,8 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  286 00a6 02       		.uleb128 0x2
  287 00a7 04       		.byte	0x4
  288 00a8 07       		.byte	0x7
- 289 00a9 35020000 		.4byte	.LASF15
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 9
+ 289 00a9 36020000 		.4byte	.LASF15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 9
 
 
  290 00ad 06       		.uleb128 0x6
@@ -493,19 +493,19 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  299 00bc 6B000000 		.4byte	0x6b
  300 00c0 00       		.byte	0
  301 00c1 07       		.uleb128 0x7
- 302 00c2 96000000 		.4byte	.LASF17
+ 302 00c2 4C000000 		.4byte	.LASF17
  303 00c6 03       		.byte	0x3
  304 00c7 48       		.byte	0x48
  305 00c8 76000000 		.4byte	0x76
  306 00cc 04       		.byte	0x4
  307 00cd 07       		.uleb128 0x7
- 308 00ce AF020000 		.4byte	.LASF18
+ 308 00ce B0020000 		.4byte	.LASF18
  309 00d2 03       		.byte	0x3
  310 00d3 49       		.byte	0x49
  311 00d4 6B000000 		.4byte	0x6b
  312 00d8 08       		.byte	0x8
  313 00d9 07       		.uleb128 0x7
- 314 00da C2020000 		.4byte	.LASF19
+ 314 00da C3020000 		.4byte	.LASF19
  315 00de 03       		.byte	0x3
  316 00df 4F       		.byte	0x4f
  317 00e0 6B000000 		.4byte	0x6b
@@ -517,7 +517,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  323 00ec 53       		.byte	0x53
  324 00ed AD000000 		.4byte	0xad
  325 00f1 08       		.uleb128 0x8
- 326 00f2 83000000 		.4byte	.LASF21
+ 326 00f2 39000000 		.4byte	.LASF21
  327 00f6 01       		.byte	0x1
  328 00f7 2B       		.byte	0x2b
  329 00f8 00000000 		.4byte	.LFB0
@@ -533,12 +533,12 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  339 0114 AD010000 		.4byte	0x1ad
  340 0118 00       		.byte	0
  341 0119 08       		.uleb128 0x8
- 342 011a 1F020000 		.4byte	.LASF22
+ 342 011a 20020000 		.4byte	.LASF22
  343 011e 01       		.byte	0x1
  344 011f 4D       		.byte	0x4d
  345 0120 00000000 		.4byte	.LFB1
  346 0124 24000000 		.4byte	.LFE1-.LFB1
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 10
 
 
  347 0128 01       		.uleb128 0x1
@@ -552,7 +552,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  355 013c C9010000 		.4byte	0x1c9
  356 0140 00       		.byte	0
  357 0141 08       		.uleb128 0x8
- 358 0142 7C010000 		.4byte	.LASF23
+ 358 0142 7D010000 		.4byte	.LASF23
  359 0146 01       		.byte	0x1
  360 0147 70       		.byte	0x70
  361 0148 00000000 		.4byte	.LFB2
@@ -568,7 +568,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  371 0164 F1000000 		.4byte	0xf1
  372 0168 00       		.byte	0
  373 0169 08       		.uleb128 0x8
- 374 016a 87020000 		.4byte	.LASF24
+ 374 016a 88020000 		.4byte	.LASF24
  375 016e 01       		.byte	0x1
  376 016f 96       		.byte	0x96
  377 0170 00000000 		.4byte	.LFB3
@@ -584,7 +584,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  387 018c E1010000 		.4byte	0x1e1
  388 0190 00       		.byte	0
  389 0191 0B       		.uleb128 0xb
- 390 0192 65020000 		.4byte	.LASF34
+ 390 0192 66020000 		.4byte	.LASF34
  391 0196 01       		.byte	0x1
  392 0197 15       		.byte	0x15
  393 0198 E6000000 		.4byte	0xe6
@@ -592,20 +592,20 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  395 019d 03       		.byte	0x3
  396 019e 00000000 		.4byte	Timer_1_backup
  397 01a2 0C       		.uleb128 0xc
- 398 01a3 51020000 		.4byte	.LASF25
+ 398 01a3 52020000 		.4byte	.LASF25
  399 01a7 03       		.byte	0x3
  400 01a8 69       		.byte	0x69
  401 01a9 76000000 		.4byte	0x76
  402 01ad 0C       		.uleb128 0xc
- 403 01ae CA010000 		.4byte	.LASF26
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 11
+ 403 01ae CB010000 		.4byte	.LASF26
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 11
 
 
  404 01b2 03       		.byte	0x3
  405 01b3 63       		.byte	0x63
  406 01b4 6B000000 		.4byte	0x6b
  407 01b8 0D       		.uleb128 0xd
- 408 01b9 0A020000 		.4byte	.LASF27
+ 408 01b9 0B020000 		.4byte	.LASF27
  409 01bd 03       		.byte	0x3
  410 01be 6A       		.byte	0x6a
  411 01bf C9010000 		.4byte	0x1c9
@@ -613,7 +613,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  413 01c4 76000000 		.4byte	0x76
  414 01c8 00       		.byte	0
  415 01c9 0D       		.uleb128 0xd
- 416 01ca A6010000 		.4byte	.LASF28
+ 416 01ca A7010000 		.4byte	.LASF28
  417 01ce 03       		.byte	0x3
  418 01cf 64       		.byte	0x64
  419 01d0 DA010000 		.4byte	0x1da
@@ -621,11 +621,11 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  421 01d5 6B000000 		.4byte	0x6b
  422 01d9 00       		.byte	0
  423 01da 0F       		.uleb128 0xf
- 424 01db A2020000 		.4byte	.LASF29
+ 424 01db A3020000 		.4byte	.LASF29
  425 01df 03       		.byte	0x3
  426 01e0 5B       		.byte	0x5b
  427 01e1 0F       		.uleb128 0xf
- 428 01e2 90010000 		.4byte	.LASF30
+ 428 01e2 91010000 		.4byte	.LASF30
  429 01e6 03       		.byte	0x3
  430 01e7 8B       		.byte	0x8b
  431 01e8 00       		.byte	0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  458 0018 3E       		.uleb128 0x3e
  459 0019 0B       		.uleb128 0xb
  460 001a 03       		.uleb128 0x3
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 12
 
 
  461 001b 0E       		.uleb128 0xe
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  515 0051 3B       		.uleb128 0x3b
  516 0052 0B       		.uleb128 0xb
  517 0053 49       		.uleb128 0x49
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 13
 
 
  518 0054 13       		.uleb128 0x13
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  572 0090 0E       		.uleb128 0xe
  573 0091 3A       		.uleb128 0x3a
  574 0092 0B       		.uleb128 0xb
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 14
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 14
 
 
  575 0093 3B       		.uleb128 0x3b
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  629 00c9 2E       		.uleb128 0x2e
  630 00ca 00       		.byte	0
  631 00cb 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 15
 
 
  632 00cc 19       		.uleb128 0x19
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  680      626C6553 
  680      74617465 
  680      00
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 16
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 16
 
 
  681              	.LASF20:
@@ -907,188 +907,188 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 1
  682      6261636B 
  682      75705374 
  682      72756374 
- 683              	.LASF33:
- 684 0026 433A5C55 		.ascii	"C:\\Users\\jwvance\\Desktop\\Hummingbird\\Hummingbi"
- 684      73657273 
- 684      5C6A7776 
- 684      616E6365 
- 684      5C446573 
- 685 0054 72642843 		.ascii	"rd(Continuous Output).cydsn\000"
- 685      6F6E7469 
- 685      6E756F75 
- 685      73204F75 
- 685      74707574 
- 686              	.LASF3:
- 687 0070 73686F72 		.ascii	"short unsigned int\000"
- 687      7420756E 
- 687      7369676E 
- 687      65642069 
- 687      6E7400
- 688              	.LASF21:
- 689 0083 54696D65 		.ascii	"Timer_1_SaveConfig\000"
- 689      725F315F 
- 689      53617665 
- 689      436F6E66 
- 689      696700
- 690              	.LASF17:
- 691 0096 54696D65 		.ascii	"TimerUdb\000"
- 691      72556462 
- 691      00
+ 683              	.LASF3:
+ 684 0026 73686F72 		.ascii	"short unsigned int\000"
+ 684      7420756E 
+ 684      7369676E 
+ 684      65642069 
+ 684      6E7400
+ 685              	.LASF21:
+ 686 0039 54696D65 		.ascii	"Timer_1_SaveConfig\000"
+ 686      725F315F 
+ 686      53617665 
+ 686      436F6E66 
+ 686      696700
+ 687              	.LASF17:
+ 688 004c 54696D65 		.ascii	"TimerUdb\000"
+ 688      72556462 
+ 688      00
+ 689              	.LASF33:
+ 690 0055 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
+ 690      73657273 
+ 690      5C6D6772 
+ 690      6F6E6265 
+ 690      725C4465 
+ 691 0083 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 691      436F6E74 
+ 691      696E756F 
+ 691      7573204F 
+ 691      75747075 
  692              	.LASF31:
- 693 009f 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 693 00a0 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  693      4320342E 
  693      392E3320 
  693      32303135 
  693      30333033 
- 694 00d2 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 694 00d3 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
  694      20726576 
  694      6973696F 
  694      6E203232 
  694      31323230 
- 695 0105 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 695 0106 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
  695      66756E63 
  695      74696F6E 
  695      2D736563 
  695      74696F6E 
  696              	.LASF11:
- 697 012d 666C6F61 		.ascii	"float\000"
+ 697 012e 666C6F61 		.ascii	"float\000"
  697      7400
  698              	.LASF32:
- 699 0133 47656E65 		.ascii	"Generated_Source\\PSoC5\\Timer_1_PM.c\000"
+ 699 0134 47656E65 		.ascii	"Generated_Source\\PSoC5\\Timer_1_PM.c\000"
  699      72617465 
  699      645F536F 
  699      75726365 
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 17
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 17
 
 
  699      5C50536F 
  700              	.LASF1:
- 701 0157 756E7369 		.ascii	"unsigned char\000"
+ 701 0158 756E7369 		.ascii	"unsigned char\000"
  701      676E6564 
  701      20636861 
  701      7200
  702              	.LASF14:
- 703 0165 72656738 		.ascii	"reg8\000"
+ 703 0166 72656738 		.ascii	"reg8\000"
  703      00
  704              	.LASF5:
- 705 016a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 705 016b 6C6F6E67 		.ascii	"long unsigned int\000"
  705      20756E73 
  705      69676E65 
  705      6420696E 
  705      7400
  706              	.LASF23:
- 707 017c 54696D65 		.ascii	"Timer_1_Sleep\000"
+ 707 017d 54696D65 		.ascii	"Timer_1_Sleep\000"
  707      725F315F 
  707      536C6565 
  707      7000
  708              	.LASF9:
- 709 018a 75696E74 		.ascii	"uint8\000"
+ 709 018b 75696E74 		.ascii	"uint8\000"
  709      3800
  710              	.LASF30:
- 711 0190 54696D65 		.ascii	"Timer_1_Enable\000"
+ 711 0191 54696D65 		.ascii	"Timer_1_Enable\000"
  711      725F315F 
  711      456E6162 
  711      6C6500
  712              	.LASF12:
- 713 019f 646F7562 		.ascii	"double\000"
+ 713 01a0 646F7562 		.ascii	"double\000"
  713      6C6500
  714              	.LASF28:
- 715 01a6 54696D65 		.ascii	"Timer_1_WriteControlRegister\000"
+ 715 01a7 54696D65 		.ascii	"Timer_1_WriteControlRegister\000"
  715      725F315F 
  715      57726974 
  715      65436F6E 
  715      74726F6C 
  716              	.LASF10:
- 717 01c3 75696E74 		.ascii	"uint32\000"
+ 717 01c4 75696E74 		.ascii	"uint32\000"
  717      333200
  718              	.LASF26:
- 719 01ca 54696D65 		.ascii	"Timer_1_ReadControlRegister\000"
+ 719 01cb 54696D65 		.ascii	"Timer_1_ReadControlRegister\000"
  719      725F315F 
  719      52656164 
  719      436F6E74 
  719      726F6C52 
  720              	.LASF8:
- 721 01e6 756E7369 		.ascii	"unsigned int\000"
+ 721 01e7 756E7369 		.ascii	"unsigned int\000"
  721      676E6564 
  721      20696E74 
  721      00
  722              	.LASF7:
- 723 01f3 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 723 01f4 6C6F6E67 		.ascii	"long long unsigned int\000"
  723      206C6F6E 
  723      6720756E 
  723      7369676E 
  723      65642069 
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 18
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 18
 
 
  724              	.LASF27:
- 725 020a 54696D65 		.ascii	"Timer_1_WriteCounter\000"
+ 725 020b 54696D65 		.ascii	"Timer_1_WriteCounter\000"
  725      725F315F 
  725      57726974 
  725      65436F75 
  725      6E746572 
  726              	.LASF22:
- 727 021f 54696D65 		.ascii	"Timer_1_RestoreConfig\000"
+ 727 0220 54696D65 		.ascii	"Timer_1_RestoreConfig\000"
  727      725F315F 
  727      52657374 
  727      6F726543 
  727      6F6E6669 
  728              	.LASF15:
- 729 0235 73697A65 		.ascii	"sizetype\000"
+ 729 0236 73697A65 		.ascii	"sizetype\000"
  729      74797065 
  729      00
  730              	.LASF6:
- 731 023e 6C6F6E67 		.ascii	"long long int\000"
+ 731 023f 6C6F6E67 		.ascii	"long long int\000"
  731      206C6F6E 
  731      6720696E 
  731      7400
  732              	.LASF13:
- 733 024c 63686172 		.ascii	"char\000"
+ 733 024d 63686172 		.ascii	"char\000"
  733      00
  734              	.LASF25:
- 735 0251 54696D65 		.ascii	"Timer_1_ReadCounter\000"
+ 735 0252 54696D65 		.ascii	"Timer_1_ReadCounter\000"
  735      725F315F 
  735      52656164 
  735      436F756E 
  735      74657200 
  736              	.LASF34:
- 737 0265 54696D65 		.ascii	"Timer_1_backup\000"
+ 737 0266 54696D65 		.ascii	"Timer_1_backup\000"
  737      725F315F 
  737      6261636B 
  737      757000
  738              	.LASF2:
- 739 0274 73686F72 		.ascii	"short int\000"
+ 739 0275 73686F72 		.ascii	"short int\000"
  739      7420696E 
  739      7400
  740              	.LASF4:
- 741 027e 6C6F6E67 		.ascii	"long int\000"
+ 741 027f 6C6F6E67 		.ascii	"long int\000"
  741      20696E74 
  741      00
  742              	.LASF24:
- 743 0287 54696D65 		.ascii	"Timer_1_Wakeup\000"
+ 743 0288 54696D65 		.ascii	"Timer_1_Wakeup\000"
  743      725F315F 
  743      57616B65 
  743      757000
  744              	.LASF0:
- 745 0296 7369676E 		.ascii	"signed char\000"
+ 745 0297 7369676E 		.ascii	"signed char\000"
  745      65642063 
  745      68617200 
  746              	.LASF29:
- 747 02a2 54696D65 		.ascii	"Timer_1_Stop\000"
+ 747 02a3 54696D65 		.ascii	"Timer_1_Stop\000"
  747      725F315F 
  747      53746F70 
  747      00
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccqwE8TV.s 			page 19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8t4AJg.s 			page 19
 
 
  748              	.LASF18:
- 749 02af 496E7465 		.ascii	"InterruptMaskValue\000"
+ 749 02b0 496E7465 		.ascii	"InterruptMaskValue\000"
  749      72727570 
  749      744D6173 
  749      6B56616C 
  749      756500
  750              	.LASF19:
- 751 02c2 54696D65 		.ascii	"TimerControlRegister\000"
+ 751 02c3 54696D65 		.ascii	"TimerControlRegister\000"
  751      72436F6E 
  751      74726F6C 
  751      52656769 

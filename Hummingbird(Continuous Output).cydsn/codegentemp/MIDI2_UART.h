@@ -369,7 +369,7 @@ extern uint8 MIDI2_UART_initVar;
 ***************************************/
 
 /* UART shifts max 8 bits, Mark/Space functionality working if 9 selected */
-#define MIDI2_UART_NUMBER_OF_DATA_BITS    ((8u > 8u) ? 8u : 8u)
+#define MIDI2_UART_NUMBER_OF_DATA_BITS    ((5u > 8u) ? 8u : 5u)
 #define MIDI2_UART_NUMBER_OF_STOP_BITS    (1u)
 
 #if (MIDI2_UART_RXHW_ADDRESS_ENABLED)

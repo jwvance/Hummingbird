@@ -1,6 +1,6 @@
 // ======================================================================
 // Hummingbird(Continuous Output).v generated from TopDesign.cysch
-// 05/10/2017 at 22:54
+// 05/11/2017 at 17:05
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -110,37 +110,6 @@
 `define CYDEV_CHIP_FAMILY_USED 3
 `define CYDEV_CHIP_MEMBER_USED 19
 `define CYDEV_CHIP_REVISION_USED 0
-// SleepTimer_v3_20(EnableInt=true, Interval=2, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=SleepTimer_v3_20, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=SleepTimer, CY_INSTANCE_SHORT_NAME=SleepTimer, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=20, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=SleepTimer, )
-module SleepTimer_v3_20_0 (
-    interrupt);
-    output      interrupt;
-
-
-
-
-	cy_gsref_v1_0
-		#(.guid("0335EFD7-9943-4db5-B556-454A5AD8A118"))
-		gsRef_1
-		 (.sig_out(interrupt));
-
-
-
-
-endmodule
-
-// Component: not_v1_0
-`ifdef CY_BLK_DIR
-`undef CY_BLK_DIR
-`endif
-
-`ifdef WARP
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\not_v1_0"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\not_v1_0\not_v1_0.v"
-`else
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\not_v1_0"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\not_v1_0\not_v1_0.v"
-`endif
-
 // Component: cy_virtualmux_v1_0
 `ifdef CY_BLK_DIR
 `undef CY_BLK_DIR
@@ -168,6 +137,108 @@ endmodule
 `endif
 
 // UART_v2_30(Address1=0, Address2=0, BaudRate=38400, BreakBitsRX=13, BreakBitsTX=13, BreakDetect=false, CRCoutputsEn=false, CtrlModeReplacementString=SyncCtl, Enable_RX=1, Enable_RXIntInterrupt=1, Enable_TX=1, Enable_TXIntInterrupt=1, EnableHWAddress=0, EnIntRXInterrupt=true, EnIntTXInterrupt=true, FlowControl=0, HalfDuplexEn=false, HwTXEnSignal=false, InternalClock=false, InternalClockUsed=0, InterruptOnAddDetect=0, InterruptOnAddressMatch=0, InterruptOnBreak=0, InterruptOnByteRcvd=1, InterruptOnOverrunError=0, InterruptOnParityError=0, InterruptOnStopError=0, InterruptOnTXComplete=false, InterruptOnTXFifoEmpty=true, InterruptOnTXFifoFull=false, InterruptOnTXFifoNotFull=false, IntOnAddressDetect=false, IntOnAddressMatch=false, IntOnBreak=false, IntOnByteRcvd=true, IntOnOverrunError=false, IntOnParityError=false, IntOnStopError=false, NumDataBits=8, NumStopBits=1, OverSamplingRate=8, ParityType=0, ParityTypeSw=false, RequiredClock=307200, RXAddressMode=0, RXBufferSize=255, RxBuffRegSizeReplacementString=uint8, RXEnable=true, TXBitClkGenDP=true, TXBufferSize=255, TxBuffRegSizeReplacementString=uint8, TXEnable=true, Use23Polling=false, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=UART_v2_30, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=MIDI1_UART, CY_INSTANCE_SHORT_NAME=MIDI1_UART, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=30, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=MIDI1_UART, )
+module UART_v2_30_0 (
+    cts_n,
+    tx,
+    rts_n,
+    tx_en,
+    clock,
+    reset,
+    rx,
+    tx_interrupt,
+    rx_interrupt,
+    tx_data,
+    tx_clk,
+    rx_data,
+    rx_clk);
+    input       cts_n;
+    output      tx;
+    output      rts_n;
+    output      tx_en;
+    input       clock;
+    input       reset;
+    input       rx;
+    output      tx_interrupt;
+    output      rx_interrupt;
+    output      tx_data;
+    output      tx_clk;
+    output      rx_data;
+    output      rx_clk;
+
+    parameter Address1 = 0;
+    parameter Address2 = 0;
+    parameter EnIntRXInterrupt = 1;
+    parameter EnIntTXInterrupt = 1;
+    parameter FlowControl = 0;
+    parameter HalfDuplexEn = 0;
+    parameter HwTXEnSignal = 0;
+    parameter NumDataBits = 8;
+    parameter NumStopBits = 1;
+    parameter ParityType = 0;
+    parameter RXEnable = 1;
+    parameter TXEnable = 1;
+
+          wire  Net_289;
+          wire  Net_61;
+          wire  Net_9;
+
+
+	cy_isr_v1_0
+		#(.int_type(2'b10))
+		TXInternalInterrupt
+		 (.int_signal(tx_interrupt));
+
+
+
+	cy_isr_v1_0
+		#(.int_type(2'b10))
+		RXInternalInterrupt
+		 (.int_signal(rx_interrupt));
+
+
+	// VirtualMux_1 (cy_virtualmux_v1_0)
+	assign Net_61 = clock;
+
+    B_UART_v2_30 BUART (
+        .cts_n(cts_n),
+        .tx(tx),
+        .rts_n(rts_n),
+        .tx_en(tx_en),
+        .clock(Net_61),
+        .reset(reset),
+        .rx(rx),
+        .tx_interrupt(tx_interrupt),
+        .rx_interrupt(rx_interrupt),
+        .tx_data(tx_data),
+        .tx_clk(tx_clk),
+        .rx_data(rx_data),
+        .rx_clk(rx_clk));
+    defparam BUART.Address1 = 0;
+    defparam BUART.Address2 = 0;
+    defparam BUART.BreakBitsRX = 13;
+    defparam BUART.BreakBitsTX = 13;
+    defparam BUART.BreakDetect = 0;
+    defparam BUART.CRCoutputsEn = 0;
+    defparam BUART.FlowControl = 0;
+    defparam BUART.HalfDuplexEn = 0;
+    defparam BUART.HwTXEnSignal = 0;
+    defparam BUART.NumDataBits = 8;
+    defparam BUART.NumStopBits = 1;
+    defparam BUART.OverSampleCount = 8;
+    defparam BUART.ParityType = 0;
+    defparam BUART.ParityTypeSw = 0;
+    defparam BUART.RXAddressMode = 0;
+    defparam BUART.RXEnable = 1;
+    defparam BUART.RXStatusIntEnable = 1;
+    defparam BUART.TXBitClkGenDP = 1;
+    defparam BUART.TXEnable = 1;
+    defparam BUART.Use23Polling = 0;
+
+
+
+endmodule
+
+// UART_v2_30(Address1=0, Address2=0, BaudRate=38400, BreakBitsRX=13, BreakBitsTX=13, BreakDetect=false, CRCoutputsEn=false, CtrlModeReplacementString=SyncCtl, Enable_RX=1, Enable_RXIntInterrupt=1, Enable_TX=1, Enable_TXIntInterrupt=1, EnableHWAddress=0, EnIntRXInterrupt=true, EnIntTXInterrupt=true, FlowControl=0, HalfDuplexEn=false, HwTXEnSignal=false, InternalClock=false, InternalClockUsed=0, InterruptOnAddDetect=0, InterruptOnAddressMatch=0, InterruptOnBreak=0, InterruptOnByteRcvd=1, InterruptOnOverrunError=0, InterruptOnParityError=0, InterruptOnStopError=0, InterruptOnTXComplete=false, InterruptOnTXFifoEmpty=true, InterruptOnTXFifoFull=false, InterruptOnTXFifoNotFull=false, IntOnAddressDetect=false, IntOnAddressMatch=false, IntOnBreak=false, IntOnByteRcvd=true, IntOnOverrunError=false, IntOnParityError=false, IntOnStopError=false, NumDataBits=5, NumStopBits=1, OverSamplingRate=8, ParityType=0, ParityTypeSw=false, RequiredClock=307200, RXAddressMode=0, RXBufferSize=255, RxBuffRegSizeReplacementString=uint8, RXEnable=true, TXBitClkGenDP=true, TXBufferSize=255, TxBuffRegSizeReplacementString=uint8, TXEnable=true, Use23Polling=false, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=UART_v2_30, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=MIDI2_UART, CY_INSTANCE_SHORT_NAME=MIDI2_UART, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=30, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=MIDI2_UART, )
 module UART_v2_30_1 (
     cts_n,
     tx,
@@ -203,7 +274,7 @@ module UART_v2_30_1 (
     parameter FlowControl = 0;
     parameter HalfDuplexEn = 0;
     parameter HwTXEnSignal = 0;
-    parameter NumDataBits = 8;
+    parameter NumDataBits = 5;
     parameter NumStopBits = 1;
     parameter ParityType = 0;
     parameter RXEnable = 1;
@@ -253,109 +324,7 @@ module UART_v2_30_1 (
     defparam BUART.FlowControl = 0;
     defparam BUART.HalfDuplexEn = 0;
     defparam BUART.HwTXEnSignal = 0;
-    defparam BUART.NumDataBits = 8;
-    defparam BUART.NumStopBits = 1;
-    defparam BUART.OverSampleCount = 8;
-    defparam BUART.ParityType = 0;
-    defparam BUART.ParityTypeSw = 0;
-    defparam BUART.RXAddressMode = 0;
-    defparam BUART.RXEnable = 1;
-    defparam BUART.RXStatusIntEnable = 1;
-    defparam BUART.TXBitClkGenDP = 1;
-    defparam BUART.TXEnable = 1;
-    defparam BUART.Use23Polling = 0;
-
-
-
-endmodule
-
-// UART_v2_30(Address1=0, Address2=0, BaudRate=38400, BreakBitsRX=13, BreakBitsTX=13, BreakDetect=false, CRCoutputsEn=false, CtrlModeReplacementString=SyncCtl, Enable_RX=1, Enable_RXIntInterrupt=1, Enable_TX=1, Enable_TXIntInterrupt=1, EnableHWAddress=0, EnIntRXInterrupt=true, EnIntTXInterrupt=true, FlowControl=0, HalfDuplexEn=false, HwTXEnSignal=false, InternalClock=false, InternalClockUsed=0, InterruptOnAddDetect=0, InterruptOnAddressMatch=0, InterruptOnBreak=0, InterruptOnByteRcvd=1, InterruptOnOverrunError=0, InterruptOnParityError=0, InterruptOnStopError=0, InterruptOnTXComplete=false, InterruptOnTXFifoEmpty=true, InterruptOnTXFifoFull=false, InterruptOnTXFifoNotFull=false, IntOnAddressDetect=false, IntOnAddressMatch=false, IntOnBreak=false, IntOnByteRcvd=true, IntOnOverrunError=false, IntOnParityError=false, IntOnStopError=false, NumDataBits=8, NumStopBits=1, OverSamplingRate=8, ParityType=0, ParityTypeSw=false, RequiredClock=307200, RXAddressMode=0, RXBufferSize=255, RxBuffRegSizeReplacementString=uint8, RXEnable=true, TXBitClkGenDP=true, TXBufferSize=255, TxBuffRegSizeReplacementString=uint8, TXEnable=true, Use23Polling=false, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=UART_v2_30, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=MIDI2_UART, CY_INSTANCE_SHORT_NAME=MIDI2_UART, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=30, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=MIDI2_UART, )
-module UART_v2_30_2 (
-    cts_n,
-    tx,
-    rts_n,
-    tx_en,
-    clock,
-    reset,
-    rx,
-    tx_interrupt,
-    rx_interrupt,
-    tx_data,
-    tx_clk,
-    rx_data,
-    rx_clk);
-    input       cts_n;
-    output      tx;
-    output      rts_n;
-    output      tx_en;
-    input       clock;
-    input       reset;
-    input       rx;
-    output      tx_interrupt;
-    output      rx_interrupt;
-    output      tx_data;
-    output      tx_clk;
-    output      rx_data;
-    output      rx_clk;
-
-    parameter Address1 = 0;
-    parameter Address2 = 0;
-    parameter EnIntRXInterrupt = 1;
-    parameter EnIntTXInterrupt = 1;
-    parameter FlowControl = 0;
-    parameter HalfDuplexEn = 0;
-    parameter HwTXEnSignal = 0;
-    parameter NumDataBits = 8;
-    parameter NumStopBits = 1;
-    parameter ParityType = 0;
-    parameter RXEnable = 1;
-    parameter TXEnable = 1;
-
-          wire  Net_289;
-          wire  Net_61;
-          wire  Net_9;
-
-
-	cy_isr_v1_0
-		#(.int_type(2'b10))
-		TXInternalInterrupt
-		 (.int_signal(tx_interrupt));
-
-
-
-	cy_isr_v1_0
-		#(.int_type(2'b10))
-		RXInternalInterrupt
-		 (.int_signal(rx_interrupt));
-
-
-	// VirtualMux_1 (cy_virtualmux_v1_0)
-	assign Net_61 = clock;
-
-    B_UART_v2_30 BUART (
-        .cts_n(cts_n),
-        .tx(tx),
-        .rts_n(rts_n),
-        .tx_en(tx_en),
-        .clock(Net_61),
-        .reset(reset),
-        .rx(rx),
-        .tx_interrupt(tx_interrupt),
-        .rx_interrupt(rx_interrupt),
-        .tx_data(tx_data),
-        .tx_clk(tx_clk),
-        .rx_data(rx_data),
-        .rx_clk(rx_clk));
-    defparam BUART.Address1 = 0;
-    defparam BUART.Address2 = 0;
-    defparam BUART.BreakBitsRX = 13;
-    defparam BUART.BreakBitsTX = 13;
-    defparam BUART.BreakDetect = 0;
-    defparam BUART.CRCoutputsEn = 0;
-    defparam BUART.FlowControl = 0;
-    defparam BUART.HalfDuplexEn = 0;
-    defparam BUART.HwTXEnSignal = 0;
-    defparam BUART.NumDataBits = 8;
+    defparam BUART.NumDataBits = 5;
     defparam BUART.NumStopBits = 1;
     defparam BUART.OverSampleCount = 8;
     defparam BUART.ParityType = 0;
@@ -385,7 +354,7 @@ endmodule
 `endif
 
 // USBFS_v2_70(AudioDescriptors=<?xml version="1.0" encoding="utf-16"?> <Tree xmlns:CustomizerVersion="2_20">   <Tree_x0020_Descriptors>     <DescriptorNode Key="Audio">       <Nodes />     </DescriptorNode>   </Tree_x0020_Descriptors> </Tree>, CDCDescriptors=<?xml version="1.0" encoding="utf-16"?> <Tree xmlns:CustomizerVersion="2_20">   <Tree_x0020_Descriptors>     <DescriptorNode Key="CDC">       <Nodes />     </DescriptorNode>   </Tree_x0020_Descriptors> </Tree>, DeviceDescriptors=<?xml version="1.0" encoding="utf-16"?> <Tree xmlns:CustomizerVersion="2_20">   <Tree_x0020_Descriptors>     <DescriptorNode Key="Device">       <Nodes>         <DescriptorNode Key="USBDescriptor762">           <Value d6p1:type="DeviceDescriptor" xmlns:d6p1="http://www.w3.org/2001/XMLSchema-instance">             <bDescriptorType>DEVICE</bDescriptorType>             <bLength>18</bLength>             <iwManufacturer>789</iwManufacturer>             <iwProduct>790</iwProduct>             <sManufacturer>Cypress</sManufacturer>             <sProduct>USB MIDI</sProduct>             <bDeviceClass>0</bDeviceClass>             <bDeviceSubClass>0</bDeviceSubClass>             <bDeviceProtocol>0</bDeviceProtocol>             <bMaxPacketSize0>0</bMaxPacketSize0>             <idVendor>1204</idVendor>             <idProduct>53810</idProduct>             <bcdDevice>0</bcdDevice>             <iManufacturer>1</iManufacturer>             <iProduct>2</iProduct>             <iSerialNumber>128</iSerialNumber>             <bNumConfigurations>1</bNumConfigurations>             <bMemoryMgmt>0</bMemoryMgmt>             <bMemoryAlloc>0</bMemoryAlloc>           </Value>           <Nodes>             <DescriptorNode Key="USBDescriptor763">               <Value d8p1:type="ConfigDescriptor" xmlns:d8p1="http://www.w3.org/2001/XMLSchema-instance">                 <bDescriptorType>CONFIGURATION</bDescriptorType>                 <bLength>9</bLength>                 <iwConfiguration>790</iwConfiguration>                 <sConfiguration>USB MIDI</sConfiguration>                 <wTotalLength>133</wTotalLength>                 <bNumInterfaces>2</bNumInterfaces>                 <bConfigurationValue>0</bConfigurationValue>                 <iConfiguration>2</iConfiguration>                 <bmAttributes>128</bmAttributes>                 <bMaxPower>50</bMaxPower>               </Value>               <Nodes>                 <DescriptorNode Key="Interface773">                   <Value d10p1:type="InterfaceGeneralDescriptor" xmlns:d10p1="http://www.w3.org/2001/XMLSchema-instance">                     <bDescriptorType>ALTERNATE</bDescriptorType>                     <bLength>0</bLength>                     <DisplayName>MIDI Interface Control</DisplayName>                   </Value>                   <Nodes>                     <DescriptorNode Key="USBDescriptor772">                       <Value d12p1:type="CyAudioInterfaceDescriptor" xmlns:d12p1="http://www.w3.org/2001/XMLSchema-instance">                         <bDescriptorType>INTERFACE</bDescriptorType>                         <bLength>9</bLength>                         <iwInterface>794</iwInterface>                         <bInterfaceClass>1</bInterfaceClass>                         <bNumEndpoints>0</bNumEndpoints>                         <bInterfaceSubClass>1</bInterfaceSubClass>                         <bInterfaceProtocol>0</bInterfaceProtocol>                         <iInterface>6</iInterface>                         <sInterface>MIDI Interface</sInterface>                       </Value>                       <Nodes>                         <DescriptorNode Key="USBDescriptor774">                           <Value d14p1:type="CyACHeaderDescriptor" xmlns:d14p1="http://www.w3.org/2001/XMLSchema-instance">                             <bDescriptorType>AUDIO</bDescriptorType>                             <bLength>9</bLength>                             <bDescriptorSubtype>HEADER</bDescriptorSubtype>                             <bcdADC>256</bcdADC>                             <wTotalLength>9</wTotalLength>                             <bInCollection>1</bInCollection>                             <baInterfaceNr>AQ==</baInterfaceNr>                           </Value>                           <Nodes />                         </DescriptorNode>                       </Nodes>                     </DescriptorNode>                   </Nodes>                 </DescriptorNode>                 <DescriptorNode Key="Interface786">                   <Value d10p1:type="InterfaceGeneralDescriptor" xmlns:d10p1="http://www.w3.org/2001/XMLSchema-instance">                     <bDescriptorType>ALTERNATE</bDescriptorType>                     <bLength>0</bLength>                     <DisplayName>MIDI Interface Streaming</DisplayName>                   </Value>                   <Nodes>                     <DescriptorNode Key="USBDescriptor775">                       <Value d12p1:type="CyAudioInterfaceDescriptor" xmlns:d12p1="http://www.w3.org/2001/XMLSchema-instance">                         <bDescriptorType>INTERFACE</bDescriptorType>                         <bLength>9</bLength>                         <iwInterface>793</iwInterface>                         <bInterfaceClass>1</bInterfaceClass>                         <bInterfaceNumber>1</bInterfaceNumber>                         <bNumEndpoints>2</bNumEndpoints>                         <bInterfaceSubClass>3</bInterfaceSubClass>                         <bInterfaceProtocol>0</bInterfaceProtocol>                         <iInterface>5</iInterface>                         <sInterface>MIDI Streaming Intf</sInterface>                       </Value>                       <Nodes>                         <DescriptorNode Key="USBDescriptor776">                           <Value d14p1:type="CyMSHeaderDescriptor" xmlns:d14p1="http://www.w3.org/2001/XMLSchema-instance">                             <bDescriptorType>AUDIO</bDescriptorType>                             <bLength>7</bLength>                             <bDescriptorSubtype>MS_HEADER</bDescriptorSubtype>                             <wTotalLength>67</wTotalLength>                           </Value>                           <Nodes />                         </DescriptorNode>                         <DescriptorNode Key="USBDescriptor787">                           <Value d14p1:type="CyMSInJackDescriptor" xmlns:d14p1="http://www.w3.org/2001/XMLSchema-instance">                             <bDescriptorType>AUDIO</bDescriptorType>                             <bLength>6</bLength>                             <iwJack>791</iwJack>                             <bDescriptorSubtype>MIDI_IN_JACK</bDescriptorSubtype>                             <bJackType>EMBEDDED</bJackType>                             <bJackID>1</bJackID>                             <iJack>3</iJack>                             <sJack>MIDI IN</sJack>                           </Value>                           <Nodes />                         </DescriptorNode>                         <DescriptorNode Key="USBDescriptor788">                           <Value d14p1:type="CyMSInJackDescriptor" xmlns:d14p1="http://www.w3.org/2001/XMLSchema-instance">                             <bDescriptorType>AUDIO</bDescriptorType>                             <bLength>6</bLength>                             <iwJack>791</iwJack>                             <bDescriptorSubtype>MIDI_IN_JACK</bDescriptorSubtype>                             <bJackType>EXTERNAL</bJackType>                             <bJackID>2</bJackID>                             <iJack>3</iJack>                             <sJack>MIDI IN</sJack>                           </Value>                           <Nodes />                         </DescriptorNode>                         <DescriptorNode Key="USBDescriptor779">                           <Value d14p1:type="CyMSOutJackDescriptor" xmlns:d14p1="http://www.w3.org/2001/XMLSchema-instance">                             <bDescriptorType>AUDIO</bDescriptorType>                             <bLength>9</bLength>                             <iwJack>792</iwJack>                             <bDescriptorSubtype>MIDI_OUT_JACK</bDescriptorSubtype>                             <bJackType>EMBEDDED</bJackType>                             <bJackID>3</bJackID>                             <bNrInputPins>1</bNrInputPins>                             <baSourceID>Ag==</baSourceID>                             <baSourcePin>AQ==</baSourcePin>                             <iJack>4</iJack>                             <sJack>MIDI OUT</sJack>                           </Value>                           <Nodes />                         </DescriptorNode>                         <DescriptorNode Key="USBDescriptor780">                           <Value d14p1:type="CyMSOutJackDescriptor" xmlns:d14p1="http://www.w3.org/2001/XMLSchema-instance">                             <bDescriptorType>AUDIO</bDescriptorType>                             <bLength>9</bLength>                             <iwJack>792</iwJack>                             <bDescriptorSubtype>MIDI_OUT_JACK</bDescriptorSubtype>                             <bJackType>EXTERNAL</bJackType>                             <bJackID>4</bJackID>                             <bNrInputPins>1</bNrInputPins>                             <baSourceID>AQ==</baSourceID>                             <baSourcePin>AQ==</baSourcePin>                             <iJack>4</iJack>                             <sJack>MIDI OUT</sJack>                           </Value>                           <Nodes />                         </DescriptorNode>                         <DescriptorNode Key="USBDescriptor781">                           <Value d14p1:type="CyAudioEndpointDescriptor" xmlns:d14p1="http://www.w3.org/2001/XMLSchema-instance">                             <bDescriptorType>ENDPOINT</bDescriptorType>                             <bLength>9</bLength>                             <DoubleBuffer>false</DoubleBuffer>                             <bInterval>0</bInterval>                             <bEndpointAddress>129</bEndpointAddress>                             <bmAttributes>2</bmAttributes>                             <wMaxPacketSize>32</wMaxPacketSize>                           </Value>                           <Nodes>                             <DescriptorNode Key="USBDescriptor782">                               <Value d16p1:type="CyMSEndpointDescriptor" xmlns:d16p1="http://www.w3.org/2001/XMLSchema-instance">                                 <bDescriptorType>CS_ENDPOINT</bDescriptorType>                                 <bLength>6</bLength>                                 <bDescriptorSubtype>MS_GENERAL</bDescriptorSubtype>                                 <bNumEmbMIDIJack>2</bNumEmbMIDIJack>                                 <baAssocJackID>Awc=</baAssocJackID>                               </Value>                               <Nodes />                             </DescriptorNode>                           </Nodes>                         </DescriptorNode>                         <DescriptorNode Key="USBDescriptor783">                           <Value d14p1:type="CyAudioEndpointDescriptor" xmlns:d14p1="http://www.w3.org/2001/XMLSchema-instance">                             <bDescriptorType>ENDPOINT</bDescriptorType>                             <bLength>9</bLength>                             <DoubleBuffer>false</DoubleBuffer>                             <bInterval>0</bInterval>                             <bEndpointAddress>2</bEndpointAddress>                             <bmAttributes>2</bmAttributes>                             <wMaxPacketSize>32</wMaxPacketSize>                           </Value>                           <Nodes>                             <DescriptorNode Key="USBDescriptor784">                               <Value d16p1:type="CyMSEndpointDescriptor" xmlns:d16p1="http://www.w3.org/2001/XMLSchema-instance">                                 <bDescriptorType>CS_ENDPOINT</bDescriptorType>                                 <bLength>6</bLength>                                 <bDescriptorSubtype>MS_GENERAL</bDescriptorSubtype>                                 <bNumEmbMIDIJack>2</bNumEmbMIDIJack>                                 <baAssocJackID>AQU=</baAssocJackID>                               </Value>                               <Nodes />                             </DescriptorNode>                           </Nodes>                         </DescriptorNode>                         <DescriptorNode Key="USBDescriptor859">                           <Value d14p1:type="CyMSInJackDescriptor" xmlns:d14p1="http://www.w3.org/2001/XMLSchema-instance">                             <bDescriptorType>AUDIO</bDescriptorType>                             <bLength>6</bLength>                             <iwJack>861</iwJack>                             <bDescriptorSubtype>MIDI_IN_JACK</bDescriptorSubtype>                             <bJackType>EMBEDDED</bJackType>                             <bJackID>5</bJackID>                             <iJack>7</iJack>                             <sJack>MIDI IN 2</sJack>                           </Value>                           <Nodes />                         </DescriptorNode>                         <DescriptorNode Key="USBDescriptor860">                           <Value d14p1:type="CyMSInJackDescriptor" xmlns:d14p1="http://www.w3.org/2001/XMLSchema-instance">                             <bDescriptorType>AUDIO</bDescriptorType>                             <bLength>6</bLength>                             <iwJack>861</iwJack>                             <bDescriptorSubtype>MIDI_IN_JACK</bDescriptorSubtype>                             <bJackType>EXTERNAL</bJackType>                             <bJackID>6</bJackID>                             <iJack>7</iJack>                             <sJack>MIDI IN 2</sJack>                           </Value>                           <Nodes />                         </DescriptorNode>                         <DescriptorNode Key="USBDescriptor864">                           <Value d14p1:type="CyMSOutJackDescriptor" xmlns:d14p1="http://www.w3.org/2001/XMLSchema-instance">                             <bDescriptorType>AUDIO</bDescriptorType>                             <bLength>9</bLength>                             <iwJack>792</iwJack>                             <bDescriptorSubtype>MIDI_OUT_JACK</bDescriptorSubtype>                             <bJackType>EMBEDDED</bJackType>                             <bJackID>7</bJackID>                             <bNrInputPins>1</bNrInputPins>                             <baSourceID>Bg==</baSourceID>                             <baSourcePin>AQ==</baSourcePin>                             <iJack>4</iJack>                             <sJack>MIDI OUT</sJack>                           </Value>                           <Nodes />                         </DescriptorNode>                         <DescriptorNode Key="USBDescriptor865">                           <Value d14p1:type="CyMSOutJackDescriptor" xmlns:d14p1="http://www.w3.org/2001/XMLSchema-instance">                             <bDescriptorType>AUDIO</bDescriptorType>                             <bLength>9</bLength>                             <iwJack>862</iwJack>                             <bDescriptorSubtype>MIDI_OUT_JACK</bDescriptorSubtype>                             <bJackType>EXTERNAL</bJackType>                             <bJackID>8</bJackID>                             <bNrInputPins>1</bNrInputPins>                             <baSourceID>BQ==</baSourceID>                             <baSourcePin>AQ==</baSourcePin>                             <iJack>8</iJack>                             <sJack>MIDI OUT 2</sJack>                           </Value>                           <Nodes />                         </DescriptorNode>                       </Nodes>                     </DescriptorNode>                   </Nodes>                 </DescriptorNode>               </Nodes>             </DescriptorNode>           </Nodes>         </DescriptorNode>       </Nodes>     </DescriptorNode>   </Tree_x0020_Descriptors> </Tree>, EnableCDCApi=false, EnableMidiApi=true, endpointMA=0, endpointMM=0, epDMAautoOptimization=false, extern_cls=false, extern_vbus=false, extern_vnd=false, extJackCount=2, HIDReportDescriptors=<?xml version="1.0" encoding="utf-16"?> <Tree xmlns:CustomizerVersion="2_20">   <Tree_x0020_Descriptors>     <DescriptorNode Key="HIDReport">       <Nodes />     </DescriptorNode>   </Tree_x0020_Descriptors> </Tree>, max_interfaces_num=2, MidiDescriptors=<?xml version="1.0" encoding="utf-16"?> <Tree xmlns:CustomizerVersion="2_20">   <Tree_x0020_Descriptors>     <DescriptorNode Key="Midi">       <Nodes>         <DescriptorNode Key="Interface773">           <Value d6p1:type="InterfaceGeneralDescriptor" xmlns:d6p1="http://www.w3.org/2001/XMLSchema-instance">             <bDescriptorType>ALTERNATE</bDescriptorType>             <bLength>0</bLength>             <DisplayName>MIDI Interface Control</DisplayName>           </Value>           <Nodes>             <DescriptorNode Key="USBDescriptor772">               <Value d8p1:type="CyAudioInterfaceDescriptor" xmlns:d8p1="http://www.w3.org/2001/XMLSchema-instance">                 <bDescriptorType>INTERFACE</bDescriptorType>                 <bLength>9</bLength>                 <iwInterface>794</iwInterface>                 <bInterfaceClass>1</bInterfaceClass>                 <bNumEndpoints>0</bNumEndpoints>                 <bInterfaceSubClass>1</bInterfaceSubClass>                 <bInterfaceProtocol>0</bInterfaceProtocol>                 <iInterface>6</iInterface>                 <sInterface>MIDI Interface</sInterface>               </Value>               <Nodes>                 <DescriptorNode Key="USBDescriptor774">                   <Value d10p1:type="CyACHeaderDescriptor" xmlns:d10p1="http://www.w3.org/2001/XMLSchema-instance">                     <bDescriptorType>AUDIO</bDescriptorType>                     <bLength>9</bLength>                     <bDescriptorSubtype>HEADER</bDescriptorSubtype>                     <bcdADC>256</bcdADC>                     <wTotalLength>9</wTotalLength>                     <bInCollection>1</bInCollection>                     <baInterfaceNr>AQ==</baInterfaceNr>                   </Value>                   <Nodes />                 </DescriptorNode>               </Nodes>             </DescriptorNode>           </Nodes>         </DescriptorNode>         <DescriptorNode Key="Interface786">           <Value d6p1:type="InterfaceGeneralDescriptor" xmlns:d6p1="http://www.w3.org/2001/XMLSchema-instance">             <bDescriptorType>ALTERNATE</bDescriptorType>             <bLength>0</bLength>             <DisplayName>MIDI Interface Streaming</DisplayName>           </Value>           <Nodes>             <DescriptorNode Key="USBDescriptor775">               <Value d8p1:type="CyAudioInterfaceDescriptor" xmlns:d8p1="http://www.w3.org/2001/XMLSchema-instance">                 <bDescriptorType>INTERFACE</bDescriptorType>                 <bLength>9</bLength>                 <iwInterface>793</iwInterface>                 <bInterfaceClass>1</bInterfaceClass>                 <bInterfaceNumber>1</bInterfaceNumber>                 <bNumEndpoints>2</bNumEndpoints>                 <bInterfaceSubClass>3</bInterfaceSubClass>                 <bInterfaceProtocol>0</bInterfaceProtocol>                 <iInterface>5</iInterface>                 <sInterface>MIDI Streaming Intf</sInterface>               </Value>               <Nodes>                 <DescriptorNode Key="USBDescriptor776">                   <Value d10p1:type="CyMSHeaderDescriptor" xmlns:d10p1="http://www.w3.org/2001/XMLSchema-instance">                     <bDescriptorType>AUDIO</bDescriptorType>                     <bLength>7</bLength>                     <bDescriptorSubtype>MS_HEADER</bDescriptorSubtype>                     <wTotalLength>67</wTotalLength>                   </Value>                   <Nodes />                 </DescriptorNode>                 <DescriptorNode Key="USBDescriptor787">                   <Value d10p1:type="CyMSInJackDescriptor" xmlns:d10p1="http://www.w3.org/2001/XMLSchema-instance">                     <bDescriptorType>AUDIO</bDescriptorType>                     <bLength>6</bLength>                     <iwJack>791</iwJack>                     <bDescriptorSubtype>MIDI_IN_JACK</bDescriptorSubtype>                     <bJackType>EMBEDDED</bJackType>                     <bJackID>1</bJackID>                     <iJack>3</iJack>                     <sJack>MIDI IN</sJack>                   </Value>                   <Nodes />                 </DescriptorNode>                 <DescriptorNode Key="USBDescriptor788">                   <Value d10p1:type="CyMSInJackDescriptor" xmlns:d10p1="http://www.w3.org/2001/XMLSchema-instance">                     <bDescriptorType>AUDIO</bDescriptorType>                     <bLength>6</bLength>                     <iwJack>791</iwJack>                     <bDescriptorSubtype>MIDI_IN_JACK</bDescriptorSubtype>                     <bJackType>EXTERNAL</bJackType>                     <bJackID>2</bJackID>                     <iJack>3</iJack>                     <sJack>MIDI IN</sJack>                   </Value>                   <Nodes />                 </DescriptorNode>                 <DescriptorNode Key="USBDescriptor779">                   <Value d10p1:type="CyMSOutJackDescriptor" xmlns:d10p1="http://www.w3.org/2001/XMLSchema-instance">                     <bDescriptorType>AUDIO</bDescriptorType>                     <bLength>9</bLength>                     <iwJack>792</iwJack>                     <bDescriptorSubtype>MIDI_OUT_JACK</bDescriptorSubtype>                     <bJackType>EMBEDDED</bJackType>                     <bJackID>3</bJackID>                     <bNrInputPins>1</bNrInputPins>                     <baSourceID>Ag==</baSourceID>                     <baSourcePin>AQ==</baSourcePin>                     <iJack>4</iJack>                     <sJack>MIDI OUT</sJack>                   </Value>                   <Nodes />                 </DescriptorNode>                 <DescriptorNode Key="USBDescriptor780">                   <Value d10p1:type="CyMSOutJackDescriptor" xmlns:d10p1="http://www.w3.org/2001/XMLSchema-instance">                     <bDescriptorType>AUDIO</bDescriptorType>                     <bLength>9</bLength>                     <iwJack>792</iwJack>                     <bDescriptorSubtype>MIDI_OUT_JACK</bDescriptorSubtype>                     <bJackType>EXTERNAL</bJackType>                     <bJackID>4</bJackID>                     <bNrInputPins>1</bNrInputPins>                     <baSourceID>AQ==</baSourceID>                     <baSourcePin>AQ==</baSourcePin>                     <iJack>4</iJack>                     <sJack>MIDI OUT</sJack>                   </Value>                   <Nodes />                 </DescriptorNode>                 <DescriptorNode Key="USBDescriptor781">                   <Value d10p1:type="CyAudioEndpointDescriptor" xmlns:d10p1="http://www.w3.org/2001/XMLSchema-instance">                     <bDescriptorType>ENDPOINT</bDescriptorType>                     <bLength>9</bLength>                     <DoubleBuffer>false</DoubleBuffer>                     <bInterval>0</bInterval>                     <bEndpointAddress>129</bEndpointAddress>                     <bmAttributes>2</bmAttributes>                     <wMaxPacketSize>32</wMaxPacketSize>                   </Value>                   <Nodes>                     <DescriptorNode Key="USBDescriptor782">                       <Value d12p1:type="CyMSEndpointDescriptor" xmlns:d12p1="http://www.w3.org/2001/XMLSchema-instance">                         <bDescriptorType>CS_ENDPOINT</bDescriptorType>                         <bLength>6</bLength>                         <bDescriptorSubtype>MS_GENERAL</bDescriptorSubtype>                         <bNumEmbMIDIJack>2</bNumEmbMIDIJack>                         <baAssocJackID>Awc=</baAssocJackID>                       </Value>                       <Nodes />                     </DescriptorNode>                   </Nodes>                 </DescriptorNode>                 <DescriptorNode Key="USBDescriptor783">                   <Value d10p1:type="CyAudioEndpointDescriptor" xmlns:d10p1="http://www.w3.org/2001/XMLSchema-instance">                     <bDescriptorType>ENDPOINT</bDescriptorType>                     <bLength>9</bLength>                     <DoubleBuffer>false</DoubleBuffer>                     <bInterval>0</bInterval>                     <bEndpointAddress>2</bEndpointAddress>                     <bmAttributes>2</bmAttributes>                     <wMaxPacketSize>32</wMaxPacketSize>                   </Value>                   <Nodes>                     <DescriptorNode Key="USBDescriptor784">                       <Value d12p1:type="CyMSEndpointDescriptor" xmlns:d12p1="http://www.w3.org/2001/XMLSchema-instance">                         <bDescriptorType>CS_ENDPOINT</bDescriptorType>                         <bLength>6</bLength>                         <bDescriptorSubtype>MS_GENERAL</bDescriptorSubtype>                         <bNumEmbMIDIJack>2</bNumEmbMIDIJack>                         <baAssocJackID>AQU=</baAssocJackID>                       </Value>                       <Nodes />                     </DescriptorNode>                   </Nodes>                 </DescriptorNode>                 <DescriptorNode Key="USBDescriptor859">                   <Value d10p1:type="CyMSInJackDescriptor" xmlns:d10p1="http://www.w3.org/2001/XMLSchema-instance">                     <bDescriptorType>AUDIO</bDescriptorType>                     <bLength>6</bLength>                     <iwJack>861</iwJack>                     <bDescriptorSubtype>MIDI_IN_JACK</bDescriptorSubtype>                     <bJackType>EMBEDDED</bJackType>                     <bJackID>5</bJackID>                     <iJack>7</iJack>                     <sJack>MIDI IN 2</sJack>                   </Value>                   <Nodes />                 </DescriptorNode>                 <DescriptorNode Key="USBDescriptor860">                   <Value d10p1:type="CyMSInJackDescriptor" xmlns:d10p1="http://www.w3.org/2001/XMLSchema-instance">                     <bDescriptorType>AUDIO</bDescriptorType>                     <bLength>6</bLength>                     <iwJack>861</iwJack>                     <bDescriptorSubtype>MIDI_IN_JACK</bDescriptorSubtype>                     <bJackType>EXTERNAL</bJackType>                     <bJackID>6</bJackID>                     <iJack>7</iJack>                     <sJack>MIDI IN 2</sJack>                   </Value>                   <Nodes />                 </DescriptorNode>                 <DescriptorNode Key="USBDescriptor864">                   <Value d10p1:type="CyMSOutJackDescriptor" xmlns:d10p1="http://www.w3.org/2001/XMLSchema-instance">                     <bDescriptorType>AUDIO</bDescriptorType>                     <bLength>9</bLength>                     <iwJack>792</iwJack>                     <bDescriptorSubtype>MIDI_OUT_JACK</bDescriptorSubtype>                     <bJackType>EMBEDDED</bJackType>                     <bJackID>7</bJackID>                     <bNrInputPins>1</bNrInputPins>                     <baSourceID>Bg==</baSourceID>                     <baSourcePin>AQ==</baSourcePin>                     <iJack>4</iJack>                     <sJack>MIDI OUT</sJack>                   </Value>                   <Nodes />                 </DescriptorNode>                 <DescriptorNode Key="USBDescriptor865">                   <Value d10p1:type="CyMSOutJackDescriptor" xmlns:d10p1="http://www.w3.org/2001/XMLSchema-instance">                     <bDescriptorType>AUDIO</bDescriptorType>                     <bLength>9</bLength>                     <iwJack>862</iwJack>                     <bDescriptorSubtype>MIDI_OUT_JACK</bDescriptorSubtype>                     <bJackType>EXTERNAL</bJackType>                     <bJackID>8</bJackID>                     <bNrInputPins>1</bNrInputPins>                     <baSourceID>BQ==</baSourceID>                     <baSourcePin>AQ==</baSourcePin>                     <iJack>8</iJack>                     <sJack>MIDI OUT 2</sJack>                   </Value>                   <Nodes />                 </DescriptorNode>               </Nodes>             </DescriptorNode>           </Nodes>         </DescriptorNode>       </Nodes>     </DescriptorNode>   </Tree_x0020_Descriptors> </Tree>, Mode=true, mon_vbus=false, out_sof=false, Pid=F232, rm_arb_int=false, rm_dma_1=true, rm_dma_2=true, rm_dma_3=true, rm_dma_4=true, rm_dma_5=true, rm_dma_6=true, rm_dma_7=true, rm_dma_8=true, rm_dp_int=false, rm_ep_isr_0=false, rm_ep_isr_1=false, rm_ep_isr_2=false, rm_ep_isr_3=true, rm_ep_isr_4=true, rm_ep_isr_5=true, rm_ep_isr_6=true, rm_ep_isr_7=true, rm_ep_isr_8=true, rm_ord_int=true, rm_sof_int=false, rm_usb_int=false, StringDescriptors=<?xml version="1.0" encoding="utf-16"?> <Tree xmlns:CustomizerVersion="2_20">   <Tree_x0020_Descriptors>     <DescriptorNode Key="String">       <Nodes>         <DescriptorNode Key="LANGID">           <Value d6p1:type="StringZeroDescriptor" xmlns:d6p1="http://www.w3.org/2001/XMLSchema-instance">             <bDescriptorType>STRING</bDescriptorType>             <bLength>4</bLength>             <wLANGID>1033</wLANGID>           </Value>           <Nodes />         </DescriptorNode>         <DescriptorNode Key="USBDescriptor789">           <Value d6p1:type="StringDescriptor" xmlns:d6p1="http://www.w3.org/2001/XMLSchema-instance">             <bDescriptorType>STRING</bDescriptorType>             <bLength>16</bLength>             <snType>USER_ENTERED_TEXT</snType>             <bString>Cypress</bString>             <bUsed>false</bUsed>           </Value>           <Nodes />         </DescriptorNode>         <DescriptorNode Key="USBDescriptor790">           <Value d6p1:type="StringDescriptor" xmlns:d6p1="http://www.w3.org/2001/XMLSchema-instance">             <bDescriptorType>STRING</bDescriptorType>             <bLength>18</bLength>             <snType>USER_ENTERED_TEXT</snType>             <bString>USB MIDI</bString>             <bUsed>false</bUsed>           </Value>           <Nodes />         </DescriptorNode>         <DescriptorNode Key="USBDescriptor791">           <Value d6p1:type="StringDescriptor" xmlns:d6p1="http://www.w3.org/2001/XMLSchema-instance">             <bDescriptorType>STRING</bDescriptorType>             <bLength>16</bLength>             <snType>USER_ENTERED_TEXT</snType>             <bString>MIDI IN</bString>             <bUsed>false</bUsed>           </Value>           <Nodes />         </DescriptorNode>         <DescriptorNode Key="USBDescriptor792">           <Value d6p1:type="StringDescriptor" xmlns:d6p1="http://www.w3.org/2001/XMLSchema-instance">             <bDescriptorType>STRING</bDescriptorType>             <bLength>18</bLength>             <snType>USER_ENTERED_TEXT</snType>             <bString>MIDI OUT</bString>             <bUsed>false</bUsed>           </Value>           <Nodes />         </DescriptorNode>         <DescriptorNode Key="USBDescriptor793">           <Value d6p1:type="StringDescriptor" xmlns:d6p1="http://www.w3.org/2001/XMLSchema-instance">             <bDescriptorType>STRING</bDescriptorType>             <bLength>40</bLength>             <snType>USER_ENTERED_TEXT</snType>             <bString>MIDI Streaming Intf</bString>             <bUsed>false</bUsed>           </Value>           <Nodes />         </DescriptorNode>         <DescriptorNode Key="USBDescriptor794">           <Value d6p1:type="StringDescriptor" xmlns:d6p1="http://www.w3.org/2001/XMLSchema-instance">             <bDescriptorType>STRING</bDescriptorType>             <bLength>30</bLength>             <snType>USER_ENTERED_TEXT</snType>             <bString>MIDI Interface</bString>             <bUsed>false</bUsed>           </Value>           <Nodes />         </DescriptorNode>         <DescriptorNode Key="USBDescriptor861">           <Value d6p1:type="StringDescriptor" xmlns:d6p1="http://www.w3.org/2001/XMLSchema-instance">             <bDescriptorType>STRING</bDescriptorType>             <bLength>20</bLength>             <snType>USER_ENTERED_TEXT</snType>             <bString>MIDI IN 2</bString>             <bUsed>false</bUsed>           </Value>           <Nodes />         </DescriptorNode>         <DescriptorNode Key="USBDescriptor862">           <Value d6p1:type="StringDescriptor" xmlns:d6p1="http://www.w3.org/2001/XMLSchema-instance">             <bDescriptorType>STRING</bDescriptorType>             <bLength>22</bLength>             <snType>USER_ENTERED_TEXT</snType>             <bString>MIDI OUT 2</bString>             <bUsed>false</bUsed>           </Value>           <Nodes />         </DescriptorNode>       </Nodes>     </DescriptorNode>     <DescriptorNode Key="SpecialString">       <Nodes>         <DescriptorNode Key="Serial">           <Value d6p1:type="StringDescriptor" xmlns:d6p1="http://www.w3.org/2001/XMLSchema-instance">             <bDescriptorType>STRING</bDescriptorType>             <bLength>2</bLength>             <snType>SILICON_NUMBER</snType>             <bUsed>true</bUsed>           </Value>           <Nodes />         </DescriptorNode>         <DescriptorNode Key="EE">           <Value d6p1:type="StringDescriptor" xmlns:d6p1="http://www.w3.org/2001/XMLSchema-instance">             <bDescriptorType>STRING</bDescriptorType>             <bLength>16</bLength>             <snType>USER_ENTERED_TEXT</snType>             <bString>MSFT100</bString>             <bUsed>true</bUsed>           </Value>           <Nodes />         </DescriptorNode>       </Nodes>     </DescriptorNode>   </Tree_x0020_Descriptors> </Tree>, Vid=04B4, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=USBFS_v2_70, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=USB, CY_INSTANCE_SHORT_NAME=USB, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=70, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=USB, )
-module USBFS_v2_70_3 (
+module USBFS_v2_70_2 (
     sof,
     vbusdet);
     output      sof;
@@ -770,8 +739,8 @@ endmodule
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v"
 `endif
 
-// ADC_SAR_v3_0(ADC_Clock=1, ADC_Clock_Frequency=1024000, ADC_Input_Range=3, ADC_Power=0, ADC_Reference=0, ADC_Resolution=12, ADC_SampleMode=0, Enable_next_out=false, Ref_Voltage=1.024, Ref_Voltage_mV=1024, rm_int=false, Sample_Precharge=4, Sample_Rate=64000, Sample_Rate_def=631579, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=ADC_SAR_v3_0, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=ADC_SAR_1, CY_INSTANCE_SHORT_NAME=ADC_SAR_1, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=ADC_SAR_1, )
-module ADC_SAR_v3_0_4 (
+// ADC_SAR_v3_0(ADC_Clock=1, ADC_Clock_Frequency=1024000, ADC_Input_Range=3, ADC_Power=0, ADC_Reference=0, ADC_Resolution=12, ADC_SampleMode=0, Enable_next_out=false, Ref_Voltage=1.024, Ref_Voltage_mV=1024, rm_int=false, Sample_Precharge=4, Sample_Rate=64000, Sample_Rate_def=631579, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=ADC_SAR_v3_0, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=ADC_MIC, CY_INSTANCE_SHORT_NAME=ADC_MIC, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=ADC_MIC, )
+module ADC_SAR_v3_0_3 (
     vplus,
     vminus,
     soc,
@@ -947,8 +916,8 @@ endmodule
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\OneTerminal\OneTerminal.v"
 `endif
 
-// Timer_v2_70(CaptureAlternatingFall=false, CaptureAlternatingRise=false, CaptureCount=2, CaptureCounterEnabled=false, CaptureInputEnabled=false, CaptureMode=0, CONTROL3=0, ControlRegRemoved=0, CtlModeReplacementString=SyncCtl, CyGetRegReplacementString=CY_GET_REG24, CySetRegReplacementString=CY_SET_REG24, DeviceFamily=PSoC5, EnableMode=0, FF16=false, FF8=false, FixedFunction=false, FixedFunctionUsed=0, HWCaptureCounterEnabled=false, InterruptOnCapture=false, InterruptOnFIFOFull=false, InterruptOnTC=true, IntOnCapture=0, IntOnFIFOFull=0, IntOnTC=1, NumberOfCaptures=1, param45=1, Period=14999, RegDefReplacementString=reg32, RegSizeReplacementString=uint32, Resolution=24, RstStatusReplacementString=rstSts, RunMode=0, SiliconRevision=0, SoftwareCaptureModeEnabled=false, SoftwareTriggerModeEnabled=false, TriggerInputEnabled=false, TriggerMode=0, UDB16=false, UDB24=true, UDB32=false, UDB8=false, UDBControlReg=true, UsesHWEnable=0, VerilogSectionReplacementString=sT24, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=Timer_v2_70, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Timer_1, CY_INSTANCE_SHORT_NAME=Timer_1, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=70, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=Timer_1, )
-module Timer_v2_70_5 (
+// Timer_v2_70(CaptureAlternatingFall=false, CaptureAlternatingRise=false, CaptureCount=2, CaptureCounterEnabled=false, CaptureInputEnabled=false, CaptureMode=0, CONTROL3=0, ControlRegRemoved=0, CtlModeReplacementString=SyncCtl, CyGetRegReplacementString=CY_GET_REG24, CySetRegReplacementString=CY_SET_REG24, DeviceFamily=PSoC5, EnableMode=0, FF16=false, FF8=false, FixedFunction=false, FixedFunctionUsed=0, HWCaptureCounterEnabled=false, InterruptOnCapture=false, InterruptOnFIFOFull=false, InterruptOnTC=true, IntOnCapture=0, IntOnFIFOFull=0, IntOnTC=1, NumberOfCaptures=1, param45=1, Period=14999, RegDefReplacementString=reg32, RegSizeReplacementString=uint32, Resolution=24, RstStatusReplacementString=rstSts, RunMode=0, SiliconRevision=0, SoftwareCaptureModeEnabled=false, SoftwareTriggerModeEnabled=false, TriggerInputEnabled=false, TriggerMode=0, UDB16=false, UDB24=true, UDB32=false, UDB8=false, UDBControlReg=true, UsesHWEnable=0, VerilogSectionReplacementString=sT24, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=Timer_v2_70, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=TIMER_SAMPLERATE, CY_INSTANCE_SHORT_NAME=TIMER_SAMPLERATE, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=70, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=TIMER_SAMPLERATE, )
+module Timer_v2_70_4 (
     reset,
     interrupt,
     enable,
@@ -1033,8 +1002,8 @@ endmodule
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_AMUX_v2_0\ADC_AMUX_v2_0.v"
 `endif
 
-// ADC_SAR_v3_0(ADC_Clock=0, ADC_Clock_Frequency=7578948, ADC_Input_Range=1, ADC_Power=0, ADC_Reference=0, ADC_Resolution=8, ADC_SampleMode=0, Enable_next_out=true, Ref_Voltage=2.5, Ref_Voltage_mV=2500, rm_int=true, Sample_Precharge=4, Sample_Rate=0, Sample_Rate_def=631579, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=ADC_SAR_v3_0, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=UI_ADC:SAR, CY_INSTANCE_SHORT_NAME=SAR, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=UI_ADC_SAR, )
-module ADC_SAR_v3_0_6 (
+// ADC_SAR_v3_0(ADC_Clock=0, ADC_Clock_Frequency=7578948, ADC_Input_Range=1, ADC_Power=0, ADC_Reference=0, ADC_Resolution=8, ADC_SampleMode=0, Enable_next_out=true, Ref_Voltage=2.5, Ref_Voltage_mV=2500, rm_int=true, Sample_Precharge=4, Sample_Rate=0, Sample_Rate_def=631579, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=ADC_SAR_v3_0, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=ADC_UI:SAR, CY_INSTANCE_SHORT_NAME=SAR, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=ADC_UI_SAR, )
+module ADC_SAR_v3_0_5 (
     vplus,
     vminus,
     soc,
@@ -1191,8 +1160,8 @@ endmodule
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_sync_v1_0\cy_sync_v1_0.v"
 `endif
 
-// ADC_SAR_SEQ_v2_0(ADC_Clock_Frequency=1000008, Adjust=1, ClockSource=0, InputRange=1, NumChannels=4, Reference=0, Resolution=8, rm_int=false, SampleMode=0, SamplePrecharge=4, SampleRate=83334, SampleRate_def=631579, VrefValue=2.5, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=ADC_SAR_SEQ_v2_0, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=UI_ADC, CY_INSTANCE_SHORT_NAME=UI_ADC, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=UI_ADC, )
-module ADC_SAR_SEQ_v2_0_7 (
+// ADC_SAR_SEQ_v2_0(ADC_Clock_Frequency=1000008, Adjust=1, ClockSource=0, InputRange=1, NumChannels=4, Reference=0, Resolution=8, rm_int=false, SampleMode=0, SamplePrecharge=4, SampleRate=83334, SampleRate_def=631579, VrefValue=2.5, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=ADC_SAR_SEQ_v2_0, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=ADC_UI, CY_INSTANCE_SHORT_NAME=ADC_UI, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=ADC_UI, )
+module ADC_SAR_SEQ_v2_0_6 (
     soc,
     aclk,
     sdone,
@@ -1627,7 +1596,7 @@ module ADC_SAR_SEQ_v2_0_7 (
     
     // -- AMuxHw AMuxHw_2 end -- ***
 
-    ADC_SAR_v3_0_6 SAR (
+    ADC_SAR_v3_0_5 SAR (
         .vplus(Net_2803),
         .vminus(Net_3939),
         .soc(1'b0),
@@ -1721,8 +1690,8 @@ module ADC_SAR_SEQ_v2_0_7 (
 
 endmodule
 
-// Timer_v2_70(CaptureAlternatingFall=false, CaptureAlternatingRise=false, CaptureCount=2, CaptureCounterEnabled=false, CaptureInputEnabled=false, CaptureMode=0, CONTROL3=0, ControlRegRemoved=0, CtlModeReplacementString=SyncCtl, CyGetRegReplacementString=CY_GET_REG24, CySetRegReplacementString=CY_SET_REG24, DeviceFamily=PSoC5, EnableMode=0, FF16=false, FF8=false, FixedFunction=false, FixedFunctionUsed=0, HWCaptureCounterEnabled=false, InterruptOnCapture=false, InterruptOnFIFOFull=false, InterruptOnTC=true, IntOnCapture=0, IntOnFIFOFull=0, IntOnTC=1, NumberOfCaptures=1, param45=1, Period=4999999, RegDefReplacementString=reg32, RegSizeReplacementString=uint32, Resolution=24, RstStatusReplacementString=rstSts, RunMode=0, SiliconRevision=0, SoftwareCaptureModeEnabled=false, SoftwareTriggerModeEnabled=false, TriggerInputEnabled=false, TriggerMode=0, UDB16=false, UDB24=true, UDB32=false, UDB8=false, UDBControlReg=true, UsesHWEnable=0, VerilogSectionReplacementString=sT24, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=Timer_v2_70, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=UI_TIMER, CY_INSTANCE_SHORT_NAME=UI_TIMER, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=70, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=UI_TIMER, )
-module Timer_v2_70_8 (
+// Timer_v2_70(CaptureAlternatingFall=false, CaptureAlternatingRise=false, CaptureCount=2, CaptureCounterEnabled=false, CaptureInputEnabled=false, CaptureMode=0, CONTROL3=0, ControlRegRemoved=0, CtlModeReplacementString=SyncCtl, CyGetRegReplacementString=CY_GET_REG24, CySetRegReplacementString=CY_SET_REG24, DeviceFamily=PSoC5, EnableMode=0, FF16=false, FF8=false, FixedFunction=false, FixedFunctionUsed=0, HWCaptureCounterEnabled=false, InterruptOnCapture=false, InterruptOnFIFOFull=false, InterruptOnTC=true, IntOnCapture=0, IntOnFIFOFull=0, IntOnTC=1, NumberOfCaptures=1, param45=1, Period=4999999, RegDefReplacementString=reg32, RegSizeReplacementString=uint32, Resolution=24, RstStatusReplacementString=rstSts, RunMode=0, SiliconRevision=0, SoftwareCaptureModeEnabled=false, SoftwareTriggerModeEnabled=false, TriggerInputEnabled=false, TriggerMode=0, UDB16=false, UDB24=true, UDB32=false, UDB8=false, UDBControlReg=true, UsesHWEnable=0, VerilogSectionReplacementString=sT24, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=Timer_v2_70, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=TIMER_UI, CY_INSTANCE_SHORT_NAME=TIMER_UI, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=70, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=TIMER_UI, )
+module Timer_v2_70_7 (
     reset,
     interrupt,
     enable,
@@ -1807,8 +1776,8 @@ endmodule
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v"
 `endif
 
-// UART_v2_50(Address1=0, Address2=0, BaudRate=57600, BreakBitsRX=13, BreakBitsTX=13, BreakDetect=false, CRCoutputsEn=false, Enable_RX=0, Enable_RXIntInterrupt=0, Enable_TX=1, Enable_TXIntInterrupt=0, EnableHWAddress=0, EnIntRXInterrupt=false, EnIntTXInterrupt=false, FlowControl=0, HalfDuplexEn=false, HwTXEnSignal=true, InternalClock=false, InternalClockToleranceMinus=3.93736842105263, InternalClockTolerancePlus=3.93736842105263, InternalClockUsed=0, InterruptOnAddDetect=0, InterruptOnAddressMatch=0, InterruptOnBreak=0, InterruptOnByteRcvd=0, InterruptOnOverrunError=0, InterruptOnParityError=0, InterruptOnStopError=0, InterruptOnTXComplete=false, InterruptOnTXFifoEmpty=false, InterruptOnTXFifoFull=false, InterruptOnTXFifoNotFull=false, IntOnAddressDetect=false, IntOnAddressMatch=false, IntOnBreak=false, IntOnByteRcvd=false, IntOnOverrunError=false, IntOnParityError=false, IntOnStopError=false, NumDataBits=8, NumStopBits=1, OverSamplingRate=8, ParityType=0, ParityTypeSw=false, RequiredClock=460800, RXAddressMode=0, RXBufferSize=4, RxBuffRegSizeReplacementString=uint8, RXEnable=false, TXBitClkGenDP=true, TXBufferSize=4, TxBuffRegSizeReplacementString=uint8, TXEnable=true, Use23Polling=true, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=UART_v2_50, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=UART, CY_INSTANCE_SHORT_NAME=UART, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=50, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=UART, )
-module UART_v2_50_9 (
+// UART_v2_50(Address1=0, Address2=0, BaudRate=57600, BreakBitsRX=13, BreakBitsTX=13, BreakDetect=false, CRCoutputsEn=false, Enable_RX=0, Enable_RXIntInterrupt=0, Enable_TX=1, Enable_TXIntInterrupt=0, EnableHWAddress=0, EnIntRXInterrupt=false, EnIntTXInterrupt=false, FlowControl=0, HalfDuplexEn=false, HwTXEnSignal=true, InternalClock=false, InternalClockToleranceMinus=3.93736842105263, InternalClockTolerancePlus=3.93736842105263, InternalClockUsed=0, InterruptOnAddDetect=0, InterruptOnAddressMatch=0, InterruptOnBreak=0, InterruptOnByteRcvd=0, InterruptOnOverrunError=0, InterruptOnParityError=0, InterruptOnStopError=0, InterruptOnTXComplete=false, InterruptOnTXFifoEmpty=false, InterruptOnTXFifoFull=false, InterruptOnTXFifoNotFull=false, IntOnAddressDetect=false, IntOnAddressMatch=false, IntOnBreak=false, IntOnByteRcvd=false, IntOnOverrunError=false, IntOnParityError=false, IntOnStopError=false, NumDataBits=8, NumStopBits=1, OverSamplingRate=8, ParityType=0, ParityTypeSw=false, RequiredClock=460800, RXAddressMode=0, RXBufferSize=4, RxBuffRegSizeReplacementString=uint8, RXEnable=false, TXBitClkGenDP=true, TXBufferSize=4, TxBuffRegSizeReplacementString=uint8, TXEnable=true, Use23Polling=true, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=UART_v2_50, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=UART_MIDITX, CY_INSTANCE_SHORT_NAME=UART_MIDITX, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=50, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=UART_MIDITX, )
+module UART_v2_50_8 (
     cts_n,
     tx,
     rts_n,
@@ -1896,7 +1865,7 @@ module UART_v2_50_9 (
 endmodule
 
 // I2C_v3_50(Address_Decode=1, BusSpeed_kHz=100, ClockInputVisibility=false, CtlModeReplacementString=SyncCtl, EnableWakeup=false, ExternalBuffer=false, Externi2cIntrHandler=false, ExternTmoutIntrHandler=false, FF=true, Hex=false, I2C_Mode=2, I2cBusPort=0, Implementation=1, InternalUdbClockToleranceMinus=25, InternalUdbClockTolerancePlus=5, NotSlaveClockMinusTolerance=25, NotSlaveClockPlusTolerance=5, PrescalerEnabled=false, PrescalerPeriod=3, Psoc3ffSelected=false, Psoc5AffSelected=false, Psoc5lpffSelected=true, RemoveI2cff=false, RemoveI2cUdb=true, RemoveIntClock=true, RemoveTimeoutTimer=true, SclTimeoutEnabled=false, SdaTimeoutEnabled=false, Slave_Address=8, SlaveClockMinusTolerance=5, SlaveClockPlusTolerance=50, TimeoutEnabled=false, TimeoutImplementation=0, TimeOutms=25, TimeoutPeriodff=39999, TimeoutPeriodUdb=39999, UDB_MSTR=false, UDB_MULTI_MASTER_SLAVE=false, UDB_SLV=false, UdbInternalClock=false, UdbRequiredClock=1600, UdbSlaveFixedPlacementEnable=false, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=I2C_v3_50, CY_CONST_CONFIG=true, CY_CONTROL_FILE=I2C_Slave_DefaultPlacement.ctl, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=I2C_CharLCD, CY_INSTANCE_SHORT_NAME=I2C_CharLCD, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=50, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=I2C_CharLCD, )
-module I2C_v3_50_10 (
+module I2C_v3_50_9 (
     sda,
     scl,
     clock,
@@ -2188,10 +2157,6 @@ module top ;
           wire  Net_482;
           wire  Net_481;
           wire  Net_480;
-    electrical  Net_408;
-    electrical  Net_407;
-    electrical  Net_381;
-    electrical  Net_386;
           wire  Net_470;
           wire  Net_339;
           wire  Net_451;
@@ -2205,289 +2170,55 @@ module top ;
           wire  Net_330;
           wire  Net_329;
           wire  Net_328;
-          wire  Net_418;
-    electrical  Net_457;
-          wire  Net_327;
-          wire  Net_326;
-          wire  Net_325;
-          wire  Net_324;
-          wire  Net_323;
-          wire  Net_322;
-          wire  Net_321;
-          wire  Net_320;
-          wire  Net_319;
-          wire  Net_318;
-          wire  Net_417;
-    electrical  Net_416;
-          wire  Net_400;
+          wire  Net_683;
+          wire  Net_682;
+          wire  Net_681;
+          wire  Net_680;
+          wire  Net_679;
+          wire  Net_678;
+          wire  Net_677;
+          wire  Net_676;
+          wire  Net_675;
+          wire  Net_674;
+          wire  Net_666;
+          wire  Net_687;
+          wire  Net_693;
           wire  Net_86;
-          wire  Net_406;
-          wire  Net_91;
-          wire  Net_317;
-          wire  Net_10;
+          wire  Net_670;
           wire  Net_35;
           wire  Net_34;
+    electrical  Net_662;
+    electrical  Net_661;
+          wire  Net_10;
           wire  Net_604;
           wire  Net_12;
-    electrical  Net_479;
-    electrical  Net_478;
-    electrical  Net_459;
-    electrical  Net_461;
-    electrical  Net_414;
-    electrical  Net_456;
-    electrical  Net_420;
-    electrical  Net_448;
-    electrical  Net_447;
-    electrical  Net_449;
-    electrical  Net_446;
-    electrical  Net_433;
-    electrical  Net_427;
-    electrical  Net_441;
-    electrical  Net_426;
-          wire  Net_355;
-    electrical  Net_413;
-    electrical  Net_412;
-    electrical  Net_409;
-    electrical  Net_404;
-    electrical  Net_410;
-    electrical  Net_402;
-    electrical  Net_401;
-    electrical  Net_387;
-    electrical  Net_390;
-    electrical  Net_389;
-
-    SleepTimer_v3_20_0 SleepTimer (
-        .interrupt(Net_317));
 
 
-    assign Net_406 = ~Net_91;
+	cy_clock_v1_0
+		#(.id("2e68d1df-6641-4bf8-a03c-c58315cb3a07"),
+		  .source_clock_id(""),
+		  .divisor(0),
+		  .period("4000000000"),
+		  .is_direct(0),
+		  .is_digital(1))
+		Clock_2
+		 (.clock_out(Net_670));
 
 
-    assign Net_400 = ~Net_86;
-
-	wire [0:0] tmpOE__MIDI_PWR_net;
-	wire [0:0] tmpFB_0__MIDI_PWR_net;
-	wire [0:0] tmpIO_0__MIDI_PWR_net;
-	wire [0:0] tmpINTERRUPT_0__MIDI_PWR_net;
-	electrical [0:0] tmpSIOVREF__MIDI_PWR_net;
-
-	cy_psoc3_pins_v1_10
-		#(.id("12f75402-8258-4a24-b9e9-c367efce01c5"),
-		  .drive_mode(3'b110),
-		  .ibuf_enabled(1'b1),
-		  .init_dr_st(1'b0),
-		  .input_clk_en(0),
-		  .input_sync(1'b1),
-		  .input_sync_mode(1'b0),
-		  .intr_mode(2'b00),
-		  .invert_in_clock(0),
-		  .invert_in_clock_en(0),
-		  .invert_in_reset(0),
-		  .invert_out_clock(0),
-		  .invert_out_clock_en(0),
-		  .invert_out_reset(0),
-		  .io_voltage(""),
-		  .layout_mode("CONTIGUOUS"),
-		  .oe_conn(1'b0),
-		  .oe_reset(0),
-		  .oe_sync(1'b0),
-		  .output_clk_en(0),
-		  .output_clock_mode(1'b0),
-		  .output_conn(1'b0),
-		  .output_mode(1'b0),
-		  .output_reset(0),
-		  .output_sync(1'b0),
-		  .pa_in_clock(-1),
-		  .pa_in_clock_en(-1),
-		  .pa_in_reset(-1),
-		  .pa_out_clock(-1),
-		  .pa_out_clock_en(-1),
-		  .pa_out_reset(-1),
-		  .pin_aliases(""),
-		  .pin_mode("O"),
-		  .por_state(4),
-		  .sio_group_cnt(0),
-		  .sio_hyst(1'b0),
-		  .sio_ibuf(""),
-		  .sio_info(2'b00),
-		  .sio_obuf(""),
-		  .sio_refsel(""),
-		  .sio_vtrip(""),
-		  .slew_rate(1'b0),
-		  .spanning(0),
-		  .use_annotation(1'b1),
-		  .vtrip(2'b10),
-		  .width(1))
-		MIDI_PWR
-		 (.oe(tmpOE__MIDI_PWR_net),
-		  .y({1'b0}),
-		  .fb({tmpFB_0__MIDI_PWR_net[0:0]}),
-		  .io({tmpIO_0__MIDI_PWR_net[0:0]}),
-		  .siovref(tmpSIOVREF__MIDI_PWR_net),
-		  .interrupt({tmpINTERRUPT_0__MIDI_PWR_net[0:0]}),
-		  .annotation({Net_459}),
-		  .in_clock({1'b0}),
-		  .in_clock_en({1'b1}),
-		  .in_reset({1'b0}),
-		  .out_clock({1'b0}),
-		  .out_clock_en({1'b1}),
-		  .out_reset({1'b0}));
-
-	assign tmpOE__MIDI_PWR_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
-
-	wire [0:0] tmpOE__MIDI_OUT1_net;
-	wire [0:0] tmpFB_0__MIDI_OUT1_net;
-	wire [0:0] tmpIO_0__MIDI_OUT1_net;
-	wire [0:0] tmpINTERRUPT_0__MIDI_OUT1_net;
-	electrical [0:0] tmpSIOVREF__MIDI_OUT1_net;
-
-	cy_psoc3_pins_v1_10
-		#(.id("b9e1db07-a07e-4cf5-8771-93eb2ff0ddc0"),
-		  .drive_mode(3'b110),
-		  .ibuf_enabled(1'b1),
-		  .init_dr_st(1'b0),
-		  .input_clk_en(0),
-		  .input_sync(1'b1),
-		  .input_sync_mode(1'b0),
-		  .intr_mode(2'b00),
-		  .invert_in_clock(0),
-		  .invert_in_clock_en(0),
-		  .invert_in_reset(0),
-		  .invert_out_clock(0),
-		  .invert_out_clock_en(0),
-		  .invert_out_reset(0),
-		  .io_voltage(""),
-		  .layout_mode("CONTIGUOUS"),
-		  .oe_conn(1'b0),
-		  .oe_reset(0),
-		  .oe_sync(1'b0),
-		  .output_clk_en(0),
-		  .output_clock_mode(1'b0),
-		  .output_conn(1'b1),
-		  .output_mode(1'b0),
-		  .output_reset(0),
-		  .output_sync(1'b0),
-		  .pa_in_clock(-1),
-		  .pa_in_clock_en(-1),
-		  .pa_in_reset(-1),
-		  .pa_out_clock(-1),
-		  .pa_out_clock_en(-1),
-		  .pa_out_reset(-1),
-		  .pin_aliases(""),
-		  .pin_mode("O"),
-		  .por_state(4),
-		  .sio_group_cnt(0),
-		  .sio_hyst(1'b0),
-		  .sio_ibuf(""),
-		  .sio_info(2'b00),
-		  .sio_obuf(""),
-		  .sio_refsel(""),
-		  .sio_vtrip(""),
-		  .slew_rate(1'b0),
-		  .spanning(0),
-		  .use_annotation(1'b1),
-		  .vtrip(2'b10),
-		  .width(1))
-		MIDI_OUT1
-		 (.oe(tmpOE__MIDI_OUT1_net),
-		  .y({Net_400}),
-		  .fb({tmpFB_0__MIDI_OUT1_net[0:0]}),
-		  .io({tmpIO_0__MIDI_OUT1_net[0:0]}),
-		  .siovref(tmpSIOVREF__MIDI_OUT1_net),
-		  .interrupt({tmpINTERRUPT_0__MIDI_OUT1_net[0:0]}),
-		  .annotation({Net_387}),
-		  .in_clock({1'b0}),
-		  .in_clock_en({1'b1}),
-		  .in_reset({1'b0}),
-		  .out_clock({1'b0}),
-		  .out_clock_en({1'b1}),
-		  .out_reset({1'b0}));
-
-	assign tmpOE__MIDI_OUT1_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
-
-	wire [0:0] tmpOE__MIDI_IN1_net;
-	wire [0:0] tmpIO_0__MIDI_IN1_net;
-	wire [0:0] tmpINTERRUPT_0__MIDI_IN1_net;
-	electrical [0:0] tmpSIOVREF__MIDI_IN1_net;
-
-	cy_psoc3_pins_v1_10
-		#(.id("6c474820-c2f5-46c6-aa01-7db6a7b6db1f"),
-		  .drive_mode(3'b010),
-		  .ibuf_enabled(1'b1),
-		  .init_dr_st(1'b1),
-		  .input_clk_en(0),
-		  .input_sync(1'b1),
-		  .input_sync_mode(1'b0),
-		  .intr_mode(2'b00),
-		  .invert_in_clock(0),
-		  .invert_in_clock_en(0),
-		  .invert_in_reset(0),
-		  .invert_out_clock(0),
-		  .invert_out_clock_en(0),
-		  .invert_out_reset(0),
-		  .io_voltage(""),
-		  .layout_mode("CONTIGUOUS"),
-		  .oe_conn(1'b0),
-		  .oe_reset(0),
-		  .oe_sync(1'b0),
-		  .output_clk_en(0),
-		  .output_clock_mode(1'b0),
-		  .output_conn(1'b0),
-		  .output_mode(1'b0),
-		  .output_reset(0),
-		  .output_sync(1'b0),
-		  .pa_in_clock(-1),
-		  .pa_in_clock_en(-1),
-		  .pa_in_reset(-1),
-		  .pa_out_clock(-1),
-		  .pa_out_clock_en(-1),
-		  .pa_out_reset(-1),
-		  .pin_aliases(""),
-		  .pin_mode("I"),
-		  .por_state(4),
-		  .sio_group_cnt(0),
-		  .sio_hyst(1'b0),
-		  .sio_ibuf(""),
-		  .sio_info(2'b00),
-		  .sio_obuf(""),
-		  .sio_refsel(""),
-		  .sio_vtrip(""),
-		  .slew_rate(1'b0),
-		  .spanning(0),
-		  .use_annotation(1'b1),
-		  .vtrip(2'b00),
-		  .width(1))
-		MIDI_IN1
-		 (.oe(tmpOE__MIDI_IN1_net),
-		  .y({1'b0}),
-		  .fb({Net_417}),
-		  .io({tmpIO_0__MIDI_IN1_net[0:0]}),
-		  .siovref(tmpSIOVREF__MIDI_IN1_net),
-		  .interrupt({tmpINTERRUPT_0__MIDI_IN1_net[0:0]}),
-		  .annotation({Net_416}),
-		  .in_clock({1'b0}),
-		  .in_clock_en({1'b1}),
-		  .in_reset({1'b0}),
-		  .out_clock({1'b0}),
-		  .out_clock_en({1'b1}),
-		  .out_reset({1'b0}));
-
-	assign tmpOE__MIDI_IN1_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
-
-    UART_v2_30_1 MIDI1_UART (
+    UART_v2_30_0 MIDI1_UART (
         .cts_n(1'b0),
         .tx(Net_86),
-        .rts_n(Net_319),
-        .tx_en(Net_320),
-        .clock(Net_355),
+        .rts_n(Net_675),
+        .tx_en(Net_676),
+        .clock(Net_687),
         .reset(1'b0),
-        .rx(Net_417),
-        .tx_interrupt(Net_322),
-        .rx_interrupt(Net_323),
-        .tx_data(Net_324),
-        .tx_clk(Net_325),
-        .rx_data(Net_326),
-        .rx_clk(Net_327));
+        .rx(Net_86),
+        .tx_interrupt(Net_678),
+        .rx_interrupt(Net_679),
+        .tx_data(Net_680),
+        .tx_clk(Net_681),
+        .rx_data(Net_682),
+        .rx_clk(Net_683));
     defparam MIDI1_UART.Address1 = 0;
     defparam MIDI1_UART.Address2 = 0;
     defparam MIDI1_UART.EnIntRXInterrupt = 1;
@@ -2501,153 +2232,14 @@ module top ;
     defparam MIDI1_UART.RXEnable = 1;
     defparam MIDI1_UART.TXEnable = 1;
 
-	wire [0:0] tmpOE__MIDI_OUT2_net;
-	wire [0:0] tmpFB_0__MIDI_OUT2_net;
-	wire [0:0] tmpIO_0__MIDI_OUT2_net;
-	wire [0:0] tmpINTERRUPT_0__MIDI_OUT2_net;
-	electrical [0:0] tmpSIOVREF__MIDI_OUT2_net;
-
-	cy_psoc3_pins_v1_10
-		#(.id("16e2c6df-bfa9-4d60-8902-0c211b69d05a"),
-		  .drive_mode(3'b110),
-		  .ibuf_enabled(1'b1),
-		  .init_dr_st(1'b0),
-		  .input_clk_en(0),
-		  .input_sync(1'b1),
-		  .input_sync_mode(1'b0),
-		  .intr_mode(2'b00),
-		  .invert_in_clock(0),
-		  .invert_in_clock_en(0),
-		  .invert_in_reset(0),
-		  .invert_out_clock(0),
-		  .invert_out_clock_en(0),
-		  .invert_out_reset(0),
-		  .io_voltage(""),
-		  .layout_mode("CONTIGUOUS"),
-		  .oe_conn(1'b0),
-		  .oe_reset(0),
-		  .oe_sync(1'b0),
-		  .output_clk_en(0),
-		  .output_clock_mode(1'b0),
-		  .output_conn(1'b1),
-		  .output_mode(1'b0),
-		  .output_reset(0),
-		  .output_sync(1'b0),
-		  .pa_in_clock(-1),
-		  .pa_in_clock_en(-1),
-		  .pa_in_reset(-1),
-		  .pa_out_clock(-1),
-		  .pa_out_clock_en(-1),
-		  .pa_out_reset(-1),
-		  .pin_aliases(""),
-		  .pin_mode("O"),
-		  .por_state(4),
-		  .sio_group_cnt(0),
-		  .sio_hyst(1'b0),
-		  .sio_ibuf(""),
-		  .sio_info(2'b00),
-		  .sio_obuf(""),
-		  .sio_refsel(""),
-		  .sio_vtrip(""),
-		  .slew_rate(1'b0),
-		  .spanning(0),
-		  .use_annotation(1'b1),
-		  .vtrip(2'b10),
-		  .width(1))
-		MIDI_OUT2
-		 (.oe(tmpOE__MIDI_OUT2_net),
-		  .y({Net_406}),
-		  .fb({tmpFB_0__MIDI_OUT2_net[0:0]}),
-		  .io({tmpIO_0__MIDI_OUT2_net[0:0]}),
-		  .siovref(tmpSIOVREF__MIDI_OUT2_net),
-		  .interrupt({tmpINTERRUPT_0__MIDI_OUT2_net[0:0]}),
-		  .annotation({Net_404}),
-		  .in_clock({1'b0}),
-		  .in_clock_en({1'b1}),
-		  .in_reset({1'b0}),
-		  .out_clock({1'b0}),
-		  .out_clock_en({1'b1}),
-		  .out_reset({1'b0}));
-
-	assign tmpOE__MIDI_OUT2_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
-
-	wire [0:0] tmpOE__MIDI_IN2_net;
-	wire [0:0] tmpIO_0__MIDI_IN2_net;
-	wire [0:0] tmpINTERRUPT_0__MIDI_IN2_net;
-	electrical [0:0] tmpSIOVREF__MIDI_IN2_net;
-
-	cy_psoc3_pins_v1_10
-		#(.id("1425177d-0d0e-4468-8bcc-e638e5509a9b"),
-		  .drive_mode(3'b010),
-		  .ibuf_enabled(1'b1),
-		  .init_dr_st(1'b1),
-		  .input_clk_en(0),
-		  .input_sync(1'b1),
-		  .input_sync_mode(1'b0),
-		  .intr_mode(2'b00),
-		  .invert_in_clock(0),
-		  .invert_in_clock_en(0),
-		  .invert_in_reset(0),
-		  .invert_out_clock(0),
-		  .invert_out_clock_en(0),
-		  .invert_out_reset(0),
-		  .io_voltage(""),
-		  .layout_mode("CONTIGUOUS"),
-		  .oe_conn(1'b0),
-		  .oe_reset(0),
-		  .oe_sync(1'b0),
-		  .output_clk_en(0),
-		  .output_clock_mode(1'b0),
-		  .output_conn(1'b0),
-		  .output_mode(1'b0),
-		  .output_reset(0),
-		  .output_sync(1'b0),
-		  .pa_in_clock(-1),
-		  .pa_in_clock_en(-1),
-		  .pa_in_reset(-1),
-		  .pa_out_clock(-1),
-		  .pa_out_clock_en(-1),
-		  .pa_out_reset(-1),
-		  .pin_aliases(""),
-		  .pin_mode("I"),
-		  .por_state(4),
-		  .sio_group_cnt(0),
-		  .sio_hyst(1'b0),
-		  .sio_ibuf(""),
-		  .sio_info(2'b00),
-		  .sio_obuf(""),
-		  .sio_refsel(""),
-		  .sio_vtrip(""),
-		  .slew_rate(1'b0),
-		  .spanning(0),
-		  .use_annotation(1'b1),
-		  .vtrip(2'b00),
-		  .width(1))
-		MIDI_IN2
-		 (.oe(tmpOE__MIDI_IN2_net),
-		  .y({1'b0}),
-		  .fb({Net_418}),
-		  .io({tmpIO_0__MIDI_IN2_net[0:0]}),
-		  .siovref(tmpSIOVREF__MIDI_IN2_net),
-		  .interrupt({tmpINTERRUPT_0__MIDI_IN2_net[0:0]}),
-		  .annotation({Net_457}),
-		  .in_clock({1'b0}),
-		  .in_clock_en({1'b1}),
-		  .in_reset({1'b0}),
-		  .out_clock({1'b0}),
-		  .out_clock_en({1'b1}),
-		  .out_reset({1'b0}));
-
-	assign tmpOE__MIDI_IN2_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
-
-    UART_v2_30_2 MIDI2_UART (
+    UART_v2_30_1 MIDI2_UART (
         .cts_n(1'b0),
-        .tx(Net_91),
+        .tx(Net_693),
         .rts_n(Net_329),
         .tx_en(Net_330),
-        .clock(Net_355),
+        .clock(Net_687),
         .reset(1'b0),
-        .rx(Net_418),
+        .rx(Net_693),
         .tx_interrupt(Net_332),
         .rx_interrupt(Net_333),
         .tx_data(Net_334),
@@ -2661,7 +2253,7 @@ module top ;
     defparam MIDI2_UART.FlowControl = 0;
     defparam MIDI2_UART.HalfDuplexEn = 0;
     defparam MIDI2_UART.HwTXEnSignal = 0;
-    defparam MIDI2_UART.NumDataBits = 8;
+    defparam MIDI2_UART.NumDataBits = 5;
     defparam MIDI2_UART.NumStopBits = 1;
     defparam MIDI2_UART.ParityType = 0;
     defparam MIDI2_UART.RXEnable = 1;
@@ -2676,301 +2268,17 @@ module top ;
 		  .is_direct(0),
 		  .is_digital(1))
 		Clock_1
-		 (.clock_out(Net_355));
+		 (.clock_out(Net_687));
 
 
-    USBFS_v2_70_3 USB (
+    USBFS_v2_70_2 USB (
         .sof(Net_339),
         .vbusdet(1'b0));
     defparam USB.epDMAautoOptimization = 0;
 
-
-	cy_isr_v1_0
-		#(.int_type(2'b10))
-		Sleep_isr
-		 (.int_signal(Net_317));
-
-
-    cy_annotation_universal_v1_0 Q_1 (
-        .connect({
-            Net_386,
-            Net_381,
-            Net_389
-        })
-    );
-    defparam Q_1.comp_name = "NPN_v1_0";
-    defparam Q_1.port_names = "B, C, E";
-    defparam Q_1.width = 3;
-
-    cy_annotation_universal_v1_0 R_1 (
-        .connect({
-            Net_401,
-            Net_386
-        })
-    );
-    defparam R_1.comp_name = "Resistor_v1_0";
-    defparam R_1.port_names = "T1, T2";
-    defparam R_1.width = 2;
-
-    cy_annotation_universal_v1_0 R_2 (
-        .connect({
-            Net_386,
-            Net_389
-        })
-    );
-    defparam R_2.comp_name = "Resistor_v1_0";
-    defparam R_2.port_names = "T1, T2";
-    defparam R_2.width = 2;
-
-    cy_annotation_universal_v1_0 GND_2 (
-        .connect({
-            Net_389
-        })
-    );
-    defparam GND_2.comp_name = "Gnd_v1_0";
-    defparam GND_2.port_names = "T1";
-    defparam GND_2.width = 1;
-
-    cy_annotation_universal_v1_0 R_3 (
-        .connect({
-            Net_381,
-            Net_390
-        })
-    );
-    defparam R_3.comp_name = "Resistor_v1_0";
-    defparam R_3.port_names = "T1, T2";
-    defparam R_3.width = 2;
-
-    cy_annotation_universal_v1_0 R_4 (
-        .connect({
-            Net_402,
-            Net_414
-        })
-    );
-    defparam R_4.comp_name = "Resistor_v1_0";
-    defparam R_4.port_names = "T1, T2";
-    defparam R_4.width = 2;
-
-    cy_annotation_universal_v1_0 PWR_1 (
-        .connect({
-            Net_414
-        })
-    );
-    defparam PWR_1.comp_name = "Power_v1_0";
-    defparam PWR_1.port_names = "T1";
-    defparam PWR_1.width = 1;
-
-    cy_annotation_universal_v1_0 Q_2 (
-        .connect({
-            Net_407,
-            Net_408,
-            Net_409
-        })
-    );
-    defparam Q_2.comp_name = "NPN_v1_0";
-    defparam Q_2.port_names = "B, C, E";
-    defparam Q_2.width = 3;
-
-    cy_annotation_universal_v1_0 R_5 (
-        .connect({
-            Net_410,
-            Net_407
-        })
-    );
-    defparam R_5.comp_name = "Resistor_v1_0";
-    defparam R_5.port_names = "T1, T2";
-    defparam R_5.width = 2;
-
-    cy_annotation_universal_v1_0 R_6 (
-        .connect({
-            Net_407,
-            Net_409
-        })
-    );
-    defparam R_6.comp_name = "Resistor_v1_0";
-    defparam R_6.port_names = "T1, T2";
-    defparam R_6.width = 2;
-
-    cy_annotation_universal_v1_0 GND_3 (
-        .connect({
-            Net_409
-        })
-    );
-    defparam GND_3.comp_name = "Gnd_v1_0";
-    defparam GND_3.port_names = "T1";
-    defparam GND_3.width = 1;
-
-    cy_annotation_universal_v1_0 R_7 (
-        .connect({
-            Net_408,
-            Net_412
-        })
-    );
-    defparam R_7.comp_name = "Resistor_v1_0";
-    defparam R_7.port_names = "T1, T2";
-    defparam R_7.width = 2;
-
-    cy_annotation_universal_v1_0 R_8 (
-        .connect({
-            Net_413,
-            Net_414
-        })
-    );
-    defparam R_8.comp_name = "Resistor_v1_0";
-    defparam R_8.port_names = "T1, T2";
-    defparam R_8.width = 2;
-
-    cy_annotation_universal_v1_0 PWR_2 (
-        .connect({
-            Net_461
-        })
-    );
-    defparam PWR_2.comp_name = "Power_v1_0";
-    defparam PWR_2.port_names = "T1";
-    defparam PWR_2.width = 1;
-
-    cy_annotation_universal_v1_0 R_9 (
-        .connect({
-            Net_426,
-            Net_427
-        })
-    );
-    defparam R_9.comp_name = "Resistor_v1_0";
-    defparam R_9.port_names = "T1, T2";
-    defparam R_9.width = 2;
-
-    cy_annotation_universal_v1_0 Q_3 (
-        .connect({
-            Net_456,
-            Net_433
-        })
-    );
-    defparam Q_3.comp_name = "PhotoTrans_v1_0";
-    defparam Q_3.port_names = "C, E";
-    defparam Q_3.width = 2;
-
-    cy_annotation_universal_v1_0 D_1 (
-        .connect({
-            Net_441,
-            Net_427
-        })
-    );
-    defparam D_1.comp_name = "Diode_v1_0";
-    defparam D_1.port_names = "A, K";
-    defparam D_1.width = 2;
-
-    cy_annotation_universal_v1_0 D_2 (
-        .connect({
-            Net_427,
-            Net_441
-        })
-    );
-    defparam D_2.comp_name = "Diode_v1_0";
-    defparam D_2.port_names = "A, K";
-    defparam D_2.width = 2;
-
-    cy_annotation_universal_v1_0 GND_4 (
-        .connect({
-            Net_433
-        })
-    );
-    defparam GND_4.comp_name = "Gnd_v1_0";
-    defparam GND_4.port_names = "T1";
-    defparam GND_4.width = 1;
-
-    cy_annotation_universal_v1_0 R_10 (
-        .connect({
-            Net_446,
-            Net_447
-        })
-    );
-    defparam R_10.comp_name = "Resistor_v1_0";
-    defparam R_10.port_names = "T1, T2";
-    defparam R_10.width = 2;
-
-    cy_annotation_universal_v1_0 Q_4 (
-        .connect({
-            Net_420,
-            Net_448
-        })
-    );
-    defparam Q_4.comp_name = "PhotoTrans_v1_0";
-    defparam Q_4.port_names = "C, E";
-    defparam Q_4.width = 2;
-
-    cy_annotation_universal_v1_0 D_3 (
-        .connect({
-            Net_449,
-            Net_447
-        })
-    );
-    defparam D_3.comp_name = "Diode_v1_0";
-    defparam D_3.port_names = "A, K";
-    defparam D_3.width = 2;
-
-    cy_annotation_universal_v1_0 D_4 (
-        .connect({
-            Net_447,
-            Net_449
-        })
-    );
-    defparam D_4.comp_name = "Diode_v1_0";
-    defparam D_4.port_names = "A, K";
-    defparam D_4.width = 2;
-
-    cy_annotation_universal_v1_0 GND_5 (
-        .connect({
-            Net_448
-        })
-    );
-    defparam GND_5.comp_name = "Gnd_v1_0";
-    defparam GND_5.port_names = "T1";
-    defparam GND_5.width = 1;
-
-    cy_annotation_universal_v1_0 R_11 (
-        .connect({
-            Net_456,
-            Net_416
-        })
-    );
-    defparam R_11.comp_name = "Resistor_v1_0";
-    defparam R_11.port_names = "T1, T2";
-    defparam R_11.width = 2;
-
-    cy_annotation_universal_v1_0 R_12 (
-        .connect({
-            Net_420,
-            Net_457
-        })
-    );
-    defparam R_12.comp_name = "Resistor_v1_0";
-    defparam R_12.port_names = "T1, T2";
-    defparam R_12.width = 2;
-
-    cy_annotation_universal_v1_0 Q_5 (
-        .connect({
-            Net_461,
-            Net_459,
-            Net_414
-        })
-    );
-    defparam Q_5.comp_name = "PFET_En_v1_0";
-    defparam Q_5.port_names = "D, G, S";
-    defparam Q_5.width = 3;
-
-    cy_annotation_universal_v1_0 R_13 (
-        .connect({
-            Net_459,
-            Net_461
-        })
-    );
-    defparam R_13.comp_name = "Resistor_v1_0";
-    defparam R_13.port_names = "T1, T2";
-    defparam R_13.width = 2;
-
-    ADC_SAR_v3_0_4 ADC_SAR_1 (
-        .vplus(Net_478),
-        .vminus(Net_479),
+    ADC_SAR_v3_0_3 ADC_MIC (
+        .vplus(Net_661),
+        .vminus(Net_662),
         .soc(1'b0),
         .eoc(Net_481),
         .aclk(1'b0),
@@ -3040,7 +2348,7 @@ module top ;
 		 (.oe(tmpOE__MIC_IN_net),
 		  .y({1'b0}),
 		  .fb({tmpFB_0__MIC_IN_net[0:0]}),
-		  .analog({Net_478}),
+		  .analog({Net_661}),
 		  .io({tmpIO_0__MIC_IN_net[0:0]}),
 		  .siovref(tmpSIOVREF__MIC_IN_net),
 		  .interrupt({tmpINTERRUPT_0__MIC_IN_net[0:0]}),
@@ -3116,7 +2424,7 @@ module top ;
 		 (.oe(tmpOE__MIC_GND_net),
 		  .y({1'b0}),
 		  .fb({tmpFB_0__MIC_GND_net[0:0]}),
-		  .analog({Net_479}),
+		  .analog({Net_662}),
 		  .io({tmpIO_0__MIC_GND_net[0:0]}),
 		  .siovref(tmpSIOVREF__MIC_GND_net),
 		  .interrupt({tmpINTERRUPT_0__MIC_GND_net[0:0]}),
@@ -3144,7 +2452,7 @@ module top ;
     ZeroTerminal ZeroTerminal_1 (
         .z(Net_488));
 
-    Timer_v2_70_5 Timer_1 (
+    Timer_v2_70_4 TIMER_SAMPLERATE (
         .reset(Net_488),
         .interrupt(Net_489),
         .enable(1'b1),
@@ -3153,13 +2461,13 @@ module top ;
         .capture_out(Net_493),
         .tc(Net_657),
         .clock(Net_10));
-    defparam Timer_1.CaptureCount = 2;
-    defparam Timer_1.CaptureCounterEnabled = 0;
-    defparam Timer_1.DeviceFamily = "PSoC5";
-    defparam Timer_1.InterruptOnCapture = 0;
-    defparam Timer_1.InterruptOnTC = 1;
-    defparam Timer_1.Resolution = 24;
-    defparam Timer_1.SiliconRevision = "0";
+    defparam TIMER_SAMPLERATE.CaptureCount = 2;
+    defparam TIMER_SAMPLERATE.CaptureCounterEnabled = 0;
+    defparam TIMER_SAMPLERATE.DeviceFamily = "PSoC5";
+    defparam TIMER_SAMPLERATE.InterruptOnCapture = 0;
+    defparam TIMER_SAMPLERATE.InterruptOnTC = 1;
+    defparam TIMER_SAMPLERATE.Resolution = 24;
+    defparam TIMER_SAMPLERATE.SiliconRevision = "0";
 
 
 	cy_isr_v1_0
@@ -3168,7 +2476,7 @@ module top ;
 		 (.int_signal(Net_489));
 
 
-    ADC_SAR_SEQ_v2_0_7 UI_ADC (
+    ADC_SAR_SEQ_v2_0_6 ADC_UI (
         .soc(1'b0),
         .aclk(1'b0),
         .sdone(Net_505),
@@ -3273,7 +2581,7 @@ module top ;
     ZeroTerminal ZeroTerminal_2 (
         .z(Net_12));
 
-    Timer_v2_70_8 UI_TIMER (
+    Timer_v2_70_7 TIMER_UI (
         .reset(Net_12),
         .interrupt(Net_606),
         .enable(1'b1),
@@ -3282,13 +2590,13 @@ module top ;
         .capture_out(Net_610),
         .tc(Net_615),
         .clock(Net_604));
-    defparam UI_TIMER.CaptureCount = 2;
-    defparam UI_TIMER.CaptureCounterEnabled = 0;
-    defparam UI_TIMER.DeviceFamily = "PSoC5";
-    defparam UI_TIMER.InterruptOnCapture = 0;
-    defparam UI_TIMER.InterruptOnTC = 1;
-    defparam UI_TIMER.Resolution = 24;
-    defparam UI_TIMER.SiliconRevision = "0";
+    defparam TIMER_UI.CaptureCount = 2;
+    defparam TIMER_UI.CaptureCounterEnabled = 0;
+    defparam TIMER_UI.DeviceFamily = "PSoC5";
+    defparam TIMER_UI.InterruptOnCapture = 0;
+    defparam TIMER_UI.InterruptOnTC = 1;
+    defparam TIMER_UI.Resolution = 24;
+    defparam TIMER_UI.SiliconRevision = "0";
 
 
 	cy_isr_v1_0
@@ -3461,12 +2769,12 @@ module top ;
 		 (.clock_out(Net_604));
 
 
-    UART_v2_50_9 UART (
+    UART_v2_50_8 UART_MIDITX (
         .cts_n(1'b0),
         .tx(Net_625),
         .rts_n(Net_626),
         .tx_en(Net_627),
-        .clock(Net_355),
+        .clock(Net_670),
         .reset(1'b0),
         .rx(1'b0),
         .tx_interrupt(Net_631),
@@ -3475,18 +2783,18 @@ module top ;
         .tx_clk(Net_634),
         .rx_data(Net_635),
         .rx_clk(Net_636));
-    defparam UART.Address1 = 0;
-    defparam UART.Address2 = 0;
-    defparam UART.EnIntRXInterrupt = 0;
-    defparam UART.EnIntTXInterrupt = 0;
-    defparam UART.FlowControl = 0;
-    defparam UART.HalfDuplexEn = 0;
-    defparam UART.HwTXEnSignal = 1;
-    defparam UART.NumDataBits = 8;
-    defparam UART.NumStopBits = 1;
-    defparam UART.ParityType = 0;
-    defparam UART.RXEnable = 0;
-    defparam UART.TXEnable = 1;
+    defparam UART_MIDITX.Address1 = 0;
+    defparam UART_MIDITX.Address2 = 0;
+    defparam UART_MIDITX.EnIntRXInterrupt = 0;
+    defparam UART_MIDITX.EnIntTXInterrupt = 0;
+    defparam UART_MIDITX.FlowControl = 0;
+    defparam UART_MIDITX.HalfDuplexEn = 0;
+    defparam UART_MIDITX.HwTXEnSignal = 1;
+    defparam UART_MIDITX.NumDataBits = 8;
+    defparam UART_MIDITX.NumStopBits = 1;
+    defparam UART_MIDITX.ParityType = 0;
+    defparam UART_MIDITX.RXEnable = 0;
+    defparam UART_MIDITX.TXEnable = 1;
 
 	wire [0:0] tmpOE__MIDI_OUT_net;
 	wire [0:0] tmpFB_0__MIDI_OUT_net;
@@ -3563,10 +2871,10 @@ module top ;
 
 	assign tmpOE__MIDI_OUT_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
-	wire [0:0] tmpOE__SDA_1_net;
-	wire [0:0] tmpFB_0__SDA_1_net;
-	wire [0:0] tmpINTERRUPT_0__SDA_1_net;
-	electrical [0:0] tmpSIOVREF__SDA_1_net;
+	wire [0:0] tmpOE__SDA_net;
+	wire [0:0] tmpFB_0__SDA_net;
+	wire [0:0] tmpINTERRUPT_0__SDA_net;
+	electrical [0:0] tmpSIOVREF__SDA_net;
 
 	cy_psoc3_pins_v1_10
 		#(.id("22863ebe-a37b-476f-b252-6e49a8c00b12"),
@@ -3621,13 +2929,13 @@ module top ;
 		  .ovt_needed(1'b0),
 		  .ovt_slew_control(2'b00),
 		  .input_buffer_sel(2'b00))
-		SDA_1
-		 (.oe(tmpOE__SDA_1_net),
+		SDA
+		 (.oe(tmpOE__SDA_net),
 		  .y({1'b0}),
-		  .fb({tmpFB_0__SDA_1_net[0:0]}),
+		  .fb({tmpFB_0__SDA_net[0:0]}),
 		  .io({Net_34}),
-		  .siovref(tmpSIOVREF__SDA_1_net),
-		  .interrupt({tmpINTERRUPT_0__SDA_1_net[0:0]}),
+		  .siovref(tmpSIOVREF__SDA_net),
+		  .interrupt({tmpINTERRUPT_0__SDA_net[0:0]}),
 		  .in_clock({1'b0}),
 		  .in_clock_en({1'b1}),
 		  .in_reset({1'b0}),
@@ -3635,12 +2943,12 @@ module top ;
 		  .out_clock_en({1'b1}),
 		  .out_reset({1'b0}));
 
-	assign tmpOE__SDA_1_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+	assign tmpOE__SDA_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
-	wire [0:0] tmpOE__SCL_1_net;
-	wire [0:0] tmpFB_0__SCL_1_net;
-	wire [0:0] tmpINTERRUPT_0__SCL_1_net;
-	electrical [0:0] tmpSIOVREF__SCL_1_net;
+	wire [0:0] tmpOE__SCL_net;
+	wire [0:0] tmpFB_0__SCL_net;
+	wire [0:0] tmpINTERRUPT_0__SCL_net;
+	electrical [0:0] tmpSIOVREF__SCL_net;
 
 	cy_psoc3_pins_v1_10
 		#(.id("02f2cf2c-2c7a-49df-9246-7a3435c21be3"),
@@ -3695,13 +3003,13 @@ module top ;
 		  .ovt_needed(1'b0),
 		  .ovt_slew_control(2'b00),
 		  .input_buffer_sel(2'b00))
-		SCL_1
-		 (.oe(tmpOE__SCL_1_net),
+		SCL
+		 (.oe(tmpOE__SCL_net),
 		  .y({1'b0}),
-		  .fb({tmpFB_0__SCL_1_net[0:0]}),
+		  .fb({tmpFB_0__SCL_net[0:0]}),
 		  .io({Net_35}),
-		  .siovref(tmpSIOVREF__SCL_1_net),
-		  .interrupt({tmpINTERRUPT_0__SCL_1_net[0:0]}),
+		  .siovref(tmpSIOVREF__SCL_net),
+		  .interrupt({tmpINTERRUPT_0__SCL_net[0:0]}),
 		  .in_clock({1'b0}),
 		  .in_clock_en({1'b1}),
 		  .in_reset({1'b0}),
@@ -3709,9 +3017,9 @@ module top ;
 		  .out_clock_en({1'b1}),
 		  .out_reset({1'b0}));
 
-	assign tmpOE__SCL_1_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+	assign tmpOE__SCL_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
-    I2C_v3_50_10 I2C_CharLCD (
+    I2C_v3_50_9 I2C_CharLCD (
         .sda(Net_34),
         .scl(Net_35),
         .clock(1'b0),

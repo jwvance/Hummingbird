@@ -1,6 +1,26 @@
 #include <math.h>
 #include "midi.h"
 
+/*******************************************************************************
+* Function Name: GenerateMidiArray
+********************************************************************************
+* Summary:
+*  Aquires command, note, and velocity bytes and tosses them into an array (supplied by user)
+*
+* Parameters:
+*  midiArray[4], cmd, note, vel
+*
+* Return:
+*  None, modifies midiArray[]
+*
+*******************************************************************************/
+void GenerateMidiArray(uint8 midiArray[4], uint8 cmd, uint8 note, uint8 vel)
+{
+    midiArray[0]=cmd;
+    midiArray[1]=note;
+    midiArray[2]=vel;
+}
+
 void populate_midi_array(double notes[MIDI_LEN])
 {
 	// Frequency of A, used as a basis for generation

@@ -1,11 +1,95 @@
---------------- Build Started: 05/10/2017 23:20:42 Project: Hummingbird(Continuous Output), Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
-The code generation step is up to date.
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/main.lst -g -Wall -ffunction-sections -O2 -ffat-lto-objects -c main.c -o .\CortexM3\ARM_GCC_493\Debug\main.o
-arm-none-eabi-ar.exe -rs ".\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a" .\CortexM3\ARM_GCC_493\Debug\MIDI1_UART_INT.o .\CortexM3\ARM_GCC_493\Debug\MIDI1_UART.o .\CortexM3\ARM_GCC_493\Debug\MIDI1_UART_PM.o .\CortexM3\ARM_GCC_493\Debug\MIDI1_UART_BOOT.o .\CortexM3\ARM_GCC_493\Debug\MIDI2_UART_INT.o .\CortexM3\ARM_GCC_493\Debug\MIDI2_UART.o .\CortexM3\ARM_GCC_493\Debug\MIDI2_UART_PM.o .\CortexM3\ARM_GCC_493\Debug\MIDI2_UART_BOOT.o .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_493\Debug\SleepTimer.o .\CortexM3\ARM_GCC_493\Debug\MIDI_PWR.o .\CortexM3\ARM_GCC_493\Debug\Clock_1.o .\CortexM3\ARM_GCC_493\Debug\USB.o .\CortexM3\ARM_GCC_493\Debug\USB_audio.o .\CortexM3\ARM_GCC_493\Debug\USB_boot.o .\CortexM3\ARM_GCC_493\Debug\USB_cdc.o .\CortexM3\ARM_GCC_493\Debug\USB_cls.o .\CortexM3\ARM_GCC_493\Debug\USB_descr.o .\CortexM3\ARM_GCC_493\Debug\USB_drv.o .\CortexM3\ARM_GCC_493\Debug\USB_episr.o .\CortexM3\ARM_GCC_493\Debug\USB_hid.o .\CortexM3\ARM_GCC_493\Debug\USB_pm.o .\CortexM3\ARM_GCC_493\Debug\USB_std.o .\CortexM3\ARM_GCC_493\Debug\USB_vnd.o .\CortexM3\ARM_GCC_493\Debug\USB_midi.o .\CortexM3\ARM_GCC_493\Debug\Sleep_isr.o .\CortexM3\ARM_GCC_493\Debug\USB_Dm.o .\CortexM3\ARM_GCC_493\Debug\USB_Dp.o .\CortexM3\ARM_GCC_493\Debug\CyDmac.o .\CortexM3\ARM_GCC_493\Debug\CyFlash.o .\CortexM3\ARM_GCC_493\Debug\CyLib.o .\CortexM3\ARM_GCC_493\Debug\cyPm.o .\CortexM3\ARM_GCC_493\Debug\CySpc.o .\CortexM3\ARM_GCC_493\Debug\cyutils.o .\CortexM3\ARM_GCC_493\Debug\ADC_SAR_1.o .\CortexM3\ARM_GCC_493\Debug\ADC_SAR_1_INT.o .\CortexM3\ARM_GCC_493\Debug\ADC_SAR_1_PM.o .\CortexM3\ARM_GCC_493\Debug\MIC_IN.o .\CortexM3\ARM_GCC_493\Debug\MIC_GND.o .\CortexM3\ARM_GCC_493\Debug\Timer_1.o .\CortexM3\ARM_GCC_493\Debug\Timer_1_PM.o .\CortexM3\ARM_GCC_493\Debug\isr_1.o .\CortexM3\ARM_GCC_493\Debug\ADC_SAR_1_IRQ.o .\CortexM3\ARM_GCC_493\Debug\ADC_SAR_1_theACLK.o .\CortexM3\ARM_GCC_493\Debug\UI_TIMER.o .\CortexM3\ARM_GCC_493\Debug\UI_TIMER_PM.o .\CortexM3\ARM_GCC_493\Debug\UI_isr.o .\CortexM3\ARM_GCC_493\Debug\POT_IN_KEY.o .\CortexM3\ARM_GCC_493\Debug\POT_IN_SCALE.o .\CortexM3\ARM_GCC_493\Debug\UI_ADC.o .\CortexM3\ARM_GCC_493\Debug\UI_ADC_PM.o .\CortexM3\ARM_GCC_493\Debug\UI_ADC_INT.o .\CortexM3\ARM_GCC_493\Debug\UI_ADC_SAR.o .\CortexM3\ARM_GCC_493\Debug\UI_ADC_SAR_INT.o .\CortexM3\ARM_GCC_493\Debug\UI_ADC_SAR_PM.o .\CortexM3\ARM_GCC_493\Debug\UI_ADC_IntClock.o .\CortexM3\ARM_GCC_493\Debug\UI_ADC_TempBuf_dma.o .\CortexM3\ARM_GCC_493\Debug\UI_ADC_FinalBuf_dma.o .\CortexM3\ARM_GCC_493\Debug\UI_ADC_IRQ.o .\CortexM3\ARM_GCC_493\Debug\UART.o .\CortexM3\ARM_GCC_493\Debug\UART_PM.o .\CortexM3\ARM_GCC_493\Debug\UART_INT.o .\CortexM3\ARM_GCC_493\Debug\UART_BOOT.o .\CortexM3\ARM_GCC_493\Debug\SDA_1.o .\CortexM3\ARM_GCC_493\Debug\SCL_1.o .\CortexM3\ARM_GCC_493\Debug\I2C_CharLCD.o .\CortexM3\ARM_GCC_493\Debug\I2C_CharLCD_BOOT.o .\CortexM3\ARM_GCC_493\Debug\I2C_CharLCD_INT.o .\CortexM3\ARM_GCC_493\Debug\I2C_CharLCD_PM.o .\CortexM3\ARM_GCC_493\Debug\I2C_CharLCD_SLAVE.o .\CortexM3\ARM_GCC_493\Debug\I2C_CharLCD_MASTER.o .\CortexM3\ARM_GCC_493\Debug\CharLCD_I2C.o .\CortexM3\ARM_GCC_493\Debug\CharLCD_I2C_PM.o .\CortexM3\ARM_GCC_493\Debug\POT_IN_HYST.o .\CortexM3\ARM_GCC_493\Debug\POT_IN_VELO.o .\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o
+--------------- Build Started: 05/11/2017 17:05:30 Project: Hummingbird(Continuous Output), Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\mgronber\AppData\Local\Cypress Semiconductor\PSoC Creator\4.0" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\mgronber\Desktop\Hummingbird\Hummingbird(Continuous Output).cydsn\Hummingbird(Continuous Output).cyprj" -d CY8C5888LTI-LP097 -s "C:\Users\mgronber\Desktop\Hummingbird\Hummingbird(Continuous Output).cydsn\Generated_Source\PSoC5" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: sdb.M0065: information: Analog terminal "vdac_ref" on ADC_SAR_SEQ_v2_0 is unconnected.
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_0\PSoC5\ADC_SAR_SEQ_v2_0.cysch (Signal: vdac_ref)
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_0\PSoC5\ADC_SAR_SEQ_v2_0.cysch (Shape_798)
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_0\PSoC5\ADC_SAR_SEQ_v2_0.cysch (Shape_885)
+HDL Generation...
+Synthesis...
+Tech Mapping...
+ADD: pft.M0040: information: The following 2 pin(s) will be assigned a location by the fitter: \USB:Dm(0)\, \USB:Dp(0)\
+Analog Placement...
+Info: apr.M0002: Analog signal "Net_513" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_515" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_516" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_518" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_520" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_521" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_523" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_525" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_526" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_528" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_530" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_531" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_533" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_535" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_536" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_538" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_540" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_541" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_543" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_545" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_546" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_548" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_550" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_551" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_553" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_555" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_556" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_558" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_560" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_561" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_563" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_565" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_566" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_568" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_570" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_571" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_573" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_575" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_576" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_578" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_580" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_581" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_583" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_585" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_586" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_587" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_588" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_589" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_590" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_591" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_592" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_593" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_594" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_595" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_596" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_597" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_598" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_599" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_600" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_601" is connected to one terminal only. (App=cydsfit)
+Log: apr.M0058: The analog placement iterative improvement is 33% done. (App=cydsfit)
+Log: apr.M0058: The analog placement iterative improvement is 62% done. (App=cydsfit)
+Log: apr.M0058: The analog placement iterative improvement is 92% done. (App=cydsfit)
+Analog Routing...
+Analog Code Generation...
+Warning: apr.M0042: Bonded pin(s) "P15[3]" are not used in your current design but have been connected in order to route the design. (App=cydsfit)
+Digital Placement...
+Digital Routing...
+Bitstream Generation...
+Bitstream Verification...
+Static timing analysis...
+API Generation...
+Dependency Generation...
+Cleanup...
+The compile step is up to date, no work needs to be done.
+arm-none-eabi-ar.exe -rs ".\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a" .\CortexM3\ARM_GCC_493\Debug\MIDI1_UART_INT.o .\CortexM3\ARM_GCC_493\Debug\MIDI1_UART.o .\CortexM3\ARM_GCC_493\Debug\MIDI1_UART_PM.o .\CortexM3\ARM_GCC_493\Debug\MIDI1_UART_BOOT.o .\CortexM3\ARM_GCC_493\Debug\MIDI2_UART_INT.o .\CortexM3\ARM_GCC_493\Debug\MIDI2_UART.o .\CortexM3\ARM_GCC_493\Debug\MIDI2_UART_PM.o .\CortexM3\ARM_GCC_493\Debug\MIDI2_UART_BOOT.o .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_493\Debug\Clock_1.o .\CortexM3\ARM_GCC_493\Debug\USB.o .\CortexM3\ARM_GCC_493\Debug\USB_audio.o .\CortexM3\ARM_GCC_493\Debug\USB_boot.o .\CortexM3\ARM_GCC_493\Debug\USB_cdc.o .\CortexM3\ARM_GCC_493\Debug\USB_cls.o .\CortexM3\ARM_GCC_493\Debug\USB_descr.o .\CortexM3\ARM_GCC_493\Debug\USB_drv.o .\CortexM3\ARM_GCC_493\Debug\USB_episr.o .\CortexM3\ARM_GCC_493\Debug\USB_hid.o .\CortexM3\ARM_GCC_493\Debug\USB_pm.o .\CortexM3\ARM_GCC_493\Debug\USB_std.o .\CortexM3\ARM_GCC_493\Debug\USB_vnd.o .\CortexM3\ARM_GCC_493\Debug\USB_midi.o .\CortexM3\ARM_GCC_493\Debug\USB_Dm.o .\CortexM3\ARM_GCC_493\Debug\USB_Dp.o .\CortexM3\ARM_GCC_493\Debug\CyDmac.o .\CortexM3\ARM_GCC_493\Debug\CyFlash.o .\CortexM3\ARM_GCC_493\Debug\CyLib.o .\CortexM3\ARM_GCC_493\Debug\cyPm.o .\CortexM3\ARM_GCC_493\Debug\CySpc.o .\CortexM3\ARM_GCC_493\Debug\cyutils.o .\CortexM3\ARM_GCC_493\Debug\MIC_IN.o .\CortexM3\ARM_GCC_493\Debug\MIC_GND.o .\CortexM3\ARM_GCC_493\Debug\isr_1.o .\CortexM3\ARM_GCC_493\Debug\UI_isr.o .\CortexM3\ARM_GCC_493\Debug\POT_IN_KEY.o .\CortexM3\ARM_GCC_493\Debug\POT_IN_SCALE.o .\CortexM3\ARM_GCC_493\Debug\Clock_2.o .\CortexM3\ARM_GCC_493\Debug\I2C_CharLCD.o .\CortexM3\ARM_GCC_493\Debug\I2C_CharLCD_BOOT.o .\CortexM3\ARM_GCC_493\Debug\I2C_CharLCD_INT.o .\CortexM3\ARM_GCC_493\Debug\I2C_CharLCD_PM.o .\CortexM3\ARM_GCC_493\Debug\I2C_CharLCD_SLAVE.o .\CortexM3\ARM_GCC_493\Debug\I2C_CharLCD_MASTER.o .\CortexM3\ARM_GCC_493\Debug\CharLCD_I2C.o .\CortexM3\ARM_GCC_493\Debug\CharLCD_I2C_PM.o .\CortexM3\ARM_GCC_493\Debug\POT_IN_HYST.o .\CortexM3\ARM_GCC_493\Debug\POT_IN_VELO.o .\CortexM3\ARM_GCC_493\Debug\ADC_MIC.o .\CortexM3\ARM_GCC_493\Debug\ADC_MIC_INT.o .\CortexM3\ARM_GCC_493\Debug\ADC_MIC_PM.o .\CortexM3\ARM_GCC_493\Debug\TIMER_SAMPLERATE.o .\CortexM3\ARM_GCC_493\Debug\TIMER_SAMPLERATE_PM.o .\CortexM3\ARM_GCC_493\Debug\ADC_UI.o .\CortexM3\ARM_GCC_493\Debug\ADC_UI_PM.o .\CortexM3\ARM_GCC_493\Debug\ADC_UI_INT.o .\CortexM3\ARM_GCC_493\Debug\TIMER_UI.o .\CortexM3\ARM_GCC_493\Debug\TIMER_UI_PM.o .\CortexM3\ARM_GCC_493\Debug\SDA.o .\CortexM3\ARM_GCC_493\Debug\SCL.o .\CortexM3\ARM_GCC_493\Debug\ADC_MIC_IRQ.o .\CortexM3\ARM_GCC_493\Debug\ADC_MIC_theACLK.o .\CortexM3\ARM_GCC_493\Debug\ADC_UI_SAR.o .\CortexM3\ARM_GCC_493\Debug\ADC_UI_SAR_INT.o .\CortexM3\ARM_GCC_493\Debug\ADC_UI_SAR_PM.o .\CortexM3\ARM_GCC_493\Debug\ADC_UI_IntClock.o .\CortexM3\ARM_GCC_493\Debug\ADC_UI_TempBuf_dma.o .\CortexM3\ARM_GCC_493\Debug\ADC_UI_FinalBuf_dma.o .\CortexM3\ARM_GCC_493\Debug\ADC_UI_IRQ.o .\CortexM3\ARM_GCC_493\Debug\UART_MIDITX.o .\CortexM3\ARM_GCC_493\Debug\UART_MIDITX_PM.o .\CortexM3\ARM_GCC_493\Debug\UART_MIDITX_INT.o .\CortexM3\ARM_GCC_493\Debug\UART_MIDITX_BOOT.o .\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o
 arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a
-arm-none-eabi-gcc.exe -Wl,--start-group -o ".\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).elf" .\CortexM3\ARM_GCC_493\Debug\main.o .\CortexM3\ARM_GCC_493\Debug\fft.o .\CortexM3\ARM_GCC_493\Debug\midi.o .\CortexM3\ARM_GCC_493\Debug\pitch.o .\CortexM3\ARM_GCC_493\Debug\hbird.o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o ".\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a" "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -g -ffunction-sections -O2 -ffat-lto-objects -l m -L Generated_Source\PSoC5 "-Wl,-Map,.\CortexM3\ARM_GCC_493\Debug/Hummingbird(Continuous Output).map" -T "C:\Users\jwvance\Desktop\Hummingbird\Hummingbird(Continuous Output).cydsn\Generated_Source\PSoC5\cm3gcc.ld" -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
-cyelftool.exe -C "C:\Users\jwvance\Desktop\Hummingbird\Hummingbird(Continuous Output).cydsn\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).elf" --flash_row_size 256 --flash_size 262144
-cyelftool.exe -S "C:\Users\jwvance\Desktop\Hummingbird\Hummingbird(Continuous Output).cydsn\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).elf"
-Flash used: 38340 of 262144 bytes (14.6 %).
-SRAM used: 8525 of 65536 bytes (13.0 %). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 05/10/2017 23:20:43 ---------------
+arm-none-eabi-gcc.exe -Wl,--start-group -o ".\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).elf" .\CortexM3\ARM_GCC_493\Debug\main.o .\CortexM3\ARM_GCC_493\Debug\fft.o .\CortexM3\ARM_GCC_493\Debug\midi.o .\CortexM3\ARM_GCC_493\Debug\pitch.o .\CortexM3\ARM_GCC_493\Debug\hbird.o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o ".\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a" "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -g -ffunction-sections -O2 -ffat-lto-objects -l m -L Generated_Source\PSoC5 "-Wl,-Map,.\CortexM3\ARM_GCC_493\Debug/Hummingbird(Continuous Output).map" -T "C:\Users\mgronber\Desktop\Hummingbird\Hummingbird(Continuous Output).cydsn\Generated_Source\PSoC5\cm3gcc.ld" -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
+cyelftool.exe -C "C:\Users\mgronber\Desktop\Hummingbird\Hummingbird(Continuous Output).cydsn\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).elf" --flash_row_size 256 --flash_size 262144
+cyelftool.exe -S "C:\Users\mgronber\Desktop\Hummingbird\Hummingbird(Continuous Output).cydsn\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).elf"
+Flash used: 32420 of 262144 bytes (12.4 %).
+SRAM used: 7389 of 65536 bytes (11.3 %). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Build Succeeded: 05/11/2017 17:06:00 ---------------

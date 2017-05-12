@@ -1,6 +1,8 @@
 #ifndef __MIDI_H__
 #define __MIDI_H__
 
+#include <device.h>
+    
 #define MIDI_LEN 128
 
     // Enumerated types for the note snapping function
@@ -9,6 +11,8 @@ enum MusicKey {KEY_OF_C, KEY_OF_Db, KEY_OF_D, KEY_OF_Eb, KEY_OF_E, KEY_OF_F,
 
 enum MusicScale {MAJOR, NATURAL_MINOR, MAJOR_PENT, MINOR_PENT, WHOLE_TONE, BLUES, CHROMATIC};    
     
+void GenerateMidiArray(uint8 midiArray[4], uint8 cmd, uint8 note, uint8 vel);
+
 /*
  * Populates the notes array with the frequencies
  * corresponding to MIDI values. The index of each array

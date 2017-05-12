@@ -59,71 +59,20 @@ uint8 frame2InUse=0;
 enum MusicScale curScale=CHROMATIC;
 enum MusicKey   curKey=KEY_OF_C;
 
-/* Identity Reply message */
-const uint8 CYCODE MIDI_IDENTITY_REPLY[] = {
-    0xF0u,      /* SysEx */
-    0x7Eu,      /* Non-Realtime */
-    0x7Fu,      /* ID of target device (7F - "All Call") */
-    0x06u,      /* Sub-ID#1 - General Information */
-    0x02u,      /* Sub-ID#2 - Identity Reply */
-    0x7Du,      /* Manufacturer's ID: 7D - Educational Use */
-    0xB4u, 0x04u,               /* Family code */
-    0x32u, 0xD2u,               /* Model number */
-    0x01u, 0x00u, 0x00u, 0x00u, /* Version number */
-    /*0xF7         End of SysEx automatically appended */
-};
-
 /* Need for Identity Reply message */
 extern volatile uint8 USB_MIDI1_InqFlags;
 extern volatile uint8 USB_MIDI2_InqFlags;
-
 volatile uint8 usbActivityCounter = 0u;
 
-
-/*******************************************************************************
-* Function Name: SleepIsr
-*******************************************************************************/
-CY_ISR(SleepIsr)
-{
-    /* Chech USB activity */
-    if( USB_CheckActivity() != 0u ){
-        usbActivityCounter = 0u;
-    }else{
-        usbActivityCounter++;
-    }
-    /* Clear Pending Interrupt */
-    SleepTimer_GetStatus();
-}
-
-/*******************************************************************************
-* Function Name: GenerateMidiArray
-********************************************************************************
-* Summary:
-*  Aquires command, note, and velocity bytes and tosses them into an array (supplied by user)
-*
-* Parameters:
-*  midiArray[4], cmd, note, vel
-*
-* Return:
-*  None, modifies midiArray[]
-*
-*******************************************************************************/
-void GenerateMidiArray(uint8 midiArray[4], uint8 cmd, uint8 note, uint8 vel)
-{
-    midiArray[0]=cmd;
-    midiArray[1]=note;
-    midiArray[2]=vel;
-}
 
 int main()
 {
     /******* Initilizations *******/
-        
     //Enable global interrupts 
     CyGlobalIntEnable;
     
     //declare interrupts
-    CY_ISR_PROTO(GetSample);    //audio sampling interrupt  
+    CY_ISR_PROTO(GetSample);      //audio sampling interrupt  
     CY_ISR_PROTO(UserInterfaceISR);     //UI interrupt
     
     //Start interrupts
@@ -135,17 +84,17 @@ int main()
     CharLCD_Start();
             
     //Start the data sample and UI timers
-    Timer_1_Start();
-    UI_TIMER_Start();
+    TIMER_SAMPLERATE_Start();
+    TIMER_UI_Start();
     
     //Start ADC conversions
-    ADC_SAR_1_Start();
-    ADC_SAR_1_StartConvert();
-    UI_ADC_Start();
-    UI_ADC_StartConvert();
+    ADC_MIC_Start();
+    ADC_MIC_StartConvert();
+    ADC_UI_Start();
+    ADC_UI_StartConvert();
      
     //Start MIDI transfers
-    UART_Start();
+    UART_MIDITX_Start();
     
     pitch_init();
     
@@ -235,7 +184,6 @@ int main()
                     initDisplay();
                     start = 0;
                 }
-                
                 if(UI_Update_Mask & 0b0001){
                     UI_Update_Mask &= 0b1110;   //clear KEY bit
                     curKey = UpdateKeyLCD(lastKey);
@@ -248,9 +196,7 @@ int main()
                     UI_Update_Mask &= 0b1011;   //clear SCALE bit
                     CharLCD_PosPrintString(2,11,"          ");
                     CharLCD_PosPrintString(2,11,"Hist:");
-                    float tempHyst = (float)map(UI_ADC_GetResult16(HYST),0,255,50,100);
-                    tempHyst /= 100;
-                    CharLCD_PrintNumber(tempHyst);
+                    CharLCD_PrintNumber(map(lastHyst,0,255,50,100));
                     CharLCD_PrintString("%");
                 }
                 if(UI_Update_Mask & 0b1000){
@@ -302,9 +248,9 @@ int main()
                         midiMsg[1] = lastNote;
                         midiMsg[2] = 0u;        
                         
-                        UART_PutChar(midiMsg[0]);
-                        UART_PutChar(midiMsg[1]);
-                        UART_PutChar(midiMsg[2]);
+                        UART_MIDITX_PutChar(midiMsg[0]);
+                        UART_MIDITX_PutChar(midiMsg[1]);
+                        UART_MIDITX_PutChar(midiMsg[2]);
                         //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);
   
                     }
@@ -313,9 +259,9 @@ int main()
                     midiMsg[1] = note;
                     midiMsg[2] = lastVelo;
                     
-                    UART_PutChar(midiMsg[0]);
-                    UART_PutChar(midiMsg[1]);
-                    UART_PutChar(midiMsg[2]);
+                    UART_MIDITX_PutChar(midiMsg[0]);
+                    UART_MIDITX_PutChar(midiMsg[1]);
+                    UART_MIDITX_PutChar(midiMsg[2]);
                     //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);                                       
                     
                     lastNote = note;
@@ -345,9 +291,9 @@ int main()
                 midiMsg[1] = lastNote;
                 midiMsg[2] = 0u;
                 
-                UART_PutChar(midiMsg[0]);
-                UART_PutChar(midiMsg[1]);
-                UART_PutChar(midiMsg[2]);
+                UART_MIDITX_PutChar(midiMsg[0]);
+                UART_MIDITX_PutChar(midiMsg[1]);
+                UART_MIDITX_PutChar(midiMsg[2]);
 
                 //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);  
             }
@@ -371,40 +317,7 @@ int main()
                 #endif
                 #endif
         } /* END USB CHECK */
-        
-        if( usbActivityCounter >= 2u ) 
-        {
-            MIDI1_UART_Sleep();
-            MIDI2_UART_Sleep();
-            MIDI_PWR_Write(1u);     /* Power OFF CY8CKIT-044 board */
-                
-            /*******************************************************************
-            * Disable the USBFS block and set DP Interrupt for wake-up 
-            * from sleep mode. 
-            *******************************************************************/
-            USB_Suspend(); 
-            /* Prepares system clocks for the Sleep mode */
-            CyPmSaveClocks();
-            /*******************************************************************
-            * Switch to the Sleep Mode for the PSoC 3 or PSoC 5LP devices:
-            *  - PM_SLEEP_TIME_NONE: wakeup time is defined by PICU source
-            *  - PM_SLEEP_SRC_PICU: PICU wakeup source 
-            *******************************************************************/
-            CyPmSleep(PM_SLEEP_TIME_NONE, PM_SLEEP_SRC_PICU);
-            /* Restore clock configuration */
-            CyPmRestoreClocks();
-            /* Enable the USBFS block after power down mode */
-            USB_Resume();
-            
-            /* Enable the output endpoint */
-            USB_MIDI_EP_Init();
-            MIDI_PWR_Write(0u);     /* Power ON CY8CKIT-044 board */
-            MIDI1_UART_Wakeup();
-            MIDI2_UART_Wakeup();
-            usbActivityCounter = 0u; /* Re-init USB Activity Counter*/
-        }
-    } /* END Service USB MIDI when device configured */
-    
+    }    
     return 0;
 } /**** END MAIN LOOP ****/    
 
@@ -413,20 +326,7 @@ int main()
 void USB_callbackLocalMidiEvent(uint8 cable, uint8 *midiMsg) CYREENTRANT
 {
     /* Support General System On/Off Message. */
-    if(((USB_MIDI1_InqFlags & USB_INQ_SYSEX_FLAG) == 0u) && ((inqFlags_old & USB_INQ_SYSEX_FLAG) != 0u))
-    {
-        if(midiMsg[USB_EVENT_BYTE0] == USB_MIDI_SYSEX_GEN_MESSAGE)
-        {
-            if(midiMsg[USB_EVENT_BYTE1] == USB_MIDI_SYSEX_SYSTEM_ON)
-            {
-                MIDI_PWR_Write(0u); /* Power ON */
-            }
-            else if(midiMsg[USB_EVENT_BYTE1] == USB_MIDI_SYSEX_SYSTEM_OFF)
-            {
-                MIDI_PWR_Write(1u); /* Power OFF */
-            }
-        }
-    }
+    midiMsg = midiMsg;
     inqFlags_old = USB_MIDI1_InqFlags;
     cable = cable;
 }    
@@ -435,11 +335,11 @@ void USB_callbackLocalMidiEvent(uint8 cable, uint8 *midiMsg) CYREENTRANT
 // This ISR fills each audio frame. It runs on a timer which gives us our sampling rate.
 // Each frame is 1024 samples stored in an array.
 CY_ISR(GetSample){
-    Timer_1_STATUS;
+    TIMER_SAMPLERATE_STATUS;
     
-    if (ADC_SAR_1_IsEndConversion(ADC_SAR_1_WAIT_FOR_RESULT)) {
+    if (ADC_MIC_IsEndConversion(ADC_MIC_WAIT_FOR_RESULT)) {
         if (!frameLocked[currFrame]) {
-            ADCoutput = ADC_SAR_1_GetResult16();
+            ADCoutput = ADC_MIC_GetResult16();
             
             if (ADCoutput > max_value) {                        // Updates the max value if applicable.
                 max_value = ADCoutput;
@@ -464,14 +364,14 @@ CY_ISR(GetSample){
 // ***** Update UI ISR *****
 // This ISR checks each POT and updates the LCD if necessary
 CY_ISR(UserInterfaceISR){
-    UI_TIMER_STATUS;
+    TIMER_UI_STATUS;
     
-    UI_ADC_IsEndConversion(UI_ADC_WAIT_FOR_RESULT);
+    ADC_UI_IsEndConversion(ADC_UI_WAIT_FOR_RESULT);
     uint16 currKey, currScale, currHyst, currVelo;
-    currKey = UI_ADC_GetResult16(KEY);
-    currScale = UI_ADC_GetResult16(SCALE);
-    currHyst = UI_ADC_GetResult16(HYST);
-    currVelo = UI_ADC_GetResult16(VELO);
+    currKey = ADC_UI_GetResult16(KEY);
+    currScale = ADC_UI_GetResult16(SCALE);
+    currHyst = ADC_UI_GetResult16(HYST);
+    currVelo = ADC_UI_GetResult16(VELO);
 
     if(currKey < lastKey - UI_THRES || currKey > lastKey + UI_THRES){
         lastKey = currKey;

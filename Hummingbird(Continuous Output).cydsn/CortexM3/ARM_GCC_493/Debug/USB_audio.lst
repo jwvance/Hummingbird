@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTVee8J.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 1
   29:Generated_Source\PSoC5/USB_audio.c **** /***************************************
   30:Generated_Source\PSoC5/USB_audio.c **** * Custom Declarations
   31:Generated_Source\PSoC5/USB_audio.c **** ***************************************/
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTVee8J.s 			page 2
 
 
   32:Generated_Source\PSoC5/USB_audio.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 1
   86:Generated_Source\PSoC5/USB_audio.c **** *             transfer completes.
   87:Generated_Source\PSoC5/USB_audio.c **** *   USB_currentMute: Contains mute configuration set by Host.
   88:Generated_Source\PSoC5/USB_audio.c **** *   USB_currentVolume: Contains volume level set by Host.
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTVee8J.s 			page 3
 
 
   89:Generated_Source\PSoC5/USB_audio.c **** *
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 1
  129:Generated_Source\PSoC5/USB_audio.c ****                     break;
  130:Generated_Source\PSoC5/USB_audio.c ****             }
  131:Generated_Source\PSoC5/USB_audio.c ****         }
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTVee8J.s 			page 4
 
 
  132:Generated_Source\PSoC5/USB_audio.c ****         else if((bmRequestType & USB_RQST_RCPT_MASK) == USB_RQST_RCPT_IFC)
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 1
  186:Generated_Source\PSoC5/USB_audio.c ****                 case USB_GET_RES:    /* GET_RES */
  187:Generated_Source\PSoC5/USB_audio.c ****                     if(CY_GET_REG8(USB_wValueHi) == USB_VOLUME_CONTROL)
  188:Generated_Source\PSoC5/USB_audio.c ****                     {
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTVee8J.s 			page 5
 
 
  189:Generated_Source\PSoC5/USB_audio.c ****                          /* Entity ID Control Selector is VOLUME, */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 1
  240:Generated_Source\PSoC5/USB_audio.c ****                     break;
  241:Generated_Source\PSoC5/USB_audio.c ****                 default:
  242:Generated_Source\PSoC5/USB_audio.c ****                     break;
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTVee8J.s 			page 6
 
 
  243:Generated_Source\PSoC5/USB_audio.c ****             }
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 1
  294:Generated_Source\PSoC5/USB_audio.c ****     }
  295:Generated_Source\PSoC5/USB_audio.c ****     else
  296:Generated_Source\PSoC5/USB_audio.c ****     {   
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTVee8J.s 			page 7
 
 
  297:Generated_Source\PSoC5/USB_audio.c ****         /* requestHandled is initialized as FALSE by default */
@@ -407,40 +407,40 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 1
   82 0006 00000000 		.4byte	.Ldebug_abbrev0
   83 000a 04       		.byte	0x4
   84 000b 01       		.uleb128 0x1
-  85 000c 59000000 		.4byte	.LASF17
+  85 000c 5E000000 		.4byte	.LASF17
   86 0010 01       		.byte	0x1
-  87 0011 62010000 		.4byte	.LASF18
-  88 0015 E7000000 		.4byte	.LASF19
+  87 0011 1D010000 		.4byte	.LASF18
+  88 0015 8A010000 		.4byte	.LASF19
   89 0019 00000000 		.4byte	.Ldebug_ranges0+0
   90 001d 00000000 		.4byte	0
   91 0021 00000000 		.4byte	.Ldebug_line0
   92 0025 02       		.uleb128 0x2
   93 0026 01       		.byte	0x1
   94 0027 06       		.byte	0x6
-  95 0028 98010000 		.4byte	.LASF0
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 8
+  95 0028 53010000 		.4byte	.LASF0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTVee8J.s 			page 8
 
 
   96 002c 02       		.uleb128 0x2
   97 002d 01       		.byte	0x1
   98 002e 08       		.byte	0x8
-  99 002f 31010000 		.4byte	.LASF1
+  99 002f EC000000 		.4byte	.LASF1
  100 0033 02       		.uleb128 0x2
  101 0034 02       		.byte	0x2
  102 0035 05       		.byte	0x5
- 103 0036 C5010000 		.4byte	.LASF2
+ 103 0036 80010000 		.4byte	.LASF2
  104 003a 02       		.uleb128 0x2
  105 003b 02       		.byte	0x2
  106 003c 07       		.byte	0x7
- 107 003d 85010000 		.4byte	.LASF3
+ 107 003d 40010000 		.4byte	.LASF3
  108 0041 02       		.uleb128 0x2
  109 0042 04       		.byte	0x4
  110 0043 05       		.byte	0x5
- 111 0044 44010000 		.4byte	.LASF4
+ 111 0044 FF000000 		.4byte	.LASF4
  112 0048 02       		.uleb128 0x2
  113 0049 04       		.byte	0x4
  114 004a 07       		.byte	0x7
- 115 004b 21000000 		.4byte	.LASF5
+ 115 004b 26000000 		.4byte	.LASF5
  116 004f 02       		.uleb128 0x2
  117 0050 08       		.byte	0x8
  118 0051 05       		.byte	0x5
@@ -448,7 +448,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 1
  120 0056 02       		.uleb128 0x2
  121 0057 08       		.byte	0x8
  122 0058 07       		.byte	0x7
- 123 0059 42000000 		.4byte	.LASF7
+ 123 0059 47000000 		.4byte	.LASF7
  124 005d 03       		.uleb128 0x3
  125 005e 04       		.byte	0x4
  126 005f 05       		.byte	0x5
@@ -458,27 +458,27 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 1
  130 0066 07       		.byte	0x7
  131 0067 0E000000 		.4byte	.LASF8
  132 006b 04       		.uleb128 0x4
- 133 006c 1B000000 		.4byte	.LASF12
+ 133 006c 20000000 		.4byte	.LASF12
  134 0070 02       		.byte	0x2
  135 0071 5B       		.byte	0x5b
  136 0072 2C000000 		.4byte	0x2c
  137 0076 02       		.uleb128 0x2
  138 0077 04       		.byte	0x4
  139 0078 04       		.byte	0x4
- 140 0079 A4010000 		.4byte	.LASF9
+ 140 0079 5F010000 		.4byte	.LASF9
  141 007d 02       		.uleb128 0x2
  142 007e 08       		.byte	0x8
  143 007f 04       		.byte	0x4
- 144 0080 5B010000 		.4byte	.LASF10
+ 144 0080 16010000 		.4byte	.LASF10
  145 0084 02       		.uleb128 0x2
  146 0085 01       		.byte	0x1
  147 0086 08       		.byte	0x8
- 148 0087 3F010000 		.4byte	.LASF11
+ 148 0087 FA000000 		.4byte	.LASF11
  149 008b 04       		.uleb128 0x4
- 150 008c CF010000 		.4byte	.LASF13
+ 150 008c 1B000000 		.4byte	.LASF13
  151 0090 02       		.byte	0x2
  152 0091 F0       		.byte	0xf0
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 9
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTVee8J.s 			page 9
 
 
  153 0092 96000000 		.4byte	0x96
@@ -487,9 +487,9 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 1
  156 009b 02       		.uleb128 0x2
  157 009c 04       		.byte	0x4
  158 009d 07       		.byte	0x7
- 159 009e D4010000 		.4byte	.LASF14
+ 159 009e D5010000 		.4byte	.LASF14
  160 00a2 06       		.uleb128 0x6
- 161 00a3 AA010000 		.4byte	.LASF20
+ 161 00a3 65010000 		.4byte	.LASF20
  162 00a7 01       		.byte	0x1
  163 00a8 5E       		.byte	0x5e
  164 00a9 6B000000 		.4byte	0x6b
@@ -498,13 +498,13 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 1
  167 00b5 01       		.uleb128 0x1
  168 00b6 9C       		.byte	0x9c
  169 00b7 07       		.uleb128 0x7
- 170 00b8 33000000 		.4byte	.LASF15
+ 170 00b8 38000000 		.4byte	.LASF15
  171 00bc 01       		.byte	0x1
  172 00bd 60       		.byte	0x60
  173 00be 6B000000 		.4byte	0x6b
  174 00c2 00       		.byte	0
  175 00c3 08       		.uleb128 0x8
- 176 00c4 4D010000 		.4byte	.LASF16
+ 176 00c4 08010000 		.4byte	.LASF16
  177 00c8 01       		.byte	0x1
  178 00c9 61       		.byte	0x61
  179 00ca 6B000000 		.4byte	0x6b
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 1
  207 0016 0B       		.uleb128 0xb
  208 0017 0B       		.uleb128 0xb
  209 0018 3E       		.uleb128 0x3e
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTVee8J.s 			page 10
 
 
  210 0019 0B       		.uleb128 0xb
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 1
  264 004f 06       		.uleb128 0x6
  265 0050 40       		.uleb128 0x40
  266 0051 18       		.uleb128 0x18
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 11
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTVee8J.s 			page 11
 
 
  267 0052 9742     		.uleb128 0x2117
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 1
  321 0018 00000000 		.4byte	0
  322 001c 00000000 		.4byte	0
  323              		.section	.debug_ranges,"",%progbits
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTVee8J.s 			page 12
 
 
  324              	.Ldebug_ranges0:
@@ -683,113 +683,113 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 1
  335      676E6564 
  335      20696E74 
  335      00
- 336              	.LASF12:
- 337 001b 75696E74 		.ascii	"uint8\000"
- 337      3800
- 338              	.LASF5:
- 339 0021 6C6F6E67 		.ascii	"long unsigned int\000"
- 339      20756E73 
- 339      69676E65 
- 339      6420696E 
- 339      7400
- 340              	.LASF15:
- 341 0033 72657175 		.ascii	"requestHandled\000"
- 341      65737448 
- 341      616E646C 
- 341      656400
- 342              	.LASF7:
- 343 0042 6C6F6E67 		.ascii	"long long unsigned int\000"
- 343      206C6F6E 
- 343      6720756E 
- 343      7369676E 
- 343      65642069 
- 344              	.LASF17:
- 345 0059 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 345      4320342E 
- 345      392E3320 
- 345      32303135 
- 345      30333033 
- 346 008c 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 346      20726576 
- 346      6973696F 
- 346      6E203232 
- 346      31323230 
- 347 00bf 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
- 347      66756E63 
- 347      74696F6E 
- 347      2D736563 
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 13
+ 336              	.LASF13:
+ 337 001b 72656738 		.ascii	"reg8\000"
+ 337      00
+ 338              	.LASF12:
+ 339 0020 75696E74 		.ascii	"uint8\000"
+ 339      3800
+ 340              	.LASF5:
+ 341 0026 6C6F6E67 		.ascii	"long unsigned int\000"
+ 341      20756E73 
+ 341      69676E65 
+ 341      6420696E 
+ 341      7400
+ 342              	.LASF15:
+ 343 0038 72657175 		.ascii	"requestHandled\000"
+ 343      65737448 
+ 343      616E646C 
+ 343      656400
+ 344              	.LASF7:
+ 345 0047 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 345      206C6F6E 
+ 345      6720756E 
+ 345      7369676E 
+ 345      65642069 
+ 346              	.LASF17:
+ 347 005e 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 347      4320342E 
+ 347      392E3320 
+ 347      32303135 
+ 347      30333033 
+ 348 0091 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 348      20726576 
+ 348      6973696F 
+ 348      6E203232 
+ 348      31323230 
+ 349 00c4 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTVee8J.s 			page 13
 
 
- 347      74696F6E 
- 348              	.LASF19:
- 349 00e7 433A5C55 		.ascii	"C:\\Users\\jwvance\\Desktop\\Hummingbird\\Hummingbi"
- 349      73657273 
- 349      5C6A7776 
- 349      616E6365 
- 349      5C446573 
- 350 0115 72642843 		.ascii	"rd(Continuous Output).cydsn\000"
- 350      6F6E7469 
- 350      6E756F75 
- 350      73204F75 
- 350      74707574 
- 351              	.LASF1:
- 352 0131 756E7369 		.ascii	"unsigned char\000"
- 352      676E6564 
- 352      20636861 
- 352      7200
- 353              	.LASF11:
- 354 013f 63686172 		.ascii	"char\000"
- 354      00
- 355              	.LASF4:
- 356 0144 6C6F6E67 		.ascii	"long int\000"
- 356      20696E74 
- 356      00
- 357              	.LASF16:
- 358 014d 626D5265 		.ascii	"bmRequestType\000"
- 358      71756573 
- 358      74547970 
- 358      6500
- 359              	.LASF10:
- 360 015b 646F7562 		.ascii	"double\000"
- 360      6C6500
- 361              	.LASF18:
- 362 0162 47656E65 		.ascii	"Generated_Source\\PSoC5\\USB_audio.c\000"
- 362      72617465 
- 362      645F536F 
- 362      75726365 
- 362      5C50536F 
- 363              	.LASF3:
- 364 0185 73686F72 		.ascii	"short unsigned int\000"
- 364      7420756E 
- 364      7369676E 
- 364      65642069 
- 364      6E7400
- 365              	.LASF0:
- 366 0198 7369676E 		.ascii	"signed char\000"
- 366      65642063 
- 366      68617200 
- 367              	.LASF9:
- 368 01a4 666C6F61 		.ascii	"float\000"
- 368      7400
- 369              	.LASF20:
- 370 01aa 5553425F 		.ascii	"USB_DispatchAUDIOClassRqst\000"
- 370      44697370 
- 370      61746368 
- 370      41554449 
- 370      4F436C61 
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccMv1rQN.s 			page 14
+ 349      66756E63 
+ 349      74696F6E 
+ 349      2D736563 
+ 349      74696F6E 
+ 350              	.LASF1:
+ 351 00ec 756E7369 		.ascii	"unsigned char\000"
+ 351      676E6564 
+ 351      20636861 
+ 351      7200
+ 352              	.LASF11:
+ 353 00fa 63686172 		.ascii	"char\000"
+ 353      00
+ 354              	.LASF4:
+ 355 00ff 6C6F6E67 		.ascii	"long int\000"
+ 355      20696E74 
+ 355      00
+ 356              	.LASF16:
+ 357 0108 626D5265 		.ascii	"bmRequestType\000"
+ 357      71756573 
+ 357      74547970 
+ 357      6500
+ 358              	.LASF10:
+ 359 0116 646F7562 		.ascii	"double\000"
+ 359      6C6500
+ 360              	.LASF18:
+ 361 011d 47656E65 		.ascii	"Generated_Source\\PSoC5\\USB_audio.c\000"
+ 361      72617465 
+ 361      645F536F 
+ 361      75726365 
+ 361      5C50536F 
+ 362              	.LASF3:
+ 363 0140 73686F72 		.ascii	"short unsigned int\000"
+ 363      7420756E 
+ 363      7369676E 
+ 363      65642069 
+ 363      6E7400
+ 364              	.LASF0:
+ 365 0153 7369676E 		.ascii	"signed char\000"
+ 365      65642063 
+ 365      68617200 
+ 366              	.LASF9:
+ 367 015f 666C6F61 		.ascii	"float\000"
+ 367      7400
+ 368              	.LASF20:
+ 369 0165 5553425F 		.ascii	"USB_DispatchAUDIOClassRqst\000"
+ 369      44697370 
+ 369      61746368 
+ 369      41554449 
+ 369      4F436C61 
+ 370              	.LASF2:
+ 371 0180 73686F72 		.ascii	"short int\000"
+ 371      7420696E 
+ 371      7400
+ 372              	.LASF19:
+ 373 018a 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
+ 373      73657273 
+ 373      5C6D6772 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTVee8J.s 			page 14
 
 
- 371              	.LASF2:
- 372 01c5 73686F72 		.ascii	"short int\000"
- 372      7420696E 
- 372      7400
- 373              	.LASF13:
- 374 01cf 72656738 		.ascii	"reg8\000"
- 374      00
+ 373      6F6E6265 
+ 373      725C4465 
+ 374 01b8 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 374      436F6E74 
+ 374      696E756F 
+ 374      7573204F 
+ 374      75747075 
  375              	.LASF14:
- 376 01d4 73697A65 		.ascii	"sizetype\000"
+ 376 01d5 73697A65 		.ascii	"sizetype\000"
  376      74797065 
  376      00
  377              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

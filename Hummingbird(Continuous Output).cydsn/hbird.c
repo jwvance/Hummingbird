@@ -63,13 +63,13 @@ void initDisplay(void){
     
     CharLCD_ClearDisplay();
     
-    UpdateKeyLCD(UI_ADC_GetResult16(KEY));   //update key
-    UpdateScaleLCD(UI_ADC_GetResult16(SCALE));   //update scale
+    UpdateKeyLCD(ADC_UI_GetResult16(KEY));   //update key
+    UpdateScaleLCD(ADC_UI_GetResult16(SCALE));   //update scale
      
     CharLCD_PosPrintString(2,11,"          ");
     CharLCD_PosPrintString(2,11,"Hist:");
         
-    float tempHyst = (float)map(UI_ADC_GetResult16(HYST),0,255,50,100);
+    float tempHyst = (float)map(ADC_UI_GetResult16(HYST),0,255,50,100);
     
     tempHyst /= 100;
     
@@ -79,7 +79,22 @@ void initDisplay(void){
 
     CharLCD_PosPrintString(2,0,"          ");
     CharLCD_PosPrintString(2,0,"Vel:"); 
-    CharLCD_PrintNumber(map(UI_ADC_GetResult16(VELO),0,255,0,100));   
+    CharLCD_PrintNumber(map(ADC_UI_GetResult16(VELO),0,255,0,100));   
 }
+
+//Random Crap from main.c
+/* Identity Reply message */
+const uint8 CYCODE MIDI_IDENTITY_REPLY[] = {
+    0xF0u,      /* SysEx */
+    0x7Eu,      /* Non-Realtime */
+    0x7Fu,      /* ID of target device (7F - "All Call") */
+    0x06u,      /* Sub-ID#1 - General Information */
+    0x02u,      /* Sub-ID#2 - Identity Reply */
+    0x7Du,      /* Manufacturer's ID: 7D - Educational Use */
+    0xB4u, 0x04u,               /* Family code */
+    0x32u, 0xD2u,               /* Model number */
+    0x01u, 0x00u, 0x00u, 0x00u, /* Version number */
+    /*0xF7         End of SysEx automatically appended */
+};
 
 /* [] END OF FILE */

@@ -1,0 +1,2908 @@
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"TIMER_SAMPLERATE.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.TIMER_SAMPLERATE_Init,"ax",%progbits
+  19              		.align	2
+  20              		.global	TIMER_SAMPLERATE_Init
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	TIMER_SAMPLERATE_Init, %function
+  24              	TIMER_SAMPLERATE_Init:
+  25              	.LFB0:
+  26              		.file 1 "Generated_Source\\PSoC5\\TIMER_SAMPLERATE.c"
+   1:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * File Name: TIMER_SAMPLERATE.c
+   3:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Version 2.70
+   4:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+   5:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Description:
+   6:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  The Timer component consists of a 8, 16, 24 or 32-bit timer with
+   7:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  a selectable period between 2 and 2^Width - 1.  The timer may free run
+   8:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  or be used as a capture timer as well.  The capture can be initiated
+   9:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  by a positive or negative edge signal as well as via software.
+  10:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  A trigger input can be programmed to enable the timer on rising edge
+  11:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  falling edge, either edge or continous run.
+  12:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  Interrupts may be generated due to a terminal count condition
+  13:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  or a capture event.
+  14:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+  15:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Note:
+  16:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+  17:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+  18:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  19:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * You may use this file only in accordance with the license, terms, conditions,
+  20:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  21:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * the software package with which this file was provided.
+  22:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************/
+  23:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+  24:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #include "TIMER_SAMPLERATE.h"
+  25:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+  26:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** uint8 TIMER_SAMPLERATE_initVar = 0u;
+  27:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+  28:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+  29:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+  30:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_Init
+  31:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 2
+
+
+  32:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+  33:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+  34:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  Initialize to the schematic state
+  35:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+  36:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+  37:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+  38:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+  39:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+  40:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+  41:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+  42:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+  43:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_Init(void) 
+  44:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+  27              		.loc 1 44 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  36              	.LBB20:
+  37              	.LBB21:
+  45:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if(!TIMER_SAMPLERATE_UsingFixedFunction)
+  46:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             /* Interrupt State Backup for Critical Region*/
+  47:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             uint8 TIMER_SAMPLERATE_interruptState;
+  48:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* Interrupt state back up for Fixed Function only */
+  49:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+  50:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if (TIMER_SAMPLERATE_UsingFixedFunction)
+  51:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         /* Clear all bits but the enable bit (if it's already set) for Timer operation */
+  52:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_CONTROL &= TIMER_SAMPLERATE_CTRL_ENABLE;
+  53:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+  54:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         /* Clear the mode bits for continuous run mode */
+  55:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         #if (CY_PSOC5A)
+  56:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             TIMER_SAMPLERATE_CONTROL2 &= ((uint8)(~TIMER_SAMPLERATE_CTRL_MODE_MASK));
+  57:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         #endif /* Clear bits in CONTROL2 only in PSOC5A */
+  58:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+  59:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         #if (CY_PSOC3 || CY_PSOC5LP)
+  60:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             TIMER_SAMPLERATE_CONTROL3 &= ((uint8)(~TIMER_SAMPLERATE_CTRL_MODE_MASK));
+  61:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         #endif /* CONTROL3 register exists only in PSoC3 OR PSoC5LP */
+  62:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+  63:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         /* Check if One Shot mode is enabled i.e. RunMode !=0*/
+  64:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         #if (TIMER_SAMPLERATE_RunModeUsed != 0x0u)
+  65:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             /* Set 3rd bit of Control register to enable one shot mode */
+  66:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             TIMER_SAMPLERATE_CONTROL |= 0x04u;
+  67:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         #endif /* One Shot enabled only when RunModeUsed is not Continuous*/
+  68:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+  69:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         #if (TIMER_SAMPLERATE_RunModeUsed == 2)
+  70:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             #if (CY_PSOC5A)
+  71:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 /* Set last 2 bits of control2 register if one shot(halt on
+  72:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 interrupt) is enabled*/
+  73:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 TIMER_SAMPLERATE_CONTROL2 |= 0x03u;
+  74:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             #endif /* Set One-Shot Halt on Interrupt bit in CONTROL2 for PSoC5A */
+  75:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+  76:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  77:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 /* Set last 2 bits of control3 register if one shot(halt on
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 3
+
+
+  78:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 interrupt) is enabled*/
+  79:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 TIMER_SAMPLERATE_CONTROL3 |= 0x03u;
+  80:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             #endif /* Set One-Shot Halt on Interrupt bit in CONTROL3 for PSoC3 or PSoC5LP */
+  81:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+  82:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         #endif /* Remove section if One Shot Halt on Interrupt is not enabled */
+  83:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+  84:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         #if (TIMER_SAMPLERATE_UsingHWEnable != 0)
+  85:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             #if (CY_PSOC5A)
+  86:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 /* Set the default Run Mode of the Timer to Continuous */
+  87:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 TIMER_SAMPLERATE_CONTROL2 |= TIMER_SAMPLERATE_CTRL_MODE_PULSEWIDTH;
+  88:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             #endif /* Set Continuous Run Mode in CONTROL2 for PSoC5A */
+  89:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+  90:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  91:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 /* Clear and Set ROD and COD bits of CFG2 register */
+  92:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 TIMER_SAMPLERATE_CONTROL3 &= ((uint8)(~TIMER_SAMPLERATE_CTRL_RCOD_MASK));
+  93:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 TIMER_SAMPLERATE_CONTROL3 |= TIMER_SAMPLERATE_CTRL_RCOD;
+  94:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+  95:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 /* Clear and Enable the HW enable bit in CFG2 register */
+  96:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 TIMER_SAMPLERATE_CONTROL3 &= ((uint8)(~TIMER_SAMPLERATE_CTRL_ENBL_MASK));
+  97:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 TIMER_SAMPLERATE_CONTROL3 |= TIMER_SAMPLERATE_CTRL_ENBL;
+  98:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+  99:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 /* Set the default Run Mode of the Timer to Continuous */
+ 100:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 TIMER_SAMPLERATE_CONTROL3 |= TIMER_SAMPLERATE_CTRL_MODE_CONTINUOUS;
+ 101:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             #endif /* Set Continuous Run Mode in CONTROL3 for PSoC3ES3 or PSoC5A */
+ 102:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 103:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         #endif /* Configure Run Mode with hardware enable */
+ 104:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 105:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+ 106:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_RT1 &= ((uint8)(~TIMER_SAMPLERATE_RT1_MASK));
+ 107:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_RT1 |= TIMER_SAMPLERATE_SYNC;
+ 108:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 109:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         /*Enable DSI Sync all all inputs of the Timer*/
+ 110:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_RT1 &= ((uint8)(~TIMER_SAMPLERATE_SYNCDSI_MASK));
+ 111:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_RT1 |= TIMER_SAMPLERATE_SYNCDSI_EN;
+ 112:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 113:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         /* Set the IRQ to use the status register interrupts */
+ 114:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_CONTROL2 |= TIMER_SAMPLERATE_CTRL2_IRQ_SEL;
+ 115:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* Configuring registers of fixed function implementation */
+ 116:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 117:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* Set Initial values from Configuration */
+ 118:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     TIMER_SAMPLERATE_WritePeriod(TIMER_SAMPLERATE_INIT_PERIOD);
+ 119:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     TIMER_SAMPLERATE_WriteCounter(TIMER_SAMPLERATE_INIT_PERIOD);
+ 120:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 121:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if (TIMER_SAMPLERATE_UsingHWCaptureCounter)/* Capture counter is enabled */
+ 122:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_CAPTURE_COUNT_CTRL |= TIMER_SAMPLERATE_CNTR_ENABLE;
+ 123:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_SetCaptureCount(TIMER_SAMPLERATE_INIT_CAPTURE_COUNT);
+ 124:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* Configure capture counter value */
+ 125:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 126:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if (!TIMER_SAMPLERATE_UsingFixedFunction)
+ 127:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         #if (TIMER_SAMPLERATE_SoftwareCaptureMode)
+ 128:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             TIMER_SAMPLERATE_SetCaptureMode(TIMER_SAMPLERATE_INIT_CAPTURE_MODE);
+ 129:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         #endif /* Set Capture Mode for UDB implementation if capture mode is software controlled */
+ 130:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 131:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         #if (TIMER_SAMPLERATE_SoftwareTriggerMode)
+ 132:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             #if (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED)
+ 133:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 if (0u == (TIMER_SAMPLERATE_CONTROL & TIMER_SAMPLERATE__B_TIMER__TM_SOFTWARE))
+ 134:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 {
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 4
+
+
+ 135:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                     TIMER_SAMPLERATE_SetTriggerMode(TIMER_SAMPLERATE_INIT_TRIGGER_MODE);
+ 136:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 }
+ 137:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             #endif /* (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED) */
+ 138:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         #endif /* Set trigger mode for UDB Implementation if trigger mode is software controlled */
+ 139:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 140:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region critica
+ 141:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         /* Enter Critical Region*/
+ 142:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_interruptState = CyEnterCriticalSection();
+ 143:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 144:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         /* Use the interrupt output of the status register for IRQ output */
+ 145:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_STATUS_AUX_CTRL |= TIMER_SAMPLERATE_STATUS_ACTL_INT_EN_MASK;
+ 146:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 147:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         /* Exit Critical Region*/
+ 148:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         CyExitCriticalSection(TIMER_SAMPLERATE_interruptState);
+ 149:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 150:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         #if (TIMER_SAMPLERATE_EnableTriggerMode)
+ 151:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             TIMER_SAMPLERATE_EnableTrigger();
+ 152:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         #endif /* Set Trigger enable bit for UDB implementation in the control register*/
+ 153:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 		
+ 154:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 		
+ 155:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         #if (TIMER_SAMPLERATE_InterruptOnCaptureCount && !TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED)
+ 156:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             TIMER_SAMPLERATE_SetInterruptCount(TIMER_SAMPLERATE_INIT_INT_CAPTURE_COUNT);
+ 157:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         #endif /* Set interrupt count in UDB implementation if interrupt count feature is checked.*
+ 158:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 159:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_ClearFIFO();
+ 160:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* Configure additional features of UDB implementation */
+ 161:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 162:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     TIMER_SAMPLERATE_SetInterruptMode(TIMER_SAMPLERATE_INIT_INTERRUPT_MODE);
+ 163:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 164:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 165:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 166:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 167:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_Enable
+ 168:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 169:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 170:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 171:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  Enable the Timer
+ 172:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 173:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 174:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 175:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 176:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 177:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 178:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 179:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 180:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_Enable(void) 
+ 181:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 182:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 183:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if (TIMER_SAMPLERATE_UsingFixedFunction)
+ 184:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_GLOBAL_ENABLE |= TIMER_SAMPLERATE_BLOCK_EN_MASK;
+ 185:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_GLOBAL_STBY_ENABLE |= TIMER_SAMPLERATE_BLOCK_STBY_EN_MASK;
+ 186:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* Set Enable bit for enabling Fixed function timer*/
+ 187:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 188:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* Remove assignment if control register is removed */
+ 189:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED || TIMER_SAMPLERATE_UsingFixedFunction)
+ 190:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_CONTROL |= TIMER_SAMPLERATE_CTRL_ENABLE;
+ 191:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* Remove assignment if control register is removed */
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 5
+
+
+ 192:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 193:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 194:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 195:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 196:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_Start
+ 197:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 198:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 199:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 200:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  The start function initializes the timer with the default values, the
+ 201:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  enables the timerto begin counting.  It does not enable interrupts,
+ 202:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  the EnableInt command should be called if interrupt generation is required.
+ 203:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 204:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 205:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 206:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 207:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 208:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 209:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 210:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Global variables:
+ 211:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  TIMER_SAMPLERATE_initVar: Is modified when this function is called for the
+ 212:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *   first time. Is used to ensure that initialization happens only once.
+ 213:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 214:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 215:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_Start(void) 
+ 216:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 217:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     if(TIMER_SAMPLERATE_initVar == 0u)
+ 218:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     {
+ 219:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_Init();
+ 220:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 221:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_initVar = 1u;   /* Clear this bit for Initialization */
+ 222:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     }
+ 223:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 224:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* Enable the Timer */
+ 225:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     TIMER_SAMPLERATE_Enable();
+ 226:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 227:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 228:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 229:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 230:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_Stop
+ 231:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 232:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 233:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 234:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  The stop function halts the timer, but does not change any modes or disable
+ 235:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  interrupts.
+ 236:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 237:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 238:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 239:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 240:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 241:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 242:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 243:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Side Effects: If the Enable mode is set to Hardware only then this function
+ 244:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *               has no effect on the operation of the timer.
+ 245:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 246:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 247:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_Stop(void) 
+ 248:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 6
+
+
+ 249:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* Disable Timer */
+ 250:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if(!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED || TIMER_SAMPLERATE_UsingFixedFunction)
+ 251:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_CONTROL &= ((uint8)(~TIMER_SAMPLERATE_CTRL_ENABLE));
+ 252:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* Remove assignment if control register is removed */
+ 253:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 254:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* Globally disable the Fixed Function Block chosen */
+ 255:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if (TIMER_SAMPLERATE_UsingFixedFunction)
+ 256:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_GLOBAL_ENABLE &= ((uint8)(~TIMER_SAMPLERATE_BLOCK_EN_MASK));
+ 257:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_GLOBAL_STBY_ENABLE &= ((uint8)(~TIMER_SAMPLERATE_BLOCK_STBY_EN_MASK));
+ 258:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* Disable global enable for the Timer Fixed function block to stop the Timer*/
+ 259:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 260:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 261:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 262:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 263:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_SetInterruptMode
+ 264:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 265:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 266:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 267:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  This function selects which of the interrupt inputs may cause an interrupt.
+ 268:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  The twosources are caputure and terminal.  One, both or neither may
+ 269:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  be selected.
+ 270:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 271:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 272:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  interruptMode:   This parameter is used to enable interrups on either/or
+ 273:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *                   terminal count or capture.
+ 274:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 275:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 276:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 277:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 278:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 279:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_SetInterruptMode(uint8 interruptMode) 
+ 280:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 281:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     TIMER_SAMPLERATE_STATUS_MASK = interruptMode;
+ 282:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 283:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 284:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 285:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 286:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_SoftwareCapture
+ 287:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 288:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 289:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 290:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  This function forces a capture independent of the capture signal.
+ 291:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 292:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 293:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 294:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 295:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 296:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 297:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 298:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Side Effects:
+ 299:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  An existing hardware capture could be overwritten.
+ 300:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 301:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 302:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_SoftwareCapture(void) 
+ 303:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 304:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* Generate a software capture by reading the counter register */
+ 305:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if(TIMER_SAMPLERATE_UsingFixedFunction)
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 7
+
+
+ 306:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         (void)CY_GET_REG16(TIMER_SAMPLERATE_COUNTER_LSB_PTR);
+ 307:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #else
+ 308:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         (void)CY_GET_REG8(TIMER_SAMPLERATE_COUNTER_LSB_PTR_8BIT);
+ 309:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif/* (TIMER_SAMPLERATE_UsingFixedFunction) */
+ 310:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* Capture Data is now in the FIFO */
+ 311:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 312:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 313:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 314:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 315:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_ReadStatusRegister
+ 316:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 317:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 318:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 319:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  Reads the status register and returns it's state. This function should use
+ 320:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  defined types for the bit-field information as the bits in this register may
+ 321:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  be permuteable.
+ 322:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 323:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 324:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 325:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 326:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 327:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  The contents of the status register
+ 328:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 329:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Side Effects:
+ 330:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  Status register bits may be clear on read.
+ 331:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 332:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 333:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** uint8   TIMER_SAMPLERATE_ReadStatusRegister(void) 
+ 334:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 335:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     return (TIMER_SAMPLERATE_STATUS);
+ 336:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 337:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 338:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 339:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #if (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED) /* Remove API if control register is unused */
+ 340:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 341:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 342:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 343:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_ReadControlRegister
+ 344:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 345:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 346:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 347:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  Reads the control register and returns it's value.
+ 348:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 349:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 350:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 351:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 352:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 353:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  The contents of the control register
+ 354:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 355:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 356:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** uint8 TIMER_SAMPLERATE_ReadControlRegister(void) 
+ 357:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 358:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED) 
+ 359:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         return ((uint8)TIMER_SAMPLERATE_CONTROL);
+ 360:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #else
+ 361:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         return (0);
+ 362:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED) */
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 8
+
+
+ 363:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 364:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 365:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 366:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 367:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_WriteControlRegister
+ 368:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 369:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 370:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 371:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  Sets the bit-field of the control register.
+ 372:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 373:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 374:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  control: The contents of the control register
+ 375:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 376:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 377:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 378:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 379:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_WriteControlRegister(uint8 control) 
+ 380:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 381:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED) 
+ 382:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_CONTROL = control;
+ 383:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #else
+ 384:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         control = 0u;
+ 385:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED) */
+ 386:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 387:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 388:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #endif /* Remove API if control register is unused */
+ 389:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 390:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 391:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 392:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_ReadPeriod
+ 393:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 394:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 395:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 396:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  This function returns the current value of the Period.
+ 397:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 398:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 399:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 400:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 401:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 402:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  The present value of the counter.
+ 403:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 404:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 405:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** uint32 TIMER_SAMPLERATE_ReadPeriod(void) 
+ 406:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 407:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****    #if(TIMER_SAMPLERATE_UsingFixedFunction)
+ 408:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****        return ((uint32)CY_GET_REG16(TIMER_SAMPLERATE_PERIOD_LSB_PTR));
+ 409:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****    #else
+ 410:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****        return (CY_GET_REG24(TIMER_SAMPLERATE_PERIOD_LSB_PTR));
+ 411:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****    #endif /* (TIMER_SAMPLERATE_UsingFixedFunction) */
+ 412:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 413:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 414:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 415:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 416:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_WritePeriod
+ 417:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 418:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 419:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 9
+
+
+ 420:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  This function is used to change the period of the counter.  The new period
+ 421:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  will be loaded the next time terminal count is detected.
+ 422:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 423:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 424:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  period: This value may be between 1 and (2^Resolution)-1.  A value of 0 will
+ 425:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *          result in the counter remaining at zero.
+ 426:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 427:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 428:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 429:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 430:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 431:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_WritePeriod(uint32 period) 
+ 432:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 433:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if(TIMER_SAMPLERATE_UsingFixedFunction)
+ 434:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         uint16 period_temp = (uint16)period;
+ 435:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         CY_SET_REG16(TIMER_SAMPLERATE_PERIOD_LSB_PTR, period_temp);
+ 436:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #else
+ 437:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         CY_SET_REG24(TIMER_SAMPLERATE_PERIOD_LSB_PTR, period);
+  38              		.loc 1 437 0
+  39 0002 1048     		ldr	r0, .L11
+  40 0004 43F69721 		movw	r1, #14999
+  41 0008 FFF7FEFF 		bl	CySetReg24
+  42              	.LVL1:
+  43              	.LBE21:
+  44              	.LBE20:
+  45              	.LBB22:
+  46              	.LBB23:
+ 438:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /*Write Period value with appropriate resolution suffix depending on UDB or fixed functi
+ 439:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 440:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 441:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 442:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 443:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_ReadCapture
+ 444:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 445:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 446:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 447:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  This function returns the last value captured.
+ 448:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 449:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 450:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 451:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 452:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 453:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  Present Capture value.
+ 454:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 455:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 456:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** uint32 TIMER_SAMPLERATE_ReadCapture(void) 
+ 457:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 458:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****    #if(TIMER_SAMPLERATE_UsingFixedFunction)
+ 459:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****        return ((uint32)CY_GET_REG16(TIMER_SAMPLERATE_CAPTURE_LSB_PTR));
+ 460:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****    #else
+ 461:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****        return (CY_GET_REG24(TIMER_SAMPLERATE_CAPTURE_LSB_PTR));
+ 462:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****    #endif /* (TIMER_SAMPLERATE_UsingFixedFunction) */
+ 463:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 464:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 465:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 466:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 467:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_WriteCounter
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 10
+
+
+ 468:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 469:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 470:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 471:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  This funtion is used to set the counter to a specific value
+ 472:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 473:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 474:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  counter:  New counter value.
+ 475:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 476:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 477:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 478:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 479:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 480:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_WriteCounter(uint32 counter) 
+ 481:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 482:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****    #if(TIMER_SAMPLERATE_UsingFixedFunction)
+ 483:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         /* This functionality is removed until a FixedFunction HW update to
+ 484:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****          * allow this register to be written
+ 485:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****          */
+ 486:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         CY_SET_REG16(TIMER_SAMPLERATE_COUNTER_LSB_PTR, (uint16)counter);
+ 487:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         
+ 488:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #else
+ 489:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         CY_SET_REG24(TIMER_SAMPLERATE_COUNTER_LSB_PTR, counter);
+  47              		.loc 1 489 0
+  48 000c 43F69721 		movw	r1, #14999
+  49 0010 0D48     		ldr	r0, .L11+4
+  50 0012 FFF7FEFF 		bl	CySetReg24
+  51              	.LVL2:
+  52              	.LBE23:
+  53              	.LBE22:
+ 142:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+  54              		.loc 1 142 0
+  55 0016 FFF7FEFF 		bl	CyEnterCriticalSection
+  56              	.LVL3:
+ 145:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+  57              		.loc 1 145 0
+  58 001a 0C4A     		ldr	r2, .L11+8
+  59 001c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  60 001e 43F01003 		orr	r3, r3, #16
+  61 0022 1370     		strb	r3, [r2]
+ 148:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+  62              		.loc 1 148 0
+  63 0024 FFF7FEFF 		bl	CyExitCriticalSection
+  64              	.LVL4:
+  65              	.LBB24:
+  66              	.LBB25:
+  67              	.LBB26:
+  68              	.LBB27:
+ 335:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+  69              		.loc 1 335 0
+  70 0028 094A     		ldr	r2, .L11+12
+  71 002a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  72              	.LBE27:
+  73              	.LBE26:
+ 490:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* Set Write Counter only for the UDB implementation (Write Counter not available in fix
+ 491:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 492:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 493:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 11
+
+
+ 494:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 495:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_ReadCounter
+ 496:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 497:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 498:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 499:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  This function returns the current counter value.
+ 500:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 501:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 502:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 503:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 504:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 505:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  Present compare value.
+ 506:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 507:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 508:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** uint32 TIMER_SAMPLERATE_ReadCounter(void) 
+ 509:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 510:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* Force capture by reading Accumulator */
+ 511:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* Must first do a software capture to be able to read the counter */
+ 512:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 513:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if(TIMER_SAMPLERATE_UsingFixedFunction)
+ 514:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         (void)CY_GET_REG16(TIMER_SAMPLERATE_COUNTER_LSB_PTR);
+ 515:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #else
+ 516:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         (void)CY_GET_REG8(TIMER_SAMPLERATE_COUNTER_LSB_PTR_8BIT);
+ 517:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif/* (TIMER_SAMPLERATE_UsingFixedFunction) */
+ 518:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 519:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
+ 520:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if(TIMER_SAMPLERATE_UsingFixedFunction)
+ 521:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         return ((uint32)CY_GET_REG16(TIMER_SAMPLERATE_CAPTURE_LSB_PTR));
+ 522:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #else
+ 523:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         return (CY_GET_REG24(TIMER_SAMPLERATE_CAPTURE_LSB_PTR));
+ 524:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* (TIMER_SAMPLERATE_UsingFixedFunction) */
+ 525:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 526:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 527:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 528:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #if(!TIMER_SAMPLERATE_UsingFixedFunction) /* UDB Specific Functions */
+ 529:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 530:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     
+ 531:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 532:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****  * The functions below this point are only available using the UDB
+ 533:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****  * implementation.  If a feature is selected, then the API is enabled.
+ 534:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****  ******************************************************************************/
+ 535:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 536:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 537:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #if (TIMER_SAMPLERATE_SoftwareCaptureMode)
+ 538:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 539:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 540:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 541:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_SetCaptureMode
+ 542:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 543:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 544:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 545:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  This function sets the capture mode to either rising or falling edge.
+ 546:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 547:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 548:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  captureMode: This parameter sets the capture mode of the UDB capture feature
+ 549:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  The parameter values are defined using the
+ 550:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  #define TIMER_SAMPLERATE__B_TIMER__CM_NONE 0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 12
+
+
+ 551:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #define TIMER_SAMPLERATE__B_TIMER__CM_RISINGEDGE 1
+ 552:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #define TIMER_SAMPLERATE__B_TIMER__CM_FALLINGEDGE 2
+ 553:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #define TIMER_SAMPLERATE__B_TIMER__CM_EITHEREDGE 3
+ 554:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #define TIMER_SAMPLERATE__B_TIMER__CM_SOFTWARE 4
+ 555:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****  identifiers
+ 556:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  The following are the possible values of the parameter
+ 557:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  TIMER_SAMPLERATE__B_TIMER__CM_NONE        - Set Capture mode to None
+ 558:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  TIMER_SAMPLERATE__B_TIMER__CM_RISINGEDGE  - Rising edge of Capture input
+ 559:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  TIMER_SAMPLERATE__B_TIMER__CM_FALLINGEDGE - Falling edge of Capture input
+ 560:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  TIMER_SAMPLERATE__B_TIMER__CM_EITHEREDGE  - Either edge of Capture input
+ 561:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 562:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 563:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 564:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 565:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 566:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_SetCaptureMode(uint8 captureMode) 
+ 567:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 568:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* This must only set to two bits of the control register associated */
+ 569:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     captureMode = ((uint8)((uint8)captureMode << TIMER_SAMPLERATE_CTRL_CAP_MODE_SHIFT));
+ 570:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     captureMode &= (TIMER_SAMPLERATE_CTRL_CAP_MODE_MASK);
+ 571:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 572:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED)
+ 573:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         /* Clear the Current Setting */
+ 574:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_CONTROL &= ((uint8)(~TIMER_SAMPLERATE_CTRL_CAP_MODE_MASK));
+ 575:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 576:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         /* Write The New Setting */
+ 577:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_CONTROL |= captureMode;
+ 578:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED) */
+ 579:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 580:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #endif /* Remove API if Capture Mode is not Software Controlled */
+ 581:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 582:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 583:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #if (TIMER_SAMPLERATE_SoftwareTriggerMode)
+ 584:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 585:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 586:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 587:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_SetTriggerMode
+ 588:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 589:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 590:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 591:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  This function sets the trigger input mode
+ 592:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 593:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 594:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  triggerMode: Pass one of the pre-defined Trigger Modes (except Software)
+ 595:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #define TIMER_SAMPLERATE__B_TIMER__TM_NONE 0x00u
+ 596:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #define TIMER_SAMPLERATE__B_TIMER__TM_RISINGEDGE 0x04u
+ 597:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #define TIMER_SAMPLERATE__B_TIMER__TM_FALLINGEDGE 0x08u
+ 598:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #define TIMER_SAMPLERATE__B_TIMER__TM_EITHEREDGE 0x0Cu
+ 599:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #define TIMER_SAMPLERATE__B_TIMER__TM_SOFTWARE 0x10u
+ 600:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 601:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 602:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 603:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 604:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 605:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_SetTriggerMode(uint8 triggerMode) 
+ 606:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 607:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* This must only set to two bits of the control register associated */
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 13
+
+
+ 608:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     triggerMode &= TIMER_SAMPLERATE_CTRL_TRIG_MODE_MASK;
+ 609:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 610:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED)   /* Remove assignment if control register is r
+ 611:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     
+ 612:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         /* Clear the Current Setting */
+ 613:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_CONTROL &= ((uint8)(~TIMER_SAMPLERATE_CTRL_TRIG_MODE_MASK));
+ 614:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 615:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         /* Write The New Setting */
+ 616:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_CONTROL |= (triggerMode | TIMER_SAMPLERATE__B_TIMER__TM_SOFTWARE);
+ 617:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* Remove code section if control register is not used */
+ 618:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 619:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #endif /* Remove API if Trigger Mode is not Software Controlled */
+ 620:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 621:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #if (TIMER_SAMPLERATE_EnableTriggerMode)
+ 622:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 623:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 624:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 625:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_EnableTrigger
+ 626:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 627:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 628:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 629:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  Sets the control bit enabling Hardware Trigger mode
+ 630:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 631:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 632:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 633:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 634:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 635:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 636:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 637:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 638:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_EnableTrigger(void) 
+ 639:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 640:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED)   /* Remove assignment if control register is r
+ 641:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_CONTROL |= TIMER_SAMPLERATE_CTRL_TRIG_EN;
+ 642:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* Remove code section if control register is not used */
+ 643:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 644:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 645:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 646:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 647:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_DisableTrigger
+ 648:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 649:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 650:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 651:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  Clears the control bit enabling Hardware Trigger mode
+ 652:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 653:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 654:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 655:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 656:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 657:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 658:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 659:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 660:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_DisableTrigger(void) 
+ 661:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 662:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED )   /* Remove assignment if control register is 
+ 663:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_CONTROL &= ((uint8)(~TIMER_SAMPLERATE_CTRL_TRIG_EN));
+ 664:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* Remove code section if control register is not used */
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 14
+
+
+ 665:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 666:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #endif /* Remove API is Trigger Mode is set to None */
+ 667:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 668:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #if(TIMER_SAMPLERATE_InterruptOnCaptureCount)
+ 669:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 670:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 671:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 672:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_SetInterruptCount
+ 673:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 674:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 675:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 676:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  This function sets the capture count before an interrupt is triggered.
+ 677:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 678:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 679:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  interruptCount:  A value between 0 and 3 is valid.  If the value is 0, then
+ 680:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *                   an interrupt will occur each time a capture occurs.
+ 681:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *                   A value of 1 to 3 will cause the interrupt
+ 682:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *                   to delay by the same number of captures.
+ 683:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 684:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 685:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 686:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 687:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 688:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_SetInterruptCount(uint8 interruptCount) 
+ 689:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 690:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* This must only set to two bits of the control register associated */
+ 691:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     interruptCount &= TIMER_SAMPLERATE_CTRL_INTCNT_MASK;
+ 692:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 693:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED)
+ 694:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         /* Clear the Current Setting */
+ 695:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_CONTROL &= ((uint8)(~TIMER_SAMPLERATE_CTRL_INTCNT_MASK));
+ 696:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         /* Write The New Setting */
+ 697:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_CONTROL |= interruptCount;
+ 698:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED) */
+ 699:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 700:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #endif /* TIMER_SAMPLERATE_InterruptOnCaptureCount */
+ 701:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 702:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 703:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #if (TIMER_SAMPLERATE_UsingHWCaptureCounter)
+ 704:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 705:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 706:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 707:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_SetCaptureCount
+ 708:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 709:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 710:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 711:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  This function sets the capture count
+ 712:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 713:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 714:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  captureCount: A value between 2 and 127 inclusive is valid.  A value of 1
+ 715:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *                to 127 will cause the interrupt to delay by the same number of
+ 716:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *                captures.
+ 717:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 718:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 719:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 720:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 721:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 15
+
+
+ 722:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_SetCaptureCount(uint8 captureCount) 
+ 723:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 724:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     TIMER_SAMPLERATE_CAP_COUNT = captureCount;
+ 725:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 726:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 727:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 728:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 729:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_ReadCaptureCount
+ 730:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 731:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 732:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 733:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  This function reads the capture count setting
+ 734:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 735:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 736:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 737:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 738:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 739:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  Returns the Capture Count Setting
+ 740:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 741:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 742:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** uint8 TIMER_SAMPLERATE_ReadCaptureCount(void) 
+ 743:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 744:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     return ((uint8)TIMER_SAMPLERATE_CAP_COUNT);
+ 745:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 746:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #endif /* TIMER_SAMPLERATE_UsingHWCaptureCounter */
+ 747:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 748:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 749:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
+ 750:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_ClearFIFO
+ 751:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
+ 752:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 753:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
+ 754:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  This function clears all capture data from the capture FIFO
+ 755:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 756:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Parameters:
+ 757:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 758:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 759:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Return:
+ 760:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
+ 761:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
+ 762:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
+ 763:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_ClearFIFO(void) 
+ 764:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
+ 765:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     while(0u != (TIMER_SAMPLERATE_ReadStatusRegister() & TIMER_SAMPLERATE_STATUS_FIFONEMP))
+  74              		.loc 1 765 0
+  75 002c 1907     		lsls	r1, r3, #28
+  76 002e 04D5     		bpl	.L2
+  77              	.LBB29:
+  78              	.LBB30:
+ 461:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****    #endif /* (TIMER_SAMPLERATE_UsingFixedFunction) */
+  79              		.loc 1 461 0
+  80 0030 0849     		ldr	r1, .L11+16
+  81              	.L6:
+  82 0032 0B68     		ldr	r3, [r1]
+  83              	.LBE30:
+  84              	.LBE29:
+  85              	.LBB31:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 16
+
+
+  86              	.LBB28:
+ 335:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+  87              		.loc 1 335 0
+  88 0034 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  89              	.LBE28:
+  90              	.LBE31:
+  91              		.loc 1 765 0
+  92 0036 1B07     		lsls	r3, r3, #28
+  93 0038 FBD4     		bmi	.L6
+  94              	.L2:
+  95              	.LVL5:
+  96              	.LBE25:
+  97              	.LBE24:
+  98              	.LBB32:
+  99              	.LBB33:
+ 281:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 100              		.loc 1 281 0
+ 101 003a 074B     		ldr	r3, .L11+20
+ 102 003c 0122     		movs	r2, #1
+ 103 003e 1A70     		strb	r2, [r3]
+ 104 0040 08BD     		pop	{r3, pc}
+ 105              	.L12:
+ 106 0042 00BF     		.align	2
+ 107              	.L11:
+ 108 0044 25650040 		.word	1073767717
+ 109 0048 05650040 		.word	1073767685
+ 110 004c 97640040 		.word	1073767575
+ 111 0050 67640040 		.word	1073767527
+ 112 0054 45650040 		.word	1073767749
+ 113 0058 87640040 		.word	1073767559
+ 114              	.LBE33:
+ 115              	.LBE32:
+ 116              		.cfi_endproc
+ 117              	.LFE0:
+ 118              		.size	TIMER_SAMPLERATE_Init, .-TIMER_SAMPLERATE_Init
+ 119              		.section	.text.TIMER_SAMPLERATE_Enable,"ax",%progbits
+ 120              		.align	2
+ 121              		.global	TIMER_SAMPLERATE_Enable
+ 122              		.thumb
+ 123              		.thumb_func
+ 124              		.type	TIMER_SAMPLERATE_Enable, %function
+ 125              	TIMER_SAMPLERATE_Enable:
+ 126              	.LFB1:
+ 181:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 127              		.loc 1 181 0
+ 128              		.cfi_startproc
+ 129              		@ args = 0, pretend = 0, frame = 0
+ 130              		@ frame_needed = 0, uses_anonymous_args = 0
+ 131              		@ link register save eliminated.
+ 190:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* Remove assignment if control register is removed */
+ 132              		.loc 1 190 0
+ 133 0000 024A     		ldr	r2, .L14
+ 134 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 135 0004 43F08003 		orr	r3, r3, #128
+ 136 0008 1370     		strb	r3, [r2]
+ 137 000a 7047     		bx	lr
+ 138              	.L15:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 17
+
+
+ 139              		.align	2
+ 140              	.L14:
+ 141 000c 75650040 		.word	1073767797
+ 142              		.cfi_endproc
+ 143              	.LFE1:
+ 144              		.size	TIMER_SAMPLERATE_Enable, .-TIMER_SAMPLERATE_Enable
+ 145              		.section	.text.TIMER_SAMPLERATE_Start,"ax",%progbits
+ 146              		.align	2
+ 147              		.global	TIMER_SAMPLERATE_Start
+ 148              		.thumb
+ 149              		.thumb_func
+ 150              		.type	TIMER_SAMPLERATE_Start, %function
+ 151              	TIMER_SAMPLERATE_Start:
+ 152              	.LFB2:
+ 216:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     if(TIMER_SAMPLERATE_initVar == 0u)
+ 153              		.loc 1 216 0
+ 154              		.cfi_startproc
+ 155              		@ args = 0, pretend = 0, frame = 0
+ 156              		@ frame_needed = 0, uses_anonymous_args = 0
+ 157 0000 10B5     		push	{r4, lr}
+ 158              		.cfi_def_cfa_offset 8
+ 159              		.cfi_offset 4, -8
+ 160              		.cfi_offset 14, -4
+ 217:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     {
+ 161              		.loc 1 217 0
+ 162 0002 064C     		ldr	r4, .L19
+ 163 0004 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 164 0006 1BB9     		cbnz	r3, .L17
+ 219:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 165              		.loc 1 219 0
+ 166 0008 FFF7FEFF 		bl	TIMER_SAMPLERATE_Init
+ 167              	.LVL6:
+ 221:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     }
+ 168              		.loc 1 221 0
+ 169 000c 0123     		movs	r3, #1
+ 170 000e 2370     		strb	r3, [r4]
+ 171              	.L17:
+ 172              	.LBB34:
+ 173              	.LBB35:
+ 190:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* Remove assignment if control register is removed */
+ 174              		.loc 1 190 0
+ 175 0010 034A     		ldr	r2, .L19+4
+ 176 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 177 0014 43F08003 		orr	r3, r3, #128
+ 178 0018 1370     		strb	r3, [r2]
+ 179 001a 10BD     		pop	{r4, pc}
+ 180              	.L20:
+ 181              		.align	2
+ 182              	.L19:
+ 183 001c 00000000 		.word	.LANCHOR0
+ 184 0020 75650040 		.word	1073767797
+ 185              	.LBE35:
+ 186              	.LBE34:
+ 187              		.cfi_endproc
+ 188              	.LFE2:
+ 189              		.size	TIMER_SAMPLERATE_Start, .-TIMER_SAMPLERATE_Start
+ 190              		.section	.text.TIMER_SAMPLERATE_Stop,"ax",%progbits
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 18
+
+
+ 191              		.align	2
+ 192              		.global	TIMER_SAMPLERATE_Stop
+ 193              		.thumb
+ 194              		.thumb_func
+ 195              		.type	TIMER_SAMPLERATE_Stop, %function
+ 196              	TIMER_SAMPLERATE_Stop:
+ 197              	.LFB3:
+ 248:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* Disable Timer */
+ 198              		.loc 1 248 0
+ 199              		.cfi_startproc
+ 200              		@ args = 0, pretend = 0, frame = 0
+ 201              		@ frame_needed = 0, uses_anonymous_args = 0
+ 202              		@ link register save eliminated.
+ 251:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* Remove assignment if control register is removed */
+ 203              		.loc 1 251 0
+ 204 0000 024A     		ldr	r2, .L22
+ 205 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 206 0004 03F07F03 		and	r3, r3, #127
+ 207 0008 1370     		strb	r3, [r2]
+ 208 000a 7047     		bx	lr
+ 209              	.L23:
+ 210              		.align	2
+ 211              	.L22:
+ 212 000c 75650040 		.word	1073767797
+ 213              		.cfi_endproc
+ 214              	.LFE3:
+ 215              		.size	TIMER_SAMPLERATE_Stop, .-TIMER_SAMPLERATE_Stop
+ 216              		.section	.text.TIMER_SAMPLERATE_SetInterruptMode,"ax",%progbits
+ 217              		.align	2
+ 218              		.global	TIMER_SAMPLERATE_SetInterruptMode
+ 219              		.thumb
+ 220              		.thumb_func
+ 221              		.type	TIMER_SAMPLERATE_SetInterruptMode, %function
+ 222              	TIMER_SAMPLERATE_SetInterruptMode:
+ 223              	.LFB4:
+ 280:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     TIMER_SAMPLERATE_STATUS_MASK = interruptMode;
+ 224              		.loc 1 280 0
+ 225              		.cfi_startproc
+ 226              		@ args = 0, pretend = 0, frame = 0
+ 227              		@ frame_needed = 0, uses_anonymous_args = 0
+ 228              		@ link register save eliminated.
+ 229              	.LVL7:
+ 281:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 230              		.loc 1 281 0
+ 231 0000 014B     		ldr	r3, .L25
+ 232 0002 1870     		strb	r0, [r3]
+ 233 0004 7047     		bx	lr
+ 234              	.L26:
+ 235 0006 00BF     		.align	2
+ 236              	.L25:
+ 237 0008 87640040 		.word	1073767559
+ 238              		.cfi_endproc
+ 239              	.LFE4:
+ 240              		.size	TIMER_SAMPLERATE_SetInterruptMode, .-TIMER_SAMPLERATE_SetInterruptMode
+ 241              		.section	.text.TIMER_SAMPLERATE_SoftwareCapture,"ax",%progbits
+ 242              		.align	2
+ 243              		.global	TIMER_SAMPLERATE_SoftwareCapture
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 19
+
+
+ 244              		.thumb
+ 245              		.thumb_func
+ 246              		.type	TIMER_SAMPLERATE_SoftwareCapture, %function
+ 247              	TIMER_SAMPLERATE_SoftwareCapture:
+ 248              	.LFB5:
+ 303:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* Generate a software capture by reading the counter register */
+ 249              		.loc 1 303 0
+ 250              		.cfi_startproc
+ 251              		@ args = 0, pretend = 0, frame = 0
+ 252              		@ frame_needed = 0, uses_anonymous_args = 0
+ 253              		@ link register save eliminated.
+ 308:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif/* (TIMER_SAMPLERATE_UsingFixedFunction) */
+ 254              		.loc 1 308 0
+ 255 0000 014B     		ldr	r3, .L28
+ 256 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 257 0004 7047     		bx	lr
+ 258              	.L29:
+ 259 0006 00BF     		.align	2
+ 260              	.L28:
+ 261 0008 05650040 		.word	1073767685
+ 262              		.cfi_endproc
+ 263              	.LFE5:
+ 264              		.size	TIMER_SAMPLERATE_SoftwareCapture, .-TIMER_SAMPLERATE_SoftwareCapture
+ 265              		.section	.text.TIMER_SAMPLERATE_ReadStatusRegister,"ax",%progbits
+ 266              		.align	2
+ 267              		.global	TIMER_SAMPLERATE_ReadStatusRegister
+ 268              		.thumb
+ 269              		.thumb_func
+ 270              		.type	TIMER_SAMPLERATE_ReadStatusRegister, %function
+ 271              	TIMER_SAMPLERATE_ReadStatusRegister:
+ 272              	.LFB6:
+ 334:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     return (TIMER_SAMPLERATE_STATUS);
+ 273              		.loc 1 334 0
+ 274              		.cfi_startproc
+ 275              		@ args = 0, pretend = 0, frame = 0
+ 276              		@ frame_needed = 0, uses_anonymous_args = 0
+ 277              		@ link register save eliminated.
+ 335:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 278              		.loc 1 335 0
+ 279 0000 014B     		ldr	r3, .L31
+ 280 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 336:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 281              		.loc 1 336 0
+ 282 0004 7047     		bx	lr
+ 283              	.L32:
+ 284 0006 00BF     		.align	2
+ 285              	.L31:
+ 286 0008 67640040 		.word	1073767527
+ 287              		.cfi_endproc
+ 288              	.LFE6:
+ 289              		.size	TIMER_SAMPLERATE_ReadStatusRegister, .-TIMER_SAMPLERATE_ReadStatusRegister
+ 290              		.section	.text.TIMER_SAMPLERATE_ReadControlRegister,"ax",%progbits
+ 291              		.align	2
+ 292              		.global	TIMER_SAMPLERATE_ReadControlRegister
+ 293              		.thumb
+ 294              		.thumb_func
+ 295              		.type	TIMER_SAMPLERATE_ReadControlRegister, %function
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 20
+
+
+ 296              	TIMER_SAMPLERATE_ReadControlRegister:
+ 297              	.LFB7:
+ 357:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED) 
+ 298              		.loc 1 357 0
+ 299              		.cfi_startproc
+ 300              		@ args = 0, pretend = 0, frame = 0
+ 301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 302              		@ link register save eliminated.
+ 359:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #else
+ 303              		.loc 1 359 0
+ 304 0000 014B     		ldr	r3, .L34
+ 305 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 363:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 306              		.loc 1 363 0
+ 307 0004 7047     		bx	lr
+ 308              	.L35:
+ 309 0006 00BF     		.align	2
+ 310              	.L34:
+ 311 0008 75650040 		.word	1073767797
+ 312              		.cfi_endproc
+ 313              	.LFE7:
+ 314              		.size	TIMER_SAMPLERATE_ReadControlRegister, .-TIMER_SAMPLERATE_ReadControlRegister
+ 315              		.section	.text.TIMER_SAMPLERATE_WriteControlRegister,"ax",%progbits
+ 316              		.align	2
+ 317              		.global	TIMER_SAMPLERATE_WriteControlRegister
+ 318              		.thumb
+ 319              		.thumb_func
+ 320              		.type	TIMER_SAMPLERATE_WriteControlRegister, %function
+ 321              	TIMER_SAMPLERATE_WriteControlRegister:
+ 322              	.LFB8:
+ 380:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED) 
+ 323              		.loc 1 380 0
+ 324              		.cfi_startproc
+ 325              		@ args = 0, pretend = 0, frame = 0
+ 326              		@ frame_needed = 0, uses_anonymous_args = 0
+ 327              		@ link register save eliminated.
+ 328              	.LVL8:
+ 382:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #else
+ 329              		.loc 1 382 0
+ 330 0000 014B     		ldr	r3, .L37
+ 331 0002 1870     		strb	r0, [r3]
+ 332 0004 7047     		bx	lr
+ 333              	.L38:
+ 334 0006 00BF     		.align	2
+ 335              	.L37:
+ 336 0008 75650040 		.word	1073767797
+ 337              		.cfi_endproc
+ 338              	.LFE8:
+ 339              		.size	TIMER_SAMPLERATE_WriteControlRegister, .-TIMER_SAMPLERATE_WriteControlRegister
+ 340              		.section	.text.TIMER_SAMPLERATE_ReadPeriod,"ax",%progbits
+ 341              		.align	2
+ 342              		.global	TIMER_SAMPLERATE_ReadPeriod
+ 343              		.thumb
+ 344              		.thumb_func
+ 345              		.type	TIMER_SAMPLERATE_ReadPeriod, %function
+ 346              	TIMER_SAMPLERATE_ReadPeriod:
+ 347              	.LFB9:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 21
+
+
+ 406:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****    #if(TIMER_SAMPLERATE_UsingFixedFunction)
+ 348              		.loc 1 406 0
+ 349              		.cfi_startproc
+ 350              		@ args = 0, pretend = 0, frame = 0
+ 351              		@ frame_needed = 0, uses_anonymous_args = 0
+ 352              		@ link register save eliminated.
+ 410:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****    #endif /* (TIMER_SAMPLERATE_UsingFixedFunction) */
+ 353              		.loc 1 410 0
+ 354 0000 024B     		ldr	r3, .L40
+ 355 0002 1868     		ldr	r0, [r3]
+ 412:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 356              		.loc 1 412 0
+ 357 0004 20F07F40 		bic	r0, r0, #-16777216
+ 358 0008 7047     		bx	lr
+ 359              	.L41:
+ 360 000a 00BF     		.align	2
+ 361              	.L40:
+ 362 000c 25650040 		.word	1073767717
+ 363              		.cfi_endproc
+ 364              	.LFE9:
+ 365              		.size	TIMER_SAMPLERATE_ReadPeriod, .-TIMER_SAMPLERATE_ReadPeriod
+ 366              		.section	.text.TIMER_SAMPLERATE_WritePeriod,"ax",%progbits
+ 367              		.align	2
+ 368              		.global	TIMER_SAMPLERATE_WritePeriod
+ 369              		.thumb
+ 370              		.thumb_func
+ 371              		.type	TIMER_SAMPLERATE_WritePeriod, %function
+ 372              	TIMER_SAMPLERATE_WritePeriod:
+ 373              	.LFB10:
+ 432:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if(TIMER_SAMPLERATE_UsingFixedFunction)
+ 374              		.loc 1 432 0
+ 375              		.cfi_startproc
+ 376              		@ args = 0, pretend = 0, frame = 0
+ 377              		@ frame_needed = 0, uses_anonymous_args = 0
+ 378              		@ link register save eliminated.
+ 379              	.LVL9:
+ 432:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if(TIMER_SAMPLERATE_UsingFixedFunction)
+ 380              		.loc 1 432 0
+ 381 0000 0146     		mov	r1, r0
+ 437:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /*Write Period value with appropriate resolution suffix depending on UDB or fixed functi
+ 382              		.loc 1 437 0
+ 383 0002 0148     		ldr	r0, .L43
+ 384              	.LVL10:
+ 385 0004 FFF7FEBF 		b	CySetReg24
+ 386              	.LVL11:
+ 387              	.L44:
+ 388              		.align	2
+ 389              	.L43:
+ 390 0008 25650040 		.word	1073767717
+ 391              		.cfi_endproc
+ 392              	.LFE10:
+ 393              		.size	TIMER_SAMPLERATE_WritePeriod, .-TIMER_SAMPLERATE_WritePeriod
+ 394              		.section	.text.TIMER_SAMPLERATE_ReadCapture,"ax",%progbits
+ 395              		.align	2
+ 396              		.global	TIMER_SAMPLERATE_ReadCapture
+ 397              		.thumb
+ 398              		.thumb_func
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 22
+
+
+ 399              		.type	TIMER_SAMPLERATE_ReadCapture, %function
+ 400              	TIMER_SAMPLERATE_ReadCapture:
+ 401              	.LFB11:
+ 457:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****    #if(TIMER_SAMPLERATE_UsingFixedFunction)
+ 402              		.loc 1 457 0
+ 403              		.cfi_startproc
+ 404              		@ args = 0, pretend = 0, frame = 0
+ 405              		@ frame_needed = 0, uses_anonymous_args = 0
+ 406              		@ link register save eliminated.
+ 461:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****    #endif /* (TIMER_SAMPLERATE_UsingFixedFunction) */
+ 407              		.loc 1 461 0
+ 408 0000 024B     		ldr	r3, .L46
+ 409 0002 1868     		ldr	r0, [r3]
+ 463:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 410              		.loc 1 463 0
+ 411 0004 20F07F40 		bic	r0, r0, #-16777216
+ 412 0008 7047     		bx	lr
+ 413              	.L47:
+ 414 000a 00BF     		.align	2
+ 415              	.L46:
+ 416 000c 45650040 		.word	1073767749
+ 417              		.cfi_endproc
+ 418              	.LFE11:
+ 419              		.size	TIMER_SAMPLERATE_ReadCapture, .-TIMER_SAMPLERATE_ReadCapture
+ 420              		.section	.text.TIMER_SAMPLERATE_WriteCounter,"ax",%progbits
+ 421              		.align	2
+ 422              		.global	TIMER_SAMPLERATE_WriteCounter
+ 423              		.thumb
+ 424              		.thumb_func
+ 425              		.type	TIMER_SAMPLERATE_WriteCounter, %function
+ 426              	TIMER_SAMPLERATE_WriteCounter:
+ 427              	.LFB12:
+ 481:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****    #if(TIMER_SAMPLERATE_UsingFixedFunction)
+ 428              		.loc 1 481 0
+ 429              		.cfi_startproc
+ 430              		@ args = 0, pretend = 0, frame = 0
+ 431              		@ frame_needed = 0, uses_anonymous_args = 0
+ 432              		@ link register save eliminated.
+ 433              	.LVL12:
+ 481:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****    #if(TIMER_SAMPLERATE_UsingFixedFunction)
+ 434              		.loc 1 481 0
+ 435 0000 0146     		mov	r1, r0
+ 489:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* Set Write Counter only for the UDB implementation (Write Counter not available in fix
+ 436              		.loc 1 489 0
+ 437 0002 0148     		ldr	r0, .L49
+ 438              	.LVL13:
+ 439 0004 FFF7FEBF 		b	CySetReg24
+ 440              	.LVL14:
+ 441              	.L50:
+ 442              		.align	2
+ 443              	.L49:
+ 444 0008 05650040 		.word	1073767685
+ 445              		.cfi_endproc
+ 446              	.LFE12:
+ 447              		.size	TIMER_SAMPLERATE_WriteCounter, .-TIMER_SAMPLERATE_WriteCounter
+ 448              		.section	.text.TIMER_SAMPLERATE_ReadCounter,"ax",%progbits
+ 449              		.align	2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 23
+
+
+ 450              		.global	TIMER_SAMPLERATE_ReadCounter
+ 451              		.thumb
+ 452              		.thumb_func
+ 453              		.type	TIMER_SAMPLERATE_ReadCounter, %function
+ 454              	TIMER_SAMPLERATE_ReadCounter:
+ 455              	.LFB13:
+ 509:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* Force capture by reading Accumulator */
+ 456              		.loc 1 509 0
+ 457              		.cfi_startproc
+ 458              		@ args = 0, pretend = 0, frame = 0
+ 459              		@ frame_needed = 0, uses_anonymous_args = 0
+ 460              		@ link register save eliminated.
+ 523:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* (TIMER_SAMPLERATE_UsingFixedFunction) */
+ 461              		.loc 1 523 0
+ 462 0000 034B     		ldr	r3, .L52
+ 516:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif/* (TIMER_SAMPLERATE_UsingFixedFunction) */
+ 463              		.loc 1 516 0
+ 464 0002 044A     		ldr	r2, .L52+4
+ 465 0004 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 523:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* (TIMER_SAMPLERATE_UsingFixedFunction) */
+ 466              		.loc 1 523 0
+ 467 0006 1868     		ldr	r0, [r3]
+ 525:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
+ 468              		.loc 1 525 0
+ 469 0008 20F07F40 		bic	r0, r0, #-16777216
+ 470 000c 7047     		bx	lr
+ 471              	.L53:
+ 472 000e 00BF     		.align	2
+ 473              	.L52:
+ 474 0010 45650040 		.word	1073767749
+ 475 0014 05650040 		.word	1073767685
+ 476              		.cfi_endproc
+ 477              	.LFE13:
+ 478              		.size	TIMER_SAMPLERATE_ReadCounter, .-TIMER_SAMPLERATE_ReadCounter
+ 479              		.section	.text.TIMER_SAMPLERATE_ClearFIFO,"ax",%progbits
+ 480              		.align	2
+ 481              		.global	TIMER_SAMPLERATE_ClearFIFO
+ 482              		.thumb
+ 483              		.thumb_func
+ 484              		.type	TIMER_SAMPLERATE_ClearFIFO, %function
+ 485              	TIMER_SAMPLERATE_ClearFIFO:
+ 486              	.LFB14:
+ 764:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     while(0u != (TIMER_SAMPLERATE_ReadStatusRegister() & TIMER_SAMPLERATE_STATUS_FIFONEMP))
+ 487              		.loc 1 764 0
+ 488              		.cfi_startproc
+ 489              		@ args = 0, pretend = 0, frame = 0
+ 490              		@ frame_needed = 0, uses_anonymous_args = 0
+ 491              		@ link register save eliminated.
+ 492              	.LBB36:
+ 493              	.LBB37:
+ 335:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 494              		.loc 1 335 0
+ 495 0000 044A     		ldr	r2, .L62
+ 496 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 497              	.LBE37:
+ 498              	.LBE36:
+ 499              		.loc 1 765 0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 24
+
+
+ 500 0004 1907     		lsls	r1, r3, #28
+ 501 0006 04D5     		bpl	.L54
+ 502              	.LBB39:
+ 503              	.LBB40:
+ 461:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****    #endif /* (TIMER_SAMPLERATE_UsingFixedFunction) */
+ 504              		.loc 1 461 0
+ 505 0008 0349     		ldr	r1, .L62+4
+ 506              	.L59:
+ 507 000a 0B68     		ldr	r3, [r1]
+ 508              	.LBE40:
+ 509              	.LBE39:
+ 510              	.LBB41:
+ 511              	.LBB38:
+ 335:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
+ 512              		.loc 1 335 0
+ 513 000c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 514              	.LBE38:
+ 515              	.LBE41:
+ 516              		.loc 1 765 0
+ 517 000e 1B07     		lsls	r3, r3, #28
+ 518 0010 FBD4     		bmi	.L59
+ 519              	.L54:
+ 520 0012 7047     		bx	lr
+ 521              	.L63:
+ 522              		.align	2
+ 523              	.L62:
+ 524 0014 67640040 		.word	1073767527
+ 525 0018 45650040 		.word	1073767749
+ 526              		.cfi_endproc
+ 527              	.LFE14:
+ 528              		.size	TIMER_SAMPLERATE_ClearFIFO, .-TIMER_SAMPLERATE_ClearFIFO
+ 529              		.global	TIMER_SAMPLERATE_initVar
+ 530              		.bss
+ 531              		.set	.LANCHOR0,. + 0
+ 532              		.type	TIMER_SAMPLERATE_initVar, %object
+ 533              		.size	TIMER_SAMPLERATE_initVar, 1
+ 534              	TIMER_SAMPLERATE_initVar:
+ 535 0000 00       		.space	1
+ 536              		.text
+ 537              	.Letext0:
+ 538              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 539              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
+ 540              		.section	.debug_info,"",%progbits
+ 541              	.Ldebug_info0:
+ 542 0000 09040000 		.4byte	0x409
+ 543 0004 0400     		.2byte	0x4
+ 544 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 545 000a 04       		.byte	0x4
+ 546 000b 01       		.uleb128 0x1
+ 547 000c DB000000 		.4byte	.LASF37
+ 548 0010 01       		.byte	0x1
+ 549 0011 EA020000 		.4byte	.LASF38
+ 550 0015 90000000 		.4byte	.LASF39
+ 551 0019 30000000 		.4byte	.Ldebug_ranges0+0x30
+ 552 001d 00000000 		.4byte	0
+ 553 0021 00000000 		.4byte	.Ldebug_line0
+ 554 0025 02       		.uleb128 0x2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 25
+
+
+ 555 0026 01       		.byte	0x1
+ 556 0027 06       		.byte	0x6
+ 557 0028 CC030000 		.4byte	.LASF0
+ 558 002c 02       		.uleb128 0x2
+ 559 002d 01       		.byte	0x1
+ 560 002e 08       		.byte	0x8
+ 561 002f 8E010000 		.4byte	.LASF1
+ 562 0033 02       		.uleb128 0x2
+ 563 0034 02       		.byte	0x2
+ 564 0035 05       		.byte	0x5
+ 565 0036 66030000 		.4byte	.LASF2
+ 566 003a 02       		.uleb128 0x2
+ 567 003b 02       		.byte	0x2
+ 568 003c 07       		.byte	0x7
+ 569 003d 7D000000 		.4byte	.LASF3
+ 570 0041 02       		.uleb128 0x2
+ 571 0042 04       		.byte	0x4
+ 572 0043 05       		.byte	0x5
+ 573 0044 BE030000 		.4byte	.LASF4
+ 574 0048 02       		.uleb128 0x2
+ 575 0049 04       		.byte	0x4
+ 576 004a 07       		.byte	0x7
+ 577 004b C2010000 		.4byte	.LASF5
+ 578 004f 02       		.uleb128 0x2
+ 579 0050 08       		.byte	0x8
+ 580 0051 05       		.byte	0x5
+ 581 0052 1D030000 		.4byte	.LASF6
+ 582 0056 02       		.uleb128 0x2
+ 583 0057 08       		.byte	0x8
+ 584 0058 07       		.byte	0x7
+ 585 0059 77010000 		.4byte	.LASF7
+ 586 005d 03       		.uleb128 0x3
+ 587 005e 04       		.byte	0x4
+ 588 005f 05       		.byte	0x5
+ 589 0060 696E7400 		.ascii	"int\000"
+ 590 0064 02       		.uleb128 0x2
+ 591 0065 04       		.byte	0x4
+ 592 0066 07       		.byte	0x7
+ 593 0067 A1020000 		.4byte	.LASF8
+ 594 006b 04       		.uleb128 0x4
+ 595 006c D4010000 		.4byte	.LASF9
+ 596 0070 02       		.byte	0x2
+ 597 0071 5B       		.byte	0x5b
+ 598 0072 2C000000 		.4byte	0x2c
+ 599 0076 04       		.uleb128 0x4
+ 600 0077 66020000 		.4byte	.LASF10
+ 601 007b 02       		.byte	0x2
+ 602 007c 5D       		.byte	0x5d
+ 603 007d 48000000 		.4byte	0x48
+ 604 0081 02       		.uleb128 0x2
+ 605 0082 04       		.byte	0x4
+ 606 0083 04       		.byte	0x4
+ 607 0084 69010000 		.4byte	.LASF11
+ 608 0088 02       		.uleb128 0x2
+ 609 0089 08       		.byte	0x8
+ 610 008a 04       		.byte	0x4
+ 611 008b 25020000 		.4byte	.LASF12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 26
+
+
+ 612 008f 02       		.uleb128 0x2
+ 613 0090 01       		.byte	0x1
+ 614 0091 08       		.byte	0x8
+ 615 0092 C7030000 		.4byte	.LASF13
+ 616 0096 04       		.uleb128 0x4
+ 617 0097 BD010000 		.4byte	.LASF14
+ 618 009b 02       		.byte	0x2
+ 619 009c F0       		.byte	0xf0
+ 620 009d A1000000 		.4byte	0xa1
+ 621 00a1 05       		.uleb128 0x5
+ 622 00a2 6B000000 		.4byte	0x6b
+ 623 00a6 04       		.uleb128 0x4
+ 624 00a7 00000000 		.4byte	.LASF15
+ 625 00ab 02       		.byte	0x2
+ 626 00ac F2       		.byte	0xf2
+ 627 00ad B1000000 		.4byte	0xb1
+ 628 00b1 05       		.uleb128 0x5
+ 629 00b2 76000000 		.4byte	0x76
+ 630 00b6 02       		.uleb128 0x2
+ 631 00b7 04       		.byte	0x4
+ 632 00b8 07       		.byte	0x7
+ 633 00b9 14030000 		.4byte	.LASF16
+ 634 00bd 06       		.uleb128 0x6
+ 635 00be 6D020000 		.4byte	.LASF17
+ 636 00c2 01       		.byte	0x1
+ 637 00c3 C801     		.2byte	0x1c8
+ 638 00c5 76000000 		.4byte	0x76
+ 639 00c9 01       		.byte	0x1
+ 640 00ca 06       		.uleb128 0x6
+ 641 00cb 2C020000 		.4byte	.LASF18
+ 642 00cf 01       		.byte	0x1
+ 643 00d0 4D01     		.2byte	0x14d
+ 644 00d2 6B000000 		.4byte	0x6b
+ 645 00d6 01       		.byte	0x1
+ 646 00d7 07       		.uleb128 0x7
+ 647 00d8 06000000 		.4byte	.LASF19
+ 648 00dc 01       		.byte	0x1
+ 649 00dd AF01     		.2byte	0x1af
+ 650 00df 01       		.byte	0x1
+ 651 00e0 F1000000 		.4byte	0xf1
+ 652 00e4 08       		.uleb128 0x8
+ 653 00e5 5A000000 		.4byte	.LASF21
+ 654 00e9 01       		.byte	0x1
+ 655 00ea AF01     		.2byte	0x1af
+ 656 00ec 76000000 		.4byte	0x76
+ 657 00f0 00       		.byte	0
+ 658 00f1 07       		.uleb128 0x7
+ 659 00f2 07020000 		.4byte	.LASF20
+ 660 00f6 01       		.byte	0x1
+ 661 00f7 E001     		.2byte	0x1e0
+ 662 00f9 01       		.byte	0x1
+ 663 00fa 0B010000 		.4byte	0x10b
+ 664 00fe 08       		.uleb128 0x8
+ 665 00ff 6F010000 		.4byte	.LASF22
+ 666 0103 01       		.byte	0x1
+ 667 0104 E001     		.2byte	0x1e0
+ 668 0106 76000000 		.4byte	0x76
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 27
+
+
+ 669 010a 00       		.byte	0
+ 670 010b 09       		.uleb128 0x9
+ 671 010c 70030000 		.4byte	.LASF25
+ 672 0110 01       		.byte	0x1
+ 673 0111 FB02     		.2byte	0x2fb
+ 674 0113 01       		.byte	0x1
+ 675 0114 07       		.uleb128 0x7
+ 676 0115 2B030000 		.4byte	.LASF23
+ 677 0119 01       		.byte	0x1
+ 678 011a 1701     		.2byte	0x117
+ 679 011c 01       		.byte	0x1
+ 680 011d 2E010000 		.4byte	0x12e
+ 681 0121 08       		.uleb128 0x8
+ 682 0122 4D030000 		.4byte	.LASF24
+ 683 0126 01       		.byte	0x1
+ 684 0127 1701     		.2byte	0x117
+ 685 0129 6B000000 		.4byte	0x6b
+ 686 012d 00       		.byte	0
+ 687 012e 0A       		.uleb128 0xa
+ 688 012f F1030000 		.4byte	.LASF26
+ 689 0133 01       		.byte	0x1
+ 690 0134 B4       		.byte	0xb4
+ 691 0135 01       		.byte	0x1
+ 692 0136 0B       		.uleb128 0xb
+ 693 0137 50020000 		.4byte	.LASF27
+ 694 013b 01       		.byte	0x1
+ 695 013c 2B       		.byte	0x2b
+ 696 013d 00000000 		.4byte	.LFB0
+ 697 0141 5C000000 		.4byte	.LFE0-.LFB0
+ 698 0145 01       		.uleb128 0x1
+ 699 0146 9C       		.byte	0x9c
+ 700 0147 25020000 		.4byte	0x225
+ 701 014b 0C       		.uleb128 0xc
+ 702 014c 3A000000 		.4byte	.LASF40
+ 703 0150 01       		.byte	0x1
+ 704 0151 2F       		.byte	0x2f
+ 705 0152 6B000000 		.4byte	0x6b
+ 706 0156 00000000 		.4byte	.LLST0
+ 707 015a 0D       		.uleb128 0xd
+ 708 015b D7000000 		.4byte	0xd7
+ 709 015f 02000000 		.4byte	.LBB20
+ 710 0163 0A000000 		.4byte	.LBE20-.LBB20
+ 711 0167 01       		.byte	0x1
+ 712 0168 76       		.byte	0x76
+ 713 0169 8F010000 		.4byte	0x18f
+ 714 016d 0E       		.uleb128 0xe
+ 715 016e E4000000 		.4byte	0xe4
+ 716 0172 973A     		.2byte	0x3a97
+ 717 0174 0F       		.uleb128 0xf
+ 718 0175 0C000000 		.4byte	.LVL1
+ 719 0179 D8030000 		.4byte	0x3d8
+ 720 017d 10       		.uleb128 0x10
+ 721 017e 01       		.uleb128 0x1
+ 722 017f 51       		.byte	0x51
+ 723 0180 03       		.uleb128 0x3
+ 724 0181 0A       		.byte	0xa
+ 725 0182 973A     		.2byte	0x3a97
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 28
+
+
+ 726 0184 10       		.uleb128 0x10
+ 727 0185 01       		.uleb128 0x1
+ 728 0186 50       		.byte	0x50
+ 729 0187 05       		.uleb128 0x5
+ 730 0188 0C       		.byte	0xc
+ 731 0189 25650040 		.4byte	0x40006525
+ 732 018d 00       		.byte	0
+ 733 018e 00       		.byte	0
+ 734 018f 0D       		.uleb128 0xd
+ 735 0190 F1000000 		.4byte	0xf1
+ 736 0194 0C000000 		.4byte	.LBB22
+ 737 0198 0A000000 		.4byte	.LBE22-.LBB22
+ 738 019c 01       		.byte	0x1
+ 739 019d 77       		.byte	0x77
+ 740 019e C4010000 		.4byte	0x1c4
+ 741 01a2 0E       		.uleb128 0xe
+ 742 01a3 FE000000 		.4byte	0xfe
+ 743 01a7 973A     		.2byte	0x3a97
+ 744 01a9 0F       		.uleb128 0xf
+ 745 01aa 16000000 		.4byte	.LVL2
+ 746 01ae D8030000 		.4byte	0x3d8
+ 747 01b2 10       		.uleb128 0x10
+ 748 01b3 01       		.uleb128 0x1
+ 749 01b4 51       		.byte	0x51
+ 750 01b5 03       		.uleb128 0x3
+ 751 01b6 0A       		.byte	0xa
+ 752 01b7 973A     		.2byte	0x3a97
+ 753 01b9 10       		.uleb128 0x10
+ 754 01ba 01       		.uleb128 0x1
+ 755 01bb 50       		.byte	0x50
+ 756 01bc 05       		.uleb128 0x5
+ 757 01bd 0C       		.byte	0xc
+ 758 01be 05650040 		.4byte	0x40006505
+ 759 01c2 00       		.byte	0
+ 760 01c3 00       		.byte	0
+ 761 01c4 0D       		.uleb128 0xd
+ 762 01c5 0B010000 		.4byte	0x10b
+ 763 01c9 28000000 		.4byte	.LBB24
+ 764 01cd 12000000 		.4byte	.LBE24-.LBB24
+ 765 01d1 01       		.byte	0x1
+ 766 01d2 9F       		.byte	0x9f
+ 767 01d3 F8010000 		.4byte	0x1f8
+ 768 01d7 11       		.uleb128 0x11
+ 769 01d8 CA000000 		.4byte	0xca
+ 770 01dc 28000000 		.4byte	.LBB26
+ 771 01e0 00000000 		.4byte	.Ldebug_ranges0+0
+ 772 01e4 01       		.byte	0x1
+ 773 01e5 FD02     		.2byte	0x2fd
+ 774 01e7 12       		.uleb128 0x12
+ 775 01e8 BD000000 		.4byte	0xbd
+ 776 01ec 30000000 		.4byte	.LBB29
+ 777 01f0 04000000 		.4byte	.LBE29-.LBB29
+ 778 01f4 01       		.byte	0x1
+ 779 01f5 FF02     		.2byte	0x2ff
+ 780 01f7 00       		.byte	0
+ 781 01f8 0D       		.uleb128 0xd
+ 782 01f9 14010000 		.4byte	0x114
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 29
+
+
+ 783 01fd 3A000000 		.4byte	.LBB32
+ 784 0201 22000000 		.4byte	.LBE32-.LBB32
+ 785 0205 01       		.byte	0x1
+ 786 0206 A2       		.byte	0xa2
+ 787 0207 12020000 		.4byte	0x212
+ 788 020b 13       		.uleb128 0x13
+ 789 020c 21010000 		.4byte	0x121
+ 790 0210 01       		.byte	0x1
+ 791 0211 00       		.byte	0
+ 792 0212 14       		.uleb128 0x14
+ 793 0213 1A000000 		.4byte	.LVL3
+ 794 0217 F4030000 		.4byte	0x3f4
+ 795 021b 14       		.uleb128 0x14
+ 796 021c 28000000 		.4byte	.LVL4
+ 797 0220 FF030000 		.4byte	0x3ff
+ 798 0224 00       		.byte	0
+ 799 0225 15       		.uleb128 0x15
+ 800 0226 2E010000 		.4byte	0x12e
+ 801 022a 00000000 		.4byte	.LFB1
+ 802 022e 10000000 		.4byte	.LFE1-.LFB1
+ 803 0232 01       		.uleb128 0x1
+ 804 0233 9C       		.byte	0x9c
+ 805 0234 0B       		.uleb128 0xb
+ 806 0235 23000000 		.4byte	.LASF28
+ 807 0239 01       		.byte	0x1
+ 808 023a D7       		.byte	0xd7
+ 809 023b 00000000 		.4byte	.LFB2
+ 810 023f 24000000 		.4byte	.LFE2-.LFB2
+ 811 0243 01       		.uleb128 0x1
+ 812 0244 9C       		.byte	0x9c
+ 813 0245 62020000 		.4byte	0x262
+ 814 0249 16       		.uleb128 0x16
+ 815 024a 2E010000 		.4byte	0x12e
+ 816 024e 10000000 		.4byte	.LBB34
+ 817 0252 14000000 		.4byte	.LBE34-.LBB34
+ 818 0256 01       		.byte	0x1
+ 819 0257 E1       		.byte	0xe1
+ 820 0258 14       		.uleb128 0x14
+ 821 0259 0C000000 		.4byte	.LVL6
+ 822 025d 36010000 		.4byte	0x136
+ 823 0261 00       		.byte	0
+ 824 0262 17       		.uleb128 0x17
+ 825 0263 8B030000 		.4byte	.LASF29
+ 826 0267 01       		.byte	0x1
+ 827 0268 F7       		.byte	0xf7
+ 828 0269 00000000 		.4byte	.LFB3
+ 829 026d 10000000 		.4byte	.LFE3-.LFB3
+ 830 0271 01       		.uleb128 0x1
+ 831 0272 9C       		.byte	0x9c
+ 832 0273 18       		.uleb128 0x18
+ 833 0274 14010000 		.4byte	0x114
+ 834 0278 00000000 		.4byte	.LFB4
+ 835 027c 0C000000 		.4byte	.LFE4-.LFB4
+ 836 0280 01       		.uleb128 0x1
+ 837 0281 9C       		.byte	0x9c
+ 838 0282 8E020000 		.4byte	0x28e
+ 839 0286 19       		.uleb128 0x19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 30
+
+
+ 840 0287 21010000 		.4byte	0x121
+ 841 028b 01       		.uleb128 0x1
+ 842 028c 50       		.byte	0x50
+ 843 028d 00       		.byte	0
+ 844 028e 1A       		.uleb128 0x1a
+ 845 028f 9C010000 		.4byte	.LASF30
+ 846 0293 01       		.byte	0x1
+ 847 0294 2E01     		.2byte	0x12e
+ 848 0296 00000000 		.4byte	.LFB5
+ 849 029a 0C000000 		.4byte	.LFE5-.LFB5
+ 850 029e 01       		.uleb128 0x1
+ 851 029f 9C       		.byte	0x9c
+ 852 02a0 15       		.uleb128 0x15
+ 853 02a1 CA000000 		.4byte	0xca
+ 854 02a5 00000000 		.4byte	.LFB6
+ 855 02a9 0C000000 		.4byte	.LFE6-.LFB6
+ 856 02ad 01       		.uleb128 0x1
+ 857 02ae 9C       		.byte	0x9c
+ 858 02af 1B       		.uleb128 0x1b
+ 859 02b0 E2010000 		.4byte	.LASF32
+ 860 02b4 01       		.byte	0x1
+ 861 02b5 6401     		.2byte	0x164
+ 862 02b7 6B000000 		.4byte	0x6b
+ 863 02bb 00000000 		.4byte	.LFB7
+ 864 02bf 0C000000 		.4byte	.LFE7-.LFB7
+ 865 02c3 01       		.uleb128 0x1
+ 866 02c4 9C       		.byte	0x9c
+ 867 02c5 1C       		.uleb128 0x1c
+ 868 02c6 AE020000 		.4byte	.LASF31
+ 869 02ca 01       		.byte	0x1
+ 870 02cb 7B01     		.2byte	0x17b
+ 871 02cd 00000000 		.4byte	.LFB8
+ 872 02d1 0C000000 		.4byte	.LFE8-.LFB8
+ 873 02d5 01       		.uleb128 0x1
+ 874 02d6 9C       		.byte	0x9c
+ 875 02d7 EA020000 		.4byte	0x2ea
+ 876 02db 1D       		.uleb128 0x1d
+ 877 02dc DA010000 		.4byte	.LASF41
+ 878 02e0 01       		.byte	0x1
+ 879 02e1 7B01     		.2byte	0x17b
+ 880 02e3 6B000000 		.4byte	0x6b
+ 881 02e7 01       		.uleb128 0x1
+ 882 02e8 50       		.byte	0x50
+ 883 02e9 00       		.byte	0
+ 884 02ea 1B       		.uleb128 0x1b
+ 885 02eb 61000000 		.4byte	.LASF33
+ 886 02ef 01       		.byte	0x1
+ 887 02f0 9501     		.2byte	0x195
+ 888 02f2 76000000 		.4byte	0x76
+ 889 02f6 00000000 		.4byte	.LFB9
+ 890 02fa 10000000 		.4byte	.LFE9-.LFB9
+ 891 02fe 01       		.uleb128 0x1
+ 892 02ff 9C       		.byte	0x9c
+ 893 0300 18       		.uleb128 0x18
+ 894 0301 D7000000 		.4byte	0xd7
+ 895 0305 00000000 		.4byte	.LFB10
+ 896 0309 0C000000 		.4byte	.LFE10-.LFB10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 31
+
+
+ 897 030d 01       		.uleb128 0x1
+ 898 030e 9C       		.byte	0x9c
+ 899 030f 37030000 		.4byte	0x337
+ 900 0313 1E       		.uleb128 0x1e
+ 901 0314 E4000000 		.4byte	0xe4
+ 902 0318 13000000 		.4byte	.LLST1
+ 903 031c 1F       		.uleb128 0x1f
+ 904 031d 08000000 		.4byte	.LVL11
+ 905 0321 D8030000 		.4byte	0x3d8
+ 906 0325 10       		.uleb128 0x10
+ 907 0326 01       		.uleb128 0x1
+ 908 0327 51       		.byte	0x51
+ 909 0328 03       		.uleb128 0x3
+ 910 0329 F3       		.byte	0xf3
+ 911 032a 01       		.uleb128 0x1
+ 912 032b 50       		.byte	0x50
+ 913 032c 10       		.uleb128 0x10
+ 914 032d 01       		.uleb128 0x1
+ 915 032e 50       		.byte	0x50
+ 916 032f 05       		.uleb128 0x5
+ 917 0330 0C       		.byte	0xc
+ 918 0331 25650040 		.4byte	0x40006525
+ 919 0335 00       		.byte	0
+ 920 0336 00       		.byte	0
+ 921 0337 15       		.uleb128 0x15
+ 922 0338 BD000000 		.4byte	0xbd
+ 923 033c 00000000 		.4byte	.LFB11
+ 924 0340 10000000 		.4byte	.LFE11-.LFB11
+ 925 0344 01       		.uleb128 0x1
+ 926 0345 9C       		.byte	0x9c
+ 927 0346 18       		.uleb128 0x18
+ 928 0347 F1000000 		.4byte	0xf1
+ 929 034b 00000000 		.4byte	.LFB12
+ 930 034f 0C000000 		.4byte	.LFE12-.LFB12
+ 931 0353 01       		.uleb128 0x1
+ 932 0354 9C       		.byte	0x9c
+ 933 0355 7D030000 		.4byte	0x37d
+ 934 0359 1E       		.uleb128 0x1e
+ 935 035a FE000000 		.4byte	0xfe
+ 936 035e 3F000000 		.4byte	.LLST2
+ 937 0362 1F       		.uleb128 0x1f
+ 938 0363 08000000 		.4byte	.LVL14
+ 939 0367 D8030000 		.4byte	0x3d8
+ 940 036b 10       		.uleb128 0x10
+ 941 036c 01       		.uleb128 0x1
+ 942 036d 51       		.byte	0x51
+ 943 036e 03       		.uleb128 0x3
+ 944 036f F3       		.byte	0xf3
+ 945 0370 01       		.uleb128 0x1
+ 946 0371 50       		.byte	0x50
+ 947 0372 10       		.uleb128 0x10
+ 948 0373 01       		.uleb128 0x1
+ 949 0374 50       		.byte	0x50
+ 950 0375 05       		.uleb128 0x5
+ 951 0376 0C       		.byte	0xc
+ 952 0377 05650040 		.4byte	0x40006505
+ 953 037b 00       		.byte	0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 32
+
+
+ 954 037c 00       		.byte	0
+ 955 037d 1B       		.uleb128 0x1b
+ 956 037e A1030000 		.4byte	.LASF34
+ 957 0382 01       		.byte	0x1
+ 958 0383 FC01     		.2byte	0x1fc
+ 959 0385 76000000 		.4byte	0x76
+ 960 0389 00000000 		.4byte	.LFB13
+ 961 038d 18000000 		.4byte	.LFE13-.LFB13
+ 962 0391 01       		.uleb128 0x1
+ 963 0392 9C       		.byte	0x9c
+ 964 0393 18       		.uleb128 0x18
+ 965 0394 0B010000 		.4byte	0x10b
+ 966 0398 00000000 		.4byte	.LFB14
+ 967 039c 1C000000 		.4byte	.LFE14-.LFB14
+ 968 03a0 01       		.uleb128 0x1
+ 969 03a1 9C       		.byte	0x9c
+ 970 03a2 C7030000 		.4byte	0x3c7
+ 971 03a6 11       		.uleb128 0x11
+ 972 03a7 CA000000 		.4byte	0xca
+ 973 03ab 00000000 		.4byte	.LBB36
+ 974 03af 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 975 03b3 01       		.byte	0x1
+ 976 03b4 FD02     		.2byte	0x2fd
+ 977 03b6 12       		.uleb128 0x12
+ 978 03b7 BD000000 		.4byte	0xbd
+ 979 03bb 08000000 		.4byte	.LBB39
+ 980 03bf 04000000 		.4byte	.LBE39-.LBB39
+ 981 03c3 01       		.byte	0x1
+ 982 03c4 FF02     		.2byte	0x2ff
+ 983 03c6 00       		.byte	0
+ 984 03c7 20       		.uleb128 0x20
+ 985 03c8 D8030000 		.4byte	.LASF42
+ 986 03cc 01       		.byte	0x1
+ 987 03cd 1A       		.byte	0x1a
+ 988 03ce 6B000000 		.4byte	0x6b
+ 989 03d2 05       		.uleb128 0x5
+ 990 03d3 03       		.byte	0x3
+ 991 03d4 00000000 		.4byte	TIMER_SAMPLERATE_initVar
+ 992 03d8 21       		.uleb128 0x21
+ 993 03d9 5B030000 		.4byte	.LASF35
+ 994 03dd 02       		.byte	0x2
+ 995 03de 9E       		.byte	0x9e
+ 996 03df EE030000 		.4byte	0x3ee
+ 997 03e3 22       		.uleb128 0x22
+ 998 03e4 EE030000 		.4byte	0x3ee
+ 999 03e8 22       		.uleb128 0x22
+ 1000 03e9 76000000 		.4byte	0x76
+ 1001 03ed 00       		.byte	0
+ 1002 03ee 23       		.uleb128 0x23
+ 1003 03ef 04       		.byte	0x4
+ 1004 03f0 B1000000 		.4byte	0xb1
+ 1005 03f4 24       		.uleb128 0x24
+ 1006 03f5 8A020000 		.4byte	.LASF36
+ 1007 03f9 03       		.byte	0x3
+ 1008 03fa 7E       		.byte	0x7e
+ 1009 03fb 6B000000 		.4byte	0x6b
+ 1010 03ff 25       		.uleb128 0x25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 33
+
+
+ 1011 0400 D4020000 		.4byte	.LASF43
+ 1012 0404 03       		.byte	0x3
+ 1013 0405 7F       		.byte	0x7f
+ 1014 0406 22       		.uleb128 0x22
+ 1015 0407 6B000000 		.4byte	0x6b
+ 1016 040b 00       		.byte	0
+ 1017 040c 00       		.byte	0
+ 1018              		.section	.debug_abbrev,"",%progbits
+ 1019              	.Ldebug_abbrev0:
+ 1020 0000 01       		.uleb128 0x1
+ 1021 0001 11       		.uleb128 0x11
+ 1022 0002 01       		.byte	0x1
+ 1023 0003 25       		.uleb128 0x25
+ 1024 0004 0E       		.uleb128 0xe
+ 1025 0005 13       		.uleb128 0x13
+ 1026 0006 0B       		.uleb128 0xb
+ 1027 0007 03       		.uleb128 0x3
+ 1028 0008 0E       		.uleb128 0xe
+ 1029 0009 1B       		.uleb128 0x1b
+ 1030 000a 0E       		.uleb128 0xe
+ 1031 000b 55       		.uleb128 0x55
+ 1032 000c 17       		.uleb128 0x17
+ 1033 000d 11       		.uleb128 0x11
+ 1034 000e 01       		.uleb128 0x1
+ 1035 000f 10       		.uleb128 0x10
+ 1036 0010 17       		.uleb128 0x17
+ 1037 0011 00       		.byte	0
+ 1038 0012 00       		.byte	0
+ 1039 0013 02       		.uleb128 0x2
+ 1040 0014 24       		.uleb128 0x24
+ 1041 0015 00       		.byte	0
+ 1042 0016 0B       		.uleb128 0xb
+ 1043 0017 0B       		.uleb128 0xb
+ 1044 0018 3E       		.uleb128 0x3e
+ 1045 0019 0B       		.uleb128 0xb
+ 1046 001a 03       		.uleb128 0x3
+ 1047 001b 0E       		.uleb128 0xe
+ 1048 001c 00       		.byte	0
+ 1049 001d 00       		.byte	0
+ 1050 001e 03       		.uleb128 0x3
+ 1051 001f 24       		.uleb128 0x24
+ 1052 0020 00       		.byte	0
+ 1053 0021 0B       		.uleb128 0xb
+ 1054 0022 0B       		.uleb128 0xb
+ 1055 0023 3E       		.uleb128 0x3e
+ 1056 0024 0B       		.uleb128 0xb
+ 1057 0025 03       		.uleb128 0x3
+ 1058 0026 08       		.uleb128 0x8
+ 1059 0027 00       		.byte	0
+ 1060 0028 00       		.byte	0
+ 1061 0029 04       		.uleb128 0x4
+ 1062 002a 16       		.uleb128 0x16
+ 1063 002b 00       		.byte	0
+ 1064 002c 03       		.uleb128 0x3
+ 1065 002d 0E       		.uleb128 0xe
+ 1066 002e 3A       		.uleb128 0x3a
+ 1067 002f 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 34
+
+
+ 1068 0030 3B       		.uleb128 0x3b
+ 1069 0031 0B       		.uleb128 0xb
+ 1070 0032 49       		.uleb128 0x49
+ 1071 0033 13       		.uleb128 0x13
+ 1072 0034 00       		.byte	0
+ 1073 0035 00       		.byte	0
+ 1074 0036 05       		.uleb128 0x5
+ 1075 0037 35       		.uleb128 0x35
+ 1076 0038 00       		.byte	0
+ 1077 0039 49       		.uleb128 0x49
+ 1078 003a 13       		.uleb128 0x13
+ 1079 003b 00       		.byte	0
+ 1080 003c 00       		.byte	0
+ 1081 003d 06       		.uleb128 0x6
+ 1082 003e 2E       		.uleb128 0x2e
+ 1083 003f 00       		.byte	0
+ 1084 0040 3F       		.uleb128 0x3f
+ 1085 0041 19       		.uleb128 0x19
+ 1086 0042 03       		.uleb128 0x3
+ 1087 0043 0E       		.uleb128 0xe
+ 1088 0044 3A       		.uleb128 0x3a
+ 1089 0045 0B       		.uleb128 0xb
+ 1090 0046 3B       		.uleb128 0x3b
+ 1091 0047 05       		.uleb128 0x5
+ 1092 0048 27       		.uleb128 0x27
+ 1093 0049 19       		.uleb128 0x19
+ 1094 004a 49       		.uleb128 0x49
+ 1095 004b 13       		.uleb128 0x13
+ 1096 004c 20       		.uleb128 0x20
+ 1097 004d 0B       		.uleb128 0xb
+ 1098 004e 00       		.byte	0
+ 1099 004f 00       		.byte	0
+ 1100 0050 07       		.uleb128 0x7
+ 1101 0051 2E       		.uleb128 0x2e
+ 1102 0052 01       		.byte	0x1
+ 1103 0053 3F       		.uleb128 0x3f
+ 1104 0054 19       		.uleb128 0x19
+ 1105 0055 03       		.uleb128 0x3
+ 1106 0056 0E       		.uleb128 0xe
+ 1107 0057 3A       		.uleb128 0x3a
+ 1108 0058 0B       		.uleb128 0xb
+ 1109 0059 3B       		.uleb128 0x3b
+ 1110 005a 05       		.uleb128 0x5
+ 1111 005b 27       		.uleb128 0x27
+ 1112 005c 19       		.uleb128 0x19
+ 1113 005d 20       		.uleb128 0x20
+ 1114 005e 0B       		.uleb128 0xb
+ 1115 005f 01       		.uleb128 0x1
+ 1116 0060 13       		.uleb128 0x13
+ 1117 0061 00       		.byte	0
+ 1118 0062 00       		.byte	0
+ 1119 0063 08       		.uleb128 0x8
+ 1120 0064 05       		.uleb128 0x5
+ 1121 0065 00       		.byte	0
+ 1122 0066 03       		.uleb128 0x3
+ 1123 0067 0E       		.uleb128 0xe
+ 1124 0068 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 35
+
+
+ 1125 0069 0B       		.uleb128 0xb
+ 1126 006a 3B       		.uleb128 0x3b
+ 1127 006b 05       		.uleb128 0x5
+ 1128 006c 49       		.uleb128 0x49
+ 1129 006d 13       		.uleb128 0x13
+ 1130 006e 00       		.byte	0
+ 1131 006f 00       		.byte	0
+ 1132 0070 09       		.uleb128 0x9
+ 1133 0071 2E       		.uleb128 0x2e
+ 1134 0072 00       		.byte	0
+ 1135 0073 3F       		.uleb128 0x3f
+ 1136 0074 19       		.uleb128 0x19
+ 1137 0075 03       		.uleb128 0x3
+ 1138 0076 0E       		.uleb128 0xe
+ 1139 0077 3A       		.uleb128 0x3a
+ 1140 0078 0B       		.uleb128 0xb
+ 1141 0079 3B       		.uleb128 0x3b
+ 1142 007a 05       		.uleb128 0x5
+ 1143 007b 27       		.uleb128 0x27
+ 1144 007c 19       		.uleb128 0x19
+ 1145 007d 20       		.uleb128 0x20
+ 1146 007e 0B       		.uleb128 0xb
+ 1147 007f 00       		.byte	0
+ 1148 0080 00       		.byte	0
+ 1149 0081 0A       		.uleb128 0xa
+ 1150 0082 2E       		.uleb128 0x2e
+ 1151 0083 00       		.byte	0
+ 1152 0084 3F       		.uleb128 0x3f
+ 1153 0085 19       		.uleb128 0x19
+ 1154 0086 03       		.uleb128 0x3
+ 1155 0087 0E       		.uleb128 0xe
+ 1156 0088 3A       		.uleb128 0x3a
+ 1157 0089 0B       		.uleb128 0xb
+ 1158 008a 3B       		.uleb128 0x3b
+ 1159 008b 0B       		.uleb128 0xb
+ 1160 008c 27       		.uleb128 0x27
+ 1161 008d 19       		.uleb128 0x19
+ 1162 008e 20       		.uleb128 0x20
+ 1163 008f 0B       		.uleb128 0xb
+ 1164 0090 00       		.byte	0
+ 1165 0091 00       		.byte	0
+ 1166 0092 0B       		.uleb128 0xb
+ 1167 0093 2E       		.uleb128 0x2e
+ 1168 0094 01       		.byte	0x1
+ 1169 0095 3F       		.uleb128 0x3f
+ 1170 0096 19       		.uleb128 0x19
+ 1171 0097 03       		.uleb128 0x3
+ 1172 0098 0E       		.uleb128 0xe
+ 1173 0099 3A       		.uleb128 0x3a
+ 1174 009a 0B       		.uleb128 0xb
+ 1175 009b 3B       		.uleb128 0x3b
+ 1176 009c 0B       		.uleb128 0xb
+ 1177 009d 27       		.uleb128 0x27
+ 1178 009e 19       		.uleb128 0x19
+ 1179 009f 11       		.uleb128 0x11
+ 1180 00a0 01       		.uleb128 0x1
+ 1181 00a1 12       		.uleb128 0x12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 36
+
+
+ 1182 00a2 06       		.uleb128 0x6
+ 1183 00a3 40       		.uleb128 0x40
+ 1184 00a4 18       		.uleb128 0x18
+ 1185 00a5 9742     		.uleb128 0x2117
+ 1186 00a7 19       		.uleb128 0x19
+ 1187 00a8 01       		.uleb128 0x1
+ 1188 00a9 13       		.uleb128 0x13
+ 1189 00aa 00       		.byte	0
+ 1190 00ab 00       		.byte	0
+ 1191 00ac 0C       		.uleb128 0xc
+ 1192 00ad 34       		.uleb128 0x34
+ 1193 00ae 00       		.byte	0
+ 1194 00af 03       		.uleb128 0x3
+ 1195 00b0 0E       		.uleb128 0xe
+ 1196 00b1 3A       		.uleb128 0x3a
+ 1197 00b2 0B       		.uleb128 0xb
+ 1198 00b3 3B       		.uleb128 0x3b
+ 1199 00b4 0B       		.uleb128 0xb
+ 1200 00b5 49       		.uleb128 0x49
+ 1201 00b6 13       		.uleb128 0x13
+ 1202 00b7 02       		.uleb128 0x2
+ 1203 00b8 17       		.uleb128 0x17
+ 1204 00b9 00       		.byte	0
+ 1205 00ba 00       		.byte	0
+ 1206 00bb 0D       		.uleb128 0xd
+ 1207 00bc 1D       		.uleb128 0x1d
+ 1208 00bd 01       		.byte	0x1
+ 1209 00be 31       		.uleb128 0x31
+ 1210 00bf 13       		.uleb128 0x13
+ 1211 00c0 11       		.uleb128 0x11
+ 1212 00c1 01       		.uleb128 0x1
+ 1213 00c2 12       		.uleb128 0x12
+ 1214 00c3 06       		.uleb128 0x6
+ 1215 00c4 58       		.uleb128 0x58
+ 1216 00c5 0B       		.uleb128 0xb
+ 1217 00c6 59       		.uleb128 0x59
+ 1218 00c7 0B       		.uleb128 0xb
+ 1219 00c8 01       		.uleb128 0x1
+ 1220 00c9 13       		.uleb128 0x13
+ 1221 00ca 00       		.byte	0
+ 1222 00cb 00       		.byte	0
+ 1223 00cc 0E       		.uleb128 0xe
+ 1224 00cd 05       		.uleb128 0x5
+ 1225 00ce 00       		.byte	0
+ 1226 00cf 31       		.uleb128 0x31
+ 1227 00d0 13       		.uleb128 0x13
+ 1228 00d1 1C       		.uleb128 0x1c
+ 1229 00d2 05       		.uleb128 0x5
+ 1230 00d3 00       		.byte	0
+ 1231 00d4 00       		.byte	0
+ 1232 00d5 0F       		.uleb128 0xf
+ 1233 00d6 898201   		.uleb128 0x4109
+ 1234 00d9 01       		.byte	0x1
+ 1235 00da 11       		.uleb128 0x11
+ 1236 00db 01       		.uleb128 0x1
+ 1237 00dc 31       		.uleb128 0x31
+ 1238 00dd 13       		.uleb128 0x13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 37
+
+
+ 1239 00de 00       		.byte	0
+ 1240 00df 00       		.byte	0
+ 1241 00e0 10       		.uleb128 0x10
+ 1242 00e1 8A8201   		.uleb128 0x410a
+ 1243 00e4 00       		.byte	0
+ 1244 00e5 02       		.uleb128 0x2
+ 1245 00e6 18       		.uleb128 0x18
+ 1246 00e7 9142     		.uleb128 0x2111
+ 1247 00e9 18       		.uleb128 0x18
+ 1248 00ea 00       		.byte	0
+ 1249 00eb 00       		.byte	0
+ 1250 00ec 11       		.uleb128 0x11
+ 1251 00ed 1D       		.uleb128 0x1d
+ 1252 00ee 00       		.byte	0
+ 1253 00ef 31       		.uleb128 0x31
+ 1254 00f0 13       		.uleb128 0x13
+ 1255 00f1 52       		.uleb128 0x52
+ 1256 00f2 01       		.uleb128 0x1
+ 1257 00f3 55       		.uleb128 0x55
+ 1258 00f4 17       		.uleb128 0x17
+ 1259 00f5 58       		.uleb128 0x58
+ 1260 00f6 0B       		.uleb128 0xb
+ 1261 00f7 59       		.uleb128 0x59
+ 1262 00f8 05       		.uleb128 0x5
+ 1263 00f9 00       		.byte	0
+ 1264 00fa 00       		.byte	0
+ 1265 00fb 12       		.uleb128 0x12
+ 1266 00fc 1D       		.uleb128 0x1d
+ 1267 00fd 00       		.byte	0
+ 1268 00fe 31       		.uleb128 0x31
+ 1269 00ff 13       		.uleb128 0x13
+ 1270 0100 11       		.uleb128 0x11
+ 1271 0101 01       		.uleb128 0x1
+ 1272 0102 12       		.uleb128 0x12
+ 1273 0103 06       		.uleb128 0x6
+ 1274 0104 58       		.uleb128 0x58
+ 1275 0105 0B       		.uleb128 0xb
+ 1276 0106 59       		.uleb128 0x59
+ 1277 0107 05       		.uleb128 0x5
+ 1278 0108 00       		.byte	0
+ 1279 0109 00       		.byte	0
+ 1280 010a 13       		.uleb128 0x13
+ 1281 010b 05       		.uleb128 0x5
+ 1282 010c 00       		.byte	0
+ 1283 010d 31       		.uleb128 0x31
+ 1284 010e 13       		.uleb128 0x13
+ 1285 010f 1C       		.uleb128 0x1c
+ 1286 0110 0B       		.uleb128 0xb
+ 1287 0111 00       		.byte	0
+ 1288 0112 00       		.byte	0
+ 1289 0113 14       		.uleb128 0x14
+ 1290 0114 898201   		.uleb128 0x4109
+ 1291 0117 00       		.byte	0
+ 1292 0118 11       		.uleb128 0x11
+ 1293 0119 01       		.uleb128 0x1
+ 1294 011a 31       		.uleb128 0x31
+ 1295 011b 13       		.uleb128 0x13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 38
+
+
+ 1296 011c 00       		.byte	0
+ 1297 011d 00       		.byte	0
+ 1298 011e 15       		.uleb128 0x15
+ 1299 011f 2E       		.uleb128 0x2e
+ 1300 0120 00       		.byte	0
+ 1301 0121 31       		.uleb128 0x31
+ 1302 0122 13       		.uleb128 0x13
+ 1303 0123 11       		.uleb128 0x11
+ 1304 0124 01       		.uleb128 0x1
+ 1305 0125 12       		.uleb128 0x12
+ 1306 0126 06       		.uleb128 0x6
+ 1307 0127 40       		.uleb128 0x40
+ 1308 0128 18       		.uleb128 0x18
+ 1309 0129 9742     		.uleb128 0x2117
+ 1310 012b 19       		.uleb128 0x19
+ 1311 012c 00       		.byte	0
+ 1312 012d 00       		.byte	0
+ 1313 012e 16       		.uleb128 0x16
+ 1314 012f 1D       		.uleb128 0x1d
+ 1315 0130 00       		.byte	0
+ 1316 0131 31       		.uleb128 0x31
+ 1317 0132 13       		.uleb128 0x13
+ 1318 0133 11       		.uleb128 0x11
+ 1319 0134 01       		.uleb128 0x1
+ 1320 0135 12       		.uleb128 0x12
+ 1321 0136 06       		.uleb128 0x6
+ 1322 0137 58       		.uleb128 0x58
+ 1323 0138 0B       		.uleb128 0xb
+ 1324 0139 59       		.uleb128 0x59
+ 1325 013a 0B       		.uleb128 0xb
+ 1326 013b 00       		.byte	0
+ 1327 013c 00       		.byte	0
+ 1328 013d 17       		.uleb128 0x17
+ 1329 013e 2E       		.uleb128 0x2e
+ 1330 013f 00       		.byte	0
+ 1331 0140 3F       		.uleb128 0x3f
+ 1332 0141 19       		.uleb128 0x19
+ 1333 0142 03       		.uleb128 0x3
+ 1334 0143 0E       		.uleb128 0xe
+ 1335 0144 3A       		.uleb128 0x3a
+ 1336 0145 0B       		.uleb128 0xb
+ 1337 0146 3B       		.uleb128 0x3b
+ 1338 0147 0B       		.uleb128 0xb
+ 1339 0148 27       		.uleb128 0x27
+ 1340 0149 19       		.uleb128 0x19
+ 1341 014a 11       		.uleb128 0x11
+ 1342 014b 01       		.uleb128 0x1
+ 1343 014c 12       		.uleb128 0x12
+ 1344 014d 06       		.uleb128 0x6
+ 1345 014e 40       		.uleb128 0x40
+ 1346 014f 18       		.uleb128 0x18
+ 1347 0150 9742     		.uleb128 0x2117
+ 1348 0152 19       		.uleb128 0x19
+ 1349 0153 00       		.byte	0
+ 1350 0154 00       		.byte	0
+ 1351 0155 18       		.uleb128 0x18
+ 1352 0156 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 39
+
+
+ 1353 0157 01       		.byte	0x1
+ 1354 0158 31       		.uleb128 0x31
+ 1355 0159 13       		.uleb128 0x13
+ 1356 015a 11       		.uleb128 0x11
+ 1357 015b 01       		.uleb128 0x1
+ 1358 015c 12       		.uleb128 0x12
+ 1359 015d 06       		.uleb128 0x6
+ 1360 015e 40       		.uleb128 0x40
+ 1361 015f 18       		.uleb128 0x18
+ 1362 0160 9742     		.uleb128 0x2117
+ 1363 0162 19       		.uleb128 0x19
+ 1364 0163 01       		.uleb128 0x1
+ 1365 0164 13       		.uleb128 0x13
+ 1366 0165 00       		.byte	0
+ 1367 0166 00       		.byte	0
+ 1368 0167 19       		.uleb128 0x19
+ 1369 0168 05       		.uleb128 0x5
+ 1370 0169 00       		.byte	0
+ 1371 016a 31       		.uleb128 0x31
+ 1372 016b 13       		.uleb128 0x13
+ 1373 016c 02       		.uleb128 0x2
+ 1374 016d 18       		.uleb128 0x18
+ 1375 016e 00       		.byte	0
+ 1376 016f 00       		.byte	0
+ 1377 0170 1A       		.uleb128 0x1a
+ 1378 0171 2E       		.uleb128 0x2e
+ 1379 0172 00       		.byte	0
+ 1380 0173 3F       		.uleb128 0x3f
+ 1381 0174 19       		.uleb128 0x19
+ 1382 0175 03       		.uleb128 0x3
+ 1383 0176 0E       		.uleb128 0xe
+ 1384 0177 3A       		.uleb128 0x3a
+ 1385 0178 0B       		.uleb128 0xb
+ 1386 0179 3B       		.uleb128 0x3b
+ 1387 017a 05       		.uleb128 0x5
+ 1388 017b 27       		.uleb128 0x27
+ 1389 017c 19       		.uleb128 0x19
+ 1390 017d 11       		.uleb128 0x11
+ 1391 017e 01       		.uleb128 0x1
+ 1392 017f 12       		.uleb128 0x12
+ 1393 0180 06       		.uleb128 0x6
+ 1394 0181 40       		.uleb128 0x40
+ 1395 0182 18       		.uleb128 0x18
+ 1396 0183 9742     		.uleb128 0x2117
+ 1397 0185 19       		.uleb128 0x19
+ 1398 0186 00       		.byte	0
+ 1399 0187 00       		.byte	0
+ 1400 0188 1B       		.uleb128 0x1b
+ 1401 0189 2E       		.uleb128 0x2e
+ 1402 018a 00       		.byte	0
+ 1403 018b 3F       		.uleb128 0x3f
+ 1404 018c 19       		.uleb128 0x19
+ 1405 018d 03       		.uleb128 0x3
+ 1406 018e 0E       		.uleb128 0xe
+ 1407 018f 3A       		.uleb128 0x3a
+ 1408 0190 0B       		.uleb128 0xb
+ 1409 0191 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 40
+
+
+ 1410 0192 05       		.uleb128 0x5
+ 1411 0193 27       		.uleb128 0x27
+ 1412 0194 19       		.uleb128 0x19
+ 1413 0195 49       		.uleb128 0x49
+ 1414 0196 13       		.uleb128 0x13
+ 1415 0197 11       		.uleb128 0x11
+ 1416 0198 01       		.uleb128 0x1
+ 1417 0199 12       		.uleb128 0x12
+ 1418 019a 06       		.uleb128 0x6
+ 1419 019b 40       		.uleb128 0x40
+ 1420 019c 18       		.uleb128 0x18
+ 1421 019d 9742     		.uleb128 0x2117
+ 1422 019f 19       		.uleb128 0x19
+ 1423 01a0 00       		.byte	0
+ 1424 01a1 00       		.byte	0
+ 1425 01a2 1C       		.uleb128 0x1c
+ 1426 01a3 2E       		.uleb128 0x2e
+ 1427 01a4 01       		.byte	0x1
+ 1428 01a5 3F       		.uleb128 0x3f
+ 1429 01a6 19       		.uleb128 0x19
+ 1430 01a7 03       		.uleb128 0x3
+ 1431 01a8 0E       		.uleb128 0xe
+ 1432 01a9 3A       		.uleb128 0x3a
+ 1433 01aa 0B       		.uleb128 0xb
+ 1434 01ab 3B       		.uleb128 0x3b
+ 1435 01ac 05       		.uleb128 0x5
+ 1436 01ad 27       		.uleb128 0x27
+ 1437 01ae 19       		.uleb128 0x19
+ 1438 01af 11       		.uleb128 0x11
+ 1439 01b0 01       		.uleb128 0x1
+ 1440 01b1 12       		.uleb128 0x12
+ 1441 01b2 06       		.uleb128 0x6
+ 1442 01b3 40       		.uleb128 0x40
+ 1443 01b4 18       		.uleb128 0x18
+ 1444 01b5 9742     		.uleb128 0x2117
+ 1445 01b7 19       		.uleb128 0x19
+ 1446 01b8 01       		.uleb128 0x1
+ 1447 01b9 13       		.uleb128 0x13
+ 1448 01ba 00       		.byte	0
+ 1449 01bb 00       		.byte	0
+ 1450 01bc 1D       		.uleb128 0x1d
+ 1451 01bd 05       		.uleb128 0x5
+ 1452 01be 00       		.byte	0
+ 1453 01bf 03       		.uleb128 0x3
+ 1454 01c0 0E       		.uleb128 0xe
+ 1455 01c1 3A       		.uleb128 0x3a
+ 1456 01c2 0B       		.uleb128 0xb
+ 1457 01c3 3B       		.uleb128 0x3b
+ 1458 01c4 05       		.uleb128 0x5
+ 1459 01c5 49       		.uleb128 0x49
+ 1460 01c6 13       		.uleb128 0x13
+ 1461 01c7 02       		.uleb128 0x2
+ 1462 01c8 18       		.uleb128 0x18
+ 1463 01c9 00       		.byte	0
+ 1464 01ca 00       		.byte	0
+ 1465 01cb 1E       		.uleb128 0x1e
+ 1466 01cc 05       		.uleb128 0x5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 41
+
+
+ 1467 01cd 00       		.byte	0
+ 1468 01ce 31       		.uleb128 0x31
+ 1469 01cf 13       		.uleb128 0x13
+ 1470 01d0 02       		.uleb128 0x2
+ 1471 01d1 17       		.uleb128 0x17
+ 1472 01d2 00       		.byte	0
+ 1473 01d3 00       		.byte	0
+ 1474 01d4 1F       		.uleb128 0x1f
+ 1475 01d5 898201   		.uleb128 0x4109
+ 1476 01d8 01       		.byte	0x1
+ 1477 01d9 11       		.uleb128 0x11
+ 1478 01da 01       		.uleb128 0x1
+ 1479 01db 9542     		.uleb128 0x2115
+ 1480 01dd 19       		.uleb128 0x19
+ 1481 01de 31       		.uleb128 0x31
+ 1482 01df 13       		.uleb128 0x13
+ 1483 01e0 00       		.byte	0
+ 1484 01e1 00       		.byte	0
+ 1485 01e2 20       		.uleb128 0x20
+ 1486 01e3 34       		.uleb128 0x34
+ 1487 01e4 00       		.byte	0
+ 1488 01e5 03       		.uleb128 0x3
+ 1489 01e6 0E       		.uleb128 0xe
+ 1490 01e7 3A       		.uleb128 0x3a
+ 1491 01e8 0B       		.uleb128 0xb
+ 1492 01e9 3B       		.uleb128 0x3b
+ 1493 01ea 0B       		.uleb128 0xb
+ 1494 01eb 49       		.uleb128 0x49
+ 1495 01ec 13       		.uleb128 0x13
+ 1496 01ed 3F       		.uleb128 0x3f
+ 1497 01ee 19       		.uleb128 0x19
+ 1498 01ef 02       		.uleb128 0x2
+ 1499 01f0 18       		.uleb128 0x18
+ 1500 01f1 00       		.byte	0
+ 1501 01f2 00       		.byte	0
+ 1502 01f3 21       		.uleb128 0x21
+ 1503 01f4 2E       		.uleb128 0x2e
+ 1504 01f5 01       		.byte	0x1
+ 1505 01f6 3F       		.uleb128 0x3f
+ 1506 01f7 19       		.uleb128 0x19
+ 1507 01f8 03       		.uleb128 0x3
+ 1508 01f9 0E       		.uleb128 0xe
+ 1509 01fa 3A       		.uleb128 0x3a
+ 1510 01fb 0B       		.uleb128 0xb
+ 1511 01fc 3B       		.uleb128 0x3b
+ 1512 01fd 0B       		.uleb128 0xb
+ 1513 01fe 27       		.uleb128 0x27
+ 1514 01ff 19       		.uleb128 0x19
+ 1515 0200 3C       		.uleb128 0x3c
+ 1516 0201 19       		.uleb128 0x19
+ 1517 0202 01       		.uleb128 0x1
+ 1518 0203 13       		.uleb128 0x13
+ 1519 0204 00       		.byte	0
+ 1520 0205 00       		.byte	0
+ 1521 0206 22       		.uleb128 0x22
+ 1522 0207 05       		.uleb128 0x5
+ 1523 0208 00       		.byte	0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 42
+
+
+ 1524 0209 49       		.uleb128 0x49
+ 1525 020a 13       		.uleb128 0x13
+ 1526 020b 00       		.byte	0
+ 1527 020c 00       		.byte	0
+ 1528 020d 23       		.uleb128 0x23
+ 1529 020e 0F       		.uleb128 0xf
+ 1530 020f 00       		.byte	0
+ 1531 0210 0B       		.uleb128 0xb
+ 1532 0211 0B       		.uleb128 0xb
+ 1533 0212 49       		.uleb128 0x49
+ 1534 0213 13       		.uleb128 0x13
+ 1535 0214 00       		.byte	0
+ 1536 0215 00       		.byte	0
+ 1537 0216 24       		.uleb128 0x24
+ 1538 0217 2E       		.uleb128 0x2e
+ 1539 0218 00       		.byte	0
+ 1540 0219 3F       		.uleb128 0x3f
+ 1541 021a 19       		.uleb128 0x19
+ 1542 021b 03       		.uleb128 0x3
+ 1543 021c 0E       		.uleb128 0xe
+ 1544 021d 3A       		.uleb128 0x3a
+ 1545 021e 0B       		.uleb128 0xb
+ 1546 021f 3B       		.uleb128 0x3b
+ 1547 0220 0B       		.uleb128 0xb
+ 1548 0221 27       		.uleb128 0x27
+ 1549 0222 19       		.uleb128 0x19
+ 1550 0223 49       		.uleb128 0x49
+ 1551 0224 13       		.uleb128 0x13
+ 1552 0225 3C       		.uleb128 0x3c
+ 1553 0226 19       		.uleb128 0x19
+ 1554 0227 00       		.byte	0
+ 1555 0228 00       		.byte	0
+ 1556 0229 25       		.uleb128 0x25
+ 1557 022a 2E       		.uleb128 0x2e
+ 1558 022b 01       		.byte	0x1
+ 1559 022c 3F       		.uleb128 0x3f
+ 1560 022d 19       		.uleb128 0x19
+ 1561 022e 03       		.uleb128 0x3
+ 1562 022f 0E       		.uleb128 0xe
+ 1563 0230 3A       		.uleb128 0x3a
+ 1564 0231 0B       		.uleb128 0xb
+ 1565 0232 3B       		.uleb128 0x3b
+ 1566 0233 0B       		.uleb128 0xb
+ 1567 0234 27       		.uleb128 0x27
+ 1568 0235 19       		.uleb128 0x19
+ 1569 0236 3C       		.uleb128 0x3c
+ 1570 0237 19       		.uleb128 0x19
+ 1571 0238 00       		.byte	0
+ 1572 0239 00       		.byte	0
+ 1573 023a 00       		.byte	0
+ 1574              		.section	.debug_loc,"",%progbits
+ 1575              	.Ldebug_loc0:
+ 1576              	.LLST0:
+ 1577 0000 1A000000 		.4byte	.LVL3
+ 1578 0004 27000000 		.4byte	.LVL4-1
+ 1579 0008 0100     		.2byte	0x1
+ 1580 000a 50       		.byte	0x50
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 43
+
+
+ 1581 000b 00000000 		.4byte	0
+ 1582 000f 00000000 		.4byte	0
+ 1583              	.LLST1:
+ 1584 0013 00000000 		.4byte	.LVL9
+ 1585 0017 04000000 		.4byte	.LVL10
+ 1586 001b 0100     		.2byte	0x1
+ 1587 001d 50       		.byte	0x50
+ 1588 001e 04000000 		.4byte	.LVL10
+ 1589 0022 07000000 		.4byte	.LVL11-1
+ 1590 0026 0100     		.2byte	0x1
+ 1591 0028 51       		.byte	0x51
+ 1592 0029 07000000 		.4byte	.LVL11-1
+ 1593 002d 0C000000 		.4byte	.LFE10
+ 1594 0031 0400     		.2byte	0x4
+ 1595 0033 F3       		.byte	0xf3
+ 1596 0034 01       		.uleb128 0x1
+ 1597 0035 50       		.byte	0x50
+ 1598 0036 9F       		.byte	0x9f
+ 1599 0037 00000000 		.4byte	0
+ 1600 003b 00000000 		.4byte	0
+ 1601              	.LLST2:
+ 1602 003f 00000000 		.4byte	.LVL12
+ 1603 0043 04000000 		.4byte	.LVL13
+ 1604 0047 0100     		.2byte	0x1
+ 1605 0049 50       		.byte	0x50
+ 1606 004a 04000000 		.4byte	.LVL13
+ 1607 004e 07000000 		.4byte	.LVL14-1
+ 1608 0052 0100     		.2byte	0x1
+ 1609 0054 51       		.byte	0x51
+ 1610 0055 07000000 		.4byte	.LVL14-1
+ 1611 0059 0C000000 		.4byte	.LFE12
+ 1612 005d 0400     		.2byte	0x4
+ 1613 005f F3       		.byte	0xf3
+ 1614 0060 01       		.uleb128 0x1
+ 1615 0061 50       		.byte	0x50
+ 1616 0062 9F       		.byte	0x9f
+ 1617 0063 00000000 		.4byte	0
+ 1618 0067 00000000 		.4byte	0
+ 1619              		.section	.debug_aranges,"",%progbits
+ 1620 0000 8C000000 		.4byte	0x8c
+ 1621 0004 0200     		.2byte	0x2
+ 1622 0006 00000000 		.4byte	.Ldebug_info0
+ 1623 000a 04       		.byte	0x4
+ 1624 000b 00       		.byte	0
+ 1625 000c 0000     		.2byte	0
+ 1626 000e 0000     		.2byte	0
+ 1627 0010 00000000 		.4byte	.LFB0
+ 1628 0014 5C000000 		.4byte	.LFE0-.LFB0
+ 1629 0018 00000000 		.4byte	.LFB1
+ 1630 001c 10000000 		.4byte	.LFE1-.LFB1
+ 1631 0020 00000000 		.4byte	.LFB2
+ 1632 0024 24000000 		.4byte	.LFE2-.LFB2
+ 1633 0028 00000000 		.4byte	.LFB3
+ 1634 002c 10000000 		.4byte	.LFE3-.LFB3
+ 1635 0030 00000000 		.4byte	.LFB4
+ 1636 0034 0C000000 		.4byte	.LFE4-.LFB4
+ 1637 0038 00000000 		.4byte	.LFB5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 44
+
+
+ 1638 003c 0C000000 		.4byte	.LFE5-.LFB5
+ 1639 0040 00000000 		.4byte	.LFB6
+ 1640 0044 0C000000 		.4byte	.LFE6-.LFB6
+ 1641 0048 00000000 		.4byte	.LFB7
+ 1642 004c 0C000000 		.4byte	.LFE7-.LFB7
+ 1643 0050 00000000 		.4byte	.LFB8
+ 1644 0054 0C000000 		.4byte	.LFE8-.LFB8
+ 1645 0058 00000000 		.4byte	.LFB9
+ 1646 005c 10000000 		.4byte	.LFE9-.LFB9
+ 1647 0060 00000000 		.4byte	.LFB10
+ 1648 0064 0C000000 		.4byte	.LFE10-.LFB10
+ 1649 0068 00000000 		.4byte	.LFB11
+ 1650 006c 10000000 		.4byte	.LFE11-.LFB11
+ 1651 0070 00000000 		.4byte	.LFB12
+ 1652 0074 0C000000 		.4byte	.LFE12-.LFB12
+ 1653 0078 00000000 		.4byte	.LFB13
+ 1654 007c 18000000 		.4byte	.LFE13-.LFB13
+ 1655 0080 00000000 		.4byte	.LFB14
+ 1656 0084 1C000000 		.4byte	.LFE14-.LFB14
+ 1657 0088 00000000 		.4byte	0
+ 1658 008c 00000000 		.4byte	0
+ 1659              		.section	.debug_ranges,"",%progbits
+ 1660              	.Ldebug_ranges0:
+ 1661 0000 28000000 		.4byte	.LBB26
+ 1662 0004 2C000000 		.4byte	.LBE26
+ 1663 0008 34000000 		.4byte	.LBB31
+ 1664 000c 36000000 		.4byte	.LBE31
+ 1665 0010 00000000 		.4byte	0
+ 1666 0014 00000000 		.4byte	0
+ 1667 0018 00000000 		.4byte	.LBB36
+ 1668 001c 04000000 		.4byte	.LBE36
+ 1669 0020 0C000000 		.4byte	.LBB41
+ 1670 0024 0E000000 		.4byte	.LBE41
+ 1671 0028 00000000 		.4byte	0
+ 1672 002c 00000000 		.4byte	0
+ 1673 0030 00000000 		.4byte	.LFB0
+ 1674 0034 5C000000 		.4byte	.LFE0
+ 1675 0038 00000000 		.4byte	.LFB1
+ 1676 003c 10000000 		.4byte	.LFE1
+ 1677 0040 00000000 		.4byte	.LFB2
+ 1678 0044 24000000 		.4byte	.LFE2
+ 1679 0048 00000000 		.4byte	.LFB3
+ 1680 004c 10000000 		.4byte	.LFE3
+ 1681 0050 00000000 		.4byte	.LFB4
+ 1682 0054 0C000000 		.4byte	.LFE4
+ 1683 0058 00000000 		.4byte	.LFB5
+ 1684 005c 0C000000 		.4byte	.LFE5
+ 1685 0060 00000000 		.4byte	.LFB6
+ 1686 0064 0C000000 		.4byte	.LFE6
+ 1687 0068 00000000 		.4byte	.LFB7
+ 1688 006c 0C000000 		.4byte	.LFE7
+ 1689 0070 00000000 		.4byte	.LFB8
+ 1690 0074 0C000000 		.4byte	.LFE8
+ 1691 0078 00000000 		.4byte	.LFB9
+ 1692 007c 10000000 		.4byte	.LFE9
+ 1693 0080 00000000 		.4byte	.LFB10
+ 1694 0084 0C000000 		.4byte	.LFE10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 45
+
+
+ 1695 0088 00000000 		.4byte	.LFB11
+ 1696 008c 10000000 		.4byte	.LFE11
+ 1697 0090 00000000 		.4byte	.LFB12
+ 1698 0094 0C000000 		.4byte	.LFE12
+ 1699 0098 00000000 		.4byte	.LFB13
+ 1700 009c 18000000 		.4byte	.LFE13
+ 1701 00a0 00000000 		.4byte	.LFB14
+ 1702 00a4 1C000000 		.4byte	.LFE14
+ 1703 00a8 00000000 		.4byte	0
+ 1704 00ac 00000000 		.4byte	0
+ 1705              		.section	.debug_line,"",%progbits
+ 1706              	.Ldebug_line0:
+ 1707 0000 A6010000 		.section	.debug_str,"MS",%progbits,1
+ 1707      02005800 
+ 1707      00000201 
+ 1707      FB0E0D00 
+ 1707      01010101 
+ 1708              	.LASF15:
+ 1709 0000 72656733 		.ascii	"reg32\000"
+ 1709      3200
+ 1710              	.LASF19:
+ 1711 0006 54494D45 		.ascii	"TIMER_SAMPLERATE_WritePeriod\000"
+ 1711      525F5341 
+ 1711      4D504C45 
+ 1711      52415445 
+ 1711      5F577269 
+ 1712              	.LASF28:
+ 1713 0023 54494D45 		.ascii	"TIMER_SAMPLERATE_Start\000"
+ 1713      525F5341 
+ 1713      4D504C45 
+ 1713      52415445 
+ 1713      5F537461 
+ 1714              	.LASF40:
+ 1715 003a 54494D45 		.ascii	"TIMER_SAMPLERATE_interruptState\000"
+ 1715      525F5341 
+ 1715      4D504C45 
+ 1715      52415445 
+ 1715      5F696E74 
+ 1716              	.LASF21:
+ 1717 005a 70657269 		.ascii	"period\000"
+ 1717      6F6400
+ 1718              	.LASF33:
+ 1719 0061 54494D45 		.ascii	"TIMER_SAMPLERATE_ReadPeriod\000"
+ 1719      525F5341 
+ 1719      4D504C45 
+ 1719      52415445 
+ 1719      5F526561 
+ 1720              	.LASF3:
+ 1721 007d 73686F72 		.ascii	"short unsigned int\000"
+ 1721      7420756E 
+ 1721      7369676E 
+ 1721      65642069 
+ 1721      6E7400
+ 1722              	.LASF39:
+ 1723 0090 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
+ 1723      73657273 
+ 1723      5C6D6772 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 46
+
+
+ 1723      6F6E6265 
+ 1723      725C4465 
+ 1724 00be 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 1724      436F6E74 
+ 1724      696E756F 
+ 1724      7573204F 
+ 1724      75747075 
+ 1725              	.LASF37:
+ 1726 00db 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1726      4320342E 
+ 1726      392E3320 
+ 1726      32303135 
+ 1726      30333033 
+ 1727 010e 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1727      20726576 
+ 1727      6973696F 
+ 1727      6E203232 
+ 1727      31323230 
+ 1728 0141 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 1728      66756E63 
+ 1728      74696F6E 
+ 1728      2D736563 
+ 1728      74696F6E 
+ 1729              	.LASF11:
+ 1730 0169 666C6F61 		.ascii	"float\000"
+ 1730      7400
+ 1731              	.LASF22:
+ 1732 016f 636F756E 		.ascii	"counter\000"
+ 1732      74657200 
+ 1733              	.LASF7:
+ 1734 0177 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1734      206C6F6E 
+ 1734      6720756E 
+ 1734      7369676E 
+ 1734      65642069 
+ 1735              	.LASF1:
+ 1736 018e 756E7369 		.ascii	"unsigned char\000"
+ 1736      676E6564 
+ 1736      20636861 
+ 1736      7200
+ 1737              	.LASF30:
+ 1738 019c 54494D45 		.ascii	"TIMER_SAMPLERATE_SoftwareCapture\000"
+ 1738      525F5341 
+ 1738      4D504C45 
+ 1738      52415445 
+ 1738      5F536F66 
+ 1739              	.LASF14:
+ 1740 01bd 72656738 		.ascii	"reg8\000"
+ 1740      00
+ 1741              	.LASF5:
+ 1742 01c2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1742      20756E73 
+ 1742      69676E65 
+ 1742      6420696E 
+ 1742      7400
+ 1743              	.LASF9:
+ 1744 01d4 75696E74 		.ascii	"uint8\000"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 47
+
+
+ 1744      3800
+ 1745              	.LASF41:
+ 1746 01da 636F6E74 		.ascii	"control\000"
+ 1746      726F6C00 
+ 1747              	.LASF32:
+ 1748 01e2 54494D45 		.ascii	"TIMER_SAMPLERATE_ReadControlRegister\000"
+ 1748      525F5341 
+ 1748      4D504C45 
+ 1748      52415445 
+ 1748      5F526561 
+ 1749              	.LASF20:
+ 1750 0207 54494D45 		.ascii	"TIMER_SAMPLERATE_WriteCounter\000"
+ 1750      525F5341 
+ 1750      4D504C45 
+ 1750      52415445 
+ 1750      5F577269 
+ 1751              	.LASF12:
+ 1752 0225 646F7562 		.ascii	"double\000"
+ 1752      6C6500
+ 1753              	.LASF18:
+ 1754 022c 54494D45 		.ascii	"TIMER_SAMPLERATE_ReadStatusRegister\000"
+ 1754      525F5341 
+ 1754      4D504C45 
+ 1754      52415445 
+ 1754      5F526561 
+ 1755              	.LASF27:
+ 1756 0250 54494D45 		.ascii	"TIMER_SAMPLERATE_Init\000"
+ 1756      525F5341 
+ 1756      4D504C45 
+ 1756      52415445 
+ 1756      5F496E69 
+ 1757              	.LASF10:
+ 1758 0266 75696E74 		.ascii	"uint32\000"
+ 1758      333200
+ 1759              	.LASF17:
+ 1760 026d 54494D45 		.ascii	"TIMER_SAMPLERATE_ReadCapture\000"
+ 1760      525F5341 
+ 1760      4D504C45 
+ 1760      52415445 
+ 1760      5F526561 
+ 1761              	.LASF36:
+ 1762 028a 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1762      74657243 
+ 1762      72697469 
+ 1762      63616C53 
+ 1762      65637469 
+ 1763              	.LASF8:
+ 1764 02a1 756E7369 		.ascii	"unsigned int\000"
+ 1764      676E6564 
+ 1764      20696E74 
+ 1764      00
+ 1765              	.LASF31:
+ 1766 02ae 54494D45 		.ascii	"TIMER_SAMPLERATE_WriteControlRegister\000"
+ 1766      525F5341 
+ 1766      4D504C45 
+ 1766      52415445 
+ 1766      5F577269 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 48
+
+
+ 1767              	.LASF43:
+ 1768 02d4 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1768      69744372 
+ 1768      69746963 
+ 1768      616C5365 
+ 1768      6374696F 
+ 1769              	.LASF38:
+ 1770 02ea 47656E65 		.ascii	"Generated_Source\\PSoC5\\TIMER_SAMPLERATE.c\000"
+ 1770      72617465 
+ 1770      645F536F 
+ 1770      75726365 
+ 1770      5C50536F 
+ 1771              	.LASF16:
+ 1772 0314 73697A65 		.ascii	"sizetype\000"
+ 1772      74797065 
+ 1772      00
+ 1773              	.LASF6:
+ 1774 031d 6C6F6E67 		.ascii	"long long int\000"
+ 1774      206C6F6E 
+ 1774      6720696E 
+ 1774      7400
+ 1775              	.LASF23:
+ 1776 032b 54494D45 		.ascii	"TIMER_SAMPLERATE_SetInterruptMode\000"
+ 1776      525F5341 
+ 1776      4D504C45 
+ 1776      52415445 
+ 1776      5F536574 
+ 1777              	.LASF24:
+ 1778 034d 696E7465 		.ascii	"interruptMode\000"
+ 1778      72727570 
+ 1778      744D6F64 
+ 1778      6500
+ 1779              	.LASF35:
+ 1780 035b 43795365 		.ascii	"CySetReg24\000"
+ 1780      74526567 
+ 1780      323400
+ 1781              	.LASF2:
+ 1782 0366 73686F72 		.ascii	"short int\000"
+ 1782      7420696E 
+ 1782      7400
+ 1783              	.LASF25:
+ 1784 0370 54494D45 		.ascii	"TIMER_SAMPLERATE_ClearFIFO\000"
+ 1784      525F5341 
+ 1784      4D504C45 
+ 1784      52415445 
+ 1784      5F436C65 
+ 1785              	.LASF29:
+ 1786 038b 54494D45 		.ascii	"TIMER_SAMPLERATE_Stop\000"
+ 1786      525F5341 
+ 1786      4D504C45 
+ 1786      52415445 
+ 1786      5F53746F 
+ 1787              	.LASF34:
+ 1788 03a1 54494D45 		.ascii	"TIMER_SAMPLERATE_ReadCounter\000"
+ 1788      525F5341 
+ 1788      4D504C45 
+ 1788      52415445 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccngigre.s 			page 49
+
+
+ 1788      5F526561 
+ 1789              	.LASF4:
+ 1790 03be 6C6F6E67 		.ascii	"long int\000"
+ 1790      20696E74 
+ 1790      00
+ 1791              	.LASF13:
+ 1792 03c7 63686172 		.ascii	"char\000"
+ 1792      00
+ 1793              	.LASF0:
+ 1794 03cc 7369676E 		.ascii	"signed char\000"
+ 1794      65642063 
+ 1794      68617200 
+ 1795              	.LASF42:
+ 1796 03d8 54494D45 		.ascii	"TIMER_SAMPLERATE_initVar\000"
+ 1796      525F5341 
+ 1796      4D504C45 
+ 1796      52415445 
+ 1796      5F696E69 
+ 1797              	.LASF26:
+ 1798 03f1 54494D45 		.ascii	"TIMER_SAMPLERATE_Enable\000"
+ 1798      525F5341 
+ 1798      4D504C45 
+ 1798      52415445 
+ 1798      5F456E61 
+ 1799              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

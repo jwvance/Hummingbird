@@ -1,0 +1,4223 @@
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"ADC_MIC.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.ADC_MIC_Enable,"ax",%progbits
+  19              		.align	2
+  20              		.global	ADC_MIC_Enable
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	ADC_MIC_Enable, %function
+  24              	ADC_MIC_Enable:
+  25              	.LFB2:
+  26              		.file 1 "Generated_Source\\PSoC5\\ADC_MIC.c"
+   1:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/ADC_MIC.c **** * File Name: ADC_MIC.c
+   3:Generated_Source\PSoC5/ADC_MIC.c **** * Version 3.0
+   4:Generated_Source\PSoC5/ADC_MIC.c **** *
+   5:Generated_Source\PSoC5/ADC_MIC.c **** * Description:
+   6:Generated_Source\PSoC5/ADC_MIC.c **** *  This file provides the source code to the API for the Successive
+   7:Generated_Source\PSoC5/ADC_MIC.c **** *  approximation ADC Component.
+   8:Generated_Source\PSoC5/ADC_MIC.c **** *
+   9:Generated_Source\PSoC5/ADC_MIC.c **** * Note:
+  10:Generated_Source\PSoC5/ADC_MIC.c **** *
+  11:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/ADC_MIC.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/ADC_MIC.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC5/ADC_MIC.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC5/ADC_MIC.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/ADC_MIC.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/ADC_MIC.c **** 
+  18:Generated_Source\PSoC5/ADC_MIC.c **** #include "CyLib.h"
+  19:Generated_Source\PSoC5/ADC_MIC.c **** #include "ADC_MIC.h"
+  20:Generated_Source\PSoC5/ADC_MIC.c **** 
+  21:Generated_Source\PSoC5/ADC_MIC.c **** #if(ADC_MIC_DEFAULT_INTERNAL_CLK)
+  22:Generated_Source\PSoC5/ADC_MIC.c ****     #include "ADC_MIC_theACLK.h"
+  23:Generated_Source\PSoC5/ADC_MIC.c **** #endif /* End ADC_MIC_DEFAULT_INTERNAL_CLK */
+  24:Generated_Source\PSoC5/ADC_MIC.c **** 
+  25:Generated_Source\PSoC5/ADC_MIC.c **** 
+  26:Generated_Source\PSoC5/ADC_MIC.c **** /***************************************
+  27:Generated_Source\PSoC5/ADC_MIC.c **** * Forward function references
+  28:Generated_Source\PSoC5/ADC_MIC.c **** ***************************************/
+  29:Generated_Source\PSoC5/ADC_MIC.c **** static void ADC_MIC_CalcGain(uint8 resolution);
+  30:Generated_Source\PSoC5/ADC_MIC.c **** 
+  31:Generated_Source\PSoC5/ADC_MIC.c **** 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 2
+
+
+  32:Generated_Source\PSoC5/ADC_MIC.c **** /***************************************
+  33:Generated_Source\PSoC5/ADC_MIC.c **** * Global data allocation
+  34:Generated_Source\PSoC5/ADC_MIC.c **** ***************************************/
+  35:Generated_Source\PSoC5/ADC_MIC.c **** uint8 ADC_MIC_initVar = 0u;
+  36:Generated_Source\PSoC5/ADC_MIC.c **** volatile int16 ADC_MIC_offset;
+  37:Generated_Source\PSoC5/ADC_MIC.c **** volatile int16 ADC_MIC_countsPerVolt;     /* Obsolete Gain compensation */
+  38:Generated_Source\PSoC5/ADC_MIC.c **** volatile int32 ADC_MIC_countsPer10Volt;   /* Gain compensation */
+  39:Generated_Source\PSoC5/ADC_MIC.c **** volatile int16 ADC_MIC_shift;
+  40:Generated_Source\PSoC5/ADC_MIC.c **** 
+  41:Generated_Source\PSoC5/ADC_MIC.c **** 
+  42:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
+  43:Generated_Source\PSoC5/ADC_MIC.c **** * Function Name: ADC_MIC_Start
+  44:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
+  45:Generated_Source\PSoC5/ADC_MIC.c **** *
+  46:Generated_Source\PSoC5/ADC_MIC.c **** * Summary:
+  47:Generated_Source\PSoC5/ADC_MIC.c **** *  This is the preferred method to begin component operation.
+  48:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_Start() sets the initVar variable, calls the
+  49:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_Init() function, and then calls the
+  50:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_Enable() function.
+  51:Generated_Source\PSoC5/ADC_MIC.c **** *
+  52:Generated_Source\PSoC5/ADC_MIC.c **** * Parameters:
+  53:Generated_Source\PSoC5/ADC_MIC.c **** *  None.
+  54:Generated_Source\PSoC5/ADC_MIC.c **** *
+  55:Generated_Source\PSoC5/ADC_MIC.c **** * Return:
+  56:Generated_Source\PSoC5/ADC_MIC.c **** *  None.
+  57:Generated_Source\PSoC5/ADC_MIC.c **** *
+  58:Generated_Source\PSoC5/ADC_MIC.c **** * Global variables:
+  59:Generated_Source\PSoC5/ADC_MIC.c **** *  The ADC_MIC_initVar variable is used to indicate when/if initial
+  60:Generated_Source\PSoC5/ADC_MIC.c **** *  configuration of this component has happened. The variable is initialized to
+  61:Generated_Source\PSoC5/ADC_MIC.c **** *  zero and set to 1 the first time ADC_Start() is called. This allows for
+  62:Generated_Source\PSoC5/ADC_MIC.c **** *  component Re-Start without re-initialization in all subsequent calls to the
+  63:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_Start() routine.
+  64:Generated_Source\PSoC5/ADC_MIC.c **** *  If re-initialization of the component is required the variable should be set
+  65:Generated_Source\PSoC5/ADC_MIC.c **** *  to zero before call of ADC_MIC_Start() routine, or the user may call
+  66:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_Init() and ADC_MIC_Enable() as done in the
+  67:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_Start() routine.
+  68:Generated_Source\PSoC5/ADC_MIC.c **** *
+  69:Generated_Source\PSoC5/ADC_MIC.c **** * Side Effect:
+  70:Generated_Source\PSoC5/ADC_MIC.c **** *  If the initVar variable is already set, this function only calls the
+  71:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_Enable() function.
+  72:Generated_Source\PSoC5/ADC_MIC.c **** *
+  73:Generated_Source\PSoC5/ADC_MIC.c **** *******************************************************************************/
+  74:Generated_Source\PSoC5/ADC_MIC.c **** void ADC_MIC_Start(void)
+  75:Generated_Source\PSoC5/ADC_MIC.c **** {
+  76:Generated_Source\PSoC5/ADC_MIC.c **** 
+  77:Generated_Source\PSoC5/ADC_MIC.c ****     /* If not Initialized then initialize all required hardware and software */
+  78:Generated_Source\PSoC5/ADC_MIC.c ****     if(ADC_MIC_initVar == 0u)
+  79:Generated_Source\PSoC5/ADC_MIC.c ****     {
+  80:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_Init();
+  81:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_initVar = 1u;
+  82:Generated_Source\PSoC5/ADC_MIC.c ****     }
+  83:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_Enable();
+  84:Generated_Source\PSoC5/ADC_MIC.c **** }
+  85:Generated_Source\PSoC5/ADC_MIC.c **** 
+  86:Generated_Source\PSoC5/ADC_MIC.c **** 
+  87:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
+  88:Generated_Source\PSoC5/ADC_MIC.c **** * Function Name: ADC_MIC_Init
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 3
+
+
+  89:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
+  90:Generated_Source\PSoC5/ADC_MIC.c **** *
+  91:Generated_Source\PSoC5/ADC_MIC.c **** * Summary:
+  92:Generated_Source\PSoC5/ADC_MIC.c **** *  Initialize component's parameters to the parameters set by user in the
+  93:Generated_Source\PSoC5/ADC_MIC.c **** *  customizer of the component placed onto schematic. Usually called in
+  94:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_Start().
+  95:Generated_Source\PSoC5/ADC_MIC.c **** *
+  96:Generated_Source\PSoC5/ADC_MIC.c **** * Parameters:
+  97:Generated_Source\PSoC5/ADC_MIC.c **** *  None.
+  98:Generated_Source\PSoC5/ADC_MIC.c **** *
+  99:Generated_Source\PSoC5/ADC_MIC.c **** * Return:
+ 100:Generated_Source\PSoC5/ADC_MIC.c **** *  None.
+ 101:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 102:Generated_Source\PSoC5/ADC_MIC.c **** * Global variables:
+ 103:Generated_Source\PSoC5/ADC_MIC.c **** *  The ADC_MIC_offset variable is initialized to 0.
+ 104:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 105:Generated_Source\PSoC5/ADC_MIC.c **** *******************************************************************************/
+ 106:Generated_Source\PSoC5/ADC_MIC.c **** void ADC_MIC_Init(void)
+ 107:Generated_Source\PSoC5/ADC_MIC.c **** {
+ 108:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 109:Generated_Source\PSoC5/ADC_MIC.c ****     /* This is only valid if there is an internal clock */
+ 110:Generated_Source\PSoC5/ADC_MIC.c ****     #if(ADC_MIC_DEFAULT_INTERNAL_CLK)
+ 111:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_theACLK_SetMode(CYCLK_DUTY);
+ 112:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* End ADC_MIC_DEFAULT_INTERNAL_CLK */
+ 113:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 114:Generated_Source\PSoC5/ADC_MIC.c ****     #if(ADC_MIC_IRQ_REMOVE == 0u)
+ 115:Generated_Source\PSoC5/ADC_MIC.c ****         /* Start and set interrupt vector */
+ 116:Generated_Source\PSoC5/ADC_MIC.c ****         CyIntSetPriority(ADC_MIC_INTC_NUMBER, ADC_MIC_INTC_PRIOR_NUMBER);
+ 117:Generated_Source\PSoC5/ADC_MIC.c ****         (void)CyIntSetVector(ADC_MIC_INTC_NUMBER, &ADC_MIC_ISR);
+ 118:Generated_Source\PSoC5/ADC_MIC.c ****     #endif   /* End ADC_MIC_IRQ_REMOVE */
+ 119:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 120:Generated_Source\PSoC5/ADC_MIC.c ****     /* Enable IRQ mode*/
+ 121:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_SAR_CSR1_REG |= ADC_MIC_SAR_IRQ_MASK_EN | ADC_MIC_SAR_IRQ_MODE_EDGE;
+ 122:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 123:Generated_Source\PSoC5/ADC_MIC.c ****     /*Set SAR ADC resolution ADC */
+ 124:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_SetResolution(ADC_MIC_DEFAULT_RESOLUTION);
+ 125:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_offset = 0;
+ 126:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 127:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 128:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 129:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
+ 130:Generated_Source\PSoC5/ADC_MIC.c **** * Function Name: ADC_MIC_Enable
+ 131:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
+ 132:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 133:Generated_Source\PSoC5/ADC_MIC.c **** * Summary:
+ 134:Generated_Source\PSoC5/ADC_MIC.c **** *  Enables the reference, clock and power for SAR ADC.
+ 135:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 136:Generated_Source\PSoC5/ADC_MIC.c **** * Parameters:
+ 137:Generated_Source\PSoC5/ADC_MIC.c **** *  None.
+ 138:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 139:Generated_Source\PSoC5/ADC_MIC.c **** * Return:
+ 140:Generated_Source\PSoC5/ADC_MIC.c **** *  None.
+ 141:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 142:Generated_Source\PSoC5/ADC_MIC.c **** *******************************************************************************/
+ 143:Generated_Source\PSoC5/ADC_MIC.c **** void ADC_MIC_Enable(void)
+ 144:Generated_Source\PSoC5/ADC_MIC.c **** {
+  27              		.loc 1 144 0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 4
+
+
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  32              		.cfi_def_cfa_offset 24
+  33              		.cfi_offset 3, -24
+  34              		.cfi_offset 4, -20
+  35              		.cfi_offset 5, -16
+  36              		.cfi_offset 6, -12
+  37              		.cfi_offset 7, -8
+  38              		.cfi_offset 14, -4
+ 145:Generated_Source\PSoC5/ADC_MIC.c ****     uint8 tmpReg;
+ 146:Generated_Source\PSoC5/ADC_MIC.c ****     uint8 enableInterrupts;
+ 147:Generated_Source\PSoC5/ADC_MIC.c ****     enableInterrupts = CyEnterCriticalSection();
+  39              		.loc 1 147 0
+  40 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+  41              	.LVL0:
+ 148:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 149:Generated_Source\PSoC5/ADC_MIC.c ****     /* Enable the SAR ADC block in Active Power Mode */
+ 150:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_PWRMGR_SAR_REG |= ADC_MIC_ACT_PWR_SAR_EN;
+  42              		.loc 1 150 0
+  43 0006 204A     		ldr	r2, .L3
+ 147:Generated_Source\PSoC5/ADC_MIC.c **** 
+  44              		.loc 1 147 0
+  45 0008 0446     		mov	r4, r0
+  46              	.LVL1:
+  47              		.loc 1 150 0
+  48 000a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 151:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 152:Generated_Source\PSoC5/ADC_MIC.c ****      /* Enable the SAR ADC in Standby Power Mode*/
+ 153:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_STBY_PWRMGR_SAR_REG |= ADC_MIC_STBY_PWR_SAR_EN;
+  49              		.loc 1 153 0
+  50 000c 1F49     		ldr	r1, .L3+4
+ 150:Generated_Source\PSoC5/ADC_MIC.c **** 
+  51              		.loc 1 150 0
+  52 000e 43F00203 		orr	r3, r3, #2
+  53 0012 1370     		strb	r3, [r2]
+  54              		.loc 1 153 0
+  55 0014 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 154:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 155:Generated_Source\PSoC5/ADC_MIC.c ****     /* This is only valid if there is an internal clock */
+ 156:Generated_Source\PSoC5/ADC_MIC.c ****     #if(ADC_MIC_DEFAULT_INTERNAL_CLK)
+ 157:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_PWRMGR_CLK_REG |= ADC_MIC_ACT_PWR_CLK_EN;
+  56              		.loc 1 157 0
+  57 0016 1E48     		ldr	r0, .L3+8
+ 153:Generated_Source\PSoC5/ADC_MIC.c **** 
+  58              		.loc 1 153 0
+  59 0018 43F00203 		orr	r3, r3, #2
+  60 001c 0B70     		strb	r3, [r1]
+  61              		.loc 1 157 0
+  62 001e 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 158:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_STBY_PWRMGR_CLK_REG |= ADC_MIC_STBY_PWR_CLK_EN;
+ 159:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* End ADC_MIC_DEFAULT_INTERNAL_CLK */
+ 160:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 161:Generated_Source\PSoC5/ADC_MIC.c ****     /* Enable VCM buffer and Enable Int Ref Amp */
+ 162:Generated_Source\PSoC5/ADC_MIC.c ****     tmpReg = ADC_MIC_SAR_CSR3_REG;
+  63              		.loc 1 162 0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 5
+
+
+  64 0020 01F5AA51 		add	r1, r1, #5440
+ 157:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_STBY_PWRMGR_CLK_REG |= ADC_MIC_STBY_PWR_CLK_EN;
+  65              		.loc 1 157 0
+  66 0024 43F00103 		orr	r3, r3, #1
+  67 0028 0370     		strb	r3, [r0]
+ 158:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_STBY_PWRMGR_CLK_REG |= ADC_MIC_STBY_PWR_CLK_EN;
+  68              		.loc 1 158 0
+  69 002a D379     		ldrb	r3, [r2, #7]	@ zero_extendqisi2
+  70              		.loc 1 162 0
+  71 002c 1031     		adds	r1, r1, #16
+ 158:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_STBY_PWRMGR_CLK_REG |= ADC_MIC_STBY_PWR_CLK_EN;
+  72              		.loc 1 158 0
+  73 002e 43F00103 		orr	r3, r3, #1
+  74 0032 D371     		strb	r3, [r2, #7]
+  75              		.loc 1 162 0
+  76 0034 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
+  77              	.LVL2:
+ 163:Generated_Source\PSoC5/ADC_MIC.c ****     tmpReg |= ADC_MIC_SAR_EN_BUF_VCM_EN;
+ 164:Generated_Source\PSoC5/ADC_MIC.c ****     /* PD_BUF_VREF is OFF in External reference or Vdda reference mode */
+ 165:Generated_Source\PSoC5/ADC_MIC.c ****     #if((ADC_MIC_DEFAULT_REFERENCE == ADC_MIC__EXT_REF) || \
+ 166:Generated_Source\PSoC5/ADC_MIC.c ****         (ADC_MIC_DEFAULT_RANGE == ADC_MIC__VNEG_VDDA_DIFF))
+ 167:Generated_Source\PSoC5/ADC_MIC.c ****         tmpReg &= (uint8)~ADC_MIC_SAR_EN_BUF_VREF_EN;
+ 168:Generated_Source\PSoC5/ADC_MIC.c ****     #else /* In INTREF or INTREF Bypassed this buffer is ON */
+ 169:Generated_Source\PSoC5/ADC_MIC.c ****         tmpReg |= ADC_MIC_SAR_EN_BUF_VREF_EN;
+ 170:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* ADC_MIC_DEFAULT_REFERENCE == ADC_MIC__EXT_REF */
+ 171:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_SAR_CSR3_REG = tmpReg;
+ 172:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 173:Generated_Source\PSoC5/ADC_MIC.c ****     /* Set reference for ADC */
+ 174:Generated_Source\PSoC5/ADC_MIC.c ****     #if(ADC_MIC_DEFAULT_RANGE == ADC_MIC__VNEG_VDDA_DIFF)
+ 175:Generated_Source\PSoC5/ADC_MIC.c ****         #if(ADC_MIC_DEFAULT_REFERENCE == ADC_MIC__EXT_REF)
+ 176:Generated_Source\PSoC5/ADC_MIC.c ****             ADC_MIC_SAR_CSR6_REG = ADC_MIC_INT_BYPASS_EXT_VREF; /* S2 */
+ 177:Generated_Source\PSoC5/ADC_MIC.c ****         #else /* Internal Vdda reference or obsolete bypass mode */
+ 178:Generated_Source\PSoC5/ADC_MIC.c ****             ADC_MIC_SAR_CSR6_REG = ADC_MIC_VDDA_VREF;           /* S7 */
+ 179:Generated_Source\PSoC5/ADC_MIC.c ****         #endif /* ADC_MIC_DEFAULT_REFERENCE == ADC_MIC__EXT_REF */
+ 180:Generated_Source\PSoC5/ADC_MIC.c ****     #else  /* Reference goes through internal buffer */
+ 181:Generated_Source\PSoC5/ADC_MIC.c ****         #if(ADC_MIC_DEFAULT_REFERENCE == ADC_MIC__INT_REF_NOT_BYPASSED)
+ 182:Generated_Source\PSoC5/ADC_MIC.c ****             ADC_MIC_SAR_CSR6_REG = ADC_MIC_INT_VREF;            /* S3 + S4 */
+  78              		.loc 1 182 0
+  79 0036 00F5AB50 		add	r0, r0, #5472
+ 183:Generated_Source\PSoC5/ADC_MIC.c ****         #else /* INTREF Bypassed of External */
+ 184:Generated_Source\PSoC5/ADC_MIC.c ****             ADC_MIC_SAR_CSR6_REG = ADC_MIC_INT_BYPASS_EXT_VREF; /* S2 */
+ 185:Generated_Source\PSoC5/ADC_MIC.c ****         #endif /* ADC_MIC_DEFAULT_REFERENCE == ADC_MIC__INT_REF_NOT_BYPASSED */
+ 186:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* VNEG_VDDA_DIFF */
+ 187:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 188:Generated_Source\PSoC5/ADC_MIC.c ****     /* Low non-overlap delay for sampling clock signals (for 1MSPS) */
+ 189:Generated_Source\PSoC5/ADC_MIC.c ****     #if(ADC_MIC_HIGH_POWER_PULSE == 0u) /* MinPulseWidth <= 50 ns */
+ 190:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_SAR_CSR5_REG &= (uint8)~ADC_MIC_SAR_DLY_INC;
+ 191:Generated_Source\PSoC5/ADC_MIC.c ****     #else /* Set High non-overlap delay for sampling clock signals (for <500KSPS)*/
+ 192:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_SAR_CSR5_REG |= ADC_MIC_SAR_DLY_INC;
+  80              		.loc 1 192 0
+  81 003a 164B     		ldr	r3, .L3+12
+ 182:Generated_Source\PSoC5/ADC_MIC.c ****         #else /* INTREF Bypassed of External */
+  82              		.loc 1 182 0
+  83 003c 0C30     		adds	r0, r0, #12
+  84 003e 1825     		movs	r5, #24
+ 169:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* ADC_MIC_DEFAULT_REFERENCE == ADC_MIC__EXT_REF */
+  85              		.loc 1 169 0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 6
+
+
+  86 0040 42F00302 		orr	r2, r2, #3
+  87              	.LVL3:
+ 171:Generated_Source\PSoC5/ADC_MIC.c **** 
+  88              		.loc 1 171 0
+  89 0044 0A70     		strb	r2, [r1]
+ 182:Generated_Source\PSoC5/ADC_MIC.c ****         #else /* INTREF Bypassed of External */
+  90              		.loc 1 182 0
+  91 0046 0570     		strb	r5, [r0]
+  92              		.loc 1 192 0
+  93 0048 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  94              	.LVL4:
+ 193:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* ADC_MIC_HIGH_POWER_PULSE == 0u */
+ 194:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 195:Generated_Source\PSoC5/ADC_MIC.c ****     /* Increase comparator latch enable delay by 20%, 
+ 196:Generated_Source\PSoC5/ADC_MIC.c ****     *  Increase comparator bias current by 30% without impacting delaysDelay 
+ 197:Generated_Source\PSoC5/ADC_MIC.c ****     *  Default for 1MSPS) 
+ 198:Generated_Source\PSoC5/ADC_MIC.c ****     */
+ 199:Generated_Source\PSoC5/ADC_MIC.c ****     #if(ADC_MIC_HIGH_POWER_PULSE == 0u)    /* MinPulseWidth <= 50 ns */
+ 200:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_SAR_CSR5_REG |= ADC_MIC_SAR_SEL_CSEL_DFT_CHAR;
+ 201:Generated_Source\PSoC5/ADC_MIC.c ****     #else /* for <500ksps */
+ 202:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_SAR_CSR5_REG &= (uint8)~ADC_MIC_SAR_SEL_CSEL_DFT_CHAR;
+ 203:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* ADC_MIC_HIGH_POWER_PULSE == 0u */
+ 204:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 205:Generated_Source\PSoC5/ADC_MIC.c ****     /* Set default power and other configurations for control register 0 in multiple lines */
+ 206:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_SAR_CSR0_REG = (uint8)((uint8)ADC_MIC_DEFAULT_POWER << ADC_MIC_SAR_POWER_SHIFT)
+  95              		.loc 1 206 0
+  96 004a 134E     		ldr	r6, .L3+16
+ 192:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* ADC_MIC_HIGH_POWER_PULSE == 0u */
+  97              		.loc 1 192 0
+  98 004c 42F04002 		orr	r2, r2, #64
+  99 0050 1A70     		strb	r2, [r3]
+ 202:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* ADC_MIC_HIGH_POWER_PULSE == 0u */
+ 100              		.loc 1 202 0
+ 101 0052 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 207:Generated_Source\PSoC5/ADC_MIC.c ****     /* SAR_HIZ_CLEAR:   Should not be used for LP */
+ 208:Generated_Source\PSoC5/ADC_MIC.c ****     #if ((CY_PSOC5LP) || (ADC_MIC_DEFAULT_REFERENCE != ADC_MIC__EXT_REF))
+ 209:Generated_Source\PSoC5/ADC_MIC.c ****         | ADC_MIC_SAR_HIZ_CLEAR
+ 210:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* SAR_HIZ_CLEAR */
+ 211:Generated_Source\PSoC5/ADC_MIC.c ****     /*Set Convertion mode */
+ 212:Generated_Source\PSoC5/ADC_MIC.c ****     #if(ADC_MIC_DEFAULT_CONV_MODE != ADC_MIC__FREE_RUNNING)      /* If triggered mode */
+ 213:Generated_Source\PSoC5/ADC_MIC.c ****         | ADC_MIC_SAR_MX_SOF_UDB           /* source: UDB */
+ 214:Generated_Source\PSoC5/ADC_MIC.c ****         | ADC_MIC_SAR_SOF_MODE_EDGE        /* Set edge-sensitive sof source */
+ 215:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* ADC_MIC_DEFAULT_CONV_MODE */
+ 216:Generated_Source\PSoC5/ADC_MIC.c ****     ; /* end of multiple line initialization */
+ 217:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 218:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_SAR_TR0_REG = ADC_MIC_SAR_CAP_TRIM_2;
+ 102              		.loc 1 218 0
+ 103 0054 A0F59750 		sub	r0, r0, #4832
+ 104 0058 0225     		movs	r5, #2
+ 105 005a 1838     		subs	r0, r0, #24
+ 202:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* ADC_MIC_HIGH_POWER_PULSE == 0u */
+ 106              		.loc 1 202 0
+ 107 005c 02F0FC02 		and	r2, r2, #252
+ 206:Generated_Source\PSoC5/ADC_MIC.c ****     /* SAR_HIZ_CLEAR:   Should not be used for LP */
+ 108              		.loc 1 206 0
+ 109 0060 C827     		movs	r7, #200
+ 202:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* ADC_MIC_HIGH_POWER_PULSE == 0u */
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 7
+
+
+ 110              		.loc 1 202 0
+ 111 0062 1A70     		strb	r2, [r3]
+ 206:Generated_Source\PSoC5/ADC_MIC.c ****     /* SAR_HIZ_CLEAR:   Should not be used for LP */
+ 112              		.loc 1 206 0
+ 113 0064 3770     		strb	r7, [r6]
+ 114              		.loc 1 218 0
+ 115 0066 0570     		strb	r5, [r0]
+ 219:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 220:Generated_Source\PSoC5/ADC_MIC.c ****     /* Enable clock for SAR ADC*/
+ 221:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_SAR_CLK_REG |= ADC_MIC_SAR_MX_CLK_EN;
+ 116              		.loc 1 221 0
+ 117 0068 91F82432 		ldrb	r3, [r1, #548]	@ zero_extendqisi2
+ 222:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 223:Generated_Source\PSoC5/ADC_MIC.c ****     CyDelayUs(10u); /* The block is ready to use 10 us after the enable signal is set high. */
+ 118              		.loc 1 223 0
+ 119 006c 0A20     		movs	r0, #10
+ 221:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 120              		.loc 1 221 0
+ 121 006e 43F00803 		orr	r3, r3, #8
+ 122 0072 81F82432 		strb	r3, [r1, #548]
+ 123              		.loc 1 223 0
+ 124 0076 FFF7FEFF 		bl	CyDelayUs
+ 125              	.LVL5:
+ 224:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 225:Generated_Source\PSoC5/ADC_MIC.c ****     #if(ADC_MIC_IRQ_REMOVE == 0u)
+ 226:Generated_Source\PSoC5/ADC_MIC.c ****         /* Clear a pending interrupt */
+ 227:Generated_Source\PSoC5/ADC_MIC.c ****         CyIntClearPending(ADC_MIC_INTC_NUMBER);
+ 126              		.loc 1 227 0
+ 127 007a 084B     		ldr	r3, .L3+20
+ 228:Generated_Source\PSoC5/ADC_MIC.c ****     #endif   /* End ADC_MIC_IRQ_REMOVE */
+ 229:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 230:Generated_Source\PSoC5/ADC_MIC.c ****     CyExitCriticalSection(enableInterrupts);
+ 128              		.loc 1 230 0
+ 129 007c 2046     		mov	r0, r4
+ 227:Generated_Source\PSoC5/ADC_MIC.c ****     #endif   /* End ADC_MIC_IRQ_REMOVE */
+ 130              		.loc 1 227 0
+ 131 007e 1D60     		str	r5, [r3]
+ 231:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 132              		.loc 1 231 0
+ 133 0080 BDE8F840 		pop	{r3, r4, r5, r6, r7, lr}
+ 134              		.cfi_restore 14
+ 135              		.cfi_restore 7
+ 136              		.cfi_restore 6
+ 137              		.cfi_restore 5
+ 138              		.cfi_restore 4
+ 139              		.cfi_restore 3
+ 140              		.cfi_def_cfa_offset 0
+ 141              	.LVL6:
+ 230:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 142              		.loc 1 230 0
+ 143 0084 FFF7FEBF 		b	CyExitCriticalSection
+ 144              	.LVL7:
+ 145              	.L4:
+ 146              		.align	2
+ 147              	.L3:
+ 148 0088 AB430040 		.word	1073759147
+ 149 008c BB430040 		.word	1073759163
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 8
+
+
+ 150 0090 A2430040 		.word	1073759138
+ 151 0094 0D590040 		.word	1073764621
+ 152 0098 08590040 		.word	1073764616
+ 153 009c 80E200E0 		.word	-536812928
+ 154              		.cfi_endproc
+ 155              	.LFE2:
+ 156              		.size	ADC_MIC_Enable, .-ADC_MIC_Enable
+ 157              		.section	.text.ADC_MIC_Stop,"ax",%progbits
+ 158              		.align	2
+ 159              		.global	ADC_MIC_Stop
+ 160              		.thumb
+ 161              		.thumb_func
+ 162              		.type	ADC_MIC_Stop, %function
+ 163              	ADC_MIC_Stop:
+ 164              	.LFB3:
+ 232:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 233:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 234:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
+ 235:Generated_Source\PSoC5/ADC_MIC.c **** * Function Name: ADC_MIC_Stop
+ 236:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
+ 237:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 238:Generated_Source\PSoC5/ADC_MIC.c **** * Summary:
+ 239:Generated_Source\PSoC5/ADC_MIC.c **** *  Stops ADC conversions and puts the ADC into its lowest power mode.
+ 240:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 241:Generated_Source\PSoC5/ADC_MIC.c **** * Parameters:
+ 242:Generated_Source\PSoC5/ADC_MIC.c **** *  None.
+ 243:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 244:Generated_Source\PSoC5/ADC_MIC.c **** * Return:
+ 245:Generated_Source\PSoC5/ADC_MIC.c **** *  None.
+ 246:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 247:Generated_Source\PSoC5/ADC_MIC.c **** *******************************************************************************/
+ 248:Generated_Source\PSoC5/ADC_MIC.c **** void ADC_MIC_Stop(void)
+ 249:Generated_Source\PSoC5/ADC_MIC.c **** {
+ 165              		.loc 1 249 0
+ 166              		.cfi_startproc
+ 167              		@ args = 0, pretend = 0, frame = 0
+ 168              		@ frame_needed = 0, uses_anonymous_args = 0
+ 169 0000 10B5     		push	{r4, lr}
+ 170              		.cfi_def_cfa_offset 8
+ 171              		.cfi_offset 4, -8
+ 172              		.cfi_offset 14, -4
+ 250:Generated_Source\PSoC5/ADC_MIC.c ****     uint8 enableInterrupts;
+ 251:Generated_Source\PSoC5/ADC_MIC.c ****     enableInterrupts = CyEnterCriticalSection();
+ 173              		.loc 1 251 0
+ 174 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+ 175              	.LVL8:
+ 252:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 253:Generated_Source\PSoC5/ADC_MIC.c ****     /* Stop all conversions */
+ 254:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_SAR_CSR0_REG &= (uint8)~ADC_MIC_SAR_SOF_START_CONV;
+ 176              		.loc 1 254 0
+ 177 0006 0F49     		ldr	r1, .L7
+ 255:Generated_Source\PSoC5/ADC_MIC.c ****     /* Disable the SAR ADC block in Active Power Mode */
+ 256:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_PWRMGR_SAR_REG &= (uint8)~ADC_MIC_ACT_PWR_SAR_EN;
+ 178              		.loc 1 256 0
+ 179 0008 0F4A     		ldr	r2, .L7+4
+ 254:Generated_Source\PSoC5/ADC_MIC.c ****     /* Disable the SAR ADC block in Active Power Mode */
+ 180              		.loc 1 254 0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 9
+
+
+ 181 000a 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 257:Generated_Source\PSoC5/ADC_MIC.c ****     /* Disable the SAR ADC in Standby Power Mode */
+ 258:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_STBY_PWRMGR_SAR_REG &= (uint8)~ADC_MIC_STBY_PWR_SAR_EN;
+ 182              		.loc 1 258 0
+ 183 000c 0F4C     		ldr	r4, .L7+8
+ 254:Generated_Source\PSoC5/ADC_MIC.c ****     /* Disable the SAR ADC block in Active Power Mode */
+ 184              		.loc 1 254 0
+ 185 000e 03F0FE03 		and	r3, r3, #254
+ 186 0012 0B70     		strb	r3, [r1]
+ 256:Generated_Source\PSoC5/ADC_MIC.c ****     /* Disable the SAR ADC in Standby Power Mode */
+ 187              		.loc 1 256 0
+ 188 0014 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 259:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 260:Generated_Source\PSoC5/ADC_MIC.c ****     /* This is only valid if there is an internal clock */
+ 261:Generated_Source\PSoC5/ADC_MIC.c ****     #if(ADC_MIC_DEFAULT_INTERNAL_CLK)
+ 262:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_PWRMGR_CLK_REG &= (uint8)~ADC_MIC_ACT_PWR_CLK_EN;
+ 189              		.loc 1 262 0
+ 190 0016 A1F5AB51 		sub	r1, r1, #5472
+ 256:Generated_Source\PSoC5/ADC_MIC.c ****     /* Disable the SAR ADC in Standby Power Mode */
+ 191              		.loc 1 256 0
+ 192 001a 03F0FD03 		and	r3, r3, #253
+ 193 001e 1370     		strb	r3, [r2]
+ 258:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 194              		.loc 1 258 0
+ 195 0020 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 196              		.loc 1 262 0
+ 197 0022 0639     		subs	r1, r1, #6
+ 258:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 198              		.loc 1 258 0
+ 199 0024 03F0FD03 		and	r3, r3, #253
+ 200 0028 2370     		strb	r3, [r4]
+ 201              		.loc 1 262 0
+ 202 002a 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 203 002c 03F0FE03 		and	r3, r3, #254
+ 204 0030 0B70     		strb	r3, [r1]
+ 263:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_STBY_PWRMGR_CLK_REG &= (uint8)~ADC_MIC_STBY_PWR_CLK_EN;
+ 205              		.loc 1 263 0
+ 206 0032 D379     		ldrb	r3, [r2, #7]	@ zero_extendqisi2
+ 207 0034 03F0FE03 		and	r3, r3, #254
+ 208 0038 D371     		strb	r3, [r2, #7]
+ 264:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* End ADC_MIC_DEFAULT_INTERNAL_CLK */
+ 265:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 266:Generated_Source\PSoC5/ADC_MIC.c ****     CyExitCriticalSection(enableInterrupts);
+ 267:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 268:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 209              		.loc 1 268 0
+ 210 003a BDE81040 		pop	{r4, lr}
+ 211              		.cfi_restore 14
+ 212              		.cfi_restore 4
+ 213              		.cfi_def_cfa_offset 0
+ 266:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 214              		.loc 1 266 0
+ 215 003e FFF7FEBF 		b	CyExitCriticalSection
+ 216              	.LVL9:
+ 217              	.L8:
+ 218 0042 00BF     		.align	2
+ 219              	.L7:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 10
+
+
+ 220 0044 08590040 		.word	1073764616
+ 221 0048 AB430040 		.word	1073759147
+ 222 004c BB430040 		.word	1073759163
+ 223              		.cfi_endproc
+ 224              	.LFE3:
+ 225              		.size	ADC_MIC_Stop, .-ADC_MIC_Stop
+ 226              		.section	.text.ADC_MIC_SetPower,"ax",%progbits
+ 227              		.align	2
+ 228              		.global	ADC_MIC_SetPower
+ 229              		.thumb
+ 230              		.thumb_func
+ 231              		.type	ADC_MIC_SetPower, %function
+ 232              	ADC_MIC_SetPower:
+ 233              	.LFB4:
+ 269:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 270:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 271:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
+ 272:Generated_Source\PSoC5/ADC_MIC.c **** * Function Name: ADC_MIC_SetPower
+ 273:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
+ 274:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 275:Generated_Source\PSoC5/ADC_MIC.c **** * Summary:
+ 276:Generated_Source\PSoC5/ADC_MIC.c **** *  Sets the operational power of the ADC. You should use the higher power
+ 277:Generated_Source\PSoC5/ADC_MIC.c **** *  settings with faster clock speeds.
+ 278:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 279:Generated_Source\PSoC5/ADC_MIC.c **** * Parameters:
+ 280:Generated_Source\PSoC5/ADC_MIC.c **** *  power:  Power setting for ADC
+ 281:Generated_Source\PSoC5/ADC_MIC.c **** *  0 ->    Normal
+ 282:Generated_Source\PSoC5/ADC_MIC.c **** *  1 ->    Medium power
+ 283:Generated_Source\PSoC5/ADC_MIC.c **** *  2 ->    1.25 power
+ 284:Generated_Source\PSoC5/ADC_MIC.c **** *  3 ->    Minimum power.
+ 285:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 286:Generated_Source\PSoC5/ADC_MIC.c **** * Return:
+ 287:Generated_Source\PSoC5/ADC_MIC.c **** *  None.
+ 288:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 289:Generated_Source\PSoC5/ADC_MIC.c **** *******************************************************************************/
+ 290:Generated_Source\PSoC5/ADC_MIC.c **** void ADC_MIC_SetPower(uint8 power)
+ 291:Generated_Source\PSoC5/ADC_MIC.c **** {
+ 234              		.loc 1 291 0
+ 235              		.cfi_startproc
+ 236              		@ args = 0, pretend = 0, frame = 0
+ 237              		@ frame_needed = 0, uses_anonymous_args = 0
+ 238              		@ link register save eliminated.
+ 239              	.LVL10:
+ 292:Generated_Source\PSoC5/ADC_MIC.c ****     uint8 tmpReg;
+ 293:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 294:Generated_Source\PSoC5/ADC_MIC.c ****     /* mask off invalid power settings */
+ 295:Generated_Source\PSoC5/ADC_MIC.c ****     power &= ADC_MIC_SAR_API_POWER_MASK;
+ 296:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 297:Generated_Source\PSoC5/ADC_MIC.c ****     /* Set Power parameter  */
+ 298:Generated_Source\PSoC5/ADC_MIC.c ****     tmpReg = ADC_MIC_SAR_CSR0_REG & (uint8)~ADC_MIC_SAR_POWER_MASK;
+ 240              		.loc 1 298 0
+ 241 0000 044A     		ldr	r2, .L10
+ 295:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 242              		.loc 1 295 0
+ 243 0002 00F00300 		and	r0, r0, #3
+ 244              	.LVL11:
+ 245              		.loc 1 298 0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 11
+
+
+ 246 0006 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 247 0008 03F03F03 		and	r3, r3, #63
+ 248              	.LVL12:
+ 299:Generated_Source\PSoC5/ADC_MIC.c ****     tmpReg |= (uint8)(power << ADC_MIC_SAR_POWER_SHIFT);
+ 249              		.loc 1 299 0
+ 250 000c 43EA8010 		orr	r0, r3, r0, lsl #6
+ 251              	.LVL13:
+ 300:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_SAR_CSR0_REG = tmpReg;
+ 252              		.loc 1 300 0
+ 253 0010 1070     		strb	r0, [r2]
+ 254 0012 7047     		bx	lr
+ 255              	.L11:
+ 256              		.align	2
+ 257              	.L10:
+ 258 0014 08590040 		.word	1073764616
+ 259              		.cfi_endproc
+ 260              	.LFE4:
+ 261              		.size	ADC_MIC_SetPower, .-ADC_MIC_SetPower
+ 262              		.section	.text.ADC_MIC_SetResolution,"ax",%progbits
+ 263              		.align	2
+ 264              		.global	ADC_MIC_SetResolution
+ 265              		.thumb
+ 266              		.thumb_func
+ 267              		.type	ADC_MIC_SetResolution, %function
+ 268              	ADC_MIC_SetResolution:
+ 269              	.LFB5:
+ 301:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 302:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 303:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 304:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
+ 305:Generated_Source\PSoC5/ADC_MIC.c **** * Function Name: ADC_MIC_SetResolution
+ 306:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
+ 307:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 308:Generated_Source\PSoC5/ADC_MIC.c **** * Summary:
+ 309:Generated_Source\PSoC5/ADC_MIC.c **** *  Sets the Relution of the SAR.
+ 310:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 311:Generated_Source\PSoC5/ADC_MIC.c **** * Parameters:
+ 312:Generated_Source\PSoC5/ADC_MIC.c **** *  resolution:
+ 313:Generated_Source\PSoC5/ADC_MIC.c **** *  12 ->    RES12
+ 314:Generated_Source\PSoC5/ADC_MIC.c **** *  10 ->    RES10
+ 315:Generated_Source\PSoC5/ADC_MIC.c **** *  8  ->    RES8
+ 316:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 317:Generated_Source\PSoC5/ADC_MIC.c **** * Return:
+ 318:Generated_Source\PSoC5/ADC_MIC.c **** *  None.
+ 319:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 320:Generated_Source\PSoC5/ADC_MIC.c **** * Side Effects:
+ 321:Generated_Source\PSoC5/ADC_MIC.c **** *  The ADC resolution cannot be changed during a conversion cycle. The
+ 322:Generated_Source\PSoC5/ADC_MIC.c **** *  recommended best practice is to stop conversions with
+ 323:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_StopConvert(), change the resolution, then restart the
+ 324:Generated_Source\PSoC5/ADC_MIC.c **** *  conversions with ADC_StartConvert().
+ 325:Generated_Source\PSoC5/ADC_MIC.c **** *  If you decide not to stop conversions before calling this API, you
+ 326:Generated_Source\PSoC5/ADC_MIC.c **** *  should use ADC_IsEndConversion() to wait until conversion is complete
+ 327:Generated_Source\PSoC5/ADC_MIC.c **** *  before changing the resolution.
+ 328:Generated_Source\PSoC5/ADC_MIC.c **** *  If you call ADC_SetResolution() during a conversion, the resolution will
+ 329:Generated_Source\PSoC5/ADC_MIC.c **** *  not be changed until the current conversion is complete. Data will not be
+ 330:Generated_Source\PSoC5/ADC_MIC.c **** *  available in the new resolution for another 6 + "New Resolution(in bits)"
+ 331:Generated_Source\PSoC5/ADC_MIC.c **** *  clock cycles.
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 12
+
+
+ 332:Generated_Source\PSoC5/ADC_MIC.c **** *  You may need add a delay of this number of clock cycles after
+ 333:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_SetResolution() is called before data is valid again.
+ 334:Generated_Source\PSoC5/ADC_MIC.c **** *  Affects ADC_CountsTo_Volts(), ADC_CountsTo_mVolts(), and
+ 335:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_CountsTo_uVolts() by calculating the correct conversion between ADC
+ 336:Generated_Source\PSoC5/ADC_MIC.c **** *  counts and the applied input voltage. Calculation depends on resolution,
+ 337:Generated_Source\PSoC5/ADC_MIC.c **** *  input range, and voltage reference.
+ 338:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 339:Generated_Source\PSoC5/ADC_MIC.c **** *******************************************************************************/
+ 340:Generated_Source\PSoC5/ADC_MIC.c **** void ADC_MIC_SetResolution(uint8 resolution)
+ 341:Generated_Source\PSoC5/ADC_MIC.c **** {
+ 270              		.loc 1 341 0
+ 271              		.cfi_startproc
+ 272              		@ args = 0, pretend = 0, frame = 0
+ 273              		@ frame_needed = 0, uses_anonymous_args = 0
+ 274              	.LVL14:
+ 342:Generated_Source\PSoC5/ADC_MIC.c ****     uint8 tmpReg;
+ 343:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 344:Generated_Source\PSoC5/ADC_MIC.c ****     /* Set SAR ADC resolution and sample width: 18 conversion cycles at 12bits + 1 gap */
+ 345:Generated_Source\PSoC5/ADC_MIC.c ****     switch (resolution)
+ 275              		.loc 1 345 0
+ 276 0000 0A28     		cmp	r0, #10
+ 341:Generated_Source\PSoC5/ADC_MIC.c ****     uint8 tmpReg;
+ 277              		.loc 1 341 0
+ 278 0002 38B5     		push	{r3, r4, r5, lr}
+ 279              		.cfi_def_cfa_offset 16
+ 280              		.cfi_offset 3, -16
+ 281              		.cfi_offset 4, -12
+ 282              		.cfi_offset 5, -8
+ 283              		.cfi_offset 14, -4
+ 341:Generated_Source\PSoC5/ADC_MIC.c ****     uint8 tmpReg;
+ 284              		.loc 1 341 0
+ 285 0004 0446     		mov	r4, r0
+ 286              		.loc 1 345 0
+ 287 0006 30D0     		beq	.L21
+ 288 0008 0C28     		cmp	r0, #12
+ 289 000a 26D0     		beq	.L15
+ 290 000c 0828     		cmp	r0, #8
+ 291 000e 18D0     		beq	.L16
+ 292              	.LVL15:
+ 346:Generated_Source\PSoC5/ADC_MIC.c ****     {
+ 347:Generated_Source\PSoC5/ADC_MIC.c ****         case (uint8)ADC_MIC__BITS_12:
+ 348:Generated_Source\PSoC5/ADC_MIC.c ****             tmpReg = ADC_MIC_SAR_RESOLUTION_12BIT | ADC_MIC_SAR_SAMPLE_WIDTH;
+ 349:Generated_Source\PSoC5/ADC_MIC.c ****             break;
+ 350:Generated_Source\PSoC5/ADC_MIC.c ****         case (uint8)ADC_MIC__BITS_10:
+ 351:Generated_Source\PSoC5/ADC_MIC.c ****             tmpReg = ADC_MIC_SAR_RESOLUTION_10BIT | ADC_MIC_SAR_SAMPLE_WIDTH;
+ 352:Generated_Source\PSoC5/ADC_MIC.c ****             break;
+ 353:Generated_Source\PSoC5/ADC_MIC.c ****         case (uint8)ADC_MIC__BITS_8:
+ 354:Generated_Source\PSoC5/ADC_MIC.c ****             tmpReg = ADC_MIC_SAR_RESOLUTION_8BIT | ADC_MIC_SAR_SAMPLE_WIDTH;
+ 355:Generated_Source\PSoC5/ADC_MIC.c ****             break;
+ 356:Generated_Source\PSoC5/ADC_MIC.c ****         default:
+ 357:Generated_Source\PSoC5/ADC_MIC.c ****             tmpReg = ADC_MIC_SAR_RESOLUTION_12BIT | ADC_MIC_SAR_SAMPLE_WIDTH;
+ 358:Generated_Source\PSoC5/ADC_MIC.c ****             /* Halt CPU in debug mode if resolution is out of valid range */
+ 359:Generated_Source\PSoC5/ADC_MIC.c ****             CYASSERT(0u != 0u);
+ 293              		.loc 1 359 0
+ 294 0010 0020     		movs	r0, #0
+ 295              	.LVL16:
+ 296 0012 FFF7FEFF 		bl	CyHalt
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 13
+
+
+ 297              	.LVL17:
+ 357:Generated_Source\PSoC5/ADC_MIC.c ****             /* Halt CPU in debug mode if resolution is out of valid range */
+ 298              		.loc 1 357 0
+ 299 0016 C223     		movs	r3, #194
+ 300              	.LVL18:
+ 301              	.L14:
+ 360:Generated_Source\PSoC5/ADC_MIC.c ****             break;
+ 361:Generated_Source\PSoC5/ADC_MIC.c ****     }
+ 362:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_SAR_CSR2_REG = tmpReg;
+ 302              		.loc 1 362 0
+ 303 0018 174A     		ldr	r2, .L30
+ 304              	.LBB4:
+ 305              	.LBB5:
+ 363:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 364:Generated_Source\PSoC5/ADC_MIC.c ****      /* Calculate gain for convert counts to volts */
+ 365:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_CalcGain(resolution);
+ 366:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 367:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 368:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 369:Generated_Source\PSoC5/ADC_MIC.c **** #if(ADC_MIC_DEFAULT_CONV_MODE != ADC_MIC__HARDWARE_TRIGGER)
+ 370:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 371:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 372:Generated_Source\PSoC5/ADC_MIC.c ****     /*******************************************************************************
+ 373:Generated_Source\PSoC5/ADC_MIC.c ****     * Function Name: ADC_MIC_StartConvert
+ 374:Generated_Source\PSoC5/ADC_MIC.c ****     ********************************************************************************
+ 375:Generated_Source\PSoC5/ADC_MIC.c ****     *
+ 376:Generated_Source\PSoC5/ADC_MIC.c ****     * Summary:
+ 377:Generated_Source\PSoC5/ADC_MIC.c ****     *  Forces the ADC to initiate a conversion. In free-running mode, the ADC runs
+ 378:Generated_Source\PSoC5/ADC_MIC.c ****     *  continuously. In software trigger mode, the function also acts as a software
+ 379:Generated_Source\PSoC5/ADC_MIC.c ****     *  version of the SOC and every conversion must be triggered by
+ 380:Generated_Source\PSoC5/ADC_MIC.c ****     *  ADC_MIC_StartConvert(). This function is not available when the
+ 381:Generated_Source\PSoC5/ADC_MIC.c ****     *  Hardware Trigger sample mode is selected.
+ 382:Generated_Source\PSoC5/ADC_MIC.c ****     *
+ 383:Generated_Source\PSoC5/ADC_MIC.c ****     * Parameters:
+ 384:Generated_Source\PSoC5/ADC_MIC.c ****     *  None.
+ 385:Generated_Source\PSoC5/ADC_MIC.c ****     *
+ 386:Generated_Source\PSoC5/ADC_MIC.c ****     * Return:
+ 387:Generated_Source\PSoC5/ADC_MIC.c ****     *  None.
+ 388:Generated_Source\PSoC5/ADC_MIC.c ****     *
+ 389:Generated_Source\PSoC5/ADC_MIC.c ****     * Theory:
+ 390:Generated_Source\PSoC5/ADC_MIC.c ****     *  Forces the ADC to initiate a conversion. In Free Running mode, the ADC will
+ 391:Generated_Source\PSoC5/ADC_MIC.c ****     *  run continuously. In a software trigger mode the function also acts as a
+ 392:Generated_Source\PSoC5/ADC_MIC.c ****     *  software version of the SOC. Here every conversion has to be triggered by
+ 393:Generated_Source\PSoC5/ADC_MIC.c ****     *  the routine. This writes into the SOC bit in SAR_CTRL reg.
+ 394:Generated_Source\PSoC5/ADC_MIC.c ****     *
+ 395:Generated_Source\PSoC5/ADC_MIC.c ****     * Side Effects:
+ 396:Generated_Source\PSoC5/ADC_MIC.c ****     *  In a software trigger mode the function switches source for SOF from the
+ 397:Generated_Source\PSoC5/ADC_MIC.c ****     *  external pin to the internal SOF generation. Application should not call
+ 398:Generated_Source\PSoC5/ADC_MIC.c ****     *  StartConvert if external source used for SOF.
+ 399:Generated_Source\PSoC5/ADC_MIC.c ****     *
+ 400:Generated_Source\PSoC5/ADC_MIC.c ****     *******************************************************************************/
+ 401:Generated_Source\PSoC5/ADC_MIC.c ****     void ADC_MIC_StartConvert(void)
+ 402:Generated_Source\PSoC5/ADC_MIC.c ****     {
+ 403:Generated_Source\PSoC5/ADC_MIC.c ****         #if(ADC_MIC_DEFAULT_CONV_MODE != ADC_MIC__FREE_RUNNING)  /* If software triggered mode */
+ 404:Generated_Source\PSoC5/ADC_MIC.c ****             ADC_MIC_SAR_CSR0_REG &= (uint8)~ADC_MIC_SAR_MX_SOF_UDB;   /* source: SOF bit */
+ 405:Generated_Source\PSoC5/ADC_MIC.c ****         #endif /* End ADC_MIC_DEFAULT_CONV_MODE */
+ 406:Generated_Source\PSoC5/ADC_MIC.c **** 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 14
+
+
+ 407:Generated_Source\PSoC5/ADC_MIC.c ****         /* Start the conversion */
+ 408:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_SAR_CSR0_REG |= ADC_MIC_SAR_SOF_START_CONV;
+ 409:Generated_Source\PSoC5/ADC_MIC.c ****     }
+ 410:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 411:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 412:Generated_Source\PSoC5/ADC_MIC.c ****     /*******************************************************************************
+ 413:Generated_Source\PSoC5/ADC_MIC.c ****     * Function Name: ADC_MIC_StopConvert
+ 414:Generated_Source\PSoC5/ADC_MIC.c ****     ********************************************************************************
+ 415:Generated_Source\PSoC5/ADC_MIC.c ****     *
+ 416:Generated_Source\PSoC5/ADC_MIC.c ****     * Summary:
+ 417:Generated_Source\PSoC5/ADC_MIC.c ****     *  Forces the ADC to stop conversions. If a conversion is currently executing,
+ 418:Generated_Source\PSoC5/ADC_MIC.c ****     *  that conversion will complete, but no further conversions will occur. This
+ 419:Generated_Source\PSoC5/ADC_MIC.c ****     *  function is not available when the Hardware Trigger sample mode is selected.
+ 420:Generated_Source\PSoC5/ADC_MIC.c ****     *
+ 421:Generated_Source\PSoC5/ADC_MIC.c ****     * Parameters:
+ 422:Generated_Source\PSoC5/ADC_MIC.c ****     *  None.
+ 423:Generated_Source\PSoC5/ADC_MIC.c ****     *
+ 424:Generated_Source\PSoC5/ADC_MIC.c ****     * Return:
+ 425:Generated_Source\PSoC5/ADC_MIC.c ****     *  None.
+ 426:Generated_Source\PSoC5/ADC_MIC.c ****     *
+ 427:Generated_Source\PSoC5/ADC_MIC.c ****     * Theory:
+ 428:Generated_Source\PSoC5/ADC_MIC.c ****     *  Stops ADC conversion in Free Running mode.
+ 429:Generated_Source\PSoC5/ADC_MIC.c ****     *
+ 430:Generated_Source\PSoC5/ADC_MIC.c ****     * Side Effects:
+ 431:Generated_Source\PSoC5/ADC_MIC.c ****     *  In Software Trigger sample mode, this function sets a software version of the
+ 432:Generated_Source\PSoC5/ADC_MIC.c ****     *  SOC to low level and switches the SOC source to hardware SOC input.
+ 433:Generated_Source\PSoC5/ADC_MIC.c ****     *
+ 434:Generated_Source\PSoC5/ADC_MIC.c ****     *******************************************************************************/
+ 435:Generated_Source\PSoC5/ADC_MIC.c ****     void ADC_MIC_StopConvert(void)
+ 436:Generated_Source\PSoC5/ADC_MIC.c ****     {
+ 437:Generated_Source\PSoC5/ADC_MIC.c ****         /* Stop all conversions */
+ 438:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_SAR_CSR0_REG &= (uint8)~ADC_MIC_SAR_SOF_START_CONV;
+ 439:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 440:Generated_Source\PSoC5/ADC_MIC.c ****         #if(ADC_MIC_DEFAULT_CONV_MODE != ADC_MIC__FREE_RUNNING)  /* If software triggered mode */
+ 441:Generated_Source\PSoC5/ADC_MIC.c ****             /* Return source to UDB for hardware SOF signal */
+ 442:Generated_Source\PSoC5/ADC_MIC.c ****             ADC_MIC_SAR_CSR0_REG |= ADC_MIC_SAR_MX_SOF_UDB;    /* source: UDB */
+ 443:Generated_Source\PSoC5/ADC_MIC.c ****         #endif /* End ADC_MIC_DEFAULT_CONV_MODE */
+ 444:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 445:Generated_Source\PSoC5/ADC_MIC.c ****     }
+ 446:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 447:Generated_Source\PSoC5/ADC_MIC.c **** #endif /* End ADC_MIC_DEFAULT_CONV_MODE != ADC_MIC__HARDWARE_TRIGGER */
+ 448:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 449:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 450:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
+ 451:Generated_Source\PSoC5/ADC_MIC.c **** * Function Name: ADC_MIC_IsEndConversion
+ 452:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
+ 453:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 454:Generated_Source\PSoC5/ADC_MIC.c **** * Summary:
+ 455:Generated_Source\PSoC5/ADC_MIC.c **** *  Immediately returns the status of the conversion or does not return
+ 456:Generated_Source\PSoC5/ADC_MIC.c **** *  (blocking) until the conversion completes, depending on the retMode
+ 457:Generated_Source\PSoC5/ADC_MIC.c **** *  parameter.
+ 458:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 459:Generated_Source\PSoC5/ADC_MIC.c **** * Parameters:
+ 460:Generated_Source\PSoC5/ADC_MIC.c **** *  retMode:  Check conversion return mode.
+ 461:Generated_Source\PSoC5/ADC_MIC.c **** *   ADC_MIC_RETURN_STATUS: Immediately returns the status. If the
+ 462:Generated_Source\PSoC5/ADC_MIC.c **** *     value returned is zero, the conversion is not complete, and this function
+ 463:Generated_Source\PSoC5/ADC_MIC.c **** *     should be retried until a nonzero result is returned.
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 15
+
+
+ 464:Generated_Source\PSoC5/ADC_MIC.c **** *   ADC_MIC_WAIT_FOR_RESULT: Does not return a result until the ADC
+ 465:Generated_Source\PSoC5/ADC_MIC.c **** *     conversion is complete.
+ 466:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 467:Generated_Source\PSoC5/ADC_MIC.c **** * Return:
+ 468:Generated_Source\PSoC5/ADC_MIC.c **** *  (uint8)  0 =>  The ADC is still calculating the last result.
+ 469:Generated_Source\PSoC5/ADC_MIC.c **** *           1 =>  The last conversion is complete.
+ 470:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 471:Generated_Source\PSoC5/ADC_MIC.c **** * Side Effects:
+ 472:Generated_Source\PSoC5/ADC_MIC.c **** *  This function reads the end of conversion status, which is cleared on read.
+ 473:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 474:Generated_Source\PSoC5/ADC_MIC.c **** *******************************************************************************/
+ 475:Generated_Source\PSoC5/ADC_MIC.c **** uint8 ADC_MIC_IsEndConversion(uint8 retMode)
+ 476:Generated_Source\PSoC5/ADC_MIC.c **** {
+ 477:Generated_Source\PSoC5/ADC_MIC.c ****     uint8 status;
+ 478:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 479:Generated_Source\PSoC5/ADC_MIC.c ****     do
+ 480:Generated_Source\PSoC5/ADC_MIC.c ****     {
+ 481:Generated_Source\PSoC5/ADC_MIC.c ****         status = ADC_MIC_SAR_CSR1_REG & ADC_MIC_SAR_EOF_1;
+ 482:Generated_Source\PSoC5/ADC_MIC.c ****     } while ((status != ADC_MIC_SAR_EOF_1) && (retMode == ADC_MIC_WAIT_FOR_RESULT));
+ 483:Generated_Source\PSoC5/ADC_MIC.c ****     /* If convertion complete, wait until EOF bit released */
+ 484:Generated_Source\PSoC5/ADC_MIC.c ****     if(status == ADC_MIC_SAR_EOF_1)
+ 485:Generated_Source\PSoC5/ADC_MIC.c ****     {
+ 486:Generated_Source\PSoC5/ADC_MIC.c ****         /* wait one ADC clock to let the EOC status bit release */
+ 487:Generated_Source\PSoC5/ADC_MIC.c ****         CyDelayUs(1u);
+ 488:Generated_Source\PSoC5/ADC_MIC.c ****         /* Do the unconditional read operation of the CSR1 register to make sure the EOC bit has be
+ 489:Generated_Source\PSoC5/ADC_MIC.c ****         CY_GET_REG8(ADC_MIC_SAR_CSR1_PTR);
+ 490:Generated_Source\PSoC5/ADC_MIC.c ****     }
+ 491:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 492:Generated_Source\PSoC5/ADC_MIC.c ****     return(status);
+ 493:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 494:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 495:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 496:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
+ 497:Generated_Source\PSoC5/ADC_MIC.c **** * Function Name: ADC_MIC_GetResult8
+ 498:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
+ 499:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 500:Generated_Source\PSoC5/ADC_MIC.c **** * Summary:
+ 501:Generated_Source\PSoC5/ADC_MIC.c **** *  Returns the result of an 8-bit conversion. If the resolution is set greater
+ 502:Generated_Source\PSoC5/ADC_MIC.c **** *  than 8 bits, the function returns the LSB of the result.
+ 503:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_IsEndConversion() should be called to verify that the data
+ 504:Generated_Source\PSoC5/ADC_MIC.c **** *   sample is ready.
+ 505:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 506:Generated_Source\PSoC5/ADC_MIC.c **** * Parameters:
+ 507:Generated_Source\PSoC5/ADC_MIC.c **** *  None.
+ 508:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 509:Generated_Source\PSoC5/ADC_MIC.c **** * Return:
+ 510:Generated_Source\PSoC5/ADC_MIC.c **** *  The LSB of the last ADC conversion.
+ 511:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 512:Generated_Source\PSoC5/ADC_MIC.c **** * Global Variables:
+ 513:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_shift - used to convert the ADC counts to the 2s
+ 514:Generated_Source\PSoC5/ADC_MIC.c **** *  compliment form.
+ 515:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 516:Generated_Source\PSoC5/ADC_MIC.c **** * Side Effects:
+ 517:Generated_Source\PSoC5/ADC_MIC.c **** *  Converts the ADC counts to the 2s complement form.
+ 518:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 519:Generated_Source\PSoC5/ADC_MIC.c **** *******************************************************************************/
+ 520:Generated_Source\PSoC5/ADC_MIC.c **** int8 ADC_MIC_GetResult8( void )
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 16
+
+
+ 521:Generated_Source\PSoC5/ADC_MIC.c **** {
+ 522:Generated_Source\PSoC5/ADC_MIC.c ****     return( (int8)ADC_MIC_SAR_WRK0_REG - (int8)ADC_MIC_shift);
+ 523:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 524:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 525:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 526:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
+ 527:Generated_Source\PSoC5/ADC_MIC.c **** * Function Name: ADC_MIC_GetResult16
+ 528:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
+ 529:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 530:Generated_Source\PSoC5/ADC_MIC.c **** * Summary:
+ 531:Generated_Source\PSoC5/ADC_MIC.c **** *  Returns a 16-bit result for a conversion with a result that has a resolution
+ 532:Generated_Source\PSoC5/ADC_MIC.c **** *  of 8 to 12 bits.
+ 533:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_IsEndConversion() should be called to verify that the data
+ 534:Generated_Source\PSoC5/ADC_MIC.c **** *   sample is ready
+ 535:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 536:Generated_Source\PSoC5/ADC_MIC.c **** * Parameters:
+ 537:Generated_Source\PSoC5/ADC_MIC.c **** *  None.
+ 538:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 539:Generated_Source\PSoC5/ADC_MIC.c **** * Return:
+ 540:Generated_Source\PSoC5/ADC_MIC.c **** *  The 16-bit result of the last ADC conversion
+ 541:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 542:Generated_Source\PSoC5/ADC_MIC.c **** * Global Variables:
+ 543:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_shift - used to convert the ADC counts to the 2s
+ 544:Generated_Source\PSoC5/ADC_MIC.c **** *  compliment form.
+ 545:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 546:Generated_Source\PSoC5/ADC_MIC.c **** * Side Effects:
+ 547:Generated_Source\PSoC5/ADC_MIC.c **** *  Converts the ADC counts to the 2s complement form.
+ 548:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 549:Generated_Source\PSoC5/ADC_MIC.c **** *******************************************************************************/
+ 550:Generated_Source\PSoC5/ADC_MIC.c **** int16 ADC_MIC_GetResult16( void )
+ 551:Generated_Source\PSoC5/ADC_MIC.c **** {
+ 552:Generated_Source\PSoC5/ADC_MIC.c ****     uint16 res;
+ 553:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 554:Generated_Source\PSoC5/ADC_MIC.c ****     res = CY_GET_REG16(ADC_MIC_SAR_WRK_PTR);
+ 555:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 556:Generated_Source\PSoC5/ADC_MIC.c ****     return( (int16)res - ADC_MIC_shift );
+ 557:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 558:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 559:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 560:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
+ 561:Generated_Source\PSoC5/ADC_MIC.c **** * Function Name: ADC_MIC_SetOffset
+ 562:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
+ 563:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 564:Generated_Source\PSoC5/ADC_MIC.c **** * Summary:
+ 565:Generated_Source\PSoC5/ADC_MIC.c **** *  Sets the ADC offset, which is used by ADC_MIC_CountsTo_Volts(),
+ 566:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_CountsTo_mVolts(), and ADC_MIC_CountsTo_uVolts()
+ 567:Generated_Source\PSoC5/ADC_MIC.c **** *  to subtract the offset from the given reading before calculating the voltage
+ 568:Generated_Source\PSoC5/ADC_MIC.c **** *  conversion.
+ 569:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 570:Generated_Source\PSoC5/ADC_MIC.c **** * Parameters:
+ 571:Generated_Source\PSoC5/ADC_MIC.c **** *  int16: This value is measured when the inputs are shorted or connected to
+ 572:Generated_Source\PSoC5/ADC_MIC.c ****    the same input voltage.
+ 573:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 574:Generated_Source\PSoC5/ADC_MIC.c **** * Return:
+ 575:Generated_Source\PSoC5/ADC_MIC.c **** *  None.
+ 576:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 577:Generated_Source\PSoC5/ADC_MIC.c **** * Global Variables:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 17
+
+
+ 578:Generated_Source\PSoC5/ADC_MIC.c **** *  The ADC_MIC_offset variable modified. This variable is used for
+ 579:Generated_Source\PSoC5/ADC_MIC.c **** *  offset calibration purpose.
+ 580:Generated_Source\PSoC5/ADC_MIC.c **** *  Affects the ADC_MIC_CountsTo_Volts,
+ 581:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_CountsTo_mVolts, ADC_MIC_CountsTo_uVolts functions
+ 582:Generated_Source\PSoC5/ADC_MIC.c **** *  by subtracting the given offset.
+ 583:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 584:Generated_Source\PSoC5/ADC_MIC.c **** *******************************************************************************/
+ 585:Generated_Source\PSoC5/ADC_MIC.c **** void ADC_MIC_SetOffset(int16 offset)
+ 586:Generated_Source\PSoC5/ADC_MIC.c **** {
+ 587:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_offset = offset;
+ 588:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 589:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 590:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 591:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
+ 592:Generated_Source\PSoC5/ADC_MIC.c **** * Function Name: ADC_MIC_CalcGain
+ 593:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
+ 594:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 595:Generated_Source\PSoC5/ADC_MIC.c **** * Summary:
+ 596:Generated_Source\PSoC5/ADC_MIC.c **** *  This function calculates the ADC gain in counts per 10 volt.
+ 597:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 598:Generated_Source\PSoC5/ADC_MIC.c **** * Parameters:
+ 599:Generated_Source\PSoC5/ADC_MIC.c **** *  uint8: resolution
+ 600:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 601:Generated_Source\PSoC5/ADC_MIC.c **** * Return:
+ 602:Generated_Source\PSoC5/ADC_MIC.c **** *  None.
+ 603:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 604:Generated_Source\PSoC5/ADC_MIC.c **** * Global Variables:
+ 605:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_shift variable initialized. This variable is used to
+ 606:Generated_Source\PSoC5/ADC_MIC.c **** *  convert the ADC counts to the 2s compliment form.
+ 607:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_countsPer10Volt variable initialized. This variable is used
+ 608:Generated_Source\PSoC5/ADC_MIC.c **** *  for gain calibration purpose.
+ 609:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 610:Generated_Source\PSoC5/ADC_MIC.c **** *******************************************************************************/
+ 611:Generated_Source\PSoC5/ADC_MIC.c **** static void ADC_MIC_CalcGain( uint8 resolution )
+ 612:Generated_Source\PSoC5/ADC_MIC.c **** {
+ 613:Generated_Source\PSoC5/ADC_MIC.c ****     int32 counts;
+ 614:Generated_Source\PSoC5/ADC_MIC.c ****     #if(!((ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSS_TO_VREF) || \
+ 615:Generated_Source\PSoC5/ADC_MIC.c ****          (ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSSA_TO_VDDA) || \
+ 616:Generated_Source\PSoC5/ADC_MIC.c ****          (ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSSA_TO_VDAC)) )
+ 617:Generated_Source\PSoC5/ADC_MIC.c ****         uint16 diff_zero;
+ 618:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* End ADC_MIC_DEFAULT_RANGE */
+ 619:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 620:Generated_Source\PSoC5/ADC_MIC.c ****     switch (resolution)
+ 306              		.loc 1 620 0
+ 307 001a 0A2C     		cmp	r4, #10
+ 308              	.LBE5:
+ 309              	.LBE4:
+ 362:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 310              		.loc 1 362 0
+ 311 001c 1370     		strb	r3, [r2]
+ 312              	.LVL19:
+ 313              	.LBB9:
+ 314              	.LBB6:
+ 315              		.loc 1 620 0
+ 316 001e 17D0     		beq	.L18
+ 317 0020 0C2C     		cmp	r4, #12
+ 318 0022 24D0     		beq	.L22
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 18
+
+
+ 319 0024 082C     		cmp	r4, #8
+ 320 0026 0FD0     		beq	.L20
+ 321              	.LVL20:
+ 621:Generated_Source\PSoC5/ADC_MIC.c ****     {
+ 622:Generated_Source\PSoC5/ADC_MIC.c ****         case (uint8)ADC_MIC__BITS_12:
+ 623:Generated_Source\PSoC5/ADC_MIC.c ****             counts = (int32)ADC_MIC_SAR_WRK_MAX_12BIT;
+ 624:Generated_Source\PSoC5/ADC_MIC.c ****             #if(!((ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSS_TO_VREF) || \
+ 625:Generated_Source\PSoC5/ADC_MIC.c ****                  (ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSSA_TO_VDDA) || \
+ 626:Generated_Source\PSoC5/ADC_MIC.c ****                  (ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSSA_TO_VDAC)) )
+ 627:Generated_Source\PSoC5/ADC_MIC.c ****                 diff_zero = ADC_MIC_SAR_DIFF_SHIFT;
+ 628:Generated_Source\PSoC5/ADC_MIC.c ****             #endif /* End ADC_MIC_DEFAULT_RANGE */
+ 629:Generated_Source\PSoC5/ADC_MIC.c ****             break;
+ 630:Generated_Source\PSoC5/ADC_MIC.c ****         case (uint8)ADC_MIC__BITS_10:
+ 631:Generated_Source\PSoC5/ADC_MIC.c ****             counts = (int32)ADC_MIC_SAR_WRK_MAX_10BIT;
+ 632:Generated_Source\PSoC5/ADC_MIC.c ****             #if(!((ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSS_TO_VREF) || \
+ 633:Generated_Source\PSoC5/ADC_MIC.c ****                  (ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSSA_TO_VDDA) || \
+ 634:Generated_Source\PSoC5/ADC_MIC.c ****                  (ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSSA_TO_VDAC)) )
+ 635:Generated_Source\PSoC5/ADC_MIC.c ****                 diff_zero = ADC_MIC_SAR_DIFF_SHIFT >> 2u;
+ 636:Generated_Source\PSoC5/ADC_MIC.c ****             #endif /* End ADC_MIC_DEFAULT_RANGE */
+ 637:Generated_Source\PSoC5/ADC_MIC.c ****             break;
+ 638:Generated_Source\PSoC5/ADC_MIC.c ****         case (uint8)ADC_MIC__BITS_8:
+ 639:Generated_Source\PSoC5/ADC_MIC.c ****             counts = (int32)ADC_MIC_SAR_WRK_MAX_8BIT;
+ 640:Generated_Source\PSoC5/ADC_MIC.c ****             #if(!((ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSS_TO_VREF) || \
+ 641:Generated_Source\PSoC5/ADC_MIC.c ****                  (ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSSA_TO_VDDA) || \
+ 642:Generated_Source\PSoC5/ADC_MIC.c ****                  (ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSSA_TO_VDAC)) )
+ 643:Generated_Source\PSoC5/ADC_MIC.c ****                 diff_zero = ADC_MIC_SAR_DIFF_SHIFT >> 4u;
+ 644:Generated_Source\PSoC5/ADC_MIC.c ****             #endif /* End ADC_MIC_DEFAULT_RANGE */
+ 645:Generated_Source\PSoC5/ADC_MIC.c ****             break;
+ 646:Generated_Source\PSoC5/ADC_MIC.c ****         default: /* Halt CPU in debug mode if resolution is out of valid range */
+ 647:Generated_Source\PSoC5/ADC_MIC.c ****             counts = 0;
+ 648:Generated_Source\PSoC5/ADC_MIC.c ****             #if(!((ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSS_TO_VREF) || \
+ 649:Generated_Source\PSoC5/ADC_MIC.c ****                  (ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSSA_TO_VDDA) || \
+ 650:Generated_Source\PSoC5/ADC_MIC.c ****                  (ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSSA_TO_VDAC)) )
+ 651:Generated_Source\PSoC5/ADC_MIC.c ****                 diff_zero = 0u;
+ 652:Generated_Source\PSoC5/ADC_MIC.c ****             #endif /* End ADC_MIC_DEFAULT_RANGE */
+ 653:Generated_Source\PSoC5/ADC_MIC.c ****             CYASSERT(0u != 0u);
+ 322              		.loc 1 653 0
+ 323 0028 0020     		movs	r0, #0
+ 324 002a FFF7FEFF 		bl	CyHalt
+ 325              	.LVL21:
+ 326 002e 0023     		movs	r3, #0
+ 327 0030 1A46     		mov	r2, r3
+ 328              	.LVL22:
+ 329              	.L19:
+ 654:Generated_Source\PSoC5/ADC_MIC.c ****             break;
+ 655:Generated_Source\PSoC5/ADC_MIC.c ****     }
+ 656:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_countsPerVolt = 0; /* Clear obsolete variable */
+ 330              		.loc 1 656 0
+ 331 0032 124C     		ldr	r4, .L30+4
+ 657:Generated_Source\PSoC5/ADC_MIC.c ****     /* Calculate gain in counts per 10 volts with rounding */
+ 658:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_countsPer10Volt = (((counts * ADC_MIC_10MV_COUNTS) +
+ 332              		.loc 1 658 0
+ 333 0034 1248     		ldr	r0, .L30+8
+ 659:Generated_Source\PSoC5/ADC_MIC.c ****                         ADC_MIC_DEFAULT_REF_VOLTAGE_MV) / (ADC_MIC_DEFAULT_REF_VOLTAGE_MV * 2));
+ 660:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 661:Generated_Source\PSoC5/ADC_MIC.c ****     #if( (ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSS_TO_VREF) || \
+ 662:Generated_Source\PSoC5/ADC_MIC.c ****          (ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSSA_TO_VDDA) || \
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 19
+
+
+ 663:Generated_Source\PSoC5/ADC_MIC.c ****          (ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSSA_TO_VDAC) )
+ 664:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_shift = 0;
+ 665:Generated_Source\PSoC5/ADC_MIC.c ****     #else
+ 666:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_shift = diff_zero;
+ 334              		.loc 1 666 0
+ 335 0036 1349     		ldr	r1, .L30+12
+ 656:Generated_Source\PSoC5/ADC_MIC.c ****     /* Calculate gain in counts per 10 volts with rounding */
+ 336              		.loc 1 656 0
+ 337 0038 0025     		movs	r5, #0
+ 338 003a 2580     		strh	r5, [r4]	@ movhi
+ 658:Generated_Source\PSoC5/ADC_MIC.c ****                         ADC_MIC_DEFAULT_REF_VOLTAGE_MV) / (ADC_MIC_DEFAULT_REF_VOLTAGE_MV * 2));
+ 339              		.loc 1 658 0
+ 340 003c 0260     		str	r2, [r0]
+ 341              		.loc 1 666 0
+ 342 003e 0B80     		strh	r3, [r1]	@ movhi
+ 343 0040 38BD     		pop	{r3, r4, r5, pc}
+ 344              	.LVL23:
+ 345              	.L16:
+ 346              	.LBE6:
+ 347              	.LBE9:
+ 362:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 348              		.loc 1 362 0
+ 349 0042 0D4B     		ldr	r3, .L30
+ 350 0044 4222     		movs	r2, #66
+ 351 0046 1A70     		strb	r2, [r3]
+ 352              	.LVL24:
+ 353              	.L20:
+ 354              	.LBB10:
+ 355              	.LBB7:
+ 356 0048 8023     		movs	r3, #128
+ 357 004a 40F2E242 		movw	r2, #1250
+ 358 004e F0E7     		b	.L19
+ 359              	.LVL25:
+ 360              	.L18:
+ 620:Generated_Source\PSoC5/ADC_MIC.c ****     {
+ 361              		.loc 1 620 0
+ 362 0050 4FF40073 		mov	r3, #512
+ 363              	.LVL26:
+ 364 0054 41F28832 		movw	r2, #5000
+ 365              	.LVL27:
+ 366 0058 EBE7     		b	.L19
+ 367              	.LVL28:
+ 368              	.L15:
+ 369              	.LBE7:
+ 370              	.LBE10:
+ 362:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 371              		.loc 1 362 0
+ 372 005a 074B     		ldr	r3, .L30
+ 373 005c C222     		movs	r2, #194
+ 374 005e 1A70     		strb	r2, [r3]
+ 375              	.LVL29:
+ 376 0060 4FF40063 		mov	r3, #2048
+ 377 0064 44F62062 		movw	r2, #20000
+ 378 0068 E3E7     		b	.L19
+ 379              	.LVL30:
+ 380              	.L21:
+ 351:Generated_Source\PSoC5/ADC_MIC.c ****             break;
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 20
+
+
+ 381              		.loc 1 351 0
+ 382 006a 8223     		movs	r3, #130
+ 383 006c D4E7     		b	.L14
+ 384              	.LVL31:
+ 385              	.L22:
+ 386              	.LBB11:
+ 387              	.LBB8:
+ 620:Generated_Source\PSoC5/ADC_MIC.c ****     {
+ 388              		.loc 1 620 0
+ 389 006e 44F62062 		movw	r2, #20000
+ 390 0072 4FF40063 		mov	r3, #2048
+ 391              	.LVL32:
+ 392 0076 DCE7     		b	.L19
+ 393              	.L31:
+ 394              		.align	2
+ 395              	.L30:
+ 396 0078 0A590040 		.word	1073764618
+ 397 007c 00000000 		.word	ADC_MIC_countsPerVolt
+ 398 0080 00000000 		.word	ADC_MIC_countsPer10Volt
+ 399 0084 00000000 		.word	ADC_MIC_shift
+ 400              	.LBE8:
+ 401              	.LBE11:
+ 402              		.cfi_endproc
+ 403              	.LFE5:
+ 404              		.size	ADC_MIC_SetResolution, .-ADC_MIC_SetResolution
+ 405              		.section	.text.ADC_MIC_Init,"ax",%progbits
+ 406              		.align	2
+ 407              		.global	ADC_MIC_Init
+ 408              		.thumb
+ 409              		.thumb_func
+ 410              		.type	ADC_MIC_Init, %function
+ 411              	ADC_MIC_Init:
+ 412              	.LFB1:
+ 107:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 413              		.loc 1 107 0
+ 414              		.cfi_startproc
+ 415              		@ args = 0, pretend = 0, frame = 0
+ 416              		@ frame_needed = 0, uses_anonymous_args = 0
+ 417 0000 08B5     		push	{r3, lr}
+ 418              		.cfi_def_cfa_offset 8
+ 419              		.cfi_offset 3, -8
+ 420              		.cfi_offset 14, -4
+ 111:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* End ADC_MIC_DEFAULT_INTERNAL_CLK */
+ 421              		.loc 1 111 0
+ 422 0002 1020     		movs	r0, #16
+ 423 0004 FFF7FEFF 		bl	ADC_MIC_theACLK_SetModeRegister
+ 424              	.LVL33:
+ 116:Generated_Source\PSoC5/ADC_MIC.c ****         (void)CyIntSetVector(ADC_MIC_INTC_NUMBER, &ADC_MIC_ISR);
+ 425              		.loc 1 116 0
+ 426 0008 0120     		movs	r0, #1
+ 427 000a 0721     		movs	r1, #7
+ 428 000c FFF7FEFF 		bl	CyIntSetPriority
+ 429              	.LVL34:
+ 117:Generated_Source\PSoC5/ADC_MIC.c ****     #endif   /* End ADC_MIC_IRQ_REMOVE */
+ 430              		.loc 1 117 0
+ 431 0010 0749     		ldr	r1, .L34
+ 432 0012 0120     		movs	r0, #1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 21
+
+
+ 433 0014 FFF7FEFF 		bl	CyIntSetVector
+ 434              	.LVL35:
+ 121:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 435              		.loc 1 121 0
+ 436 0018 064A     		ldr	r2, .L34+4
+ 124:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_offset = 0;
+ 437              		.loc 1 124 0
+ 438 001a 0C20     		movs	r0, #12
+ 121:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 439              		.loc 1 121 0
+ 440 001c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 441 001e 43F00603 		orr	r3, r3, #6
+ 442 0022 1370     		strb	r3, [r2]
+ 124:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_offset = 0;
+ 443              		.loc 1 124 0
+ 444 0024 FFF7FEFF 		bl	ADC_MIC_SetResolution
+ 445              	.LVL36:
+ 125:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 446              		.loc 1 125 0
+ 447 0028 034B     		ldr	r3, .L34+8
+ 448 002a 0022     		movs	r2, #0
+ 449 002c 1A80     		strh	r2, [r3]	@ movhi
+ 450 002e 08BD     		pop	{r3, pc}
+ 451              	.L35:
+ 452              		.align	2
+ 453              	.L34:
+ 454 0030 00000000 		.word	ADC_MIC_ISR
+ 455 0034 09590040 		.word	1073764617
+ 456 0038 00000000 		.word	ADC_MIC_offset
+ 457              		.cfi_endproc
+ 458              	.LFE1:
+ 459              		.size	ADC_MIC_Init, .-ADC_MIC_Init
+ 460              		.section	.text.ADC_MIC_Start,"ax",%progbits
+ 461              		.align	2
+ 462              		.global	ADC_MIC_Start
+ 463              		.thumb
+ 464              		.thumb_func
+ 465              		.type	ADC_MIC_Start, %function
+ 466              	ADC_MIC_Start:
+ 467              	.LFB0:
+  75:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 468              		.loc 1 75 0
+ 469              		.cfi_startproc
+ 470              		@ args = 0, pretend = 0, frame = 0
+ 471              		@ frame_needed = 0, uses_anonymous_args = 0
+ 472 0000 10B5     		push	{r4, lr}
+ 473              		.cfi_def_cfa_offset 8
+ 474              		.cfi_offset 4, -8
+ 475              		.cfi_offset 14, -4
+  78:Generated_Source\PSoC5/ADC_MIC.c ****     {
+ 476              		.loc 1 78 0
+ 477 0002 054C     		ldr	r4, .L39
+ 478 0004 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 479 0006 1BB9     		cbnz	r3, .L37
+  80:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_initVar = 1u;
+ 480              		.loc 1 80 0
+ 481 0008 FFF7FEFF 		bl	ADC_MIC_Init
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 22
+
+
+ 482              	.LVL37:
+  81:Generated_Source\PSoC5/ADC_MIC.c ****     }
+ 483              		.loc 1 81 0
+ 484 000c 0123     		movs	r3, #1
+ 485 000e 2370     		strb	r3, [r4]
+ 486              	.L37:
+  84:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 487              		.loc 1 84 0
+ 488 0010 BDE81040 		pop	{r4, lr}
+ 489              		.cfi_restore 14
+ 490              		.cfi_restore 4
+ 491              		.cfi_def_cfa_offset 0
+  83:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 492              		.loc 1 83 0
+ 493 0014 FFF7FEBF 		b	ADC_MIC_Enable
+ 494              	.LVL38:
+ 495              	.L40:
+ 496              		.align	2
+ 497              	.L39:
+ 498 0018 00000000 		.word	.LANCHOR0
+ 499              		.cfi_endproc
+ 500              	.LFE0:
+ 501              		.size	ADC_MIC_Start, .-ADC_MIC_Start
+ 502              		.section	.text.ADC_MIC_StartConvert,"ax",%progbits
+ 503              		.align	2
+ 504              		.global	ADC_MIC_StartConvert
+ 505              		.thumb
+ 506              		.thumb_func
+ 507              		.type	ADC_MIC_StartConvert, %function
+ 508              	ADC_MIC_StartConvert:
+ 509              	.LFB6:
+ 402:Generated_Source\PSoC5/ADC_MIC.c ****         #if(ADC_MIC_DEFAULT_CONV_MODE != ADC_MIC__FREE_RUNNING)  /* If software triggered mode */
+ 510              		.loc 1 402 0
+ 511              		.cfi_startproc
+ 512              		@ args = 0, pretend = 0, frame = 0
+ 513              		@ frame_needed = 0, uses_anonymous_args = 0
+ 514              		@ link register save eliminated.
+ 408:Generated_Source\PSoC5/ADC_MIC.c ****     }
+ 515              		.loc 1 408 0
+ 516 0000 024A     		ldr	r2, .L42
+ 517 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 518 0004 43F00103 		orr	r3, r3, #1
+ 519 0008 1370     		strb	r3, [r2]
+ 520 000a 7047     		bx	lr
+ 521              	.L43:
+ 522              		.align	2
+ 523              	.L42:
+ 524 000c 08590040 		.word	1073764616
+ 525              		.cfi_endproc
+ 526              	.LFE6:
+ 527              		.size	ADC_MIC_StartConvert, .-ADC_MIC_StartConvert
+ 528              		.section	.text.ADC_MIC_StopConvert,"ax",%progbits
+ 529              		.align	2
+ 530              		.global	ADC_MIC_StopConvert
+ 531              		.thumb
+ 532              		.thumb_func
+ 533              		.type	ADC_MIC_StopConvert, %function
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 23
+
+
+ 534              	ADC_MIC_StopConvert:
+ 535              	.LFB7:
+ 436:Generated_Source\PSoC5/ADC_MIC.c ****         /* Stop all conversions */
+ 536              		.loc 1 436 0
+ 537              		.cfi_startproc
+ 538              		@ args = 0, pretend = 0, frame = 0
+ 539              		@ frame_needed = 0, uses_anonymous_args = 0
+ 540              		@ link register save eliminated.
+ 438:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 541              		.loc 1 438 0
+ 542 0000 024A     		ldr	r2, .L45
+ 543 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 544 0004 03F0FE03 		and	r3, r3, #254
+ 545 0008 1370     		strb	r3, [r2]
+ 546 000a 7047     		bx	lr
+ 547              	.L46:
+ 548              		.align	2
+ 549              	.L45:
+ 550 000c 08590040 		.word	1073764616
+ 551              		.cfi_endproc
+ 552              	.LFE7:
+ 553              		.size	ADC_MIC_StopConvert, .-ADC_MIC_StopConvert
+ 554              		.section	.text.ADC_MIC_IsEndConversion,"ax",%progbits
+ 555              		.align	2
+ 556              		.global	ADC_MIC_IsEndConversion
+ 557              		.thumb
+ 558              		.thumb_func
+ 559              		.type	ADC_MIC_IsEndConversion, %function
+ 560              	ADC_MIC_IsEndConversion:
+ 561              	.LFB8:
+ 476:Generated_Source\PSoC5/ADC_MIC.c ****     uint8 status;
+ 562              		.loc 1 476 0
+ 563              		.cfi_startproc
+ 564              		@ args = 0, pretend = 0, frame = 0
+ 565              		@ frame_needed = 0, uses_anonymous_args = 0
+ 566              	.LVL39:
+ 567 0000 38B5     		push	{r3, r4, r5, lr}
+ 568              		.cfi_def_cfa_offset 16
+ 569              		.cfi_offset 3, -16
+ 570              		.cfi_offset 4, -12
+ 571              		.cfi_offset 5, -8
+ 572              		.cfi_offset 14, -4
+ 481:Generated_Source\PSoC5/ADC_MIC.c ****     } while ((status != ADC_MIC_SAR_EOF_1) && (retMode == ADC_MIC_WAIT_FOR_RESULT));
+ 573              		.loc 1 481 0
+ 574 0002 084A     		ldr	r2, .L57
+ 575 0004 00E0     		b	.L49
+ 576              	.LVL40:
+ 577              	.L56:
+ 482:Generated_Source\PSoC5/ADC_MIC.c ****     /* If convertion complete, wait until EOF bit released */
+ 578              		.loc 1 482 0 discriminator 1
+ 579 0006 50B9     		cbnz	r0, .L55
+ 580              	.LVL41:
+ 581              	.L49:
+ 481:Generated_Source\PSoC5/ADC_MIC.c ****     } while ((status != ADC_MIC_SAR_EOF_1) && (retMode == ADC_MIC_WAIT_FOR_RESULT));
+ 582              		.loc 1 481 0 discriminator 2
+ 583 0008 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 584              	.LVL42:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 24
+
+
+ 585 000a 064D     		ldr	r5, .L57
+ 482:Generated_Source\PSoC5/ADC_MIC.c ****     /* If convertion complete, wait until EOF bit released */
+ 586              		.loc 1 482 0 discriminator 2
+ 587 000c 13F00104 		ands	r4, r3, #1
+ 588 0010 F9D0     		beq	.L56
+ 487:Generated_Source\PSoC5/ADC_MIC.c ****         /* Do the unconditional read operation of the CSR1 register to make sure the EOC bit has be
+ 589              		.loc 1 487 0
+ 590 0012 2046     		mov	r0, r4
+ 591              	.LVL43:
+ 592 0014 FFF7FEFF 		bl	CyDelayUs
+ 593              	.LVL44:
+ 489:Generated_Source\PSoC5/ADC_MIC.c ****     }
+ 594              		.loc 1 489 0
+ 595 0018 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 493:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 596              		.loc 1 493 0
+ 597 001a 2046     		mov	r0, r4
+ 598 001c 38BD     		pop	{r3, r4, r5, pc}
+ 599              	.LVL45:
+ 600              	.L55:
+ 601 001e 0024     		movs	r4, #0
+ 602 0020 2046     		mov	r0, r4
+ 603              	.LVL46:
+ 604 0022 38BD     		pop	{r3, r4, r5, pc}
+ 605              	.LVL47:
+ 606              	.L58:
+ 607              		.align	2
+ 608              	.L57:
+ 609 0024 09590040 		.word	1073764617
+ 610              		.cfi_endproc
+ 611              	.LFE8:
+ 612              		.size	ADC_MIC_IsEndConversion, .-ADC_MIC_IsEndConversion
+ 613              		.section	.text.ADC_MIC_GetResult8,"ax",%progbits
+ 614              		.align	2
+ 615              		.global	ADC_MIC_GetResult8
+ 616              		.thumb
+ 617              		.thumb_func
+ 618              		.type	ADC_MIC_GetResult8, %function
+ 619              	ADC_MIC_GetResult8:
+ 620              	.LFB9:
+ 521:Generated_Source\PSoC5/ADC_MIC.c ****     return( (int8)ADC_MIC_SAR_WRK0_REG - (int8)ADC_MIC_shift);
+ 621              		.loc 1 521 0
+ 622              		.cfi_startproc
+ 623              		@ args = 0, pretend = 0, frame = 0
+ 624              		@ frame_needed = 0, uses_anonymous_args = 0
+ 625              		@ link register save eliminated.
+ 522:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 626              		.loc 1 522 0
+ 627 0000 034A     		ldr	r2, .L60
+ 628 0002 044B     		ldr	r3, .L60+4
+ 629 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 630 0006 1088     		ldrh	r0, [r2]
+ 631 0008 181A     		subs	r0, r3, r0
+ 523:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 632              		.loc 1 523 0
+ 633 000a 40B2     		sxtb	r0, r0
+ 634 000c 7047     		bx	lr
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 25
+
+
+ 635              	.L61:
+ 636 000e 00BF     		.align	2
+ 637              	.L60:
+ 638 0010 00000000 		.word	ADC_MIC_shift
+ 639 0014 A25B0040 		.word	1073765282
+ 640              		.cfi_endproc
+ 641              	.LFE9:
+ 642              		.size	ADC_MIC_GetResult8, .-ADC_MIC_GetResult8
+ 643              		.section	.text.ADC_MIC_GetResult16,"ax",%progbits
+ 644              		.align	2
+ 645              		.global	ADC_MIC_GetResult16
+ 646              		.thumb
+ 647              		.thumb_func
+ 648              		.type	ADC_MIC_GetResult16, %function
+ 649              	ADC_MIC_GetResult16:
+ 650              	.LFB10:
+ 551:Generated_Source\PSoC5/ADC_MIC.c ****     uint16 res;
+ 651              		.loc 1 551 0
+ 652              		.cfi_startproc
+ 653              		@ args = 0, pretend = 0, frame = 0
+ 654              		@ frame_needed = 0, uses_anonymous_args = 0
+ 655              		@ link register save eliminated.
+ 556:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 656              		.loc 1 556 0
+ 657 0000 034A     		ldr	r2, .L63
+ 554:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 658              		.loc 1 554 0
+ 659 0002 044B     		ldr	r3, .L63+4
+ 660 0004 1B88     		ldrh	r3, [r3]
+ 661              	.LVL48:
+ 556:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 662              		.loc 1 556 0
+ 663 0006 1088     		ldrh	r0, [r2]
+ 664 0008 181A     		subs	r0, r3, r0
+ 557:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 665              		.loc 1 557 0
+ 666 000a 00B2     		sxth	r0, r0
+ 667 000c 7047     		bx	lr
+ 668              	.L64:
+ 669 000e 00BF     		.align	2
+ 670              	.L63:
+ 671 0010 00000000 		.word	ADC_MIC_shift
+ 672 0014 A25B0040 		.word	1073765282
+ 673              		.cfi_endproc
+ 674              	.LFE10:
+ 675              		.size	ADC_MIC_GetResult16, .-ADC_MIC_GetResult16
+ 676              		.section	.text.ADC_MIC_SetOffset,"ax",%progbits
+ 677              		.align	2
+ 678              		.global	ADC_MIC_SetOffset
+ 679              		.thumb
+ 680              		.thumb_func
+ 681              		.type	ADC_MIC_SetOffset, %function
+ 682              	ADC_MIC_SetOffset:
+ 683              	.LFB11:
+ 586:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_offset = offset;
+ 684              		.loc 1 586 0
+ 685              		.cfi_startproc
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 26
+
+
+ 686              		@ args = 0, pretend = 0, frame = 0
+ 687              		@ frame_needed = 0, uses_anonymous_args = 0
+ 688              		@ link register save eliminated.
+ 689              	.LVL49:
+ 587:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 690              		.loc 1 587 0
+ 691 0000 014B     		ldr	r3, .L66
+ 692 0002 1880     		strh	r0, [r3]	@ movhi
+ 693 0004 7047     		bx	lr
+ 694              	.L67:
+ 695 0006 00BF     		.align	2
+ 696              	.L66:
+ 697 0008 00000000 		.word	ADC_MIC_offset
+ 698              		.cfi_endproc
+ 699              	.LFE11:
+ 700              		.size	ADC_MIC_SetOffset, .-ADC_MIC_SetOffset
+ 701              		.section	.text.ADC_MIC_SetGain,"ax",%progbits
+ 702              		.align	2
+ 703              		.global	ADC_MIC_SetGain
+ 704              		.thumb
+ 705              		.thumb_func
+ 706              		.type	ADC_MIC_SetGain, %function
+ 707              	ADC_MIC_SetGain:
+ 708              	.LFB13:
+ 667:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* End ADC_MIC_DEFAULT_RANGE */
+ 668:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 669:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 670:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 671:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
+ 672:Generated_Source\PSoC5/ADC_MIC.c **** * Function Name: ADC_MIC_SetGain
+ 673:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
+ 674:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 675:Generated_Source\PSoC5/ADC_MIC.c **** * Summary:
+ 676:Generated_Source\PSoC5/ADC_MIC.c **** *  Sets the ADC gain in counts per volt for the voltage conversion functions
+ 677:Generated_Source\PSoC5/ADC_MIC.c **** *  that follow. This value is set by default by the reference and input range
+ 678:Generated_Source\PSoC5/ADC_MIC.c **** *  settings. It should only be used to further calibrate the ADC with a known
+ 679:Generated_Source\PSoC5/ADC_MIC.c **** *  input or if the ADC is using an external reference.
+ 680:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 681:Generated_Source\PSoC5/ADC_MIC.c **** * Parameters:
+ 682:Generated_Source\PSoC5/ADC_MIC.c **** *  int16 adcGain counts per volt
+ 683:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 684:Generated_Source\PSoC5/ADC_MIC.c **** * Return:
+ 685:Generated_Source\PSoC5/ADC_MIC.c **** *  None.
+ 686:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 687:Generated_Source\PSoC5/ADC_MIC.c **** * Global Variables:
+ 688:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_countsPer10Volt variable modified. This variable is used
+ 689:Generated_Source\PSoC5/ADC_MIC.c **** *  for gain calibration purpose.
+ 690:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 691:Generated_Source\PSoC5/ADC_MIC.c **** *******************************************************************************/
+ 692:Generated_Source\PSoC5/ADC_MIC.c **** void ADC_MIC_SetGain(int16 adcGain)
+ 693:Generated_Source\PSoC5/ADC_MIC.c **** {
+ 709              		.loc 1 693 0
+ 710              		.cfi_startproc
+ 711              		@ args = 0, pretend = 0, frame = 0
+ 712              		@ frame_needed = 0, uses_anonymous_args = 0
+ 713              		@ link register save eliminated.
+ 714              	.LVL50:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 27
+
+
+ 694:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_countsPer10Volt = (int32)adcGain * 10;
+ 715              		.loc 1 694 0
+ 716 0000 00EB8000 		add	r0, r0, r0, lsl #2
+ 717              	.LVL51:
+ 718 0004 014B     		ldr	r3, .L69
+ 719 0006 4000     		lsls	r0, r0, #1
+ 720 0008 1860     		str	r0, [r3]
+ 721 000a 7047     		bx	lr
+ 722              	.L70:
+ 723              		.align	2
+ 724              	.L69:
+ 725 000c 00000000 		.word	ADC_MIC_countsPer10Volt
+ 726              		.cfi_endproc
+ 727              	.LFE13:
+ 728              		.size	ADC_MIC_SetGain, .-ADC_MIC_SetGain
+ 729              		.section	.text.ADC_MIC_SetScaledGain,"ax",%progbits
+ 730              		.align	2
+ 731              		.global	ADC_MIC_SetScaledGain
+ 732              		.thumb
+ 733              		.thumb_func
+ 734              		.type	ADC_MIC_SetScaledGain, %function
+ 735              	ADC_MIC_SetScaledGain:
+ 736              	.LFB14:
+ 695:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 696:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 697:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 698:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
+ 699:Generated_Source\PSoC5/ADC_MIC.c **** * Function Name: ADC_MIC_SetScaledGain
+ 700:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
+ 701:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 702:Generated_Source\PSoC5/ADC_MIC.c **** * Summary:
+ 703:Generated_Source\PSoC5/ADC_MIC.c **** *  Sets the ADC gain in counts per 10 volt for the voltage conversion functions
+ 704:Generated_Source\PSoC5/ADC_MIC.c **** *  that follow. This value is set by default by the reference and input range
+ 705:Generated_Source\PSoC5/ADC_MIC.c **** *  settings. It should only be used to further calibrate the ADC with a known
+ 706:Generated_Source\PSoC5/ADC_MIC.c **** *  input or if the ADC is using an external reference.
+ 707:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 708:Generated_Source\PSoC5/ADC_MIC.c **** * Parameters:
+ 709:Generated_Source\PSoC5/ADC_MIC.c **** *  int32 adcGain  counts per 10 volt
+ 710:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 711:Generated_Source\PSoC5/ADC_MIC.c **** * Return:
+ 712:Generated_Source\PSoC5/ADC_MIC.c **** *  None.
+ 713:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 714:Generated_Source\PSoC5/ADC_MIC.c **** * Global Variables:
+ 715:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_countsPer10Volt variable modified. This variable is used
+ 716:Generated_Source\PSoC5/ADC_MIC.c **** *  for gain calibration purpose.
+ 717:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 718:Generated_Source\PSoC5/ADC_MIC.c **** *******************************************************************************/
+ 719:Generated_Source\PSoC5/ADC_MIC.c **** void ADC_MIC_SetScaledGain(int32 adcGain)
+ 720:Generated_Source\PSoC5/ADC_MIC.c **** {
+ 737              		.loc 1 720 0
+ 738              		.cfi_startproc
+ 739              		@ args = 0, pretend = 0, frame = 0
+ 740              		@ frame_needed = 0, uses_anonymous_args = 0
+ 741              		@ link register save eliminated.
+ 742              	.LVL52:
+ 721:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_countsPer10Volt = adcGain;
+ 743              		.loc 1 721 0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 28
+
+
+ 744 0000 014B     		ldr	r3, .L72
+ 745 0002 1860     		str	r0, [r3]
+ 746 0004 7047     		bx	lr
+ 747              	.L73:
+ 748 0006 00BF     		.align	2
+ 749              	.L72:
+ 750 0008 00000000 		.word	ADC_MIC_countsPer10Volt
+ 751              		.cfi_endproc
+ 752              	.LFE14:
+ 753              		.size	ADC_MIC_SetScaledGain, .-ADC_MIC_SetScaledGain
+ 754              		.section	.text.ADC_MIC_CountsTo_mVolts,"ax",%progbits
+ 755              		.align	2
+ 756              		.global	ADC_MIC_CountsTo_mVolts
+ 757              		.thumb
+ 758              		.thumb_func
+ 759              		.type	ADC_MIC_CountsTo_mVolts, %function
+ 760              	ADC_MIC_CountsTo_mVolts:
+ 761              	.LFB15:
+ 722:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 723:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 724:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 725:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
+ 726:Generated_Source\PSoC5/ADC_MIC.c **** * Function Name: ADC_MIC_CountsTo_mVolts
+ 727:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
+ 728:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 729:Generated_Source\PSoC5/ADC_MIC.c **** * Summary:
+ 730:Generated_Source\PSoC5/ADC_MIC.c **** *  Converts the ADC output to millivolts as a 16-bit integer.
+ 731:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 732:Generated_Source\PSoC5/ADC_MIC.c **** * Parameters:
+ 733:Generated_Source\PSoC5/ADC_MIC.c **** *  int16 adcCounts:  Result from the ADC conversion
+ 734:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 735:Generated_Source\PSoC5/ADC_MIC.c **** * Return:
+ 736:Generated_Source\PSoC5/ADC_MIC.c **** *  int16 Result in mVolts
+ 737:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 738:Generated_Source\PSoC5/ADC_MIC.c **** * Global Variables:
+ 739:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_offset variable used.
+ 740:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_countsPer10Volt variable used.
+ 741:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 742:Generated_Source\PSoC5/ADC_MIC.c **** *******************************************************************************/
+ 743:Generated_Source\PSoC5/ADC_MIC.c **** int16 ADC_MIC_CountsTo_mVolts(int16 adcCounts)
+ 744:Generated_Source\PSoC5/ADC_MIC.c **** {
+ 762              		.loc 1 744 0
+ 763              		.cfi_startproc
+ 764              		@ args = 0, pretend = 0, frame = 0
+ 765              		@ frame_needed = 0, uses_anonymous_args = 0
+ 766              		@ link register save eliminated.
+ 767              	.LVL53:
+ 745:Generated_Source\PSoC5/ADC_MIC.c ****     int16 mVolts;
+ 746:Generated_Source\PSoC5/ADC_MIC.c ****     int32 countsPer10Volt;
+ 747:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 748:Generated_Source\PSoC5/ADC_MIC.c ****     if(ADC_MIC_countsPerVolt != 0)
+ 768              		.loc 1 748 0
+ 769 0000 0F4A     		ldr	r2, .L79
+ 770 0002 1388     		ldrh	r3, [r2]
+ 771 0004 9BB2     		uxth	r3, r3
+ 772 0006 C3B1     		cbz	r3, .L75
+ 749:Generated_Source\PSoC5/ADC_MIC.c ****     {   /* Support obsolete method */
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 29
+
+
+ 750:Generated_Source\PSoC5/ADC_MIC.c ****         countsPer10Volt = (int32)ADC_MIC_countsPerVolt * 10;
+ 773              		.loc 1 750 0
+ 774 0008 1288     		ldrh	r2, [r2]
+ 775 000a 12B2     		sxth	r2, r2
+ 776 000c 02EB8202 		add	r2, r2, r2, lsl #2
+ 777 0010 5200     		lsls	r2, r2, #1
+ 778              	.LVL54:
+ 779              	.L76:
+ 751:Generated_Source\PSoC5/ADC_MIC.c ****     }
+ 752:Generated_Source\PSoC5/ADC_MIC.c ****     else
+ 753:Generated_Source\PSoC5/ADC_MIC.c ****     {
+ 754:Generated_Source\PSoC5/ADC_MIC.c ****         countsPer10Volt = ADC_MIC_countsPer10Volt;
+ 755:Generated_Source\PSoC5/ADC_MIC.c ****     }
+ 756:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 757:Generated_Source\PSoC5/ADC_MIC.c ****     /* Subtract ADC offset */
+ 758:Generated_Source\PSoC5/ADC_MIC.c ****     adcCounts -= ADC_MIC_offset;
+ 759:Generated_Source\PSoC5/ADC_MIC.c ****     /* Convert to millivolts with rounding */
+ 760:Generated_Source\PSoC5/ADC_MIC.c ****     mVolts = (int16)( (( (int32)adcCounts * ADC_MIC_10MV_COUNTS ) + ( (adcCounts > 0) ?
+ 780              		.loc 1 760 0
+ 781 0012 42F21071 		movw	r1, #10000
+ 758:Generated_Source\PSoC5/ADC_MIC.c ****     /* Convert to millivolts with rounding */
+ 782              		.loc 1 758 0
+ 783 0016 0B4B     		ldr	r3, .L79+4
+ 784 0018 1B88     		ldrh	r3, [r3]
+ 785 001a C31A     		subs	r3, r0, r3
+ 786 001c 1BB2     		sxth	r3, r3
+ 787              	.LVL55:
+ 788              		.loc 1 760 0
+ 789 001e 01FB03F0 		mul	r0, r1, r3
+ 761:Generated_Source\PSoC5/ADC_MIC.c ****                        (countsPer10Volt / 2) : (-(countsPer10Volt / 2)) )) / countsPer10Volt);
+ 790              		.loc 1 761 0
+ 791 0022 002B     		cmp	r3, #0
+ 792 0024 02EBD273 		add	r3, r2, r2, lsr #31
+ 793              	.LVL56:
+ 794 0028 4FEA6303 		asr	r3, r3, #1
+ 795 002c D8BF     		it	le
+ 796 002e 5B42     		rsble	r3, r3, #0
+ 797              	.LVL57:
+ 760:Generated_Source\PSoC5/ADC_MIC.c ****                        (countsPer10Volt / 2) : (-(countsPer10Volt / 2)) )) / countsPer10Volt);
+ 798              		.loc 1 760 0
+ 799 0030 1844     		add	r0, r0, r3
+ 800              	.LVL58:
+ 801              		.loc 1 761 0
+ 802 0032 90FBF2F0 		sdiv	r0, r0, r2
+ 762:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 763:Generated_Source\PSoC5/ADC_MIC.c ****     return( mVolts );
+ 764:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 803              		.loc 1 764 0
+ 804 0036 00B2     		sxth	r0, r0
+ 805 0038 7047     		bx	lr
+ 806              	.LVL59:
+ 807              	.L75:
+ 754:Generated_Source\PSoC5/ADC_MIC.c ****     }
+ 808              		.loc 1 754 0
+ 809 003a 034B     		ldr	r3, .L79+8
+ 810 003c 1A68     		ldr	r2, [r3]
+ 811              	.LVL60:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 30
+
+
+ 812 003e E8E7     		b	.L76
+ 813              	.L80:
+ 814              		.align	2
+ 815              	.L79:
+ 816 0040 00000000 		.word	ADC_MIC_countsPerVolt
+ 817 0044 00000000 		.word	ADC_MIC_offset
+ 818 0048 00000000 		.word	ADC_MIC_countsPer10Volt
+ 819              		.cfi_endproc
+ 820              	.LFE15:
+ 821              		.size	ADC_MIC_CountsTo_mVolts, .-ADC_MIC_CountsTo_mVolts
+ 822              		.global	__aeabi_ldivmod
+ 823              		.section	.text.ADC_MIC_CountsTo_uVolts,"ax",%progbits
+ 824              		.align	2
+ 825              		.global	ADC_MIC_CountsTo_uVolts
+ 826              		.thumb
+ 827              		.thumb_func
+ 828              		.type	ADC_MIC_CountsTo_uVolts, %function
+ 829              	ADC_MIC_CountsTo_uVolts:
+ 830              	.LFB16:
+ 765:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 766:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 767:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
+ 768:Generated_Source\PSoC5/ADC_MIC.c **** * Function Name: ADC_MIC_CountsTo_uVolts
+ 769:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
+ 770:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 771:Generated_Source\PSoC5/ADC_MIC.c **** * Summary:
+ 772:Generated_Source\PSoC5/ADC_MIC.c **** *  Converts the ADC output to microvolts as a 32-bit integer.
+ 773:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 774:Generated_Source\PSoC5/ADC_MIC.c **** * Parameters:
+ 775:Generated_Source\PSoC5/ADC_MIC.c **** *  int16 adcCounts: Result from the ADC conversion
+ 776:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 777:Generated_Source\PSoC5/ADC_MIC.c **** * Return:
+ 778:Generated_Source\PSoC5/ADC_MIC.c **** *  int32 Result in micro Volts
+ 779:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 780:Generated_Source\PSoC5/ADC_MIC.c **** * Global Variables:
+ 781:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_offset variable used.
+ 782:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_countsPer10Volt used to convert ADC counts to uVolts.
+ 783:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 784:Generated_Source\PSoC5/ADC_MIC.c **** *******************************************************************************/
+ 785:Generated_Source\PSoC5/ADC_MIC.c **** int32 ADC_MIC_CountsTo_uVolts(int16 adcCounts)
+ 786:Generated_Source\PSoC5/ADC_MIC.c **** {
+ 831              		.loc 1 786 0
+ 832              		.cfi_startproc
+ 833              		@ args = 0, pretend = 0, frame = 0
+ 834              		@ frame_needed = 0, uses_anonymous_args = 0
+ 835              	.LVL61:
+ 787:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 788:Generated_Source\PSoC5/ADC_MIC.c ****     int64 uVolts;
+ 789:Generated_Source\PSoC5/ADC_MIC.c ****     int32 countsPer10Volt;
+ 790:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 791:Generated_Source\PSoC5/ADC_MIC.c ****     if(ADC_MIC_countsPerVolt != 0)
+ 836              		.loc 1 791 0
+ 837 0000 0D4A     		ldr	r2, .L86
+ 786:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 838              		.loc 1 786 0
+ 839 0002 70B5     		push	{r4, r5, r6, lr}
+ 840              		.cfi_def_cfa_offset 16
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 31
+
+
+ 841              		.cfi_offset 4, -16
+ 842              		.cfi_offset 5, -12
+ 843              		.cfi_offset 6, -8
+ 844              		.cfi_offset 14, -4
+ 845              		.loc 1 791 0
+ 846 0004 1388     		ldrh	r3, [r2]
+ 847 0006 9BB2     		uxth	r3, r3
+ 848 0008 7BB9     		cbnz	r3, .L85
+ 792:Generated_Source\PSoC5/ADC_MIC.c ****     {   /* Support obsolete method */
+ 793:Generated_Source\PSoC5/ADC_MIC.c ****         countsPer10Volt = (int32)ADC_MIC_countsPerVolt * 10;
+ 794:Generated_Source\PSoC5/ADC_MIC.c ****     }
+ 795:Generated_Source\PSoC5/ADC_MIC.c ****     else
+ 796:Generated_Source\PSoC5/ADC_MIC.c ****     {
+ 797:Generated_Source\PSoC5/ADC_MIC.c ****         countsPer10Volt = ADC_MIC_countsPer10Volt;
+ 849              		.loc 1 797 0
+ 850 000a 0C4B     		ldr	r3, .L86+4
+ 851 000c 1A68     		ldr	r2, [r3]
+ 852              	.LVL62:
+ 853              	.L83:
+ 798:Generated_Source\PSoC5/ADC_MIC.c ****     }
+ 799:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 800:Generated_Source\PSoC5/ADC_MIC.c ****     /* Subtract ADC offset */
+ 801:Generated_Source\PSoC5/ADC_MIC.c ****     adcCounts -= ADC_MIC_offset;
+ 854              		.loc 1 801 0
+ 855 000e 0C4B     		ldr	r3, .L86+8
+ 802:Generated_Source\PSoC5/ADC_MIC.c ****     /* To convert adcCounts to microVolts it is required to be multiplied
+ 803:Generated_Source\PSoC5/ADC_MIC.c ****     *  on 10 million and later divide on gain in counts per 10V.
+ 804:Generated_Source\PSoC5/ADC_MIC.c ****     */
+ 805:Generated_Source\PSoC5/ADC_MIC.c ****     uVolts = (( (int64)adcCounts * ADC_MIC_10UV_COUNTS ) / countsPer10Volt);
+ 856              		.loc 1 805 0
+ 857 0010 0C4E     		ldr	r6, .L86+12
+ 801:Generated_Source\PSoC5/ADC_MIC.c ****     /* To convert adcCounts to microVolts it is required to be multiplied
+ 858              		.loc 1 801 0
+ 859 0012 1C88     		ldrh	r4, [r3]
+ 860              	.LVL63:
+ 861              		.loc 1 805 0
+ 862 0014 D317     		asrs	r3, r2, #31
+ 863 0016 041B     		subs	r4, r0, r4
+ 864              	.LVL64:
+ 865 0018 24B2     		sxth	r4, r4
+ 866 001a A4FB0601 		umull	r0, r1, r4, r6
+ 867 001e E517     		asrs	r5, r4, #31
+ 868 0020 06FB0511 		mla	r1, r6, r5, r1
+ 869 0024 FFF7FEFF 		bl	__aeabi_ldivmod
+ 870              	.LVL65:
+ 806:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 807:Generated_Source\PSoC5/ADC_MIC.c ****     return( uVolts );
+ 808:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 871              		.loc 1 808 0
+ 872 0028 70BD     		pop	{r4, r5, r6, pc}
+ 873              	.LVL66:
+ 874              	.L85:
+ 793:Generated_Source\PSoC5/ADC_MIC.c ****     }
+ 875              		.loc 1 793 0
+ 876 002a 1288     		ldrh	r2, [r2]
+ 877 002c 12B2     		sxth	r2, r2
+ 878 002e 02EB8202 		add	r2, r2, r2, lsl #2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 32
+
+
+ 879 0032 5200     		lsls	r2, r2, #1
+ 880              	.LVL67:
+ 881 0034 EBE7     		b	.L83
+ 882              	.L87:
+ 883 0036 00BF     		.align	2
+ 884              	.L86:
+ 885 0038 00000000 		.word	ADC_MIC_countsPerVolt
+ 886 003c 00000000 		.word	ADC_MIC_countsPer10Volt
+ 887 0040 00000000 		.word	ADC_MIC_offset
+ 888 0044 80969800 		.word	10000000
+ 889              		.cfi_endproc
+ 890              	.LFE16:
+ 891              		.size	ADC_MIC_CountsTo_uVolts, .-ADC_MIC_CountsTo_uVolts
+ 892              		.global	__aeabi_i2f
+ 893              		.global	__aeabi_fmul
+ 894              		.global	__aeabi_fdiv
+ 895              		.section	.text.ADC_MIC_CountsTo_Volts,"ax",%progbits
+ 896              		.align	2
+ 897              		.global	ADC_MIC_CountsTo_Volts
+ 898              		.thumb
+ 899              		.thumb_func
+ 900              		.type	ADC_MIC_CountsTo_Volts, %function
+ 901              	ADC_MIC_CountsTo_Volts:
+ 902              	.LFB17:
+ 809:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 810:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 811:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
+ 812:Generated_Source\PSoC5/ADC_MIC.c **** * Function Name: ADC_MIC_CountsTo_Volts
+ 813:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
+ 814:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 815:Generated_Source\PSoC5/ADC_MIC.c **** * Summary:
+ 816:Generated_Source\PSoC5/ADC_MIC.c **** *  Converts the ADC output to volts as a floating-point number.
+ 817:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 818:Generated_Source\PSoC5/ADC_MIC.c **** * Parameters:
+ 819:Generated_Source\PSoC5/ADC_MIC.c **** *  int16 adcCounts: Result from the ADC conversion
+ 820:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 821:Generated_Source\PSoC5/ADC_MIC.c **** * Return:
+ 822:Generated_Source\PSoC5/ADC_MIC.c **** *  float Result in Volts
+ 823:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 824:Generated_Source\PSoC5/ADC_MIC.c **** * Global Variables:
+ 825:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_offset variable used.
+ 826:Generated_Source\PSoC5/ADC_MIC.c **** *  ADC_MIC_countsPer10Volt used to convert ADC counts to Volts.
+ 827:Generated_Source\PSoC5/ADC_MIC.c **** *
+ 828:Generated_Source\PSoC5/ADC_MIC.c **** *******************************************************************************/
+ 829:Generated_Source\PSoC5/ADC_MIC.c **** float32 ADC_MIC_CountsTo_Volts(int16 adcCounts)
+ 830:Generated_Source\PSoC5/ADC_MIC.c **** {
+ 903              		.loc 1 830 0
+ 904              		.cfi_startproc
+ 905              		@ args = 0, pretend = 0, frame = 0
+ 906              		@ frame_needed = 0, uses_anonymous_args = 0
+ 907              	.LVL68:
+ 831:Generated_Source\PSoC5/ADC_MIC.c ****     float32 volts;
+ 832:Generated_Source\PSoC5/ADC_MIC.c ****     int32 countsPer10Volt;
+ 833:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 834:Generated_Source\PSoC5/ADC_MIC.c ****     if(ADC_MIC_countsPerVolt != 0)
+ 908              		.loc 1 834 0
+ 909 0000 0F4A     		ldr	r2, .L93
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 33
+
+
+ 830:Generated_Source\PSoC5/ADC_MIC.c ****     float32 volts;
+ 910              		.loc 1 830 0
+ 911 0002 38B5     		push	{r3, r4, r5, lr}
+ 912              		.cfi_def_cfa_offset 16
+ 913              		.cfi_offset 3, -16
+ 914              		.cfi_offset 4, -12
+ 915              		.cfi_offset 5, -8
+ 916              		.cfi_offset 14, -4
+ 917              		.loc 1 834 0
+ 918 0004 1388     		ldrh	r3, [r2]
+ 919 0006 9BB2     		uxth	r3, r3
+ 920 0008 9BB9     		cbnz	r3, .L92
+ 835:Generated_Source\PSoC5/ADC_MIC.c ****     {   /* Support obsolete method */
+ 836:Generated_Source\PSoC5/ADC_MIC.c ****         countsPer10Volt = (int32)ADC_MIC_countsPerVolt * 10;
+ 837:Generated_Source\PSoC5/ADC_MIC.c ****     }
+ 838:Generated_Source\PSoC5/ADC_MIC.c ****     else
+ 839:Generated_Source\PSoC5/ADC_MIC.c ****     {
+ 840:Generated_Source\PSoC5/ADC_MIC.c ****         countsPer10Volt = ADC_MIC_countsPer10Volt;
+ 921              		.loc 1 840 0
+ 922 000a 0E4B     		ldr	r3, .L93+4
+ 923 000c 1C68     		ldr	r4, [r3]
+ 924              	.LVL69:
+ 925              	.L90:
+ 841:Generated_Source\PSoC5/ADC_MIC.c ****     }
+ 842:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 843:Generated_Source\PSoC5/ADC_MIC.c ****     /* Subtract ADC offset */
+ 844:Generated_Source\PSoC5/ADC_MIC.c ****     adcCounts -= ADC_MIC_offset;
+ 926              		.loc 1 844 0
+ 927 000e 0E4B     		ldr	r3, .L93+8
+ 928 0010 1B88     		ldrh	r3, [r3]
+ 929 0012 C01A     		subs	r0, r0, r3
+ 930              	.LVL70:
+ 845:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 846:Generated_Source\PSoC5/ADC_MIC.c ****     volts = ((float32)adcCounts * ADC_MIC_10V_COUNTS) / (float32)countsPer10Volt;
+ 931              		.loc 1 846 0
+ 932 0014 00B2     		sxth	r0, r0
+ 933 0016 FFF7FEFF 		bl	__aeabi_i2f
+ 934              	.LVL71:
+ 935 001a 0C49     		ldr	r1, .L93+12
+ 936 001c FFF7FEFF 		bl	__aeabi_fmul
+ 937              	.LVL72:
+ 938 0020 0546     		mov	r5, r0
+ 939 0022 2046     		mov	r0, r4
+ 940 0024 FFF7FEFF 		bl	__aeabi_i2f
+ 941              	.LVL73:
+ 942 0028 0146     		mov	r1, r0
+ 943 002a 2846     		mov	r0, r5
+ 944 002c FFF7FEFF 		bl	__aeabi_fdiv
+ 945              	.LVL74:
+ 847:Generated_Source\PSoC5/ADC_MIC.c **** 
+ 848:Generated_Source\PSoC5/ADC_MIC.c ****     return( volts );
+ 849:Generated_Source\PSoC5/ADC_MIC.c **** }
+ 946              		.loc 1 849 0
+ 947 0030 38BD     		pop	{r3, r4, r5, pc}
+ 948              	.LVL75:
+ 949              	.L92:
+ 836:Generated_Source\PSoC5/ADC_MIC.c ****     }
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 34
+
+
+ 950              		.loc 1 836 0
+ 951 0032 1488     		ldrh	r4, [r2]
+ 952 0034 24B2     		sxth	r4, r4
+ 953 0036 04EB8404 		add	r4, r4, r4, lsl #2
+ 954 003a 6400     		lsls	r4, r4, #1
+ 955              	.LVL76:
+ 956 003c E7E7     		b	.L90
+ 957              	.L94:
+ 958 003e 00BF     		.align	2
+ 959              	.L93:
+ 960 0040 00000000 		.word	ADC_MIC_countsPerVolt
+ 961 0044 00000000 		.word	ADC_MIC_countsPer10Volt
+ 962 0048 00000000 		.word	ADC_MIC_offset
+ 963 004c 00002041 		.word	1092616192
+ 964              		.cfi_endproc
+ 965              	.LFE17:
+ 966              		.size	ADC_MIC_CountsTo_Volts, .-ADC_MIC_CountsTo_Volts
+ 967              		.comm	ADC_MIC_shift,2,2
+ 968              		.comm	ADC_MIC_countsPer10Volt,4,4
+ 969              		.comm	ADC_MIC_countsPerVolt,2,2
+ 970              		.comm	ADC_MIC_offset,2,2
+ 971              		.global	ADC_MIC_initVar
+ 972              		.bss
+ 973              		.set	.LANCHOR0,. + 0
+ 974              		.type	ADC_MIC_initVar, %object
+ 975              		.size	ADC_MIC_initVar, 1
+ 976              	ADC_MIC_initVar:
+ 977 0000 00       		.space	1
+ 978              		.text
+ 979              	.Letext0:
+ 980              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 981              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
+ 982              		.file 4 "Generated_Source\\PSoC5\\ADC_MIC_theACLK.h"
+ 983              		.section	.debug_info,"",%progbits
+ 984              	.Ldebug_info0:
+ 985 0000 08060000 		.4byte	0x608
+ 986 0004 0400     		.2byte	0x4
+ 987 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 988 000a 04       		.byte	0x4
+ 989 000b 01       		.uleb128 0x1
+ 990 000c 5A020000 		.4byte	.LASF67
+ 991 0010 01       		.byte	0x1
+ 992 0011 7E040000 		.4byte	.LASF68
+ 993 0015 BA000000 		.4byte	.LASF69
+ 994 0019 28000000 		.4byte	.Ldebug_ranges0+0x28
+ 995 001d 00000000 		.4byte	0
+ 996 0021 00000000 		.4byte	.Ldebug_line0
+ 997 0025 02       		.uleb128 0x2
+ 998 0026 08       		.byte	0x8
+ 999 0027 07       		.byte	0x7
+ 1000 0028 5D000000 		.4byte	.LASF0
+ 1001 002c 02       		.uleb128 0x2
+ 1002 002d 04       		.byte	0x4
+ 1003 002e 04       		.byte	0x4
+ 1004 002f 22030000 		.4byte	.LASF1
+ 1005 0033 02       		.uleb128 0x2
+ 1006 0034 08       		.byte	0x8
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 35
+
+
+ 1007 0035 05       		.byte	0x5
+ 1008 0036 A0000000 		.4byte	.LASF2
+ 1009 003a 03       		.uleb128 0x3
+ 1010 003b 04       		.byte	0x4
+ 1011 003c 05       		.byte	0x5
+ 1012 003d 696E7400 		.ascii	"int\000"
+ 1013 0041 02       		.uleb128 0x2
+ 1014 0042 02       		.byte	0x2
+ 1015 0043 05       		.byte	0x5
+ 1016 0044 74030000 		.4byte	.LASF3
+ 1017 0048 02       		.uleb128 0x2
+ 1018 0049 04       		.byte	0x4
+ 1019 004a 07       		.byte	0x7
+ 1020 004b A6010000 		.4byte	.LASF4
+ 1021 004f 02       		.uleb128 0x2
+ 1022 0050 01       		.byte	0x1
+ 1023 0051 06       		.byte	0x6
+ 1024 0052 AE000000 		.4byte	.LASF5
+ 1025 0056 02       		.uleb128 0x2
+ 1026 0057 01       		.byte	0x1
+ 1027 0058 08       		.byte	0x8
+ 1028 0059 4F030000 		.4byte	.LASF6
+ 1029 005d 02       		.uleb128 0x2
+ 1030 005e 02       		.byte	0x2
+ 1031 005f 07       		.byte	0x7
+ 1032 0060 F8010000 		.4byte	.LASF7
+ 1033 0064 02       		.uleb128 0x2
+ 1034 0065 04       		.byte	0x4
+ 1035 0066 05       		.byte	0x5
+ 1036 0067 1C010000 		.4byte	.LASF8
+ 1037 006b 02       		.uleb128 0x2
+ 1038 006c 04       		.byte	0x4
+ 1039 006d 07       		.byte	0x7
+ 1040 006e BA010000 		.4byte	.LASF9
+ 1041 0072 02       		.uleb128 0x2
+ 1042 0073 04       		.byte	0x4
+ 1043 0074 07       		.byte	0x7
+ 1044 0075 F0020000 		.4byte	.LASF10
+ 1045 0079 04       		.uleb128 0x4
+ 1046 007a 04       		.byte	0x4
+ 1047 007b 7F000000 		.4byte	0x7f
+ 1048 007f 05       		.uleb128 0x5
+ 1049 0080 02       		.uleb128 0x2
+ 1050 0081 01       		.byte	0x1
+ 1051 0082 08       		.byte	0x8
+ 1052 0083 C2030000 		.4byte	.LASF11
+ 1053 0087 06       		.uleb128 0x6
+ 1054 0088 2B010000 		.4byte	.LASF12
+ 1055 008c 02       		.byte	0x2
+ 1056 008d 5B       		.byte	0x5b
+ 1057 008e 56000000 		.4byte	0x56
+ 1058 0092 06       		.uleb128 0x6
+ 1059 0093 24000000 		.4byte	.LASF13
+ 1060 0097 02       		.byte	0x2
+ 1061 0098 5C       		.byte	0x5c
+ 1062 0099 5D000000 		.4byte	0x5d
+ 1063 009d 06       		.uleb128 0x6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 36
+
+
+ 1064 009e 62010000 		.4byte	.LASF14
+ 1065 00a2 02       		.byte	0x2
+ 1066 00a3 5D       		.byte	0x5d
+ 1067 00a4 6B000000 		.4byte	0x6b
+ 1068 00a8 06       		.uleb128 0x6
+ 1069 00a9 0B020000 		.4byte	.LASF15
+ 1070 00ad 02       		.byte	0x2
+ 1071 00ae 5E       		.byte	0x5e
+ 1072 00af 4F000000 		.4byte	0x4f
+ 1073 00b3 06       		.uleb128 0x6
+ 1074 00b4 71040000 		.4byte	.LASF16
+ 1075 00b8 02       		.byte	0x2
+ 1076 00b9 5F       		.byte	0x5f
+ 1077 00ba 41000000 		.4byte	0x41
+ 1078 00be 06       		.uleb128 0x6
+ 1079 00bf 16010000 		.4byte	.LASF17
+ 1080 00c3 02       		.byte	0x2
+ 1081 00c4 60       		.byte	0x60
+ 1082 00c5 64000000 		.4byte	0x64
+ 1083 00c9 06       		.uleb128 0x6
+ 1084 00ca E8020000 		.4byte	.LASF18
+ 1085 00ce 02       		.byte	0x2
+ 1086 00cf 61       		.byte	0x61
+ 1087 00d0 2C000000 		.4byte	0x2c
+ 1088 00d4 02       		.uleb128 0x2
+ 1089 00d5 08       		.byte	0x8
+ 1090 00d6 04       		.byte	0x4
+ 1091 00d7 5B010000 		.4byte	.LASF19
+ 1092 00db 06       		.uleb128 0x6
+ 1093 00dc F9020000 		.4byte	.LASF20
+ 1094 00e0 02       		.byte	0x2
+ 1095 00e1 66       		.byte	0x66
+ 1096 00e2 33000000 		.4byte	0x33
+ 1097 00e6 06       		.uleb128 0x6
+ 1098 00e7 43030000 		.4byte	.LASF21
+ 1099 00eb 02       		.byte	0x2
+ 1100 00ec F0       		.byte	0xf0
+ 1101 00ed F1000000 		.4byte	0xf1
+ 1102 00f1 07       		.uleb128 0x7
+ 1103 00f2 87000000 		.4byte	0x87
+ 1104 00f6 06       		.uleb128 0x6
+ 1105 00f7 25010000 		.4byte	.LASF22
+ 1106 00fb 02       		.byte	0x2
+ 1107 00fc F1       		.byte	0xf1
+ 1108 00fd 01010000 		.4byte	0x101
+ 1109 0101 07       		.uleb128 0x7
+ 1110 0102 92000000 		.4byte	0x92
+ 1111 0106 06       		.uleb128 0x6
+ 1112 0107 54020000 		.4byte	.LASF23
+ 1113 010b 02       		.byte	0x2
+ 1114 010c F2       		.byte	0xf2
+ 1115 010d 11010000 		.4byte	0x111
+ 1116 0111 07       		.uleb128 0x7
+ 1117 0112 9D000000 		.4byte	0x9d
+ 1118 0116 08       		.uleb128 0x8
+ 1119 0117 DD030000 		.4byte	.LASF24
+ 1120 011b 02       		.byte	0x2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 37
+
+
+ 1121 011c 0201     		.2byte	0x102
+ 1122 011e 79000000 		.4byte	0x79
+ 1123 0122 09       		.uleb128 0x9
+ 1124 0123 E9010000 		.4byte	.LASF27
+ 1125 0127 01       		.byte	0x1
+ 1126 0128 8F       		.byte	0x8f
+ 1127 0129 00000000 		.4byte	.LFB2
+ 1128 012d A0000000 		.4byte	.LFE2-.LFB2
+ 1129 0131 01       		.uleb128 0x1
+ 1130 0132 9C       		.byte	0x9c
+ 1131 0133 7B010000 		.4byte	0x17b
+ 1132 0137 0A       		.uleb128 0xa
+ 1133 0138 77040000 		.4byte	.LASF25
+ 1134 013c 01       		.byte	0x1
+ 1135 013d 91       		.byte	0x91
+ 1136 013e 87000000 		.4byte	0x87
+ 1137 0142 00000000 		.4byte	.LLST0
+ 1138 0146 0A       		.uleb128 0xa
+ 1139 0147 4A040000 		.4byte	.LASF26
+ 1140 014b 01       		.byte	0x1
+ 1141 014c 92       		.byte	0x92
+ 1142 014d 87000000 		.4byte	0x87
+ 1143 0151 22000000 		.4byte	.LLST1
+ 1144 0155 0B       		.uleb128 0xb
+ 1145 0156 06000000 		.4byte	.LVL0
+ 1146 015a 90050000 		.4byte	0x590
+ 1147 015e 0C       		.uleb128 0xc
+ 1148 015f 7A000000 		.4byte	.LVL5
+ 1149 0163 9B050000 		.4byte	0x59b
+ 1150 0167 71010000 		.4byte	0x171
+ 1151 016b 0D       		.uleb128 0xd
+ 1152 016c 01       		.uleb128 0x1
+ 1153 016d 50       		.byte	0x50
+ 1154 016e 01       		.uleb128 0x1
+ 1155 016f 3A       		.byte	0x3a
+ 1156 0170 00       		.byte	0
+ 1157 0171 0E       		.uleb128 0xe
+ 1158 0172 88000000 		.4byte	.LVL7
+ 1159 0176 AC050000 		.4byte	0x5ac
+ 1160 017a 00       		.byte	0
+ 1161 017b 09       		.uleb128 0x9
+ 1162 017c 67030000 		.4byte	.LASF28
+ 1163 0180 01       		.byte	0x1
+ 1164 0181 F8       		.byte	0xf8
+ 1165 0182 00000000 		.4byte	.LFB3
+ 1166 0186 50000000 		.4byte	.LFE3-.LFB3
+ 1167 018a 01       		.uleb128 0x1
+ 1168 018b 9C       		.byte	0x9c
+ 1169 018c B2010000 		.4byte	0x1b2
+ 1170 0190 0A       		.uleb128 0xa
+ 1171 0191 4A040000 		.4byte	.LASF26
+ 1172 0195 01       		.byte	0x1
+ 1173 0196 FA       		.byte	0xfa
+ 1174 0197 87000000 		.4byte	0x87
+ 1175 019b 35000000 		.4byte	.LLST2
+ 1176 019f 0B       		.uleb128 0xb
+ 1177 01a0 06000000 		.4byte	.LVL8
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 38
+
+
+ 1178 01a4 90050000 		.4byte	0x590
+ 1179 01a8 0E       		.uleb128 0xe
+ 1180 01a9 42000000 		.4byte	.LVL9
+ 1181 01ad AC050000 		.4byte	0x5ac
+ 1182 01b1 00       		.byte	0
+ 1183 01b2 0F       		.uleb128 0xf
+ 1184 01b3 8E030000 		.4byte	.LASF29
+ 1185 01b7 01       		.byte	0x1
+ 1186 01b8 2201     		.2byte	0x122
+ 1187 01ba 00000000 		.4byte	.LFB4
+ 1188 01be 18000000 		.4byte	.LFE4-.LFB4
+ 1189 01c2 01       		.uleb128 0x1
+ 1190 01c3 9C       		.byte	0x9c
+ 1191 01c4 E9010000 		.4byte	0x1e9
+ 1192 01c8 10       		.uleb128 0x10
+ 1193 01c9 3D030000 		.4byte	.LASF33
+ 1194 01cd 01       		.byte	0x1
+ 1195 01ce 2201     		.2byte	0x122
+ 1196 01d0 87000000 		.4byte	0x87
+ 1197 01d4 48000000 		.4byte	.LLST3
+ 1198 01d8 11       		.uleb128 0x11
+ 1199 01d9 77040000 		.4byte	.LASF25
+ 1200 01dd 01       		.byte	0x1
+ 1201 01de 2401     		.2byte	0x124
+ 1202 01e0 87000000 		.4byte	0x87
+ 1203 01e4 7A000000 		.4byte	.LLST4
+ 1204 01e8 00       		.byte	0
+ 1205 01e9 12       		.uleb128 0x12
+ 1206 01ea 05010000 		.4byte	.LASF70
+ 1207 01ee 01       		.byte	0x1
+ 1208 01ef 6302     		.2byte	0x263
+ 1209 01f1 01       		.byte	0x1
+ 1210 01f2 1B020000 		.4byte	0x21b
+ 1211 01f6 13       		.uleb128 0x13
+ 1212 01f7 9F030000 		.4byte	.LASF34
+ 1213 01fb 01       		.byte	0x1
+ 1214 01fc 6302     		.2byte	0x263
+ 1215 01fe 87000000 		.4byte	0x87
+ 1216 0202 14       		.uleb128 0x14
+ 1217 0203 49000000 		.4byte	.LASF30
+ 1218 0207 01       		.byte	0x1
+ 1219 0208 6502     		.2byte	0x265
+ 1220 020a BE000000 		.4byte	0xbe
+ 1221 020e 14       		.uleb128 0x14
+ 1222 020f 5D030000 		.4byte	.LASF31
+ 1223 0213 01       		.byte	0x1
+ 1224 0214 6902     		.2byte	0x269
+ 1225 0216 92000000 		.4byte	0x92
+ 1226 021a 00       		.byte	0
+ 1227 021b 0F       		.uleb128 0xf
+ 1228 021c 1C040000 		.4byte	.LASF32
+ 1229 0220 01       		.byte	0x1
+ 1230 0221 5401     		.2byte	0x154
+ 1231 0223 00000000 		.4byte	.LFB5
+ 1232 0227 88000000 		.4byte	.LFE5-.LFB5
+ 1233 022b 01       		.uleb128 0x1
+ 1234 022c 9C       		.byte	0x9c
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 39
+
+
+ 1235 022d A6020000 		.4byte	0x2a6
+ 1236 0231 10       		.uleb128 0x10
+ 1237 0232 9F030000 		.4byte	.LASF34
+ 1238 0236 01       		.byte	0x1
+ 1239 0237 5401     		.2byte	0x154
+ 1240 0239 87000000 		.4byte	0x87
+ 1241 023d 98000000 		.4byte	.LLST5
+ 1242 0241 11       		.uleb128 0x11
+ 1243 0242 77040000 		.4byte	.LASF25
+ 1244 0246 01       		.byte	0x1
+ 1245 0247 5601     		.2byte	0x156
+ 1246 0249 87000000 		.4byte	0x87
+ 1247 024d EB000000 		.4byte	.LLST6
+ 1248 0251 15       		.uleb128 0x15
+ 1249 0252 E9010000 		.4byte	0x1e9
+ 1250 0256 1A000000 		.4byte	.LBB4
+ 1251 025a 00000000 		.4byte	.Ldebug_ranges0+0
+ 1252 025e 01       		.byte	0x1
+ 1253 025f 6D01     		.2byte	0x16d
+ 1254 0261 96020000 		.4byte	0x296
+ 1255 0265 16       		.uleb128 0x16
+ 1256 0266 F6010000 		.4byte	0x1f6
+ 1257 026a 65010000 		.4byte	.LLST7
+ 1258 026e 17       		.uleb128 0x17
+ 1259 026f 00000000 		.4byte	.Ldebug_ranges0+0
+ 1260 0273 18       		.uleb128 0x18
+ 1261 0274 02020000 		.4byte	0x202
+ 1262 0278 A6010000 		.4byte	.LLST8
+ 1263 027c 18       		.uleb128 0x18
+ 1264 027d 0E020000 		.4byte	0x20e
+ 1265 0281 C8010000 		.4byte	.LLST9
+ 1266 0285 19       		.uleb128 0x19
+ 1267 0286 2E000000 		.4byte	.LVL21
+ 1268 028a BD050000 		.4byte	0x5bd
+ 1269 028e 0D       		.uleb128 0xd
+ 1270 028f 01       		.uleb128 0x1
+ 1271 0290 50       		.byte	0x50
+ 1272 0291 01       		.uleb128 0x1
+ 1273 0292 30       		.byte	0x30
+ 1274 0293 00       		.byte	0
+ 1275 0294 00       		.byte	0
+ 1276 0295 00       		.byte	0
+ 1277 0296 19       		.uleb128 0x19
+ 1278 0297 16000000 		.4byte	.LVL17
+ 1279 029b BD050000 		.4byte	0x5bd
+ 1280 029f 0D       		.uleb128 0xd
+ 1281 02a0 01       		.uleb128 0x1
+ 1282 02a1 50       		.byte	0x50
+ 1283 02a2 01       		.uleb128 0x1
+ 1284 02a3 30       		.byte	0x30
+ 1285 02a4 00       		.byte	0
+ 1286 02a5 00       		.byte	0
+ 1287 02a6 09       		.uleb128 0x9
+ 1288 02a7 50000000 		.4byte	.LASF35
+ 1289 02ab 01       		.byte	0x1
+ 1290 02ac 6A       		.byte	0x6a
+ 1291 02ad 00000000 		.4byte	.LFB1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 40
+
+
+ 1292 02b1 3C000000 		.4byte	.LFE1-.LFB1
+ 1293 02b5 01       		.uleb128 0x1
+ 1294 02b6 9C       		.byte	0x9c
+ 1295 02b7 09030000 		.4byte	0x309
+ 1296 02bb 0C       		.uleb128 0xc
+ 1297 02bc 08000000 		.4byte	.LVL33
+ 1298 02c0 CE050000 		.4byte	0x5ce
+ 1299 02c4 CE020000 		.4byte	0x2ce
+ 1300 02c8 0D       		.uleb128 0xd
+ 1301 02c9 01       		.uleb128 0x1
+ 1302 02ca 50       		.byte	0x50
+ 1303 02cb 01       		.uleb128 0x1
+ 1304 02cc 40       		.byte	0x40
+ 1305 02cd 00       		.byte	0
+ 1306 02ce 0C       		.uleb128 0xc
+ 1307 02cf 10000000 		.4byte	.LVL34
+ 1308 02d3 DF050000 		.4byte	0x5df
+ 1309 02d7 E6020000 		.4byte	0x2e6
+ 1310 02db 0D       		.uleb128 0xd
+ 1311 02dc 01       		.uleb128 0x1
+ 1312 02dd 51       		.byte	0x51
+ 1313 02de 01       		.uleb128 0x1
+ 1314 02df 37       		.byte	0x37
+ 1315 02e0 0D       		.uleb128 0xd
+ 1316 02e1 01       		.uleb128 0x1
+ 1317 02e2 50       		.byte	0x50
+ 1318 02e3 01       		.uleb128 0x1
+ 1319 02e4 31       		.byte	0x31
+ 1320 02e5 00       		.byte	0
+ 1321 02e6 0C       		.uleb128 0xc
+ 1322 02e7 18000000 		.4byte	.LVL35
+ 1323 02eb F5050000 		.4byte	0x5f5
+ 1324 02ef F9020000 		.4byte	0x2f9
+ 1325 02f3 0D       		.uleb128 0xd
+ 1326 02f4 01       		.uleb128 0x1
+ 1327 02f5 50       		.byte	0x50
+ 1328 02f6 01       		.uleb128 0x1
+ 1329 02f7 31       		.byte	0x31
+ 1330 02f8 00       		.byte	0
+ 1331 02f9 19       		.uleb128 0x19
+ 1332 02fa 28000000 		.4byte	.LVL36
+ 1333 02fe 1B020000 		.4byte	0x21b
+ 1334 0302 0D       		.uleb128 0xd
+ 1335 0303 01       		.uleb128 0x1
+ 1336 0304 50       		.byte	0x50
+ 1337 0305 01       		.uleb128 0x1
+ 1338 0306 3C       		.byte	0x3c
+ 1339 0307 00       		.byte	0
+ 1340 0308 00       		.byte	0
+ 1341 0309 09       		.uleb128 0x9
+ 1342 030a 10020000 		.4byte	.LASF36
+ 1343 030e 01       		.byte	0x1
+ 1344 030f 4A       		.byte	0x4a
+ 1345 0310 00000000 		.4byte	.LFB0
+ 1346 0314 1C000000 		.4byte	.LFE0-.LFB0
+ 1347 0318 01       		.uleb128 0x1
+ 1348 0319 9C       		.byte	0x9c
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 41
+
+
+ 1349 031a 31030000 		.4byte	0x331
+ 1350 031e 0B       		.uleb128 0xb
+ 1351 031f 0C000000 		.4byte	.LVL37
+ 1352 0323 A6020000 		.4byte	0x2a6
+ 1353 0327 0E       		.uleb128 0xe
+ 1354 0328 18000000 		.4byte	.LVL38
+ 1355 032c 22010000 		.4byte	0x122
+ 1356 0330 00       		.byte	0
+ 1357 0331 1A       		.uleb128 0x1a
+ 1358 0332 28030000 		.4byte	.LASF37
+ 1359 0336 01       		.byte	0x1
+ 1360 0337 9101     		.2byte	0x191
+ 1361 0339 00000000 		.4byte	.LFB6
+ 1362 033d 10000000 		.4byte	.LFE6-.LFB6
+ 1363 0341 01       		.uleb128 0x1
+ 1364 0342 9C       		.byte	0x9c
+ 1365 0343 1A       		.uleb128 0x1a
+ 1366 0344 8C000000 		.4byte	.LASF38
+ 1367 0348 01       		.byte	0x1
+ 1368 0349 B301     		.2byte	0x1b3
+ 1369 034b 00000000 		.4byte	.LFB7
+ 1370 034f 10000000 		.4byte	.LFE7-.LFB7
+ 1371 0353 01       		.uleb128 0x1
+ 1372 0354 9C       		.byte	0x9c
+ 1373 0355 1B       		.uleb128 0x1b
+ 1374 0356 74000000 		.4byte	.LASF41
+ 1375 035a 01       		.byte	0x1
+ 1376 035b DB01     		.2byte	0x1db
+ 1377 035d 87000000 		.4byte	0x87
+ 1378 0361 00000000 		.4byte	.LFB8
+ 1379 0365 28000000 		.4byte	.LFE8-.LFB8
+ 1380 0369 01       		.uleb128 0x1
+ 1381 036a 9C       		.byte	0x9c
+ 1382 036b A0030000 		.4byte	0x3a0
+ 1383 036f 10       		.uleb128 0x10
+ 1384 0370 9E010000 		.4byte	.LASF39
+ 1385 0374 01       		.byte	0x1
+ 1386 0375 DB01     		.2byte	0x1db
+ 1387 0377 87000000 		.4byte	0x87
+ 1388 037b E9010000 		.4byte	.LLST10
+ 1389 037f 11       		.uleb128 0x11
+ 1390 0380 5B040000 		.4byte	.LASF40
+ 1391 0384 01       		.byte	0x1
+ 1392 0385 DD01     		.2byte	0x1dd
+ 1393 0387 87000000 		.4byte	0x87
+ 1394 038b 23020000 		.4byte	.LLST11
+ 1395 038f 19       		.uleb128 0x19
+ 1396 0390 18000000 		.4byte	.LVL44
+ 1397 0394 9B050000 		.4byte	0x59b
+ 1398 0398 0D       		.uleb128 0xd
+ 1399 0399 01       		.uleb128 0x1
+ 1400 039a 50       		.byte	0x50
+ 1401 039b 02       		.uleb128 0x2
+ 1402 039c 74       		.byte	0x74
+ 1403 039d 00       		.sleb128 0
+ 1404 039e 00       		.byte	0
+ 1405 039f 00       		.byte	0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 42
+
+
+ 1406 03a0 1C       		.uleb128 0x1c
+ 1407 03a1 02040000 		.4byte	.LASF71
+ 1408 03a5 01       		.byte	0x1
+ 1409 03a6 0802     		.2byte	0x208
+ 1410 03a8 A8000000 		.4byte	0xa8
+ 1411 03ac 00000000 		.4byte	.LFB9
+ 1412 03b0 18000000 		.4byte	.LFE9-.LFB9
+ 1413 03b4 01       		.uleb128 0x1
+ 1414 03b5 9C       		.byte	0x9c
+ 1415 03b6 1B       		.uleb128 0x1b
+ 1416 03b7 10000000 		.4byte	.LASF42
+ 1417 03bb 01       		.byte	0x1
+ 1418 03bc 2602     		.2byte	0x226
+ 1419 03be B3000000 		.4byte	0xb3
+ 1420 03c2 00000000 		.4byte	.LFB10
+ 1421 03c6 18000000 		.4byte	.LFE10-.LFB10
+ 1422 03ca 01       		.uleb128 0x1
+ 1423 03cb 9C       		.byte	0x9c
+ 1424 03cc DF030000 		.4byte	0x3df
+ 1425 03d0 1D       		.uleb128 0x1d
+ 1426 03d1 72657300 		.ascii	"res\000"
+ 1427 03d5 01       		.byte	0x1
+ 1428 03d6 2802     		.2byte	0x228
+ 1429 03d8 92000000 		.4byte	0x92
+ 1430 03dc 01       		.uleb128 0x1
+ 1431 03dd 53       		.byte	0x53
+ 1432 03de 00       		.byte	0
+ 1433 03df 0F       		.uleb128 0xf
+ 1434 03e0 10030000 		.4byte	.LASF43
+ 1435 03e4 01       		.byte	0x1
+ 1436 03e5 4902     		.2byte	0x249
+ 1437 03e7 00000000 		.4byte	.LFB11
+ 1438 03eb 0C000000 		.4byte	.LFE11-.LFB11
+ 1439 03ef 01       		.uleb128 0x1
+ 1440 03f0 9C       		.byte	0x9c
+ 1441 03f1 04040000 		.4byte	0x404
+ 1442 03f5 1E       		.uleb128 0x1e
+ 1443 03f6 15040000 		.4byte	.LASF44
+ 1444 03fa 01       		.byte	0x1
+ 1445 03fb 4902     		.2byte	0x249
+ 1446 03fd B3000000 		.4byte	0xb3
+ 1447 0401 01       		.uleb128 0x1
+ 1448 0402 50       		.byte	0x50
+ 1449 0403 00       		.byte	0
+ 1450 0404 0F       		.uleb128 0xf
+ 1451 0405 00000000 		.4byte	.LASF45
+ 1452 0409 01       		.byte	0x1
+ 1453 040a B402     		.2byte	0x2b4
+ 1454 040c 00000000 		.4byte	.LFB13
+ 1455 0410 10000000 		.4byte	.LFE13-.LFB13
+ 1456 0414 01       		.uleb128 0x1
+ 1457 0415 9C       		.byte	0x9c
+ 1458 0416 2B040000 		.4byte	0x42b
+ 1459 041a 10       		.uleb128 0x10
+ 1460 041b 2B000000 		.4byte	.LASF46
+ 1461 041f 01       		.byte	0x1
+ 1462 0420 B402     		.2byte	0x2b4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 43
+
+
+ 1463 0422 B3000000 		.4byte	0xb3
+ 1464 0426 58020000 		.4byte	.LLST12
+ 1465 042a 00       		.byte	0
+ 1466 042b 0F       		.uleb128 0xf
+ 1467 042c 88010000 		.4byte	.LASF47
+ 1468 0430 01       		.byte	0x1
+ 1469 0431 CF02     		.2byte	0x2cf
+ 1470 0433 00000000 		.4byte	.LFB14
+ 1471 0437 0C000000 		.4byte	.LFE14-.LFB14
+ 1472 043b 01       		.uleb128 0x1
+ 1473 043c 9C       		.byte	0x9c
+ 1474 043d 50040000 		.4byte	0x450
+ 1475 0441 1E       		.uleb128 0x1e
+ 1476 0442 2B000000 		.4byte	.LASF46
+ 1477 0446 01       		.byte	0x1
+ 1478 0447 CF02     		.2byte	0x2cf
+ 1479 0449 BE000000 		.4byte	0xbe
+ 1480 044d 01       		.uleb128 0x1
+ 1481 044e 50       		.byte	0x50
+ 1482 044f 00       		.byte	0
+ 1483 0450 1B       		.uleb128 0x1b
+ 1484 0451 EA030000 		.4byte	.LASF48
+ 1485 0455 01       		.byte	0x1
+ 1486 0456 E702     		.2byte	0x2e7
+ 1487 0458 B3000000 		.4byte	0xb3
+ 1488 045c 00000000 		.4byte	.LFB15
+ 1489 0460 4C000000 		.4byte	.LFE15-.LFB15
+ 1490 0464 01       		.uleb128 0x1
+ 1491 0465 9C       		.byte	0x9c
+ 1492 0466 9B040000 		.4byte	0x49b
+ 1493 046a 10       		.uleb128 0x10
+ 1494 046b 40040000 		.4byte	.LASF49
+ 1495 046f 01       		.byte	0x1
+ 1496 0470 E702     		.2byte	0x2e7
+ 1497 0472 B3000000 		.4byte	0xb3
+ 1498 0476 79020000 		.4byte	.LLST13
+ 1499 047a 11       		.uleb128 0x11
+ 1500 047b 4D020000 		.4byte	.LASF50
+ 1501 047f 01       		.byte	0x1
+ 1502 0480 E902     		.2byte	0x2e9
+ 1503 0482 B3000000 		.4byte	0xb3
+ 1504 0486 A2020000 		.4byte	.LLST14
+ 1505 048a 11       		.uleb128 0x11
+ 1506 048b 69010000 		.4byte	.LASF51
+ 1507 048f 01       		.byte	0x1
+ 1508 0490 EA02     		.2byte	0x2ea
+ 1509 0492 BE000000 		.4byte	0xbe
+ 1510 0496 BD020000 		.4byte	.LLST15
+ 1511 049a 00       		.byte	0
+ 1512 049b 1F       		.uleb128 0x1f
+ 1513 049c AA030000 		.4byte	.LASF52
+ 1514 04a0 01       		.byte	0x1
+ 1515 04a1 1103     		.2byte	0x311
+ 1516 04a3 BE000000 		.4byte	0xbe
+ 1517 04a7 00000000 		.4byte	.LFB16
+ 1518 04ab 48000000 		.4byte	.LFE16-.LFB16
+ 1519 04af 01       		.uleb128 0x1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 44
+
+
+ 1520 04b0 9C       		.byte	0x9c
+ 1521 04b1 E6040000 		.4byte	0x4e6
+ 1522 04b5 10       		.uleb128 0x10
+ 1523 04b6 40040000 		.4byte	.LASF49
+ 1524 04ba 01       		.byte	0x1
+ 1525 04bb 1103     		.2byte	0x311
+ 1526 04bd B3000000 		.4byte	0xb3
+ 1527 04c1 DB020000 		.4byte	.LLST16
+ 1528 04c5 11       		.uleb128 0x11
+ 1529 04c6 B3010000 		.4byte	.LASF53
+ 1530 04ca 01       		.byte	0x1
+ 1531 04cb 1403     		.2byte	0x314
+ 1532 04cd DB000000 		.4byte	0xdb
+ 1533 04d1 09030000 		.4byte	.LLST17
+ 1534 04d5 11       		.uleb128 0x11
+ 1535 04d6 69010000 		.4byte	.LASF51
+ 1536 04da 01       		.byte	0x1
+ 1537 04db 1503     		.2byte	0x315
+ 1538 04dd BE000000 		.4byte	0xbe
+ 1539 04e1 38030000 		.4byte	.LLST18
+ 1540 04e5 00       		.byte	0
+ 1541 04e6 1F       		.uleb128 0x1f
+ 1542 04e7 36020000 		.4byte	.LASF54
+ 1543 04eb 01       		.byte	0x1
+ 1544 04ec 3D03     		.2byte	0x33d
+ 1545 04ee C9000000 		.4byte	0xc9
+ 1546 04f2 00000000 		.4byte	.LFB17
+ 1547 04f6 50000000 		.4byte	.LFE17-.LFB17
+ 1548 04fa 01       		.uleb128 0x1
+ 1549 04fb 9C       		.byte	0x9c
+ 1550 04fc 31050000 		.4byte	0x531
+ 1551 0500 10       		.uleb128 0x10
+ 1552 0501 40040000 		.4byte	.LASF49
+ 1553 0505 01       		.byte	0x1
+ 1554 0506 3D03     		.2byte	0x33d
+ 1555 0508 B3000000 		.4byte	0xb3
+ 1556 050c 56030000 		.4byte	.LLST19
+ 1557 0510 11       		.uleb128 0x11
+ 1558 0511 CC010000 		.4byte	.LASF55
+ 1559 0515 01       		.byte	0x1
+ 1560 0516 3F03     		.2byte	0x33f
+ 1561 0518 C9000000 		.4byte	0xc9
+ 1562 051c 7F030000 		.4byte	.LLST20
+ 1563 0520 11       		.uleb128 0x11
+ 1564 0521 69010000 		.4byte	.LASF51
+ 1565 0525 01       		.byte	0x1
+ 1566 0526 4003     		.2byte	0x340
+ 1567 0528 BE000000 		.4byte	0xbe
+ 1568 052c A7030000 		.4byte	.LLST21
+ 1569 0530 00       		.byte	0
+ 1570 0531 20       		.uleb128 0x20
+ 1571 0532 7E030000 		.4byte	.LASF56
+ 1572 0536 01       		.byte	0x1
+ 1573 0537 23       		.byte	0x23
+ 1574 0538 87000000 		.4byte	0x87
+ 1575 053c 05       		.uleb128 0x5
+ 1576 053d 03       		.byte	0x3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 45
+
+
+ 1577 053e 00000000 		.4byte	ADC_MIC_initVar
+ 1578 0542 20       		.uleb128 0x20
+ 1579 0543 62040000 		.4byte	.LASF57
+ 1580 0547 01       		.byte	0x1
+ 1581 0548 24       		.byte	0x24
+ 1582 0549 53050000 		.4byte	0x553
+ 1583 054d 05       		.uleb128 0x5
+ 1584 054e 03       		.byte	0x3
+ 1585 054f 00000000 		.4byte	ADC_MIC_offset
+ 1586 0553 07       		.uleb128 0x7
+ 1587 0554 B3000000 		.4byte	0xb3
+ 1588 0558 20       		.uleb128 0x20
+ 1589 0559 C7030000 		.4byte	.LASF58
+ 1590 055d 01       		.byte	0x1
+ 1591 055e 25       		.byte	0x25
+ 1592 055f 53050000 		.4byte	0x553
+ 1593 0563 05       		.uleb128 0x5
+ 1594 0564 03       		.byte	0x3
+ 1595 0565 00000000 		.4byte	ADC_MIC_countsPerVolt
+ 1596 0569 20       		.uleb128 0x20
+ 1597 056a 1E020000 		.4byte	.LASF59
+ 1598 056e 01       		.byte	0x1
+ 1599 056f 26       		.byte	0x26
+ 1600 0570 7A050000 		.4byte	0x57a
+ 1601 0574 05       		.uleb128 0x5
+ 1602 0575 03       		.byte	0x3
+ 1603 0576 00000000 		.4byte	ADC_MIC_countsPer10Volt
+ 1604 057a 07       		.uleb128 0x7
+ 1605 057b BE000000 		.4byte	0xbe
+ 1606 057f 20       		.uleb128 0x20
+ 1607 0580 32040000 		.4byte	.LASF60
+ 1608 0584 01       		.byte	0x1
+ 1609 0585 27       		.byte	0x27
+ 1610 0586 53050000 		.4byte	0x553
+ 1611 058a 05       		.uleb128 0x5
+ 1612 058b 03       		.byte	0x3
+ 1613 058c 00000000 		.4byte	ADC_MIC_shift
+ 1614 0590 21       		.uleb128 0x21
+ 1615 0591 D2010000 		.4byte	.LASF72
+ 1616 0595 03       		.byte	0x3
+ 1617 0596 7E       		.byte	0x7e
+ 1618 0597 87000000 		.4byte	0x87
+ 1619 059b 22       		.uleb128 0x22
+ 1620 059c 51010000 		.4byte	.LASF61
+ 1621 05a0 03       		.byte	0x3
+ 1622 05a1 78       		.byte	0x78
+ 1623 05a2 AC050000 		.4byte	0x5ac
+ 1624 05a6 23       		.uleb128 0x23
+ 1625 05a7 92000000 		.4byte	0x92
+ 1626 05ab 00       		.byte	0
+ 1627 05ac 22       		.uleb128 0x22
+ 1628 05ad 33000000 		.4byte	.LASF62
+ 1629 05b1 03       		.byte	0x3
+ 1630 05b2 7F       		.byte	0x7f
+ 1631 05b3 BD050000 		.4byte	0x5bd
+ 1632 05b7 23       		.uleb128 0x23
+ 1633 05b8 87000000 		.4byte	0x87
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 46
+
+
+ 1634 05bc 00       		.byte	0
+ 1635 05bd 22       		.uleb128 0x22
+ 1636 05be 48030000 		.4byte	.LASF63
+ 1637 05c2 03       		.byte	0x3
+ 1638 05c3 80       		.byte	0x80
+ 1639 05c4 CE050000 		.4byte	0x5ce
+ 1640 05c8 23       		.uleb128 0x23
+ 1641 05c9 87000000 		.4byte	0x87
+ 1642 05cd 00       		.byte	0
+ 1643 05ce 22       		.uleb128 0x22
+ 1644 05cf 31010000 		.4byte	.LASF64
+ 1645 05d3 04       		.byte	0x4
+ 1646 05d4 32       		.byte	0x32
+ 1647 05d5 DF050000 		.4byte	0x5df
+ 1648 05d9 23       		.uleb128 0x23
+ 1649 05da 87000000 		.4byte	0x87
+ 1650 05de 00       		.byte	0
+ 1651 05df 22       		.uleb128 0x22
+ 1652 05e0 FF020000 		.4byte	.LASF65
+ 1653 05e4 03       		.byte	0x3
+ 1654 05e5 8C       		.byte	0x8c
+ 1655 05e6 F5050000 		.4byte	0x5f5
+ 1656 05ea 23       		.uleb128 0x23
+ 1657 05eb 87000000 		.4byte	0x87
+ 1658 05ef 23       		.uleb128 0x23
+ 1659 05f0 87000000 		.4byte	0x87
+ 1660 05f4 00       		.byte	0
+ 1661 05f5 24       		.uleb128 0x24
+ 1662 05f6 79010000 		.4byte	.LASF66
+ 1663 05fa 03       		.byte	0x3
+ 1664 05fb 89       		.byte	0x89
+ 1665 05fc 16010000 		.4byte	0x116
+ 1666 0600 23       		.uleb128 0x23
+ 1667 0601 87000000 		.4byte	0x87
+ 1668 0605 23       		.uleb128 0x23
+ 1669 0606 16010000 		.4byte	0x116
+ 1670 060a 00       		.byte	0
+ 1671 060b 00       		.byte	0
+ 1672              		.section	.debug_abbrev,"",%progbits
+ 1673              	.Ldebug_abbrev0:
+ 1674 0000 01       		.uleb128 0x1
+ 1675 0001 11       		.uleb128 0x11
+ 1676 0002 01       		.byte	0x1
+ 1677 0003 25       		.uleb128 0x25
+ 1678 0004 0E       		.uleb128 0xe
+ 1679 0005 13       		.uleb128 0x13
+ 1680 0006 0B       		.uleb128 0xb
+ 1681 0007 03       		.uleb128 0x3
+ 1682 0008 0E       		.uleb128 0xe
+ 1683 0009 1B       		.uleb128 0x1b
+ 1684 000a 0E       		.uleb128 0xe
+ 1685 000b 55       		.uleb128 0x55
+ 1686 000c 17       		.uleb128 0x17
+ 1687 000d 11       		.uleb128 0x11
+ 1688 000e 01       		.uleb128 0x1
+ 1689 000f 10       		.uleb128 0x10
+ 1690 0010 17       		.uleb128 0x17
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 47
+
+
+ 1691 0011 00       		.byte	0
+ 1692 0012 00       		.byte	0
+ 1693 0013 02       		.uleb128 0x2
+ 1694 0014 24       		.uleb128 0x24
+ 1695 0015 00       		.byte	0
+ 1696 0016 0B       		.uleb128 0xb
+ 1697 0017 0B       		.uleb128 0xb
+ 1698 0018 3E       		.uleb128 0x3e
+ 1699 0019 0B       		.uleb128 0xb
+ 1700 001a 03       		.uleb128 0x3
+ 1701 001b 0E       		.uleb128 0xe
+ 1702 001c 00       		.byte	0
+ 1703 001d 00       		.byte	0
+ 1704 001e 03       		.uleb128 0x3
+ 1705 001f 24       		.uleb128 0x24
+ 1706 0020 00       		.byte	0
+ 1707 0021 0B       		.uleb128 0xb
+ 1708 0022 0B       		.uleb128 0xb
+ 1709 0023 3E       		.uleb128 0x3e
+ 1710 0024 0B       		.uleb128 0xb
+ 1711 0025 03       		.uleb128 0x3
+ 1712 0026 08       		.uleb128 0x8
+ 1713 0027 00       		.byte	0
+ 1714 0028 00       		.byte	0
+ 1715 0029 04       		.uleb128 0x4
+ 1716 002a 0F       		.uleb128 0xf
+ 1717 002b 00       		.byte	0
+ 1718 002c 0B       		.uleb128 0xb
+ 1719 002d 0B       		.uleb128 0xb
+ 1720 002e 49       		.uleb128 0x49
+ 1721 002f 13       		.uleb128 0x13
+ 1722 0030 00       		.byte	0
+ 1723 0031 00       		.byte	0
+ 1724 0032 05       		.uleb128 0x5
+ 1725 0033 15       		.uleb128 0x15
+ 1726 0034 00       		.byte	0
+ 1727 0035 27       		.uleb128 0x27
+ 1728 0036 19       		.uleb128 0x19
+ 1729 0037 00       		.byte	0
+ 1730 0038 00       		.byte	0
+ 1731 0039 06       		.uleb128 0x6
+ 1732 003a 16       		.uleb128 0x16
+ 1733 003b 00       		.byte	0
+ 1734 003c 03       		.uleb128 0x3
+ 1735 003d 0E       		.uleb128 0xe
+ 1736 003e 3A       		.uleb128 0x3a
+ 1737 003f 0B       		.uleb128 0xb
+ 1738 0040 3B       		.uleb128 0x3b
+ 1739 0041 0B       		.uleb128 0xb
+ 1740 0042 49       		.uleb128 0x49
+ 1741 0043 13       		.uleb128 0x13
+ 1742 0044 00       		.byte	0
+ 1743 0045 00       		.byte	0
+ 1744 0046 07       		.uleb128 0x7
+ 1745 0047 35       		.uleb128 0x35
+ 1746 0048 00       		.byte	0
+ 1747 0049 49       		.uleb128 0x49
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 48
+
+
+ 1748 004a 13       		.uleb128 0x13
+ 1749 004b 00       		.byte	0
+ 1750 004c 00       		.byte	0
+ 1751 004d 08       		.uleb128 0x8
+ 1752 004e 16       		.uleb128 0x16
+ 1753 004f 00       		.byte	0
+ 1754 0050 03       		.uleb128 0x3
+ 1755 0051 0E       		.uleb128 0xe
+ 1756 0052 3A       		.uleb128 0x3a
+ 1757 0053 0B       		.uleb128 0xb
+ 1758 0054 3B       		.uleb128 0x3b
+ 1759 0055 05       		.uleb128 0x5
+ 1760 0056 49       		.uleb128 0x49
+ 1761 0057 13       		.uleb128 0x13
+ 1762 0058 00       		.byte	0
+ 1763 0059 00       		.byte	0
+ 1764 005a 09       		.uleb128 0x9
+ 1765 005b 2E       		.uleb128 0x2e
+ 1766 005c 01       		.byte	0x1
+ 1767 005d 3F       		.uleb128 0x3f
+ 1768 005e 19       		.uleb128 0x19
+ 1769 005f 03       		.uleb128 0x3
+ 1770 0060 0E       		.uleb128 0xe
+ 1771 0061 3A       		.uleb128 0x3a
+ 1772 0062 0B       		.uleb128 0xb
+ 1773 0063 3B       		.uleb128 0x3b
+ 1774 0064 0B       		.uleb128 0xb
+ 1775 0065 27       		.uleb128 0x27
+ 1776 0066 19       		.uleb128 0x19
+ 1777 0067 11       		.uleb128 0x11
+ 1778 0068 01       		.uleb128 0x1
+ 1779 0069 12       		.uleb128 0x12
+ 1780 006a 06       		.uleb128 0x6
+ 1781 006b 40       		.uleb128 0x40
+ 1782 006c 18       		.uleb128 0x18
+ 1783 006d 9742     		.uleb128 0x2117
+ 1784 006f 19       		.uleb128 0x19
+ 1785 0070 01       		.uleb128 0x1
+ 1786 0071 13       		.uleb128 0x13
+ 1787 0072 00       		.byte	0
+ 1788 0073 00       		.byte	0
+ 1789 0074 0A       		.uleb128 0xa
+ 1790 0075 34       		.uleb128 0x34
+ 1791 0076 00       		.byte	0
+ 1792 0077 03       		.uleb128 0x3
+ 1793 0078 0E       		.uleb128 0xe
+ 1794 0079 3A       		.uleb128 0x3a
+ 1795 007a 0B       		.uleb128 0xb
+ 1796 007b 3B       		.uleb128 0x3b
+ 1797 007c 0B       		.uleb128 0xb
+ 1798 007d 49       		.uleb128 0x49
+ 1799 007e 13       		.uleb128 0x13
+ 1800 007f 02       		.uleb128 0x2
+ 1801 0080 17       		.uleb128 0x17
+ 1802 0081 00       		.byte	0
+ 1803 0082 00       		.byte	0
+ 1804 0083 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 49
+
+
+ 1805 0084 898201   		.uleb128 0x4109
+ 1806 0087 00       		.byte	0
+ 1807 0088 11       		.uleb128 0x11
+ 1808 0089 01       		.uleb128 0x1
+ 1809 008a 31       		.uleb128 0x31
+ 1810 008b 13       		.uleb128 0x13
+ 1811 008c 00       		.byte	0
+ 1812 008d 00       		.byte	0
+ 1813 008e 0C       		.uleb128 0xc
+ 1814 008f 898201   		.uleb128 0x4109
+ 1815 0092 01       		.byte	0x1
+ 1816 0093 11       		.uleb128 0x11
+ 1817 0094 01       		.uleb128 0x1
+ 1818 0095 31       		.uleb128 0x31
+ 1819 0096 13       		.uleb128 0x13
+ 1820 0097 01       		.uleb128 0x1
+ 1821 0098 13       		.uleb128 0x13
+ 1822 0099 00       		.byte	0
+ 1823 009a 00       		.byte	0
+ 1824 009b 0D       		.uleb128 0xd
+ 1825 009c 8A8201   		.uleb128 0x410a
+ 1826 009f 00       		.byte	0
+ 1827 00a0 02       		.uleb128 0x2
+ 1828 00a1 18       		.uleb128 0x18
+ 1829 00a2 9142     		.uleb128 0x2111
+ 1830 00a4 18       		.uleb128 0x18
+ 1831 00a5 00       		.byte	0
+ 1832 00a6 00       		.byte	0
+ 1833 00a7 0E       		.uleb128 0xe
+ 1834 00a8 898201   		.uleb128 0x4109
+ 1835 00ab 00       		.byte	0
+ 1836 00ac 11       		.uleb128 0x11
+ 1837 00ad 01       		.uleb128 0x1
+ 1838 00ae 9542     		.uleb128 0x2115
+ 1839 00b0 19       		.uleb128 0x19
+ 1840 00b1 31       		.uleb128 0x31
+ 1841 00b2 13       		.uleb128 0x13
+ 1842 00b3 00       		.byte	0
+ 1843 00b4 00       		.byte	0
+ 1844 00b5 0F       		.uleb128 0xf
+ 1845 00b6 2E       		.uleb128 0x2e
+ 1846 00b7 01       		.byte	0x1
+ 1847 00b8 3F       		.uleb128 0x3f
+ 1848 00b9 19       		.uleb128 0x19
+ 1849 00ba 03       		.uleb128 0x3
+ 1850 00bb 0E       		.uleb128 0xe
+ 1851 00bc 3A       		.uleb128 0x3a
+ 1852 00bd 0B       		.uleb128 0xb
+ 1853 00be 3B       		.uleb128 0x3b
+ 1854 00bf 05       		.uleb128 0x5
+ 1855 00c0 27       		.uleb128 0x27
+ 1856 00c1 19       		.uleb128 0x19
+ 1857 00c2 11       		.uleb128 0x11
+ 1858 00c3 01       		.uleb128 0x1
+ 1859 00c4 12       		.uleb128 0x12
+ 1860 00c5 06       		.uleb128 0x6
+ 1861 00c6 40       		.uleb128 0x40
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 50
+
+
+ 1862 00c7 18       		.uleb128 0x18
+ 1863 00c8 9742     		.uleb128 0x2117
+ 1864 00ca 19       		.uleb128 0x19
+ 1865 00cb 01       		.uleb128 0x1
+ 1866 00cc 13       		.uleb128 0x13
+ 1867 00cd 00       		.byte	0
+ 1868 00ce 00       		.byte	0
+ 1869 00cf 10       		.uleb128 0x10
+ 1870 00d0 05       		.uleb128 0x5
+ 1871 00d1 00       		.byte	0
+ 1872 00d2 03       		.uleb128 0x3
+ 1873 00d3 0E       		.uleb128 0xe
+ 1874 00d4 3A       		.uleb128 0x3a
+ 1875 00d5 0B       		.uleb128 0xb
+ 1876 00d6 3B       		.uleb128 0x3b
+ 1877 00d7 05       		.uleb128 0x5
+ 1878 00d8 49       		.uleb128 0x49
+ 1879 00d9 13       		.uleb128 0x13
+ 1880 00da 02       		.uleb128 0x2
+ 1881 00db 17       		.uleb128 0x17
+ 1882 00dc 00       		.byte	0
+ 1883 00dd 00       		.byte	0
+ 1884 00de 11       		.uleb128 0x11
+ 1885 00df 34       		.uleb128 0x34
+ 1886 00e0 00       		.byte	0
+ 1887 00e1 03       		.uleb128 0x3
+ 1888 00e2 0E       		.uleb128 0xe
+ 1889 00e3 3A       		.uleb128 0x3a
+ 1890 00e4 0B       		.uleb128 0xb
+ 1891 00e5 3B       		.uleb128 0x3b
+ 1892 00e6 05       		.uleb128 0x5
+ 1893 00e7 49       		.uleb128 0x49
+ 1894 00e8 13       		.uleb128 0x13
+ 1895 00e9 02       		.uleb128 0x2
+ 1896 00ea 17       		.uleb128 0x17
+ 1897 00eb 00       		.byte	0
+ 1898 00ec 00       		.byte	0
+ 1899 00ed 12       		.uleb128 0x12
+ 1900 00ee 2E       		.uleb128 0x2e
+ 1901 00ef 01       		.byte	0x1
+ 1902 00f0 03       		.uleb128 0x3
+ 1903 00f1 0E       		.uleb128 0xe
+ 1904 00f2 3A       		.uleb128 0x3a
+ 1905 00f3 0B       		.uleb128 0xb
+ 1906 00f4 3B       		.uleb128 0x3b
+ 1907 00f5 05       		.uleb128 0x5
+ 1908 00f6 27       		.uleb128 0x27
+ 1909 00f7 19       		.uleb128 0x19
+ 1910 00f8 20       		.uleb128 0x20
+ 1911 00f9 0B       		.uleb128 0xb
+ 1912 00fa 01       		.uleb128 0x1
+ 1913 00fb 13       		.uleb128 0x13
+ 1914 00fc 00       		.byte	0
+ 1915 00fd 00       		.byte	0
+ 1916 00fe 13       		.uleb128 0x13
+ 1917 00ff 05       		.uleb128 0x5
+ 1918 0100 00       		.byte	0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 51
+
+
+ 1919 0101 03       		.uleb128 0x3
+ 1920 0102 0E       		.uleb128 0xe
+ 1921 0103 3A       		.uleb128 0x3a
+ 1922 0104 0B       		.uleb128 0xb
+ 1923 0105 3B       		.uleb128 0x3b
+ 1924 0106 05       		.uleb128 0x5
+ 1925 0107 49       		.uleb128 0x49
+ 1926 0108 13       		.uleb128 0x13
+ 1927 0109 00       		.byte	0
+ 1928 010a 00       		.byte	0
+ 1929 010b 14       		.uleb128 0x14
+ 1930 010c 34       		.uleb128 0x34
+ 1931 010d 00       		.byte	0
+ 1932 010e 03       		.uleb128 0x3
+ 1933 010f 0E       		.uleb128 0xe
+ 1934 0110 3A       		.uleb128 0x3a
+ 1935 0111 0B       		.uleb128 0xb
+ 1936 0112 3B       		.uleb128 0x3b
+ 1937 0113 05       		.uleb128 0x5
+ 1938 0114 49       		.uleb128 0x49
+ 1939 0115 13       		.uleb128 0x13
+ 1940 0116 00       		.byte	0
+ 1941 0117 00       		.byte	0
+ 1942 0118 15       		.uleb128 0x15
+ 1943 0119 1D       		.uleb128 0x1d
+ 1944 011a 01       		.byte	0x1
+ 1945 011b 31       		.uleb128 0x31
+ 1946 011c 13       		.uleb128 0x13
+ 1947 011d 52       		.uleb128 0x52
+ 1948 011e 01       		.uleb128 0x1
+ 1949 011f 55       		.uleb128 0x55
+ 1950 0120 17       		.uleb128 0x17
+ 1951 0121 58       		.uleb128 0x58
+ 1952 0122 0B       		.uleb128 0xb
+ 1953 0123 59       		.uleb128 0x59
+ 1954 0124 05       		.uleb128 0x5
+ 1955 0125 01       		.uleb128 0x1
+ 1956 0126 13       		.uleb128 0x13
+ 1957 0127 00       		.byte	0
+ 1958 0128 00       		.byte	0
+ 1959 0129 16       		.uleb128 0x16
+ 1960 012a 05       		.uleb128 0x5
+ 1961 012b 00       		.byte	0
+ 1962 012c 31       		.uleb128 0x31
+ 1963 012d 13       		.uleb128 0x13
+ 1964 012e 02       		.uleb128 0x2
+ 1965 012f 17       		.uleb128 0x17
+ 1966 0130 00       		.byte	0
+ 1967 0131 00       		.byte	0
+ 1968 0132 17       		.uleb128 0x17
+ 1969 0133 0B       		.uleb128 0xb
+ 1970 0134 01       		.byte	0x1
+ 1971 0135 55       		.uleb128 0x55
+ 1972 0136 17       		.uleb128 0x17
+ 1973 0137 00       		.byte	0
+ 1974 0138 00       		.byte	0
+ 1975 0139 18       		.uleb128 0x18
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 52
+
+
+ 1976 013a 34       		.uleb128 0x34
+ 1977 013b 00       		.byte	0
+ 1978 013c 31       		.uleb128 0x31
+ 1979 013d 13       		.uleb128 0x13
+ 1980 013e 02       		.uleb128 0x2
+ 1981 013f 17       		.uleb128 0x17
+ 1982 0140 00       		.byte	0
+ 1983 0141 00       		.byte	0
+ 1984 0142 19       		.uleb128 0x19
+ 1985 0143 898201   		.uleb128 0x4109
+ 1986 0146 01       		.byte	0x1
+ 1987 0147 11       		.uleb128 0x11
+ 1988 0148 01       		.uleb128 0x1
+ 1989 0149 31       		.uleb128 0x31
+ 1990 014a 13       		.uleb128 0x13
+ 1991 014b 00       		.byte	0
+ 1992 014c 00       		.byte	0
+ 1993 014d 1A       		.uleb128 0x1a
+ 1994 014e 2E       		.uleb128 0x2e
+ 1995 014f 00       		.byte	0
+ 1996 0150 3F       		.uleb128 0x3f
+ 1997 0151 19       		.uleb128 0x19
+ 1998 0152 03       		.uleb128 0x3
+ 1999 0153 0E       		.uleb128 0xe
+ 2000 0154 3A       		.uleb128 0x3a
+ 2001 0155 0B       		.uleb128 0xb
+ 2002 0156 3B       		.uleb128 0x3b
+ 2003 0157 05       		.uleb128 0x5
+ 2004 0158 27       		.uleb128 0x27
+ 2005 0159 19       		.uleb128 0x19
+ 2006 015a 11       		.uleb128 0x11
+ 2007 015b 01       		.uleb128 0x1
+ 2008 015c 12       		.uleb128 0x12
+ 2009 015d 06       		.uleb128 0x6
+ 2010 015e 40       		.uleb128 0x40
+ 2011 015f 18       		.uleb128 0x18
+ 2012 0160 9742     		.uleb128 0x2117
+ 2013 0162 19       		.uleb128 0x19
+ 2014 0163 00       		.byte	0
+ 2015 0164 00       		.byte	0
+ 2016 0165 1B       		.uleb128 0x1b
+ 2017 0166 2E       		.uleb128 0x2e
+ 2018 0167 01       		.byte	0x1
+ 2019 0168 3F       		.uleb128 0x3f
+ 2020 0169 19       		.uleb128 0x19
+ 2021 016a 03       		.uleb128 0x3
+ 2022 016b 0E       		.uleb128 0xe
+ 2023 016c 3A       		.uleb128 0x3a
+ 2024 016d 0B       		.uleb128 0xb
+ 2025 016e 3B       		.uleb128 0x3b
+ 2026 016f 05       		.uleb128 0x5
+ 2027 0170 27       		.uleb128 0x27
+ 2028 0171 19       		.uleb128 0x19
+ 2029 0172 49       		.uleb128 0x49
+ 2030 0173 13       		.uleb128 0x13
+ 2031 0174 11       		.uleb128 0x11
+ 2032 0175 01       		.uleb128 0x1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 53
+
+
+ 2033 0176 12       		.uleb128 0x12
+ 2034 0177 06       		.uleb128 0x6
+ 2035 0178 40       		.uleb128 0x40
+ 2036 0179 18       		.uleb128 0x18
+ 2037 017a 9742     		.uleb128 0x2117
+ 2038 017c 19       		.uleb128 0x19
+ 2039 017d 01       		.uleb128 0x1
+ 2040 017e 13       		.uleb128 0x13
+ 2041 017f 00       		.byte	0
+ 2042 0180 00       		.byte	0
+ 2043 0181 1C       		.uleb128 0x1c
+ 2044 0182 2E       		.uleb128 0x2e
+ 2045 0183 00       		.byte	0
+ 2046 0184 3F       		.uleb128 0x3f
+ 2047 0185 19       		.uleb128 0x19
+ 2048 0186 03       		.uleb128 0x3
+ 2049 0187 0E       		.uleb128 0xe
+ 2050 0188 3A       		.uleb128 0x3a
+ 2051 0189 0B       		.uleb128 0xb
+ 2052 018a 3B       		.uleb128 0x3b
+ 2053 018b 05       		.uleb128 0x5
+ 2054 018c 27       		.uleb128 0x27
+ 2055 018d 19       		.uleb128 0x19
+ 2056 018e 49       		.uleb128 0x49
+ 2057 018f 13       		.uleb128 0x13
+ 2058 0190 11       		.uleb128 0x11
+ 2059 0191 01       		.uleb128 0x1
+ 2060 0192 12       		.uleb128 0x12
+ 2061 0193 06       		.uleb128 0x6
+ 2062 0194 40       		.uleb128 0x40
+ 2063 0195 18       		.uleb128 0x18
+ 2064 0196 9742     		.uleb128 0x2117
+ 2065 0198 19       		.uleb128 0x19
+ 2066 0199 00       		.byte	0
+ 2067 019a 00       		.byte	0
+ 2068 019b 1D       		.uleb128 0x1d
+ 2069 019c 34       		.uleb128 0x34
+ 2070 019d 00       		.byte	0
+ 2071 019e 03       		.uleb128 0x3
+ 2072 019f 08       		.uleb128 0x8
+ 2073 01a0 3A       		.uleb128 0x3a
+ 2074 01a1 0B       		.uleb128 0xb
+ 2075 01a2 3B       		.uleb128 0x3b
+ 2076 01a3 05       		.uleb128 0x5
+ 2077 01a4 49       		.uleb128 0x49
+ 2078 01a5 13       		.uleb128 0x13
+ 2079 01a6 02       		.uleb128 0x2
+ 2080 01a7 18       		.uleb128 0x18
+ 2081 01a8 00       		.byte	0
+ 2082 01a9 00       		.byte	0
+ 2083 01aa 1E       		.uleb128 0x1e
+ 2084 01ab 05       		.uleb128 0x5
+ 2085 01ac 00       		.byte	0
+ 2086 01ad 03       		.uleb128 0x3
+ 2087 01ae 0E       		.uleb128 0xe
+ 2088 01af 3A       		.uleb128 0x3a
+ 2089 01b0 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 54
+
+
+ 2090 01b1 3B       		.uleb128 0x3b
+ 2091 01b2 05       		.uleb128 0x5
+ 2092 01b3 49       		.uleb128 0x49
+ 2093 01b4 13       		.uleb128 0x13
+ 2094 01b5 02       		.uleb128 0x2
+ 2095 01b6 18       		.uleb128 0x18
+ 2096 01b7 00       		.byte	0
+ 2097 01b8 00       		.byte	0
+ 2098 01b9 1F       		.uleb128 0x1f
+ 2099 01ba 2E       		.uleb128 0x2e
+ 2100 01bb 01       		.byte	0x1
+ 2101 01bc 3F       		.uleb128 0x3f
+ 2102 01bd 19       		.uleb128 0x19
+ 2103 01be 03       		.uleb128 0x3
+ 2104 01bf 0E       		.uleb128 0xe
+ 2105 01c0 3A       		.uleb128 0x3a
+ 2106 01c1 0B       		.uleb128 0xb
+ 2107 01c2 3B       		.uleb128 0x3b
+ 2108 01c3 05       		.uleb128 0x5
+ 2109 01c4 27       		.uleb128 0x27
+ 2110 01c5 19       		.uleb128 0x19
+ 2111 01c6 49       		.uleb128 0x49
+ 2112 01c7 13       		.uleb128 0x13
+ 2113 01c8 11       		.uleb128 0x11
+ 2114 01c9 01       		.uleb128 0x1
+ 2115 01ca 12       		.uleb128 0x12
+ 2116 01cb 06       		.uleb128 0x6
+ 2117 01cc 40       		.uleb128 0x40
+ 2118 01cd 18       		.uleb128 0x18
+ 2119 01ce 9642     		.uleb128 0x2116
+ 2120 01d0 19       		.uleb128 0x19
+ 2121 01d1 01       		.uleb128 0x1
+ 2122 01d2 13       		.uleb128 0x13
+ 2123 01d3 00       		.byte	0
+ 2124 01d4 00       		.byte	0
+ 2125 01d5 20       		.uleb128 0x20
+ 2126 01d6 34       		.uleb128 0x34
+ 2127 01d7 00       		.byte	0
+ 2128 01d8 03       		.uleb128 0x3
+ 2129 01d9 0E       		.uleb128 0xe
+ 2130 01da 3A       		.uleb128 0x3a
+ 2131 01db 0B       		.uleb128 0xb
+ 2132 01dc 3B       		.uleb128 0x3b
+ 2133 01dd 0B       		.uleb128 0xb
+ 2134 01de 49       		.uleb128 0x49
+ 2135 01df 13       		.uleb128 0x13
+ 2136 01e0 3F       		.uleb128 0x3f
+ 2137 01e1 19       		.uleb128 0x19
+ 2138 01e2 02       		.uleb128 0x2
+ 2139 01e3 18       		.uleb128 0x18
+ 2140 01e4 00       		.byte	0
+ 2141 01e5 00       		.byte	0
+ 2142 01e6 21       		.uleb128 0x21
+ 2143 01e7 2E       		.uleb128 0x2e
+ 2144 01e8 00       		.byte	0
+ 2145 01e9 3F       		.uleb128 0x3f
+ 2146 01ea 19       		.uleb128 0x19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 55
+
+
+ 2147 01eb 03       		.uleb128 0x3
+ 2148 01ec 0E       		.uleb128 0xe
+ 2149 01ed 3A       		.uleb128 0x3a
+ 2150 01ee 0B       		.uleb128 0xb
+ 2151 01ef 3B       		.uleb128 0x3b
+ 2152 01f0 0B       		.uleb128 0xb
+ 2153 01f1 27       		.uleb128 0x27
+ 2154 01f2 19       		.uleb128 0x19
+ 2155 01f3 49       		.uleb128 0x49
+ 2156 01f4 13       		.uleb128 0x13
+ 2157 01f5 3C       		.uleb128 0x3c
+ 2158 01f6 19       		.uleb128 0x19
+ 2159 01f7 00       		.byte	0
+ 2160 01f8 00       		.byte	0
+ 2161 01f9 22       		.uleb128 0x22
+ 2162 01fa 2E       		.uleb128 0x2e
+ 2163 01fb 01       		.byte	0x1
+ 2164 01fc 3F       		.uleb128 0x3f
+ 2165 01fd 19       		.uleb128 0x19
+ 2166 01fe 03       		.uleb128 0x3
+ 2167 01ff 0E       		.uleb128 0xe
+ 2168 0200 3A       		.uleb128 0x3a
+ 2169 0201 0B       		.uleb128 0xb
+ 2170 0202 3B       		.uleb128 0x3b
+ 2171 0203 0B       		.uleb128 0xb
+ 2172 0204 27       		.uleb128 0x27
+ 2173 0205 19       		.uleb128 0x19
+ 2174 0206 3C       		.uleb128 0x3c
+ 2175 0207 19       		.uleb128 0x19
+ 2176 0208 01       		.uleb128 0x1
+ 2177 0209 13       		.uleb128 0x13
+ 2178 020a 00       		.byte	0
+ 2179 020b 00       		.byte	0
+ 2180 020c 23       		.uleb128 0x23
+ 2181 020d 05       		.uleb128 0x5
+ 2182 020e 00       		.byte	0
+ 2183 020f 49       		.uleb128 0x49
+ 2184 0210 13       		.uleb128 0x13
+ 2185 0211 00       		.byte	0
+ 2186 0212 00       		.byte	0
+ 2187 0213 24       		.uleb128 0x24
+ 2188 0214 2E       		.uleb128 0x2e
+ 2189 0215 01       		.byte	0x1
+ 2190 0216 3F       		.uleb128 0x3f
+ 2191 0217 19       		.uleb128 0x19
+ 2192 0218 03       		.uleb128 0x3
+ 2193 0219 0E       		.uleb128 0xe
+ 2194 021a 3A       		.uleb128 0x3a
+ 2195 021b 0B       		.uleb128 0xb
+ 2196 021c 3B       		.uleb128 0x3b
+ 2197 021d 0B       		.uleb128 0xb
+ 2198 021e 27       		.uleb128 0x27
+ 2199 021f 19       		.uleb128 0x19
+ 2200 0220 49       		.uleb128 0x49
+ 2201 0221 13       		.uleb128 0x13
+ 2202 0222 3C       		.uleb128 0x3c
+ 2203 0223 19       		.uleb128 0x19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 56
+
+
+ 2204 0224 00       		.byte	0
+ 2205 0225 00       		.byte	0
+ 2206 0226 00       		.byte	0
+ 2207              		.section	.debug_loc,"",%progbits
+ 2208              	.Ldebug_loc0:
+ 2209              	.LLST0:
+ 2210 0000 36000000 		.4byte	.LVL2
+ 2211 0004 44000000 		.4byte	.LVL3
+ 2212 0008 0500     		.2byte	0x5
+ 2213 000a 72       		.byte	0x72
+ 2214 000b 00       		.sleb128 0
+ 2215 000c 32       		.byte	0x32
+ 2216 000d 21       		.byte	0x21
+ 2217 000e 9F       		.byte	0x9f
+ 2218 000f 44000000 		.4byte	.LVL3
+ 2219 0013 4A000000 		.4byte	.LVL4
+ 2220 0017 0100     		.2byte	0x1
+ 2221 0019 52       		.byte	0x52
+ 2222 001a 00000000 		.4byte	0
+ 2223 001e 00000000 		.4byte	0
+ 2224              	.LLST1:
+ 2225 0022 0A000000 		.4byte	.LVL1
+ 2226 0026 84000000 		.4byte	.LVL6
+ 2227 002a 0100     		.2byte	0x1
+ 2228 002c 54       		.byte	0x54
+ 2229 002d 00000000 		.4byte	0
+ 2230 0031 00000000 		.4byte	0
+ 2231              	.LLST2:
+ 2232 0035 06000000 		.4byte	.LVL8
+ 2233 0039 41000000 		.4byte	.LVL9-1
+ 2234 003d 0100     		.2byte	0x1
+ 2235 003f 50       		.byte	0x50
+ 2236 0040 00000000 		.4byte	0
+ 2237 0044 00000000 		.4byte	0
+ 2238              	.LLST3:
+ 2239 0048 00000000 		.4byte	.LVL10
+ 2240 004c 00000000 		.4byte	.LVL10
+ 2241 0050 0100     		.2byte	0x1
+ 2242 0052 50       		.byte	0x50
+ 2243 0053 00000000 		.4byte	.LVL10
+ 2244 0057 06000000 		.4byte	.LVL11
+ 2245 005b 0500     		.2byte	0x5
+ 2246 005d 70       		.byte	0x70
+ 2247 005e 00       		.sleb128 0
+ 2248 005f 33       		.byte	0x33
+ 2249 0060 1A       		.byte	0x1a
+ 2250 0061 9F       		.byte	0x9f
+ 2251 0062 06000000 		.4byte	.LVL11
+ 2252 0066 18000000 		.4byte	.LFE4
+ 2253 006a 0600     		.2byte	0x6
+ 2254 006c F3       		.byte	0xf3
+ 2255 006d 01       		.uleb128 0x1
+ 2256 006e 50       		.byte	0x50
+ 2257 006f 33       		.byte	0x33
+ 2258 0070 1A       		.byte	0x1a
+ 2259 0071 9F       		.byte	0x9f
+ 2260 0072 00000000 		.4byte	0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 57
+
+
+ 2261 0076 00000000 		.4byte	0
+ 2262              	.LLST4:
+ 2263 007a 0C000000 		.4byte	.LVL12
+ 2264 007e 10000000 		.4byte	.LVL13
+ 2265 0082 0100     		.2byte	0x1
+ 2266 0084 53       		.byte	0x53
+ 2267 0085 10000000 		.4byte	.LVL13
+ 2268 0089 18000000 		.4byte	.LFE4
+ 2269 008d 0100     		.2byte	0x1
+ 2270 008f 50       		.byte	0x50
+ 2271 0090 00000000 		.4byte	0
+ 2272 0094 00000000 		.4byte	0
+ 2273              	.LLST5:
+ 2274 0098 00000000 		.4byte	.LVL14
+ 2275 009c 12000000 		.4byte	.LVL16
+ 2276 00a0 0100     		.2byte	0x1
+ 2277 00a2 50       		.byte	0x50
+ 2278 00a3 12000000 		.4byte	.LVL16
+ 2279 00a7 42000000 		.4byte	.LVL23
+ 2280 00ab 0400     		.2byte	0x4
+ 2281 00ad F3       		.byte	0xf3
+ 2282 00ae 01       		.uleb128 0x1
+ 2283 00af 50       		.byte	0x50
+ 2284 00b0 9F       		.byte	0x9f
+ 2285 00b1 42000000 		.4byte	.LVL23
+ 2286 00b5 48000000 		.4byte	.LVL24
+ 2287 00b9 0100     		.2byte	0x1
+ 2288 00bb 50       		.byte	0x50
+ 2289 00bc 48000000 		.4byte	.LVL24
+ 2290 00c0 5A000000 		.4byte	.LVL28
+ 2291 00c4 0400     		.2byte	0x4
+ 2292 00c6 F3       		.byte	0xf3
+ 2293 00c7 01       		.uleb128 0x1
+ 2294 00c8 50       		.byte	0x50
+ 2295 00c9 9F       		.byte	0x9f
+ 2296 00ca 5A000000 		.4byte	.LVL28
+ 2297 00ce 6E000000 		.4byte	.LVL31
+ 2298 00d2 0100     		.2byte	0x1
+ 2299 00d4 50       		.byte	0x50
+ 2300 00d5 6E000000 		.4byte	.LVL31
+ 2301 00d9 88000000 		.4byte	.LFE5
+ 2302 00dd 0400     		.2byte	0x4
+ 2303 00df F3       		.byte	0xf3
+ 2304 00e0 01       		.uleb128 0x1
+ 2305 00e1 50       		.byte	0x50
+ 2306 00e2 9F       		.byte	0x9f
+ 2307 00e3 00000000 		.4byte	0
+ 2308 00e7 00000000 		.4byte	0
+ 2309              	.LLST6:
+ 2310 00eb 10000000 		.4byte	.LVL15
+ 2311 00ef 18000000 		.4byte	.LVL18
+ 2312 00f3 0300     		.2byte	0x3
+ 2313 00f5 09       		.byte	0x9
+ 2314 00f6 C2       		.byte	0xc2
+ 2315 00f7 9F       		.byte	0x9f
+ 2316 00f8 18000000 		.4byte	.LVL18
+ 2317 00fc 2D000000 		.4byte	.LVL21-1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 58
+
+
+ 2318 0100 0100     		.2byte	0x1
+ 2319 0102 53       		.byte	0x53
+ 2320 0103 42000000 		.4byte	.LVL23
+ 2321 0107 48000000 		.4byte	.LVL24
+ 2322 010b 0300     		.2byte	0x3
+ 2323 010d 08       		.byte	0x8
+ 2324 010e 42       		.byte	0x42
+ 2325 010f 9F       		.byte	0x9f
+ 2326 0110 50000000 		.4byte	.LVL25
+ 2327 0114 54000000 		.4byte	.LVL26
+ 2328 0118 0100     		.2byte	0x1
+ 2329 011a 53       		.byte	0x53
+ 2330 011b 54000000 		.4byte	.LVL26
+ 2331 011f 58000000 		.4byte	.LVL27
+ 2332 0123 0200     		.2byte	0x2
+ 2333 0125 72       		.byte	0x72
+ 2334 0126 00       		.sleb128 0
+ 2335 0127 58000000 		.4byte	.LVL27
+ 2336 012b 5A000000 		.4byte	.LVL28
+ 2337 012f 0500     		.2byte	0x5
+ 2338 0131 0C       		.byte	0xc
+ 2339 0132 0A590040 		.4byte	0x4000590a
+ 2340 0136 5A000000 		.4byte	.LVL28
+ 2341 013a 6A000000 		.4byte	.LVL30
+ 2342 013e 0300     		.2byte	0x3
+ 2343 0140 09       		.byte	0x9
+ 2344 0141 C2       		.byte	0xc2
+ 2345 0142 9F       		.byte	0x9f
+ 2346 0143 6E000000 		.4byte	.LVL31
+ 2347 0147 76000000 		.4byte	.LVL32
+ 2348 014b 0100     		.2byte	0x1
+ 2349 014d 53       		.byte	0x53
+ 2350 014e 76000000 		.4byte	.LVL32
+ 2351 0152 88000000 		.4byte	.LFE5
+ 2352 0156 0500     		.2byte	0x5
+ 2353 0158 0C       		.byte	0xc
+ 2354 0159 0A590040 		.4byte	0x4000590a
+ 2355 015d 00000000 		.4byte	0
+ 2356 0161 00000000 		.4byte	0
+ 2357              	.LLST7:
+ 2358 0165 1E000000 		.4byte	.LVL19
+ 2359 0169 32000000 		.4byte	.LVL22
+ 2360 016d 0100     		.2byte	0x1
+ 2361 016f 54       		.byte	0x54
+ 2362 0170 48000000 		.4byte	.LVL24
+ 2363 0174 50000000 		.4byte	.LVL25
+ 2364 0178 0200     		.2byte	0x2
+ 2365 017a 38       		.byte	0x38
+ 2366 017b 9F       		.byte	0x9f
+ 2367 017c 50000000 		.4byte	.LVL25
+ 2368 0180 5A000000 		.4byte	.LVL28
+ 2369 0184 0100     		.2byte	0x1
+ 2370 0186 54       		.byte	0x54
+ 2371 0187 60000000 		.4byte	.LVL29
+ 2372 018b 6A000000 		.4byte	.LVL30
+ 2373 018f 0200     		.2byte	0x2
+ 2374 0191 3C       		.byte	0x3c
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 59
+
+
+ 2375 0192 9F       		.byte	0x9f
+ 2376 0193 6E000000 		.4byte	.LVL31
+ 2377 0197 88000000 		.4byte	.LFE5
+ 2378 019b 0100     		.2byte	0x1
+ 2379 019d 54       		.byte	0x54
+ 2380 019e 00000000 		.4byte	0
+ 2381 01a2 00000000 		.4byte	0
+ 2382              	.LLST8:
+ 2383 01a6 28000000 		.4byte	.LVL20
+ 2384 01aa 32000000 		.4byte	.LVL22
+ 2385 01ae 0200     		.2byte	0x2
+ 2386 01b0 30       		.byte	0x30
+ 2387 01b1 9F       		.byte	0x9f
+ 2388 01b2 48000000 		.4byte	.LVL24
+ 2389 01b6 50000000 		.4byte	.LVL25
+ 2390 01ba 0400     		.2byte	0x4
+ 2391 01bc 0A       		.byte	0xa
+ 2392 01bd 0001     		.2byte	0x100
+ 2393 01bf 9F       		.byte	0x9f
+ 2394 01c0 00000000 		.4byte	0
+ 2395 01c4 00000000 		.4byte	0
+ 2396              	.LLST9:
+ 2397 01c8 28000000 		.4byte	.LVL20
+ 2398 01cc 32000000 		.4byte	.LVL22
+ 2399 01d0 0200     		.2byte	0x2
+ 2400 01d2 30       		.byte	0x30
+ 2401 01d3 9F       		.byte	0x9f
+ 2402 01d4 48000000 		.4byte	.LVL24
+ 2403 01d8 50000000 		.4byte	.LVL25
+ 2404 01dc 0300     		.2byte	0x3
+ 2405 01de 08       		.byte	0x8
+ 2406 01df 80       		.byte	0x80
+ 2407 01e0 9F       		.byte	0x9f
+ 2408 01e1 00000000 		.4byte	0
+ 2409 01e5 00000000 		.4byte	0
+ 2410              	.LLST10:
+ 2411 01e9 00000000 		.4byte	.LVL39
+ 2412 01ed 14000000 		.4byte	.LVL43
+ 2413 01f1 0100     		.2byte	0x1
+ 2414 01f3 50       		.byte	0x50
+ 2415 01f4 14000000 		.4byte	.LVL43
+ 2416 01f8 1E000000 		.4byte	.LVL45
+ 2417 01fc 0400     		.2byte	0x4
+ 2418 01fe F3       		.byte	0xf3
+ 2419 01ff 01       		.uleb128 0x1
+ 2420 0200 50       		.byte	0x50
+ 2421 0201 9F       		.byte	0x9f
+ 2422 0202 1E000000 		.4byte	.LVL45
+ 2423 0206 22000000 		.4byte	.LVL46
+ 2424 020a 0100     		.2byte	0x1
+ 2425 020c 50       		.byte	0x50
+ 2426 020d 22000000 		.4byte	.LVL46
+ 2427 0211 28000000 		.4byte	.LFE8
+ 2428 0215 0400     		.2byte	0x4
+ 2429 0217 F3       		.byte	0xf3
+ 2430 0218 01       		.uleb128 0x1
+ 2431 0219 50       		.byte	0x50
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 60
+
+
+ 2432 021a 9F       		.byte	0x9f
+ 2433 021b 00000000 		.4byte	0
+ 2434 021f 00000000 		.4byte	0
+ 2435              	.LLST11:
+ 2436 0223 06000000 		.4byte	.LVL40
+ 2437 0227 08000000 		.4byte	.LVL41
+ 2438 022b 0500     		.2byte	0x5
+ 2439 022d 73       		.byte	0x73
+ 2440 022e 00       		.sleb128 0
+ 2441 022f 31       		.byte	0x31
+ 2442 0230 1A       		.byte	0x1a
+ 2443 0231 9F       		.byte	0x9f
+ 2444 0232 0A000000 		.4byte	.LVL42
+ 2445 0236 17000000 		.4byte	.LVL44-1
+ 2446 023a 0500     		.2byte	0x5
+ 2447 023c 73       		.byte	0x73
+ 2448 023d 00       		.sleb128 0
+ 2449 023e 31       		.byte	0x31
+ 2450 023f 1A       		.byte	0x1a
+ 2451 0240 9F       		.byte	0x9f
+ 2452 0241 1E000000 		.4byte	.LVL45
+ 2453 0245 24000000 		.4byte	.LVL47
+ 2454 0249 0500     		.2byte	0x5
+ 2455 024b 73       		.byte	0x73
+ 2456 024c 00       		.sleb128 0
+ 2457 024d 31       		.byte	0x31
+ 2458 024e 1A       		.byte	0x1a
+ 2459 024f 9F       		.byte	0x9f
+ 2460 0250 00000000 		.4byte	0
+ 2461 0254 00000000 		.4byte	0
+ 2462              	.LLST12:
+ 2463 0258 00000000 		.4byte	.LVL50
+ 2464 025c 04000000 		.4byte	.LVL51
+ 2465 0260 0100     		.2byte	0x1
+ 2466 0262 50       		.byte	0x50
+ 2467 0263 04000000 		.4byte	.LVL51
+ 2468 0267 10000000 		.4byte	.LFE13
+ 2469 026b 0400     		.2byte	0x4
+ 2470 026d F3       		.byte	0xf3
+ 2471 026e 01       		.uleb128 0x1
+ 2472 026f 50       		.byte	0x50
+ 2473 0270 9F       		.byte	0x9f
+ 2474 0271 00000000 		.4byte	0
+ 2475 0275 00000000 		.4byte	0
+ 2476              	.LLST13:
+ 2477 0279 00000000 		.4byte	.LVL53
+ 2478 027d 1E000000 		.4byte	.LVL55
+ 2479 0281 0100     		.2byte	0x1
+ 2480 0283 50       		.byte	0x50
+ 2481 0284 1E000000 		.4byte	.LVL55
+ 2482 0288 28000000 		.4byte	.LVL56
+ 2483 028c 0100     		.2byte	0x1
+ 2484 028e 53       		.byte	0x53
+ 2485 028f 3A000000 		.4byte	.LVL59
+ 2486 0293 4C000000 		.4byte	.LFE15
+ 2487 0297 0100     		.2byte	0x1
+ 2488 0299 50       		.byte	0x50
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 61
+
+
+ 2489 029a 00000000 		.4byte	0
+ 2490 029e 00000000 		.4byte	0
+ 2491              	.LLST14:
+ 2492 02a2 30000000 		.4byte	.LVL57
+ 2493 02a6 32000000 		.4byte	.LVL58
+ 2494 02aa 0900     		.2byte	0x9
+ 2495 02ac 70       		.byte	0x70
+ 2496 02ad 00       		.sleb128 0
+ 2497 02ae 73       		.byte	0x73
+ 2498 02af 00       		.sleb128 0
+ 2499 02b0 22       		.byte	0x22
+ 2500 02b1 72       		.byte	0x72
+ 2501 02b2 00       		.sleb128 0
+ 2502 02b3 1B       		.byte	0x1b
+ 2503 02b4 9F       		.byte	0x9f
+ 2504 02b5 00000000 		.4byte	0
+ 2505 02b9 00000000 		.4byte	0
+ 2506              	.LLST15:
+ 2507 02bd 12000000 		.4byte	.LVL54
+ 2508 02c1 3A000000 		.4byte	.LVL59
+ 2509 02c5 0100     		.2byte	0x1
+ 2510 02c7 52       		.byte	0x52
+ 2511 02c8 3E000000 		.4byte	.LVL60
+ 2512 02cc 4C000000 		.4byte	.LFE15
+ 2513 02d0 0100     		.2byte	0x1
+ 2514 02d2 52       		.byte	0x52
+ 2515 02d3 00000000 		.4byte	0
+ 2516 02d7 00000000 		.4byte	0
+ 2517              	.LLST16:
+ 2518 02db 00000000 		.4byte	.LVL61
+ 2519 02df 14000000 		.4byte	.LVL63
+ 2520 02e3 0100     		.2byte	0x1
+ 2521 02e5 50       		.byte	0x50
+ 2522 02e6 14000000 		.4byte	.LVL63
+ 2523 02ea 18000000 		.4byte	.LVL64
+ 2524 02ee 0600     		.2byte	0x6
+ 2525 02f0 70       		.byte	0x70
+ 2526 02f1 00       		.sleb128 0
+ 2527 02f2 74       		.byte	0x74
+ 2528 02f3 00       		.sleb128 0
+ 2529 02f4 1C       		.byte	0x1c
+ 2530 02f5 9F       		.byte	0x9f
+ 2531 02f6 2A000000 		.4byte	.LVL66
+ 2532 02fa 48000000 		.4byte	.LFE16
+ 2533 02fe 0100     		.2byte	0x1
+ 2534 0300 50       		.byte	0x50
+ 2535 0301 00000000 		.4byte	0
+ 2536 0305 00000000 		.4byte	0
+ 2537              	.LLST17:
+ 2538 0309 14000000 		.4byte	.LVL63
+ 2539 030d 18000000 		.4byte	.LVL64
+ 2540 0311 1D00     		.2byte	0x1d
+ 2541 0313 70       		.byte	0x70
+ 2542 0314 00       		.sleb128 0
+ 2543 0315 74       		.byte	0x74
+ 2544 0316 00       		.sleb128 0
+ 2545 0317 1C       		.byte	0x1c
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 62
+
+
+ 2546 0318 F7       		.byte	0xf7
+ 2547 0319 41       		.uleb128 0x41
+ 2548 031a F7       		.byte	0xf7
+ 2549 031b 25       		.uleb128 0x25
+ 2550 031c 0C       		.byte	0xc
+ 2551 031d 80969800 		.4byte	0x989680
+ 2552 0321 F7       		.byte	0xf7
+ 2553 0322 25       		.uleb128 0x25
+ 2554 0323 1E       		.byte	0x1e
+ 2555 0324 F7       		.byte	0xf7
+ 2556 0325 33       		.uleb128 0x33
+ 2557 0326 72       		.byte	0x72
+ 2558 0327 00       		.sleb128 0
+ 2559 0328 F7       		.byte	0xf7
+ 2560 0329 3A       		.uleb128 0x3a
+ 2561 032a F7       		.byte	0xf7
+ 2562 032b 33       		.uleb128 0x33
+ 2563 032c 1B       		.byte	0x1b
+ 2564 032d F7       		.byte	0xf7
+ 2565 032e 25       		.uleb128 0x25
+ 2566 032f 9F       		.byte	0x9f
+ 2567 0330 00000000 		.4byte	0
+ 2568 0334 00000000 		.4byte	0
+ 2569              	.LLST18:
+ 2570 0338 0E000000 		.4byte	.LVL62
+ 2571 033c 27000000 		.4byte	.LVL65-1
+ 2572 0340 0100     		.2byte	0x1
+ 2573 0342 52       		.byte	0x52
+ 2574 0343 34000000 		.4byte	.LVL67
+ 2575 0347 48000000 		.4byte	.LFE16
+ 2576 034b 0100     		.2byte	0x1
+ 2577 034d 52       		.byte	0x52
+ 2578 034e 00000000 		.4byte	0
+ 2579 0352 00000000 		.4byte	0
+ 2580              	.LLST19:
+ 2581 0356 00000000 		.4byte	.LVL68
+ 2582 035a 14000000 		.4byte	.LVL70
+ 2583 035e 0100     		.2byte	0x1
+ 2584 0360 50       		.byte	0x50
+ 2585 0361 14000000 		.4byte	.LVL70
+ 2586 0365 19000000 		.4byte	.LVL71-1
+ 2587 0369 0100     		.2byte	0x1
+ 2588 036b 50       		.byte	0x50
+ 2589 036c 32000000 		.4byte	.LVL75
+ 2590 0370 50000000 		.4byte	.LFE17
+ 2591 0374 0100     		.2byte	0x1
+ 2592 0376 50       		.byte	0x50
+ 2593 0377 00000000 		.4byte	0
+ 2594 037b 00000000 		.4byte	0
+ 2595              	.LLST20:
+ 2596 037f 14000000 		.4byte	.LVL70
+ 2597 0383 19000000 		.4byte	.LVL71-1
+ 2598 0387 1600     		.2byte	0x16
+ 2599 0389 70       		.byte	0x70
+ 2600 038a 00       		.sleb128 0
+ 2601 038b F7       		.byte	0xf7
+ 2602 038c 41       		.uleb128 0x41
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 63
+
+
+ 2603 038d F7       		.byte	0xf7
+ 2604 038e 2C       		.uleb128 0x2c
+ 2605 038f F4       		.byte	0xf4
+ 2606 0390 2C       		.uleb128 0x2c
+ 2607 0391 04       		.byte	0x4
+ 2608 0392 00002041 		.4byte	0x41200000
+ 2609 0396 1E       		.byte	0x1e
+ 2610 0397 74       		.byte	0x74
+ 2611 0398 00       		.sleb128 0
+ 2612 0399 F7       		.byte	0xf7
+ 2613 039a 3A       		.uleb128 0x3a
+ 2614 039b F7       		.byte	0xf7
+ 2615 039c 2C       		.uleb128 0x2c
+ 2616 039d 1B       		.byte	0x1b
+ 2617 039e 9F       		.byte	0x9f
+ 2618 039f 00000000 		.4byte	0
+ 2619 03a3 00000000 		.4byte	0
+ 2620              	.LLST21:
+ 2621 03a7 0E000000 		.4byte	.LVL69
+ 2622 03ab 32000000 		.4byte	.LVL75
+ 2623 03af 0100     		.2byte	0x1
+ 2624 03b1 54       		.byte	0x54
+ 2625 03b2 3C000000 		.4byte	.LVL76
+ 2626 03b6 50000000 		.4byte	.LFE17
+ 2627 03ba 0100     		.2byte	0x1
+ 2628 03bc 54       		.byte	0x54
+ 2629 03bd 00000000 		.4byte	0
+ 2630 03c1 00000000 		.4byte	0
+ 2631              		.section	.debug_aranges,"",%progbits
+ 2632 0000 9C000000 		.4byte	0x9c
+ 2633 0004 0200     		.2byte	0x2
+ 2634 0006 00000000 		.4byte	.Ldebug_info0
+ 2635 000a 04       		.byte	0x4
+ 2636 000b 00       		.byte	0
+ 2637 000c 0000     		.2byte	0
+ 2638 000e 0000     		.2byte	0
+ 2639 0010 00000000 		.4byte	.LFB2
+ 2640 0014 A0000000 		.4byte	.LFE2-.LFB2
+ 2641 0018 00000000 		.4byte	.LFB3
+ 2642 001c 50000000 		.4byte	.LFE3-.LFB3
+ 2643 0020 00000000 		.4byte	.LFB4
+ 2644 0024 18000000 		.4byte	.LFE4-.LFB4
+ 2645 0028 00000000 		.4byte	.LFB5
+ 2646 002c 88000000 		.4byte	.LFE5-.LFB5
+ 2647 0030 00000000 		.4byte	.LFB1
+ 2648 0034 3C000000 		.4byte	.LFE1-.LFB1
+ 2649 0038 00000000 		.4byte	.LFB0
+ 2650 003c 1C000000 		.4byte	.LFE0-.LFB0
+ 2651 0040 00000000 		.4byte	.LFB6
+ 2652 0044 10000000 		.4byte	.LFE6-.LFB6
+ 2653 0048 00000000 		.4byte	.LFB7
+ 2654 004c 10000000 		.4byte	.LFE7-.LFB7
+ 2655 0050 00000000 		.4byte	.LFB8
+ 2656 0054 28000000 		.4byte	.LFE8-.LFB8
+ 2657 0058 00000000 		.4byte	.LFB9
+ 2658 005c 18000000 		.4byte	.LFE9-.LFB9
+ 2659 0060 00000000 		.4byte	.LFB10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 64
+
+
+ 2660 0064 18000000 		.4byte	.LFE10-.LFB10
+ 2661 0068 00000000 		.4byte	.LFB11
+ 2662 006c 0C000000 		.4byte	.LFE11-.LFB11
+ 2663 0070 00000000 		.4byte	.LFB13
+ 2664 0074 10000000 		.4byte	.LFE13-.LFB13
+ 2665 0078 00000000 		.4byte	.LFB14
+ 2666 007c 0C000000 		.4byte	.LFE14-.LFB14
+ 2667 0080 00000000 		.4byte	.LFB15
+ 2668 0084 4C000000 		.4byte	.LFE15-.LFB15
+ 2669 0088 00000000 		.4byte	.LFB16
+ 2670 008c 48000000 		.4byte	.LFE16-.LFB16
+ 2671 0090 00000000 		.4byte	.LFB17
+ 2672 0094 50000000 		.4byte	.LFE17-.LFB17
+ 2673 0098 00000000 		.4byte	0
+ 2674 009c 00000000 		.4byte	0
+ 2675              		.section	.debug_ranges,"",%progbits
+ 2676              	.Ldebug_ranges0:
+ 2677 0000 1A000000 		.4byte	.LBB4
+ 2678 0004 1C000000 		.4byte	.LBE4
+ 2679 0008 1E000000 		.4byte	.LBB9
+ 2680 000c 42000000 		.4byte	.LBE9
+ 2681 0010 48000000 		.4byte	.LBB10
+ 2682 0014 5A000000 		.4byte	.LBE10
+ 2683 0018 6E000000 		.4byte	.LBB11
+ 2684 001c 88000000 		.4byte	.LBE11
+ 2685 0020 00000000 		.4byte	0
+ 2686 0024 00000000 		.4byte	0
+ 2687 0028 00000000 		.4byte	.LFB2
+ 2688 002c A0000000 		.4byte	.LFE2
+ 2689 0030 00000000 		.4byte	.LFB3
+ 2690 0034 50000000 		.4byte	.LFE3
+ 2691 0038 00000000 		.4byte	.LFB4
+ 2692 003c 18000000 		.4byte	.LFE4
+ 2693 0040 00000000 		.4byte	.LFB5
+ 2694 0044 88000000 		.4byte	.LFE5
+ 2695 0048 00000000 		.4byte	.LFB1
+ 2696 004c 3C000000 		.4byte	.LFE1
+ 2697 0050 00000000 		.4byte	.LFB0
+ 2698 0054 1C000000 		.4byte	.LFE0
+ 2699 0058 00000000 		.4byte	.LFB6
+ 2700 005c 10000000 		.4byte	.LFE6
+ 2701 0060 00000000 		.4byte	.LFB7
+ 2702 0064 10000000 		.4byte	.LFE7
+ 2703 0068 00000000 		.4byte	.LFB8
+ 2704 006c 28000000 		.4byte	.LFE8
+ 2705 0070 00000000 		.4byte	.LFB9
+ 2706 0074 18000000 		.4byte	.LFE9
+ 2707 0078 00000000 		.4byte	.LFB10
+ 2708 007c 18000000 		.4byte	.LFE10
+ 2709 0080 00000000 		.4byte	.LFB11
+ 2710 0084 0C000000 		.4byte	.LFE11
+ 2711 0088 00000000 		.4byte	.LFB13
+ 2712 008c 10000000 		.4byte	.LFE13
+ 2713 0090 00000000 		.4byte	.LFB14
+ 2714 0094 0C000000 		.4byte	.LFE14
+ 2715 0098 00000000 		.4byte	.LFB15
+ 2716 009c 4C000000 		.4byte	.LFE15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 65
+
+
+ 2717 00a0 00000000 		.4byte	.LFB16
+ 2718 00a4 48000000 		.4byte	.LFE16
+ 2719 00a8 00000000 		.4byte	.LFB17
+ 2720 00ac 50000000 		.4byte	.LFE17
+ 2721 00b0 00000000 		.4byte	0
+ 2722 00b4 00000000 		.4byte	0
+ 2723              		.section	.debug_line,"",%progbits
+ 2724              	.Ldebug_line0:
+ 2725 0000 54020000 		.section	.debug_str,"MS",%progbits,1
+ 2725      02006400 
+ 2725      00000201 
+ 2725      FB0E0D00 
+ 2725      01010101 
+ 2726              	.LASF45:
+ 2727 0000 4144435F 		.ascii	"ADC_MIC_SetGain\000"
+ 2727      4D49435F 
+ 2727      53657447 
+ 2727      61696E00 
+ 2728              	.LASF42:
+ 2729 0010 4144435F 		.ascii	"ADC_MIC_GetResult16\000"
+ 2729      4D49435F 
+ 2729      47657452 
+ 2729      6573756C 
+ 2729      74313600 
+ 2730              	.LASF13:
+ 2731 0024 75696E74 		.ascii	"uint16\000"
+ 2731      313600
+ 2732              	.LASF46:
+ 2733 002b 61646347 		.ascii	"adcGain\000"
+ 2733      61696E00 
+ 2734              	.LASF62:
+ 2735 0033 43794578 		.ascii	"CyExitCriticalSection\000"
+ 2735      69744372 
+ 2735      69746963 
+ 2735      616C5365 
+ 2735      6374696F 
+ 2736              	.LASF30:
+ 2737 0049 636F756E 		.ascii	"counts\000"
+ 2737      747300
+ 2738              	.LASF35:
+ 2739 0050 4144435F 		.ascii	"ADC_MIC_Init\000"
+ 2739      4D49435F 
+ 2739      496E6974 
+ 2739      00
+ 2740              	.LASF0:
+ 2741 005d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2741      206C6F6E 
+ 2741      6720756E 
+ 2741      7369676E 
+ 2741      65642069 
+ 2742              	.LASF41:
+ 2743 0074 4144435F 		.ascii	"ADC_MIC_IsEndConversion\000"
+ 2743      4D49435F 
+ 2743      4973456E 
+ 2743      64436F6E 
+ 2743      76657273 
+ 2744              	.LASF38:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 66
+
+
+ 2745 008c 4144435F 		.ascii	"ADC_MIC_StopConvert\000"
+ 2745      4D49435F 
+ 2745      53746F70 
+ 2745      436F6E76 
+ 2745      65727400 
+ 2746              	.LASF2:
+ 2747 00a0 6C6F6E67 		.ascii	"long long int\000"
+ 2747      206C6F6E 
+ 2747      6720696E 
+ 2747      7400
+ 2748              	.LASF5:
+ 2749 00ae 7369676E 		.ascii	"signed char\000"
+ 2749      65642063 
+ 2749      68617200 
+ 2750              	.LASF69:
+ 2751 00ba 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
+ 2751      73657273 
+ 2751      5C6D6772 
+ 2751      6F6E6265 
+ 2751      725C4465 
+ 2752 00e8 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 2752      436F6E74 
+ 2752      696E756F 
+ 2752      7573204F 
+ 2752      75747075 
+ 2753              	.LASF70:
+ 2754 0105 4144435F 		.ascii	"ADC_MIC_CalcGain\000"
+ 2754      4D49435F 
+ 2754      43616C63 
+ 2754      4761696E 
+ 2754      00
+ 2755              	.LASF17:
+ 2756 0116 696E7433 		.ascii	"int32\000"
+ 2756      3200
+ 2757              	.LASF8:
+ 2758 011c 6C6F6E67 		.ascii	"long int\000"
+ 2758      20696E74 
+ 2758      00
+ 2759              	.LASF22:
+ 2760 0125 72656731 		.ascii	"reg16\000"
+ 2760      3600
+ 2761              	.LASF12:
+ 2762 012b 75696E74 		.ascii	"uint8\000"
+ 2762      3800
+ 2763              	.LASF64:
+ 2764 0131 4144435F 		.ascii	"ADC_MIC_theACLK_SetModeRegister\000"
+ 2764      4D49435F 
+ 2764      74686541 
+ 2764      434C4B5F 
+ 2764      5365744D 
+ 2765              	.LASF61:
+ 2766 0151 43794465 		.ascii	"CyDelayUs\000"
+ 2766      6C617955 
+ 2766      7300
+ 2767              	.LASF19:
+ 2768 015b 646F7562 		.ascii	"double\000"
+ 2768      6C6500
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 67
+
+
+ 2769              	.LASF14:
+ 2770 0162 75696E74 		.ascii	"uint32\000"
+ 2770      333200
+ 2771              	.LASF51:
+ 2772 0169 636F756E 		.ascii	"countsPer10Volt\000"
+ 2772      74735065 
+ 2772      72313056 
+ 2772      6F6C7400 
+ 2773              	.LASF66:
+ 2774 0179 4379496E 		.ascii	"CyIntSetVector\000"
+ 2774      74536574 
+ 2774      56656374 
+ 2774      6F7200
+ 2775              	.LASF47:
+ 2776 0188 4144435F 		.ascii	"ADC_MIC_SetScaledGain\000"
+ 2776      4D49435F 
+ 2776      53657453 
+ 2776      63616C65 
+ 2776      64476169 
+ 2777              	.LASF39:
+ 2778 019e 7265744D 		.ascii	"retMode\000"
+ 2778      6F646500 
+ 2779              	.LASF4:
+ 2780 01a6 756E7369 		.ascii	"unsigned int\000"
+ 2780      676E6564 
+ 2780      20696E74 
+ 2780      00
+ 2781              	.LASF53:
+ 2782 01b3 75566F6C 		.ascii	"uVolts\000"
+ 2782      747300
+ 2783              	.LASF9:
+ 2784 01ba 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2784      20756E73 
+ 2784      69676E65 
+ 2784      6420696E 
+ 2784      7400
+ 2785              	.LASF55:
+ 2786 01cc 766F6C74 		.ascii	"volts\000"
+ 2786      7300
+ 2787              	.LASF72:
+ 2788 01d2 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 2788      74657243 
+ 2788      72697469 
+ 2788      63616C53 
+ 2788      65637469 
+ 2789              	.LASF27:
+ 2790 01e9 4144435F 		.ascii	"ADC_MIC_Enable\000"
+ 2790      4D49435F 
+ 2790      456E6162 
+ 2790      6C6500
+ 2791              	.LASF7:
+ 2792 01f8 73686F72 		.ascii	"short unsigned int\000"
+ 2792      7420756E 
+ 2792      7369676E 
+ 2792      65642069 
+ 2792      6E7400
+ 2793              	.LASF15:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 68
+
+
+ 2794 020b 696E7438 		.ascii	"int8\000"
+ 2794      00
+ 2795              	.LASF36:
+ 2796 0210 4144435F 		.ascii	"ADC_MIC_Start\000"
+ 2796      4D49435F 
+ 2796      53746172 
+ 2796      7400
+ 2797              	.LASF59:
+ 2798 021e 4144435F 		.ascii	"ADC_MIC_countsPer10Volt\000"
+ 2798      4D49435F 
+ 2798      636F756E 
+ 2798      74735065 
+ 2798      72313056 
+ 2799              	.LASF54:
+ 2800 0236 4144435F 		.ascii	"ADC_MIC_CountsTo_Volts\000"
+ 2800      4D49435F 
+ 2800      436F756E 
+ 2800      7473546F 
+ 2800      5F566F6C 
+ 2801              	.LASF50:
+ 2802 024d 6D566F6C 		.ascii	"mVolts\000"
+ 2802      747300
+ 2803              	.LASF23:
+ 2804 0254 72656733 		.ascii	"reg32\000"
+ 2804      3200
+ 2805              	.LASF67:
+ 2806 025a 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2806      4320342E 
+ 2806      392E3320 
+ 2806      32303135 
+ 2806      30333033 
+ 2807 028d 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 2807      20726576 
+ 2807      6973696F 
+ 2807      6E203232 
+ 2807      31323230 
+ 2808 02c0 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 2808      66756E63 
+ 2808      74696F6E 
+ 2808      2D736563 
+ 2808      74696F6E 
+ 2809              	.LASF18:
+ 2810 02e8 666C6F61 		.ascii	"float32\000"
+ 2810      74333200 
+ 2811              	.LASF10:
+ 2812 02f0 73697A65 		.ascii	"sizetype\000"
+ 2812      74797065 
+ 2812      00
+ 2813              	.LASF20:
+ 2814 02f9 696E7436 		.ascii	"int64\000"
+ 2814      3400
+ 2815              	.LASF65:
+ 2816 02ff 4379496E 		.ascii	"CyIntSetPriority\000"
+ 2816      74536574 
+ 2816      5072696F 
+ 2816      72697479 
+ 2816      00
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 69
+
+
+ 2817              	.LASF43:
+ 2818 0310 4144435F 		.ascii	"ADC_MIC_SetOffset\000"
+ 2818      4D49435F 
+ 2818      5365744F 
+ 2818      66667365 
+ 2818      7400
+ 2819              	.LASF1:
+ 2820 0322 666C6F61 		.ascii	"float\000"
+ 2820      7400
+ 2821              	.LASF37:
+ 2822 0328 4144435F 		.ascii	"ADC_MIC_StartConvert\000"
+ 2822      4D49435F 
+ 2822      53746172 
+ 2822      74436F6E 
+ 2822      76657274 
+ 2823              	.LASF33:
+ 2824 033d 706F7765 		.ascii	"power\000"
+ 2824      7200
+ 2825              	.LASF21:
+ 2826 0343 72656738 		.ascii	"reg8\000"
+ 2826      00
+ 2827              	.LASF63:
+ 2828 0348 43794861 		.ascii	"CyHalt\000"
+ 2828      6C7400
+ 2829              	.LASF6:
+ 2830 034f 756E7369 		.ascii	"unsigned char\000"
+ 2830      676E6564 
+ 2830      20636861 
+ 2830      7200
+ 2831              	.LASF31:
+ 2832 035d 64696666 		.ascii	"diff_zero\000"
+ 2832      5F7A6572 
+ 2832      6F00
+ 2833              	.LASF28:
+ 2834 0367 4144435F 		.ascii	"ADC_MIC_Stop\000"
+ 2834      4D49435F 
+ 2834      53746F70 
+ 2834      00
+ 2835              	.LASF3:
+ 2836 0374 73686F72 		.ascii	"short int\000"
+ 2836      7420696E 
+ 2836      7400
+ 2837              	.LASF56:
+ 2838 037e 4144435F 		.ascii	"ADC_MIC_initVar\000"
+ 2838      4D49435F 
+ 2838      696E6974 
+ 2838      56617200 
+ 2839              	.LASF29:
+ 2840 038e 4144435F 		.ascii	"ADC_MIC_SetPower\000"
+ 2840      4D49435F 
+ 2840      53657450 
+ 2840      6F776572 
+ 2840      00
+ 2841              	.LASF34:
+ 2842 039f 7265736F 		.ascii	"resolution\000"
+ 2842      6C757469 
+ 2842      6F6E00
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 70
+
+
+ 2843              	.LASF52:
+ 2844 03aa 4144435F 		.ascii	"ADC_MIC_CountsTo_uVolts\000"
+ 2844      4D49435F 
+ 2844      436F756E 
+ 2844      7473546F 
+ 2844      5F75566F 
+ 2845              	.LASF11:
+ 2846 03c2 63686172 		.ascii	"char\000"
+ 2846      00
+ 2847              	.LASF58:
+ 2848 03c7 4144435F 		.ascii	"ADC_MIC_countsPerVolt\000"
+ 2848      4D49435F 
+ 2848      636F756E 
+ 2848      74735065 
+ 2848      72566F6C 
+ 2849              	.LASF24:
+ 2850 03dd 63796973 		.ascii	"cyisraddress\000"
+ 2850      72616464 
+ 2850      72657373 
+ 2850      00
+ 2851              	.LASF48:
+ 2852 03ea 4144435F 		.ascii	"ADC_MIC_CountsTo_mVolts\000"
+ 2852      4D49435F 
+ 2852      436F756E 
+ 2852      7473546F 
+ 2852      5F6D566F 
+ 2853              	.LASF71:
+ 2854 0402 4144435F 		.ascii	"ADC_MIC_GetResult8\000"
+ 2854      4D49435F 
+ 2854      47657452 
+ 2854      6573756C 
+ 2854      743800
+ 2855              	.LASF44:
+ 2856 0415 6F666673 		.ascii	"offset\000"
+ 2856      657400
+ 2857              	.LASF32:
+ 2858 041c 4144435F 		.ascii	"ADC_MIC_SetResolution\000"
+ 2858      4D49435F 
+ 2858      53657452 
+ 2858      65736F6C 
+ 2858      7574696F 
+ 2859              	.LASF60:
+ 2860 0432 4144435F 		.ascii	"ADC_MIC_shift\000"
+ 2860      4D49435F 
+ 2860      73686966 
+ 2860      7400
+ 2861              	.LASF49:
+ 2862 0440 61646343 		.ascii	"adcCounts\000"
+ 2862      6F756E74 
+ 2862      7300
+ 2863              	.LASF26:
+ 2864 044a 656E6162 		.ascii	"enableInterrupts\000"
+ 2864      6C65496E 
+ 2864      74657272 
+ 2864      75707473 
+ 2864      00
+ 2865              	.LASF40:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccAdgBE0.s 			page 71
+
+
+ 2866 045b 73746174 		.ascii	"status\000"
+ 2866      757300
+ 2867              	.LASF57:
+ 2868 0462 4144435F 		.ascii	"ADC_MIC_offset\000"
+ 2868      4D49435F 
+ 2868      6F666673 
+ 2868      657400
+ 2869              	.LASF16:
+ 2870 0471 696E7431 		.ascii	"int16\000"
+ 2870      3600
+ 2871              	.LASF25:
+ 2872 0477 746D7052 		.ascii	"tmpReg\000"
+ 2872      656700
+ 2873              	.LASF68:
+ 2874 047e 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_MIC.c\000"
+ 2874      72617465 
+ 2874      645F536F 
+ 2874      75726365 
+ 2874      5C50536F 
+ 2875              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
