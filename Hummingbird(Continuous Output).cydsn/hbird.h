@@ -5,6 +5,7 @@
 
 #include <device.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <midi.h>
 #include <pitch.h>
 
@@ -37,6 +38,10 @@ enum MusicScale UpdateScaleLCD(uint16 currADC);
 enum MusicKey UpdateKeyLCD(uint16 currADC);
 
 void initDisplay(void);
+
+void PushArray(int array[], int value, int size);
+
+void PrintNoteHistory(int array[]);
 
 /* [] END OF FILE */
 

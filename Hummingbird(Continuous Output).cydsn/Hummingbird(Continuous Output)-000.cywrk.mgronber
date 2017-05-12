@@ -18,7 +18,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>Hummingbird(Continuous Output)-000</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)</v>
@@ -36,6 +36,19 @@
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\UART_MIDITX\UART_MIDITX_PM.c</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>Hummingbird(Continuous Output)-000</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\TopDesign</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Hummingbird(Continuous Output).cydwr</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Hummingbird(Continuous Output).cyre</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Header Files</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Source Files</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC3</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\ADC_MIC</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\ADC_MIC_IRQ</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\ADC_MIC_theACLK</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\ADC_UI</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\ADC_UI_FinalBuf</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\ADC_UI_IntClock</v>
@@ -71,19 +84,6 @@
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\UI_isr</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\USB</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\USB_Dm</v>
-<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\USB_Dp</v>
-<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\cycodeshareexport.ld</v>
-<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\cycodeshareimport.ld</v>
-<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\cycodeshareimport.scat</v>
-<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\cydevice.h</v>
-<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\cydevice_trm.h</v>
-<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\cydevicegnu.inc</v>
-<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\cydevicegnu_trm.inc</v>
-<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\cydeviceiar.inc</v>
-<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\cydeviceiar_trm.inc</v>
-<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\cydevicerv.inc</v>
-<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\cydevicerv_trm.inc</v>
-<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\cydisabledsheets.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -314,17 +314,13 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
+<name v=".\Hummingbird(Continuous Output).cydwr" />
+<name v=".\TopDesign\TopDesign.cysch" />
 <name v=".\main.c" />
-<name v=".\pitch.c" />
-<name v=".\pitch.h" />
+<name v=".\hbird.h" />
+<name v=".\hbird.c" />
 <name v=".\midi.c" />
 <name v=".\midi.h" />
-<name v=".\TopDesign\TopDesign.cysch" />
-<name v=".\Hummingbird(Continuous Output).cydwr" />
-<name v=".\Generated_Source\PSoC5\USB_midi.c" />
-<name v=".\hbird.h" />
-<name v=".\fft.c" />
-<name v=".\fft.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -332,7 +328,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1281, 656" SelectedTabbedMdiWindow="7d4c44a1-222d-46cf-b9c1-9c7f76928574"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="05a9f87a-c568-48b0-a317-970138a51a29" /><DocumentWindow Key="3b14a266-0c98-49df-b570-1b9012a031fc" Guid="3a0c7281-c4e5-46e8-9ff5-4750fb26abf5" /><DocumentWindow Key="f5dd9001-ebc2-44eb-adfc-52e4a1f40168" Guid="af484e52-06ab-4184-80b3-2fec3874e7da" /><DocumentWindow Key="15cbb9a8-aa26-4c4e-b94c-e9bf274d72e9" Guid="f3e5c539-8c3e-4950-89bf-540fefc1de5c" /><DocumentWindow Key="ce38b093-8967-4a93-9b0e-3fd0b00d5bde" Guid="a34c71a2-efb2-45c1-bea5-128a28fcaa80" /><DocumentWindow Key="a9a455e8-1c83-4925-a8bd-789fc8fbeae4" Guid="c9ca48ec-a2f8-4ad6-aeb5-a5d2752b0df1" /><DocumentWindow Key="f23046a1-f763-45d5-9e1e-1349e78d0fc9" Guid="7d4c44a1-222d-46cf-b9c1-9c7f76928574" /><DocumentWindow Key="c721d84b-8230-4407-bba7-b3d1e2d3f9d1" Guid="922be0fc-5b7c-45d7-a899-d330ea5875c8" /><DocumentWindow Key="ca902a2c-727c-4cdc-8c95-4a4d528e5dfb" Guid="6297c9b0-276d-45fc-99eb-d2d57aee0201" /><DocumentWindow Key="99fbe6d0-e8e9-40ca-b8b8-4781178373fd" Guid="d54331d9-dcc4-4e23-9bcc-75ea08666048" /><DocumentWindow Key="6c6dbb2e-e633-45d0-8aa9-f15978e83764" Guid="334f04e7-d20c-455b-bbb4-c958c765a4e7" /><DocumentWindow Key="9e9fb940-ab8f-4363-baa8-ae57bd8f6cdf" Guid="fc738ef6-93b2-4f04-8ef5-73a7eb7a7012" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1344, 585" SelectedTabbedMdiWindow="f08534ba-b566-4428-a9ee-5f45503f5f8d"><DocumentWindow Key="80b16a3e-83f2-44bb-bd6e-84b92fd7567b" Guid="c8c2cae4-5d39-4348-93c2-fe856a896838" /><DocumentWindow Key="3b9b1429-856c-43bb-854f-f11873fafd15" Guid="1aa17a54-8a09-4e24-b359-f54cd53e9e00" /><DocumentWindow Key="645501ef-a43f-4d10-8353-6c5448896154" Guid="3694aee4-9b03-4e6c-ac3b-f262551731b1" /><DocumentWindow Key="f4c6d7eb-05a7-47e2-8407-9a14730e9701" Guid="4c238099-a49d-4bcf-980e-fdaad43ea7d4" /><DocumentWindow Key="c630be66-58de-41ed-a599-5c60287b754b" Guid="f08534ba-b566-4428-a9ee-5f45503f5f8d" /><DocumentWindow Key="039cd75e-5782-4fac-a9d6-358ae6fdbc44" Guid="05fd4380-dfcd-4758-98bf-988e5bcc7224" /><DocumentWindow Key="e1c4d5e7-fcac-4ea7-a6f5-1b79fdbd70de" Guid="e7d6dec3-73f7-453e-99e8-05e0f995403e" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

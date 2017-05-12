@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
   29:Generated_Source\PSoC5/MIDI2_UART.c **** #if( MIDI2_UART_TX_ENABLED && (MIDI2_UART_TXBUFFERSIZE > MIDI2_UART_FIFO_LENGTH))
   30:Generated_Source\PSoC5/MIDI2_UART.c ****     volatile uint8 MIDI2_UART_txBuffer[MIDI2_UART_TXBUFFERSIZE];
   31:Generated_Source\PSoC5/MIDI2_UART.c ****     volatile uint8 MIDI2_UART_txBufferRead = 0u;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 2
 
 
   32:Generated_Source\PSoC5/MIDI2_UART.c ****     uint8 MIDI2_UART_txBufferWrite = 0u;
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
   86:Generated_Source\PSoC5/MIDI2_UART.c **** * Function Name: MIDI2_UART_Init
   87:Generated_Source\PSoC5/MIDI2_UART.c **** ********************************************************************************
   88:Generated_Source\PSoC5/MIDI2_UART.c **** *
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 3
 
 
   89:Generated_Source\PSoC5/MIDI2_UART.c **** * Summary:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  118:Generated_Source\PSoC5/MIDI2_UART.c ****         /* Configure the Initial RX interrupt mask */
   49              		.loc 1 118 0
   50 0014 0D49     		ldr	r1, .L3+8
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 4
 
 
   51              		.loc 1 120 0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  132:Generated_Source\PSoC5/MIDI2_UART.c ****             MIDI2_UART_TXBITCLKTX_COMPLETE_REG = (MIDI2_UART_NUMBER_OF_DATA_BITS +
   80              		.loc 1 132 0
   81 003a 2570     		strb	r5, [r4]
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 5
 
 
  133:Generated_Source\PSoC5/MIDI2_UART.c ****             MIDI2_UART_TXBITCLKTX_COMPLETE_REG = (MIDI2_UART_NUMBER_OF_DATA_BITS +
@@ -251,12 +251,12 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
   88 0042 00BF     		.align	2
   89              	.L3:
   90 0044 00000000 		.word	MIDI2_UART_RXISR
-  91 0048 89640040 		.word	1073767561
-  92 004c 8A650040 		.word	1073767818
+  91 0048 8B640040 		.word	1073767563
+  92 004c 8C640040 		.word	1073767564
   93 0050 00000000 		.word	MIDI2_UART_TXISR
-  94 0054 26640040 		.word	1073767462
-  95 0058 36640040 		.word	1073767478
-  96 005c 84650040 		.word	1073767812
+  94 0054 24650040 		.word	1073767716
+  95 0058 34650040 		.word	1073767732
+  96 005c 84640040 		.word	1073767556
   97              		.cfi_endproc
   98              	.LFE1:
   99              		.size	MIDI2_UART_Init, .-MIDI2_UART_Init
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  170:Generated_Source\PSoC5/MIDI2_UART.c **** * Global Variables:
  171:Generated_Source\PSoC5/MIDI2_UART.c **** *  MIDI2_UART_rxAddressDetected - set to initial state (0).
  172:Generated_Source\PSoC5/MIDI2_UART.c **** *
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 6
 
 
  173:Generated_Source\PSoC5/MIDI2_UART.c **** *******************************************************************************/
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  190:Generated_Source\PSoC5/MIDI2_UART.c ****     #endif /* End MIDI2_UART_RX_ENABLED || MIDI2_UART_HD_ENABLED*/
  191:Generated_Source\PSoC5/MIDI2_UART.c **** 
  192:Generated_Source\PSoC5/MIDI2_UART.c ****     #if(MIDI2_UART_TX_ENABLED)
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 7
 
 
  193:Generated_Source\PSoC5/MIDI2_UART.c ****         /*TX Counter (DP/Count7) Enable */
@@ -368,7 +368,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  197:Generated_Source\PSoC5/MIDI2_UART.c ****         /* Enable the TX Interrupt. */
  198:Generated_Source\PSoC5/MIDI2_UART.c ****         MIDI2_UART_TXSTATUS_ACTL_REG |= MIDI2_UART_INT_ENABLE;
  141              		.loc 1 198 0
- 142 0020 11F8063C 		ldrb	r3, [r1, #-6]	@ zero_extendqisi2
+ 142 0020 11F8083C 		ldrb	r3, [r1, #-8]	@ zero_extendqisi2
  199:Generated_Source\PSoC5/MIDI2_UART.c ****         #if(MIDI2_UART_TX_INTERRUPT_ENABLED && (MIDI2_UART_TXBUFFERSIZE > MIDI2_UART_FIFO_LENGTH))
  200:Generated_Source\PSoC5/MIDI2_UART.c ****             CyIntEnable(MIDI2_UART_TX_VECT_NUM);
  143              		.loc 1 200 0
@@ -376,7 +376,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  198:Generated_Source\PSoC5/MIDI2_UART.c ****         #if(MIDI2_UART_TX_INTERRUPT_ENABLED && (MIDI2_UART_TXBUFFERSIZE > MIDI2_UART_FIFO_LENGTH))
  145              		.loc 1 198 0
  146 0026 43F01003 		orr	r3, r3, #16
- 147 002a 01F8063C 		strb	r3, [r1, #-6]
+ 147 002a 01F8083C 		strb	r3, [r1, #-8]
  148              		.loc 1 200 0
  149 002e 1460     		str	r4, [r2]
  201:Generated_Source\PSoC5/MIDI2_UART.c ****         #endif /* End MIDI2_UART_TX_INTERRUPT_ENABLED*/
@@ -403,8 +403,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  160              	.L8:
  161              		.align	2
  162              	.L7:
- 163 0038 9A650040 		.word	1073767834
- 164 003c 99640040 		.word	1073767577
+ 163 0038 9C640040 		.word	1073767580
+ 164 003c 9B640040 		.word	1073767579
  165 0040 00E100E0 		.word	-536813312
  166              		.cfi_endproc
  167              	.LFE2:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  175              	MIDI2_UART_Start:
  176              	.LFB0:
   74:Generated_Source\PSoC5/MIDI2_UART.c ****     /* If not Initialized then initialize all required hardware and software */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 8
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 8
 
 
  177              		.loc 1 74 0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  218:Generated_Source\PSoC5/MIDI2_UART.c **** *  Disable the UART component
  219:Generated_Source\PSoC5/MIDI2_UART.c **** *
  220:Generated_Source\PSoC5/MIDI2_UART.c **** * Parameters:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 9
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 9
 
 
  221:Generated_Source\PSoC5/MIDI2_UART.c **** *  None.
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  253:Generated_Source\PSoC5/MIDI2_UART.c ****         #endif /* End MIDI2_UART_RX_INTERRUPT_ENABLED */
  254:Generated_Source\PSoC5/MIDI2_UART.c ****     #endif /* End MIDI2_UART_RX_ENABLED */
  255:Generated_Source\PSoC5/MIDI2_UART.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 10
 
 
  256:Generated_Source\PSoC5/MIDI2_UART.c ****     #if(MIDI2_UART_TX_ENABLED)
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  310:Generated_Source\PSoC5/MIDI2_UART.c ****        MIDI2_UART_CONTROL_REG = control;
  311:Generated_Source\PSoC5/MIDI2_UART.c ****     #endif /* End MIDI2_UART_CONTROL_REG_REMOVED */
  312:Generated_Source\PSoC5/MIDI2_UART.c **** }
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 11
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 11
 
 
  313:Generated_Source\PSoC5/MIDI2_UART.c **** 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  244              		.loc 1 234 0
  245 000e 03F0DF03 		and	r3, r3, #223
  246 0012 0B70     		strb	r3, [r1]
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 12
 
 
  250:Generated_Source\PSoC5/MIDI2_UART.c ****         #if(MIDI2_UART_RX_INTERRUPT_ENABLED && (MIDI2_UART_RXBUFFERSIZE > MIDI2_UART_FIFO_LENGTH))
@@ -682,7 +682,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  263              	.LBE41:
  257:Generated_Source\PSoC5/MIDI2_UART.c ****         #if(MIDI2_UART_TX_INTERRUPT_ENABLED && (MIDI2_UART_TXBUFFERSIZE > MIDI2_UART_FIFO_LENGTH))
  264              		.loc 1 257 0
- 265 0020 11F8063C 		ldrb	r3, [r1, #-6]	@ zero_extendqisi2
+ 265 0020 11F8083C 		ldrb	r3, [r1, #-8]	@ zero_extendqisi2
  266              	.LBB42:
  267              	.LBB43:
  362:Generated_Source\PSoC5/MIDI2_UART.c ****         }
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  392:Generated_Source\PSoC5/MIDI2_UART.c ****     * Function Name: MIDI2_UART_ReadRxData
  393:Generated_Source\PSoC5/MIDI2_UART.c ****     ********************************************************************************
  394:Generated_Source\PSoC5/MIDI2_UART.c ****     *
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 13
 
 
  395:Generated_Source\PSoC5/MIDI2_UART.c ****     * Summary:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  449:Generated_Source\PSoC5/MIDI2_UART.c ****                          (MIDI2_UART_RXBUFFERSIZE > MIDI2_UART_FIFO_LENGTH) )
  450:Generated_Source\PSoC5/MIDI2_UART.c ****                         /* When Hardware Flow Control selected - return RX mask */
  451:Generated_Source\PSoC5/MIDI2_UART.c ****                         #if( MIDI2_UART_HD_ENABLED )
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 14
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 14
 
 
  452:Generated_Source\PSoC5/MIDI2_UART.c ****                             if((MIDI2_UART_CONTROL_REG & MIDI2_UART_CTRL_HD_SEND) == 0u)
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  506:Generated_Source\PSoC5/MIDI2_UART.c ****     *   bits.
  507:Generated_Source\PSoC5/MIDI2_UART.c ****     *
  508:Generated_Source\PSoC5/MIDI2_UART.c ****     *******************************************************************************/
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 15
 
 
  509:Generated_Source\PSoC5/MIDI2_UART.c ****     uint8 MIDI2_UART_ReadRxStatus(void) 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  563:Generated_Source\PSoC5/MIDI2_UART.c ****             uint8 loc_rxBufferWrite;
  564:Generated_Source\PSoC5/MIDI2_UART.c ****             /* Protect variables that could change on interrupt. */
  565:Generated_Source\PSoC5/MIDI2_UART.c ****             /* Disable Rx interrupt. */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 16
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 16
 
 
  566:Generated_Source\PSoC5/MIDI2_UART.c ****             #if(MIDI2_UART_RX_INTERRUPT_ENABLED)
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  620:Generated_Source\PSoC5/MIDI2_UART.c ****             #endif /* MIDI2_UART_RX_INTERRUPT_ENABLED */
  621:Generated_Source\PSoC5/MIDI2_UART.c **** 
  622:Generated_Source\PSoC5/MIDI2_UART.c ****         #else /* MIDI2_UART_RXBUFFERSIZE > MIDI2_UART_FIFO_LENGTH */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 17
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 17
 
 
  623:Generated_Source\PSoC5/MIDI2_UART.c **** 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  677:Generated_Source\PSoC5/MIDI2_UART.c ****     *  in the RX buffer
  678:Generated_Source\PSoC5/MIDI2_UART.c ****     *
  679:Generated_Source\PSoC5/MIDI2_UART.c ****     * Global Variables:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 18
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 18
 
 
  680:Generated_Source\PSoC5/MIDI2_UART.c ****     *  MIDI2_UART_rxBufferWrite - used to calculate left bytes.
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  734:Generated_Source\PSoC5/MIDI2_UART.c ****         #endif /* End MIDI2_UART_RXBUFFERSIZE > MIDI2_UART_FIFO_LENGTH */
  735:Generated_Source\PSoC5/MIDI2_UART.c **** 
  736:Generated_Source\PSoC5/MIDI2_UART.c ****         return(size);
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 19
 
 
  737:Generated_Source\PSoC5/MIDI2_UART.c ****     }
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  791:Generated_Source\PSoC5/MIDI2_UART.c ****             MIDI2_UART_rxBufferWrite = 0u;
  792:Generated_Source\PSoC5/MIDI2_UART.c ****             MIDI2_UART_rxBufferLoopDetect = 0u;
  793:Generated_Source\PSoC5/MIDI2_UART.c ****             MIDI2_UART_rxBufferOverflow = 0u;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 20
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 20
 
 
  794:Generated_Source\PSoC5/MIDI2_UART.c **** 
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  848:Generated_Source\PSoC5/MIDI2_UART.c ****             #endif /* End MIDI2_UART_CONTROL_REG_REMOVED */
  849:Generated_Source\PSoC5/MIDI2_UART.c ****         #else /* MIDI2_UART_RXHW_ADDRESS_ENABLED */
  850:Generated_Source\PSoC5/MIDI2_UART.c ****             if(addressMode != 0u) { }     /* release compiler warning */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 21
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 21
 
 
  851:Generated_Source\PSoC5/MIDI2_UART.c ****         #endif /* End MIDI2_UART_RXHW_ADDRESS_ENABLED */
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  905:Generated_Source\PSoC5/MIDI2_UART.c ****         *
  906:Generated_Source\PSoC5/MIDI2_UART.c ****         * Summary:
  907:Generated_Source\PSoC5/MIDI2_UART.c ****         *  Enable TX interrupt generation
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 22
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 22
 
 
  908:Generated_Source\PSoC5/MIDI2_UART.c ****         *
@@ -1305,7 +1305,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  257:Generated_Source\PSoC5/MIDI2_UART.c ****         #if(MIDI2_UART_TX_INTERRUPT_ENABLED && (MIDI2_UART_TXBUFFERSIZE > MIDI2_UART_FIFO_LENGTH))
  272              		.loc 1 257 0
  273 0026 03F0EF03 		and	r3, r3, #239
- 274 002a 01F8063C 		strb	r3, [r1, #-6]
+ 274 002a 01F8083C 		strb	r3, [r1, #-8]
  275              	.LBB45:
  276              	.LBB44:
  277              		.loc 1 944 0
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  283              		.cfi_restore 14
  284              		.cfi_restore 5
  285              		.cfi_restore 4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 23
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 23
 
 
  286              		.cfi_restore 3
@@ -1330,8 +1330,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  291              	.L18:
  292              		.align	2
  293              	.L17:
- 294 0038 9A650040 		.word	1073767834
- 295 003c 99640040 		.word	1073767577
+ 294 0038 9C640040 		.word	1073767580
+ 295 003c 9B640040 		.word	1073767579
  296 0040 80E100E0 		.word	-536813184
  297              		.cfi_endproc
  298              	.LFE3:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  336              		.size	MIDI2_UART_WriteControlRegister, .-MIDI2_UART_WriteControlRegister
  337 0002 00BF     		.section	.text.MIDI2_UART_EnableRxInt,"ax",%progbits
  338              		.align	2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 24
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 24
 
 
  339              		.global	MIDI2_UART_EnableRxInt
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  389              		.global	MIDI2_UART_SetRxInterruptMode
  390              		.thumb
  391              		.thumb_func
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 25
 
 
  392              		.type	MIDI2_UART_SetRxInterruptMode, %function
@@ -1459,7 +1459,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  405              	.L29:
  406 0006 00BF     		.align	2
  407              	.L28:
- 408 0008 89640040 		.word	1073767561
+ 408 0008 8B640040 		.word	1073767563
  409              		.cfi_endproc
  410              	.LFE8:
  411              		.size	MIDI2_UART_SetRxInterruptMode, .-MIDI2_UART_SetRxInterruptMode
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  440 0008 1960     		str	r1, [r3]
  441              	.LBE48:
  442              	.LBE49:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 26
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 26
 
 
  430:Generated_Source\PSoC5/MIDI2_UART.c ****             loc_rxBufferWrite = MIDI2_UART_rxBufferWrite;
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  481 002e C0B2     		uxtb	r0, r0
  482              	.LVL15:
  445:Generated_Source\PSoC5/MIDI2_UART.c ****                 {
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 27
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 27
 
 
  483              		.loc 1 445 0
@@ -1604,7 +1604,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  519 0050 00000000 		.word	.LANCHOR0
  520 0054 00000000 		.word	MIDI2_UART_rxBuffer
  521 0058 00E100E0 		.word	-536813312
- 522 005c 49650040 		.word	1073767753
+ 522 005c 4B640040 		.word	1073767499
  523              		.cfi_endproc
  524              	.LFE9:
  525              		.size	MIDI2_UART_ReadRxData, .-MIDI2_UART_ReadRxData
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  533              	.LFB10:
  510:Generated_Source\PSoC5/MIDI2_UART.c ****         uint8 status;
  534              		.loc 1 510 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 28
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 28
 
 
  535              		.cfi_startproc
@@ -1661,7 +1661,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  562              	.L47:
  563              		.align	2
  564              	.L46:
- 565 0018 69640040 		.word	1073767529
+ 565 0018 6B640040 		.word	1073767531
  566 001c 00000000 		.word	.LANCHOR0
  567              		.cfi_endproc
  568              	.LFE10:
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  578              		.loc 1 557 0
  579              		.cfi_startproc
  580              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 29
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 29
 
 
  581              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  578:Generated_Source\PSoC5/MIDI2_UART.c ****                 }
  624              		.loc 1 578 0
  625 001e FF2B     		cmp	r3, #255
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 30
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 30
 
 
  574:Generated_Source\PSoC5/MIDI2_UART.c ****                 loc_rxBufferRead++;
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  668 0042 0C4B     		ldr	r3, .L60+16
  669              	.LVL31:
  670 0044 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 31
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 31
 
 
  671 0046 DBB2     		uxtb	r3, r3
@@ -1832,8 +1832,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  694 0068 00000000 		.word	.LANCHOR0
  695 006c 00000000 		.word	MIDI2_UART_rxBuffer
  696 0070 00E100E0 		.word	-536813312
- 697 0074 69640040 		.word	1073767529
- 698 0078 49650040 		.word	1073767753
+ 697 0074 6B640040 		.word	1073767531
+ 698 0078 4B640040 		.word	1073767499
  699              		.cfi_endproc
  700              	.LFE11:
  701              		.size	MIDI2_UART_GetChar, .-MIDI2_UART_GetChar
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  719              	.LBB59:
  513:Generated_Source\PSoC5/MIDI2_UART.c **** 
  720              		.loc 1 513 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 32
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 32
 
 
  721 0002 084A     		ldr	r2, .L68
@@ -1904,7 +1904,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  751              	.L69:
  752              		.align	2
  753              	.L68:
- 754 0024 69640040 		.word	1073767529
+ 754 0024 6B640040 		.word	1073767531
  755 0028 00000000 		.word	.LANCHOR0
  756              		.cfi_endproc
  757              	.LFE12:
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  765              	MIDI2_UART_GetRxBufferSize:
  766              	.LFB13:
  693:Generated_Source\PSoC5/MIDI2_UART.c ****         uint8 size;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 33
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 33
 
 
  767              		.loc 1 693 0
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  812              	.LVL39:
  813              	.LBB69:
  814              	.LBB66:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 34
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 34
 
 
  338:Generated_Source\PSoC5/MIDI2_UART.c ****         }
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  862              	.LFB14:
  772:Generated_Source\PSoC5/MIDI2_UART.c ****         uint8 enableInterrupts;
  863              		.loc 1 772 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 35
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 35
 
 
  864              		.cfi_startproc
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  909              	.LBB75:
  361:Generated_Source\PSoC5/MIDI2_UART.c ****         }
  910              		.loc 1 361 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 36
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 36
 
 
  911 0026 2160     		str	r1, [r4]
@@ -2125,7 +2125,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  927              	.L81:
  928              		.align	2
  929              	.L80:
- 930 0034 99650040 		.word	1073767833
+ 930 0034 9B640040 		.word	1073767579
  931 0038 80E100E0 		.word	-536813184
  932 003c 00000000 		.word	.LANCHOR0
  933 0040 00E100E0 		.word	-536813312
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  959              		.global	MIDI2_UART_SetRxAddress1
  960              		.thumb
  961              		.thumb_func
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 37
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 37
 
 
  962              		.type	MIDI2_UART_SetRxAddress1, %function
@@ -2179,7 +2179,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  975              	.L85:
  976 0006 00BF     		.align	2
  977              	.L84:
- 978 0008 29650040 		.word	1073767721
+ 978 0008 2B640040 		.word	1073767467
  979              		.cfi_endproc
  980              	.LFE16:
  981              		.size	MIDI2_UART_SetRxAddress1, .-MIDI2_UART_SetRxAddress1
@@ -2206,7 +2206,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1000              	.L88:
  1001 0006 00BF     		.align	2
  1002              	.L87:
- 1003 0008 39650040 		.word	1073767737
+ 1003 0008 3B640040 		.word	1073767483
  1004              		.cfi_endproc
  1005              	.LFE17:
  1006              		.size	MIDI2_UART_SetRxAddress2, .-MIDI2_UART_SetRxAddress2
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1012              		.type	MIDI2_UART_EnableTxInt, %function
  1013              	MIDI2_UART_EnableTxInt:
  1014              	.LFB18:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 38
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 38
 
 
  920:Generated_Source\PSoC5/MIDI2_UART.c ****             CyIntEnable(MIDI2_UART_TX_VECT_NUM);
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  946:Generated_Source\PSoC5/MIDI2_UART.c **** 
  947:Generated_Source\PSoC5/MIDI2_UART.c ****     #endif /* MIDI2_UART_TX_INTERRUPT_ENABLED */
  948:Generated_Source\PSoC5/MIDI2_UART.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 39
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 39
 
 
  949:Generated_Source\PSoC5/MIDI2_UART.c **** 
@@ -2316,7 +2316,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1075              	.L97:
  1076 0006 00BF     		.align	2
  1077              	.L96:
- 1078 0008 84650040 		.word	1073767812
+ 1078 0008 84640040 		.word	1073767556
  1079              		.cfi_endproc
  1080              	.LFE20:
  1081              		.size	MIDI2_UART_SetTxInterruptMode, .-MIDI2_UART_SetTxInterruptMode
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  978:Generated_Source\PSoC5/MIDI2_UART.c ****     * Summary:
  979:Generated_Source\PSoC5/MIDI2_UART.c ****     *  Write a byte of data to the Transmit FIFO or TX buffer to be sent when the
  980:Generated_Source\PSoC5/MIDI2_UART.c ****     *  bus is available. WriteTxData sends a byte without checking for buffer room
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 40
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 40
 
 
  981:Generated_Source\PSoC5/MIDI2_UART.c ****     *  or status. It is up to the user to separately check status.
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
 1013:Generated_Source\PSoC5/MIDI2_UART.c ****                 #endif /* End MIDI2_UART_TX_INTERRUPT_ENABLED */
 1014:Generated_Source\PSoC5/MIDI2_UART.c **** 
 1015:Generated_Source\PSoC5/MIDI2_UART.c ****                 if( (MIDI2_UART_txBufferRead == MIDI2_UART_txBufferWrite) &&
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 41
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 41
 
 
  1111              		.loc 1 1015 0
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
 1038:Generated_Source\PSoC5/MIDI2_UART.c ****                 #endif /* End MIDI2_UART_TX_INTERRUPT_ENABLED */
 1039:Generated_Source\PSoC5/MIDI2_UART.c **** 
 1040:Generated_Source\PSoC5/MIDI2_UART.c ****             #else /* MIDI2_UART_TXBUFFERSIZE > MIDI2_UART_FIFO_LENGTH */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 42
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 42
 
 
 1041:Generated_Source\PSoC5/MIDI2_UART.c **** 
@@ -2496,8 +2496,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1163 0048 80E100E0 		.word	-536813184
  1164 004c 00000000 		.word	MIDI2_UART_txBuffer
  1165 0050 00E100E0 		.word	-536813312
- 1166 0054 64650040 		.word	1073767780
- 1167 0058 4B650040 		.word	1073767755
+ 1166 0054 64640040 		.word	1073767524
+ 1167 0058 44640040 		.word	1073767492
  1168              		.cfi_endproc
  1169              	.LFE21:
  1170              		.size	MIDI2_UART_WriteTxData, .-MIDI2_UART_WriteTxData
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
 1054:Generated_Source\PSoC5/MIDI2_UART.c ****     * Summary:
 1055:Generated_Source\PSoC5/MIDI2_UART.c ****     *  Read the status register for the component
 1056:Generated_Source\PSoC5/MIDI2_UART.c ****     *
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 43
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 43
 
 
 1057:Generated_Source\PSoC5/MIDI2_UART.c ****     * Parameters:
@@ -2551,7 +2551,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1189              	.L113:
  1190 0006 00BF     		.align	2
  1191              	.L112:
- 1192 0008 64650040 		.word	1073767780
+ 1192 0008 64640040 		.word	1073767524
  1193              		.cfi_endproc
  1194              	.LFE22:
  1195              		.size	MIDI2_UART_ReadTxStatus, .-MIDI2_UART_ReadTxStatus
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
 1086:Generated_Source\PSoC5/MIDI2_UART.c ****     * Return:
 1087:Generated_Source\PSoC5/MIDI2_UART.c ****     *  None.
 1088:Generated_Source\PSoC5/MIDI2_UART.c ****     *
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 44
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 44
 
 
 1089:Generated_Source\PSoC5/MIDI2_UART.c ****     * Global Variables:
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
 1125:Generated_Source\PSoC5/MIDI2_UART.c ****                         /* Enable interrupt to continue transmission */
 1126:Generated_Source\PSoC5/MIDI2_UART.c ****                         CyIntEnable(MIDI2_UART_TX_VECT_NUM);
 1127:Generated_Source\PSoC5/MIDI2_UART.c ****                     #endif /* End TXBUFFERSIZE > 255 */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 45
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 45
 
 
 1128:Generated_Source\PSoC5/MIDI2_UART.c ****                 }while( (loc_txBufferWrite < loc_txBufferRead) ? (loc_txBufferWrite == (loc_txBuffe
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
 1151:Generated_Source\PSoC5/MIDI2_UART.c ****                     #endif /* End TXBUFFERSIZE > 255 */
 1152:Generated_Source\PSoC5/MIDI2_UART.c ****                     MIDI2_UART_txBufferWrite = loc_txBufferWrite;
  1252              		.loc 1 1152 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 46
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 46
 
 
  1253 0036 AB71     		strb	r3, [r5, #6]
@@ -2755,10 +2755,10 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1284              	.L125:
  1285 004c 00000000 		.word	.LANCHOR0
  1286 0050 00000000 		.word	MIDI2_UART_txBuffer
- 1287 0054 64650040 		.word	1073767780
- 1288 0058 4B650040 		.word	1073767755
+ 1287 0054 64640040 		.word	1073767524
+ 1288 0058 44640040 		.word	1073767492
  1289              		.cfi_endproc
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 47
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 47
 
 
  1290              	.LFE23:
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1311              		.loc 1 1202 0
  1312 0002 074B     		ldr	r3, .L136
  1313 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 48
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 48
 
 
  1314 0006 53B1     		cbz	r3, .L127
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
 1217:Generated_Source\PSoC5/MIDI2_UART.c ****     *
 1218:Generated_Source\PSoC5/MIDI2_UART.c ****     * Summary:
 1219:Generated_Source\PSoC5/MIDI2_UART.c ****     *  Write a Sequence of bytes on the Transmit line. Data comes from RAM or ROM.
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 49
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 49
 
 
 1220:Generated_Source\PSoC5/MIDI2_UART.c ****     *
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1379 0016 631B     		subs	r3, r4, r5
 1246:Generated_Source\PSoC5/MIDI2_UART.c ****                 buf_index++;
 1247:Generated_Source\PSoC5/MIDI2_UART.c ****             }while(buf_index < byteCount);
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 50
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 50
 
 
  1380              		.loc 1 1247 0 discriminator 1
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
 1274:Generated_Source\PSoC5/MIDI2_UART.c ****     {
  1408              		.loc 1 1274 0
  1409              		.cfi_startproc
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 51
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 51
 
 
  1410              		@ args = 0, pretend = 0, frame = 0
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
 1284:Generated_Source\PSoC5/MIDI2_UART.c **** 
 1285:Generated_Source\PSoC5/MIDI2_UART.c ****     /*******************************************************************************
 1286:Generated_Source\PSoC5/MIDI2_UART.c ****     * Function Name: MIDI2_UART_GetTxBufferSize
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 52
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 52
 
 
 1287:Generated_Source\PSoC5/MIDI2_UART.c ****     ********************************************************************************
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  944:Generated_Source\PSoC5/MIDI2_UART.c ****         }
  1470              		.loc 1 944 0
  1471 0006 1960     		str	r1, [r3]
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 53
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 53
 
 
  1472              	.LBE88:
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
 1342:Generated_Source\PSoC5/MIDI2_UART.c **** 
 1343:Generated_Source\PSoC5/MIDI2_UART.c ****             size = MIDI2_UART_TXSTATUS_REG;
 1344:Generated_Source\PSoC5/MIDI2_UART.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 54
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 54
 
 
 1345:Generated_Source\PSoC5/MIDI2_UART.c ****             /* Is the fifo is full. */
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1537              		.align	2
  1538              		.global	MIDI2_UART_ClearTxBuffer
  1539              		.thumb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 55
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 55
 
 
  1540              		.thumb_func
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
 1403:Generated_Source\PSoC5/MIDI2_UART.c ****         MIDI2_UART_TXDATA_AUX_CTL_REG |=  MIDI2_UART_TX_FIFO_CLR;
  1555              		.loc 1 1403 0
  1556 0006 0A4B     		ldr	r3, .L162
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 56
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 56
 
 
  1557              	.LBB98:
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1594              	.LBE101:
  1595              	.LBE106:
 1417:Generated_Source\PSoC5/MIDI2_UART.c ****             MIDI2_UART_txBufferWrite = 0u;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 57
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 57
 
 
  1596              		.loc 1 1417 0
@@ -3375,7 +3375,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1605              	.L163:
  1606              		.align	2
  1607              	.L162:
- 1608 0030 9B650040 		.word	1073767835
+ 1608 0030 94640040 		.word	1073767572
  1609 0034 80E100E0 		.word	-536813184
  1610 0038 00000000 		.word	.LANCHOR0
  1611 003c 00E100E0 		.word	-536813312
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
 1441:Generated_Source\PSoC5/MIDI2_UART.c ****     *   2 - Reinitialize registers to normal transmission mode then return.
 1442:Generated_Source\PSoC5/MIDI2_UART.c ****     *   3 - both steps: 0 and 1
 1443:Generated_Source\PSoC5/MIDI2_UART.c ****     *       init registers for Break, send Break signal
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 58
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 58
 
 
 1444:Generated_Source\PSoC5/MIDI2_UART.c ****     *       wait until Break sending is complete, reinit registers to normal
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1633 0002 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
  1634 0004 C3B1     		cbz	r3, .L188
 1486:Generated_Source\PSoC5/MIDI2_UART.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 59
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 59
 
 
  1635              		.loc 1 1486 0
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1645              	.L167:
 1534:Generated_Source\PSoC5/MIDI2_UART.c ****                     (retMode == MIDI2_UART_SEND_WAIT_REINIT) )
 1535:Generated_Source\PSoC5/MIDI2_UART.c ****                 {
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 60
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 60
 
 
 1536:Generated_Source\PSoC5/MIDI2_UART.c ****                     /* CTRL_HD_SEND_BREAK - skip to send parity bit at Break signal in Full Duplex 
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
 1560:Generated_Source\PSoC5/MIDI2_UART.c ****                 if( (retMode == MIDI2_UART_WAIT_FOR_COMPLETE_REINIT) ||
  1671              		.loc 1 1560 0
  1672 0022 00F0FD03 		and	r3, r0, #253
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 61
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 61
 
 
  1673              	.LVL81:
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1699              		.cfi_def_cfa_offset 16
  1700              		.cfi_offset 4, -16
  1701              		.cfi_offset 5, -12
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 62
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 62
 
 
  1702              		.cfi_offset 6, -8
@@ -3691,9 +3691,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1724              		.align	2
  1725              	.L190:
  1726 004c 00000000 		.word	.LANCHOR0
- 1727 0050 36640040 		.word	1073767478
- 1728 0054 4B650040 		.word	1073767755
- 1729 0058 64650040 		.word	1073767780
+ 1727 0050 34650040 		.word	1073767732
+ 1728 0054 44640040 		.word	1073767492
+ 1729 0058 64640040 		.word	1073767524
  1730              	.LBE109:
  1731              		.cfi_endproc
  1732              	.LFE29:
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
 1598:Generated_Source\PSoC5/MIDI2_UART.c ****     * Parameters:
 1599:Generated_Source\PSoC5/MIDI2_UART.c ****     *  addressMode: 0 -> Space
 1600:Generated_Source\PSoC5/MIDI2_UART.c ****     *               1 -> Mark
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 63
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 63
 
 
 1601:Generated_Source\PSoC5/MIDI2_UART.c ****     *
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1789              	MIDI2_UART_txBufferWrite:
  1790 0006 00       		.space	1
  1791              		.type	tx_period.4968, %object
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 64
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 64
 
 
  1792              		.size	tx_period.4968, 1
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1846 005e 04       		.byte	0x4
  1847 005f 05       		.byte	0x5
  1848 0060 696E7400 		.ascii	"int\000"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 65
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 65
 
 
  1849 0064 02       		.uleb128 0x2
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1903 00d4 D8000000 		.4byte	0xd8
  1904 00d8 07       		.uleb128 0x7
  1905 00d9 04       		.byte	0x4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 66
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 66
 
 
  1906 00da DE000000 		.4byte	0xde
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  1960 014c 50       		.byte	0x50
  1961 014d 01       		.uleb128 0x1
  1962 014e 35       		.byte	0x35
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 67
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 67
 
 
  1963 014f 00       		.byte	0
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  2017 01ac 6B000000 		.4byte	0x6b
  2018 01b0 00000000 		.4byte	.LLST0
  2019 01b4 11       		.uleb128 0x11
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 68
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 68
 
 
  2020 01b5 06000000 		.4byte	.LVL4
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  2074 0240 02090000 		.4byte	0x902
  2075 0244 00       		.byte	0
  2076 0245 15       		.uleb128 0x15
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 69
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 69
 
 
  2077 0246 19000000 		.4byte	.LASF51
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  2131 02c3 19       		.uleb128 0x19
  2132 02c4 B1000000 		.4byte	.LASF36
  2133 02c8 01       		.byte	0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 70
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 70
 
 
  2134 02c9 A201     		.2byte	0x1a2
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  2188 0351 6B000000 		.4byte	0x6b
  2189 0355 00000000 		.4byte	.LFB11
  2190 0359 7C000000 		.4byte	.LFE11-.LFB11
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 71
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 71
 
 
  2191 035d 01       		.uleb128 0x1
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  2245 03e5 16000000 		.4byte	.LBE58-.LBB58
  2246 03e9 01       		.byte	0x1
  2247 03ea 9402     		.2byte	0x294
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 72
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 72
 
 
  2248 03ec 04040000 		.4byte	0x404
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  2302 0475 0503     		.2byte	0x305
  2303 0477 6B000000 		.4byte	0x6b
  2304 047b 5F010000 		.4byte	.LLST10
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 73
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 73
 
 
  2305 047f 14       		.uleb128 0x14
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  2359 04fd 26060000 		.4byte	.LASF47
  2360 0501 01       		.byte	0x1
  2361 0502 7A03     		.2byte	0x37a
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 74
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 74
 
 
  2362 0504 00000000 		.4byte	.LFB17
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  2416 0580 EA03     		.2byte	0x3ea
  2417 0582 6B000000 		.4byte	0x6b
  2418 0586 01       		.uleb128 0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 75
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 75
 
 
  2419 0587 50       		.byte	0x50
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  2473 0609 01       		.byte	0x1
  2474 060a AE04     		.2byte	0x4ae
  2475 060c 00000000 		.4byte	.LFB24
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 76
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 76
 
 
  2476 0610 24000000 		.4byte	.LFE24-.LFB24
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  2530 069a BF050000 		.4byte	0x5bf
  2531 069e 00       		.byte	0
  2532 069f 07       		.uleb128 0x7
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 77
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 77
 
 
  2533 06a0 04       		.byte	0x4
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  2587 071b 01       		.byte	0x1
  2588 071c 2105     		.2byte	0x521
  2589 071e 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 78
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 78
 
 
  2590 0722 DF020000 		.4byte	.LLST19
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  2644 07b0 01       		.uleb128 0x1
  2645 07b1 9C       		.byte	0x9c
  2646 07b2 EF070000 		.4byte	0x7ef
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 79
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 79
 
 
  2647 07b6 22       		.uleb128 0x22
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  2701 0833 FE       		.byte	0xfe
  2702 0834 00       		.byte	0
  2703 0835 26       		.uleb128 0x26
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 80
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 80
 
 
  2704 0836 9F020000 		.4byte	.LASF70
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  2758 08ab 27       		.byte	0x27
  2759 08ac B7000000 		.4byte	0xb7
  2760 08b0 05       		.uleb128 0x5
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 81
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 81
 
 
  2761 08b1 03       		.byte	0x3
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  2815 0008 0E       		.uleb128 0xe
  2816 0009 1B       		.uleb128 0x1b
  2817 000a 0E       		.uleb128 0xe
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 82
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 82
 
 
  2818 000b 55       		.uleb128 0x55
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  2872 0041 0E       		.uleb128 0xe
  2873 0042 3A       		.uleb128 0x3a
  2874 0043 0B       		.uleb128 0xb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 83
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 83
 
 
  2875 0044 3B       		.uleb128 0x3b
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  2929 007a 20       		.uleb128 0x20
  2930 007b 0B       		.uleb128 0xb
  2931 007c 01       		.uleb128 0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 84
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 84
 
 
  2932 007d 13       		.uleb128 0x13
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  2986 00b8 00       		.byte	0
  2987 00b9 02       		.uleb128 0x2
  2988 00ba 18       		.uleb128 0x18
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 85
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 85
 
 
  2989 00bb 9142     		.uleb128 0x2111
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  3043 00f9 01       		.uleb128 0x1
  3044 00fa 55       		.uleb128 0x55
  3045 00fb 17       		.uleb128 0x17
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 86
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 86
 
 
  3046 00fc 58       		.uleb128 0x58
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  3100 0133 0B       		.uleb128 0xb
  3101 0134 3B       		.uleb128 0x3b
  3102 0135 05       		.uleb128 0x5
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 87
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 87
 
 
  3103 0136 27       		.uleb128 0x27
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  3157 016e 05       		.uleb128 0x5
  3158 016f 27       		.uleb128 0x27
  3159 0170 19       		.uleb128 0x19
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 88
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 88
 
 
  3160 0171 49       		.uleb128 0x49
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  3214 01a8 18       		.uleb128 0x18
  3215 01a9 9742     		.uleb128 0x2117
  3216 01ab 19       		.uleb128 0x19
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 89
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 89
 
 
  3217 01ac 01       		.uleb128 0x1
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  3271 01e2 21       		.uleb128 0x21
  3272 01e3 34       		.uleb128 0x34
  3273 01e4 00       		.byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 90
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 90
 
 
  3274 01e5 31       		.uleb128 0x31
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  3328 021e 0B       		.uleb128 0xb
  3329 021f 49       		.uleb128 0x49
  3330 0220 13       		.uleb128 0x13
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 91
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 91
 
 
  3331 0221 3F       		.uleb128 0x3f
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  3385 0257 01       		.byte	0x1
  3386 0258 3F       		.uleb128 0x3f
  3387 0259 19       		.uleb128 0x19
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 92
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 92
 
 
  3388 025a 03       		.uleb128 0x3
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  3442 0000 06000000 		.4byte	.LVL4
  3443 0004 37000000 		.4byte	.LVL5-1
  3444 0008 0100     		.2byte	0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 93
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 93
 
 
  3445 000a 50       		.byte	0x50
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  3499              	.LLST4:
  3500 0080 14000000 		.4byte	.LVL13
  3501 0084 1C000000 		.4byte	.LVL14
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 94
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 94
 
 
  3502 0088 0100     		.2byte	0x1
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  3556 00fb 13       		.byte	0x13
  3557 00fc 9F       		.byte	0x9f
  3558 00fd 42000000 		.4byte	.LVL30
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 95
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 95
 
 
  3559 0101 7C000000 		.4byte	.LFE11
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  3613 0193 00000000 		.4byte	0
  3614 0197 00000000 		.4byte	0
  3615              	.LLST12:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 96
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 96
 
 
  3616 019b 0A000000 		.4byte	.LVL51
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  3670 0221 00000000 		.4byte	0
  3671 0225 00000000 		.4byte	0
  3672              	.LLST15:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 97
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 97
 
 
  3673 0229 00000000 		.4byte	.LVL65
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  3727 02a8 1C       		.byte	0x1c
  3728 02a9 9F       		.byte	0x9f
  3729 02aa 20000000 		.4byte	.LVL69
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 98
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 98
 
 
  3730 02ae 28000000 		.4byte	.LFE25
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  3784 0334 00000000 		.4byte	0
  3785 0338 00000000 		.4byte	0
  3786              	.LLST22:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 99
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 99
 
 
  3787 033c 1E000000 		.4byte	.LVL80
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  3841 00a0 00000000 		.4byte	.LFB18
  3842 00a4 0C000000 		.4byte	.LFE18-.LFB18
  3843 00a8 00000000 		.4byte	.LFB19
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 100
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 100
 
 
  3844 00ac 0C000000 		.4byte	.LFE19-.LFB19
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  3898 006c 04000000 		.4byte	.LBE60
  3899 0070 06000000 		.4byte	.LBB63
  3900 0074 08000000 		.4byte	.LBE63
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 101
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 101
 
 
  3901 0078 00000000 		.4byte	0
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  3955 0150 00000000 		.4byte	0
  3956 0154 00000000 		.4byte	0
  3957 0158 08000000 		.4byte	.LBB108
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 102
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 102
 
 
  3958 015c 36000000 		.4byte	.LBE108
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  4012 0234 24000000 		.4byte	.LFE24
  4013 0238 00000000 		.4byte	.LFB25
  4014 023c 28000000 		.4byte	.LFE25
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 103
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 103
 
 
  4015 0240 00000000 		.4byte	.LFB26
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  4045 007e 4D494449 		.ascii	"MIDI2_UART_WriteControlRegister\000"
  4045      325F5541 
  4045      52545F57 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 104
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 104
 
 
  4045      72697465 
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  4064      325F5541 
  4064      52545F74 
  4064      78427566 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 105
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 105
 
 
  4064      66657257 
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  4089              	.LASF8:
  4090 023b 756E7369 		.ascii	"unsigned int\000"
  4090      676E6564 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 106
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 106
 
 
  4090      20696E74 
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  4110      6572696F 
  4110      6400
  4111              	.LASF85:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 107
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 107
 
 
  4112 02f5 4379456E 		.ascii	"CyEnterCriticalSection\000"
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  4132      74797065 
  4132      00
  4133              	.LASF43:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 108
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 108
 
 
  4134 03ff 4D494449 		.ascii	"MIDI2_UART_SetRxAddressMode\000"
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  4154      52545F47 
  4154      65745278 
  4154      42756666 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 109
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 109
 
 
  4155              	.LASF16:
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  4176      54784275 
  4177              	.LASF15:
  4178 059f 63686172 		.ascii	"char\000"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 110
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 110
 
 
  4178      00
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 1
  4200      325F5541 
  4200      52545F74 
  4200      78427566 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccedaYQO.s 			page 111
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9YQgzf.s 			page 111
 
 
  4200      66657252 

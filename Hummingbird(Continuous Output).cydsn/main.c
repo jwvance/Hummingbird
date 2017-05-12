@@ -13,6 +13,7 @@
 #define THRESHHOLD 110
 #define HYST_VAL 0.9
 #define VELO_VAL 100
+#define NOTE_HISTORY_LEN 5
 int start = 1;
 
 #define UI_THRES 10
@@ -24,6 +25,8 @@ uint16 lastKey = 0;
 uint16 lastScale = 0;
 uint16 lastHyst = (float)HYST_VAL;
 uint16 lastVelo = VELO_VAL;
+
+int noteHistory[5] = {};
 
 // Variables for Button I/O
 uint8 csButtStates = 0u;
@@ -112,15 +115,22 @@ int main()
     CharLCD_PrintString("   -HUMMINGBIRD-  ");
     CharLCD_Position(1,0);
     CharLCD_PrintString("       v0.8  ");
+    CyDelay(1000);
     CharLCD_Position(3,0);
     CharLCD_PrintString("Hum when ready...");
     
     /*
+    int j = 0;
     while(1){
         CharLCD_ClearDisplay();
-        CharLCD_Position(2,7);
-        CharLCD_PrintNumber(UI_ADC_GetResult16(KEY));
-        CyDelay(50);
+        //CharLCD_Position(2,7);
+        //CharLCD_PrintNumber(ADC_UI_GetResult16(KEY));
+        
+        PushArray(noteHistory, j, NOTE_HISTORY_LEN);
+        PrintNoteHistory(noteHistory);
+        
+        CyDelay(1000);
+        j++;
     }
     */
     
@@ -179,7 +189,6 @@ int main()
             
             /*********************** L C D  U P D A T E ****************************/
             if(UI_Update_Mask){
-                
                 if (start) {
                     initDisplay();
                     start = 0;
@@ -193,17 +202,21 @@ int main()
                     curScale = UpdateScaleLCD(lastScale);
                 }
                 if(UI_Update_Mask & 0b0100){
-                    UI_Update_Mask &= 0b1011;   //clear SCALE bit
+                    UI_Update_Mask &= 0b1011;   //clear HYST bit
                     CharLCD_PosPrintString(2,11,"          ");
                     CharLCD_PosPrintString(2,11,"Hist:");
-                    CharLCD_PrintNumber(map(lastHyst,0,255,50,100));
+                    uint16 tempHyst = map(lastHyst,0,255,50,101);
+                    if(tempHyst > 100) { tempHyst = 100; }
+                    CharLCD_PrintNumber(tempHyst);
                     CharLCD_PrintString("%");
                 }
                 if(UI_Update_Mask & 0b1000){
-                    UI_Update_Mask &= 0b0111;   //clear SCALE bit
+                    UI_Update_Mask &= 0b0111;   //clear VELO bit
                     CharLCD_PosPrintString(2,0,"          ");
-                    CharLCD_PosPrintString(2,0,"Vel:"); 
-                    CharLCD_PrintNumber(map(lastVelo,0,255,0,100));
+                    CharLCD_PosPrintString(2,0,"Velo:"); 
+                    uint16 tempVelo = map(lastVelo,0,255,0,101);
+                    if(tempVelo > 100) { tempVelo = 100; }
+                    CharLCD_PrintNumber(tempVelo);
                 }  
             }
             
@@ -212,14 +225,14 @@ int main()
             sampleFrame = currFrame ^ 0b01; 
             if (frameReady[sampleFrame]&&!frameProcessed) {
                 if (start) {
-                    CharLCD_ClearDisplay();
+                    initDisplay();
                     start = 0;
                 }
                 // Lock the current frame and unset the current flag.
                 frameLocked[sampleFrame] = true;
                 frameProcessed = true;
                 
-                // Runs Pitch Detection Algorithm        
+                //Run Pitch Detection Algorithm        
                 //pitchHz = pitch_fft(dataFrames[sampleFrame], sampImg);
                 //pitchHz = pitch_zero_cross(dataFrames[sampleFrame]);
                 //pitchHz = auto_correlate(dataFrames[sampleFrame]);
@@ -252,7 +265,6 @@ int main()
                         UART_MIDITX_PutChar(midiMsg[1]);
                         UART_MIDITX_PutChar(midiMsg[2]);
                         //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);
-  
                     }
                     
                     midiMsg[0] = USB_MIDI_NOTE_ON;
@@ -264,27 +276,20 @@ int main()
                     UART_MIDITX_PutChar(midiMsg[2]);
                     //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);                                       
                     
-                    lastNote = note;
-                    
+                    lastNote = note;  
                 }
          
                 // Updates display for debugging
-                //CharLCD_ClearDisplay();
-                CharLCD_Position(0,0);
-                CharLCD_PrintNumber(pitchHz);
+                CharLCD_PosPrintString(0,0,"   ");
+                CharLCD_PosPrintNumber(0,0,pitchHz);
+                CharLCD_PrintString("Hz");
                 if (changed) {
-                    CharLCD_Position(1,0);
-                    CharLCD_PrintString("  ");
-                    CharLCD_Position(1,0);
-                    CharLCD_PrintString(midi_note_basename(midiMsg[1]));
-                    CharLCD_Position(1,2);
-                    CharLCD_PrintNumber(midiMsg[1]);
+                    CharLCD_PosPrintString(1,0,"   ");
+                    CharLCD_PosPrintString(1,0,midi_note_basename(midiMsg[1]));
+                    //CharLCD_PosPrintNumber(1,2,midiMsg[1]);   //print number of midi note
                 }
-             
-                                            
-                
-            } // If the frameReady was low, meaning no note is being hummed, send MIDI note off
-            
+            } 
+            // If the frameReady was low, meaning no note is being hummed, send MIDI note off
             if(!frameReady[sampleFrame])
             {
                 midiMsg[0] = USB_MIDI_NOTE_OFF;
@@ -365,10 +370,14 @@ CY_ISR(GetSample){
 // This ISR checks each POT and updates the LCD if necessary
 CY_ISR(UserInterfaceISR){
     TIMER_UI_STATUS;
-    
-    ADC_UI_IsEndConversion(ADC_UI_WAIT_FOR_RESULT);
     uint16 currKey, currScale, currHyst, currVelo;
+    
+    ADC_UI_StartConvert();    //must call this for multiplexing inputs
+    ADC_UI_IsEndConversion(ADC_UI_WAIT_FOR_RESULT);
+    ADC_UI_StopConvert();
+    
     currKey = ADC_UI_GetResult16(KEY);
+        
     currScale = ADC_UI_GetResult16(SCALE);
     currHyst = ADC_UI_GetResult16(HYST);
     currVelo = ADC_UI_GetResult16(VELO);
@@ -376,22 +385,20 @@ CY_ISR(UserInterfaceISR){
     if(currKey < lastKey - UI_THRES || currKey > lastKey + UI_THRES){
         lastKey = currKey;
         UI_Update_Mask |= 0b0001;   //set bit for LCD update
-    }
-    
+    } 
     if(currScale < lastScale - UI_THRES || currScale > lastScale + UI_THRES){
         lastScale = currScale;
         UI_Update_Mask |= 0b0010;   //set bit for LCD  update
     }
-    
     if(currHyst < lastHyst - 1 || currHyst > lastHyst + 1){
         lastHyst = currHyst;
         UI_Update_Mask |= 0b0100;   //set bit for LCD  update
     }
-    
-    if(currVelo < lastVelo - UI_THRES || currVelo > lastVelo + UI_THRES){
+    if(currVelo < lastVelo - 1 || currVelo > lastVelo + 1){
         lastVelo = currVelo;
         UI_Update_Mask |= 0b1000;   //set bit for LCD  update
-    }    
+    } 
+    
 }
 
 

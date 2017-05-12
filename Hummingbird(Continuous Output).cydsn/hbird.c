@@ -67,19 +67,49 @@ void initDisplay(void){
     UpdateScaleLCD(ADC_UI_GetResult16(SCALE));   //update scale
      
     CharLCD_PosPrintString(2,11,"          ");
-    CharLCD_PosPrintString(2,11,"Hist:");
-        
-    float tempHyst = (float)map(ADC_UI_GetResult16(HYST),0,255,50,100);
-    
-    tempHyst /= 100;
-    
+    CharLCD_PosPrintString(2,11,"Hist:");  
+    uint16 tempHyst = map(ADC_UI_GetResult16(HYST),0,255,0,101);
+    if(tempHyst > 100) { tempHyst = 100; }
     CharLCD_PrintNumber(tempHyst);
     CharLCD_PrintString("%");
-    
 
     CharLCD_PosPrintString(2,0,"          ");
-    CharLCD_PosPrintString(2,0,"Vel:"); 
-    CharLCD_PrintNumber(map(ADC_UI_GetResult16(VELO),0,255,0,100));   
+    CharLCD_PosPrintString(2,0,"Velo:"); 
+    uint16 tempVelo = map(ADC_UI_GetResult16(HYST),0,255,0,101);
+    if(tempVelo > 100) { tempVelo = 100; }
+    CharLCD_PrintNumber(tempVelo); 
+}
+
+void PushArray(int *array, int value, int size){
+    
+    CharLCD_PosPrintNumber(0,5,size);
+    
+    int i;
+    for(i = size-1; i > 0; i--){
+        array[i] = array[i-1];
+    }
+    array[0] = value;
+}
+
+void PrintNoteHistory(int array[]){
+    
+    char parentStr[20] = {};
+    sprintf(parentStr, "%d, %d, %d, %d, %d,", array[0], array[1], array[2], array[3], array[4]);
+    CharLCD_PosPrintString(3,0,parentStr);
+    
+    
+    /*
+    char tempStr[20] = {};
+    int j;
+    for(j = 6; j >= 0; j--){
+        int i;
+        for(i = 0; i < 20; i++){
+            tempStr[i] = parentStr[i + j];   
+        }
+    }
+    */
+    
+      
 }
 
 //Random Crap from main.c
