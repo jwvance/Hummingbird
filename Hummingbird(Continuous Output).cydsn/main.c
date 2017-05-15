@@ -10,7 +10,7 @@
 #include <hbird.h>
 
 /**** Defines ****/
-#define THRESHHOLD 110
+#define THRESHHOLD 90
 #define HYST_VAL 0.9
 #define VELO_VAL 100
 #define NOTE_HISTORY_LEN 5
@@ -56,6 +56,7 @@ uint8 midiMsg[4];
 int lastNote = -1;                  // Last sent MIDI note. -1 means no MIDI signal was active.
 int i=0;
 float pitchHz;
+uint16 tempHyst;
 double noteTable[MIDI_LEN]; //(index=midi note, value=frequency)
 uint8 frame1InUse=0;
 uint8 frame2InUse=0;
@@ -205,10 +206,12 @@ int main()
                     UI_Update_Mask &= 0b1011;   //clear HYST bit
                     CharLCD_PosPrintString(2,11,"          ");
                     CharLCD_PosPrintString(2,11,"Hist:");
-                    uint16 tempHyst = map(lastHyst,0,255,50,101);
+                    tempHyst = map(lastHyst,0,255,50,99);
                     if(tempHyst > 100) { tempHyst = 100; }
                     CharLCD_PrintNumber(tempHyst);
                     CharLCD_PrintString("%");
+                    // NOTE: tempHyst is used by the actual hyst function, but is divided by 100 to create values from .50 to .99
+                    
                 }
                 if(UI_Update_Mask & 0b1000){
                     UI_Update_Mask &= 0b0111;   //clear VELO bit
@@ -240,12 +243,16 @@ int main()
                 
                 // Unlocks the frame
                 frameLocked[sampleFrame] = false;
+                 // Updates display for debugging
+                CharLCD_PosPrintString(0,0,"   ");
+                CharLCD_PosPrintNumber(0,0,pitchHz);
+                CharLCD_PrintString("Hz");
                 
                 //int note = NoteSnap(noteTable, pitchHz, curKey, curScale);
                 int note = lastNote;
                 
                 if(pitchHz < 600 && pitchHz > 80){  //eliminate extreme, unintentional freqs
-                    if (midi_note_changed(pitchHz, lastNote, noteTable, lastHyst)) {
+                    if (midi_note_changed(pitchHz, lastNote, noteTable, (float)tempHyst/100)) {
                         note = NoteSnap(noteTable, pitchHz, curKey, curScale);
                         //note = midi_note_from_freq(pitchHz);
                     }
@@ -283,11 +290,11 @@ int main()
                 CharLCD_PosPrintString(0,0,"   ");
                 CharLCD_PosPrintNumber(0,0,pitchHz);
                 CharLCD_PrintString("Hz");
-                if (changed) {
+                //if (changed) {
                     CharLCD_PosPrintString(1,0,"   ");
                     CharLCD_PosPrintString(1,0,midi_note_basename(midiMsg[1]));
                     //CharLCD_PosPrintNumber(1,2,midiMsg[1]);   //print number of midi note
-                }
+                //}
             } 
             // If the frameReady was low, meaning no note is being hummed, send MIDI note off
             if(!frameReady[sampleFrame])
@@ -370,14 +377,13 @@ CY_ISR(GetSample){
 // This ISR checks each POT and updates the LCD if necessary
 CY_ISR(UserInterfaceISR){
     TIMER_UI_STATUS;
-    uint16 currKey, currScale, currHyst, currVelo;
+    float currKey, currScale, currHyst, currVelo;
     
     ADC_UI_StartConvert();    //must call this for multiplexing inputs
     ADC_UI_IsEndConversion(ADC_UI_WAIT_FOR_RESULT);
     ADC_UI_StopConvert();
     
     currKey = ADC_UI_GetResult16(KEY);
-        
     currScale = ADC_UI_GetResult16(SCALE);
     currHyst = ADC_UI_GetResult16(HYST);
     currVelo = ADC_UI_GetResult16(VELO);

@@ -17,7 +17,7 @@ enum MusicScale UpdateScaleLCD(uint16 currADC)
     CharLCD_Position(0,14);
     //maps ADC val to one of the scales
  
-    enum MusicScale scale = map(currADC, 0, 255, 0, 5);
+    enum MusicScale scale = map(currADC, 0, 255, 0, 6);
     // Prints the string to the LCD
     switch(scale){
         case MAJOR:
