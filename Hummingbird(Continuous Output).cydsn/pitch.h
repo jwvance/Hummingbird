@@ -3,12 +3,12 @@
     
 #include "fft.h"
 #include "device.h"
-#define FRAME_LEN 256  //1024
-#define SAMPLE_RATE 4000 //8000
+#define FRAME_LEN 512  //256
+#define SAMPLE_RATE 8000 //4000
 
 #define R_THRES 0.9    
 #define LAG_MIN 6
-#define LAG_MAX 50
+#define LAG_MAX 70
     
 /*
  * Sets up the FFT tables to FRAME_LEN size.

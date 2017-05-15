@@ -30,7 +30,7 @@ int midi_note_from_freq(double freq);
  * Detects if the frequency has changed enough to change MIDI note.
  * Returns 1 if a new MIDI note should be calculated, 0 if not.
  */
-int midi_note_changed(double freq, int last_midi, double notes[MIDI_LEN], int hystVal);
+int midi_note_changed(double freq, int last_midi, double notes[MIDI_LEN], float hystVal);
 
 /*
  * Given a MIDI note, returns a string of the

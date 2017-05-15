@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
   35              		.loc 1 20 0
   36 0002 4270     		strb	r2, [r0, #1]
   21:midi.c        ****     midiArray[2]=vel;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 2
 
 
   37              		.loc 1 21 0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
   80 001c 0B46     		mov	r3, r1
   81 001e 0020     		movs	r0, #0
   82 0020 4FF08041 		mov	r1, #1073741824
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 3
 
 
   83 0024 FFF7FEFF 		bl	pow
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  130              	.LVL11:
  131 000a FFF7FEFF 		bl	log
  132              	.LVL12:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 4
 
 
  133 000e 0022     		movs	r2, #0
@@ -212,9 +212,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  159              		.cfi_endproc
  160              	.LFE58:
  161              		.size	midi_note_from_freq, .-midi_note_from_freq
- 162              		.global	__aeabi_dsub
- 163              		.global	__aeabi_d2f
- 164              		.global	__aeabi_f2d
+ 162              		.global	__aeabi_f2d
+ 163              		.global	__aeabi_dsub
+ 164              		.global	__aeabi_d2f
  165              		.global	__aeabi_dcmplt
  166 004c AFF30080 		.section	.text.midi_note_changed,"ax",%progbits
  167              		.align	2
@@ -225,7 +225,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  172              	midi_note_changed:
  173              	.LFB59:
   40:midi.c        **** 
-  41:midi.c        **** int midi_note_changed(double freq, int last_midi, double notes[MIDI_LEN], int hystVal)
+  41:midi.c        **** int midi_note_changed(double freq, int last_midi, double notes[MIDI_LEN], float hystVal)
   42:midi.c        **** {
  174              		.loc 1 42 0
  175              		.cfi_startproc
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
   42:midi.c        ****     if (last_midi < 1) {
  181              		.loc 1 42 0
  182 0002 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 5
 
 
  183              		.cfi_def_cfa_offset 40
@@ -276,9 +276,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
   48:midi.c        ****     
   49:midi.c        ****     float upper = notes[last_midi] + hystVal*(notes[last_midi + 1] - notes[last_midi]);
  210              		.loc 1 49 0
- 211 0020 0A98     		ldr	r0, [sp, #40]
+ 211 0020 0A98     		ldr	r0, [sp, #40]	@ float
  212              	.LVL21:
- 213 0022 FFF7FEFF 		bl	__aeabi_i2d
+ 213 0022 FFF7FEFF 		bl	__aeabi_f2d
  214              	.LVL22:
  215 0026 AB44     		add	fp, fp, r5
  216 0028 2A19     		adds	r2, r5, r4
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  227 003a D2E90001 		ldrd	r0, [r2]
  228 003e 2B46     		mov	r3, r5
  229 0040 2246     		mov	r2, r4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 6
 
 
  230 0042 FFF7FEFF 		bl	__aeabi_dsub
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  281 00a2 3946     		mov	r1, r7
  282 00a4 FFF7FEFF 		bl	__aeabi_dcmplt
  283              	.LVL35:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 7
 
 
  284 00a8 0030     		adds	r0, r0, #0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  330              		.loc 1 59 0
  331 001a 411E     		subs	r1, r0, #1
  332 001c 82FB0134 		smull	r3, r4, r2, r1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 8
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 8
 
 
  333 0020 CB17     		asrs	r3, r1, #31
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  377 009c 4FD0     		beq	.L28
   70:midi.c        **** 		return "F#";
   71:midi.c        **** 	} else if ((note - 7) % 12 == 0) {
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 9
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 9
 
 
  378              		.loc 1 71 0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  420 0110 134B     		ldr	r3, .L35+8
   79:midi.c        **** 		return "B";
  421              		.loc 1 79 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 10
 
 
  422 0112 B0EB820F 		cmp	r0, r2, lsl #2
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  471              	.LVL49:
  472              	.L26:
  473              		.cfi_restore_state
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 11
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 11
 
 
   66:midi.c        **** 	} else if ((note - 5) % 12 == 0) {
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  521 0168 00000000 		.word	.LC0
  522 016c 0C000000 		.word	.LC3
  523 0170 08000000 		.word	.LC2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 12
 
 
  524 0174 10000000 		.word	.LC4
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
   92:midi.c        **** {
  571              		.loc 1 92 0
  572              		.cfi_startproc
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 13
 
 
  573              		@ args = 0, pretend = 0, frame = 0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  621              		.thumb_func
  622              		.type	NoteSnap, %function
  623              	NoteSnap:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 14
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 14
 
 
  624              	.LFB63:
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  649 000e 0846     		mov	r0, r1
  650              	.LVL69:
  651 0010 D500     		lsls	r5, r2, #3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 15
 
 
  652 0012 9846     		mov	r8, r3
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  692              	.LVL74:
  693 0062 0028     		cmp	r0, #0
  694 0064 40F08A80 		bne	.L50
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 16
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 16
 
 
  695 0068 029B     		ldr	r3, [sp, #8]
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  153:midi.c        ****     else if(scale==NATURAL_MINOR) {        
  154:midi.c        ****         {
  155:midi.c        ****             while(i<50)     //cycles through all the notes in the major scale
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 17
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 17
 
 
  156:midi.c        ****             {
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  210:midi.c        ****                                        return freqTable[i-2];
  211:midi.c        ****                                } 
  212:midi.c        ****                                return freqTable[i];
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 18
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 18
 
 
  213:midi.c        ****                        }
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  267:midi.c        ****                        if(freq<freqTable[i]) {
  268:midi.c        ****                         lb= freq - freqTable[i-2];
  269:midi.c        ****                         up= freqTable[i] - freq;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 19
 
 
  270:midi.c        ****                                if(lb<up){
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  324:midi.c        ****                        }
  325:midi.c        ****                        i++;        //G
  326:midi.c        ****                        if(freq<freqTable[i]) {
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 20
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 20
 
 
  327:midi.c        ****                         lb= freq - freqTable[i-1];
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  747 00b4 00F08680 		beq	.L258
  280:midi.c        ****             while(freq > freqTable[i] && i<127) {
  748              		.loc 1 280 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 21
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 21
 
 
  749 00b8 B8F1040F 		cmp	r8, #4
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  797 0120 5046     		mov	r0, r10
  798 0122 5946     		mov	r1, fp
  799 0124 4246     		mov	r2, r8
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 22
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 22
 
 
  800 0126 4B46     		mov	r3, r9
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  848              		.loc 1 138 0
  849 017c 029B     		ldr	r3, [sp, #8]
  850 017e 013C     		subs	r4, r4, #1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 23
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 23
 
 
  851              	.LVL94:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  901              	.LVL102:
  902              	.L271:
  229:midi.c        ****                     i=i+3;        //Eb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 24
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 24
 
 
  903              		.loc 1 229 0 discriminator 1
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  950 0236 F5E81889 		ldrd	r8, [r5], #96
  951 023a 5046     		mov	r0, r10
  952 023c 5946     		mov	r1, fp
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 25
 
 
  953 023e 4246     		mov	r2, r8
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1003 029a 76D1     		bne	.L56
  1004 029c 029B     		ldr	r3, [sp, #8]
  1005 029e 7433     		adds	r3, r3, #116
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 26
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 26
 
 
  1006 02a0 1F44     		add	r7, r7, r3
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1053 02ec 3DE0     		b	.L79
  1054              	.L280:
  1055 02ee 00BF     		.align	2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 27
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 27
 
 
  1056              	.L279:
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1103              	.LVL126:
  1104 034e 0028     		cmp	r0, #0
  1105 0350 40F0CA80 		bne	.L274
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 28
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 28
 
 
  215:midi.c        ****                         lb= freq - freqTable[i-3];
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1154 039e 4946     		mov	r1, r9
  1155 03a0 FFF7FEFF 		bl	__aeabi_dsub
  1156              	.LVL136:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 29
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 29
 
 
  1157 03a4 06EBC806 		add	r6, r6, r8, lsl #3
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1206              	.L111:
  281:midi.c        ****                     i=i+2;
  1207              		.loc 1 281 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 30
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 30
 
 
  1208 0400 3B46     		mov	r3, r7
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1259 0432 5946     		mov	r1, fp
  1260 0434 FFF7FEFF 		bl	__aeabi_dsub
  1261              	.LVL150:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 31
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 31
 
 
  1262 0438 FFF7FEFF 		bl	__aeabi_d2f
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1309              	.L261:
  1310 0480 029E     		ldr	r6, [sp, #8]
  309:midi.c        ****                         up= freqTable[i] - freq;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 32
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 32
 
 
  1311              		.loc 1 309 0
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  336:midi.c        ****                         up= freqTable[i] - freq;
  1361              		.loc 1 336 0
  1362 04d0 06EBC306 		add	r6, r6, r3, lsl #3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 33
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 33
 
 
  1363 04d4 56E90645 		ldrd	r4, [r6, #-24]
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1412              	.LVL185:
  1413              	.L268:
  1414 0522 3346     		mov	r3, r6
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 34
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 34
 
 
  1415 0524 039E     		ldr	r6, [sp, #12]
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1468 0074 00000000 		.word	0
  1469 0078 02000000 		.word	2
  1470 007c 03000000 		.word	3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 35
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 35
 
 
  1471 0080 05000000 		.word	5
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1525 0023 00       		.space	1
  1526              	.LC9:
  1527 0024 4100     		.ascii	"A\000"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 36
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 36
 
 
  1528 0026 0000     		.space	2
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1582 004b 60010000 		.4byte	.LASF4
  1583 004f 02       		.uleb128 0x2
  1584 0050 02       		.byte	0x2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 37
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 37
 
 
  1585 0051 05       		.byte	0x5
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1639 00ba 01       		.byte	0x1
  1640 00bb 05       		.byte	0x5
  1641 00bc 09       		.byte	0x9
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 38
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 38
 
 
  1642 00bd 0A010000 		.4byte	0x10a
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1696 0129 94020000 		.4byte	.LASF34
  1697 012d 03       		.sleb128 3
  1698 012e 07       		.uleb128 0x7
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 39
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 39
 
 
  1699 012f 7A000000 		.4byte	.LASF35
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1753 019e 01       		.byte	0x1
  1754 019f 11       		.byte	0x11
  1755 01a0 AA000000 		.4byte	0xaa
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 40
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 40
 
 
  1756 01a4 01       		.uleb128 0x1
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1810 021b 25000000 		.4byte	0x25
  1811 021f 6A000000 		.4byte	.LLST2
  1812 0223 11       		.uleb128 0x11
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 41
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 41
 
 
  1813 0224 0E000000 		.4byte	.LVL12
@@ -2439,7 +2439,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1848 027d E9020000 		.4byte	.LASF48
  1849 0281 01       		.byte	0x1
  1850 0282 29       		.byte	0x29
- 1851 0283 33000000 		.4byte	0x33
+ 1851 0283 2C000000 		.4byte	0x2c
  1852 0287 1F010000 		.4byte	.LLST6
  1853 028b 13       		.uleb128 0x13
  1854 028c 2B000000 		.4byte	.LASF53
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1867 02ab 01       		.byte	0x1
  1868 02ac 37       		.byte	0x37
  1869 02ad 8B000000 		.4byte	0x8b
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 42
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 42
 
 
  1870 02b1 00000000 		.4byte	.LFB60
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1924 033b 01       		.byte	0x1
  1925 033c 5D       		.byte	0x5d
  1926 033d 17       		.uleb128 0x17
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 43
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 43
 
 
  1927 033e 51010000 		.4byte	0x151
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  1981 03c0 33000000 		.4byte	0x33
  1982 03c4 5D070000 		.4byte	.LLST19
  1983 03c8 10       		.uleb128 0x10
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 44
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 44
 
 
  1984 03c9 6C6200   		.ascii	"lb\000"
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  2038 0446 25000000 		.4byte	0x25
  2039 044a 00       		.byte	0
  2040 044b 20       		.uleb128 0x20
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 45
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 45
 
 
  2041 044c 6C6F6700 		.ascii	"log\000"
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  2095 0023 3E       		.uleb128 0x3e
  2096 0024 0B       		.uleb128 0xb
  2097 0025 03       		.uleb128 0x3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 46
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 46
 
 
  2098 0026 08       		.uleb128 0x8
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  2152 005c 03       		.uleb128 0x3
  2153 005d 0E       		.uleb128 0xe
  2154 005e 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 47
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 47
 
 
  2155 005f 0B       		.uleb128 0xb
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  2209 0096 03       		.uleb128 0x3
  2210 0097 0E       		.uleb128 0xe
  2211 0098 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 48
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 48
 
 
  2212 0099 0B       		.uleb128 0xb
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  2266 00d0 3A       		.uleb128 0x3a
  2267 00d1 0B       		.uleb128 0xb
  2268 00d2 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 49
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 49
 
 
  2269 00d3 0B       		.uleb128 0xb
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  2323 010b 0B       		.uleb128 0xb
  2324 010c 3B       		.uleb128 0x3b
  2325 010d 0B       		.uleb128 0xb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 50
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 50
 
 
  2326 010e 27       		.uleb128 0x27
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  2380 0145 0B       		.uleb128 0xb
  2381 0146 27       		.uleb128 0x27
  2382 0147 19       		.uleb128 0x19
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 51
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 51
 
 
  2383 0148 49       		.uleb128 0x49
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  2437 0180 1D       		.uleb128 0x1d
  2438 0181 01       		.byte	0x1
  2439 0182 31       		.uleb128 0x31
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 52
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 52
 
 
  2440 0183 13       		.uleb128 0x13
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  2494 01b9 13       		.uleb128 0x13
  2495 01ba 01       		.uleb128 0x1
  2496 01bb 13       		.uleb128 0x13
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 53
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 53
 
 
  2497 01bc 00       		.byte	0
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  2551 01f2 00       		.byte	0
  2552 01f3 00       		.byte	0
  2553 01f4 22       		.uleb128 0x22
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 54
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 54
 
 
  2554 01f5 2E       		.uleb128 0x2e
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  2608 004c 3A000000 		.4byte	.LVL8
  2609 0050 0300     		.2byte	0x3
  2610 0052 75       		.byte	0x75
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 55
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 55
 
 
  2611 0053 09       		.sleb128 9
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  2665 00bd 93       		.byte	0x93
  2666 00be 04       		.uleb128 0x4
  2667 00bf 51       		.byte	0x51
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 56
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 56
 
 
  2668 00c0 93       		.byte	0x93
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  2722 0149 F5       		.byte	0xf5
  2723 014a 04       		.uleb128 0x4
  2724 014b 25       		.uleb128 0x25
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 57
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 57
 
 
  2725 014c F5       		.byte	0xf5
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  2779 01b8 01       		.uleb128 0x1
  2780 01b9 50       		.byte	0x50
  2781 01ba 9F       		.byte	0x9f
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 58
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 58
 
 
  2782 01bb 2E010000 		.4byte	.LVL45
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  2836 023e 48010000 		.4byte	.LVL56
  2837 0242 4A010000 		.4byte	.LVL57
  2838 0246 0300     		.2byte	0x3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 59
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 59
 
 
  2839 0248 71       		.byte	0x71
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  2893 02c7 1C000000 		.4byte	.LVL67
  2894 02cb 24000000 		.4byte	.LFE62
  2895 02cf 0400     		.2byte	0x4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 60
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 60
 
 
  2896 02d1 F3       		.byte	0xf3
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  2950 0350 50       		.byte	0x50
  2951 0351 9F       		.byte	0x9f
  2952 0352 C4010000 		.4byte	.LVL101
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 61
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 61
 
 
  2953 0356 D4010000 		.4byte	.LVL102
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3007 03d9 6C040000 		.4byte	.LVL157
  3008 03dd 0400     		.2byte	0x4
  3009 03df F3       		.byte	0xf3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 62
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 62
 
 
  3010 03e0 01       		.uleb128 0x1
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3064 045a 51       		.byte	0x51
  3065 045b 22040000 		.4byte	.LVL148
  3066 045f 34050000 		.4byte	.LFE63
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 63
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 63
 
 
  3067 0463 0600     		.2byte	0x6
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3121 04dc 01       		.uleb128 0x1
  3122 04dd 53       		.byte	0x53
  3123 04de 9F       		.byte	0x9f
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 64
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 64
 
 
  3124 04df 00000000 		.4byte	0
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3178 0560 6E010000 		.4byte	.LVL92
  3179 0564 7C010000 		.4byte	.LVL93
  3180 0568 0100     		.2byte	0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 65
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 65
 
 
  3181 056a 53       		.byte	0x53
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3235 05f3 0300     		.2byte	0x3
  3236 05f5 74       		.byte	0x74
  3237 05f6 02       		.sleb128 2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 66
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 66
 
 
  3238 05f7 9F       		.byte	0x9f
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3292 067a 05       		.sleb128 5
  3293 067b 9F       		.byte	0x9f
  3294 067c AA040000 		.4byte	.LVL167
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 67
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 67
 
 
  3295 0680 B0040000 		.4byte	.LVL168
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3349 0700 54       		.byte	0x54
  3350 0701 00000000 		.4byte	0
  3351 0705 00000000 		.4byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 68
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 68
 
 
  3352              	.LLST18:
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3406 0789 00000000 		.4byte	0
  3407 078d 00000000 		.4byte	0
  3408              	.LLST20:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 69
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 69
 
 
  3409 0791 2C040000 		.4byte	.LVL149
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3463 07e9 0A00     		.2byte	0xa
  3464 07eb F5       		.byte	0xf5
  3465 07ec 0A       		.uleb128 0xa
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 70
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 70
 
 
  3466 07ed 25       		.uleb128 0x25
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3520 083f 04       		.uleb128 0x4
  3521 0840 25       		.uleb128 0x25
  3522 0841 1C       		.byte	0x1c
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 71
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 71
 
 
  3523 0842 F7       		.byte	0xf7
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3577 0894 9F       		.byte	0x9f
  3578 0895 00000000 		.4byte	0
  3579 0899 00000000 		.4byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 72
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 72
 
 
  3580              	.LLST21:
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3634 08f1 BA040000 		.4byte	.LVL170
  3635 08f5 0A00     		.2byte	0xa
  3636 08f7 F5       		.byte	0xf5
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 73
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 73
 
 
  3637 08f8 08       		.uleb128 0x8
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3691 094a F5       		.byte	0xf5
  3692 094b 0A       		.uleb128 0xa
  3693 094c 25       		.uleb128 0x25
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 74
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 74
 
 
  3694 094d 1C       		.byte	0x1c
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3748 099f 2C       		.uleb128 0x2c
  3749 09a0 9F       		.byte	0x9f
  3750 09a1 00000000 		.4byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 75
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 75
 
 
  3751 09a5 00000000 		.4byte	0
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3805              	.Ldebug_line0:
  3806 0000 4D030000 		.section	.debug_str,"MS",%progbits,1
  3806      02005B01 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 76
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 76
 
 
  3806      00000201 
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3831              	.LASF25:
  3832 008b 4B45595F 		.ascii	"KEY_OF_Ab\000"
  3832      4F465F41 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 77
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 77
 
 
  3832      6200
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3857      6C6500
  3858              	.LASF61:
  3859 014f 6D696469 		.ascii	"midi_note_octave\000"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 78
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 78
 
 
  3859      5F6E6F74 
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3880              	.LASF29:
  3881 024c 4D757369 		.ascii	"MusicKey\000"
  3881      634B6579 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 79
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 79
 
 
  3881      00
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3909 02d2 47656E65 		.ascii	"GenerateMidiArray\000"
  3909      72617465 
  3909      4D696469 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 80
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 80
 
 
  3909      41727261 
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 1
  3935      66666572 
  3935      00
  3936              	.LASF43:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccK84Awb.s 			page 81
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccQ6H6uy.s 			page 81
 
 
  3937 0372 66726571 		.ascii	"freq_a\000"

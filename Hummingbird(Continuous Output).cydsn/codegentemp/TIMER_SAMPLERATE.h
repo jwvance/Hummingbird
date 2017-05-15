@@ -168,7 +168,7 @@ void TIMER_SAMPLERATE_Wakeup(void)        ;
 *    Initialial Parameter Constants
 ***************************************/
 
-#define TIMER_SAMPLERATE_INIT_PERIOD             14999u
+#define TIMER_SAMPLERATE_INIT_PERIOD             7499u
 #define TIMER_SAMPLERATE_INIT_CAPTURE_MODE       ((uint8)((uint8)0u << TIMER_SAMPLERATE_CTRL_CAP_MODE_SHIFT))
 #define TIMER_SAMPLERATE_INIT_TRIGGER_MODE       ((uint8)((uint8)0u << TIMER_SAMPLERATE_CTRL_TRIG_MODE_SHIFT))
 #if (TIMER_SAMPLERATE_UsingFixedFunction)

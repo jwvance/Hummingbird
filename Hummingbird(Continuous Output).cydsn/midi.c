@@ -38,7 +38,7 @@ int midi_note_from_freq(double freq)
 	return (int)(round((69 + (12 * log(freq / 440) / log(2.0)))));
 }
 
-int midi_note_changed(double freq, int last_midi, double notes[MIDI_LEN], int hystVal)
+int midi_note_changed(double freq, int last_midi, double notes[MIDI_LEN], float hystVal)
 {
     if (last_midi < 1) {
         last_midi = 1;

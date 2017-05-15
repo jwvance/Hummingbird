@@ -55,6 +55,7 @@ bool frameProcessed=false;          // Flag to prevent us from processing the sa
 uint8 midiMsg[4];  
 int lastNote = -1;                  // Last sent MIDI note. -1 means no MIDI signal was active.
 int i=0;
+int numFrames = 0;                  // TEST VARIABLE counts number of frames that have been good
 float pitchHz;
 uint16 tempHyst;
 double noteTable[MIDI_LEN]; //(index=midi note, value=frequency)
@@ -206,7 +207,7 @@ int main()
                     UI_Update_Mask &= 0b1011;   //clear HYST bit
                     CharLCD_PosPrintString(2,11,"          ");
                     CharLCD_PosPrintString(2,11,"Hist:");
-                    tempHyst = map(lastHyst,0,255,50,99);
+                    tempHyst = map(lastHyst,0,255,50,101);
                     if(tempHyst > 100) { tempHyst = 100; }
                     CharLCD_PrintNumber(tempHyst);
                     CharLCD_PrintString("%");
@@ -238,23 +239,29 @@ int main()
                 //Run Pitch Detection Algorithm        
                 //pitchHz = pitch_fft(dataFrames[sampleFrame], sampImg);
                 //pitchHz = pitch_zero_cross(dataFrames[sampleFrame]);
-                //pitchHz = auto_correlate(dataFrames[sampleFrame]);
-                pitchHz = pitch_auto_fft(dataFrames[sampleFrame]);
+                pitchHz = auto_correlate(dataFrames[sampleFrame]);
+                //pitchHz = pitch_auto_fft(dataFrames[sampleFrame]);
                 
                 // Unlocks the frame
                 frameLocked[sampleFrame] = false;
-                 // Updates display for debugging
-                CharLCD_PosPrintString(0,0,"   ");
                 CharLCD_PosPrintNumber(0,0,pitchHz);
-                CharLCD_PrintString("Hz");
                 
                 //int note = NoteSnap(noteTable, pitchHz, curKey, curScale);
                 int note = lastNote;
                 
-                if(pitchHz < 600 && pitchHz > 80){  //eliminate extreme, unintentional freqs
+                if(pitchHz < 600 && pitchHz > 60){  //eliminate extreme, unintentional freqs
                     if (midi_note_changed(pitchHz, lastNote, noteTable, (float)tempHyst/100)) {
                         note = NoteSnap(noteTable, pitchHz, curKey, curScale);
                         //note = midi_note_from_freq(pitchHz);
+                        CharLCD_PosPrintNumber(3,3,numFrames);
+                        if(numFrames<255)
+                        {
+                            numFrames++;
+                        }
+                        else
+                        {
+                            numFrames=0;
+                        }
                     }
                 }
                 
@@ -383,10 +390,10 @@ CY_ISR(UserInterfaceISR){
     ADC_UI_IsEndConversion(ADC_UI_WAIT_FOR_RESULT);
     ADC_UI_StopConvert();
     
-    currKey = ADC_UI_GetResult16(KEY);
+    //currKey = ADC_UI_GetResult16(KEY);
     currScale = ADC_UI_GetResult16(SCALE);
     currHyst = ADC_UI_GetResult16(HYST);
-    currVelo = ADC_UI_GetResult16(VELO);
+    //currVelo = ADC_UI_GetResult16(VELO);
 
     if(currKey < lastKey - UI_THRES || currKey > lastKey + UI_THRES){
         lastKey = currKey;
