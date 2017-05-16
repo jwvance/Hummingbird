@@ -282,10 +282,17 @@
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\TIMER_SAMPLERATE\TIMER_SAMPLERATE.c</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\TIMER_SAMPLERATE\TIMER_SAMPLERATE.h</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\TIMER_SAMPLERATE\TIMER_SAMPLERATE_PM.c</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\Timer_Tuner</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\Timer_Tuner\TIMER_TUNER.c</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\Timer_Tuner\TIMER_TUNER.h</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\Timer_Tuner\TIMER_TUNER_PM.c</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\TIMER_UI</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\TIMER_UI\TIMER_UI.c</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\TIMER_UI\TIMER_UI.h</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\TIMER_UI\TIMER_UI_PM.c</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\tuner_isr</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\tuner_isr\tuner_isr.c</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\tuner_isr\tuner_isr.h</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\UART_MIDITX</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\UART_MIDITX\UART_MIDITX.c</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\Generated_Source\PSoC5\UART_MIDITX\UART_MIDITX.h</v>
@@ -515,6 +522,7 @@
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\CortexM3\ARM_GCC_493\Debug\Listing Files\TIMER_SAMPLERATE_PM.lst</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\CortexM3\ARM_GCC_493\Debug\Listing Files\TIMER_UI.lst</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\CortexM3\ARM_GCC_493\Debug\Listing Files\TIMER_UI_PM.lst</v>
+<v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\CortexM3\ARM_GCC_493\Debug\Listing Files\tuner_isr.lst</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\CortexM3\ARM_GCC_493\Debug\Listing Files\UART_MIDITX.lst</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\CortexM3\ARM_GCC_493\Debug\Listing Files\UART_MIDITX_BOOT.lst</v>
 <v>Hummingbird(Continuous Output)-000\Hummingbird(Continuous Output)\CortexM3\ARM_GCC_493\Debug\Listing Files\UART_MIDITX_INT.lst</v>
@@ -658,7 +666,18 @@
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
-<OpenDocs />
+<OpenDocs>
+<name v=".\hbird.c" />
+<name v=".\hbird.h" />
+<name v=".\main.c" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1439, 711" SelectedTabbedMdiWindow="abe2bfa4-62ca-46f5-bb31-2747623f6d2c"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="11abd48d-dc6c-4e70-9fca-c4f5e684563d" /><DocumentWindow Key="46aa9949-609e-4c1f-b74c-817dde196824" Guid="53d0cee6-3d5d-4556-8bb6-c1e34cc1bbf9" /><DocumentWindow Key="939d7321-81e0-46f1-bc25-9f20e22615fa" Guid="311b5a39-8c68-44c6-a4e1-c4d7db7b4583" /><DocumentWindow Key="adc33ce1-d52b-479c-8cf3-6f73139c885b" Guid="abe2bfa4-62ca-46f5-bb31-2747623f6d2c" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
