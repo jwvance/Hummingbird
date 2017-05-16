@@ -1,4 +1,4 @@
---------------- Rebuild Started: 05/15/2017 16:14:07 Project: Hummingbird(Continuous Output), Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Rebuild Started: 05/15/2017 18:40:11 Project: Hummingbird(Continuous Output), Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\main.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\fft.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\midi.o"
@@ -174,14 +174,14 @@ Dependency Generation...
 Cleanup...
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/main.lst -g -Wall -ffunction-sections -O2 -ffat-lto-objects -c main.c -o .\CortexM3\ARM_GCC_493\Debug\main.o
 main.c: In function 'main':
-main.c:259:21: warning: unused variable 'changed' [-Wunused-variable]
+main.c:268:21: warning: unused variable 'changed' [-Wunused-variable]
                  int changed = note != lastNote && note != -1;
                      ^
 main.c: In function 'UserInterfaceISR':
-main.c:389:7: warning: 'currKey' is used uninitialized in this function [-Wuninitialized]
+main.c:398:7: warning: 'currKey' is used uninitialized in this function [-Wuninitialized]
      if(currKey < lastKey - UI_THRES || currKey > lastKey + UI_THRES){
        ^
-main.c:401:7: warning: 'currVelo' is used uninitialized in this function [-Wuninitialized]
+main.c:410:7: warning: 'currVelo' is used uninitialized in this function [-Wuninitialized]
      if(currVelo < lastVelo - 1 || currVelo > lastVelo + 1){
        ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/fft.lst -g -Wall -ffunction-sections -O2 -ffat-lto-objects -c fft.c -o .\CortexM3\ARM_GCC_493\Debug\fft.o
@@ -273,6 +273,6 @@ arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuo
 arm-none-eabi-gcc.exe -Wl,--start-group -o ".\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).elf" .\CortexM3\ARM_GCC_493\Debug\main.o .\CortexM3\ARM_GCC_493\Debug\fft.o .\CortexM3\ARM_GCC_493\Debug\midi.o .\CortexM3\ARM_GCC_493\Debug\pitch.o .\CortexM3\ARM_GCC_493\Debug\hbird.o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o ".\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a" "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -g -ffunction-sections -O2 -ffat-lto-objects -l m -L Generated_Source\PSoC5 "-Wl,-Map,.\CortexM3\ARM_GCC_493\Debug/Hummingbird(Continuous Output).map" -T "C:\Users\mgronber\Desktop\Hummingbird\Hummingbird(Continuous Output).cydsn\Generated_Source\PSoC5\cm3gcc.ld" -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
 cyelftool.exe -C "C:\Users\mgronber\Desktop\Hummingbird\Hummingbird(Continuous Output).cydsn\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).elf" --flash_row_size 256 --flash_size 262144
 cyelftool.exe -S "C:\Users\mgronber\Desktop\Hummingbird\Hummingbird(Continuous Output).cydsn\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).elf"
-Flash used: 30468 of 262144 bytes (11.6 %).
-SRAM used: 10469 of 65536 bytes (16.0 %). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Rebuild Succeeded: 05/15/2017 16:14:45 ---------------
+Flash used: 32456 of 262144 bytes (12.4 %).
+SRAM used: 10485 of 65536 bytes (16.0 %). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Rebuild Succeeded: 05/15/2017 18:40:52 ---------------

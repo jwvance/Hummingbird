@@ -10,8 +10,8 @@
 #include <hbird.h>
 
 /**** Defines ****/
-#define THRESHHOLD 70
-#define HYST_VAL 0.9
+#define THRESHHOLD 60
+#define HYST_VAL 0.75
 #define VELO_VAL 100
 #define NOTE_HISTORY_LEN 5
 int start = 1;
@@ -23,7 +23,7 @@ uint8 UI_Update_Mask = 0;
 //previous POT values for UI
 uint16 lastKey = 0;
 uint16 lastScale = 0;
-uint16 lastHyst = (float)HYST_VAL;
+uint16 lastHyst = 150;
 uint16 lastVelo = VELO_VAL;
 
 int noteHistory[5] = {};
@@ -61,7 +61,7 @@ uint16 tempHyst;
 double noteTable[MIDI_LEN]; //(index=midi note, value=frequency)
 uint8 frame1InUse=0;
 uint8 frame2InUse=0;
-enum MusicScale curScale=CHROMATIC;
+enum MusicScale curScale=MAJOR;
 enum MusicKey   curKey=KEY_OF_C;
 
 /* Need for Identity Reply message */
@@ -239,17 +239,18 @@ int main()
                 //Run Pitch Detection Algorithm        
                 //pitchHz = pitch_fft(dataFrames[sampleFrame], sampImg);
                 //pitchHz = pitch_zero_cross(dataFrames[sampleFrame]);
-                pitchHz = auto_correlate(dataFrames[sampleFrame]);
-                //pitchHz = pitch_auto_fft(dataFrames[sampleFrame]);
+                //pitchHz = auto_correlate(dataFrames[sampleFrame]);
+                pitchHz = pitch_auto_fft(dataFrames[sampleFrame]);
                 
                 // Unlocks the frame
                 frameLocked[sampleFrame] = false;
+                CharLCD_PosPrintString(0,0,"      ");
                 CharLCD_PosPrintNumber(0,0,pitchHz);
-                UpdateTuner(noteTable, NoteSnap(noteTable, pitchHz, curKey, curScale), pitchHz);
+                //UpdateTuner(noteTable, NoteSnap(noteTable, pitchHz, curKey, curScale), pitchHz);
                 //int note = NoteSnap(noteTable, pitchHz, curKey, curScale);
                 int note = lastNote;
                 
-                if(pitchHz < 600 && pitchHz > 60){  //eliminate extreme, unintentional freqs
+                if(pitchHz < 1000 && pitchHz > 60){  //eliminate extreme, unintentional freqs
                     if (midi_note_changed(pitchHz, lastNote, noteTable, (float)tempHyst/100)) {
                         note = NoteSnap(noteTable, pitchHz, curKey, curScale);
                         //note = midi_note_from_freq(pitchHz);
@@ -390,10 +391,10 @@ CY_ISR(UserInterfaceISR){
     ADC_UI_IsEndConversion(ADC_UI_WAIT_FOR_RESULT);
     ADC_UI_StopConvert();
     
-    //currKey = ADC_UI_GetResult16(KEY);
+    currKey = ADC_UI_GetResult16(KEY);
     currScale = ADC_UI_GetResult16(SCALE);
     currHyst = ADC_UI_GetResult16(HYST);
-    //currVelo = ADC_UI_GetResult16(VELO);
+    currVelo = ADC_UI_GetResult16(VELO);
 
     if(currKey < lastKey - UI_THRES || currKey > lastKey + UI_THRES){
         lastKey = currKey;

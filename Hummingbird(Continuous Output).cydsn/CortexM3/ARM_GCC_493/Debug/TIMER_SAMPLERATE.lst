@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
   29:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
   30:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_Init
   31:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 2
 
 
   32:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
   75:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
   76:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
   77:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 /* Set last 2 bits of control3 register if one shot(halt on
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 3
 
 
   78:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 interrupt) is enabled*/
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  132:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****             #if (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED)
  133:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 if (0u == (TIMER_SAMPLERATE_CONTROL & TIMER_SAMPLERATE__B_TIMER__TM_SOFTWARE))
  134:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                 {
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 4
 
 
  135:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****                     TIMER_SAMPLERATE_SetTriggerMode(TIMER_SAMPLERATE_INIT_TRIGGER_MODE);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  189:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED || TIMER_SAMPLERATE_UsingFixedFunction)
  190:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_CONTROL |= TIMER_SAMPLERATE_CTRL_ENABLE;
  191:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* Remove assignment if control register is removed */
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 5
 
 
  192:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  246:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
  247:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_Stop(void) 
  248:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 6
 
 
  249:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* Disable Timer */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  303:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
  304:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* Generate a software capture by reading the counter register */
  305:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if(TIMER_SAMPLERATE_UsingFixedFunction)
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 7
 
 
  306:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         (void)CY_GET_REG16(TIMER_SAMPLERATE_COUNTER_LSB_PTR);
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  360:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #else
  361:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         return (0);
  362:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED) */
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 8
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 8
 
 
  363:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  417:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
  418:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
  419:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Summary:
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 9
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 9
 
 
  420:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  This function is used to change the period of the counter.  The new period
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  465:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
  466:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
  467:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** * Function Name: TIMER_SAMPLERATE_WriteCounter
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 10
 
 
  468:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** ********************************************************************************
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  491:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
  492:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
  493:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** 
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 11
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 11
 
 
  494:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** /*******************************************************************************
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  548:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  captureMode: This parameter sets the capture mode of the UDB capture feature
  549:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  The parameter values are defined using the
  550:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  #define TIMER_SAMPLERATE__B_TIMER__CM_NONE 0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 12
 
 
  551:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** #define TIMER_SAMPLERATE__B_TIMER__CM_RISINGEDGE 1
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  605:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_SetTriggerMode(uint8 triggerMode) 
  606:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** {
  607:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     /* This must only set to two bits of the control register associated */
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 13
 
 
  608:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     triggerMode &= TIMER_SAMPLERATE_CTRL_TRIG_MODE_MASK;
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  662:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #if (!TIMER_SAMPLERATE_UDB_CONTROL_REG_REMOVED )   /* Remove assignment if control register is 
  663:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****         TIMER_SAMPLERATE_CONTROL &= ((uint8)(~TIMER_SAMPLERATE_CTRL_TRIG_EN));
  664:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****     #endif /* Remove code section if control register is not used */
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 14
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 14
 
 
  665:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** }
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  719:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *  void
  720:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *
  721:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** *******************************************************************************/
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 15
 
 
  722:Generated_Source\PSoC5/TIMER_SAMPLERATE.c **** void TIMER_SAMPLERATE_SetCaptureCount(uint8 captureCount) 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
   83              	.LBE30:
   84              	.LBE29:
   85              	.LBB31:
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 16
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 16
 
 
   86              	.LBB28:
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  136 0008 1370     		strb	r3, [r2]
  137 000a 7047     		bx	lr
  138              	.L15:
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 17
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 17
 
 
  139              		.align	2
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  188              	.LFE2:
  189              		.size	TIMER_SAMPLERATE_Start, .-TIMER_SAMPLERATE_Start
  190              		.section	.text.TIMER_SAMPLERATE_Stop,"ax",%progbits
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 18
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 18
 
 
  191              		.align	2
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  241              		.section	.text.TIMER_SAMPLERATE_SoftwareCapture,"ax",%progbits
  242              		.align	2
  243              		.global	TIMER_SAMPLERATE_SoftwareCapture
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 19
 
 
  244              		.thumb
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  293              		.thumb
  294              		.thumb_func
  295              		.type	TIMER_SAMPLERATE_ReadControlRegister, %function
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 20
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 20
 
 
  296              	TIMER_SAMPLERATE_ReadControlRegister:
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  345              		.type	TIMER_SAMPLERATE_ReadPeriod, %function
  346              	TIMER_SAMPLERATE_ReadPeriod:
  347              	.LFB9:
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 21
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 21
 
 
  406:Generated_Source\PSoC5/TIMER_SAMPLERATE.c ****    #if(TIMER_SAMPLERATE_UsingFixedFunction)
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  396              		.global	TIMER_SAMPLERATE_ReadCapture
  397              		.thumb
  398              		.thumb_func
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 22
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 22
 
 
  399              		.type	TIMER_SAMPLERATE_ReadCapture, %function
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  447              		.size	TIMER_SAMPLERATE_WriteCounter, .-TIMER_SAMPLERATE_WriteCounter
  448              		.section	.text.TIMER_SAMPLERATE_ReadCounter,"ax",%progbits
  449              		.align	2
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 23
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 23
 
 
  450              		.global	TIMER_SAMPLERATE_ReadCounter
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  497              	.LBE37:
  498              	.LBE36:
  499              		.loc 1 765 0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 24
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 24
 
 
  500 0004 1907     		lsls	r1, r3, #28
@@ -1430,28 +1430,28 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  544 0006 00000000 		.4byte	.Ldebug_abbrev0
  545 000a 04       		.byte	0x4
  546 000b 01       		.uleb128 0x1
- 547 000c 90000000 		.4byte	.LASF37
+ 547 000c DB000000 		.4byte	.LASF37
  548 0010 01       		.byte	0x1
- 549 0011 E7020000 		.4byte	.LASF38
- 550 0015 77010000 		.4byte	.LASF39
+ 549 0011 EA020000 		.4byte	.LASF38
+ 550 0015 90000000 		.4byte	.LASF39
  551 0019 30000000 		.4byte	.Ldebug_ranges0+0x30
  552 001d 00000000 		.4byte	0
  553 0021 00000000 		.4byte	.Ldebug_line0
  554 0025 02       		.uleb128 0x2
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 25
 
 
  555 0026 01       		.byte	0x1
  556 0027 06       		.byte	0x6
- 557 0028 C9030000 		.4byte	.LASF0
+ 557 0028 CC030000 		.4byte	.LASF0
  558 002c 02       		.uleb128 0x2
  559 002d 01       		.byte	0x1
  560 002e 08       		.byte	0x8
- 561 002f 43010000 		.4byte	.LASF1
+ 561 002f 8E010000 		.4byte	.LASF1
  562 0033 02       		.uleb128 0x2
  563 0034 02       		.byte	0x2
  564 0035 05       		.byte	0x5
- 565 0036 63030000 		.4byte	.LASF2
+ 565 0036 66030000 		.4byte	.LASF2
  566 003a 02       		.uleb128 0x2
  567 003b 02       		.byte	0x2
  568 003c 07       		.byte	0x7
@@ -1459,19 +1459,19 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  570 0041 02       		.uleb128 0x2
  571 0042 04       		.byte	0x4
  572 0043 05       		.byte	0x5
- 573 0044 BB030000 		.4byte	.LASF4
+ 573 0044 BE030000 		.4byte	.LASF4
  574 0048 02       		.uleb128 0x2
  575 0049 04       		.byte	0x4
  576 004a 07       		.byte	0x7
- 577 004b BF010000 		.4byte	.LASF5
+ 577 004b C2010000 		.4byte	.LASF5
  578 004f 02       		.uleb128 0x2
  579 0050 08       		.byte	0x8
  580 0051 05       		.byte	0x5
- 581 0052 1A030000 		.4byte	.LASF6
+ 581 0052 1D030000 		.4byte	.LASF6
  582 0056 02       		.uleb128 0x2
  583 0057 08       		.byte	0x8
  584 0058 07       		.byte	0x7
- 585 0059 2C010000 		.4byte	.LASF7
+ 585 0059 77010000 		.4byte	.LASF7
  586 005d 03       		.uleb128 0x3
  587 005e 04       		.byte	0x4
  588 005f 05       		.byte	0x5
@@ -1479,34 +1479,34 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  590 0064 02       		.uleb128 0x2
  591 0065 04       		.byte	0x4
  592 0066 07       		.byte	0x7
- 593 0067 9E020000 		.4byte	.LASF8
+ 593 0067 A1020000 		.4byte	.LASF8
  594 006b 04       		.uleb128 0x4
- 595 006c D1010000 		.4byte	.LASF9
+ 595 006c D4010000 		.4byte	.LASF9
  596 0070 02       		.byte	0x2
  597 0071 5B       		.byte	0x5b
  598 0072 2C000000 		.4byte	0x2c
  599 0076 04       		.uleb128 0x4
- 600 0077 63020000 		.4byte	.LASF10
+ 600 0077 66020000 		.4byte	.LASF10
  601 007b 02       		.byte	0x2
  602 007c 5D       		.byte	0x5d
  603 007d 48000000 		.4byte	0x48
  604 0081 02       		.uleb128 0x2
  605 0082 04       		.byte	0x4
  606 0083 04       		.byte	0x4
- 607 0084 1E010000 		.4byte	.LASF11
+ 607 0084 69010000 		.4byte	.LASF11
  608 0088 02       		.uleb128 0x2
  609 0089 08       		.byte	0x8
  610 008a 04       		.byte	0x4
- 611 008b 22020000 		.4byte	.LASF12
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 26
+ 611 008b 25020000 		.4byte	.LASF12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 26
 
 
  612 008f 02       		.uleb128 0x2
  613 0090 01       		.byte	0x1
  614 0091 08       		.byte	0x8
- 615 0092 C4030000 		.4byte	.LASF13
+ 615 0092 C7030000 		.4byte	.LASF13
  616 0096 04       		.uleb128 0x4
- 617 0097 72010000 		.4byte	.LASF14
+ 617 0097 BD010000 		.4byte	.LASF14
  618 009b 02       		.byte	0x2
  619 009c F0       		.byte	0xf0
  620 009d A1000000 		.4byte	0xa1
@@ -1522,15 +1522,15 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  630 00b6 02       		.uleb128 0x2
  631 00b7 04       		.byte	0x4
  632 00b8 07       		.byte	0x7
- 633 00b9 11030000 		.4byte	.LASF16
+ 633 00b9 14030000 		.4byte	.LASF16
  634 00bd 06       		.uleb128 0x6
- 635 00be 6A020000 		.4byte	.LASF17
+ 635 00be 6D020000 		.4byte	.LASF17
  636 00c2 01       		.byte	0x1
  637 00c3 C801     		.2byte	0x1c8
  638 00c5 76000000 		.4byte	0x76
  639 00c9 01       		.byte	0x1
  640 00ca 06       		.uleb128 0x6
- 641 00cb 29020000 		.4byte	.LASF18
+ 641 00cb 2C020000 		.4byte	.LASF18
  642 00cf 01       		.byte	0x1
  643 00d0 4D01     		.2byte	0x14d
  644 00d2 6B000000 		.4byte	0x6b
@@ -1548,44 +1548,44 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  656 00ec 76000000 		.4byte	0x76
  657 00f0 00       		.byte	0
  658 00f1 07       		.uleb128 0x7
- 659 00f2 04020000 		.4byte	.LASF20
+ 659 00f2 07020000 		.4byte	.LASF20
  660 00f6 01       		.byte	0x1
  661 00f7 E001     		.2byte	0x1e0
  662 00f9 01       		.byte	0x1
  663 00fa 0B010000 		.4byte	0x10b
  664 00fe 08       		.uleb128 0x8
- 665 00ff 24010000 		.4byte	.LASF22
+ 665 00ff 6F010000 		.4byte	.LASF22
  666 0103 01       		.byte	0x1
  667 0104 E001     		.2byte	0x1e0
  668 0106 76000000 		.4byte	0x76
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 27
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 27
 
 
  669 010a 00       		.byte	0
  670 010b 09       		.uleb128 0x9
- 671 010c 6D030000 		.4byte	.LASF25
+ 671 010c 70030000 		.4byte	.LASF25
  672 0110 01       		.byte	0x1
  673 0111 FB02     		.2byte	0x2fb
  674 0113 01       		.byte	0x1
  675 0114 07       		.uleb128 0x7
- 676 0115 28030000 		.4byte	.LASF23
+ 676 0115 2B030000 		.4byte	.LASF23
  677 0119 01       		.byte	0x1
  678 011a 1701     		.2byte	0x117
  679 011c 01       		.byte	0x1
  680 011d 2E010000 		.4byte	0x12e
  681 0121 08       		.uleb128 0x8
- 682 0122 4A030000 		.4byte	.LASF24
+ 682 0122 4D030000 		.4byte	.LASF24
  683 0126 01       		.byte	0x1
  684 0127 1701     		.2byte	0x117
  685 0129 6B000000 		.4byte	0x6b
  686 012d 00       		.byte	0
  687 012e 0A       		.uleb128 0xa
- 688 012f EE030000 		.4byte	.LASF26
+ 688 012f F1030000 		.4byte	.LASF26
  689 0133 01       		.byte	0x1
  690 0134 B4       		.byte	0xb4
  691 0135 01       		.byte	0x1
  692 0136 0B       		.uleb128 0xb
- 693 0137 4D020000 		.4byte	.LASF27
+ 693 0137 50020000 		.4byte	.LASF27
  694 013b 01       		.byte	0x1
  695 013c 2B       		.byte	0x2b
  696 013d 00000000 		.4byte	.LFB0
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  723 0180 03       		.uleb128 0x3
  724 0181 0A       		.byte	0xa
  725 0182 4B1D     		.2byte	0x1d4b
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 28
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 28
 
 
  726 0184 10       		.uleb128 0x10
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  780 01f7 00       		.byte	0
  781 01f8 0D       		.uleb128 0xd
  782 01f9 14010000 		.4byte	0x114
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 29
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 29
 
 
  783 01fd 3A000000 		.4byte	.LBB32
@@ -1723,7 +1723,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  822 025d 36010000 		.4byte	0x136
  823 0261 00       		.byte	0
  824 0262 17       		.uleb128 0x17
- 825 0263 88030000 		.4byte	.LASF29
+ 825 0263 8B030000 		.4byte	.LASF29
  826 0267 01       		.byte	0x1
  827 0268 F7       		.byte	0xf7
  828 0269 00000000 		.4byte	.LFB3
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  837 0281 9C       		.byte	0x9c
  838 0282 8E020000 		.4byte	0x28e
  839 0286 19       		.uleb128 0x19
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 30
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 30
 
 
  840 0287 21010000 		.4byte	0x121
@@ -1746,7 +1746,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  842 028c 50       		.byte	0x50
  843 028d 00       		.byte	0
  844 028e 1A       		.uleb128 0x1a
- 845 028f 51010000 		.4byte	.LASF30
+ 845 028f 9C010000 		.4byte	.LASF30
  846 0293 01       		.byte	0x1
  847 0294 2E01     		.2byte	0x12e
  848 0296 00000000 		.4byte	.LFB5
@@ -1760,7 +1760,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  856 02ad 01       		.uleb128 0x1
  857 02ae 9C       		.byte	0x9c
  858 02af 1B       		.uleb128 0x1b
- 859 02b0 DF010000 		.4byte	.LASF32
+ 859 02b0 E2010000 		.4byte	.LASF32
  860 02b4 01       		.byte	0x1
  861 02b5 6401     		.2byte	0x164
  862 02b7 6B000000 		.4byte	0x6b
@@ -1769,7 +1769,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  865 02c3 01       		.uleb128 0x1
  866 02c4 9C       		.byte	0x9c
  867 02c5 1C       		.uleb128 0x1c
- 868 02c6 AB020000 		.4byte	.LASF31
+ 868 02c6 AE020000 		.4byte	.LASF31
  869 02ca 01       		.byte	0x1
  870 02cb 7B01     		.2byte	0x17b
  871 02cd 00000000 		.4byte	.LFB8
@@ -1778,7 +1778,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  874 02d6 9C       		.byte	0x9c
  875 02d7 EA020000 		.4byte	0x2ea
  876 02db 1D       		.uleb128 0x1d
- 877 02dc D7010000 		.4byte	.LASF41
+ 877 02dc DA010000 		.4byte	.LASF41
  878 02e0 01       		.byte	0x1
  879 02e1 7B01     		.2byte	0x17b
  880 02e3 6B000000 		.4byte	0x6b
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  894 0301 D7000000 		.4byte	0xd7
  895 0305 00000000 		.4byte	.LFB10
  896 0309 0C000000 		.4byte	.LFE10-.LFB10
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 31
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 31
 
 
  897 030d 01       		.uleb128 0x1
@@ -1858,12 +1858,12 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  951 0376 0C       		.byte	0xc
  952 0377 05640040 		.4byte	0x40006405
  953 037b 00       		.byte	0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 32
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 32
 
 
  954 037c 00       		.byte	0
  955 037d 1B       		.uleb128 0x1b
- 956 037e 9E030000 		.4byte	.LASF34
+ 956 037e A1030000 		.4byte	.LASF34
  957 0382 01       		.byte	0x1
  958 0383 FC01     		.2byte	0x1fc
  959 0385 76000000 		.4byte	0x76
@@ -1892,7 +1892,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  982 03c4 FF02     		.2byte	0x2ff
  983 03c6 00       		.byte	0
  984 03c7 20       		.uleb128 0x20
- 985 03c8 D5030000 		.4byte	.LASF42
+ 985 03c8 D8030000 		.4byte	.LASF42
  986 03cc 01       		.byte	0x1
  987 03cd 1A       		.byte	0x1a
  988 03ce 6B000000 		.4byte	0x6b
@@ -1900,7 +1900,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  990 03d3 03       		.byte	0x3
  991 03d4 00000000 		.4byte	TIMER_SAMPLERATE_initVar
  992 03d8 21       		.uleb128 0x21
- 993 03d9 58030000 		.4byte	.LASF35
+ 993 03d9 5B030000 		.4byte	.LASF35
  994 03dd 02       		.byte	0x2
  995 03de 9E       		.byte	0x9e
  996 03df EE030000 		.4byte	0x3ee
@@ -1913,15 +1913,15 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  1003 03ef 04       		.byte	0x4
  1004 03f0 B1000000 		.4byte	0xb1
  1005 03f4 24       		.uleb128 0x24
- 1006 03f5 87020000 		.4byte	.LASF36
+ 1006 03f5 8A020000 		.4byte	.LASF36
  1007 03f9 03       		.byte	0x3
  1008 03fa 7E       		.byte	0x7e
  1009 03fb 6B000000 		.4byte	0x6b
  1010 03ff 25       		.uleb128 0x25
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 33
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 33
 
 
- 1011 0400 D1020000 		.4byte	.LASF43
+ 1011 0400 D4020000 		.4byte	.LASF43
  1012 0404 03       		.byte	0x3
  1013 0405 7F       		.byte	0x7f
  1014 0406 22       		.uleb128 0x22
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  1065 002d 0E       		.uleb128 0xe
  1066 002e 3A       		.uleb128 0x3a
  1067 002f 0B       		.uleb128 0xb
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 34
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 34
 
 
  1068 0030 3B       		.uleb128 0x3b
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  1122 0066 03       		.uleb128 0x3
  1123 0067 0E       		.uleb128 0xe
  1124 0068 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 35
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 35
 
 
  1125 0069 0B       		.uleb128 0xb
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  1179 009f 11       		.uleb128 0x11
  1180 00a0 01       		.uleb128 0x1
  1181 00a1 12       		.uleb128 0x12
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 36
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 36
 
 
  1182 00a2 06       		.uleb128 0x6
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  1236 00db 01       		.uleb128 0x1
  1237 00dc 31       		.uleb128 0x31
  1238 00dd 13       		.uleb128 0x13
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 37
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 37
 
 
  1239 00de 00       		.byte	0
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  1293 0119 01       		.uleb128 0x1
  1294 011a 31       		.uleb128 0x31
  1295 011b 13       		.uleb128 0x13
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 38
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 38
 
 
  1296 011c 00       		.byte	0
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  1350 0154 00       		.byte	0
  1351 0155 18       		.uleb128 0x18
  1352 0156 2E       		.uleb128 0x2e
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 39
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 39
 
 
  1353 0157 01       		.byte	0x1
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  1407 018f 3A       		.uleb128 0x3a
  1408 0190 0B       		.uleb128 0xb
  1409 0191 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 40
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 40
 
 
  1410 0192 05       		.uleb128 0x5
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  1464 01ca 00       		.byte	0
  1465 01cb 1E       		.uleb128 0x1e
  1466 01cc 05       		.uleb128 0x5
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 41
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 41
 
 
  1467 01cd 00       		.byte	0
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  1521 0206 22       		.uleb128 0x22
  1522 0207 05       		.uleb128 0x5
  1523 0208 00       		.byte	0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 42
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 42
 
 
  1524 0209 49       		.uleb128 0x49
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  1578 0004 27000000 		.4byte	.LVL4-1
  1579 0008 0100     		.2byte	0x1
  1580 000a 50       		.byte	0x50
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 43
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 43
 
 
  1581 000b 00000000 		.4byte	0
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  1635 0030 00000000 		.4byte	.LFB4
  1636 0034 0C000000 		.4byte	.LFE4-.LFB4
  1637 0038 00000000 		.4byte	.LFB5
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 44
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 44
 
 
  1638 003c 0C000000 		.4byte	.LFE5-.LFB5
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  1692 007c 10000000 		.4byte	.LFE9
  1693 0080 00000000 		.4byte	.LFB10
  1694 0084 0C000000 		.4byte	.LFE10
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 45
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 45
 
 
  1695 0088 00000000 		.4byte	.LFB11
@@ -2694,213 +2694,213 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 1
  1721      7369676E 
  1721      65642069 
  1721      6E7400
- 1722              	.LASF37:
- 1723 0090 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1723      4320342E 
- 1723      392E3320 
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 46
+ 1722              	.LASF39:
+ 1723 0090 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
+ 1723      73657273 
+ 1723      5C6D6772 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 46
 
 
- 1723      32303135 
- 1723      30333033 
- 1724 00c3 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 1724      20726576 
- 1724      6973696F 
- 1724      6E203232 
- 1724      31323230 
- 1725 00f6 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
- 1725      66756E63 
- 1725      74696F6E 
- 1725      2D736563 
- 1725      74696F6E 
- 1726              	.LASF11:
- 1727 011e 666C6F61 		.ascii	"float\000"
- 1727      7400
- 1728              	.LASF22:
- 1729 0124 636F756E 		.ascii	"counter\000"
- 1729      74657200 
- 1730              	.LASF7:
- 1731 012c 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1731      206C6F6E 
- 1731      6720756E 
- 1731      7369676E 
- 1731      65642069 
- 1732              	.LASF1:
- 1733 0143 756E7369 		.ascii	"unsigned char\000"
- 1733      676E6564 
- 1733      20636861 
- 1733      7200
- 1734              	.LASF30:
- 1735 0151 54494D45 		.ascii	"TIMER_SAMPLERATE_SoftwareCapture\000"
- 1735      525F5341 
- 1735      4D504C45 
- 1735      52415445 
- 1735      5F536F66 
- 1736              	.LASF14:
- 1737 0172 72656738 		.ascii	"reg8\000"
- 1737      00
- 1738              	.LASF39:
- 1739 0177 433A5C55 		.ascii	"C:\\Users\\jason\\Desktop\\Hummingbird\\Hummingbird"
- 1739      73657273 
- 1739      5C6A6173 
- 1739      6F6E5C44 
- 1739      65736B74 
- 1740 01a5 28436F6E 		.ascii	"(Continuous Output).cydsn\000"
- 1740      74696E75 
- 1740      6F757320 
- 1740      4F757470 
- 1740      7574292E 
+ 1723      6F6E6265 
+ 1723      725C4465 
+ 1724 00be 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 1724      436F6E74 
+ 1724      696E756F 
+ 1724      7573204F 
+ 1724      75747075 
+ 1725              	.LASF37:
+ 1726 00db 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1726      4320342E 
+ 1726      392E3320 
+ 1726      32303135 
+ 1726      30333033 
+ 1727 010e 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1727      20726576 
+ 1727      6973696F 
+ 1727      6E203232 
+ 1727      31323230 
+ 1728 0141 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 1728      66756E63 
+ 1728      74696F6E 
+ 1728      2D736563 
+ 1728      74696F6E 
+ 1729              	.LASF11:
+ 1730 0169 666C6F61 		.ascii	"float\000"
+ 1730      7400
+ 1731              	.LASF22:
+ 1732 016f 636F756E 		.ascii	"counter\000"
+ 1732      74657200 
+ 1733              	.LASF7:
+ 1734 0177 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1734      206C6F6E 
+ 1734      6720756E 
+ 1734      7369676E 
+ 1734      65642069 
+ 1735              	.LASF1:
+ 1736 018e 756E7369 		.ascii	"unsigned char\000"
+ 1736      676E6564 
+ 1736      20636861 
+ 1736      7200
+ 1737              	.LASF30:
+ 1738 019c 54494D45 		.ascii	"TIMER_SAMPLERATE_SoftwareCapture\000"
+ 1738      525F5341 
+ 1738      4D504C45 
+ 1738      52415445 
+ 1738      5F536F66 
+ 1739              	.LASF14:
+ 1740 01bd 72656738 		.ascii	"reg8\000"
+ 1740      00
  1741              	.LASF5:
- 1742 01bf 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1742 01c2 6C6F6E67 		.ascii	"long unsigned int\000"
  1742      20756E73 
  1742      69676E65 
  1742      6420696E 
  1742      7400
  1743              	.LASF9:
- 1744 01d1 75696E74 		.ascii	"uint8\000"
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 47
+ 1744 01d4 75696E74 		.ascii	"uint8\000"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 47
 
 
  1744      3800
  1745              	.LASF41:
- 1746 01d7 636F6E74 		.ascii	"control\000"
+ 1746 01da 636F6E74 		.ascii	"control\000"
  1746      726F6C00 
  1747              	.LASF32:
- 1748 01df 54494D45 		.ascii	"TIMER_SAMPLERATE_ReadControlRegister\000"
+ 1748 01e2 54494D45 		.ascii	"TIMER_SAMPLERATE_ReadControlRegister\000"
  1748      525F5341 
  1748      4D504C45 
  1748      52415445 
  1748      5F526561 
  1749              	.LASF20:
- 1750 0204 54494D45 		.ascii	"TIMER_SAMPLERATE_WriteCounter\000"
+ 1750 0207 54494D45 		.ascii	"TIMER_SAMPLERATE_WriteCounter\000"
  1750      525F5341 
  1750      4D504C45 
  1750      52415445 
  1750      5F577269 
  1751              	.LASF12:
- 1752 0222 646F7562 		.ascii	"double\000"
+ 1752 0225 646F7562 		.ascii	"double\000"
  1752      6C6500
  1753              	.LASF18:
- 1754 0229 54494D45 		.ascii	"TIMER_SAMPLERATE_ReadStatusRegister\000"
+ 1754 022c 54494D45 		.ascii	"TIMER_SAMPLERATE_ReadStatusRegister\000"
  1754      525F5341 
  1754      4D504C45 
  1754      52415445 
  1754      5F526561 
  1755              	.LASF27:
- 1756 024d 54494D45 		.ascii	"TIMER_SAMPLERATE_Init\000"
+ 1756 0250 54494D45 		.ascii	"TIMER_SAMPLERATE_Init\000"
  1756      525F5341 
  1756      4D504C45 
  1756      52415445 
  1756      5F496E69 
  1757              	.LASF10:
- 1758 0263 75696E74 		.ascii	"uint32\000"
+ 1758 0266 75696E74 		.ascii	"uint32\000"
  1758      333200
  1759              	.LASF17:
- 1760 026a 54494D45 		.ascii	"TIMER_SAMPLERATE_ReadCapture\000"
+ 1760 026d 54494D45 		.ascii	"TIMER_SAMPLERATE_ReadCapture\000"
  1760      525F5341 
  1760      4D504C45 
  1760      52415445 
  1760      5F526561 
  1761              	.LASF36:
- 1762 0287 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1762 028a 4379456E 		.ascii	"CyEnterCriticalSection\000"
  1762      74657243 
  1762      72697469 
  1762      63616C53 
  1762      65637469 
  1763              	.LASF8:
- 1764 029e 756E7369 		.ascii	"unsigned int\000"
+ 1764 02a1 756E7369 		.ascii	"unsigned int\000"
  1764      676E6564 
  1764      20696E74 
  1764      00
  1765              	.LASF31:
- 1766 02ab 54494D45 		.ascii	"TIMER_SAMPLERATE_WriteControlRegister\000"
+ 1766 02ae 54494D45 		.ascii	"TIMER_SAMPLERATE_WriteControlRegister\000"
  1766      525F5341 
  1766      4D504C45 
  1766      52415445 
  1766      5F577269 
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 48
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 48
 
 
  1767              	.LASF43:
- 1768 02d1 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1768 02d4 43794578 		.ascii	"CyExitCriticalSection\000"
  1768      69744372 
  1768      69746963 
  1768      616C5365 
  1768      6374696F 
  1769              	.LASF38:
- 1770 02e7 47656E65 		.ascii	"Generated_Source\\PSoC5\\TIMER_SAMPLERATE.c\000"
+ 1770 02ea 47656E65 		.ascii	"Generated_Source\\PSoC5\\TIMER_SAMPLERATE.c\000"
  1770      72617465 
  1770      645F536F 
  1770      75726365 
  1770      5C50536F 
  1771              	.LASF16:
- 1772 0311 73697A65 		.ascii	"sizetype\000"
+ 1772 0314 73697A65 		.ascii	"sizetype\000"
  1772      74797065 
  1772      00
  1773              	.LASF6:
- 1774 031a 6C6F6E67 		.ascii	"long long int\000"
+ 1774 031d 6C6F6E67 		.ascii	"long long int\000"
  1774      206C6F6E 
  1774      6720696E 
  1774      7400
  1775              	.LASF23:
- 1776 0328 54494D45 		.ascii	"TIMER_SAMPLERATE_SetInterruptMode\000"
+ 1776 032b 54494D45 		.ascii	"TIMER_SAMPLERATE_SetInterruptMode\000"
  1776      525F5341 
  1776      4D504C45 
  1776      52415445 
  1776      5F536574 
  1777              	.LASF24:
- 1778 034a 696E7465 		.ascii	"interruptMode\000"
+ 1778 034d 696E7465 		.ascii	"interruptMode\000"
  1778      72727570 
  1778      744D6F64 
  1778      6500
  1779              	.LASF35:
- 1780 0358 43795365 		.ascii	"CySetReg24\000"
+ 1780 035b 43795365 		.ascii	"CySetReg24\000"
  1780      74526567 
  1780      323400
  1781              	.LASF2:
- 1782 0363 73686F72 		.ascii	"short int\000"
+ 1782 0366 73686F72 		.ascii	"short int\000"
  1782      7420696E 
  1782      7400
  1783              	.LASF25:
- 1784 036d 54494D45 		.ascii	"TIMER_SAMPLERATE_ClearFIFO\000"
+ 1784 0370 54494D45 		.ascii	"TIMER_SAMPLERATE_ClearFIFO\000"
  1784      525F5341 
  1784      4D504C45 
  1784      52415445 
  1784      5F436C65 
  1785              	.LASF29:
- 1786 0388 54494D45 		.ascii	"TIMER_SAMPLERATE_Stop\000"
+ 1786 038b 54494D45 		.ascii	"TIMER_SAMPLERATE_Stop\000"
  1786      525F5341 
  1786      4D504C45 
  1786      52415445 
  1786      5F53746F 
  1787              	.LASF34:
- 1788 039e 54494D45 		.ascii	"TIMER_SAMPLERATE_ReadCounter\000"
+ 1788 03a1 54494D45 		.ascii	"TIMER_SAMPLERATE_ReadCounter\000"
  1788      525F5341 
  1788      4D504C45 
  1788      52415445 
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccgpecxZ.s 			page 49
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc0YUDEe.s 			page 49
 
 
  1788      5F526561 
  1789              	.LASF4:
- 1790 03bb 6C6F6E67 		.ascii	"long int\000"
+ 1790 03be 6C6F6E67 		.ascii	"long int\000"
  1790      20696E74 
  1790      00
  1791              	.LASF13:
- 1792 03c4 63686172 		.ascii	"char\000"
+ 1792 03c7 63686172 		.ascii	"char\000"
  1792      00
  1793              	.LASF0:
- 1794 03c9 7369676E 		.ascii	"signed char\000"
+ 1794 03cc 7369676E 		.ascii	"signed char\000"
  1794      65642063 
  1794      68617200 
  1795              	.LASF42:
- 1796 03d5 54494D45 		.ascii	"TIMER_SAMPLERATE_initVar\000"
+ 1796 03d8 54494D45 		.ascii	"TIMER_SAMPLERATE_initVar\000"
  1796      525F5341 
  1796      4D504C45 
  1796      52415445 
  1796      5F696E69 
  1797              	.LASF26:
- 1798 03ee 54494D45 		.ascii	"TIMER_SAMPLERATE_Enable\000"
+ 1798 03f1 54494D45 		.ascii	"TIMER_SAMPLERATE_Enable\000"
  1798      525F5341 
  1798      4D504C45 
  1798      52415445 

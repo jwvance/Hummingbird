@@ -119,9 +119,9 @@ enum MusicKey UpdateKeyLCD(uint16 currADC)
     enum MusicKey key = map(currADC, 0, 255, 0, 11);
     
     // Prints the string to the LCD, borrowing funciton from midi.c
-    char noteStr[3] = "   ";
+    char noteStr[4] = "   ";
     CharLCD_PosPrintString(0,11,"  ")
-    CharLCD_PosPrintString(0,11,midi_note_truename(key, noteStr));
+    CharLCD_PosPrintString(0,11,midi_note_basename(key));
     
     // Return the updated key to main
     return key;

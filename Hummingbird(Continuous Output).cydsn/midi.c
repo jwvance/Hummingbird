@@ -150,14 +150,9 @@ int scaleNatMinor[29]=
                       24,26,27,29,31,32,34,        // third octave
                       36,38,39,41,43,44,46,        // forth octave
                       48};
-#if 1
+
 int NoteSnap(double freqTable[MIDI_LEN], float freq, enum MusicKey key, enum MusicScale scale)
 {  
-    if(key<0 || key>=127){
-        return -1;
-    }
-    
-    
     int i = key;    // Scrolls through our scale to find the proper note
     int note, prevNote;       // Our output, and temporary variable for storing the current MIDI note
     float lb,up; // lower and upper bounds for computing the rounded freq
@@ -168,10 +163,6 @@ int NoteSnap(double freqTable[MIDI_LEN], float freq, enum MusicKey key, enum Mus
             return -1;
     } 
 
-    if (scale == CHROMATIC) {
-        return (float)midi_note_from_freq(freq);
-    }
-    
     // Major scale
     if(scale==MAJOR){
         while(i<50)     //cycles through all the notes in the major scale
@@ -223,45 +214,45 @@ int NoteSnap(double freqTable[MIDI_LEN], float freq, enum MusicKey key, enum Mus
                         lb= freq - freqTable[i-2];
                         up= freqTable[i] - freq;
                                if(lb<up){
-                                       return freqTable[i-2];
+                                       return i-2;
                                } 
-                               return freqTable[i];
+                               return i;
                        }
                        i=i+2;        // E
                        if(freq<freqTable[i]) {
                         lb= freq - freqTable[i-2];
                         up= freqTable[i] - freq;
                                if(lb<up){
-                                       return freqTable[i-2];
+                                       return i-2;
                                } 
-                               return freqTable[i];
+                               return i;
                        }
                        i=i+3;        //G
                        if(freq<freqTable[i]) {
                         lb= freq - freqTable[i-3];
                         up= freqTable[i] - freq;
                                if(lb<up){
-                                       return freqTable[i-3];
+                                       return i-3;
                                } 
-                               return freqTable[i];
+                               return i;
                        }
                        i=i+2;        //A
                        if(freq<freqTable[i]) {
                         lb= freq - freqTable[i-2];
                         up= freqTable[i] - freq;
                                if(lb<up){
-                                       return freqTable[i-2];
+                                       return i-2;
                                } 
-                               return freqTable[i];
+                               return i;
                        }
                        i=i+3;        // C
                        if(freq<freqTable[i]) {
                         lb= freq - freqTable[i-3];
                         up= freqTable[i] - freq;
                                if(lb<up){
-                                       return freqTable[i-3];
+                                       return i-3;
                                } 
-                               return freqTable[i];
+                               return i;
                        }
             }
     }        // end of major p
@@ -275,45 +266,45 @@ int NoteSnap(double freqTable[MIDI_LEN], float freq, enum MusicKey key, enum Mus
                         lb= freq - freqTable[i-3];
                         up= freqTable[i] - freq;
                                if(lb<up){
-                                       return freqTable[i-3];
+                                       return i-3;
                                } 
-                               return freqTable[i];
+                               return i;
                        }
                        i=i+2;        //F
                        if(freq<freqTable[i]) {
                         lb= freq - freqTable[i-2];
                         up= freqTable[i] - freq;
                                if(lb<up){
-                                       return freqTable[i-2];
+                                       return i-2;
                                } 
-                               return freqTable[i];
+                               return i;
                        }
                        i=i+2;        //G
                        if(freq<freqTable[i]) {
                         lb= freq - freqTable[i-2];
                         up= freqTable[i] - freq;
                                if(lb<up){
-                                       return freqTable[i-2];
+                                       return i-2;
                                } 
-                               return freqTable[i];
+                               return i;
                        }
                        i=i+3;        //Bb
                        if(freq<freqTable[i]) {
                         lb= freq - freqTable[i-3];
                         up= freqTable[i] - freq;
                                if(lb<up){
-                                       return freqTable[i-3];
+                                       return i-3;
                                } 
-                               return freqTable[i];
+                               return i;
                        }
                        i=i+2;        // back at C
                        if(freq<freqTable[i]) {
                         lb= freq - freqTable[i-2];
                         up= freqTable[i] - freq;
                                if(lb<up){
-                                       return freqTable[i-2];
+                                       return i-2;
                                } 
-                               return freqTable[i];
+                               return i;
                        }
             }
     }        // end of minor pentatonic scale
@@ -327,9 +318,9 @@ int NoteSnap(double freqTable[MIDI_LEN], float freq, enum MusicKey key, enum Mus
                         lb= freq - freqTable[i-2];
                         up= freqTable[i] - freq;
                                if(lb<up){
-                                       return freqTable[i-2];
+                                       return i-2;
                                } 
-                               return freqTable[i];
+                               return i;
                        }
             }
     }
@@ -343,62 +334,58 @@ int NoteSnap(double freqTable[MIDI_LEN], float freq, enum MusicKey key, enum Mus
                         lb= freq - freqTable[i-3];
                         up= freqTable[i] - freq;
                                if(lb<up){
-                                       return freqTable[i-3];
+                                       return i-3;
                                } 
-                               return freqTable[i];
+                               return i;
                        }
                        i=i+2;        //F
                        if(freq<freqTable[i]) {
                         lb= freq - freqTable[i-2];
                         up= freqTable[i] - freq;
                                if(lb<up){
-                                       return freqTable[i-2];
+                                       return i-2;
                                } 
-                               return freqTable[i];
+                               return i;
                        }
                        i++;        //Gb
                        if(freq<freqTable[i]) {
                         lb= freq - freqTable[i-1];
                         up= freqTable[i] - freq;
                                if(lb<up){
-                                       return freqTable[i-1];
+                                       return i-1;
                                } 
-                               return freqTable[i];
+                               return i;
                        }
                        i++;        //G
                        if(freq<freqTable[i]) {
                         lb= freq - freqTable[i-1];
                         up= freqTable[i] - freq;
                                if(lb<up){
-                                       return freqTable[i-1];
+                                       return i-1;
                                } 
-                               return freqTable[i];
+                               return i;
                        }
                        i=i+3;        //Bb
                        if(freq<freqTable[i]) {
                         lb= freq - freqTable[i-3];
                         up= freqTable[i] - freq;
                                if(lb<up){
-                                       return freqTable[i-3];
+                                       return i-3;
                                } 
-                               return freqTable[i];
+                               return i;
                        }
                        i=i+2;        // back at C again
                        if(freq<freqTable[i]) {
                         lb= freq - freqTable[i-2];
                         up= freqTable[i] - freq;
                                if(lb<up){
-                                       return freqTable[i-2];
+                                       return i-2;
                                } 
-                               return freqTable[i];
+                               return i;
                        }
             }
     }        // end of blues scale
     
     return -1;
 
-
-
-
-}        // end of FrequencyMap
-#endif
+}        // end of NoteSnap

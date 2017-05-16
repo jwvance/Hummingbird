@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
   30:fft.c         **** // Private function prototypes
   31:fft.c         **** static size_t reverse_bits(size_t x, unsigned int n);
   32:fft.c         **** static void *memdup(const void *src, size_t n);
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 2
 
 
   33:fft.c         **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
   87:fft.c         **** 	// Bit-reversed addressing permutation
   88:fft.c         **** 	for (i = 0; i < n; i++) {
   89:fft.c         **** 		size_t j = reverse_bits(i, levels);
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 3
 
 
   90:fft.c         **** 		if (j > i) {
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  144:fft.c         **** 		}
  145:fft.c         **** 	}
  146:fft.c         **** 	
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 4
 
 
  147:fft.c         **** 	// Allocate memory
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  201:fft.c         **** 	float *ximag, *yimag, *zimag;
  202:fft.c         **** 	bool status = false;
  203:fft.c         **** 	ximag = calloc(n, sizeof(float));
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 5
 
 
  204:fft.c         **** 	yimag = calloc(n, sizeof(float));
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  258:fft.c         **** static size_t reverse_bits(size_t x, unsigned int n) {
  259:fft.c         **** 	size_t result = 0;
  260:fft.c         **** 	unsigned int i;
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 6
 
 
  261:fft.c         **** 	for (i = 0; i < n; i++, x >>= 1)
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
   68              		.align	2
   69              		.global	fft_init
   70              		.thumb
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 7
 
 
   71              		.thumb_func
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  119              	.LVL11:
  120 002a 11A3     		adr	r3, .L17
  121 002c D3E90023 		ldrd	r2, [r3]
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 8
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 8
 
 
  122 0030 FFF7FEFF 		bl	__aeabi_dmul
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  169              		.cfi_restore 14
   39:fft.c         **** 	int i;
  170              		.loc 1 39 0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 9
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 9
 
 
  171 0068 0020     		movs	r0, #0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  222              	.L21:
   81:fft.c         **** 		}
  223              		.loc 1 81 0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 10
 
 
  224 0012 6408     		lsrs	r4, r4, #1
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  269              	.LBE19:
  270              	.LBB20:
  271              	.LBB21:
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 11
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 11
 
 
  272              	.LBB22:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  314              		.loc 1 96 0
  315 0078 41F82640 		str	r4, [r1, r6, lsl #2]	@ float
  316              	.LVL40:
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 12
 
 
  317              	.L25:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  364              	.L30:
  365 00c0 079B     		ldr	r3, [sp, #28]
  366 00c2 0B9A     		ldr	r2, [sp, #44]
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 13
 
 
  367 00c4 9A18     		adds	r2, r3, r2
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  416 0120 8146     		mov	r9, r0
  417              	.LVL53:
  109:fft.c         **** 				real[j + halfsize] = real[j] - tpre;
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 14
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 14
 
 
  418              		.loc 1 109 0 discriminator 3
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  465 0170 1946     		mov	r1, r3
  466 0172 009B     		ldr	r3, [sp]
  467 0174 0132     		adds	r2, r2, #1
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 15
 
 
  468              	.LVL64:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  515              		.cfi_def_cfa_offset 36
  516              		@ sp needed
  517 01ae BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 16
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 16
 
 
  518              		.cfi_endproc
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  566              		.loc 1 142 0
  567 0020 BEF1010E 		subs	lr, lr, #1
  568 0024 0CD0     		beq	.L98
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 17
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 17
 
 
  569              	.LVL76:
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  616 004c 0F46     		mov	r7, r1
  617 004e 0646     		mov	r6, r0
  152:fft.c         **** 	aimag = calloc(m, sizeof(float));
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 18
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 18
 
 
  618              		.loc 1 152 0
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  662              	.LVL97:
  663 0080 FFF7FEFF 		bl	malloc
  664              	.LVL98:
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 19
 
 
  665 0084 1190     		str	r0, [sp, #68]
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  708 00c6 129A     		ldr	r2, [sp, #72]
  709 00c8 002A     		cmp	r2, #0
  710 00ca 00F0D680 		beq	.L51
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 20
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 20
 
 
  711              	.LVL106:
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  761              		.loc 1 167 0 discriminator 3
  762 012e 04F10041 		add	r1, r4, #-2147483648
  166:fft.c         **** 		aimag[i] = -real[i] * sin_table[i] + imag[i] * cos_table[i];
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 21
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 21
 
 
  763              		.loc 1 166 0 discriminator 3
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  805              		.loc 1 170 0
  806 0170 1360     		str	r3, [r2]	@ float
  807              	.LVL118:
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 22
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 22
 
 
  171:fft.c         **** 		breal[i] = breal[m - i] = cos_table[i];
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  853 01bc 0B9B     		ldr	r3, [sp, #44]
  854 01be 0C9A     		ldr	r2, [sp, #48]
  855 01c0 0393     		str	r3, [sp, #12]
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 23
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 23
 
 
  856 01c2 0D9B     		ldr	r3, [sp, #52]
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  905 0220 FFF7FEFF 		bl	__aeabi_fmul
  906              	.LVL129:
  907 0224 57F8041B 		ldr	r1, [r7], #4	@ float
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 24
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 24
 
 
  908 0228 0446     		mov	r4, r0
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  954 025a 0494     		str	r4, [sp, #16]
  955 025c 129B     		ldr	r3, [sp, #72]
  956 025e 0C9C     		ldr	r4, [sp, #48]
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 25
 
 
  957 0260 0193     		str	r3, [sp, #4]
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1002              		.loc 1 193 0
  1003 0294 1098     		ldr	r0, [sp, #64]
  1004 0296 FFF7FEFF 		bl	free
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 26
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 26
 
 
  1005              	.LVL147:
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1050              		.cfi_startproc
  1051              		@ args = 4, pretend = 0, frame = 0
  1052              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 27
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 27
 
 
  1053              		@ link register save eliminated.
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1099              		.loc 1 51 0
  1100              		.cfi_startproc
  1101              		@ args = 4, pretend = 0, frame = 0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 28
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 28
 
 
  1102              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1151 0002 029C     		ldr	r4, [sp, #8]
  1152              	.LVL163:
  1153              	.LBB40:
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 29
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 29
 
 
  1154              	.LBB41:
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1205              		.loc 1 218 0
  1206              		.cfi_startproc
  1207              		@ args = 20, pretend = 0, frame = 32
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 30
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 30
 
 
  1208              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1251 0020 2146     		mov	r1, r4
  227:fft.c         **** 	yr = memdup(yreal, size);
  1252              		.loc 1 227 0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 31
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 31
 
 
  1253 0022 0646     		mov	r6, r0
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1298              		.loc 1 252 0
  1299 0058 3846     		mov	r0, r7
  1300 005a FFF7FEFF 		bl	free
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 32
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 32
 
 
  1301              	.LVL191:
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1350              	.L116:
  1351              	.LBB46:
  238:fft.c         **** 		xi[i] = xi[i] * yr[i] + xr[i] * yi[i];
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 33
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 33
 
 
  1352              		.loc 1 238 0
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1398              	.LBE46:
  237:fft.c         **** 		float temp = xr[i] * yr[i] - xi[i] * yi[i];
  1399              		.loc 1 237 0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 34
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 34
 
 
  1400 00f8 189B     		ldr	r3, [sp, #96]
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  246:fft.c         **** 	}
  1450              		.loc 1 246 0
  1451 0154 5AF8040F 		ldr	r0, [r10, #4]!	@ float
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 35
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 35
 
 
  1452 0158 5946     		mov	r1, fp
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1500              		.cfi_offset 4, -36
  1501              		.cfi_offset 5, -32
  1502              		.cfi_offset 6, -28
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 36
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 36
 
 
  1503              		.cfi_offset 7, -24
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1547              	.LVL229:
  206:fft.c         **** 		goto cleanup;
  1548              		.loc 1 206 0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 37
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 37
 
 
  1549 002e 15B3     		cbz	r5, .L146
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1595 0062 CDF808A0 		str	r10, [sp, #8]
  1596 0066 4846     		mov	r0, r9
  1597              	.LVL236:
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 38
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 38
 
 
  1598 0068 4246     		mov	r2, r8
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  256:fft.c         **** 
  1648              		.loc 1 256 0
  1649 000e 0020     		movs	r0, #0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 39
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 39
 
 
  1650              	.LVL241:
@@ -2310,95 +2310,95 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1676 0006 00000000 		.4byte	.Ldebug_abbrev0
  1677 000a 04       		.byte	0x4
  1678 000b 01       		.uleb128 0x1
- 1679 000c 6A010000 		.4byte	.LASF55
+ 1679 000c 6D010000 		.4byte	.LASF55
  1680 0010 01       		.byte	0x1
- 1681 0011 51020000 		.4byte	.LASF56
- 1682 0015 00000000 		.4byte	.LASF57
+ 1681 0011 54020000 		.4byte	.LASF56
+ 1682 0015 78000000 		.4byte	.LASF57
  1683 0019 D0000000 		.4byte	.Ldebug_ranges0+0xd0
  1684 001d 00000000 		.4byte	0
  1685 0021 00000000 		.4byte	.Ldebug_line0
  1686 0025 02       		.uleb128 0x2
  1687 0026 04       		.byte	0x4
  1688 0027 04       		.byte	0x4
- 1689 0028 4B020000 		.4byte	.LASF0
+ 1689 0028 4E020000 		.4byte	.LASF0
  1690 002c 03       		.uleb128 0x3
  1691 002d 04       		.byte	0x4
  1692 002e 05       		.byte	0x5
  1693 002f 696E7400 		.ascii	"int\000"
  1694 0033 04       		.uleb128 0x4
- 1695 0034 5D000000 		.4byte	.LASF58
+ 1695 0034 15000000 		.4byte	.LASF58
  1696 0038 04       		.byte	0x4
  1697 0039 D4       		.byte	0xd4
  1698 003a 3E000000 		.4byte	0x3e
  1699 003e 02       		.uleb128 0x2
  1700 003f 04       		.byte	0x4
  1701 0040 07       		.byte	0x7
- 1702 0041 0C010000 		.4byte	.LASF1
+ 1702 0041 08010000 		.4byte	.LASF1
  1703 0045 02       		.uleb128 0x2
  1704 0046 01       		.byte	0x1
  1705 0047 06       		.byte	0x6
- 1706 0048 B4000000 		.4byte	.LASF2
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 40
+ 1706 0048 6C000000 		.4byte	.LASF2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 40
 
 
  1707 004c 02       		.uleb128 0x2
  1708 004d 01       		.byte	0x1
  1709 004e 08       		.byte	0x8
- 1710 004f 6E020000 		.4byte	.LASF3
+ 1710 004f 71020000 		.4byte	.LASF3
  1711 0053 02       		.uleb128 0x2
  1712 0054 02       		.byte	0x2
  1713 0055 05       		.byte	0x5
- 1714 0056 7C020000 		.4byte	.LASF4
+ 1714 0056 7F020000 		.4byte	.LASF4
  1715 005a 02       		.uleb128 0x2
  1716 005b 02       		.byte	0x2
  1717 005c 07       		.byte	0x7
- 1718 005d 3C010000 		.4byte	.LASF5
+ 1718 005d 38010000 		.4byte	.LASF5
  1719 0061 02       		.uleb128 0x2
  1720 0062 04       		.byte	0x4
  1721 0063 05       		.byte	0x5
- 1722 0064 CC000000 		.4byte	.LASF6
+ 1722 0064 C8000000 		.4byte	.LASF6
  1723 0068 02       		.uleb128 0x2
  1724 0069 04       		.byte	0x4
  1725 006a 07       		.byte	0x7
- 1726 006b 1F010000 		.4byte	.LASF7
+ 1726 006b 1B010000 		.4byte	.LASF7
  1727 006f 02       		.uleb128 0x2
  1728 0070 08       		.byte	0x8
  1729 0071 05       		.byte	0x5
- 1730 0072 A6000000 		.4byte	.LASF8
+ 1730 0072 5E000000 		.4byte	.LASF8
  1731 0076 02       		.uleb128 0x2
  1732 0077 08       		.byte	0x8
  1733 0078 07       		.byte	0x7
- 1734 0079 64000000 		.4byte	.LASF9
+ 1734 0079 1C000000 		.4byte	.LASF9
  1735 007d 02       		.uleb128 0x2
  1736 007e 04       		.byte	0x4
  1737 007f 07       		.byte	0x7
- 1738 0080 01020000 		.4byte	.LASF10
+ 1738 0080 04020000 		.4byte	.LASF10
  1739 0084 05       		.uleb128 0x5
  1740 0085 04       		.byte	0x4
  1741 0086 02       		.uleb128 0x2
  1742 0087 01       		.byte	0x1
  1743 0088 08       		.byte	0x8
- 1744 0089 93020000 		.4byte	.LASF11
+ 1744 0089 96020000 		.4byte	.LASF11
  1745 008d 02       		.uleb128 0x2
  1746 008e 08       		.byte	0x8
  1747 008f 04       		.byte	0x4
- 1748 0090 F3000000 		.4byte	.LASF12
+ 1748 0090 EF000000 		.4byte	.LASF12
  1749 0094 02       		.uleb128 0x2
  1750 0095 08       		.byte	0x8
  1751 0096 04       		.byte	0x4
- 1752 0097 10020000 		.4byte	.LASF13
+ 1752 0097 13020000 		.4byte	.LASF13
  1753 009b 06       		.uleb128 0x6
  1754 009c 04       		.byte	0x4
  1755 009d A1000000 		.4byte	0xa1
  1756 00a1 07       		.uleb128 0x7
  1757 00a2 08       		.uleb128 0x8
- 1758 00a3 FA000000 		.4byte	.LASF59
+ 1758 00a3 F6000000 		.4byte	.LASF59
  1759 00a7 01       		.byte	0x1
  1760 00a8 0201     		.2byte	0x102
  1761 00aa 33000000 		.4byte	0x33
  1762 00ae 01       		.byte	0x1
  1763 00af DE000000 		.4byte	0xde
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 41
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 41
 
 
  1764 00b3 09       		.uleb128 0x9
@@ -2412,7 +2412,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1772 00c1 0201     		.2byte	0x102
  1773 00c3 3E000000 		.4byte	0x3e
  1774 00c7 0A       		.uleb128 0xa
- 1775 00c8 F2020000 		.4byte	.LASF14
+ 1775 00c8 F5020000 		.4byte	.LASF14
  1776 00cc 01       		.byte	0x1
  1777 00cd 0301     		.2byte	0x103
  1778 00cf 33000000 		.4byte	0x33
@@ -2423,52 +2423,52 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1783 00d9 3E000000 		.4byte	0x3e
  1784 00dd 00       		.byte	0
  1785 00de 0C       		.uleb128 0xc
- 1786 00df DB020000 		.4byte	.LASF27
+ 1786 00df DE020000 		.4byte	.LASF27
  1787 00e3 01       		.byte	0x1
  1788 00e4 DA       		.byte	0xda
  1789 00e5 AB010000 		.4byte	0x1ab
  1790 00e9 01       		.byte	0x1
  1791 00ea AB010000 		.4byte	0x1ab
  1792 00ee 0D       		.uleb128 0xd
- 1793 00ef 19010000 		.4byte	.LASF15
+ 1793 00ef 15010000 		.4byte	.LASF15
  1794 00f3 01       		.byte	0x1
  1795 00f4 DA       		.byte	0xda
  1796 00f5 B2010000 		.4byte	0x1b2
  1797 00f9 0D       		.uleb128 0xd
- 1798 00fa BA020000 		.4byte	.LASF16
+ 1798 00fa BD020000 		.4byte	.LASF16
  1799 00fe 01       		.byte	0x1
  1800 00ff DA       		.byte	0xda
  1801 0100 B2010000 		.4byte	0x1b2
  1802 0104 0D       		.uleb128 0xd
- 1803 0105 EC020000 		.4byte	.LASF17
+ 1803 0105 EF020000 		.4byte	.LASF17
  1804 0109 01       		.byte	0x1
  1805 010a DA       		.byte	0xda
  1806 010b B2010000 		.4byte	0x1b2
  1807 010f 0D       		.uleb128 0xd
- 1808 0110 0A020000 		.4byte	.LASF18
+ 1808 0110 0D020000 		.4byte	.LASF18
  1809 0114 01       		.byte	0x1
  1810 0115 DA       		.byte	0xda
  1811 0116 B2010000 		.4byte	0x1b2
  1812 011a 0D       		.uleb128 0xd
- 1813 011b 43020000 		.4byte	.LASF19
+ 1813 011b 46020000 		.4byte	.LASF19
  1814 011f 01       		.byte	0x1
  1815 0120 DA       		.byte	0xda
  1816 0121 BD010000 		.4byte	0x1bd
  1817 0125 0D       		.uleb128 0xd
- 1818 0126 8F000000 		.4byte	.LASF20
+ 1818 0126 47000000 		.4byte	.LASF20
  1819 012a 01       		.byte	0x1
  1820 012b DA       		.byte	0xda
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 42
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 42
 
 
  1821 012c BD010000 		.4byte	0x1bd
  1822 0130 0D       		.uleb128 0xd
- 1823 0131 E2000000 		.4byte	.LASF21
+ 1823 0131 DE000000 		.4byte	.LASF21
  1824 0135 01       		.byte	0x1
  1825 0136 DA       		.byte	0xda
  1826 0137 BD010000 		.4byte	0x1bd
  1827 013b 0D       		.uleb128 0xd
- 1828 013c 1C020000 		.4byte	.LASF22
+ 1828 013c 1F020000 		.4byte	.LASF22
  1829 0140 01       		.byte	0x1
  1830 0141 DA       		.byte	0xda
  1831 0142 BD010000 		.4byte	0x1bd
@@ -2478,12 +2478,12 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1835 014a DA       		.byte	0xda
  1836 014b 33000000 		.4byte	0x33
  1837 014f 0F       		.uleb128 0xf
- 1838 0150 C0000000 		.4byte	.LASF23
+ 1838 0150 4B010000 		.4byte	.LASF23
  1839 0154 01       		.byte	0x1
  1840 0155 DB       		.byte	0xdb
  1841 0156 AB010000 		.4byte	0x1ab
  1842 015a 0F       		.uleb128 0xf
- 1843 015b 37010000 		.4byte	.LASF24
+ 1843 015b 33010000 		.4byte	.LASF24
  1844 015f 01       		.byte	0x1
  1845 0160 DC       		.byte	0xdc
  1846 0161 33000000 		.4byte	0x33
@@ -2513,15 +2513,15 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1870 0191 DE       		.byte	0xde
  1871 0192 BD010000 		.4byte	0x1bd
  1872 0196 11       		.uleb128 0x11
- 1873 0197 30020000 		.4byte	.LASF52
+ 1873 0197 33020000 		.4byte	.LASF52
  1874 019b 01       		.byte	0x1
  1875 019c FA       		.byte	0xfa
  1876 019d 12       		.uleb128 0x12
  1877 019e 0F       		.uleb128 0xf
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 43
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 43
 
 
- 1878 019f 07010000 		.4byte	.LASF25
+ 1878 019f 03010000 		.4byte	.LASF25
  1879 01a3 01       		.byte	0x1
  1880 01a4 EE       		.byte	0xee
  1881 01a5 25000000 		.4byte	0x25
@@ -2530,7 +2530,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1884 01ab 02       		.uleb128 0x2
  1885 01ac 01       		.byte	0x1
  1886 01ad 02       		.byte	0x2
- 1887 01ae 57020000 		.4byte	.LASF26
+ 1887 01ae 5A020000 		.4byte	.LASF26
  1888 01b2 06       		.uleb128 0x6
  1889 01b3 04       		.byte	0x4
  1890 01b4 B8010000 		.4byte	0x1b8
@@ -2540,29 +2540,29 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1894 01be 04       		.byte	0x4
  1895 01bf 25000000 		.4byte	0x25
  1896 01c3 0C       		.uleb128 0xc
- 1897 01c4 C7020000 		.4byte	.LASF28
+ 1897 01c4 CA020000 		.4byte	.LASF28
  1898 01c8 01       		.byte	0x1
  1899 01c9 32       		.byte	0x32
  1900 01ca AB010000 		.4byte	0x1ab
  1901 01ce 01       		.byte	0x1
  1902 01cf 09020000 		.4byte	0x209
  1903 01d3 0D       		.uleb128 0xd
- 1904 01d4 D1020000 		.4byte	.LASF29
+ 1904 01d4 D4020000 		.4byte	.LASF29
  1905 01d8 01       		.byte	0x1
  1906 01d9 32       		.byte	0x32
  1907 01da BD010000 		.4byte	0x1bd
  1908 01de 0D       		.uleb128 0xd
- 1909 01df C7000000 		.4byte	.LASF30
+ 1909 01df C3000000 		.4byte	.LASF30
  1910 01e3 01       		.byte	0x1
  1911 01e4 32       		.byte	0x32
  1912 01e5 BD010000 		.4byte	0x1bd
  1913 01e9 0D       		.uleb128 0xd
- 1914 01ea E2000000 		.4byte	.LASF21
+ 1914 01ea DE000000 		.4byte	.LASF21
  1915 01ee 01       		.byte	0x1
  1916 01ef 32       		.byte	0x32
  1917 01f0 BD010000 		.4byte	0x1bd
  1918 01f4 0D       		.uleb128 0xd
- 1919 01f5 1C020000 		.4byte	.LASF22
+ 1919 01f5 1F020000 		.4byte	.LASF22
  1920 01f9 01       		.byte	0x1
  1921 01fa 33       		.byte	0x33
  1922 01fb BD010000 		.4byte	0x1bd
@@ -2573,12 +2573,12 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1927 0204 33000000 		.4byte	0x33
  1928 0208 00       		.byte	0
  1929 0209 14       		.uleb128 0x14
- 1930 020a 86020000 		.4byte	.LASF60
+ 1930 020a 89020000 		.4byte	.LASF60
  1931 020e 01       		.byte	0x1
  1932 020f 0A01     		.2byte	0x10a
  1933 0211 84000000 		.4byte	0x84
  1934 0215 00000000 		.4byte	.LFB8
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 44
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 44
 
 
  1935 0219 1C000000 		.4byte	.LFE8-.LFB8
@@ -2598,7 +2598,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1949 0239 33000000 		.4byte	0x33
  1950 023d 1E000000 		.4byte	.LLST1
  1951 0241 16       		.uleb128 0x16
- 1952 0242 38020000 		.4byte	.LASF31
+ 1952 0242 3B020000 		.4byte	.LASF31
  1953 0246 01       		.byte	0x1
  1954 0247 0B01     		.2byte	0x10b
  1955 0249 84000000 		.4byte	0x84
@@ -2638,10 +2638,10 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1989 0280 00       		.byte	0
  1990 0281 00       		.byte	0
  1991 0282 1A       		.uleb128 0x1a
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 45
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 45
 
 
- 1992 0283 F8010000 		.4byte	.LASF32
+ 1992 0283 FB010000 		.4byte	.LASF32
  1993 0287 01       		.byte	0x1
  1994 0288 24       		.byte	0x24
  1995 0289 AB010000 		.4byte	0x1ab
@@ -2651,13 +2651,13 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  1999 0296 9C       		.byte	0x9c
  2000 0297 E6020000 		.4byte	0x2e6
  2001 029b 1B       		.uleb128 0x1b
- 2002 029c E2000000 		.4byte	.LASF21
+ 2002 029c DE000000 		.4byte	.LASF21
  2003 02a0 01       		.byte	0x1
  2004 02a1 24       		.byte	0x24
  2005 02a2 BD010000 		.4byte	0x1bd
  2006 02a6 5A000000 		.4byte	.LLST3
  2007 02aa 1B       		.uleb128 0x1b
- 2008 02ab 1C020000 		.4byte	.LASF22
+ 2008 02ab 1F020000 		.4byte	.LASF22
  2009 02af 01       		.byte	0x1
  2010 02b0 24       		.byte	0x24
  2011 02b1 BD010000 		.4byte	0x1bd
@@ -2682,7 +2682,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2030 02e1 AA0E0000 		.4byte	0xeaa
  2031 02e5 00       		.byte	0
  2032 02e6 1A       		.uleb128 0x1a
- 2033 02e7 5D020000 		.4byte	.LASF33
+ 2033 02e7 60020000 		.4byte	.LASF33
  2034 02eb 01       		.byte	0x1
  2035 02ec 43       		.byte	0x43
  2036 02ed AB010000 		.4byte	0x1ab
@@ -2692,28 +2692,28 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2040 02fa 9C       		.byte	0x9c
  2041 02fb 79040000 		.4byte	0x479
  2042 02ff 1B       		.uleb128 0x1b
- 2043 0300 D1020000 		.4byte	.LASF29
+ 2043 0300 D4020000 		.4byte	.LASF29
  2044 0304 01       		.byte	0x1
  2045 0305 43       		.byte	0x43
  2046 0306 BD010000 		.4byte	0x1bd
  2047 030a 3B010000 		.4byte	.LLST7
  2048 030e 1B       		.uleb128 0x1b
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 46
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 46
 
 
- 2049 030f C7000000 		.4byte	.LASF30
+ 2049 030f C3000000 		.4byte	.LASF30
  2050 0313 01       		.byte	0x1
  2051 0314 43       		.byte	0x43
  2052 0315 BD010000 		.4byte	0x1bd
  2053 0319 81010000 		.4byte	.LLST8
  2054 031d 1B       		.uleb128 0x1b
- 2055 031e E2000000 		.4byte	.LASF21
+ 2055 031e DE000000 		.4byte	.LASF21
  2056 0322 01       		.byte	0x1
  2057 0323 43       		.byte	0x43
  2058 0324 BD010000 		.4byte	0x1bd
  2059 0328 AE010000 		.4byte	.LLST9
  2060 032c 1B       		.uleb128 0x1b
- 2061 032d 1C020000 		.4byte	.LASF22
+ 2061 032d 1F020000 		.4byte	.LASF22
  2062 0331 01       		.byte	0x1
  2063 0332 44       		.byte	0x44
  2064 0333 BD010000 		.4byte	0x1bd
@@ -2725,19 +2725,19 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2070 0340 33000000 		.4byte	0x33
  2071 0344 2B020000 		.4byte	.LLST11
  2072 0348 1F       		.uleb128 0x1f
- 2073 0349 C0000000 		.4byte	.LASF23
+ 2073 0349 4B010000 		.4byte	.LASF23
  2074 034d 01       		.byte	0x1
  2075 034e 46       		.byte	0x46
  2076 034f AB010000 		.4byte	0x1ab
  2077 0353 00       		.byte	0
  2078 0354 20       		.uleb128 0x20
- 2079 0355 D5000000 		.4byte	.LASF34
+ 2079 0355 D1000000 		.4byte	.LASF34
  2080 0359 01       		.byte	0x1
  2081 035a 47       		.byte	0x47
  2082 035b 3E000000 		.4byte	0x3e
  2083 035f 4B020000 		.4byte	.LLST12
  2084 0363 20       		.uleb128 0x20
- 2085 0364 37010000 		.4byte	.LASF24
+ 2085 0364 33010000 		.4byte	.LASF24
  2086 0368 01       		.byte	0x1
  2087 0369 48       		.byte	0x48
  2088 036a 33000000 		.4byte	0x33
@@ -2752,13 +2752,13 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2097 0380 00000000 		.4byte	.Ldebug_ranges0+0
  2098 0384 98030000 		.4byte	0x398
  2099 0388 20       		.uleb128 0x20
- 2100 0389 07010000 		.4byte	.LASF25
+ 2100 0389 03010000 		.4byte	.LASF25
  2101 038d 01       		.byte	0x1
  2102 038e 4D       		.byte	0x4d
  2103 038f 33000000 		.4byte	0x33
  2104 0393 F2020000 		.4byte	.LLST15
  2105 0397 00       		.byte	0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 47
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 47
 
 
  2106 0398 22       		.uleb128 0x22
@@ -2799,7 +2799,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2141 03ef 5C000000 		.4byte	.LBB23
  2142 03f3 20000000 		.4byte	.LBE23-.LBB23
  2143 03f7 20       		.uleb128 0x20
- 2144 03f8 07010000 		.4byte	.LASF25
+ 2144 03f8 03010000 		.4byte	.LASF25
  2145 03fc 01       		.byte	0x1
  2146 03fd 5B       		.byte	0x5b
  2147 03fe 25000000 		.4byte	0x25
@@ -2810,15 +2810,15 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2152 0409 A2000000 		.4byte	.LBB24
  2153 040d FE000000 		.4byte	.LBE24-.LBB24
  2154 0411 20       		.uleb128 0x20
- 2155 0412 9D000000 		.4byte	.LASF35
+ 2155 0412 55000000 		.4byte	.LASF35
  2156 0416 01       		.byte	0x1
  2157 0417 66       		.byte	0x66
  2158 0418 33000000 		.4byte	0x33
  2159 041c AD030000 		.4byte	.LLST20
  2160 0420 20       		.uleb128 0x20
- 2161 0421 26020000 		.4byte	.LASF36
+ 2161 0421 29020000 		.4byte	.LASF36
  2162 0425 01       		.byte	0x1
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 48
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 48
 
 
  2163 0426 67       		.byte	0x67
@@ -2842,13 +2842,13 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2181 0452 29       		.uleb128 0x29
  2182 0453 18000000 		.4byte	.Ldebug_ranges0+0x18
  2183 0457 20       		.uleb128 0x20
- 2184 0458 D6020000 		.4byte	.LASF37
+ 2184 0458 D9020000 		.4byte	.LASF37
  2185 045c 01       		.byte	0x1
  2186 045d 6C       		.byte	0x6c
  2187 045e 25000000 		.4byte	0x25
  2188 0462 4F040000 		.4byte	.LLST24
  2189 0466 20       		.uleb128 0x20
- 2190 0467 AA020000 		.4byte	.LASF38
+ 2190 0467 AD020000 		.4byte	.LASF38
  2191 046b 01       		.byte	0x1
  2192 046c 6D       		.byte	0x6d
  2193 046d 25000000 		.4byte	0x25
@@ -2858,7 +2858,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2197 0477 00       		.byte	0
  2198 0478 00       		.byte	0
  2199 0479 1A       		.uleb128 0x1a
- 2200 047a 56010000 		.4byte	.LASF39
+ 2200 047a 59010000 		.4byte	.LASF39
  2201 047e 01       		.byte	0x1
  2202 047f 7C       		.byte	0x7c
  2203 0480 AB010000 		.4byte	0x1ab
@@ -2868,28 +2868,28 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2207 048d 9C       		.byte	0x9c
  2208 048e E8070000 		.4byte	0x7e8
  2209 0492 1B       		.uleb128 0x1b
- 2210 0493 D1020000 		.4byte	.LASF29
+ 2210 0493 D4020000 		.4byte	.LASF29
  2211 0497 01       		.byte	0x1
  2212 0498 7C       		.byte	0x7c
  2213 0499 BD010000 		.4byte	0x1bd
  2214 049d 8B040000 		.4byte	.LLST26
  2215 04a1 1B       		.uleb128 0x1b
- 2216 04a2 C7000000 		.4byte	.LASF30
+ 2216 04a2 C3000000 		.4byte	.LASF30
  2217 04a6 01       		.byte	0x1
  2218 04a7 7C       		.byte	0x7c
  2219 04a8 BD010000 		.4byte	0x1bd
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 49
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 49
 
 
  2220 04ac 2A050000 		.4byte	.LLST27
  2221 04b0 1B       		.uleb128 0x1b
- 2222 04b1 E2000000 		.4byte	.LASF21
+ 2222 04b1 DE000000 		.4byte	.LASF21
  2223 04b5 01       		.byte	0x1
  2224 04b6 7C       		.byte	0x7c
  2225 04b7 BD010000 		.4byte	0x1bd
  2226 04bb 8A050000 		.4byte	.LLST28
  2227 04bf 1B       		.uleb128 0x1b
- 2228 04c0 1C020000 		.4byte	.LASF22
+ 2228 04c0 1F020000 		.4byte	.LASF22
  2229 04c4 01       		.byte	0x1
  2230 04c5 7D       		.byte	0x7d
  2231 04c6 BD010000 		.4byte	0x1bd
@@ -2901,44 +2901,44 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2237 04d3 33000000 		.4byte	0x33
  2238 04d7 19060000 		.4byte	.LLST30
  2239 04db 20       		.uleb128 0x20
- 2240 04dc C0000000 		.4byte	.LASF23
+ 2240 04dc 4B010000 		.4byte	.LASF23
  2241 04e0 01       		.byte	0x1
  2242 04e1 7F       		.byte	0x7f
  2243 04e2 AB010000 		.4byte	0x1ab
  2244 04e6 39060000 		.4byte	.LLST31
  2245 04ea 20       		.uleb128 0x20
- 2246 04eb 3D020000 		.4byte	.LASF40
+ 2246 04eb 40020000 		.4byte	.LASF40
  2247 04ef 01       		.byte	0x1
  2248 04f0 80       		.byte	0x80
  2249 04f1 BD010000 		.4byte	0x1bd
  2250 04f5 64060000 		.4byte	.LLST32
  2251 04f9 20       		.uleb128 0x20
- 2252 04fa 89000000 		.4byte	.LASF41
+ 2252 04fa 41000000 		.4byte	.LASF41
  2253 04fe 01       		.byte	0x1
  2254 04ff 80       		.byte	0x80
  2255 0500 BD010000 		.4byte	0x1bd
  2256 0504 84060000 		.4byte	.LLST33
  2257 0508 20       		.uleb128 0x20
- 2258 0509 DC000000 		.4byte	.LASF42
+ 2258 0509 D8000000 		.4byte	.LASF42
  2259 050d 01       		.byte	0x1
  2260 050e 81       		.byte	0x81
  2261 050f BD010000 		.4byte	0x1bd
  2262 0513 A3060000 		.4byte	.LLST34
  2263 0517 20       		.uleb128 0x20
- 2264 0518 8D020000 		.4byte	.LASF43
+ 2264 0518 90020000 		.4byte	.LASF43
  2265 051c 01       		.byte	0x1
  2266 051d 81       		.byte	0x81
  2267 051e BD010000 		.4byte	0x1bd
  2268 0522 C3060000 		.4byte	.LLST35
  2269 0526 20       		.uleb128 0x20
- 2270 0527 B4020000 		.4byte	.LASF44
+ 2270 0527 B7020000 		.4byte	.LASF44
  2271 052b 01       		.byte	0x1
  2272 052c 82       		.byte	0x82
  2273 052d BD010000 		.4byte	0x1bd
  2274 0531 E3060000 		.4byte	.LLST36
  2275 0535 20       		.uleb128 0x20
- 2276 0536 31010000 		.4byte	.LASF45
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 50
+ 2276 0536 2D010000 		.4byte	.LASF45
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 50
 
 
  2277 053a 01       		.byte	0x1
@@ -2952,13 +2952,13 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2285 0549 33000000 		.4byte	0x33
  2286 054d 38070000 		.4byte	.LLST38
  2287 0551 20       		.uleb128 0x20
- 2288 0552 56000000 		.4byte	.LASF46
+ 2288 0552 0E000000 		.4byte	.LASF46
  2289 0556 01       		.byte	0x1
  2290 0557 84       		.byte	0x84
  2291 0558 33000000 		.4byte	0x33
  2292 055c 6E070000 		.4byte	.LLST39
  2293 0560 20       		.uleb128 0x20
- 2294 0561 4F000000 		.4byte	.LASF47
+ 2294 0561 07000000 		.4byte	.LASF47
  2295 0565 01       		.byte	0x1
  2296 0566 84       		.byte	0x84
  2297 0567 33000000 		.4byte	0x33
@@ -2970,7 +2970,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2303 0574 33000000 		.4byte	0x33
  2304 0578 D2070000 		.4byte	.LLST41
  2305 057c 2A       		.uleb128 0x2a
- 2306 057d 30020000 		.4byte	.LASF52
+ 2306 057d 33020000 		.4byte	.LASF52
  2307 0581 01       		.byte	0x1
  2308 0582 BC       		.byte	0xbc
  2309 0583 7C020000 		.4byte	.L50
@@ -2978,7 +2978,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2311 0588 30000000 		.4byte	.Ldebug_ranges0+0x30
  2312 058c A0050000 		.4byte	0x5a0
  2313 0590 20       		.uleb128 0x20
- 2314 0591 4F010000 		.4byte	.LASF48
+ 2314 0591 52010000 		.4byte	.LASF48
  2315 0595 01       		.byte	0x1
  2316 0596 89       		.byte	0x89
  2317 0597 33000000 		.4byte	0x33
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2331 05bd 3B010000 		.4byte	0x13b
  2332 05c1 D2080000 		.4byte	.LLST44
  2333 05c5 26       		.uleb128 0x26
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 51
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 51
 
 
  2334 05c6 30010000 		.4byte	0x130
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2388 064e 91       		.byte	0x91
  2389 064f B07F     		.sleb128 -80
  2390 0651 06       		.byte	0x6
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 52
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 52
 
 
  2391 0652 18       		.uleb128 0x18
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2445 068b 19       		.uleb128 0x19
  2446 068c 76020000 		.4byte	.LVL140
  2447 0690 83090000 		.4byte	0x983
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 53
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 53
 
 
  2448 0694 18       		.uleb128 0x18
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2502 06dd 18       		.uleb128 0x18
  2503 06de 01       		.uleb128 0x1
  2504 06df 50       		.byte	0x50
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 54
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 54
 
 
  2505 06e0 02       		.uleb128 0x2
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2559 073a 02       		.uleb128 0x2
  2560 073b 78       		.byte	0x78
  2561 073c 00       		.sleb128 0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 55
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 55
 
 
  2562 073d 00       		.byte	0
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2616 07a2 01       		.uleb128 0x1
  2617 07a3 50       		.byte	0x50
  2618 07a4 03       		.uleb128 0x3
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 56
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 56
 
 
  2619 07a5 91       		.byte	0x91
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2673 080e E9010000 		.4byte	0x1e9
  2674 0812 980A0000 		.4byte	.LLST55
  2675 0816 26       		.uleb128 0x26
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 57
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 57
 
 
  2676 0817 F4010000 		.4byte	0x1f4
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2730 087d 720B0000 		.4byte	.LLST59
  2731 0881 26       		.uleb128 0x26
  2732 0882 E9010000 		.4byte	0x1e9
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 58
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 58
 
 
  2733 0886 9E0B0000 		.4byte	.LLST60
@@ -3470,7 +3470,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2779 08c9 00       		.byte	0
  2780 08ca 00       		.byte	0
  2781 08cb 32       		.uleb128 0x32
- 2782 08cc 98020000 		.4byte	.LASF49
+ 2782 08cc 9B020000 		.4byte	.LASF49
  2783 08d0 01       		.byte	0x1
  2784 08d1 3D       		.byte	0x3d
  2785 08d2 AB010000 		.4byte	0x1ab
@@ -3478,30 +3478,30 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2787 08da 18000000 		.4byte	.LFE2-.LFB2
  2788 08de 01       		.uleb128 0x1
  2789 08df 9C       		.byte	0x9c
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 59
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 59
 
 
  2790 08e0 83090000 		.4byte	0x983
  2791 08e4 1B       		.uleb128 0x1b
- 2792 08e5 D1020000 		.4byte	.LASF29
+ 2792 08e5 D4020000 		.4byte	.LASF29
  2793 08e9 01       		.byte	0x1
  2794 08ea 3D       		.byte	0x3d
  2795 08eb BD010000 		.4byte	0x1bd
  2796 08ef 2E0C0000 		.4byte	.LLST63
  2797 08f3 1B       		.uleb128 0x1b
- 2798 08f4 C7000000 		.4byte	.LASF30
+ 2798 08f4 C3000000 		.4byte	.LASF30
  2799 08f8 01       		.byte	0x1
  2800 08f9 3D       		.byte	0x3d
  2801 08fa BD010000 		.4byte	0x1bd
  2802 08fe 7E0C0000 		.4byte	.LLST64
  2803 0902 1B       		.uleb128 0x1b
- 2804 0903 E2000000 		.4byte	.LASF21
+ 2804 0903 DE000000 		.4byte	.LASF21
  2805 0907 01       		.byte	0x1
  2806 0908 3D       		.byte	0x3d
  2807 0909 BD010000 		.4byte	0x1bd
  2808 090d AA0C0000 		.4byte	.LLST65
  2809 0911 1B       		.uleb128 0x1b
- 2810 0912 1C020000 		.4byte	.LASF22
+ 2810 0912 1F020000 		.4byte	.LASF22
  2811 0916 01       		.byte	0x1
  2812 0917 3E       		.byte	0x3e
  2813 0918 BD010000 		.4byte	0x1bd
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2844 096e E8070000 		.4byte	0x7e8
  2845 0972 18       		.uleb128 0x18
  2846 0973 01       		.uleb128 0x1
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 60
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 60
 
 
  2847 0974 51       		.byte	0x51
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2901 09f5 3E0F0000 		.4byte	.LLST83
  2902 09f9 28       		.uleb128 0x28
  2903 09fa 65010000 		.4byte	0x165
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 61
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 61
 
 
  2904 09fe AB0F0000 		.4byte	.LLST84
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  2958 0a73 02       		.uleb128 0x2
  2959 0a74 76       		.byte	0x76
  2960 0a75 00       		.sleb128 0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 62
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 62
 
 
  2961 0a76 00       		.byte	0
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3015 0ac7 01       		.uleb128 0x1
  3016 0ac8 51       		.byte	0x51
  3017 0ac9 02       		.uleb128 0x2
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 63
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 63
 
 
  3018 0aca 76       		.byte	0x76
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3072 0b24 18       		.uleb128 0x18
  3073 0b25 01       		.uleb128 0x1
  3074 0b26 50       		.byte	0x50
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 64
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 64
 
 
  3075 0b27 02       		.uleb128 0x2
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3129 0b6f 18       		.uleb128 0x18
  3130 0b70 01       		.uleb128 0x1
  3131 0b71 52       		.byte	0x52
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 65
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 65
 
 
  3132 0b72 03       		.uleb128 0x3
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3186 0bae 02       		.uleb128 0x2
  3187 0baf 7D       		.byte	0x7d
  3188 0bb0 00       		.sleb128 0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 66
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 66
 
 
  3189 0bb1 03       		.uleb128 0x3
@@ -3908,7 +3908,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3193 0bb5 00       		.byte	0
  3194 0bb6 00       		.byte	0
  3195 0bb7 32       		.uleb128 0x32
- 3196 0bb8 7B000000 		.4byte	.LASF50
+ 3196 0bb8 33000000 		.4byte	.LASF50
  3197 0bbc 01       		.byte	0x1
  3198 0bbd C8       		.byte	0xc8
  3199 0bbe AB010000 		.4byte	0x1ab
@@ -3936,13 +3936,13 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3221 0bf1 BD010000 		.4byte	0x1bd
  3222 0bf5 5A110000 		.4byte	.LLST92
  3223 0bf9 1B       		.uleb128 0x1b
- 3224 0bfa E2000000 		.4byte	.LASF21
+ 3224 0bfa DE000000 		.4byte	.LASF21
  3225 0bfe 01       		.byte	0x1
  3226 0bff C8       		.byte	0xc8
  3227 0c00 BD010000 		.4byte	0x1bd
  3228 0c04 78110000 		.4byte	.LLST93
  3229 0c08 1B       		.uleb128 0x1b
- 3230 0c09 1C020000 		.4byte	.LASF22
+ 3230 0c09 1F020000 		.4byte	.LASF22
  3231 0c0d 01       		.byte	0x1
  3232 0c0e C8       		.byte	0xc8
  3233 0c0f BD010000 		.4byte	0x1bd
@@ -3954,34 +3954,34 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3239 0c1c 33000000 		.4byte	0x33
  3240 0c20 B6110000 		.4byte	.LLST95
  3241 0c24 20       		.uleb128 0x20
- 3242 0c25 BA020000 		.4byte	.LASF16
+ 3242 0c25 BD020000 		.4byte	.LASF16
  3243 0c29 01       		.byte	0x1
  3244 0c2a C9       		.byte	0xc9
  3245 0c2b BD010000 		.4byte	0x1bd
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 67
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 67
 
 
  3246 0c2f D6110000 		.4byte	.LLST96
  3247 0c33 20       		.uleb128 0x20
- 3248 0c34 0A020000 		.4byte	.LASF18
+ 3248 0c34 0D020000 		.4byte	.LASF18
  3249 0c38 01       		.byte	0x1
  3250 0c39 C9       		.byte	0xc9
  3251 0c3a BD010000 		.4byte	0x1bd
  3252 0c3e F4110000 		.4byte	.LLST97
  3253 0c42 20       		.uleb128 0x20
- 3254 0c43 97000000 		.4byte	.LASF51
+ 3254 0c43 4F000000 		.4byte	.LASF51
  3255 0c47 01       		.byte	0x1
  3256 0c48 C9       		.byte	0xc9
  3257 0c49 BD010000 		.4byte	0x1bd
  3258 0c4d 12120000 		.4byte	.LLST98
  3259 0c51 20       		.uleb128 0x20
- 3260 0c52 C0000000 		.4byte	.LASF23
+ 3260 0c52 4B010000 		.4byte	.LASF23
  3261 0c56 01       		.byte	0x1
  3262 0c57 CA       		.byte	0xca
  3263 0c58 AB010000 		.4byte	0x1ab
  3264 0c5c 51120000 		.4byte	.LLST99
  3265 0c60 2A       		.uleb128 0x2a
- 3266 0c61 30020000 		.4byte	.LASF52
+ 3266 0c61 33020000 		.4byte	.LASF52
  3267 0c65 01       		.byte	0x1
  3268 0c66 D2       		.byte	0xd2
  3269 0c67 3C000000 		.4byte	.L145
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3300 0cc2 67130000 		.4byte	.LLST107
  3301 0cc6 26       		.uleb128 0x26
  3302 0cc7 EE000000 		.4byte	0xee
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 68
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 68
 
 
  3303 0ccb 85130000 		.4byte	.LLST108
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3357 0d28 18       		.uleb128 0x18
  3358 0d29 02       		.uleb128 0x2
  3359 0d2a 7D       		.byte	0x7d
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 69
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 69
 
 
  3360 0d2b 0C       		.sleb128 12
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3414 0d73 18       		.uleb128 0x18
  3415 0d74 01       		.uleb128 0x1
  3416 0d75 50       		.byte	0x50
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 70
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 70
 
 
  3417 0d76 02       		.uleb128 0x2
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3471 0dcd DE000000 		.4byte	0xde
  3472 0dd1 00000000 		.4byte	.LFB6
  3473 0dd5 1A000000 		.4byte	.LFE6-.LFB6
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 71
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 71
 
 
  3474 0dd9 01       		.uleb128 0x1
@@ -4253,19 +4253,19 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3523 0e5e 83090000 		.4byte	0x983
  3524 0e62 00       		.byte	0
  3525 0e63 37       		.uleb128 0x37
- 3526 0e64 48000000 		.4byte	.LASF53
+ 3526 0e64 00000000 		.4byte	.LASF53
  3527 0e68 02       		.byte	0x2
  3528 0e69 61       		.byte	0x61
  3529 0e6a 84000000 		.4byte	0x84
  3530 0e6e 780E0000 		.4byte	0xe78
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 72
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 72
 
 
  3531 0e72 38       		.uleb128 0x38
  3532 0e73 33000000 		.4byte	0x33
  3533 0e77 00       		.byte	0
  3534 0e78 39       		.uleb128 0x39
- 3535 0e79 EC000000 		.4byte	.LASF61
+ 3535 0e79 E8000000 		.4byte	.LASF61
  3536 0e7d 84000000 		.4byte	0x84
  3537 0e81 950E0000 		.4byte	0xe95
  3538 0e85 38       		.uleb128 0x38
@@ -4294,7 +4294,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3561 0eba 8D000000 		.4byte	0x8d
  3562 0ebe 00       		.byte	0
  3563 0ebf 37       		.uleb128 0x37
- 3564 0ec0 C0020000 		.4byte	.LASF54
+ 3564 0ec0 C3020000 		.4byte	.LASF54
  3565 0ec4 02       		.byte	0x2
  3566 0ec5 53       		.byte	0x53
  3567 0ec6 84000000 		.4byte	0x84
@@ -4305,7 +4305,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3572 0ed4 33000000 		.4byte	0x33
  3573 0ed8 00       		.byte	0
  3574 0ed9 3B       		.uleb128 0x3b
- 3575 0eda AF020000 		.4byte	.LASF62
+ 3575 0eda B2020000 		.4byte	.LASF62
  3576 0ede 02       		.byte	0x2
  3577 0edf 56       		.byte	0x56
  3578 0ee0 38       		.uleb128 0x38
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3585 0001 11       		.uleb128 0x11
  3586 0002 01       		.byte	0x1
  3587 0003 25       		.uleb128 0x25
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 73
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 73
 
 
  3588 0004 0E       		.uleb128 0xe
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3642 003a 0B       		.uleb128 0xb
  3643 003b 00       		.byte	0
  3644 003c 00       		.byte	0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 74
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 74
 
 
  3645 003d 06       		.uleb128 0x6
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3699 0073 05       		.uleb128 0x5
  3700 0074 49       		.uleb128 0x49
  3701 0075 13       		.uleb128 0x13
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 75
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 75
 
 
  3702 0076 00       		.byte	0
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3756 00ac 3A       		.uleb128 0x3a
  3757 00ad 0B       		.uleb128 0xb
  3758 00ae 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 76
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 76
 
 
  3759 00af 0B       		.uleb128 0xb
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3813 00e5 14       		.uleb128 0x14
  3814 00e6 2E       		.uleb128 0x2e
  3815 00e7 01       		.byte	0x1
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 77
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 77
 
 
  3816 00e8 03       		.uleb128 0x3
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3870 0121 01       		.byte	0x1
  3871 0122 11       		.uleb128 0x11
  3872 0123 01       		.uleb128 0x1
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 78
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 78
 
 
  3873 0124 31       		.uleb128 0x31
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3927 0160 03       		.uleb128 0x3
  3928 0161 0E       		.uleb128 0xe
  3929 0162 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 79
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 79
 
 
  3930 0163 0B       		.uleb128 0xb
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  3984 019b 0B       		.uleb128 0xb
  3985 019c 3B       		.uleb128 0x3b
  3986 019d 0B       		.uleb128 0xb
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 80
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 80
 
 
  3987 019e 49       		.uleb128 0x49
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  4041 01d4 00       		.byte	0
  4042 01d5 00       		.byte	0
  4043 01d6 24       		.uleb128 0x24
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 81
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 81
 
 
  4044 01d7 1D       		.uleb128 0x1d
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  4098 020d 17       		.uleb128 0x17
  4099 020e 00       		.byte	0
  4100 020f 00       		.byte	0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 82
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 82
 
 
  4101 0210 2A       		.uleb128 0x2a
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  4155 0246 18       		.uleb128 0x18
  4156 0247 9742     		.uleb128 0x2117
  4157 0249 19       		.uleb128 0x19
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 83
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 83
 
 
  4158 024a 01       		.uleb128 0x1
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  4212 0289 11       		.uleb128 0x11
  4213 028a 01       		.uleb128 0x1
  4214 028b 12       		.uleb128 0x12
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 84
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 84
 
 
  4215 028c 06       		.uleb128 0x6
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  4269 02c4 13       		.uleb128 0x13
  4270 02c5 1C       		.uleb128 0x1c
  4271 02c6 0B       		.uleb128 0xb
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 85
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 85
 
 
  4272 02c7 00       		.byte	0
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  4326 02fd 03       		.uleb128 0x3
  4327 02fe 08       		.uleb128 0x8
  4328 02ff 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 86
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 86
 
 
  4329 0300 0B       		.uleb128 0xb
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  4383 0038 00000000 		.4byte	0
  4384              	.LLST2:
  4385 003c 0C000000 		.4byte	.LVL2
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 87
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 87
 
 
  4386 0040 17000000 		.4byte	.LVL3-1
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  4440 00c6 24000000 		.4byte	.LVL10
  4441 00ca 0300     		.2byte	0x3
  4442 00cc 75       		.byte	0x75
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 88
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 88
 
 
  4443 00cd 04       		.sleb128 4
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  4497 0151 01       		.uleb128 0x1
  4498 0152 50       		.byte	0x50
  4499 0153 9F       		.byte	0x9f
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 89
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 89
 
 
  4500 0154 2C000000 		.4byte	.LVL30
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  4554 01d4 00000000 		.4byte	0
  4555 01d8 00000000 		.4byte	0
  4556              	.LLST10:
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 90
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 90
 
 
  4557 01dc 00000000 		.4byte	.LVL22
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  4611 0266 32000000 		.4byte	.LVL31
  4612 026a 0200     		.2byte	0x2
  4613 026c 30       		.byte	0x30
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 91
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 91
 
 
  4614 026d 9F       		.byte	0x9f
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  4668 02fa 0100     		.2byte	0x1
  4669 02fc 55       		.byte	0x55
  4670 02fd 12000000 		.4byte	.LVL24
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 92
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 92
 
 
  4671 0301 14000000 		.4byte	.LVL25
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  4725 038f 0100     		.2byte	0x1
  4726 0391 54       		.byte	0x54
  4727 0392 00000000 		.4byte	0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 93
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 93
 
 
  4728 0396 00000000 		.4byte	0
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  4782 0424 9F       		.byte	0x9f
  4783 0425 E6000000 		.4byte	.LVL48
  4784 0429 05010000 		.4byte	.LVL50-1
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 94
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 94
 
 
  4785 042d 0100     		.2byte	0x1
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  4839 04b9 F3       		.byte	0xf3
  4840 04ba 01       		.uleb128 0x1
  4841 04bb 50       		.byte	0x50
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 95
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 95
 
 
  4842 04bc 9F       		.byte	0x9f
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  4896 0539 F6000000 		.4byte	.LVL109
  4897 053d 0100     		.2byte	0x1
  4898 053f 57       		.byte	0x57
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 96
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 96
 
 
  4899 0540 F6000000 		.4byte	.LVL109
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  4953 05c1 BC7F     		.sleb128 -68
  4954 05c3 4C020000 		.4byte	.LVL134
  4955 05c7 7A020000 		.4byte	.LVL141
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 97
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 97
 
 
  4956 05cb 0100     		.2byte	0x1
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  5010 0658 0200     		.2byte	0x2
  5011 065a 30       		.byte	0x30
  5012 065b 9F       		.byte	0x9f
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 98
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 98
 
 
  5013 065c 00000000 		.4byte	0
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  5067 06ed 50       		.byte	0x50
  5068 06ee 88000000 		.4byte	.LVL100
  5069 06f2 B4020000 		.4byte	.LVL151
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 99
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 99
 
 
  5070 06f6 0200     		.2byte	0x2
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  5124 077b 24       		.byte	0x24
  5125 077c 9F       		.byte	0x9f
  5126 077d E0000000 		.4byte	.LVL107
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 100
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 100
 
 
  5127 0781 D0010000 		.4byte	.LVL124
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  5181 07f9 AA010000 		.4byte	.LVL121
  5182 07fd 0100     		.2byte	0x1
  5183 07ff 53       		.byte	0x53
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 101
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 101
 
 
  5184 0800 CC010000 		.4byte	.LVL123
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  5238 087a 23       		.byte	0x23
  5239 087b 01       		.uleb128 0x1
  5240 087c 9F       		.byte	0x9f
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 102
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 102
 
 
  5241 087d 4C020000 		.4byte	.LVL134
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  5295 08f8 4C020000 		.4byte	.LVL134
  5296 08fc 0300     		.2byte	0x3
  5297 08fe 91       		.byte	0x91
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 103
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 103
 
 
  5298 08ff BC7F     		.sleb128 -68
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  5352 098b 91       		.byte	0x91
  5353 098c B07F     		.sleb128 -80
  5354 098e 72020000 		.4byte	.LVL139
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 104
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 104
 
 
  5355 0992 75020000 		.4byte	.LVL140-1
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  5409 0a1c 00000000 		.4byte	0
  5410 0a20 00000000 		.4byte	0
  5411              	.LLST53:
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 105
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 105
 
 
  5412 0a24 00000000 		.4byte	.LVL152
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  5466 0aa3 11000000 		.4byte	.LVL154-1
  5467 0aa7 12000000 		.4byte	.LVL154
  5468 0aab 0400     		.2byte	0x4
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 106
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 106
 
 
  5469 0aad F3       		.byte	0xf3
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  5523 0b28 18000000 		.4byte	.LFE10
  5524 0b2c 0200     		.2byte	0x2
  5525 0b2e 7D       		.byte	0x7d
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 107
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 107
 
 
  5526 0b2f 00       		.sleb128 0
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  5580 0bb3 F3       		.byte	0xf3
  5581 0bb4 01       		.uleb128 0x1
  5582 0bb5 52       		.byte	0x52
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 108
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 108
 
 
  5583 0bb6 9F       		.byte	0x9f
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  5637 0c3d 0C000000 		.4byte	.LVL166
  5638 0c41 0400     		.2byte	0x4
  5639 0c43 F3       		.byte	0xf3
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 109
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 109
 
 
  5640 0c44 01       		.uleb128 0x1
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  5694 0cc3 00000000 		.4byte	0
  5695 0cc7 00000000 		.4byte	0
  5696              	.LLST66:
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 110
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 110
 
 
  5697 0ccb 00000000 		.4byte	.LVL162
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  5751 0d51 00       		.sleb128 0
  5752 0d52 00000000 		.4byte	0
  5753 0d56 00000000 		.4byte	0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 111
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 111
 
 
  5754              	.LLST69:
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  5808 0ddd 9F       		.byte	0x9f
  5809 0dde 00000000 		.4byte	0
  5810 0de2 00000000 		.4byte	0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 112
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 112
 
 
  5811              	.LLST73:
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  5865 0e69 53       		.byte	0x53
  5866 0e6a 15000000 		.4byte	.LVL175-1
  5867 0e6e 36000000 		.4byte	.LVL185
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 113
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 113
 
 
  5868 0e72 0100     		.2byte	0x1
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  5922 0ef5 91       		.byte	0x91
  5923 0ef6 0C       		.sleb128 12
  5924 0ef7 72000000 		.4byte	.LVL194
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 114
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 114
 
 
  5925 0efb 84010000 		.4byte	.LFE9
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  5979 0f7c 0A010000 		.4byte	.LVL209
  5980 0f80 6A010000 		.4byte	.LVL216
  5981 0f84 0200     		.2byte	0x2
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 115
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 115
 
 
  5982 0f86 91       		.byte	0x91
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  6036 100b 0200     		.2byte	0x2
  6037 100d 91       		.byte	0x91
  6038 100e 48       		.sleb128 -56
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 116
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 116
 
 
  6039 100f 6E010000 		.4byte	.LVL217
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  6093              	.LLST88:
  6094 10a2 36000000 		.4byte	.LVL185
  6095 10a6 42000000 		.4byte	.LVL186
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 117
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 117
 
 
  6096 10aa 0100     		.2byte	0x1
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  6150 1110 F5       		.byte	0xf5
  6151 1111 05       		.uleb128 0x5
  6152 1112 25       		.uleb128 0x25
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 118
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 118
 
 
  6153 1113 1E       		.byte	0x1e
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  6207 11a1 00       		.sleb128 0
  6208 11a2 56000000 		.4byte	.LVL235
  6209 11a6 82000000 		.4byte	.LFE5
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 119
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 119
 
 
  6210 11aa 0200     		.2byte	0x2
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  6264 1237 76000000 		.4byte	.LVL239
  6265 123b 0100     		.2byte	0x1
  6266 123d 57       		.byte	0x57
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 120
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 120
 
 
  6267 123e 76000000 		.4byte	.LVL239
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  6321 12ca 3C000000 		.4byte	.LVL231
  6322 12ce 0100     		.2byte	0x1
  6323 12d0 5A       		.byte	0x5a
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 121
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 121
 
 
  6324 12d1 56000000 		.4byte	.LVL235
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  6378              	.LLST107:
  6379 1367 34000000 		.4byte	.LVL230
  6380 136b 3C000000 		.4byte	.LVL231
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 122
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 122
 
 
  6381 136f 0100     		.2byte	0x1
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  6435 13f4 9F       		.byte	0x9f
  6436 13f5 00000000 		.4byte	0
  6437 13f9 00000000 		.4byte	0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 123
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 123
 
 
  6438              	.LLST111:
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  6492 147c 1A000000 		.4byte	.LFE6
  6493 1480 0200     		.2byte	0x2
  6494 1482 7D       		.byte	0x7d
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 124
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 124
 
 
  6495 1483 00       		.sleb128 0
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  6549 1507 0C       		.sleb128 12
  6550 1508 00000000 		.4byte	0
  6551 150c 00000000 		.4byte	0
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 125
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 125
 
 
  6552              	.LLST118:
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  6606 0010 00000000 		.4byte	0
  6607 0014 00000000 		.4byte	0
  6608 0018 E8000000 		.4byte	.LBB26
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 126
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 126
 
 
  6609 001c 6C010000 		.4byte	.LBE26
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  6663 00f4 18000000 		.4byte	.LFE10
  6664 00f8 00000000 		.4byte	.LFB1
  6665 00fc 16000000 		.4byte	.LFE1
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 127
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 127
 
 
  6666 0100 00000000 		.4byte	.LFB2
@@ -7578,227 +7578,227 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  6678      00000201 
  6678      FB0E0D00 
  6678      01010101 
- 6679              	.LASF57:
- 6680 0000 433A5C55 		.ascii	"C:\\Users\\jason\\Desktop\\Hummingbird\\Hummingbird"
- 6680      73657273 
- 6680      5C6A6173 
- 6680      6F6E5C44 
- 6680      65736B74 
- 6681 002e 28436F6E 		.ascii	"(Continuous Output).cydsn\000"
- 6681      74696E75 
- 6681      6F757320 
- 6681      4F757470 
- 6681      7574292E 
- 6682              	.LASF53:
- 6683 0048 6D616C6C 		.ascii	"malloc\000"
- 6683      6F6300
- 6684              	.LASF47:
- 6685 004f 73697A65 		.ascii	"size_m\000"
- 6685      5F6D00
- 6686              	.LASF46:
- 6687 0056 73697A65 		.ascii	"size_n\000"
- 6687      5F6E00
- 6688              	.LASF58:
- 6689 005d 73697A65 		.ascii	"size_t\000"
- 6689      5F7400
- 6690              	.LASF9:
- 6691 0064 6C6F6E67 		.ascii	"long long unsigned int\000"
- 6691      206C6F6E 
- 6691      6720756E 
- 6691      7369676E 
- 6691      65642069 
- 6692              	.LASF50:
- 6693 007b 636F6E76 		.ascii	"convolve_real\000"
- 6693      6F6C7665 
- 6693      5F726561 
- 6693      6C00
- 6694              	.LASF41:
- 6695 0089 61696D61 		.ascii	"aimag\000"
- 6695      6700
- 6696              	.LASF20:
- 6697 008f 6F757469 		.ascii	"outimag\000"
- 6697      6D616700 
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 128
+ 6679              	.LASF53:
+ 6680 0000 6D616C6C 		.ascii	"malloc\000"
+ 6680      6F6300
+ 6681              	.LASF47:
+ 6682 0007 73697A65 		.ascii	"size_m\000"
+ 6682      5F6D00
+ 6683              	.LASF46:
+ 6684 000e 73697A65 		.ascii	"size_n\000"
+ 6684      5F6E00
+ 6685              	.LASF58:
+ 6686 0015 73697A65 		.ascii	"size_t\000"
+ 6686      5F7400
+ 6687              	.LASF9:
+ 6688 001c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 6688      206C6F6E 
+ 6688      6720756E 
+ 6688      7369676E 
+ 6688      65642069 
+ 6689              	.LASF50:
+ 6690 0033 636F6E76 		.ascii	"convolve_real\000"
+ 6690      6F6C7665 
+ 6690      5F726561 
+ 6690      6C00
+ 6691              	.LASF41:
+ 6692 0041 61696D61 		.ascii	"aimag\000"
+ 6692      6700
+ 6693              	.LASF20:
+ 6694 0047 6F757469 		.ascii	"outimag\000"
+ 6694      6D616700 
+ 6695              	.LASF51:
+ 6696 004f 7A696D61 		.ascii	"zimag\000"
+ 6696      6700
+ 6697              	.LASF35:
+ 6698 0055 68616C66 		.ascii	"halfsize\000"
+ 6698      73697A65 
+ 6698      00
+ 6699              	.LASF8:
+ 6700 005e 6C6F6E67 		.ascii	"long long int\000"
+ 6700      206C6F6E 
+ 6700      6720696E 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 128
 
 
- 6698              	.LASF51:
- 6699 0097 7A696D61 		.ascii	"zimag\000"
- 6699      6700
- 6700              	.LASF35:
- 6701 009d 68616C66 		.ascii	"halfsize\000"
- 6701      73697A65 
- 6701      00
- 6702              	.LASF8:
- 6703 00a6 6C6F6E67 		.ascii	"long long int\000"
- 6703      206C6F6E 
- 6703      6720696E 
- 6703      7400
- 6704              	.LASF2:
- 6705 00b4 7369676E 		.ascii	"signed char\000"
- 6705      65642063 
- 6705      68617200 
- 6706              	.LASF23:
- 6707 00c0 73746174 		.ascii	"status\000"
- 6707      757300
- 6708              	.LASF30:
- 6709 00c7 696D6167 		.ascii	"imag\000"
+ 6700      7400
+ 6701              	.LASF2:
+ 6702 006c 7369676E 		.ascii	"signed char\000"
+ 6702      65642063 
+ 6702      68617200 
+ 6703              	.LASF57:
+ 6704 0078 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
+ 6704      73657273 
+ 6704      5C6D6772 
+ 6704      6F6E6265 
+ 6704      725C4465 
+ 6705 00a6 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 6705      436F6E74 
+ 6705      696E756F 
+ 6705      7573204F 
+ 6705      75747075 
+ 6706              	.LASF30:
+ 6707 00c3 696D6167 		.ascii	"imag\000"
+ 6707      00
+ 6708              	.LASF6:
+ 6709 00c8 6C6F6E67 		.ascii	"long int\000"
+ 6709      20696E74 
  6709      00
- 6710              	.LASF6:
- 6711 00cc 6C6F6E67 		.ascii	"long int\000"
- 6711      20696E74 
- 6711      00
- 6712              	.LASF34:
- 6713 00d5 6C657665 		.ascii	"levels\000"
- 6713      6C7300
- 6714              	.LASF42:
- 6715 00dc 62726561 		.ascii	"breal\000"
- 6715      6C00
- 6716              	.LASF21:
- 6717 00e2 636F735F 		.ascii	"cos_table\000"
- 6717      7461626C 
- 6717      6500
- 6718              	.LASF61:
- 6719 00ec 6D656D63 		.ascii	"memcpy\000"
- 6719      707900
- 6720              	.LASF12:
- 6721 00f3 646F7562 		.ascii	"double\000"
- 6721      6C6500
- 6722              	.LASF59:
- 6723 00fa 72657665 		.ascii	"reverse_bits\000"
- 6723      7273655F 
- 6723      62697473 
+ 6710              	.LASF34:
+ 6711 00d1 6C657665 		.ascii	"levels\000"
+ 6711      6C7300
+ 6712              	.LASF42:
+ 6713 00d8 62726561 		.ascii	"breal\000"
+ 6713      6C00
+ 6714              	.LASF21:
+ 6715 00de 636F735F 		.ascii	"cos_table\000"
+ 6715      7461626C 
+ 6715      6500
+ 6716              	.LASF61:
+ 6717 00e8 6D656D63 		.ascii	"memcpy\000"
+ 6717      707900
+ 6718              	.LASF12:
+ 6719 00ef 646F7562 		.ascii	"double\000"
+ 6719      6C6500
+ 6720              	.LASF59:
+ 6721 00f6 72657665 		.ascii	"reverse_bits\000"
+ 6721      7273655F 
+ 6721      62697473 
+ 6721      00
+ 6722              	.LASF25:
+ 6723 0103 74656D70 		.ascii	"temp\000"
  6723      00
- 6724              	.LASF25:
- 6725 0107 74656D70 		.ascii	"temp\000"
+ 6724              	.LASF1:
+ 6725 0108 756E7369 		.ascii	"unsigned int\000"
+ 6725      676E6564 
+ 6725      20696E74 
  6725      00
- 6726              	.LASF1:
- 6727 010c 756E7369 		.ascii	"unsigned int\000"
- 6727      676E6564 
- 6727      20696E74 
- 6727      00
- 6728              	.LASF15:
- 6729 0119 78726561 		.ascii	"xreal\000"
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 129
+ 6726              	.LASF15:
+ 6727 0115 78726561 		.ascii	"xreal\000"
+ 6727      6C00
+ 6728              	.LASF7:
+ 6729 011b 6C6F6E67 		.ascii	"long unsigned int\000"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 129
 
 
- 6729      6C00
- 6730              	.LASF7:
- 6731 011f 6C6F6E67 		.ascii	"long unsigned int\000"
- 6731      20756E73 
- 6731      69676E65 
- 6731      6420696E 
- 6731      7400
- 6732              	.LASF45:
- 6733 0131 63696D61 		.ascii	"cimag\000"
- 6733      6700
- 6734              	.LASF24:
- 6735 0137 73697A65 		.ascii	"size\000"
- 6735      00
- 6736              	.LASF5:
- 6737 013c 73686F72 		.ascii	"short unsigned int\000"
- 6737      7420756E 
- 6737      7369676E 
- 6737      65642069 
- 6737      6E7400
+ 6729      20756E73 
+ 6729      69676E65 
+ 6729      6420696E 
+ 6729      7400
+ 6730              	.LASF45:
+ 6731 012d 63696D61 		.ascii	"cimag\000"
+ 6731      6700
+ 6732              	.LASF24:
+ 6733 0133 73697A65 		.ascii	"size\000"
+ 6733      00
+ 6734              	.LASF5:
+ 6735 0138 73686F72 		.ascii	"short unsigned int\000"
+ 6735      7420756E 
+ 6735      7369676E 
+ 6735      65642069 
+ 6735      6E7400
+ 6736              	.LASF23:
+ 6737 014b 73746174 		.ascii	"status\000"
+ 6737      757300
  6738              	.LASF48:
- 6739 014f 74617267 		.ascii	"target\000"
+ 6739 0152 74617267 		.ascii	"target\000"
  6739      657400
  6740              	.LASF39:
- 6741 0156 7472616E 		.ascii	"transform_bluestein\000"
+ 6741 0159 7472616E 		.ascii	"transform_bluestein\000"
  6741      73666F72 
  6741      6D5F626C 
  6741      75657374 
  6741      65696E00 
  6742              	.LASF55:
- 6743 016a 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 6743 016d 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  6743      4320342E 
  6743      392E3320 
  6743      32303135 
  6743      30333033 
- 6744 019d 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 6744 01a0 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
  6744      20726576 
  6744      6973696F 
  6744      6E203232 
  6744      31323230 
- 6745 01d0 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 6745 01d3 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
  6745      66756E63 
  6745      74696F6E 
  6745      2D736563 
  6745      74696F6E 
  6746              	.LASF32:
- 6747 01f8 6666745F 		.ascii	"fft_init\000"
+ 6747 01fb 6666745F 		.ascii	"fft_init\000"
  6747      696E6974 
  6747      00
  6748              	.LASF10:
- 6749 0201 73697A65 		.ascii	"sizetype\000"
+ 6749 0204 73697A65 		.ascii	"sizetype\000"
  6749      74797065 
  6749      00
  6750              	.LASF18:
- 6751 020a 79696D61 		.ascii	"yimag\000"
+ 6751 020d 79696D61 		.ascii	"yimag\000"
  6751      6700
  6752              	.LASF13:
- 6753 0210 6C6F6E67 		.ascii	"long double\000"
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 130
+ 6753 0213 6C6F6E67 		.ascii	"long double\000"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 130
 
 
  6753      20646F75 
  6753      626C6500 
  6754              	.LASF22:
- 6755 021c 73696E5F 		.ascii	"sin_table\000"
+ 6755 021f 73696E5F 		.ascii	"sin_table\000"
  6755      7461626C 
  6755      6500
  6756              	.LASF36:
- 6757 0226 7461626C 		.ascii	"tablestep\000"
+ 6757 0229 7461626C 		.ascii	"tablestep\000"
  6757      65737465 
  6757      7000
  6758              	.LASF52:
- 6759 0230 636C6561 		.ascii	"cleanup\000"
+ 6759 0233 636C6561 		.ascii	"cleanup\000"
  6759      6E757000 
  6760              	.LASF31:
- 6761 0238 64657374 		.ascii	"dest\000"
+ 6761 023b 64657374 		.ascii	"dest\000"
  6761      00
  6762              	.LASF40:
- 6763 023d 61726561 		.ascii	"areal\000"
+ 6763 0240 61726561 		.ascii	"areal\000"
  6763      6C00
  6764              	.LASF19:
- 6765 0243 6F757472 		.ascii	"outreal\000"
+ 6765 0246 6F757472 		.ascii	"outreal\000"
  6765      65616C00 
  6766              	.LASF0:
- 6767 024b 666C6F61 		.ascii	"float\000"
+ 6767 024e 666C6F61 		.ascii	"float\000"
  6767      7400
  6768              	.LASF56:
- 6769 0251 6666742E 		.ascii	"fft.c\000"
+ 6769 0254 6666742E 		.ascii	"fft.c\000"
  6769      6300
  6770              	.LASF26:
- 6771 0257 5F426F6F 		.ascii	"_Bool\000"
+ 6771 025a 5F426F6F 		.ascii	"_Bool\000"
  6771      6C00
  6772              	.LASF33:
- 6773 025d 7472616E 		.ascii	"transform_radix2\000"
+ 6773 0260 7472616E 		.ascii	"transform_radix2\000"
  6773      73666F72 
  6773      6D5F7261 
  6773      64697832 
  6773      00
  6774              	.LASF3:
- 6775 026e 756E7369 		.ascii	"unsigned char\000"
+ 6775 0271 756E7369 		.ascii	"unsigned char\000"
  6775      676E6564 
  6775      20636861 
  6775      7200
  6776              	.LASF4:
- 6777 027c 73686F72 		.ascii	"short int\000"
+ 6777 027f 73686F72 		.ascii	"short int\000"
  6777      7420696E 
  6777      7400
  6778              	.LASF60:
- 6779 0286 6D656D64 		.ascii	"memdup\000"
+ 6779 0289 6D656D64 		.ascii	"memdup\000"
  6779      757000
  6780              	.LASF43:
- 6781 028d 62696D61 		.ascii	"bimag\000"
+ 6781 0290 62696D61 		.ascii	"bimag\000"
  6781      6700
  6782              	.LASF11:
- 6783 0293 63686172 		.ascii	"char\000"
+ 6783 0296 63686172 		.ascii	"char\000"
  6783      00
  6784              	.LASF49:
- 6785 0298 696E7665 		.ascii	"inverse_transform\000"
-ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 131
+ 6785 029b 696E7665 		.ascii	"inverse_transform\000"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTEtOHc.s 			page 131
 
 
  6785      7273655F 
@@ -7806,40 +7806,40 @@ ARM GAS  C:\Users\jason\AppData\Local\Temp\ccYRIEO6.s 			page 1
  6785      73666F72 
  6785      6D00
  6786              	.LASF38:
- 6787 02aa 7470696D 		.ascii	"tpim\000"
+ 6787 02ad 7470696D 		.ascii	"tpim\000"
  6787      00
  6788              	.LASF62:
- 6789 02af 66726565 		.ascii	"free\000"
+ 6789 02b2 66726565 		.ascii	"free\000"
  6789      00
  6790              	.LASF44:
- 6791 02b4 63726561 		.ascii	"creal\000"
+ 6791 02b7 63726561 		.ascii	"creal\000"
  6791      6C00
  6792              	.LASF16:
- 6793 02ba 78696D61 		.ascii	"ximag\000"
+ 6793 02bd 78696D61 		.ascii	"ximag\000"
  6793      6700
  6794              	.LASF54:
- 6795 02c0 63616C6C 		.ascii	"calloc\000"
+ 6795 02c3 63616C6C 		.ascii	"calloc\000"
  6795      6F6300
  6796              	.LASF28:
- 6797 02c7 7472616E 		.ascii	"transform\000"
+ 6797 02ca 7472616E 		.ascii	"transform\000"
  6797      73666F72 
  6797      6D00
  6798              	.LASF29:
- 6799 02d1 7265616C 		.ascii	"real\000"
+ 6799 02d4 7265616C 		.ascii	"real\000"
  6799      00
  6800              	.LASF37:
- 6801 02d6 74707265 		.ascii	"tpre\000"
+ 6801 02d9 74707265 		.ascii	"tpre\000"
  6801      00
  6802              	.LASF27:
- 6803 02db 636F6E76 		.ascii	"convolve_complex\000"
+ 6803 02de 636F6E76 		.ascii	"convolve_complex\000"
  6803      6F6C7665 
  6803      5F636F6D 
  6803      706C6578 
  6803      00
  6804              	.LASF17:
- 6805 02ec 79726561 		.ascii	"yreal\000"
+ 6805 02ef 79726561 		.ascii	"yreal\000"
  6805      6C00
  6806              	.LASF14:
- 6807 02f2 72657375 		.ascii	"result\000"
+ 6807 02f5 72657375 		.ascii	"result\000"
  6807      6C7400
  6808              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
