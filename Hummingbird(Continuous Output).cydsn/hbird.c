@@ -48,16 +48,39 @@ enum MusicScale UpdateScaleLCD(uint16 currADC)
 
 void UpdateTuner(double freqTable[MIDI_LEN], uint8 midiNumber, float freq) 
 {
-    float up, lb;   //define upper and lower bounds for the note above/below of the "NoteSnapped" midiNumber
+    float up, lb, okayUp, okayLb, upperThresh, lowerThresh;   //define upper and lower bounds for the note above/below of the "NoteSnapped" midiNumber
     up = (freqTable[midiNumber+1] - freqTable[midiNumber])/2;
     lb = (freqTable[midiNumber]-freqTable[midiNumber-1])/2;
     
+    // setting threshold for which the user is on key
+    okayUp = freqTable[midiNumber] + (.1*up);
+    okayLb = freqTable[midiNumber] - (0.1*lb);
+    
+    upperThresh = up - okayUp;
+    lowerThresh = okayLb - lb;
+    
     // Here i define variables that split the interval between the snapped midi note & upper/lower note into three sections.
     float up1, up2, lb1, lb2;
-  
-    if(freq > freqTable[midiNumber]) {
-        up1 = freqTable[midiNumber] + up/3; 
+    //Clears the whole second row
+    CharLCD_PosPrintString(1,0,"                    ");
+    // Prints neighboring notes on either side and current note in the center    
+    CharLCD_PosPrintString(1,2,midi_note_basename(midiNumber-1));
+    CharLCD_PosPrintString(1,14,midi_note_basename(midiNumber+1));
+    CharLCD_PosPrintString(1,8,midi_note_basename(midiNumber));
+    
+    // USER ON KEY
+    if (freq > okayLb && freq < okayLb) {
+        CharLCD_PosPrintString(1,7,">");
+        CharLCD_PosPrintString(1,11,"<");
+    }
+            
+    
+    // USER IS SHARP
+    if(freq >= freqTable[midiNumber]) {
+        up1 = freqTable[midiNumber] + upperThresh/3; 
         up2 = freqTable[midiNumber] + 2*up1;
+        
+        
         if(freq < up1) {
             CharLCD_PosPrintString(1,5,"   ");
             CharLCD_PosPrintString(1,11,">  ");
@@ -68,11 +91,12 @@ void UpdateTuner(double freqTable[MIDI_LEN], uint8 midiNumber, float freq)
         }
         else {
             CharLCD_PosPrintString(1,5,"   ");
-            CharLCD_PosPrintString(1,13,"  >");
+            CharLCD_PosPrintString(1,11,"  >");
         }
     }
+    // USER IS FLAT
     else if(freq < freqTable[midiNumber]) {
-        lb1 = freqTable[midiNumber] - (lb/3);
+        lb1 = freqTable[midiNumber] - (lowerThresh/3);
         lb2 = freqTable[midiNumber] - (2*lb1);
         if(freq > lb1) {
             CharLCD_PosPrintString(1,5,"  <");

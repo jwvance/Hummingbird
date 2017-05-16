@@ -10,7 +10,7 @@
 #include <hbird.h>
 
 /**** Defines ****/
-#define THRESHHOLD 90
+#define THRESHHOLD 70
 #define HYST_VAL 0.9
 #define VELO_VAL 100
 #define NOTE_HISTORY_LEN 5
@@ -298,8 +298,8 @@ int main()
                 CharLCD_PosPrintNumber(0,0,pitchHz);
                 CharLCD_PrintString("Hz");
                 //if (changed) {
-                    CharLCD_PosPrintString(1,0,"   ");
-                    CharLCD_PosPrintString(1,0,midi_note_basename(midiMsg[1]));
+                    //CharLCD_PosPrintString(1,0,"   ");
+                    //CharLCD_PosPrintString(1,0,midi_note_basename(midiMsg[1]));
                     //CharLCD_PosPrintNumber(1,2,midiMsg[1]);   //print number of midi note
                 //}
             } 
