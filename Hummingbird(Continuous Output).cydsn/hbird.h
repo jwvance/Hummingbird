@@ -37,6 +37,8 @@ enum MusicScale UpdateScaleLCD(uint16 currADC);
 */
 enum MusicKey UpdateKeyLCD(uint16 currADC);
 
+void UpdateTuner(double freqTable[MIDI_LEN], uint8 midiNumber, float freq);
+
 void initDisplay(void);
 
 void PushArray(int array[], int value, int size);

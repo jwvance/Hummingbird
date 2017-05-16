@@ -46,6 +46,48 @@ enum MusicScale UpdateScaleLCD(uint16 currADC)
     return scale;
 }
 
+void UpdateTuner(double freqTable[MIDI_LEN], uint8 midiNumber, float freq) 
+{
+    float up, lb;   //define upper and lower bounds for the note above/below of the "NoteSnapped" midiNumber
+    up = (freqTable[midiNumber+1] - freqTable[midiNumber])/2;
+    lb = (freqTable[midiNumber]-freqTable[midiNumber-1])/2;
+    
+    // Here i define variables that split the interval between the snapped midi note & upper/lower note into three sections.
+    float up1, up2, lb1, lb2;
+  
+    if(freq > freqTable[midiNumber]) {
+        up1 = freqTable[midiNumber] + up/3; 
+        up2 = freqTable[midiNumber] + 2*up1;
+        if(freq < up1) {
+            CharLCD_PosPrintString(1,5,"   ");
+            CharLCD_PosPrintString(1,11,">  ");
+        } 
+        else if(freq < up2 && freq >= up1) {
+            CharLCD_PosPrintString(1,5,"   ");
+            CharLCD_PosPrintString(1,11," > ");
+        }
+        else {
+            CharLCD_PosPrintString(1,5,"   ");
+            CharLCD_PosPrintString(1,13,"  >");
+        }
+    }
+    else if(freq < freqTable[midiNumber]) {
+        lb1 = freqTable[midiNumber] - (lb/3);
+        lb2 = freqTable[midiNumber] - (2*lb1);
+        if(freq > lb1) {
+            CharLCD_PosPrintString(1,5,"  <");
+            CharLCD_PosPrintString(1,11,"   ");
+        }
+        else if(freq > lb2 && freq <= lb1) {
+            CharLCD_PosPrintString(1,5," < ");
+            CharLCD_PosPrintString(1,11,"   ");
+        }
+        else {
+            CharLCD_PosPrintString(1,5,"<  ");
+            CharLCD_PosPrintString(1,11,"   ");
+        }
+    }
+}
 enum MusicKey UpdateKeyLCD(uint16 currADC)
 {   
     // maps ADC value to one of the keys
