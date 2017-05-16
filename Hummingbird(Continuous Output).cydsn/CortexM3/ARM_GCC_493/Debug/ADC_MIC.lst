@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
   29:Generated_Source\PSoC5/ADC_MIC.c **** static void ADC_MIC_CalcGain(uint8 resolution);
   30:Generated_Source\PSoC5/ADC_MIC.c **** 
   31:Generated_Source\PSoC5/ADC_MIC.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 2
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 2
 
 
   32:Generated_Source\PSoC5/ADC_MIC.c **** /***************************************
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
   86:Generated_Source\PSoC5/ADC_MIC.c **** 
   87:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
   88:Generated_Source\PSoC5/ADC_MIC.c **** * Function Name: ADC_MIC_Init
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 3
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 3
 
 
   89:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  143:Generated_Source\PSoC5/ADC_MIC.c **** void ADC_MIC_Enable(void)
  144:Generated_Source\PSoC5/ADC_MIC.c **** {
   27              		.loc 1 144 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 4
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 4
 
 
   28              		.cfi_startproc
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  161:Generated_Source\PSoC5/ADC_MIC.c ****     /* Enable VCM buffer and Enable Int Ref Amp */
  162:Generated_Source\PSoC5/ADC_MIC.c ****     tmpReg = ADC_MIC_SAR_CSR3_REG;
   63              		.loc 1 162 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 5
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 5
 
 
   64 0020 01F5AA51 		add	r1, r1, #5440
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
   84 003e 1825     		movs	r5, #24
  169:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* ADC_MIC_DEFAULT_REFERENCE == ADC_MIC__EXT_REF */
   85              		.loc 1 169 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 6
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 6
 
 
   86 0040 42F00302 		orr	r2, r2, #3
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  108              		.loc 1 206 0
  109 0060 C827     		movs	r7, #200
  202:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* ADC_MIC_HIGH_POWER_PULSE == 0u */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 7
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 7
 
 
  110              		.loc 1 202 0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  147              	.L3:
  148 0088 AB430040 		.word	1073759147
  149 008c BB430040 		.word	1073759163
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 8
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 8
 
 
  150 0090 A2430040 		.word	1073759138
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  179 0008 0F4A     		ldr	r2, .L7+4
  254:Generated_Source\PSoC5/ADC_MIC.c ****     /* Disable the SAR ADC block in Active Power Mode */
  180              		.loc 1 254 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 9
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 9
 
 
  181 000a 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  217              	.L8:
  218 0042 00BF     		.align	2
  219              	.L7:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 10
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 10
 
 
  220 0044 08590040 		.word	1073764616
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  243 0002 00F00300 		and	r0, r0, #3
  244              	.LVL11:
  245              		.loc 1 298 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 11
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 11
 
 
  246 0006 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  329:Generated_Source\PSoC5/ADC_MIC.c **** *  not be changed until the current conversion is complete. Data will not be
  330:Generated_Source\PSoC5/ADC_MIC.c **** *  available in the new resolution for another 6 + "New Resolution(in bits)"
  331:Generated_Source\PSoC5/ADC_MIC.c **** *  clock cycles.
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 12
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 12
 
 
  332:Generated_Source\PSoC5/ADC_MIC.c **** *  You may need add a delay of this number of clock cycles after
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  294 0010 0020     		movs	r0, #0
  295              	.LVL16:
  296 0012 FFF7FEFF 		bl	CyHalt
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 13
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 13
 
 
  297              	.LVL17:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  404:Generated_Source\PSoC5/ADC_MIC.c ****             ADC_MIC_SAR_CSR0_REG &= (uint8)~ADC_MIC_SAR_MX_SOF_UDB;   /* source: SOF bit */
  405:Generated_Source\PSoC5/ADC_MIC.c ****         #endif /* End ADC_MIC_DEFAULT_CONV_MODE */
  406:Generated_Source\PSoC5/ADC_MIC.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 14
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 14
 
 
  407:Generated_Source\PSoC5/ADC_MIC.c ****         /* Start the conversion */
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  461:Generated_Source\PSoC5/ADC_MIC.c **** *   ADC_MIC_RETURN_STATUS: Immediately returns the status. If the
  462:Generated_Source\PSoC5/ADC_MIC.c **** *     value returned is zero, the conversion is not complete, and this function
  463:Generated_Source\PSoC5/ADC_MIC.c **** *     should be retried until a nonzero result is returned.
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 15
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 15
 
 
  464:Generated_Source\PSoC5/ADC_MIC.c **** *   ADC_MIC_WAIT_FOR_RESULT: Does not return a result until the ADC
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  518:Generated_Source\PSoC5/ADC_MIC.c **** *
  519:Generated_Source\PSoC5/ADC_MIC.c **** *******************************************************************************/
  520:Generated_Source\PSoC5/ADC_MIC.c **** int8 ADC_MIC_GetResult8( void )
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 16
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 16
 
 
  521:Generated_Source\PSoC5/ADC_MIC.c **** {
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  575:Generated_Source\PSoC5/ADC_MIC.c **** *  None.
  576:Generated_Source\PSoC5/ADC_MIC.c **** *
  577:Generated_Source\PSoC5/ADC_MIC.c **** * Global Variables:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 17
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 17
 
 
  578:Generated_Source\PSoC5/ADC_MIC.c **** *  The ADC_MIC_offset variable modified. This variable is used for
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  316 001e 17D0     		beq	.L18
  317 0020 0C2C     		cmp	r4, #12
  318 0022 24D0     		beq	.L22
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 18
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 18
 
 
  319 0024 082C     		cmp	r4, #8
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  660:Generated_Source\PSoC5/ADC_MIC.c **** 
  661:Generated_Source\PSoC5/ADC_MIC.c ****     #if( (ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSS_TO_VREF) || \
  662:Generated_Source\PSoC5/ADC_MIC.c ****          (ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSSA_TO_VDDA) || \
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 19
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 19
 
 
  663:Generated_Source\PSoC5/ADC_MIC.c ****          (ADC_MIC_DEFAULT_RANGE == ADC_MIC__VSSA_TO_VDAC) )
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  379              	.LVL30:
  380              	.L21:
  351:Generated_Source\PSoC5/ADC_MIC.c ****             break;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 20
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 20
 
 
  381              		.loc 1 351 0
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  430              		.loc 1 117 0
  431 0010 0749     		ldr	r1, .L34
  432 0012 0120     		movs	r0, #1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 21
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 21
 
 
  433 0014 FFF7FEFF 		bl	CyIntSetVector
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
   80:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_initVar = 1u;
  480              		.loc 1 80 0
  481 0008 FFF7FEFF 		bl	ADC_MIC_Init
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 22
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 22
 
 
  482              	.LVL37:
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  531              		.thumb
  532              		.thumb_func
  533              		.type	ADC_MIC_StopConvert, %function
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 23
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 23
 
 
  534              	ADC_MIC_StopConvert:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  582              		.loc 1 481 0 discriminator 2
  583 0008 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
  584              	.LVL42:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 24
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 24
 
 
  585 000a 064D     		ldr	r5, .L57
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  632              		.loc 1 523 0
  633 000a 40B2     		sxtb	r0, r0
  634 000c 7047     		bx	lr
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 25
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 25
 
 
  635              	.L61:
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  586:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_offset = offset;
  684              		.loc 1 586 0
  685              		.cfi_startproc
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 26
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 26
 
 
  686              		@ args = 0, pretend = 0, frame = 0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  712              		@ frame_needed = 0, uses_anonymous_args = 0
  713              		@ link register save eliminated.
  714              	.LVL50:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 27
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 27
 
 
  694:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_countsPer10Volt = (int32)adcGain * 10;
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  742              	.LVL52:
  721:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_countsPer10Volt = adcGain;
  743              		.loc 1 721 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 28
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 28
 
 
  744 0000 014B     		ldr	r3, .L72
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  771 0004 9BB2     		uxth	r3, r3
  772 0006 C3B1     		cbz	r3, .L75
  749:Generated_Source\PSoC5/ADC_MIC.c ****     {   /* Support obsolete method */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 29
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 29
 
 
  750:Generated_Source\PSoC5/ADC_MIC.c ****         countsPer10Volt = (int32)ADC_MIC_countsPerVolt * 10;
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  809 003a 034B     		ldr	r3, .L79+8
  810 003c 1A68     		ldr	r2, [r3]
  811              	.LVL60:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 30
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 30
 
 
  812 003e E8E7     		b	.L76
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  838              		.loc 1 786 0
  839 0002 70B5     		push	{r4, r5, r6, lr}
  840              		.cfi_def_cfa_offset 16
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 31
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 31
 
 
  841              		.cfi_offset 4, -16
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  876 002a 1288     		ldrh	r2, [r2]
  877 002c 12B2     		sxth	r2, r2
  878 002e 02EB8202 		add	r2, r2, r2, lsl #2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 32
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 32
 
 
  879 0032 5200     		lsls	r2, r2, #1
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  834:Generated_Source\PSoC5/ADC_MIC.c ****     if(ADC_MIC_countsPerVolt != 0)
  908              		.loc 1 834 0
  909 0000 0F4A     		ldr	r2, .L93
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 33
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 33
 
 
  830:Generated_Source\PSoC5/ADC_MIC.c ****     float32 volts;
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  948              	.LVL75:
  949              	.L92:
  836:Generated_Source\PSoC5/ADC_MIC.c ****     }
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 34
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 34
 
 
  950              		.loc 1 836 0
@@ -2021,10 +2021,10 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  987 0006 00000000 		.4byte	.Ldebug_abbrev0
  988 000a 04       		.byte	0x4
  989 000b 01       		.uleb128 0x1
- 990 000c 5A020000 		.4byte	.LASF67
+ 990 000c 0F020000 		.4byte	.LASF67
  991 0010 01       		.byte	0x1
- 992 0011 7E040000 		.4byte	.LASF68
- 993 0015 BA000000 		.4byte	.LASF69
+ 992 0011 33040000 		.4byte	.LASF68
+ 993 0015 54040000 		.4byte	.LASF69
  994 0019 28000000 		.4byte	.Ldebug_ranges0+0x28
  995 001d 00000000 		.4byte	0
  996 0021 00000000 		.4byte	.Ldebug_line0
@@ -2035,10 +2035,10 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1001 002c 02       		.uleb128 0x2
  1002 002d 04       		.byte	0x4
  1003 002e 04       		.byte	0x4
- 1004 002f 22030000 		.4byte	.LASF1
+ 1004 002f D7020000 		.4byte	.LASF1
  1005 0033 02       		.uleb128 0x2
  1006 0034 08       		.byte	0x8
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 35
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 35
 
 
  1007 0035 05       		.byte	0x5
@@ -2050,11 +2050,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1013 0041 02       		.uleb128 0x2
  1014 0042 02       		.byte	0x2
  1015 0043 05       		.byte	0x5
- 1016 0044 74030000 		.4byte	.LASF3
+ 1016 0044 29030000 		.4byte	.LASF3
  1017 0048 02       		.uleb128 0x2
  1018 0049 04       		.byte	0x4
  1019 004a 07       		.byte	0x7
- 1020 004b A6010000 		.4byte	.LASF4
+ 1020 004b 5B010000 		.4byte	.LASF4
  1021 004f 02       		.uleb128 0x2
  1022 0050 01       		.byte	0x1
  1023 0051 06       		.byte	0x6
@@ -2062,23 +2062,23 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1025 0056 02       		.uleb128 0x2
  1026 0057 01       		.byte	0x1
  1027 0058 08       		.byte	0x8
- 1028 0059 4F030000 		.4byte	.LASF6
+ 1028 0059 04030000 		.4byte	.LASF6
  1029 005d 02       		.uleb128 0x2
  1030 005e 02       		.byte	0x2
  1031 005f 07       		.byte	0x7
- 1032 0060 F8010000 		.4byte	.LASF7
+ 1032 0060 AD010000 		.4byte	.LASF7
  1033 0064 02       		.uleb128 0x2
  1034 0065 04       		.byte	0x4
  1035 0066 05       		.byte	0x5
- 1036 0067 1C010000 		.4byte	.LASF8
+ 1036 0067 D1000000 		.4byte	.LASF8
  1037 006b 02       		.uleb128 0x2
  1038 006c 04       		.byte	0x4
  1039 006d 07       		.byte	0x7
- 1040 006e BA010000 		.4byte	.LASF9
+ 1040 006e 6F010000 		.4byte	.LASF9
  1041 0072 02       		.uleb128 0x2
  1042 0073 04       		.byte	0x4
  1043 0074 07       		.byte	0x7
- 1044 0075 F0020000 		.4byte	.LASF10
+ 1044 0075 A5020000 		.4byte	.LASF10
  1045 0079 04       		.uleb128 0x4
  1046 007a 04       		.byte	0x4
  1047 007b 7F000000 		.4byte	0x7f
@@ -2086,9 +2086,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1049 0080 02       		.uleb128 0x2
  1050 0081 01       		.byte	0x1
  1051 0082 08       		.byte	0x8
- 1052 0083 C2030000 		.4byte	.LASF11
+ 1052 0083 77030000 		.4byte	.LASF11
  1053 0087 06       		.uleb128 0x6
- 1054 0088 2B010000 		.4byte	.LASF12
+ 1054 0088 E0000000 		.4byte	.LASF12
  1055 008c 02       		.byte	0x2
  1056 008d 5B       		.byte	0x5b
  1057 008e 56000000 		.4byte	0x56
@@ -2098,73 +2098,73 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1061 0098 5C       		.byte	0x5c
  1062 0099 5D000000 		.4byte	0x5d
  1063 009d 06       		.uleb128 0x6
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 36
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 36
 
 
- 1064 009e 62010000 		.4byte	.LASF14
+ 1064 009e 17010000 		.4byte	.LASF14
  1065 00a2 02       		.byte	0x2
  1066 00a3 5D       		.byte	0x5d
  1067 00a4 6B000000 		.4byte	0x6b
  1068 00a8 06       		.uleb128 0x6
- 1069 00a9 0B020000 		.4byte	.LASF15
+ 1069 00a9 C0010000 		.4byte	.LASF15
  1070 00ad 02       		.byte	0x2
  1071 00ae 5E       		.byte	0x5e
  1072 00af 4F000000 		.4byte	0x4f
  1073 00b3 06       		.uleb128 0x6
- 1074 00b4 71040000 		.4byte	.LASF16
+ 1074 00b4 26040000 		.4byte	.LASF16
  1075 00b8 02       		.byte	0x2
  1076 00b9 5F       		.byte	0x5f
  1077 00ba 41000000 		.4byte	0x41
  1078 00be 06       		.uleb128 0x6
- 1079 00bf 16010000 		.4byte	.LASF17
+ 1079 00bf CB000000 		.4byte	.LASF17
  1080 00c3 02       		.byte	0x2
  1081 00c4 60       		.byte	0x60
  1082 00c5 64000000 		.4byte	0x64
  1083 00c9 06       		.uleb128 0x6
- 1084 00ca E8020000 		.4byte	.LASF18
+ 1084 00ca 9D020000 		.4byte	.LASF18
  1085 00ce 02       		.byte	0x2
  1086 00cf 61       		.byte	0x61
  1087 00d0 2C000000 		.4byte	0x2c
  1088 00d4 02       		.uleb128 0x2
  1089 00d5 08       		.byte	0x8
  1090 00d6 04       		.byte	0x4
- 1091 00d7 5B010000 		.4byte	.LASF19
+ 1091 00d7 10010000 		.4byte	.LASF19
  1092 00db 06       		.uleb128 0x6
- 1093 00dc F9020000 		.4byte	.LASF20
+ 1093 00dc AE020000 		.4byte	.LASF20
  1094 00e0 02       		.byte	0x2
  1095 00e1 66       		.byte	0x66
  1096 00e2 33000000 		.4byte	0x33
  1097 00e6 06       		.uleb128 0x6
- 1098 00e7 43030000 		.4byte	.LASF21
+ 1098 00e7 F8020000 		.4byte	.LASF21
  1099 00eb 02       		.byte	0x2
  1100 00ec F0       		.byte	0xf0
  1101 00ed F1000000 		.4byte	0xf1
  1102 00f1 07       		.uleb128 0x7
  1103 00f2 87000000 		.4byte	0x87
  1104 00f6 06       		.uleb128 0x6
- 1105 00f7 25010000 		.4byte	.LASF22
+ 1105 00f7 DA000000 		.4byte	.LASF22
  1106 00fb 02       		.byte	0x2
  1107 00fc F1       		.byte	0xf1
  1108 00fd 01010000 		.4byte	0x101
  1109 0101 07       		.uleb128 0x7
  1110 0102 92000000 		.4byte	0x92
  1111 0106 06       		.uleb128 0x6
- 1112 0107 54020000 		.4byte	.LASF23
+ 1112 0107 09020000 		.4byte	.LASF23
  1113 010b 02       		.byte	0x2
  1114 010c F2       		.byte	0xf2
  1115 010d 11010000 		.4byte	0x111
  1116 0111 07       		.uleb128 0x7
  1117 0112 9D000000 		.4byte	0x9d
  1118 0116 08       		.uleb128 0x8
- 1119 0117 DD030000 		.4byte	.LASF24
+ 1119 0117 92030000 		.4byte	.LASF24
  1120 011b 02       		.byte	0x2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 37
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 37
 
 
  1121 011c 0201     		.2byte	0x102
  1122 011e 79000000 		.4byte	0x79
  1123 0122 09       		.uleb128 0x9
- 1124 0123 E9010000 		.4byte	.LASF27
+ 1124 0123 9E010000 		.4byte	.LASF27
  1125 0127 01       		.byte	0x1
  1126 0128 8F       		.byte	0x8f
  1127 0129 00000000 		.4byte	.LFB2
@@ -2173,13 +2173,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1130 0132 9C       		.byte	0x9c
  1131 0133 7B010000 		.4byte	0x17b
  1132 0137 0A       		.uleb128 0xa
- 1133 0138 77040000 		.4byte	.LASF25
+ 1133 0138 2C040000 		.4byte	.LASF25
  1134 013c 01       		.byte	0x1
  1135 013d 91       		.byte	0x91
  1136 013e 87000000 		.4byte	0x87
  1137 0142 00000000 		.4byte	.LLST0
  1138 0146 0A       		.uleb128 0xa
- 1139 0147 4A040000 		.4byte	.LASF26
+ 1139 0147 FF030000 		.4byte	.LASF26
  1140 014b 01       		.byte	0x1
  1141 014c 92       		.byte	0x92
  1142 014d 87000000 		.4byte	0x87
@@ -2202,7 +2202,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1159 0176 AC050000 		.4byte	0x5ac
  1160 017a 00       		.byte	0
  1161 017b 09       		.uleb128 0x9
- 1162 017c 67030000 		.4byte	.LASF28
+ 1162 017c 1C030000 		.4byte	.LASF28
  1163 0180 01       		.byte	0x1
  1164 0181 F8       		.byte	0xf8
  1165 0182 00000000 		.4byte	.LFB3
@@ -2211,14 +2211,14 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1168 018b 9C       		.byte	0x9c
  1169 018c B2010000 		.4byte	0x1b2
  1170 0190 0A       		.uleb128 0xa
- 1171 0191 4A040000 		.4byte	.LASF26
+ 1171 0191 FF030000 		.4byte	.LASF26
  1172 0195 01       		.byte	0x1
  1173 0196 FA       		.byte	0xfa
  1174 0197 87000000 		.4byte	0x87
  1175 019b 35000000 		.4byte	.LLST2
  1176 019f 0B       		.uleb128 0xb
  1177 01a0 06000000 		.4byte	.LVL8
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 38
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 38
 
 
  1178 01a4 90050000 		.4byte	0x590
@@ -2227,7 +2227,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1181 01ad AC050000 		.4byte	0x5ac
  1182 01b1 00       		.byte	0
  1183 01b2 0F       		.uleb128 0xf
- 1184 01b3 8E030000 		.4byte	.LASF29
+ 1184 01b3 43030000 		.4byte	.LASF29
  1185 01b7 01       		.byte	0x1
  1186 01b8 2201     		.2byte	0x122
  1187 01ba 00000000 		.4byte	.LFB4
@@ -2236,26 +2236,26 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1190 01c3 9C       		.byte	0x9c
  1191 01c4 E9010000 		.4byte	0x1e9
  1192 01c8 10       		.uleb128 0x10
- 1193 01c9 3D030000 		.4byte	.LASF33
+ 1193 01c9 F2020000 		.4byte	.LASF33
  1194 01cd 01       		.byte	0x1
  1195 01ce 2201     		.2byte	0x122
  1196 01d0 87000000 		.4byte	0x87
  1197 01d4 48000000 		.4byte	.LLST3
  1198 01d8 11       		.uleb128 0x11
- 1199 01d9 77040000 		.4byte	.LASF25
+ 1199 01d9 2C040000 		.4byte	.LASF25
  1200 01dd 01       		.byte	0x1
  1201 01de 2401     		.2byte	0x124
  1202 01e0 87000000 		.4byte	0x87
  1203 01e4 7A000000 		.4byte	.LLST4
  1204 01e8 00       		.byte	0
  1205 01e9 12       		.uleb128 0x12
- 1206 01ea 05010000 		.4byte	.LASF70
+ 1206 01ea BA000000 		.4byte	.LASF70
  1207 01ee 01       		.byte	0x1
  1208 01ef 6302     		.2byte	0x263
  1209 01f1 01       		.byte	0x1
  1210 01f2 1B020000 		.4byte	0x21b
  1211 01f6 13       		.uleb128 0x13
- 1212 01f7 9F030000 		.4byte	.LASF34
+ 1212 01f7 54030000 		.4byte	.LASF34
  1213 01fb 01       		.byte	0x1
  1214 01fc 6302     		.2byte	0x263
  1215 01fe 87000000 		.4byte	0x87
@@ -2265,31 +2265,31 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1219 0208 6502     		.2byte	0x265
  1220 020a BE000000 		.4byte	0xbe
  1221 020e 14       		.uleb128 0x14
- 1222 020f 5D030000 		.4byte	.LASF31
+ 1222 020f 12030000 		.4byte	.LASF31
  1223 0213 01       		.byte	0x1
  1224 0214 6902     		.2byte	0x269
  1225 0216 92000000 		.4byte	0x92
  1226 021a 00       		.byte	0
  1227 021b 0F       		.uleb128 0xf
- 1228 021c 1C040000 		.4byte	.LASF32
+ 1228 021c D1030000 		.4byte	.LASF32
  1229 0220 01       		.byte	0x1
  1230 0221 5401     		.2byte	0x154
  1231 0223 00000000 		.4byte	.LFB5
  1232 0227 88000000 		.4byte	.LFE5-.LFB5
  1233 022b 01       		.uleb128 0x1
  1234 022c 9C       		.byte	0x9c
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 39
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 39
 
 
  1235 022d A6020000 		.4byte	0x2a6
  1236 0231 10       		.uleb128 0x10
- 1237 0232 9F030000 		.4byte	.LASF34
+ 1237 0232 54030000 		.4byte	.LASF34
  1238 0236 01       		.byte	0x1
  1239 0237 5401     		.2byte	0x154
  1240 0239 87000000 		.4byte	0x87
  1241 023d 98000000 		.4byte	.LLST5
  1242 0241 11       		.uleb128 0x11
- 1243 0242 77040000 		.4byte	.LASF25
+ 1243 0242 2C040000 		.4byte	.LASF25
  1244 0246 01       		.byte	0x1
  1245 0247 5601     		.2byte	0x156
  1246 0249 87000000 		.4byte	0x87
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1289 02ab 01       		.byte	0x1
  1290 02ac 6A       		.byte	0x6a
  1291 02ad 00000000 		.4byte	.LFB1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 40
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 40
 
 
  1292 02b1 3C000000 		.4byte	.LFE1-.LFB1
@@ -2391,14 +2391,14 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1339 0307 00       		.byte	0
  1340 0308 00       		.byte	0
  1341 0309 09       		.uleb128 0x9
- 1342 030a 10020000 		.4byte	.LASF36
+ 1342 030a C5010000 		.4byte	.LASF36
  1343 030e 01       		.byte	0x1
  1344 030f 4A       		.byte	0x4a
  1345 0310 00000000 		.4byte	.LFB0
  1346 0314 1C000000 		.4byte	.LFE0-.LFB0
  1347 0318 01       		.uleb128 0x1
  1348 0319 9C       		.byte	0x9c
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 41
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 41
 
 
  1349 031a 31030000 		.4byte	0x331
@@ -2410,7 +2410,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1355 032c 22010000 		.4byte	0x122
  1356 0330 00       		.byte	0
  1357 0331 1A       		.uleb128 0x1a
- 1358 0332 28030000 		.4byte	.LASF37
+ 1358 0332 DD020000 		.4byte	.LASF37
  1359 0336 01       		.byte	0x1
  1360 0337 9101     		.2byte	0x191
  1361 0339 00000000 		.4byte	.LFB6
@@ -2436,13 +2436,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1381 036a 9C       		.byte	0x9c
  1382 036b A0030000 		.4byte	0x3a0
  1383 036f 10       		.uleb128 0x10
- 1384 0370 9E010000 		.4byte	.LASF39
+ 1384 0370 53010000 		.4byte	.LASF39
  1385 0374 01       		.byte	0x1
  1386 0375 DB01     		.2byte	0x1db
  1387 0377 87000000 		.4byte	0x87
  1388 037b E9010000 		.4byte	.LLST10
  1389 037f 11       		.uleb128 0x11
- 1390 0380 5B040000 		.4byte	.LASF40
+ 1390 0380 10040000 		.4byte	.LASF40
  1391 0384 01       		.byte	0x1
  1392 0385 DD01     		.2byte	0x1dd
  1393 0387 87000000 		.4byte	0x87
@@ -2458,11 +2458,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1403 039d 00       		.sleb128 0
  1404 039e 00       		.byte	0
  1405 039f 00       		.byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 42
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 42
 
 
  1406 03a0 1C       		.uleb128 0x1c
- 1407 03a1 02040000 		.4byte	.LASF71
+ 1407 03a1 B7030000 		.4byte	.LASF71
  1408 03a5 01       		.byte	0x1
  1409 03a6 0802     		.2byte	0x208
  1410 03a8 A8000000 		.4byte	0xa8
@@ -2489,7 +2489,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1431 03dd 53       		.byte	0x53
  1432 03de 00       		.byte	0
  1433 03df 0F       		.uleb128 0xf
- 1434 03e0 10030000 		.4byte	.LASF43
+ 1434 03e0 C5020000 		.4byte	.LASF43
  1435 03e4 01       		.byte	0x1
  1436 03e5 4902     		.2byte	0x249
  1437 03e7 00000000 		.4byte	.LFB11
@@ -2498,7 +2498,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1440 03f0 9C       		.byte	0x9c
  1441 03f1 04040000 		.4byte	0x404
  1442 03f5 1E       		.uleb128 0x1e
- 1443 03f6 15040000 		.4byte	.LASF44
+ 1443 03f6 CA030000 		.4byte	.LASF44
  1444 03fa 01       		.byte	0x1
  1445 03fb 4902     		.2byte	0x249
  1446 03fd B3000000 		.4byte	0xb3
@@ -2518,14 +2518,14 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1460 041b 2B000000 		.4byte	.LASF46
  1461 041f 01       		.byte	0x1
  1462 0420 B402     		.2byte	0x2b4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 43
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 43
 
 
  1463 0422 B3000000 		.4byte	0xb3
  1464 0426 58020000 		.4byte	.LLST12
  1465 042a 00       		.byte	0
  1466 042b 0F       		.uleb128 0xf
- 1467 042c 88010000 		.4byte	.LASF47
+ 1467 042c 3D010000 		.4byte	.LASF47
  1468 0430 01       		.byte	0x1
  1469 0431 CF02     		.2byte	0x2cf
  1470 0433 00000000 		.4byte	.LFB14
@@ -2542,7 +2542,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1481 044e 50       		.byte	0x50
  1482 044f 00       		.byte	0
  1483 0450 1B       		.uleb128 0x1b
- 1484 0451 EA030000 		.4byte	.LASF48
+ 1484 0451 9F030000 		.4byte	.LASF48
  1485 0455 01       		.byte	0x1
  1486 0456 E702     		.2byte	0x2e7
  1487 0458 B3000000 		.4byte	0xb3
@@ -2552,58 +2552,58 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1491 0465 9C       		.byte	0x9c
  1492 0466 9B040000 		.4byte	0x49b
  1493 046a 10       		.uleb128 0x10
- 1494 046b 40040000 		.4byte	.LASF49
+ 1494 046b F5030000 		.4byte	.LASF49
  1495 046f 01       		.byte	0x1
  1496 0470 E702     		.2byte	0x2e7
  1497 0472 B3000000 		.4byte	0xb3
  1498 0476 79020000 		.4byte	.LLST13
  1499 047a 11       		.uleb128 0x11
- 1500 047b 4D020000 		.4byte	.LASF50
+ 1500 047b 02020000 		.4byte	.LASF50
  1501 047f 01       		.byte	0x1
  1502 0480 E902     		.2byte	0x2e9
  1503 0482 B3000000 		.4byte	0xb3
  1504 0486 A2020000 		.4byte	.LLST14
  1505 048a 11       		.uleb128 0x11
- 1506 048b 69010000 		.4byte	.LASF51
+ 1506 048b 1E010000 		.4byte	.LASF51
  1507 048f 01       		.byte	0x1
  1508 0490 EA02     		.2byte	0x2ea
  1509 0492 BE000000 		.4byte	0xbe
  1510 0496 BD020000 		.4byte	.LLST15
  1511 049a 00       		.byte	0
  1512 049b 1F       		.uleb128 0x1f
- 1513 049c AA030000 		.4byte	.LASF52
+ 1513 049c 5F030000 		.4byte	.LASF52
  1514 04a0 01       		.byte	0x1
  1515 04a1 1103     		.2byte	0x311
  1516 04a3 BE000000 		.4byte	0xbe
  1517 04a7 00000000 		.4byte	.LFB16
  1518 04ab 48000000 		.4byte	.LFE16-.LFB16
  1519 04af 01       		.uleb128 0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 44
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 44
 
 
  1520 04b0 9C       		.byte	0x9c
  1521 04b1 E6040000 		.4byte	0x4e6
  1522 04b5 10       		.uleb128 0x10
- 1523 04b6 40040000 		.4byte	.LASF49
+ 1523 04b6 F5030000 		.4byte	.LASF49
  1524 04ba 01       		.byte	0x1
  1525 04bb 1103     		.2byte	0x311
  1526 04bd B3000000 		.4byte	0xb3
  1527 04c1 DB020000 		.4byte	.LLST16
  1528 04c5 11       		.uleb128 0x11
- 1529 04c6 B3010000 		.4byte	.LASF53
+ 1529 04c6 68010000 		.4byte	.LASF53
  1530 04ca 01       		.byte	0x1
  1531 04cb 1403     		.2byte	0x314
  1532 04cd DB000000 		.4byte	0xdb
  1533 04d1 09030000 		.4byte	.LLST17
  1534 04d5 11       		.uleb128 0x11
- 1535 04d6 69010000 		.4byte	.LASF51
+ 1535 04d6 1E010000 		.4byte	.LASF51
  1536 04da 01       		.byte	0x1
  1537 04db 1503     		.2byte	0x315
  1538 04dd BE000000 		.4byte	0xbe
  1539 04e1 38030000 		.4byte	.LLST18
  1540 04e5 00       		.byte	0
  1541 04e6 1F       		.uleb128 0x1f
- 1542 04e7 36020000 		.4byte	.LASF54
+ 1542 04e7 EB010000 		.4byte	.LASF54
  1543 04eb 01       		.byte	0x1
  1544 04ec 3D03     		.2byte	0x33d
  1545 04ee C9000000 		.4byte	0xc9
@@ -2613,37 +2613,37 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1549 04fb 9C       		.byte	0x9c
  1550 04fc 31050000 		.4byte	0x531
  1551 0500 10       		.uleb128 0x10
- 1552 0501 40040000 		.4byte	.LASF49
+ 1552 0501 F5030000 		.4byte	.LASF49
  1553 0505 01       		.byte	0x1
  1554 0506 3D03     		.2byte	0x33d
  1555 0508 B3000000 		.4byte	0xb3
  1556 050c 56030000 		.4byte	.LLST19
  1557 0510 11       		.uleb128 0x11
- 1558 0511 CC010000 		.4byte	.LASF55
+ 1558 0511 81010000 		.4byte	.LASF55
  1559 0515 01       		.byte	0x1
  1560 0516 3F03     		.2byte	0x33f
  1561 0518 C9000000 		.4byte	0xc9
  1562 051c 7F030000 		.4byte	.LLST20
  1563 0520 11       		.uleb128 0x11
- 1564 0521 69010000 		.4byte	.LASF51
+ 1564 0521 1E010000 		.4byte	.LASF51
  1565 0525 01       		.byte	0x1
  1566 0526 4003     		.2byte	0x340
  1567 0528 BE000000 		.4byte	0xbe
  1568 052c A7030000 		.4byte	.LLST21
  1569 0530 00       		.byte	0
  1570 0531 20       		.uleb128 0x20
- 1571 0532 7E030000 		.4byte	.LASF56
+ 1571 0532 33030000 		.4byte	.LASF56
  1572 0536 01       		.byte	0x1
  1573 0537 23       		.byte	0x23
  1574 0538 87000000 		.4byte	0x87
  1575 053c 05       		.uleb128 0x5
  1576 053d 03       		.byte	0x3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 45
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 45
 
 
  1577 053e 00000000 		.4byte	ADC_MIC_initVar
  1578 0542 20       		.uleb128 0x20
- 1579 0543 62040000 		.4byte	.LASF57
+ 1579 0543 17040000 		.4byte	.LASF57
  1580 0547 01       		.byte	0x1
  1581 0548 24       		.byte	0x24
  1582 0549 53050000 		.4byte	0x553
@@ -2653,7 +2653,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1586 0553 07       		.uleb128 0x7
  1587 0554 B3000000 		.4byte	0xb3
  1588 0558 20       		.uleb128 0x20
- 1589 0559 C7030000 		.4byte	.LASF58
+ 1589 0559 7C030000 		.4byte	.LASF58
  1590 055d 01       		.byte	0x1
  1591 055e 25       		.byte	0x25
  1592 055f 53050000 		.4byte	0x553
@@ -2661,7 +2661,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1594 0564 03       		.byte	0x3
  1595 0565 00000000 		.4byte	ADC_MIC_countsPerVolt
  1596 0569 20       		.uleb128 0x20
- 1597 056a 1E020000 		.4byte	.LASF59
+ 1597 056a D3010000 		.4byte	.LASF59
  1598 056e 01       		.byte	0x1
  1599 056f 26       		.byte	0x26
  1600 0570 7A050000 		.4byte	0x57a
@@ -2671,7 +2671,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1604 057a 07       		.uleb128 0x7
  1605 057b BE000000 		.4byte	0xbe
  1606 057f 20       		.uleb128 0x20
- 1607 0580 32040000 		.4byte	.LASF60
+ 1607 0580 E7030000 		.4byte	.LASF60
  1608 0584 01       		.byte	0x1
  1609 0585 27       		.byte	0x27
  1610 0586 53050000 		.4byte	0x553
@@ -2679,12 +2679,12 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1612 058b 03       		.byte	0x3
  1613 058c 00000000 		.4byte	ADC_MIC_shift
  1614 0590 21       		.uleb128 0x21
- 1615 0591 D2010000 		.4byte	.LASF72
+ 1615 0591 87010000 		.4byte	.LASF72
  1616 0595 03       		.byte	0x3
  1617 0596 7E       		.byte	0x7e
  1618 0597 87000000 		.4byte	0x87
  1619 059b 22       		.uleb128 0x22
- 1620 059c 51010000 		.4byte	.LASF61
+ 1620 059c 06010000 		.4byte	.LASF61
  1621 05a0 03       		.byte	0x3
  1622 05a1 78       		.byte	0x78
  1623 05a2 AC050000 		.4byte	0x5ac
@@ -2698,12 +2698,12 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1631 05b3 BD050000 		.4byte	0x5bd
  1632 05b7 23       		.uleb128 0x23
  1633 05b8 87000000 		.4byte	0x87
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 46
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 46
 
 
  1634 05bc 00       		.byte	0
  1635 05bd 22       		.uleb128 0x22
- 1636 05be 48030000 		.4byte	.LASF63
+ 1636 05be FD020000 		.4byte	.LASF63
  1637 05c2 03       		.byte	0x3
  1638 05c3 80       		.byte	0x80
  1639 05c4 CE050000 		.4byte	0x5ce
@@ -2711,7 +2711,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1641 05c9 87000000 		.4byte	0x87
  1642 05cd 00       		.byte	0
  1643 05ce 22       		.uleb128 0x22
- 1644 05cf 31010000 		.4byte	.LASF64
+ 1644 05cf E6000000 		.4byte	.LASF64
  1645 05d3 04       		.byte	0x4
  1646 05d4 32       		.byte	0x32
  1647 05d5 DF050000 		.4byte	0x5df
@@ -2719,7 +2719,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1649 05da 87000000 		.4byte	0x87
  1650 05de 00       		.byte	0
  1651 05df 22       		.uleb128 0x22
- 1652 05e0 FF020000 		.4byte	.LASF65
+ 1652 05e0 B4020000 		.4byte	.LASF65
  1653 05e4 03       		.byte	0x3
  1654 05e5 8C       		.byte	0x8c
  1655 05e6 F5050000 		.4byte	0x5f5
@@ -2729,7 +2729,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1659 05f0 87000000 		.4byte	0x87
  1660 05f4 00       		.byte	0
  1661 05f5 24       		.uleb128 0x24
- 1662 05f6 79010000 		.4byte	.LASF66
+ 1662 05f6 2E010000 		.4byte	.LASF66
  1663 05fa 03       		.byte	0x3
  1664 05fb 89       		.byte	0x89
  1665 05fc 16010000 		.4byte	0x116
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1688 000e 01       		.uleb128 0x1
  1689 000f 10       		.uleb128 0x10
  1690 0010 17       		.uleb128 0x17
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 47
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 47
 
 
  1691 0011 00       		.byte	0
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1745 0047 35       		.uleb128 0x35
  1746 0048 00       		.byte	0
  1747 0049 49       		.uleb128 0x49
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 48
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 48
 
 
  1748 004a 13       		.uleb128 0x13
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1802 0081 00       		.byte	0
  1803 0082 00       		.byte	0
  1804 0083 0B       		.uleb128 0xb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 49
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 49
 
 
  1805 0084 898201   		.uleb128 0x4109
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1859 00c4 12       		.uleb128 0x12
  1860 00c5 06       		.uleb128 0x6
  1861 00c6 40       		.uleb128 0x40
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 50
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 50
 
 
  1862 00c7 18       		.uleb128 0x18
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1916 00fe 13       		.uleb128 0x13
  1917 00ff 05       		.uleb128 0x5
  1918 0100 00       		.byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 51
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 51
 
 
  1919 0101 03       		.uleb128 0x3
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  1973 0137 00       		.byte	0
  1974 0138 00       		.byte	0
  1975 0139 18       		.uleb128 0x18
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 52
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 52
 
 
  1976 013a 34       		.uleb128 0x34
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  2030 0173 13       		.uleb128 0x13
  2031 0174 11       		.uleb128 0x11
  2032 0175 01       		.uleb128 0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 53
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 53
 
 
  2033 0176 12       		.uleb128 0x12
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  2087 01ae 0E       		.uleb128 0xe
  2088 01af 3A       		.uleb128 0x3a
  2089 01b0 0B       		.uleb128 0xb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 54
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 54
 
 
  2090 01b1 3B       		.uleb128 0x3b
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  2144 01e8 00       		.byte	0
  2145 01e9 3F       		.uleb128 0x3f
  2146 01ea 19       		.uleb128 0x19
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 55
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 55
 
 
  2147 01eb 03       		.uleb128 0x3
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  2201 0221 13       		.uleb128 0x13
  2202 0222 3C       		.uleb128 0x3c
  2203 0223 19       		.uleb128 0x19
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 56
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 56
 
 
  2204 0224 00       		.byte	0
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  2258 0070 1A       		.byte	0x1a
  2259 0071 9F       		.byte	0x9f
  2260 0072 00000000 		.4byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 57
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 57
 
 
  2261 0076 00000000 		.4byte	0
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  2315 00f7 9F       		.byte	0x9f
  2316 00f8 18000000 		.4byte	.LVL18
  2317 00fc 2D000000 		.4byte	.LVL21-1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 58
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 58
 
 
  2318 0100 0100     		.2byte	0x1
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  2372 018b 6A000000 		.4byte	.LVL30
  2373 018f 0200     		.2byte	0x2
  2374 0191 3C       		.byte	0x3c
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 59
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 59
 
 
  2375 0192 9F       		.byte	0x9f
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  2429 0217 F3       		.byte	0xf3
  2430 0218 01       		.uleb128 0x1
  2431 0219 50       		.byte	0x50
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 60
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 60
 
 
  2432 021a 9F       		.byte	0x9f
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  2486 0293 4C000000 		.4byte	.LFE15
  2487 0297 0100     		.2byte	0x1
  2488 0299 50       		.byte	0x50
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 61
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 61
 
 
  2489 029a 00000000 		.4byte	0
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  2543 0315 74       		.byte	0x74
  2544 0316 00       		.sleb128 0
  2545 0317 1C       		.byte	0x1c
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 62
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 62
 
 
  2546 0318 F7       		.byte	0xf7
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  2600 038a 00       		.sleb128 0
  2601 038b F7       		.byte	0xf7
  2602 038c 41       		.uleb128 0x41
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 63
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 63
 
 
  2603 038d F7       		.byte	0xf7
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  2657 0058 00000000 		.4byte	.LFB9
  2658 005c 18000000 		.4byte	.LFE9-.LFB9
  2659 0060 00000000 		.4byte	.LFB10
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 64
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 64
 
 
  2660 0064 18000000 		.4byte	.LFE10-.LFB10
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  2714 0094 0C000000 		.4byte	.LFE14
  2715 0098 00000000 		.4byte	.LFB15
  2716 009c 4C000000 		.4byte	.LFE15
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 65
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 65
 
 
  2717 00a0 00000000 		.4byte	.LFB16
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  2743      64436F6E 
  2743      76657273 
  2744              	.LASF38:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 66
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 66
 
 
  2745 008c 4144435F 		.ascii	"ADC_MIC_StopConvert\000"
@@ -3915,309 +3915,309 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 1
  2749 00ae 7369676E 		.ascii	"signed char\000"
  2749      65642063 
  2749      68617200 
- 2750              	.LASF69:
- 2751 00ba 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
- 2751      73657273 
- 2751      5C6D6772 
- 2751      6F6E6265 
- 2751      725C4465 
- 2752 00e8 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
- 2752      436F6E74 
- 2752      696E756F 
- 2752      7573204F 
- 2752      75747075 
- 2753              	.LASF70:
- 2754 0105 4144435F 		.ascii	"ADC_MIC_CalcGain\000"
- 2754      4D49435F 
- 2754      43616C63 
- 2754      4761696E 
- 2754      00
- 2755              	.LASF17:
- 2756 0116 696E7433 		.ascii	"int32\000"
- 2756      3200
- 2757              	.LASF8:
- 2758 011c 6C6F6E67 		.ascii	"long int\000"
- 2758      20696E74 
- 2758      00
- 2759              	.LASF22:
- 2760 0125 72656731 		.ascii	"reg16\000"
- 2760      3600
- 2761              	.LASF12:
- 2762 012b 75696E74 		.ascii	"uint8\000"
- 2762      3800
- 2763              	.LASF64:
- 2764 0131 4144435F 		.ascii	"ADC_MIC_theACLK_SetModeRegister\000"
- 2764      4D49435F 
- 2764      74686541 
- 2764      434C4B5F 
- 2764      5365744D 
- 2765              	.LASF61:
- 2766 0151 43794465 		.ascii	"CyDelayUs\000"
- 2766      6C617955 
- 2766      7300
- 2767              	.LASF19:
- 2768 015b 646F7562 		.ascii	"double\000"
- 2768      6C6500
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 67
+ 2750              	.LASF70:
+ 2751 00ba 4144435F 		.ascii	"ADC_MIC_CalcGain\000"
+ 2751      4D49435F 
+ 2751      43616C63 
+ 2751      4761696E 
+ 2751      00
+ 2752              	.LASF17:
+ 2753 00cb 696E7433 		.ascii	"int32\000"
+ 2753      3200
+ 2754              	.LASF8:
+ 2755 00d1 6C6F6E67 		.ascii	"long int\000"
+ 2755      20696E74 
+ 2755      00
+ 2756              	.LASF22:
+ 2757 00da 72656731 		.ascii	"reg16\000"
+ 2757      3600
+ 2758              	.LASF12:
+ 2759 00e0 75696E74 		.ascii	"uint8\000"
+ 2759      3800
+ 2760              	.LASF64:
+ 2761 00e6 4144435F 		.ascii	"ADC_MIC_theACLK_SetModeRegister\000"
+ 2761      4D49435F 
+ 2761      74686541 
+ 2761      434C4B5F 
+ 2761      5365744D 
+ 2762              	.LASF61:
+ 2763 0106 43794465 		.ascii	"CyDelayUs\000"
+ 2763      6C617955 
+ 2763      7300
+ 2764              	.LASF19:
+ 2765 0110 646F7562 		.ascii	"double\000"
+ 2765      6C6500
+ 2766              	.LASF14:
+ 2767 0117 75696E74 		.ascii	"uint32\000"
+ 2767      333200
+ 2768              	.LASF51:
+ 2769 011e 636F756E 		.ascii	"countsPer10Volt\000"
+ 2769      74735065 
+ 2769      72313056 
+ 2769      6F6C7400 
+ 2770              	.LASF66:
+ 2771 012e 4379496E 		.ascii	"CyIntSetVector\000"
+ 2771      74536574 
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 67
 
 
- 2769              	.LASF14:
- 2770 0162 75696E74 		.ascii	"uint32\000"
- 2770      333200
- 2771              	.LASF51:
- 2772 0169 636F756E 		.ascii	"countsPer10Volt\000"
- 2772      74735065 
- 2772      72313056 
- 2772      6F6C7400 
- 2773              	.LASF66:
- 2774 0179 4379496E 		.ascii	"CyIntSetVector\000"
- 2774      74536574 
- 2774      56656374 
- 2774      6F7200
- 2775              	.LASF47:
- 2776 0188 4144435F 		.ascii	"ADC_MIC_SetScaledGain\000"
- 2776      4D49435F 
- 2776      53657453 
- 2776      63616C65 
- 2776      64476169 
- 2777              	.LASF39:
- 2778 019e 7265744D 		.ascii	"retMode\000"
- 2778      6F646500 
- 2779              	.LASF4:
- 2780 01a6 756E7369 		.ascii	"unsigned int\000"
- 2780      676E6564 
- 2780      20696E74 
- 2780      00
- 2781              	.LASF53:
- 2782 01b3 75566F6C 		.ascii	"uVolts\000"
- 2782      747300
- 2783              	.LASF9:
- 2784 01ba 6C6F6E67 		.ascii	"long unsigned int\000"
- 2784      20756E73 
- 2784      69676E65 
- 2784      6420696E 
- 2784      7400
- 2785              	.LASF55:
- 2786 01cc 766F6C74 		.ascii	"volts\000"
- 2786      7300
- 2787              	.LASF72:
- 2788 01d2 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 2788      74657243 
- 2788      72697469 
- 2788      63616C53 
- 2788      65637469 
- 2789              	.LASF27:
- 2790 01e9 4144435F 		.ascii	"ADC_MIC_Enable\000"
- 2790      4D49435F 
- 2790      456E6162 
- 2790      6C6500
- 2791              	.LASF7:
- 2792 01f8 73686F72 		.ascii	"short unsigned int\000"
- 2792      7420756E 
- 2792      7369676E 
- 2792      65642069 
- 2792      6E7400
- 2793              	.LASF15:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 68
+ 2771      56656374 
+ 2771      6F7200
+ 2772              	.LASF47:
+ 2773 013d 4144435F 		.ascii	"ADC_MIC_SetScaledGain\000"
+ 2773      4D49435F 
+ 2773      53657453 
+ 2773      63616C65 
+ 2773      64476169 
+ 2774              	.LASF39:
+ 2775 0153 7265744D 		.ascii	"retMode\000"
+ 2775      6F646500 
+ 2776              	.LASF4:
+ 2777 015b 756E7369 		.ascii	"unsigned int\000"
+ 2777      676E6564 
+ 2777      20696E74 
+ 2777      00
+ 2778              	.LASF53:
+ 2779 0168 75566F6C 		.ascii	"uVolts\000"
+ 2779      747300
+ 2780              	.LASF9:
+ 2781 016f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2781      20756E73 
+ 2781      69676E65 
+ 2781      6420696E 
+ 2781      7400
+ 2782              	.LASF55:
+ 2783 0181 766F6C74 		.ascii	"volts\000"
+ 2783      7300
+ 2784              	.LASF72:
+ 2785 0187 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 2785      74657243 
+ 2785      72697469 
+ 2785      63616C53 
+ 2785      65637469 
+ 2786              	.LASF27:
+ 2787 019e 4144435F 		.ascii	"ADC_MIC_Enable\000"
+ 2787      4D49435F 
+ 2787      456E6162 
+ 2787      6C6500
+ 2788              	.LASF7:
+ 2789 01ad 73686F72 		.ascii	"short unsigned int\000"
+ 2789      7420756E 
+ 2789      7369676E 
+ 2789      65642069 
+ 2789      6E7400
+ 2790              	.LASF15:
+ 2791 01c0 696E7438 		.ascii	"int8\000"
+ 2791      00
+ 2792              	.LASF36:
+ 2793 01c5 4144435F 		.ascii	"ADC_MIC_Start\000"
+ 2793      4D49435F 
+ 2793      53746172 
+ 2793      7400
+ 2794              	.LASF59:
+ 2795 01d3 4144435F 		.ascii	"ADC_MIC_countsPer10Volt\000"
+ 2795      4D49435F 
+ 2795      636F756E 
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 68
 
 
- 2794 020b 696E7438 		.ascii	"int8\000"
- 2794      00
- 2795              	.LASF36:
- 2796 0210 4144435F 		.ascii	"ADC_MIC_Start\000"
- 2796      4D49435F 
- 2796      53746172 
- 2796      7400
- 2797              	.LASF59:
- 2798 021e 4144435F 		.ascii	"ADC_MIC_countsPer10Volt\000"
- 2798      4D49435F 
- 2798      636F756E 
- 2798      74735065 
- 2798      72313056 
- 2799              	.LASF54:
- 2800 0236 4144435F 		.ascii	"ADC_MIC_CountsTo_Volts\000"
- 2800      4D49435F 
- 2800      436F756E 
- 2800      7473546F 
- 2800      5F566F6C 
- 2801              	.LASF50:
- 2802 024d 6D566F6C 		.ascii	"mVolts\000"
- 2802      747300
- 2803              	.LASF23:
- 2804 0254 72656733 		.ascii	"reg32\000"
- 2804      3200
- 2805              	.LASF67:
- 2806 025a 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 2806      4320342E 
- 2806      392E3320 
- 2806      32303135 
- 2806      30333033 
- 2807 028d 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 2807      20726576 
- 2807      6973696F 
- 2807      6E203232 
- 2807      31323230 
- 2808 02c0 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
- 2808      66756E63 
- 2808      74696F6E 
- 2808      2D736563 
- 2808      74696F6E 
- 2809              	.LASF18:
- 2810 02e8 666C6F61 		.ascii	"float32\000"
- 2810      74333200 
- 2811              	.LASF10:
- 2812 02f0 73697A65 		.ascii	"sizetype\000"
- 2812      74797065 
- 2812      00
- 2813              	.LASF20:
- 2814 02f9 696E7436 		.ascii	"int64\000"
- 2814      3400
- 2815              	.LASF65:
- 2816 02ff 4379496E 		.ascii	"CyIntSetPriority\000"
- 2816      74536574 
- 2816      5072696F 
- 2816      72697479 
- 2816      00
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 69
+ 2795      74735065 
+ 2795      72313056 
+ 2796              	.LASF54:
+ 2797 01eb 4144435F 		.ascii	"ADC_MIC_CountsTo_Volts\000"
+ 2797      4D49435F 
+ 2797      436F756E 
+ 2797      7473546F 
+ 2797      5F566F6C 
+ 2798              	.LASF50:
+ 2799 0202 6D566F6C 		.ascii	"mVolts\000"
+ 2799      747300
+ 2800              	.LASF23:
+ 2801 0209 72656733 		.ascii	"reg32\000"
+ 2801      3200
+ 2802              	.LASF67:
+ 2803 020f 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2803      4320342E 
+ 2803      392E3320 
+ 2803      32303135 
+ 2803      30333033 
+ 2804 0242 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 2804      20726576 
+ 2804      6973696F 
+ 2804      6E203232 
+ 2804      31323230 
+ 2805 0275 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 2805      66756E63 
+ 2805      74696F6E 
+ 2805      2D736563 
+ 2805      74696F6E 
+ 2806              	.LASF18:
+ 2807 029d 666C6F61 		.ascii	"float32\000"
+ 2807      74333200 
+ 2808              	.LASF10:
+ 2809 02a5 73697A65 		.ascii	"sizetype\000"
+ 2809      74797065 
+ 2809      00
+ 2810              	.LASF20:
+ 2811 02ae 696E7436 		.ascii	"int64\000"
+ 2811      3400
+ 2812              	.LASF65:
+ 2813 02b4 4379496E 		.ascii	"CyIntSetPriority\000"
+ 2813      74536574 
+ 2813      5072696F 
+ 2813      72697479 
+ 2813      00
+ 2814              	.LASF43:
+ 2815 02c5 4144435F 		.ascii	"ADC_MIC_SetOffset\000"
+ 2815      4D49435F 
+ 2815      5365744F 
+ 2815      66667365 
+ 2815      7400
+ 2816              	.LASF1:
+ 2817 02d7 666C6F61 		.ascii	"float\000"
+ 2817      7400
+ 2818              	.LASF37:
+ 2819 02dd 4144435F 		.ascii	"ADC_MIC_StartConvert\000"
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 69
 
 
- 2817              	.LASF43:
- 2818 0310 4144435F 		.ascii	"ADC_MIC_SetOffset\000"
- 2818      4D49435F 
- 2818      5365744F 
- 2818      66667365 
- 2818      7400
- 2819              	.LASF1:
- 2820 0322 666C6F61 		.ascii	"float\000"
- 2820      7400
- 2821              	.LASF37:
- 2822 0328 4144435F 		.ascii	"ADC_MIC_StartConvert\000"
- 2822      4D49435F 
- 2822      53746172 
- 2822      74436F6E 
- 2822      76657274 
- 2823              	.LASF33:
- 2824 033d 706F7765 		.ascii	"power\000"
- 2824      7200
- 2825              	.LASF21:
- 2826 0343 72656738 		.ascii	"reg8\000"
- 2826      00
- 2827              	.LASF63:
- 2828 0348 43794861 		.ascii	"CyHalt\000"
- 2828      6C7400
- 2829              	.LASF6:
- 2830 034f 756E7369 		.ascii	"unsigned char\000"
- 2830      676E6564 
- 2830      20636861 
- 2830      7200
- 2831              	.LASF31:
- 2832 035d 64696666 		.ascii	"diff_zero\000"
- 2832      5F7A6572 
- 2832      6F00
- 2833              	.LASF28:
- 2834 0367 4144435F 		.ascii	"ADC_MIC_Stop\000"
- 2834      4D49435F 
- 2834      53746F70 
- 2834      00
- 2835              	.LASF3:
- 2836 0374 73686F72 		.ascii	"short int\000"
- 2836      7420696E 
- 2836      7400
- 2837              	.LASF56:
- 2838 037e 4144435F 		.ascii	"ADC_MIC_initVar\000"
- 2838      4D49435F 
- 2838      696E6974 
- 2838      56617200 
- 2839              	.LASF29:
- 2840 038e 4144435F 		.ascii	"ADC_MIC_SetPower\000"
- 2840      4D49435F 
- 2840      53657450 
- 2840      6F776572 
- 2840      00
- 2841              	.LASF34:
- 2842 039f 7265736F 		.ascii	"resolution\000"
- 2842      6C757469 
- 2842      6F6E00
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 70
+ 2819      4D49435F 
+ 2819      53746172 
+ 2819      74436F6E 
+ 2819      76657274 
+ 2820              	.LASF33:
+ 2821 02f2 706F7765 		.ascii	"power\000"
+ 2821      7200
+ 2822              	.LASF21:
+ 2823 02f8 72656738 		.ascii	"reg8\000"
+ 2823      00
+ 2824              	.LASF63:
+ 2825 02fd 43794861 		.ascii	"CyHalt\000"
+ 2825      6C7400
+ 2826              	.LASF6:
+ 2827 0304 756E7369 		.ascii	"unsigned char\000"
+ 2827      676E6564 
+ 2827      20636861 
+ 2827      7200
+ 2828              	.LASF31:
+ 2829 0312 64696666 		.ascii	"diff_zero\000"
+ 2829      5F7A6572 
+ 2829      6F00
+ 2830              	.LASF28:
+ 2831 031c 4144435F 		.ascii	"ADC_MIC_Stop\000"
+ 2831      4D49435F 
+ 2831      53746F70 
+ 2831      00
+ 2832              	.LASF3:
+ 2833 0329 73686F72 		.ascii	"short int\000"
+ 2833      7420696E 
+ 2833      7400
+ 2834              	.LASF56:
+ 2835 0333 4144435F 		.ascii	"ADC_MIC_initVar\000"
+ 2835      4D49435F 
+ 2835      696E6974 
+ 2835      56617200 
+ 2836              	.LASF29:
+ 2837 0343 4144435F 		.ascii	"ADC_MIC_SetPower\000"
+ 2837      4D49435F 
+ 2837      53657450 
+ 2837      6F776572 
+ 2837      00
+ 2838              	.LASF34:
+ 2839 0354 7265736F 		.ascii	"resolution\000"
+ 2839      6C757469 
+ 2839      6F6E00
+ 2840              	.LASF52:
+ 2841 035f 4144435F 		.ascii	"ADC_MIC_CountsTo_uVolts\000"
+ 2841      4D49435F 
+ 2841      436F756E 
+ 2841      7473546F 
+ 2841      5F75566F 
+ 2842              	.LASF11:
+ 2843 0377 63686172 		.ascii	"char\000"
+ 2843      00
+ 2844              	.LASF58:
+ 2845 037c 4144435F 		.ascii	"ADC_MIC_countsPerVolt\000"
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 70
 
 
- 2843              	.LASF52:
- 2844 03aa 4144435F 		.ascii	"ADC_MIC_CountsTo_uVolts\000"
- 2844      4D49435F 
- 2844      436F756E 
- 2844      7473546F 
- 2844      5F75566F 
- 2845              	.LASF11:
- 2846 03c2 63686172 		.ascii	"char\000"
- 2846      00
- 2847              	.LASF58:
- 2848 03c7 4144435F 		.ascii	"ADC_MIC_countsPerVolt\000"
- 2848      4D49435F 
- 2848      636F756E 
- 2848      74735065 
- 2848      72566F6C 
- 2849              	.LASF24:
- 2850 03dd 63796973 		.ascii	"cyisraddress\000"
- 2850      72616464 
- 2850      72657373 
- 2850      00
- 2851              	.LASF48:
- 2852 03ea 4144435F 		.ascii	"ADC_MIC_CountsTo_mVolts\000"
- 2852      4D49435F 
- 2852      436F756E 
- 2852      7473546F 
- 2852      5F6D566F 
- 2853              	.LASF71:
- 2854 0402 4144435F 		.ascii	"ADC_MIC_GetResult8\000"
- 2854      4D49435F 
- 2854      47657452 
- 2854      6573756C 
- 2854      743800
- 2855              	.LASF44:
- 2856 0415 6F666673 		.ascii	"offset\000"
- 2856      657400
- 2857              	.LASF32:
- 2858 041c 4144435F 		.ascii	"ADC_MIC_SetResolution\000"
- 2858      4D49435F 
- 2858      53657452 
- 2858      65736F6C 
- 2858      7574696F 
- 2859              	.LASF60:
- 2860 0432 4144435F 		.ascii	"ADC_MIC_shift\000"
- 2860      4D49435F 
- 2860      73686966 
- 2860      7400
- 2861              	.LASF49:
- 2862 0440 61646343 		.ascii	"adcCounts\000"
- 2862      6F756E74 
- 2862      7300
- 2863              	.LASF26:
- 2864 044a 656E6162 		.ascii	"enableInterrupts\000"
- 2864      6C65496E 
- 2864      74657272 
- 2864      75707473 
- 2864      00
- 2865              	.LASF40:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccUjZ0ZS.s 			page 71
+ 2845      4D49435F 
+ 2845      636F756E 
+ 2845      74735065 
+ 2845      72566F6C 
+ 2846              	.LASF24:
+ 2847 0392 63796973 		.ascii	"cyisraddress\000"
+ 2847      72616464 
+ 2847      72657373 
+ 2847      00
+ 2848              	.LASF48:
+ 2849 039f 4144435F 		.ascii	"ADC_MIC_CountsTo_mVolts\000"
+ 2849      4D49435F 
+ 2849      436F756E 
+ 2849      7473546F 
+ 2849      5F6D566F 
+ 2850              	.LASF71:
+ 2851 03b7 4144435F 		.ascii	"ADC_MIC_GetResult8\000"
+ 2851      4D49435F 
+ 2851      47657452 
+ 2851      6573756C 
+ 2851      743800
+ 2852              	.LASF44:
+ 2853 03ca 6F666673 		.ascii	"offset\000"
+ 2853      657400
+ 2854              	.LASF32:
+ 2855 03d1 4144435F 		.ascii	"ADC_MIC_SetResolution\000"
+ 2855      4D49435F 
+ 2855      53657452 
+ 2855      65736F6C 
+ 2855      7574696F 
+ 2856              	.LASF60:
+ 2857 03e7 4144435F 		.ascii	"ADC_MIC_shift\000"
+ 2857      4D49435F 
+ 2857      73686966 
+ 2857      7400
+ 2858              	.LASF49:
+ 2859 03f5 61646343 		.ascii	"adcCounts\000"
+ 2859      6F756E74 
+ 2859      7300
+ 2860              	.LASF26:
+ 2861 03ff 656E6162 		.ascii	"enableInterrupts\000"
+ 2861      6C65496E 
+ 2861      74657272 
+ 2861      75707473 
+ 2861      00
+ 2862              	.LASF40:
+ 2863 0410 73746174 		.ascii	"status\000"
+ 2863      757300
+ 2864              	.LASF57:
+ 2865 0417 4144435F 		.ascii	"ADC_MIC_offset\000"
+ 2865      4D49435F 
+ 2865      6F666673 
+ 2865      657400
+ 2866              	.LASF16:
+ 2867 0426 696E7431 		.ascii	"int16\000"
+ 2867      3600
+ 2868              	.LASF25:
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccnYr32c.s 			page 71
 
 
- 2866 045b 73746174 		.ascii	"status\000"
- 2866      757300
- 2867              	.LASF57:
- 2868 0462 4144435F 		.ascii	"ADC_MIC_offset\000"
- 2868      4D49435F 
- 2868      6F666673 
- 2868      657400
- 2869              	.LASF16:
- 2870 0471 696E7431 		.ascii	"int16\000"
- 2870      3600
- 2871              	.LASF25:
- 2872 0477 746D7052 		.ascii	"tmpReg\000"
- 2872      656700
- 2873              	.LASF68:
- 2874 047e 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_MIC.c\000"
- 2874      72617465 
- 2874      645F536F 
- 2874      75726365 
- 2874      5C50536F 
+ 2869 042c 746D7052 		.ascii	"tmpReg\000"
+ 2869      656700
+ 2870              	.LASF68:
+ 2871 0433 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_MIC.c\000"
+ 2871      72617465 
+ 2871      645F536F 
+ 2871      75726365 
+ 2871      5C50536F 
+ 2872              	.LASF69:
+ 2873 0454 433A5C55 		.ascii	"C:\\Users\\anjmarqu\\Desktop\\Hummingbird\\Hummingb"
+ 2873      73657273 
+ 2873      5C616E6A 
+ 2873      6D617271 
+ 2873      755C4465 
+ 2874 0482 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 2874      436F6E74 
+ 2874      696E756F 
+ 2874      7573204F 
+ 2874      75747075 
  2875              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

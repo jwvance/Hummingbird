@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
   29:Generated_Source\PSoC5/Clock_2.c **** 
   30:Generated_Source\PSoC5/Clock_2.c **** /*******************************************************************************
   31:Generated_Source\PSoC5/Clock_2.c **** * Function Name: Clock_2_Start
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 2
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 2
 
 
   32:Generated_Source\PSoC5/Clock_2.c **** ********************************************************************************
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
   51:Generated_Source\PSoC5/Clock_2.c **** 
   52:Generated_Source\PSoC5/Clock_2.c **** 
   53:Generated_Source\PSoC5/Clock_2.c **** /*******************************************************************************
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 3
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 3
 
 
   54:Generated_Source\PSoC5/Clock_2.c **** * Function Name: Clock_2_Stop
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
   92              		.type	Clock_2_StopBlock, %function
   93              	Clock_2_StopBlock:
   94              	.LFB2:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 4
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 4
 
 
   76:Generated_Source\PSoC5/Clock_2.c **** }
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  108:Generated_Source\PSoC5/Clock_2.c **** 
  109:Generated_Source\PSoC5/Clock_2.c ****         /* Clear all the mask bits except ours. */
  110:Generated_Source\PSoC5/Clock_2.c **** #if defined(Clock_2__CFG3)
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 5
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 5
 
 
  111:Generated_Source\PSoC5/Clock_2.c ****         CLK_DIST_AMASK = Clock_2_CLKEN_MASK;
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  142              		.loc 1 121 0
  143 002c 80B2     		uxth	r0, r0
  144              	.LVL0:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 6
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 6
 
 
  122:Generated_Source\PSoC5/Clock_2.c ****         CLK_DIST_LD = CYCLK_LD_DISABLE | CYCLK_LD_SYNC_EN | CYCLK_LD_LOAD;
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  180              		.cfi_def_cfa_offset 0
  181              	.LVL1:
  182              	.L16:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 7
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 7
 
 
  183 005a 7047     		bx	lr
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  214              		.loc 1 159 0
  215 0004 18B1     		cbz	r0, .L23
  162:Generated_Source\PSoC5/Clock_2.c ****     }
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 8
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 8
 
 
  163:Generated_Source\PSoC5/Clock_2.c ****     else
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  192:Generated_Source\PSoC5/Clock_2.c **** *******************************************************************************/
  193:Generated_Source\PSoC5/Clock_2.c **** void Clock_2_SetDividerRegister(uint16 clkDivider, uint8 restart)
  194:Generated_Source\PSoC5/Clock_2.c ****                                 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 9
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 9
 
 
  195:Generated_Source\PSoC5/Clock_2.c **** {
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  235:Generated_Source\PSoC5/Clock_2.c **** #else
  236:Generated_Source\PSoC5/Clock_2.c ****                 CLK_DIST_DMASK = Clock_2_CLKEN_MASK;
  237:Generated_Source\PSoC5/Clock_2.c ****                 CLK_DIST_AMASK = 0x00u;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 10
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 10
 
 
  238:Generated_Source\PSoC5/Clock_2.c **** #endif /* Clock_2__CFG3 */
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  292:Generated_Source\PSoC5/Clock_2.c **** * Returns:
  293:Generated_Source\PSoC5/Clock_2.c **** *  Divide value of the clock minus 1. For example, if the clock is set to
  294:Generated_Source\PSoC5/Clock_2.c **** *  divide by 2, the return value will be 1.
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 11
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 11
 
 
  295:Generated_Source\PSoC5/Clock_2.c **** *
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  349:Generated_Source\PSoC5/Clock_2.c **** *  clkMode: Bit mask containing the bits to clear. For PSoC 3 and PSoC 5,
  350:Generated_Source\PSoC5/Clock_2.c **** *   clkMode should be a set of the following optional bits or'ed together.
  351:Generated_Source\PSoC5/Clock_2.c **** *   - CYCLK_EARLY Enable early phase mode. Rising edge of output clock will
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 12
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 12
 
 
  352:Generated_Source\PSoC5/Clock_2.c **** *                 occur when the divider count reaches half of the divide
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  406:Generated_Source\PSoC5/Clock_2.c **** *   - CYCLK_SRC_SEL_IMO
  407:Generated_Source\PSoC5/Clock_2.c **** *   - CYCLK_SRC_SEL_XTALM
  408:Generated_Source\PSoC5/Clock_2.c **** *   - CYCLK_SRC_SEL_ILO
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 13
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 13
 
 
  409:Generated_Source\PSoC5/Clock_2.c **** *   - CYCLK_SRC_SEL_PLL
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  463:Generated_Source\PSoC5/Clock_2.c **** *******************************************************************************/
  464:Generated_Source\PSoC5/Clock_2.c **** uint8 Clock_2_GetSourceRegister(void) 
  465:Generated_Source\PSoC5/Clock_2.c **** {
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 14
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 14
 
 
  466:Generated_Source\PSoC5/Clock_2.c ****     return Clock_2_MOD_SRC & Clock_2_SRC_SEL_MSK;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  213:Generated_Source\PSoC5/Clock_2.c ****                 Clock_2_MOD_SRC &= (uint8)(~CYCLK_SSS);
  300              		.loc 1 213 0 is_stmt 1
  301 001e 3080     		strh	r0, [r6]	@ movhi
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 15
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 15
 
 
  214:Generated_Source\PSoC5/Clock_2.c ****             }
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  341 005a 96F87620 		ldrb	r2, [r6, #118]	@ zero_extendqisi2
  342 005e 1607     		lsls	r6, r2, #28
  343 0060 29D4     		bmi	.L49
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 16
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 16
 
 
  344              	.L34:
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  384 0096 134C     		ldr	r4, .L50+28
  268:Generated_Source\PSoC5/Clock_2.c ****                 while ((CLK_DIST_LD & CYCLK_LD_LOAD) != 0u) { }
  385              		.loc 1 268 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 17
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 17
 
 
  386 0098 14BF     		ite	ne
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  432 00d8 10400040 		.word	1073758224
  433 00dc 08400040 		.word	1073758216
  434 00e0 01400040 		.word	1073758209
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 18
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 18
 
 
  435 00e4 02400040 		.word	1073758210
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  484 0008 1843     		orrs	r0, r0, r3
  485 000a 1070     		strb	r0, [r2]
  486 000c 7047     		bx	lr
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 19
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 19
 
 
  487              	.L57:
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  537              		.loc 1 390 0
  538 0000 024B     		ldr	r3, .L62
  539 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 20
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 20
 
 
  391:Generated_Source\PSoC5/Clock_2.c **** 
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  299:Generated_Source\PSoC5/Clock_2.c **** }
  590              		.loc 1 299 0
  591 0008 9BB2     		uxth	r3, r3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 21
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 21
 
 
  592              	.LBE27:
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  635 003e 43F04003 		orr	r3, r3, #64
  636 0042 1370     		strb	r3, [r2]
  431:Generated_Source\PSoC5/Clock_2.c ****     }
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 22
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 22
 
 
  637              		.loc 1 431 0
@@ -1317,8 +1317,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  687 000c AC010000 		.4byte	.LASF36
  688 0010 01       		.byte	0x1
  689 0011 58000000 		.4byte	.LASF37
- 690 0015 F6000000 		.4byte	.LASF38
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 23
+ 690 0015 79000000 		.4byte	.LASF38
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 23
 
 
  691 0019 90000000 		.4byte	.Ldebug_ranges0+0x90
@@ -1343,7 +1343,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  710 0041 02       		.uleb128 0x2
  711 0042 04       		.byte	0x4
  712 0043 05       		.byte	0x5
- 713 0044 ED000000 		.4byte	.LASF4
+ 713 0044 38010000 		.4byte	.LASF4
  714 0048 02       		.uleb128 0x2
  715 0049 04       		.byte	0x4
  716 004a 07       		.byte	0x7
@@ -1351,7 +1351,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  718 004f 02       		.uleb128 0x2
  719 0050 08       		.byte	0x8
  720 0051 05       		.byte	0x5
- 721 0052 DF000000 		.4byte	.LASF6
+ 721 0052 2A010000 		.4byte	.LASF6
  722 0056 02       		.uleb128 0x2
  723 0057 08       		.byte	0x8
  724 0058 07       		.byte	0x7
@@ -1365,20 +1365,20 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  732 0066 07       		.byte	0x7
  733 0067 9F010000 		.4byte	.LASF8
  734 006b 04       		.uleb128 0x4
- 735 006c 8F000000 		.4byte	.LASF9
+ 735 006c DA000000 		.4byte	.LASF9
  736 0070 02       		.byte	0x2
  737 0071 5B       		.byte	0x5b
  738 0072 2C000000 		.4byte	0x2c
  739 0076 04       		.uleb128 0x4
- 740 0077 79000000 		.4byte	.LASF10
+ 740 0077 C4000000 		.4byte	.LASF10
  741 007b 02       		.byte	0x2
  742 007c 5C       		.byte	0x5c
  743 007d 3A000000 		.4byte	0x3a
  744 0081 02       		.uleb128 0x2
  745 0082 04       		.byte	0x4
  746 0083 04       		.byte	0x4
- 747 0084 D9000000 		.4byte	.LASF11
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 24
+ 747 0084 24010000 		.4byte	.LASF11
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 24
 
 
  748 0088 02       		.uleb128 0x2
@@ -1432,13 +1432,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  796 00f0 01       		.uleb128 0x1
  797 00f1 9C       		.byte	0x9c
  798 00f2 08       		.uleb128 0x8
- 799 00f3 95000000 		.4byte	.LASF20
+ 799 00f3 E0000000 		.4byte	.LASF20
  800 00f7 01       		.byte	0x1
  801 00f8 64       		.byte	0x64
  802 00f9 00000000 		.4byte	.LFB2
  803 00fd 78000000 		.4byte	.LFE2-.LFB2
  804 0101 01       		.uleb128 0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 25
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 25
 
 
  805 0102 9C       		.byte	0x9c
@@ -1487,7 +1487,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  848 0160 01       		.uleb128 0x1
  849 0161 50       		.byte	0x50
  850 0162 0C       		.uleb128 0xc
- 851 0163 80000000 		.4byte	.LASF25
+ 851 0163 CB000000 		.4byte	.LASF25
  852 0167 01       		.byte	0x1
  853 0168 C1       		.byte	0xc1
  854 0169 6B000000 		.4byte	0x6b
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  859 0177 C4       		.byte	0xc4
  860 0178 6B000000 		.4byte	0x6b
  861 017c 3F000000 		.4byte	.LLST2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 26
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 26
 
 
  862 0180 0D       		.uleb128 0xd
@@ -1531,7 +1531,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  889 01c2 01       		.uleb128 0x1
  890 01c3 9C       		.byte	0x9c
  891 01c4 10       		.uleb128 0x10
- 892 01c5 C1000000 		.4byte	.LASF29
+ 892 01c5 0C010000 		.4byte	.LASF29
  893 01c9 01       		.byte	0x1
  894 01ca 4C01     		.2byte	0x14c
  895 01cc 00000000 		.4byte	.LFB6
@@ -1547,7 +1547,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  905 01e6 65000000 		.4byte	.LLST3
  906 01ea 00       		.byte	0
  907 01eb 10       		.uleb128 0x10
- 908 01ec A7000000 		.4byte	.LASF31
+ 908 01ec F2000000 		.4byte	.LASF31
  909 01f0 01       		.byte	0x1
  910 01f1 6F01     		.2byte	0x16f
  911 01f3 00000000 		.4byte	.LFB7
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  916 0201 11       		.uleb128 0x11
  917 0202 55010000 		.4byte	.LASF30
  918 0206 01       		.byte	0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 27
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 27
 
 
  919 0207 6F01     		.2byte	0x16f
@@ -1595,7 +1595,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  950 0254 A501     		.2byte	0x1a5
  951 0256 76000000 		.4byte	0x76
  952 025a 13       		.uleb128 0x13
- 953 025b 88000000 		.4byte	.LASF35
+ 953 025b D3000000 		.4byte	.LASF35
  954 025f 01       		.byte	0x1
  955 0260 A601     		.2byte	0x1a6
  956 0262 6B000000 		.4byte	0x6b
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  973 0290 10000000 		.4byte	.LFE10-.LFB10
  974 0294 01       		.uleb128 0x1
  975 0295 9C       		.byte	0x9c
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 28
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 28
 
 
  976 0296 00       		.byte	0
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  1030 0033 13       		.uleb128 0x13
  1031 0034 00       		.byte	0
  1032 0035 00       		.byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 29
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 29
 
 
  1033 0036 05       		.uleb128 0x5
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  1087 006d 03       		.uleb128 0x3
  1088 006e 0E       		.uleb128 0xe
  1089 006f 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 30
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 30
 
 
  1090 0070 0B       		.uleb128 0xb
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  1144 00a7 0C       		.uleb128 0xc
  1145 00a8 05       		.uleb128 0x5
  1146 00a9 00       		.byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 31
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 31
 
 
  1147 00aa 03       		.uleb128 0x3
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  1201 00e1 00       		.byte	0
  1202 00e2 10       		.uleb128 0x10
  1203 00e3 2E       		.uleb128 0x2e
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 32
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 32
 
 
  1204 00e4 01       		.byte	0x1
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  1258 011b 01       		.uleb128 0x1
  1259 011c 12       		.uleb128 0x12
  1260 011d 06       		.uleb128 0x6
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 33
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 33
 
 
  1261 011e 40       		.uleb128 0x40
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  1315 002a 51       		.byte	0x51
  1316 002b 9F       		.byte	0x9f
  1317 002c AA000000 		.4byte	.LVL7
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 34
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 34
 
 
  1318 0030 E8000000 		.4byte	.LFE4
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  1372 00ab 1C000000 		.4byte	.LVL14
  1373 00af 0100     		.2byte	0x1
  1374 00b1 50       		.byte	0x50
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 35
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 35
 
 
  1375 00b2 1C000000 		.4byte	.LVL14
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  1429 0068 00000000 		.4byte	0
  1430 006c 00000000 		.4byte	0
  1431              		.section	.debug_ranges,"",%progbits
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 36
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 36
 
 
  1432              	.Ldebug_ranges0:
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  1486 00d4 10000000 		.4byte	.LFE8
  1487 00d8 00000000 		.4byte	.LFB9
  1488 00dc 58000000 		.4byte	.LFE9
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 37
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 37
 
 
  1489 00e0 00000000 		.4byte	.LFB10
@@ -2204,62 +2204,62 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  1509      645F536F 
  1509      75726365 
  1509      5C50536F 
- 1510              	.LASF10:
- 1511 0079 75696E74 		.ascii	"uint16\000"
- 1511      313600
- 1512              	.LASF25:
- 1513 0080 72657374 		.ascii	"restart\000"
- 1513      61727400 
- 1514              	.LASF35:
- 1515 0088 6F6C6453 		.ascii	"oldSrc\000"
- 1515      726300
- 1516              	.LASF9:
- 1517 008f 75696E74 		.ascii	"uint8\000"
- 1517      3800
- 1518              	.LASF20:
- 1519 0095 436C6F63 		.ascii	"Clock_2_StopBlock\000"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 38
+ 1510              	.LASF38:
+ 1511 0079 433A5C55 		.ascii	"C:\\Users\\anjmarqu\\Desktop\\Hummingbird\\Hummingb"
+ 1511      73657273 
+ 1511      5C616E6A 
+ 1511      6D617271 
+ 1511      755C4465 
+ 1512 00a7 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 1512      436F6E74 
+ 1512      696E756F 
+ 1512      7573204F 
+ 1512      75747075 
+ 1513              	.LASF10:
+ 1514 00c4 75696E74 		.ascii	"uint16\000"
+ 1514      313600
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 38
 
 
- 1519      6B5F325F 
- 1519      53746F70 
- 1519      426C6F63 
- 1519      6B00
- 1520              	.LASF31:
- 1521 00a7 436C6F63 		.ascii	"Clock_2_ClearModeRegister\000"
- 1521      6B5F325F 
- 1521      436C6561 
- 1521      724D6F64 
- 1521      65526567 
- 1522              	.LASF29:
- 1523 00c1 436C6F63 		.ascii	"Clock_2_SetModeRegister\000"
- 1523      6B5F325F 
- 1523      5365744D 
- 1523      6F646552 
- 1523      65676973 
- 1524              	.LASF11:
- 1525 00d9 666C6F61 		.ascii	"float\000"
- 1525      7400
- 1526              	.LASF6:
- 1527 00df 6C6F6E67 		.ascii	"long long int\000"
- 1527      206C6F6E 
- 1527      6720696E 
- 1527      7400
- 1528              	.LASF4:
- 1529 00ed 6C6F6E67 		.ascii	"long int\000"
- 1529      20696E74 
- 1529      00
- 1530              	.LASF38:
- 1531 00f6 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
- 1531      73657273 
- 1531      5C6D6772 
- 1531      6F6E6265 
- 1531      725C4465 
- 1532 0124 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
- 1532      436F6E74 
- 1532      696E756F 
- 1532      7573204F 
- 1532      75747075 
+ 1515              	.LASF25:
+ 1516 00cb 72657374 		.ascii	"restart\000"
+ 1516      61727400 
+ 1517              	.LASF35:
+ 1518 00d3 6F6C6453 		.ascii	"oldSrc\000"
+ 1518      726300
+ 1519              	.LASF9:
+ 1520 00da 75696E74 		.ascii	"uint8\000"
+ 1520      3800
+ 1521              	.LASF20:
+ 1522 00e0 436C6F63 		.ascii	"Clock_2_StopBlock\000"
+ 1522      6B5F325F 
+ 1522      53746F70 
+ 1522      426C6F63 
+ 1522      6B00
+ 1523              	.LASF31:
+ 1524 00f2 436C6F63 		.ascii	"Clock_2_ClearModeRegister\000"
+ 1524      6B5F325F 
+ 1524      436C6561 
+ 1524      724D6F64 
+ 1524      65526567 
+ 1525              	.LASF29:
+ 1526 010c 436C6F63 		.ascii	"Clock_2_SetModeRegister\000"
+ 1526      6B5F325F 
+ 1526      5365744D 
+ 1526      6F646552 
+ 1526      65676973 
+ 1527              	.LASF11:
+ 1528 0124 666C6F61 		.ascii	"float\000"
+ 1528      7400
+ 1529              	.LASF6:
+ 1530 012a 6C6F6E67 		.ascii	"long long int\000"
+ 1530      206C6F6E 
+ 1530      6720696E 
+ 1530      7400
+ 1531              	.LASF4:
+ 1532 0138 6C6F6E67 		.ascii	"long int\000"
+ 1532      20696E74 
+ 1532      00
  1533              	.LASF23:
  1534 0141 73746174 		.ascii	"state\000"
  1534      6500
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  1540      53657444 
  1540      69766964 
  1540      65725265 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 39
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 39
 
 
  1541              	.LASF0:
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 1
  1560      5374616E 
  1560      64627950 
  1560      6F776572 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccj7yqMK.s 			page 40
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc02HuiZ.s 			page 40
 
 
  1561              	.LASF33:

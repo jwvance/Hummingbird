@@ -15,6 +15,7 @@
 #define VELO_VAL 100
 #define NOTE_HISTORY_LEN 5
 int start = 1;
+int tunerFlag = 0;
 
 #define UI_THRES 10
 
@@ -79,10 +80,11 @@ int main()
     //declare interrupts
     CY_ISR_PROTO(GetSample);      //audio sampling interrupt  
     CY_ISR_PROTO(UserInterfaceISR);     //UI interrupt
-    
+    CY_ISR_PROTO(TunerISR);
     //Start interrupts
     isr_1_StartEx(GetSample);
     UI_isr_StartEx(UserInterfaceISR);
+    tuner_isr_StartEx(TunerISR);
     
     //Start LCD over I2C Protocol
     I2C_CharLCD_Start();
@@ -246,6 +248,10 @@ int main()
                 frameLocked[sampleFrame] = false;
                 CharLCD_PosPrintString(0,0,"      ");
                 CharLCD_PosPrintNumber(0,0,pitchHz);
+                if(tunerFlag == 1) {
+                    UpdateTuner(noteTable, NoteSnap(noteTable, pitchHz, curKey, curScale), pitchHz);
+                    tunerFlag = 0;
+                }
                 //UpdateTuner(noteTable, NoteSnap(noteTable, pitchHz, curKey, curScale), pitchHz);
                 //int note = NoteSnap(noteTable, pitchHz, curKey, curScale);
                 int note = lastNote;
@@ -415,5 +421,10 @@ CY_ISR(UserInterfaceISR){
     
 }
 
-
+CY_ISR(TunerISR) {
+    TIMER_TUNER_STATUS;
+    if(tunerFlag == 0){
+        tunerFlag = 1;
+    }
+}
 /* [] END OF FILE */

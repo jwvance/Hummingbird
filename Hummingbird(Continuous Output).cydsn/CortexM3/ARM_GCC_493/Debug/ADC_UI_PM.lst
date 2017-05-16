@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc41dWLP.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
   29:Generated_Source\PSoC5/ADC_UI_PM.c **** * Summary:
   30:Generated_Source\PSoC5/ADC_UI_PM.c **** *  Stops the ADC operation and saves the configuration registers and component
   31:Generated_Source\PSoC5/ADC_UI_PM.c **** *  enable state. Should be called just prior to entering sleep
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 2
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc41dWLP.s 			page 2
 
 
   32:Generated_Source\PSoC5/ADC_UI_PM.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
   56              		.align	2
   57              		.global	ADC_UI_Wakeup
   58              		.thumb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 3
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc41dWLP.s 			page 3
 
 
   59              		.thumb_func
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
   89:Generated_Source\PSoC5/ADC_UI_PM.c ****     CyDelayUs(10u);
   80              		.loc 1 89 0
   81 000e 0A20     		movs	r0, #10
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 4
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc41dWLP.s 			page 4
 
 
   82 0010 FFF7FEFF 		bl	CyDelayUs
@@ -201,7 +201,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
   91              	.L6:
   92 001e 00BF     		.align	2
   93              	.L5:
-  94 0020 6A650040 		.word	1073767786
+  94 0020 6A640040 		.word	1073767530
   95              		.cfi_endproc
   96              	.LFE1:
   97              		.size	ADC_UI_Wakeup, .-ADC_UI_Wakeup
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
  120:Generated_Source\PSoC5/ADC_UI_PM.c **** *******************************************************************************/
  121:Generated_Source\PSoC5/ADC_UI_PM.c **** void ADC_UI_SaveConfig(void)
  122:Generated_Source\PSoC5/ADC_UI_PM.c **** {
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 5
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc41dWLP.s 			page 5
 
 
  106              		.loc 1 122 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
  134              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
  135              		.file 3 "Generated_Source\\PSoC5\\ADC_UI_SAR.h"
  136              		.file 4 "Generated_Source\\PSoC5\\ADC_UI.h"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 6
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc41dWLP.s 			page 6
 
 
  137              		.file 5 "Generated_Source\\PSoC5\\ADC_UI_IntClock.h"
@@ -313,7 +313,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
  146 000c 93000000 		.4byte	.LASF28
  147 0010 01       		.byte	0x1
  148 0011 70000000 		.4byte	.LASF29
- 149 0015 25000000 		.4byte	.LASF30
+ 149 0015 00000000 		.4byte	.LASF30
  150 0019 00000000 		.4byte	.Ldebug_ranges0+0
  151 001d 00000000 		.4byte	0
  152 0021 00000000 		.4byte	.Ldebug_line0
@@ -332,7 +332,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
  165 003a 02       		.uleb128 0x2
  166 003b 02       		.byte	0x2
  167 003c 07       		.byte	0x7
- 168 003d 00000000 		.4byte	.LASF3
+ 168 003d 4B000000 		.4byte	.LASF3
  169 0041 02       		.uleb128 0x2
  170 0042 04       		.byte	0x4
  171 0043 05       		.byte	0x5
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
  191 0066 07       		.byte	0x7
  192 0067 9B010000 		.4byte	.LASF8
  193 006b 04       		.uleb128 0x4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 7
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc41dWLP.s 			page 7
 
 
  194 006c 59010000 		.4byte	.LASF9
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
  248 00e7 06       		.uleb128 0x6
  249 00e8 26020000 		.4byte	.LASF17
  250 00ec 01       		.byte	0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 8
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc41dWLP.s 			page 8
 
 
  251 00ed 4F       		.byte	0x4f
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
  305 0165 7E010000 		.4byte	.LASF22
  306 0169 04       		.byte	0x4
  307 016a 30       		.byte	0x30
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 9
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc41dWLP.s 			page 9
 
 
  308 016b 0C       		.uleb128 0xc
@@ -486,7 +486,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
  310 0170 05       		.byte	0x5
  311 0171 28       		.byte	0x28
  312 0172 0C       		.uleb128 0xc
- 313 0173 13000000 		.4byte	.LASF24
+ 313 0173 5E000000 		.4byte	.LASF24
  314 0177 03       		.byte	0x3
  315 0178 49       		.byte	0x49
  316 0179 0C       		.uleb128 0xc
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
  362 0017 0B       		.uleb128 0xb
  363 0018 3E       		.uleb128 0x3e
  364 0019 0B       		.uleb128 0xb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 10
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc41dWLP.s 			page 10
 
 
  365 001a 03       		.uleb128 0x3
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
  419 0050 9742     		.uleb128 0x2117
  420 0052 19       		.uleb128 0x19
  421 0053 01       		.uleb128 0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 11
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc41dWLP.s 			page 11
 
 
  422 0054 13       		.uleb128 0x13
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
  476 0094 27       		.uleb128 0x27
  477 0095 19       		.uleb128 0x19
  478 0096 11       		.uleb128 0x11
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 12
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc41dWLP.s 			page 12
 
 
  479 0097 01       		.uleb128 0x1
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
  533 0000 34000000 		.4byte	0x34
  534 0004 0200     		.2byte	0x2
  535 0006 00000000 		.4byte	.Ldebug_info0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 13
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc41dWLP.s 			page 13
 
 
  536 000a 04       		.byte	0x4
@@ -754,31 +754,31 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
  564      00000201 
  564      FB0E0D00 
  564      01010101 
- 565              	.LASF3:
- 566 0000 73686F72 		.ascii	"short unsigned int\000"
- 566      7420756E 
- 566      7369676E 
- 566      65642069 
- 566      6E7400
- 567              	.LASF24:
- 568 0013 4144435F 		.ascii	"ADC_UI_SAR_Wakeup\000"
- 568      55495F53 
- 568      41525F57 
- 568      616B6575 
- 568      7000
- 569              	.LASF30:
- 570 0025 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
- 570      73657273 
- 570      5C6D6772 
- 570      6F6E6265 
- 570      725C4465 
- 571 0053 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
- 571      436F6E74 
- 571      696E756F 
- 571      7573204F 
- 571      75747075 
+ 565              	.LASF30:
+ 566 0000 433A5C55 		.ascii	"C:\\Users\\anjmarqu\\Desktop\\Hummingbird\\Hummingb"
+ 566      73657273 
+ 566      5C616E6A 
+ 566      6D617271 
+ 566      755C4465 
+ 567 002e 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 567      436F6E74 
+ 567      696E756F 
+ 567      7573204F 
+ 567      75747075 
+ 568              	.LASF3:
+ 569 004b 73686F72 		.ascii	"short unsigned int\000"
+ 569      7420756E 
+ 569      7369676E 
+ 569      65642069 
+ 569      6E7400
+ 570              	.LASF24:
+ 571 005e 4144435F 		.ascii	"ADC_UI_SAR_Wakeup\000"
+ 571      55495F53 
+ 571      41525F57 
+ 571      616B6575 
+ 571      7000
  572              	.LASF29:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 14
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc41dWLP.s 			page 14
 
 
  573 0070 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_UI_PM.c\000"
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
  593      41525F53 
  593      6C656570 
  593      00
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 15
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc41dWLP.s 			page 15
 
 
  594              	.LASF22:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 1
  617      00
  618              	.LASF2:
  619 021c 73686F72 		.ascii	"short int\000"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc9qF7Rt.s 			page 16
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc41dWLP.s 			page 16
 
 
  619      7420696E 
