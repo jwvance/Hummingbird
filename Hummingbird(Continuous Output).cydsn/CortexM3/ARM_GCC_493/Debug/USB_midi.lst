@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
   29:Generated_Source\PSoC5/USB_midi.c **** /***************************************
   30:Generated_Source\PSoC5/USB_midi.c **** *    MIDI Constants
   31:Generated_Source\PSoC5/USB_midi.c **** ***************************************/
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 2
 
 
   32:Generated_Source\PSoC5/USB_midi.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
   86:Generated_Source\PSoC5/USB_midi.c ****     #endif /* (USB_MIDI_EXT_MODE >= USB_TWO_EXT_INTRF) */
   87:Generated_Source\PSoC5/USB_midi.c **** #endif /* (USB_MIDI_EXT_MODE >= USB_ONE_EXT_INTRF) */
   88:Generated_Source\PSoC5/USB_midi.c **** 
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 3
 
 
   89:Generated_Source\PSoC5/USB_midi.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  143:Generated_Source\PSoC5/USB_midi.c **** 
  144:Generated_Source\PSoC5/USB_midi.c ****     #if(USB_EP_MM == USB__EP_DMAAUTO)
  145:Generated_Source\PSoC5/USB_midi.c ****         #if (USB_MIDI_IN_BUFF_SIZE > 0)
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 4
 
 
  146:Generated_Source\PSoC5/USB_midi.c ****             /* Init DMA configurations for IN EP*/
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  200:Generated_Source\PSoC5/USB_midi.c ****     {
  201:Generated_Source\PSoC5/USB_midi.c ****         #if USB_MIDI_OUT_BUFF_SIZE >= 256
  202:Generated_Source\PSoC5/USB_midi.c ****             uint16 outLength;
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 5
 
 
  203:Generated_Source\PSoC5/USB_midi.c ****             uint16 outPointer;
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  257:Generated_Source\PSoC5/USB_midi.c ****                             USB_MIDI_CABLE_00)
  258:Generated_Source\PSoC5/USB_midi.c ****                         {
  259:Generated_Source\PSoC5/USB_midi.c ****                             USB_MIDI1_ProcessUsbOut(&USB_midiOutBuffer[outPointer]);
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 6
 
 
  260:Generated_Source\PSoC5/USB_midi.c ****                         }
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  314:Generated_Source\PSoC5/USB_midi.c ****     *  USB_midiInBuffer: Function loads the data from this buffer to
  315:Generated_Source\PSoC5/USB_midi.c ****     *    the USB IN endpoint.
  316:Generated_Source\PSoC5/USB_midi.c ****     *   USB_midiInPointer: Cleared to zero when data are sent.
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 7
 
 
  317:Generated_Source\PSoC5/USB_midi.c ****     *
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  339:Generated_Source\PSoC5/USB_midi.c ****             #if(USB_EP_MM == USB__EP_MANUAL)
  340:Generated_Source\PSoC5/USB_midi.c ****                 USB_midiInPointer = 0u;
   59              		.loc 1 340 0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 8
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 8
 
 
   60 0020 0023     		movs	r3, #0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  373:Generated_Source\PSoC5/USB_midi.c ****     *******************************************************************************/
  374:Generated_Source\PSoC5/USB_midi.c ****     void USB_MIDI_IN_Service(void) 
  375:Generated_Source\PSoC5/USB_midi.c ****     {
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 9
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 9
 
 
  376:Generated_Source\PSoC5/USB_midi.c ****         /* Service the MIDI UART inputs until either both receivers have no more
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  430:Generated_Source\PSoC5/USB_midi.c ****     *
  431:Generated_Source\PSoC5/USB_midi.c ****     * Parameters:
  432:Generated_Source\PSoC5/USB_midi.c ****     *  ic:   0 = No message (should never happen)
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 10
 
 
  433:Generated_Source\PSoC5/USB_midi.c ****     *        1 - 3 = Complete MIDI message in midiMsg
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  487:Generated_Source\PSoC5/USB_midi.c ****                 msgIndex = 0u;
  488:Generated_Source\PSoC5/USB_midi.c ****                 do
  489:Generated_Source\PSoC5/USB_midi.c ****                 {
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 11
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 11
 
 
  490:Generated_Source\PSoC5/USB_midi.c ****                     USB_PrepareInBuffer(USB_MIDI_SYSEX, &midiMsg[msgIndex],
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  544:Generated_Source\PSoC5/USB_midi.c ****     *                     (put eventLen bytes in buffer)
  545:Generated_Source\PSoC5/USB_midi.c ****     *        MIDI_EOSEX = End of SysEx message
  546:Generated_Source\PSoC5/USB_midi.c ****     *                     (put eventLen bytes in buffer,
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 12
 
 
  547:Generated_Source\PSoC5/USB_midi.c ****     *                      and append MIDI_EOSEX)
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  102              		.loc 1 578 0
  103 0008 1DD8     		bhi	.L25
  579:Generated_Source\PSoC5/USB_midi.c ****         {
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 13
 
 
  580:Generated_Source\PSoC5/USB_midi.c ****             USB_midiInBuffer[USB_midiInPointer] = USB_SINGLE_BYTE | cable;
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  110              		.loc 1 627 0 is_stmt 1
  111 0012 F728     		cmp	r0, #247
  112 0014 5BD0     		beq	.L27
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 14
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 14
 
 
  113              	.LVL5:
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  154              		.loc 1 580 0
  155 0046 6A4A     		ldr	r2, .L31+4
  156              	.LVL11:
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 15
 
 
  157 0048 684C     		ldr	r4, .L31
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  197 007a 5FFA8CFC 		uxtb	ip, ip
  587:Generated_Source\PSoC5/USB_midi.c ****         }
  198              		.loc 1 587 0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 16
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 16
 
 
  199 007e 0131     		adds	r1, r1, #1
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  239 00aa 8455     		strb	r4, [r0, r6]
  621:Generated_Source\PSoC5/USB_midi.c ****             USB_midiInBuffer[USB_midiInPointer] = srcBuffOne;
  240              		.loc 1 621 0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 17
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 17
 
 
  241 00ac 0133     		adds	r3, r3, #1
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  282              		.loc 1 593 0
  283 00da 454A     		ldr	r2, .L31+4
  284              	.LVL27:
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 18
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 18
 
 
  285 00dc 4348     		ldr	r0, .L31
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  323 0102 1178     		ldrb	r1, [r2]	@ zero_extendqisi2
  632:Generated_Source\PSoC5/USB_midi.c ****                                                                         USB_SYSEX_ENDS_WITH1 | cabl
  324              		.loc 1 632 0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 19
 
 
  325 0104 43F00503 		orr	r3, r3, #5
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  609:Generated_Source\PSoC5/USB_midi.c ****             }
  367              		.loc 1 609 0
  368 013e 1678     		ldrb	r6, [r2]	@ zero_extendqisi2
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 20
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 20
 
 
  608:Generated_Source\PSoC5/USB_midi.c ****                 USB_midiInPointer++;
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  652:Generated_Source\PSoC5/USB_midi.c ****                     break;
  653:Generated_Source\PSoC5/USB_midi.c ****                 case 2u:
  654:Generated_Source\PSoC5/USB_midi.c ****                     USB_midiInBuffer[USB_midiInPointer] =
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 21
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 21
 
 
  403              		.loc 1 654 0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  445              	.LVL49:
  446              		.loc 1 662 0
  447 0198 0133     		adds	r3, r3, #1
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 22
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 22
 
 
  448 019a DBB2     		uxtb	r3, r3
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  489 01c8 0026     		movs	r6, #0
  649:Generated_Source\PSoC5/USB_midi.c ****                     USB_midiInBuffer[USB_midiInPointer] = 0u;
  490              		.loc 1 649 0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 23
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 23
 
 
  491 01ca 0133     		adds	r3, r3, #1
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  535 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
  536              		.cfi_def_cfa_offset 36
  537              		.cfi_offset 4, -36
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 24
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 24
 
 
  538              		.cfi_offset 5, -32
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  581 0034 03EB4303 		add	r3, r3, r3, lsl #1
  582 0038 06EB8303 		add	r3, r6, r3, lsl #2
  583 003c 1B89     		ldrh	r3, [r3, #8]
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 25
 
 
  584 003e 9BB2     		uxth	r3, r3
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  627              	.LVL64:
  495:Generated_Source\PSoC5/USB_midi.c ****                     {
  628              		.loc 1 495 0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 26
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 26
 
 
  629 007e 9BB2     		uxth	r3, r3
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  673              		.loc 1 511 0
  674 00bc 2246     		mov	r2, r4
  675 00be 0199     		ldr	r1, [sp, #4]
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 27
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 27
 
 
  676 00c0 4346     		mov	r3, r8
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  674:Generated_Source\PSoC5/USB_midi.c **** 
  675:Generated_Source\PSoC5/USB_midi.c **** 
  676:Generated_Source\PSoC5/USB_midi.c **** /* The implementation for external serial input and output connections
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 28
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 28
 
 
  677:Generated_Source\PSoC5/USB_midi.c **** *  to route USB MIDI data to and from those connections.
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  734 0008 2C72     		strb	r4, [r5, #8]
  706:Generated_Source\PSoC5/USB_midi.c ****         USB_MIDI1_Event.length = 0u;
  735              		.loc 1 706 0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 29
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 29
 
 
  736 000a 2C70     		strb	r4, [r5]
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  722:Generated_Source\PSoC5/USB_midi.c ****             USB_MIDI2_TxRunStat = 0u;
  770              		.loc 1 722 0
  771 0034 EC73     		strb	r4, [r5, #15]
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 30
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 30
 
 
  725:Generated_Source\PSoC5/USB_midi.c ****             /* Start second UART block */
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  812              		@ frame_needed = 0, uses_anonymous_args = 0
  813 0000 08B5     		push	{r3, lr}
  814              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 31
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 31
 
 
  815              		.cfi_offset 3, -8
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  748:Generated_Source\PSoC5/USB_midi.c ****     *   *rxStat = pointer to a MIDI_RX_STATUS structure
  749:Generated_Source\PSoC5/USB_midi.c ****     *
  750:Generated_Source\PSoC5/USB_midi.c ****     * Return:
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 32
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 32
 
 
  751:Generated_Source\PSoC5/USB_midi.c ****     *   0, if no complete message
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  789:Generated_Source\PSoC5/USB_midi.c ****                             break;
  790:Generated_Source\PSoC5/USB_midi.c ****                         case USB_MIDI_SPP:
  791:Generated_Source\PSoC5/USB_midi.c ****                             rxStat->msgBuff[0u] = USB_MIDI_SPP;
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 33
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 33
 
 
  792:Generated_Source\PSoC5/USB_midi.c ****                             rxStat->runstat = 0u;
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  846:Generated_Source\PSoC5/USB_midi.c ****         /* Otherwise, it's a data byte */
  847:Generated_Source\PSoC5/USB_midi.c ****         else
  848:Generated_Source\PSoC5/USB_midi.c ****         {
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 34
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 34
 
 
  849:Generated_Source\PSoC5/USB_midi.c ****             if (rxStat->runstat == USB_MIDI_SYSEX)
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  868:Generated_Source\PSoC5/USB_midi.c ****                     midiReturn = rxStat->size;
  869:Generated_Source\PSoC5/USB_midi.c ****                 }
  870:Generated_Source\PSoC5/USB_midi.c ****             }
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 35
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 35
 
 
  871:Generated_Source\PSoC5/USB_midi.c ****             else if (rxStat->runstat != 0u)
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  873:Generated_Source\PSoC5/USB_midi.c ****                 rxStat->msgBuff[1u] = mData;
  916              		.loc 1 873 0
  917 0032 0B71     		strb	r3, [r1, #4]
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 36
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 36
 
 
  874:Generated_Source\PSoC5/USB_midi.c ****                 rxStat->count = 2u;
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  960 006a 3BD0     		beq	.L80
  961 006c C02B     		cmp	r3, #192
  962 006e 31D0     		beq	.L74
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 37
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 37
 
 
  963              	.L71:
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  1002 0092 30BC     		pop	{r4, r5}
  1003              		.cfi_remember_state
  1004              		.cfi_restore 4
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 38
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 38
 
 
  1005              		.cfi_restore 5
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  836:Generated_Source\PSoC5/USB_midi.c ****                         break;
  1053              		.loc 1 836 0
  1054 00d4 0223     		movs	r3, #2
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 39
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 39
 
 
  1055 00d6 0B70     		strb	r3, [r1]
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  786:Generated_Source\PSoC5/USB_midi.c ****                             rxStat->count = 0u;
  1101              		.loc 1 786 0
  1102 0102 4A78     		ldrb	r2, [r1, #1]	@ zero_extendqisi2
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 40
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 40
 
 
  785:Generated_Source\PSoC5/USB_midi.c ****                             rxStat->size = rxStat->count;
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  805:Generated_Source\PSoC5/USB_midi.c ****                             rxStat->length = 2u;
  1142              		.loc 1 805 0
  1143 0122 0122     		movs	r2, #1
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 41
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 41
 
 
  806:Generated_Source\PSoC5/USB_midi.c ****                             break;
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  1182              	.L64:
  779:Generated_Source\PSoC5/USB_midi.c ****                             rxStat->runstat = USB_MIDI_SYSEX;
  1183              		.loc 1 779 0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 42
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 42
 
 
  1184 0146 F023     		movs	r3, #240
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  919:Generated_Source\PSoC5/USB_midi.c ****     *   MIDI_EOSEX, if end of system exclusive
  920:Generated_Source\PSoC5/USB_midi.c ****     *   0xf8 - 0xff, if single byte real time message
  921:Generated_Source\PSoC5/USB_midi.c ****     *
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 43
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 43
 
 
  922:Generated_Source\PSoC5/USB_midi.c ****     * Global variables:
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  1242 0016 9142     		cmp	r1, r2
  1243 0018 28D0     		beq	.L152
  1244              	.L139:
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 44
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 44
 
 
  945:Generated_Source\PSoC5/USB_midi.c ****         {
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  1259              		.loc 1 969 0
  1260 0028 154F     		ldr	r7, .L154+8
  971:Generated_Source\PSoC5/USB_midi.c ****                     if(rxBufferRead >= MIDI1_UART_RXBUFFERSIZE)
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 45
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 45
 
 
  1261              		.loc 1 971 0
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  995:Generated_Source\PSoC5/USB_midi.c ****                     rxBufferLoopDetect = MIDI1_UART_rxBufferLoopDetect;
  1293              		.loc 1 995 0
  1294 0050 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 46
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 46
 
 
  966:Generated_Source\PSoC5/USB_midi.c ****             #endif /*  ((MIDI1_UART_RXBUFFERSIZE >= 256u) && (CY_PSOC3)) */
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  1325 0072 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
  1326              	.LVL124:
  1327              	.L155:
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 47
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 47
 
 
  1328 0076 00BF     		.align	2
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
 1043:Generated_Source\PSoC5/USB_midi.c ****         uint8 i;
 1044:Generated_Source\PSoC5/USB_midi.c **** 
 1045:Generated_Source\PSoC5/USB_midi.c ****         /* User code is required at the beginning of the procedure */
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 48
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 48
 
 
 1046:Generated_Source\PSoC5/USB_midi.c ****         /* `#START MIDI1_PROCESS_OUT_BEGIN` */
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
 1071:Generated_Source\PSoC5/USB_midi.c ****             }
 1072:Generated_Source\PSoC5/USB_midi.c ****             else if(cmd == USB_SYSEX_ENDS_WITH2)
  1378              		.loc 1 1072 0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 49
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 49
 
 
  1379 001a 062B     		cmp	r3, #6
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
 1108:Generated_Source\PSoC5/USB_midi.c ****                 USB_MIDI1_TxRunStat = 0u;
  1398              		.loc 1 1108 0
  1399 0032 1A72     		strb	r2, [r3, #8]
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 50
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 50
 
 
 1054:Generated_Source\PSoC5/USB_midi.c ****             /* Universal System Exclusive message parsing */
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  1440 005a F02B     		cmp	r3, #240
  1441 005c F4D1     		bne	.L176
 1058:Generated_Source\PSoC5/USB_midi.c ****                    (epBuf[USB_EVENT_BYTE2] == USB_MIDI_SYSEX_NON_REAL_TIME))
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 51
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 51
 
 
  1442              		.loc 1 1058 0 is_stmt 0 discriminator 1
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  1488              	.LVL144:
 1082:Generated_Source\PSoC5/USB_midi.c ****                     (epBuf[USB_EVENT_BYTE2] == USB_MIDI_SYSEX_IDENTITY_REQ))
  1489              		.loc 1 1082 0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 52
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 52
 
 
  1490 0088 E2D1     		bne	.L165
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
 1141:Generated_Source\PSoC5/USB_midi.c ****     *   1 - 4, if message complete
 1142:Generated_Source\PSoC5/USB_midi.c ****     *   MIDI_SYSEX, if start or continuation of system exclusive
 1143:Generated_Source\PSoC5/USB_midi.c ****     *   MIDI_EOSEX, if end of system exclusive
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 53
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 53
 
 
 1144:Generated_Source\PSoC5/USB_midi.c ****     *   0xf8 - 0xff, if single byte real time message
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  1544              	.LVL146:
  1545              		.loc 1 1168 0
  1546 0016 9142     		cmp	r1, r2
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 54
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 54
 
 
  1547 0018 28D0     		beq	.L198
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
 1193:Generated_Source\PSoC5/USB_midi.c ****                     rxBufferRead++;
  1563              		.loc 1 1193 0
  1564 0028 154F     		ldr	r7, .L200+8
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 55
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 55
 
 
 1194:Generated_Source\PSoC5/USB_midi.c ****                     if(rxBufferRead >= MIDI2_UART_RXBUFFERSIZE)
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
 1217:Generated_Source\PSoC5/USB_midi.c ****                     /* Read buffer loop condition to the local variable */
 1218:Generated_Source\PSoC5/USB_midi.c ****                     rxBufferLoopDetect = MIDI2_UART_rxBufferLoopDetect;
  1597              		.loc 1 1218 0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 56
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 56
 
 
  1598 0050 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  1628              		.loc 1 1234 0
  1629 0072 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
  1630              	.LVL156:
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 57
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 57
 
 
  1631              	.L201:
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  1679 0010 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
  1680 0012 1C2B     		cmp	r3, #28
  1681 0014 0AD9     		bls	.L216
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 58
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 58
 
 
  1682              	.LVL160:
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  1727              	.L215:
  388:Generated_Source\PSoC5/USB_midi.c ****                     if (m1 != 0u)
  1728              		.loc 1 388 0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 59
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 59
 
 
  1729 0042 FFF7FEFF 		bl	USB_MIDI1_GetEvent
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
 1256:Generated_Source\PSoC5/USB_midi.c ****     *  USB_INQ_SYSEX_FLAG: Non-Real Time SySEx message received.
 1257:Generated_Source\PSoC5/USB_midi.c ****     *  USB_INQ_IDENTITY_REQ_FLAG: Identity Request received.
 1258:Generated_Source\PSoC5/USB_midi.c ****     *    This bit should be cleared by user when Identity Reply message generated.
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 60
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 60
 
 
 1259:Generated_Source\PSoC5/USB_midi.c ****     *
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
 1282:Generated_Source\PSoC5/USB_midi.c ****                    (epBuf[USB_EVENT_BYTE2] == USB_MIDI_SYSEX_NON_REAL_TIME))
 1283:Generated_Source\PSoC5/USB_midi.c ****                 {   /* SySEx starts */
 1284:Generated_Source\PSoC5/USB_midi.c ****                     USB_MIDI2_InqFlags |= USB_INQ_SYSEX_FLAG;
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 61
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 61
 
 
 1285:Generated_Source\PSoC5/USB_midi.c ****                 }
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  1807 002c 197D     		ldrb	r1, [r3, #20]	@ zero_extendqisi2
  1808 002e 8A42     		cmp	r2, r1
  1809 0030 1ED0     		beq	.L244
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 62
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 62
 
 
  1810              	.LVL173:
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  1842              		.loc 1 1331 0
  1843 0050 134B     		ldr	r3, .L245+4
  1844 0052 0022     		movs	r2, #0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 63
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 63
 
 
  1845 0054 EDE7     		b	.L241
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
 1304:Generated_Source\PSoC5/USB_midi.c ****                     if((epBuf[USB_EVENT_BYTE1] == USB_MIDI_SYSEX_GEN_INFORMATION) &&
  1892              		.loc 1 1304 0
  1893 007c 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 64
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 64
 
 
 1305:Generated_Source\PSoC5/USB_midi.c ****                        (epBuf[USB_EVENT_BYTE2] == USB_MIDI_SYSEX_IDENTITY_REQ))
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  1940              		.cfi_offset 5, -16
  1941              		.cfi_offset 6, -12
  1942              		.cfi_offset 7, -8
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 65
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 65
 
 
  1943              		.cfi_offset 14, -4
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  1988 0038 2944     		add	r1, r1, r5
  280:Generated_Source\PSoC5/USB_midi.c ****                 }
  1989              		.loc 1 280 0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 66
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 66
 
 
  1990 003a E4B2     		uxtb	r4, r4
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2038              		.set	.LANCHOR1,. + 0
  2039              		.type	USB_MIDI_SIZE, %object
  2040              		.size	USB_MIDI_SIZE, 16
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 67
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 67
 
 
  2041              	USB_MIDI_SIZE:
@@ -4016,13 +4016,13 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2091 0006 00000000 		.4byte	.Ldebug_abbrev0
  2092 000a 04       		.byte	0x4
  2093 000b 01       		.uleb128 0x1
- 2094 000c 9B020000 		.4byte	.LASF96
+ 2094 000c E6020000 		.4byte	.LASF96
  2095 0010 01       		.byte	0x1
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 68
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 68
 
 
- 2096 0011 A6040000 		.4byte	.LASF97
- 2097 0015 4E060000 		.4byte	.LASF98
+ 2096 0011 DD040000 		.4byte	.LASF97
+ 2097 0015 C5000000 		.4byte	.LASF98
  2098 0019 00000000 		.4byte	.Ldebug_ranges0+0
  2099 001d 00000000 		.4byte	0
  2100 0021 00000000 		.4byte	.Ldebug_line0
@@ -4033,23 +4033,23 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2105 002c 02       		.uleb128 0x2
  2106 002d 01       		.byte	0x1
  2107 002e 08       		.byte	0x8
- 2108 002f 98040000 		.4byte	.LASF1
+ 2108 002f CF040000 		.4byte	.LASF1
  2109 0033 02       		.uleb128 0x2
  2110 0034 02       		.byte	0x2
  2111 0035 05       		.byte	0x5
- 2112 0036 C8040000 		.4byte	.LASF2
+ 2112 0036 FF040000 		.4byte	.LASF2
  2113 003a 02       		.uleb128 0x2
  2114 003b 02       		.byte	0x2
  2115 003c 07       		.byte	0x7
- 2116 003d D6010000 		.4byte	.LASF3
+ 2116 003d 21020000 		.4byte	.LASF3
  2117 0041 02       		.uleb128 0x2
  2118 0042 04       		.byte	0x4
  2119 0043 05       		.byte	0x5
- 2120 0044 18010000 		.4byte	.LASF4
+ 2120 0044 63010000 		.4byte	.LASF4
  2121 0048 02       		.uleb128 0x2
  2122 0049 04       		.byte	0x4
  2123 004a 07       		.byte	0x7
- 2124 004b BF010000 		.4byte	.LASF5
+ 2124 004b 0A020000 		.4byte	.LASF5
  2125 004f 02       		.uleb128 0x2
  2126 0050 08       		.byte	0x8
  2127 0051 05       		.byte	0x5
@@ -4065,9 +4065,9 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2137 0064 02       		.uleb128 0x2
  2138 0065 04       		.byte	0x4
  2139 0066 07       		.byte	0x7
- 2140 0067 91010000 		.4byte	.LASF8
+ 2140 0067 DC010000 		.4byte	.LASF8
  2141 006b 04       		.uleb128 0x4
- 2142 006c 21010000 		.4byte	.LASF9
+ 2142 006c 6C010000 		.4byte	.LASF9
  2143 0070 02       		.byte	0x2
  2144 0071 5B       		.byte	0x5b
  2145 0072 2C000000 		.4byte	0x2c
@@ -4078,50 +4078,50 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2150 007d 3A000000 		.4byte	0x3a
  2151 0081 02       		.uleb128 0x2
  2152 0082 04       		.byte	0x4
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 69
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 69
 
 
  2153 0083 04       		.byte	0x4
- 2154 0084 32040000 		.4byte	.LASF11
+ 2154 0084 69040000 		.4byte	.LASF11
  2155 0088 02       		.uleb128 0x2
  2156 0089 08       		.byte	0x8
  2157 008a 04       		.byte	0x4
- 2158 008b 30010000 		.4byte	.LASF12
+ 2158 008b 7B010000 		.4byte	.LASF12
  2159 008f 02       		.uleb128 0x2
  2160 0090 01       		.byte	0x1
  2161 0091 08       		.byte	0x8
- 2162 0092 58050000 		.4byte	.LASF13
+ 2162 0092 8F050000 		.4byte	.LASF13
  2163 0096 05       		.uleb128 0x5
  2164 0097 6B000000 		.4byte	0x6b
  2165 009b 02       		.uleb128 0x2
  2166 009c 04       		.byte	0x4
  2167 009d 07       		.byte	0x7
- 2168 009e 52030000 		.4byte	.LASF14
+ 2168 009e 9D030000 		.4byte	.LASF14
  2169 00a2 06       		.uleb128 0x6
  2170 00a3 0C       		.byte	0xc
  2171 00a4 03       		.byte	0x3
  2172 00a5 7D       		.byte	0x7d
  2173 00a6 17010000 		.4byte	0x117
  2174 00aa 07       		.uleb128 0x7
- 2175 00ab 63030000 		.4byte	.LASF15
+ 2175 00ab AE030000 		.4byte	.LASF15
  2176 00af 03       		.byte	0x3
  2177 00b0 7F       		.byte	0x7f
  2178 00b1 6B000000 		.4byte	0x6b
  2179 00b5 00       		.byte	0
  2180 00b6 07       		.uleb128 0x7
- 2181 00b7 48040000 		.4byte	.LASF16
+ 2181 00b7 7F040000 		.4byte	.LASF16
  2182 00bb 03       		.byte	0x3
  2183 00bc 80       		.byte	0x80
  2184 00bd 6B000000 		.4byte	0x6b
  2185 00c1 01       		.byte	0x1
  2186 00c2 07       		.uleb128 0x7
- 2187 00c3 3D030000 		.4byte	.LASF17
+ 2187 00c3 88030000 		.4byte	.LASF17
  2188 00c7 03       		.byte	0x3
  2189 00c8 81       		.byte	0x81
  2190 00c9 6B000000 		.4byte	0x6b
  2191 00cd 02       		.byte	0x2
  2192 00ce 07       		.uleb128 0x7
- 2193 00cf 27010000 		.4byte	.LASF18
+ 2193 00cf 72010000 		.4byte	.LASF18
  2194 00d3 03       		.byte	0x3
  2195 00d4 82       		.byte	0x82
  2196 00d5 6B000000 		.4byte	0x6b
@@ -4133,28 +4133,28 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2202 00e1 6B000000 		.4byte	0x6b
  2203 00e5 04       		.byte	0x4
  2204 00e6 07       		.uleb128 0x7
- 2205 00e7 52010000 		.4byte	.LASF20
+ 2205 00e7 9D010000 		.4byte	.LASF20
  2206 00eb 03       		.byte	0x3
  2207 00ec 84       		.byte	0x84
  2208 00ed 6B000000 		.4byte	0x6b
  2209 00f1 05       		.byte	0x5
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 70
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 70
 
 
  2210 00f2 07       		.uleb128 0x7
- 2211 00f3 9A050000 		.4byte	.LASF21
+ 2211 00f3 D1050000 		.4byte	.LASF21
  2212 00f7 03       		.byte	0x3
  2213 00f8 85       		.byte	0x85
  2214 00f9 76000000 		.4byte	0x76
  2215 00fd 06       		.byte	0x6
  2216 00fe 07       		.uleb128 0x7
- 2217 00ff 5D050000 		.4byte	.LASF22
+ 2217 00ff 94050000 		.4byte	.LASF22
  2218 0103 03       		.byte	0x3
  2219 0104 86       		.byte	0x86
  2220 0105 76000000 		.4byte	0x76
  2221 0109 08       		.byte	0x8
  2222 010a 07       		.uleb128 0x7
- 2223 010b 66020000 		.4byte	.LASF23
+ 2223 010b B1020000 		.4byte	.LASF23
  2224 010f 03       		.byte	0x3
  2225 0110 87       		.byte	0x87
  2226 0111 6B000000 		.4byte	0x6b
@@ -4171,7 +4171,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2237 0125 21       		.byte	0x21
  2238 0126 67010000 		.4byte	0x167
  2239 012a 07       		.uleb128 0x7
- 2240 012b 51050000 		.4byte	.LASF25
+ 2240 012b 88050000 		.4byte	.LASF25
  2241 012f 04       		.byte	0x4
  2242 0130 23       		.byte	0x23
  2243 0131 6B000000 		.4byte	0x6b
@@ -4183,22 +4183,22 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2249 013d 6B000000 		.4byte	0x6b
  2250 0141 01       		.byte	0x1
  2251 0142 07       		.uleb128 0x7
- 2252 0143 D1010000 		.4byte	.LASF27
+ 2252 0143 1C020000 		.4byte	.LASF27
  2253 0147 04       		.byte	0x4
  2254 0148 25       		.byte	0x25
  2255 0149 6B000000 		.4byte	0x6b
  2256 014d 02       		.byte	0x2
  2257 014e 07       		.uleb128 0x7
- 2258 014f 96030000 		.4byte	.LASF28
+ 2258 014f E1030000 		.4byte	.LASF28
  2259 0153 04       		.byte	0x4
  2260 0154 26       		.byte	0x26
  2261 0155 6B000000 		.4byte	0x6b
  2262 0159 03       		.byte	0x3
  2263 015a 07       		.uleb128 0x7
- 2264 015b D4050000 		.4byte	.LASF29
+ 2264 015b 0B060000 		.4byte	.LASF29
  2265 015f 04       		.byte	0x4
  2266 0160 27       		.byte	0x27
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 71
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 71
 
 
  2267 0161 67010000 		.4byte	0x167
@@ -4212,12 +4212,12 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2275 0175 03       		.byte	0x3
  2276 0176 00       		.byte	0
  2277 0177 04       		.uleb128 0x4
- 2278 0178 2E020000 		.4byte	.LASF30
+ 2278 0178 79020000 		.4byte	.LASF30
  2279 017c 04       		.byte	0x4
  2280 017d 28       		.byte	0x28
  2281 017e 22010000 		.4byte	0x122
  2282 0182 0A       		.uleb128 0xa
- 2283 0183 53040000 		.4byte	.LASF81
+ 2283 0183 8A040000 		.4byte	.LASF81
  2284 0187 01       		.byte	0x1
  2285 0188 4201     		.2byte	0x142
  2286 018a 01       		.byte	0x1
@@ -4243,7 +4243,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2306 01b9 00       		.byte	0
  2307 01ba 00       		.byte	0
  2308 01bb 0F       		.uleb128 0xf
- 2309 01bc 1E040000 		.4byte	.LASF38
+ 2309 01bc 85060000 		.4byte	.LASF38
  2310 01c0 01       		.byte	0x1
  2311 01c1 3902     		.2byte	0x239
  2312 01c3 00000000 		.4byte	.LFB5
@@ -4258,34 +4258,34 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2321 01d8 6B000000 		.4byte	0x6b
  2322 01dc 00000000 		.4byte	.LLST0
  2323 01e0 11       		.uleb128 0x11
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 72
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 72
 
 
- 2324 01e1 9E010000 		.4byte	.LASF31
+ 2324 01e1 E9010000 		.4byte	.LASF31
  2325 01e5 01       		.byte	0x1
  2326 01e6 3902     		.2byte	0x239
  2327 01e8 31020000 		.4byte	0x231
  2328 01ec 90000000 		.4byte	.LLST1
  2329 01f0 11       		.uleb128 0x11
- 2330 01f1 8F040000 		.4byte	.LASF32
+ 2330 01f1 C6040000 		.4byte	.LASF32
  2331 01f5 01       		.byte	0x1
  2332 01f6 3902     		.2byte	0x239
  2333 01f8 6B000000 		.4byte	0x6b
  2334 01fc 2E010000 		.4byte	.LLST2
  2335 0200 11       		.uleb128 0x11
- 2336 0201 08050000 		.4byte	.LASF33
+ 2336 0201 3F050000 		.4byte	.LASF33
  2337 0205 01       		.byte	0x1
  2338 0206 3902     		.2byte	0x239
  2339 0208 6B000000 		.4byte	0x6b
  2340 020c 17020000 		.4byte	.LLST3
  2341 0210 12       		.uleb128 0x12
- 2342 0211 0A060000 		.4byte	.LASF34
+ 2342 0211 41060000 		.4byte	.LASF34
  2343 0215 01       		.byte	0x1
  2344 0216 3C02     		.2byte	0x23c
  2345 0218 6B000000 		.4byte	0x6b
  2346 021c 19030000 		.4byte	.LLST4
  2347 0220 12       		.uleb128 0x12
- 2348 0221 47030000 		.4byte	.LASF35
+ 2348 0221 92030000 		.4byte	.LASF35
  2349 0225 01       		.byte	0x1
  2350 0226 3D02     		.2byte	0x23d
  2351 0228 6B000000 		.4byte	0x6b
@@ -4297,7 +4297,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2357 0237 14       		.uleb128 0x14
  2358 0238 6B000000 		.4byte	0x6b
  2359 023c 15       		.uleb128 0x15
- 2360 023d E5050000 		.4byte	.LASF41
+ 2360 023d 1C060000 		.4byte	.LASF41
  2361 0241 01       		.byte	0x1
  2362 0242 CB01     		.2byte	0x1cb
  2363 0244 6B000000 		.4byte	0x6b
@@ -4313,28 +4313,28 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2373 025d 6B000000 		.4byte	0x6b
  2374 0261 09040000 		.4byte	.LLST6
  2375 0265 11       		.uleb128 0x11
- 2376 0266 5B030000 		.4byte	.LASF36
+ 2376 0266 A6030000 		.4byte	.LASF36
  2377 026a 01       		.byte	0x1
  2378 026b CB01     		.2byte	0x1cb
  2379 026d 31020000 		.4byte	0x231
  2380 0271 59040000 		.4byte	.LLST7
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 73
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 73
 
 
  2381 0275 11       		.uleb128 0x11
- 2382 0276 08050000 		.4byte	.LASF33
+ 2382 0276 3F050000 		.4byte	.LASF33
  2383 027a 01       		.byte	0x1
  2384 027b CB01     		.2byte	0x1cb
  2385 027d 6B000000 		.4byte	0x6b
  2386 0281 78040000 		.4byte	.LLST8
  2387 0285 12       		.uleb128 0x12
- 2388 0286 D2040000 		.4byte	.LASF37
+ 2388 0286 09050000 		.4byte	.LASF37
  2389 028a 01       		.byte	0x1
  2390 028b CE01     		.2byte	0x1ce
  2391 028d 6B000000 		.4byte	0x6b
  2392 0291 99040000 		.4byte	.LLST9
  2393 0295 16       		.uleb128 0x16
- 2394 0296 91050000 		.4byte	.LASF99
+ 2394 0296 C8050000 		.4byte	.LASF99
  2395 029a 01       		.byte	0x1
  2396 029b CF01     		.2byte	0x1cf
  2397 029d 6B000000 		.4byte	0x6b
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2435 02e1 0C       		.uleb128 0xc
  2436 02e2 B0000000 		.4byte	.LVL68
  2437 02e6 BC080000 		.4byte	0x8bc
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 74
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 74
 
 
  2438 02ea 0C       		.uleb128 0xc
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2492 033b 03       		.uleb128 0x3
  2493 033c 91       		.byte	0x91
  2494 033d 54       		.sleb128 -44
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 75
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 75
 
 
  2495 033e 06       		.byte	0x6
@@ -4451,7 +4451,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2502 0345 00       		.byte	0
  2503 0346 00       		.byte	0
  2504 0347 0F       		.uleb128 0xf
- 2505 0348 20020000 		.4byte	.LASF39
+ 2505 0348 6B020000 		.4byte	.LASF39
  2506 034c 01       		.byte	0x1
  2507 034d C002     		.2byte	0x2c0
  2508 034f 00000000 		.4byte	.LFB6
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2549 039f 17       		.uleb128 0x17
  2550 03a0 42000000 		.4byte	.LVL80
  2551 03a4 D1080000 		.4byte	0x8d1
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 76
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 76
 
 
  2552 03a8 B7030000 		.4byte	0x3b7
@@ -4529,7 +4529,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2577 03ca 00       		.byte	0
  2578 03cb 00       		.byte	0
  2579 03cc 19       		.uleb128 0x19
- 2580 03cd 3D060000 		.4byte	.LASF40
+ 2580 03cd 74060000 		.4byte	.LASF40
  2581 03d1 01       		.byte	0x1
  2582 03d2 8A       		.byte	0x8a
  2583 03d3 00000000 		.4byte	.LFB0
@@ -4545,7 +4545,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2593 03ef 47030000 		.4byte	0x347
  2594 03f3 00       		.byte	0
  2595 03f4 15       		.uleb128 0x15
- 2596 03f5 41020000 		.4byte	.LASF42
+ 2596 03f5 8C020000 		.4byte	.LASF42
  2597 03f9 01       		.byte	0x1
  2598 03fa F602     		.2byte	0x2f6
  2599 03fc 6B000000 		.4byte	0x6b
@@ -4555,23 +4555,23 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2603 0409 9C       		.byte	0x9c
  2604 040a 3D040000 		.4byte	0x43d
  2605 040e 11       		.uleb128 0x11
- 2606 040f B5050000 		.4byte	.LASF43
+ 2606 040f EC050000 		.4byte	.LASF43
  2607 0413 01       		.byte	0x1
  2608 0414 F602     		.2byte	0x2f6
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 77
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 77
 
 
  2609 0416 6B000000 		.4byte	0x6b
  2610 041a C4040000 		.4byte	.LLST10
  2611 041e 1B       		.uleb128 0x1b
- 2612 041f E2000000 		.4byte	.LASF44
+ 2612 041f 2D010000 		.4byte	.LASF44
  2613 0423 01       		.byte	0x1
  2614 0424 F602     		.2byte	0x2f6
  2615 0426 3D040000 		.4byte	0x43d
  2616 042a 01       		.uleb128 0x1
  2617 042b 51       		.byte	0x51
  2618 042c 12       		.uleb128 0x12
- 2619 042d 3F050000 		.4byte	.LASF45
+ 2619 042d 76050000 		.4byte	.LASF45
  2620 0431 01       		.byte	0x1
  2621 0432 F902     		.2byte	0x2f9
  2622 0434 6B000000 		.4byte	0x6b
@@ -4581,7 +4581,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2626 043e 04       		.byte	0x4
  2627 043f 77010000 		.4byte	0x177
  2628 0443 15       		.uleb128 0x15
- 2629 0444 E9010000 		.4byte	.LASF46
+ 2629 0444 34020000 		.4byte	.LASF46
  2630 0448 01       		.byte	0x1
  2631 0449 9F03     		.2byte	0x39f
  2632 044b 6B000000 		.4byte	0x6b
@@ -4591,25 +4591,25 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2636 0458 9C       		.byte	0x9c
  2637 0459 A7040000 		.4byte	0x4a7
  2638 045d 12       		.uleb128 0x12
- 2639 045e 37010000 		.4byte	.LASF47
+ 2639 045e 82010000 		.4byte	.LASF47
  2640 0462 01       		.byte	0x1
  2641 0463 A103     		.2byte	0x3a1
  2642 0465 6B000000 		.4byte	0x6b
  2643 0469 86060000 		.4byte	.LLST12
  2644 046d 12       		.uleb128 0x12
- 2645 046e 4A050000 		.4byte	.LASF48
+ 2645 046e 81050000 		.4byte	.LASF48
  2646 0472 01       		.byte	0x1
  2647 0473 A203     		.2byte	0x3a2
  2648 0475 6B000000 		.4byte	0x6b
  2649 0479 C7060000 		.4byte	.LLST13
  2650 047d 12       		.uleb128 0x12
- 2651 047e D5000000 		.4byte	.LASF49
+ 2651 047e 20010000 		.4byte	.LASF49
  2652 0482 01       		.byte	0x1
  2653 0483 A903     		.2byte	0x3a9
  2654 0485 6B000000 		.4byte	0x6b
  2655 0489 DA060000 		.4byte	.LLST14
  2656 048d 12       		.uleb128 0x12
- 2657 048e 53020000 		.4byte	.LASF50
+ 2657 048e 9E020000 		.4byte	.LASF50
  2658 0492 01       		.byte	0x1
  2659 0493 AC03     		.2byte	0x3ac
  2660 0495 6B000000 		.4byte	0x6b
@@ -4618,11 +4618,11 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2663 049e 50000000 		.4byte	.LVL120
  2664 04a2 F4030000 		.4byte	0x3f4
  2665 04a6 00       		.byte	0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 78
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 78
 
 
  2666 04a7 0F       		.uleb128 0xf
- 2667 04a8 70020000 		.4byte	.LASF51
+ 2667 04a8 BB020000 		.4byte	.LASF51
  2668 04ac 01       		.byte	0x1
  2669 04ad 0E04     		.2byte	0x40e
  2670 04af 00000000 		.4byte	.LFB9
@@ -4631,7 +4631,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2673 04b8 9C       		.byte	0x9c
  2674 04b9 05050000 		.4byte	0x505
  2675 04bd 11       		.uleb128 0x11
- 2676 04be 3E010000 		.4byte	.LASF52
+ 2676 04be 89010000 		.4byte	.LASF52
  2677 04c2 01       		.byte	0x1
  2678 04c3 0E04     		.2byte	0x40e
  2679 04c5 31020000 		.4byte	0x231
@@ -4659,7 +4659,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2701 0500 FF080000 		.4byte	0x8ff
  2702 0504 00       		.byte	0
  2703 0505 15       		.uleb128 0x15
- 2704 0506 FC010000 		.4byte	.LASF53
+ 2704 0506 47020000 		.4byte	.LASF53
  2705 050a 01       		.byte	0x1
  2706 050b 7F04     		.2byte	0x47f
  2707 050d 6B000000 		.4byte	0x6b
@@ -4669,28 +4669,28 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2711 051a 9C       		.byte	0x9c
  2712 051b 69050000 		.4byte	0x569
  2713 051f 12       		.uleb128 0x12
- 2714 0520 37010000 		.4byte	.LASF47
+ 2714 0520 82010000 		.4byte	.LASF47
  2715 0524 01       		.byte	0x1
  2716 0525 8104     		.2byte	0x481
  2717 0527 6B000000 		.4byte	0x6b
  2718 052b 4B080000 		.4byte	.LLST20
  2719 052f 12       		.uleb128 0x12
- 2720 0530 4A050000 		.4byte	.LASF48
+ 2720 0530 81050000 		.4byte	.LASF48
  2721 0534 01       		.byte	0x1
  2722 0535 8204     		.2byte	0x482
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 79
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 79
 
 
  2723 0537 6B000000 		.4byte	0x6b
  2724 053b 8C080000 		.4byte	.LLST21
  2725 053f 12       		.uleb128 0x12
- 2726 0540 D5000000 		.4byte	.LASF49
+ 2726 0540 20010000 		.4byte	.LASF49
  2727 0544 01       		.byte	0x1
  2728 0545 8904     		.2byte	0x489
  2729 0547 6B000000 		.4byte	0x6b
  2730 054b 9F080000 		.4byte	.LLST22
  2731 054f 12       		.uleb128 0x12
- 2732 0550 53020000 		.4byte	.LASF50
+ 2732 0550 9E020000 		.4byte	.LASF50
  2733 0554 01       		.byte	0x1
  2734 0555 8C04     		.2byte	0x48c
  2735 0557 6B000000 		.4byte	0x6b
@@ -4700,7 +4700,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2739 0564 F4030000 		.4byte	0x3f4
  2740 0568 00       		.byte	0
  2741 0569 0F       		.uleb128 0xf
- 2742 056a 6A030000 		.4byte	.LASF54
+ 2742 056a B5030000 		.4byte	.LASF54
  2743 056e 01       		.byte	0x1
  2744 056f 7601     		.2byte	0x176
  2745 0571 00000000 		.4byte	.LFB3
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2777 05c1 0E       		.uleb128 0xe
  2778 05c2 01       		.uleb128 0x1
  2779 05c3 51       		.byte	0x51
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 80
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 80
 
 
  2780 05c4 05       		.uleb128 0x5
@@ -4777,7 +4777,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2813 05f7 00       		.byte	0
  2814 05f8 00       		.byte	0
  2815 05f9 0F       		.uleb128 0xf
- 2816 05fa 25060000 		.4byte	.LASF55
+ 2816 05fa 5C060000 		.4byte	.LASF55
  2817 05fe 01       		.byte	0x1
  2818 05ff ED04     		.2byte	0x4ed
  2819 0601 00000000 		.4byte	.LFB11
@@ -4786,7 +4786,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2822 060a 9C       		.byte	0x9c
  2823 060b 57060000 		.4byte	0x657
  2824 060f 11       		.uleb128 0x11
- 2825 0610 3E010000 		.4byte	.LASF52
+ 2825 0610 89010000 		.4byte	.LASF52
  2826 0614 01       		.byte	0x1
  2827 0615 ED04     		.2byte	0x4ed
  2828 0617 31020000 		.4byte	0x231
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2834 0627 6B000000 		.4byte	0x6b
  2835 062b 84090000 		.4byte	.LLST27
  2836 062f 1C       		.uleb128 0x1c
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 81
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 81
 
 
  2837 0630 6C656E00 		.ascii	"len\000"
@@ -4817,7 +4817,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2850 0652 10090000 		.4byte	0x910
  2851 0656 00       		.byte	0
  2852 0657 19       		.uleb128 0x19
- 2853 0658 1C050000 		.4byte	.LASF56
+ 2853 0658 53050000 		.4byte	.LASF56
  2854 065c 01       		.byte	0x1
  2855 065d C7       		.byte	0xc7
  2856 065e 00000000 		.4byte	.LFB1
@@ -4826,19 +4826,19 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2859 0667 9C       		.byte	0x9c
  2860 0668 F3060000 		.4byte	0x6f3
  2861 066c 1D       		.uleb128 0x1d
- 2862 066d CA050000 		.4byte	.LASF57
+ 2862 066d 01060000 		.4byte	.LASF57
  2863 0671 01       		.byte	0x1
  2864 0672 CD       		.byte	0xcd
  2865 0673 6B000000 		.4byte	0x6b
  2866 0677 850A0000 		.4byte	.LLST30
  2867 067b 1D       		.uleb128 0x1d
- 2868 067c 34050000 		.4byte	.LASF58
+ 2868 067c 6B050000 		.4byte	.LASF58
  2869 0680 01       		.byte	0x1
  2870 0681 CE       		.byte	0xce
  2871 0682 6B000000 		.4byte	0x6b
  2872 0686 AE0A0000 		.4byte	.LLST31
  2873 068a 1E       		.uleb128 0x1e
- 2874 068b DC050000 		.4byte	.LASF59
+ 2874 068b 13060000 		.4byte	.LASF59
  2875 068f 01       		.byte	0x1
  2876 0690 D1       		.byte	0xd1
  2877 0691 6B000000 		.4byte	0x6b
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2891 06b7 51       		.byte	0x51
  2892 06b8 05       		.uleb128 0x5
  2893 06b9 03       		.byte	0x3
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 82
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 82
 
 
  2894 06ba 00000000 		.4byte	USB_midiOutBuffer
@@ -4902,7 +4902,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2932 0701 0F       		.byte	0xf
  2933 0702 00       		.byte	0
  2934 0703 1F       		.uleb128 0x1f
- 2935 0704 44010000 		.4byte	.LASF60
+ 2935 0704 8F010000 		.4byte	.LASF60
  2936 0708 01       		.byte	0x1
  2937 0709 23       		.byte	0x23
  2938 070a 14070000 		.4byte	0x714
@@ -4912,18 +4912,18 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2942 0714 14       		.uleb128 0x14
  2943 0715 F3060000 		.4byte	0x6f3
  2944 0719 1F       		.uleb128 0x1f
- 2945 071a 38040000 		.4byte	.LASF61
+ 2945 071a 6F040000 		.4byte	.LASF61
  2946 071e 01       		.byte	0x1
  2947 071f 4E       		.byte	0x4e
  2948 0720 77010000 		.4byte	0x177
  2949 0724 05       		.uleb128 0x5
  2950 0725 03       		.byte	0x3
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 83
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 83
 
 
  2951 0726 00000000 		.4byte	USB_MIDI1_Event
  2952 072a 1F       		.uleb128 0x1f
- 2953 072b 29030000 		.4byte	.LASF62
+ 2953 072b 74030000 		.4byte	.LASF62
  2954 072f 01       		.byte	0x1
  2955 0730 4F       		.byte	0x4f
  2956 0731 96000000 		.4byte	0x96
@@ -4939,7 +4939,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2966 0747 03       		.byte	0x3
  2967 0748 0C000000 		.4byte	USB_MIDI2_Event
  2968 074c 1F       		.uleb128 0x1f
- 2969 074d F6050000 		.4byte	.LASF64
+ 2969 074d 2D060000 		.4byte	.LASF64
  2970 0751 01       		.byte	0x1
  2971 0752 54       		.byte	0x54
  2972 0753 96000000 		.4byte	0x96
@@ -4954,19 +4954,19 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  2981 076b FE       		.byte	0xfe
  2982 076c 00       		.byte	0
  2983 076d 20       		.uleb128 0x20
- 2984 076e E9000000 		.4byte	.LASF65
+ 2984 076e 34010000 		.4byte	.LASF65
  2985 0772 05       		.byte	0x5
  2986 0773 5201     		.2byte	0x152
  2987 0775 79070000 		.4byte	0x779
  2988 0779 05       		.uleb128 0x5
  2989 077a 5D070000 		.4byte	0x75d
  2990 077e 20       		.uleb128 0x20
- 2991 077f 68010000 		.4byte	.LASF66
+ 2991 077f B3010000 		.4byte	.LASF66
  2992 0783 05       		.byte	0x5
  2993 0784 5301     		.2byte	0x153
  2994 0786 96000000 		.4byte	0x96
  2995 078a 20       		.uleb128 0x20
- 2996 078b A6010000 		.4byte	.LASF67
+ 2996 078b F1010000 		.4byte	.LASF67
  2997 078f 05       		.byte	0x5
  2998 0790 5401     		.2byte	0x154
  2999 0792 96000000 		.4byte	0x96
@@ -4976,9 +4976,9 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3003 079c 5501     		.2byte	0x155
  3004 079e 96000000 		.4byte	0x96
  3005 07a2 20       		.uleb128 0x20
- 3006 07a3 F4040000 		.4byte	.LASF69
+ 3006 07a3 2B050000 		.4byte	.LASF69
  3007 07a7 06       		.byte	0x6
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 84
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 84
 
 
  3008 07a8 5201     		.2byte	0x152
@@ -4986,22 +4986,22 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3010 07ae 05       		.uleb128 0x5
  3011 07af 5D070000 		.4byte	0x75d
  3012 07b3 20       		.uleb128 0x20
- 3013 07b4 7E030000 		.4byte	.LASF70
+ 3013 07b4 C9030000 		.4byte	.LASF70
  3014 07b8 06       		.byte	0x6
  3015 07b9 5301     		.2byte	0x153
  3016 07bb 96000000 		.4byte	0x96
  3017 07bf 20       		.uleb128 0x20
- 3018 07c0 DB040000 		.4byte	.LASF71
+ 3018 07c0 12050000 		.4byte	.LASF71
  3019 07c4 06       		.byte	0x6
  3020 07c5 5401     		.2byte	0x154
  3021 07c7 96000000 		.4byte	0x96
  3022 07cb 20       		.uleb128 0x20
- 3023 07cc 9E030000 		.4byte	.LASF72
+ 3023 07cc E9030000 		.4byte	.LASF72
  3024 07d0 06       		.byte	0x6
  3025 07d1 5501     		.2byte	0x155
  3026 07d3 96000000 		.4byte	0x96
  3027 07d7 21       		.uleb128 0x21
- 3028 07d8 7D040000 		.4byte	.LASF73
+ 3028 07d8 B4040000 		.4byte	.LASF73
  3029 07dc 01       		.byte	0x1
  3030 07dd 42       		.byte	0x42
  3031 07de 96000000 		.4byte	0x96
@@ -5009,7 +5009,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3033 07e3 03       		.byte	0x3
  3034 07e4 00000000 		.4byte	USB_midiInPointer
  3035 07e8 21       		.uleb128 0x21
- 3036 07e9 59010000 		.4byte	.LASF74
+ 3036 07e9 A4010000 		.4byte	.LASF74
  3037 07ed 01       		.byte	0x1
  3038 07ee 44       		.byte	0x44
  3039 07ef 96000000 		.4byte	0x96
@@ -5024,7 +5024,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3048 0807 1F       		.byte	0x1f
  3049 0808 00       		.byte	0
  3050 0809 21       		.uleb128 0x21
- 3051 080a 80010000 		.4byte	.LASF75
+ 3051 080a CB010000 		.4byte	.LASF75
  3052 080e 01       		.byte	0x1
  3053 080f 45       		.byte	0x45
  3054 0810 F9070000 		.4byte	0x7f9
@@ -5032,13 +5032,13 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3056 0815 03       		.byte	0x3
  3057 0816 00000000 		.4byte	USB_midiInBuffer
  3058 081a 21       		.uleb128 0x21
- 3059 081b A5050000 		.4byte	.LASF76
+ 3059 081b DC050000 		.4byte	.LASF76
  3060 081f 01       		.byte	0x1
  3061 0820 49       		.byte	0x49
  3062 0821 96000000 		.4byte	0x96
  3063 0825 05       		.uleb128 0x5
  3064 0826 03       		.byte	0x3
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 85
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 85
 
 
  3065 0827 00000000 		.4byte	USB_midi_out_ep
@@ -5051,7 +5051,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3072 0837 03       		.byte	0x3
  3073 0838 00000000 		.4byte	USB_midiOutBuffer
  3074 083c 21       		.uleb128 0x21
- 3075 083d F8030000 		.4byte	.LASF78
+ 3075 083d 43040000 		.4byte	.LASF78
  3076 0841 01       		.byte	0x1
  3077 0842 50       		.byte	0x50
  3078 0843 96000000 		.4byte	0x96
@@ -5059,7 +5059,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3080 0848 03       		.byte	0x3
  3081 0849 00000000 		.4byte	USB_MIDI1_InqFlags
  3082 084d 21       		.uleb128 0x21
- 3083 084e 0B040000 		.4byte	.LASF79
+ 3083 084e 56040000 		.4byte	.LASF79
  3084 0852 01       		.byte	0x1
  3085 0853 55       		.byte	0x55
  3086 0854 96000000 		.4byte	0x96
@@ -5074,14 +5074,14 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3095 086c 08       		.byte	0x8
  3096 086d 00       		.byte	0
  3097 086e 22       		.uleb128 0x22
- 3098 086f E0030000 		.4byte	.LASF80
+ 3098 086f 2B040000 		.4byte	.LASF80
  3099 0873 07       		.byte	0x7
  3100 0874 34       		.byte	0x34
  3101 0875 79080000 		.4byte	0x879
  3102 0879 05       		.uleb128 0x5
  3103 087a 5E080000 		.4byte	0x85e
  3104 087e 23       		.uleb128 0x23
- 3105 087f BB050000 		.4byte	.LASF93
+ 3105 087f F2050000 		.4byte	.LASF93
  3106 0883 03       		.byte	0x3
  3107 0884 CC       		.byte	0xcc
  3108 0885 6B000000 		.4byte	0x6b
@@ -5090,7 +5090,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3111 088e 6B000000 		.4byte	0x6b
  3112 0892 00       		.byte	0
  3113 0893 25       		.uleb128 0x25
- 3114 0894 BC030000 		.4byte	.LASF87
+ 3114 0894 07040000 		.4byte	.LASF87
  3115 0898 03       		.byte	0x3
  3116 0899 CE       		.byte	0xce
  3117 089a AE080000 		.4byte	0x8ae
@@ -5098,14 +5098,14 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3119 089f 6B000000 		.4byte	0x6b
  3120 08a3 24       		.uleb128 0x24
  3121 08a4 31020000 		.4byte	0x231
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 86
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 86
 
 
  3122 08a8 24       		.uleb128 0x24
  3123 08a9 76000000 		.4byte	0x76
  3124 08ad 00       		.byte	0
  3125 08ae 26       		.uleb128 0x26
- 3126 08af 79050000 		.4byte	.LASF82
+ 3126 08af B0050000 		.4byte	.LASF82
  3127 08b3 05       		.byte	0x5
  3128 08b4 7C       		.byte	0x7c
  3129 08b5 26       		.uleb128 0x26
@@ -5113,7 +5113,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3131 08ba 06       		.byte	0x6
  3132 08bb 7C       		.byte	0x7c
  3133 08bc 26       		.uleb128 0x26
- 3134 08bd C9030000 		.4byte	.LASF84
+ 3134 08bd 14040000 		.4byte	.LASF84
  3135 08c1 05       		.byte	0x5
  3136 08c2 7B       		.byte	0x7b
  3137 08c3 26       		.uleb128 0x26
@@ -5121,11 +5121,11 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3139 08c8 06       		.byte	0x6
  3140 08c9 7B       		.byte	0x7b
  3141 08ca 26       		.uleb128 0x26
- 3142 08cb 0F020000 		.4byte	.LASF86
+ 3142 08cb 5A020000 		.4byte	.LASF86
  3143 08cf 05       		.byte	0x5
  3144 08d0 6B       		.byte	0x6b
  3145 08d1 25       		.uleb128 0x25
- 3146 08d2 E7030000 		.4byte	.LASF88
+ 3146 08d2 32040000 		.4byte	.LASF88
  3147 08d6 08       		.byte	0x8
  3148 08d7 8C       		.byte	0x8c
  3149 08d8 E7080000 		.4byte	0x8e7
@@ -5135,11 +5135,11 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3153 08e2 6B000000 		.4byte	0x6b
  3154 08e6 00       		.byte	0
  3155 08e7 26       		.uleb128 0x26
- 3156 08e8 68050000 		.4byte	.LASF89
+ 3156 08e8 9F050000 		.4byte	.LASF89
  3157 08ec 06       		.byte	0x6
  3158 08ed 6B       		.byte	0x6b
  3159 08ee 25       		.uleb128 0x25
- 3160 08ef C5000000 		.4byte	.LASF90
+ 3160 08ef 10010000 		.4byte	.LASF90
  3161 08f3 03       		.byte	0x3
  3162 08f4 D2       		.byte	0xd2
  3163 08f5 FF080000 		.4byte	0x8ff
@@ -5147,7 +5147,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3165 08fa 6B000000 		.4byte	0x6b
  3166 08fe 00       		.byte	0
  3167 08ff 25       		.uleb128 0x25
- 3168 0900 6A040000 		.4byte	.LASF91
+ 3168 0900 A1040000 		.4byte	.LASF91
  3169 0904 05       		.byte	0x5
  3170 0905 9F       		.byte	0x9f
  3171 0906 10090000 		.4byte	0x910
@@ -5155,10 +5155,10 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3173 090b 6B000000 		.4byte	0x6b
  3174 090f 00       		.byte	0
  3175 0910 25       		.uleb128 0x25
- 3176 0911 88020000 		.4byte	.LASF92
+ 3176 0911 D3020000 		.4byte	.LASF92
  3177 0915 06       		.byte	0x6
  3178 0916 9F       		.byte	0x9f
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 87
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 87
 
 
  3179 0917 21090000 		.4byte	0x921
@@ -5166,7 +5166,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3181 091c 6B000000 		.4byte	0x6b
  3182 0920 00       		.byte	0
  3183 0921 23       		.uleb128 0x23
- 3184 0922 16060000 		.4byte	.LASF94
+ 3184 0922 4D060000 		.4byte	.LASF94
  3185 0926 03       		.byte	0x3
  3186 0927 CD       		.byte	0xcd
  3187 0928 76000000 		.4byte	0x76
@@ -5175,7 +5175,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3190 0931 6B000000 		.4byte	0x6b
  3191 0935 00       		.byte	0
  3192 0936 23       		.uleb128 0x23
- 3193 0937 0E050000 		.4byte	.LASF95
+ 3193 0937 45050000 		.4byte	.LASF95
  3194 093b 03       		.byte	0x3
  3195 093c D0       		.byte	0xd0
  3196 093d 76000000 		.4byte	0x76
@@ -5191,7 +5191,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3206 0956 04       		.byte	0x4
  3207 0957 6B000000 		.4byte	0x6b
  3208 095b 27       		.uleb128 0x27
- 3209 095c FD000000 		.4byte	.LASF100
+ 3209 095c 48010000 		.4byte	.LASF100
  3210 0960 04       		.byte	0x4
  3211 0961 82       		.byte	0x82
  3212 0962 24       		.uleb128 0x24
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3233 000d 11       		.uleb128 0x11
  3234 000e 01       		.uleb128 0x1
  3235 000f 10       		.uleb128 0x10
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 88
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 88
 
 
  3236 0010 17       		.uleb128 0x17
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3290 0046 01       		.uleb128 0x1
  3291 0047 13       		.uleb128 0x13
  3292 0048 00       		.byte	0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 89
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 89
 
 
  3293 0049 00       		.byte	0
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3347 007f 31       		.uleb128 0x31
  3348 0080 13       		.uleb128 0x13
  3349 0081 11       		.uleb128 0x11
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 90
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 90
 
 
  3350 0082 01       		.uleb128 0x1
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3404 00c0 06       		.uleb128 0x6
  3405 00c1 40       		.uleb128 0x40
  3406 00c2 18       		.uleb128 0x18
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 91
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 91
 
 
  3407 00c3 9742     		.uleb128 0x2117
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3461 00fa 0B       		.uleb128 0xb
  3462 00fb 0B       		.uleb128 0xb
  3463 00fc 49       		.uleb128 0x49
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 92
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 92
 
 
  3464 00fd 13       		.uleb128 0x13
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3518 0136 01       		.uleb128 0x1
  3519 0137 31       		.uleb128 0x31
  3520 0138 13       		.uleb128 0x13
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 93
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 93
 
 
  3521 0139 01       		.uleb128 0x1
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3575 0176 03       		.uleb128 0x3
  3576 0177 0E       		.uleb128 0xe
  3577 0178 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 94
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 94
 
 
  3578 0179 0B       		.uleb128 0xb
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3632 01af 1F       		.uleb128 0x1f
  3633 01b0 34       		.uleb128 0x34
  3634 01b1 00       		.byte	0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 95
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 95
 
 
  3635 01b2 03       		.uleb128 0x3
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3689 01e8 0B       		.uleb128 0xb
  3690 01e9 49       		.uleb128 0x49
  3691 01ea 13       		.uleb128 0x13
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 96
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 96
 
 
  3692 01eb 3F       		.uleb128 0x3f
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3746 0221 2E       		.uleb128 0x2e
  3747 0222 00       		.byte	0
  3748 0223 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 97
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 97
 
 
  3749 0224 19       		.uleb128 0x19
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3803 0030 50       		.byte	0x50
  3804 0031 9F       		.byte	0x9f
  3805 0032 CE000000 		.4byte	.LVL25
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 98
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 98
 
 
  3806 0036 DE000000 		.4byte	.LVL28
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3860 00b4 4E000000 		.4byte	.LVL13
  3861 00b8 92000000 		.4byte	.LVL18
  3862 00bc 0400     		.2byte	0x4
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 99
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 99
 
 
  3863 00be F3       		.byte	0xf3
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3917 0138 52       		.byte	0x52
  3918 0139 16000000 		.4byte	.LVL5
  3919 013d 18000000 		.4byte	.LVL6
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 100
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 100
 
 
  3920 0141 0400     		.2byte	0x4
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  3974 01ba 4E010000 		.4byte	.LVL40
  3975 01be 0400     		.2byte	0x4
  3976 01c0 F3       		.byte	0xf3
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 101
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 101
 
 
  3977 01c1 01       		.uleb128 0x1
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  4031 023b 3C000000 		.4byte	.LVL9
  4032 023f 46000000 		.4byte	.LVL10
  4033 0243 0400     		.2byte	0x4
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 102
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 102
 
 
  4034 0245 F3       		.byte	0xf3
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  4088 02c0 0400     		.2byte	0x4
  4089 02c2 F3       		.byte	0xf3
  4090 02c3 01       		.uleb128 0x1
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 103
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 103
 
 
  4091 02c4 53       		.byte	0x53
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  4145 0345 F3       		.byte	0xf3
  4146 0346 01       		.uleb128 0x1
  4147 0347 51       		.byte	0x51
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 104
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 104
 
 
  4148 0348 92000000 		.4byte	.LVL18
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  4202 03c9 01       		.uleb128 0x1
  4203 03ca 51       		.byte	0x51
  4204 03cb 23       		.byte	0x23
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 105
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 105
 
 
  4205 03cc 01       		.uleb128 0x1
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  4259 044d F3       		.byte	0xf3
  4260 044e 01       		.uleb128 0x1
  4261 044f 50       		.byte	0x50
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 106
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 106
 
 
  4262 0450 9F       		.byte	0x9f
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  4316 04d9 74       		.byte	0x74
  4317 04da 04       		.sleb128 4
  4318 04db 20000000 		.4byte	.LVL86
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 107
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 107
 
 
  4319 04df 26000000 		.4byte	.LVL88
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  4373 055f 04       		.sleb128 4
  4374 0560 DC000000 		.4byte	.LVL100
  4375 0564 EA000000 		.4byte	.LVL101
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 108
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 108
 
 
  4376 0568 0100     		.2byte	0x1
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  4430 05e1 00000000 		.4byte	0
  4431              	.LLST11:
  4432 05e5 00000000 		.4byte	.LVL84
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 109
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 109
 
 
  4433 05e9 22000000 		.4byte	.LVL87
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  4487 0670 31       		.byte	0x31
  4488 0671 9F       		.byte	0x9f
  4489 0672 1E010000 		.4byte	.LVL107
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 110
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 110
 
 
  4490 0676 58010000 		.4byte	.LFE7
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  4544 0703 56000000 		.4byte	.LVL121
  4545 0707 76000000 		.4byte	.LVL124
  4546 070b 0100     		.2byte	0x1
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 111
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 111
 
 
  4547 070d 53       		.byte	0x53
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  4601 078c 3F       		.byte	0x3f
  4602 078d 1A       		.byte	0x1a
  4603 078e 9F       		.byte	0x9f
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 112
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 112
 
 
  4604 078f 56000000 		.4byte	.LVL137
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  4658 0805 00000000 		.4byte	0
  4659              	.LLST19:
  4660 0809 14000000 		.4byte	.LVL127
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 113
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 113
 
 
  4661 080d 36000000 		.4byte	.LVL131
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  4715 0897 00000000 		.4byte	0
  4716 089b 00000000 		.4byte	0
  4717              	.LLST22:
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 114
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 114
 
 
  4718 089f 22000000 		.4byte	.LVL147
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  4772 0931 56       		.byte	0x56
  4773 0932 2C000000 		.4byte	.LVL162
  4774 0936 30000000 		.4byte	.LVL163
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 115
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 115
 
 
  4775 093a 0100     		.2byte	0x1
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  4829 09c0 0700     		.2byte	0x7
  4830 09c2 70       		.byte	0x70
  4831 09c3 00       		.sleb128 0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 116
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 116
 
 
  4832 09c4 94       		.byte	0x94
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  4886 0a30 70000000 		.4byte	.LVL184
  4887 0a34 A8000000 		.4byte	.LFE11
  4888 0a38 0100     		.2byte	0x1
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 117
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 117
 
 
  4889 0a3a 56       		.byte	0x56
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  4943 0ac8 00000000 		.4byte	0
  4944              		.section	.debug_aranges,"",%progbits
  4945 0000 74000000 		.4byte	0x74
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 118
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 118
 
 
  4946 0004 0200     		.2byte	0x2
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  5000 0050 00000000 		.4byte	.LFB11
  5001 0054 A8000000 		.4byte	.LFE11
  5002 0058 00000000 		.4byte	.LFB1
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 119
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 119
 
 
  5003 005c 74000000 		.4byte	.LFE1
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  5027              	.LASF85:
  5028 0094 4D494449 		.ascii	"MIDI2_UART_EnableRxInt\000"
  5028      325F5541 
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 120
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 120
 
 
  5028      52545F45 
@@ -7153,471 +7153,471 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 1
  5032 00b9 7369676E 		.ascii	"signed char\000"
  5032      65642063 
  5032      68617200 
- 5033              	.LASF90:
- 5034 00c5 5553425F 		.ascii	"USB_EnableOutEP\000"
- 5034      456E6162 
- 5034      6C654F75 
- 5034      74455000 
- 5035              	.LASF49:
- 5036 00d5 72784275 		.ascii	"rxBufferRead\000"
- 5036      66666572 
- 5036      52656164 
- 5036      00
- 5037              	.LASF44:
- 5038 00e2 72785374 		.ascii	"rxStat\000"
- 5038      617400
- 5039              	.LASF65:
- 5040 00e9 4D494449 		.ascii	"MIDI1_UART_rxBuffer\000"
- 5040      315F5541 
- 5040      52545F72 
- 5040      78427566 
- 5040      66657200 
- 5041              	.LASF100:
- 5042 00fd 5553425F 		.ascii	"USB_callbackLocalMidiEvent\000"
- 5042      63616C6C 
- 5042      6261636B 
- 5042      4C6F6361 
- 5042      6C4D6964 
- 5043              	.LASF4:
- 5044 0118 6C6F6E67 		.ascii	"long int\000"
- 5044      20696E74 
- 5044      00
- 5045              	.LASF9:
- 5046 0121 75696E74 		.ascii	"uint8\000"
- 5046      3800
- 5047              	.LASF18:
- 5048 0127 6570546F 		.ascii	"epToggle\000"
- 5048      67676C65 
- 5048      00
- 5049              	.LASF12:
- 5050 0130 646F7562 		.ascii	"double\000"
- 5050      6C6500
- 5051              	.LASF47:
- 5052 0137 6D736752 		.ascii	"msgRtn\000"
- 5052      746E00
- 5053              	.LASF52:
- 5054 013e 65704275 		.ascii	"epBuf\000"
- 5054      6600
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 121
+ 5033              	.LASF98:
+ 5034 00c5 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
+ 5034      73657273 
+ 5034      5C6D6772 
+ 5034      6F6E6265 
+ 5034      725C4465 
+ 5035 00f3 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 5035      436F6E74 
+ 5035      696E756F 
+ 5035      7573204F 
+ 5035      75747075 
+ 5036              	.LASF90:
+ 5037 0110 5553425F 		.ascii	"USB_EnableOutEP\000"
+ 5037      456E6162 
+ 5037      6C654F75 
+ 5037      74455000 
+ 5038              	.LASF49:
+ 5039 0120 72784275 		.ascii	"rxBufferRead\000"
+ 5039      66666572 
+ 5039      52656164 
+ 5039      00
+ 5040              	.LASF44:
+ 5041 012d 72785374 		.ascii	"rxStat\000"
+ 5041      617400
+ 5042              	.LASF65:
+ 5043 0134 4D494449 		.ascii	"MIDI1_UART_rxBuffer\000"
+ 5043      315F5541 
+ 5043      52545F72 
+ 5043      78427566 
+ 5043      66657200 
+ 5044              	.LASF100:
+ 5045 0148 5553425F 		.ascii	"USB_callbackLocalMidiEvent\000"
+ 5045      63616C6C 
+ 5045      6261636B 
+ 5045      4C6F6361 
+ 5045      6C4D6964 
+ 5046              	.LASF4:
+ 5047 0163 6C6F6E67 		.ascii	"long int\000"
+ 5047      20696E74 
+ 5047      00
+ 5048              	.LASF9:
+ 5049 016c 75696E74 		.ascii	"uint8\000"
+ 5049      3800
+ 5050              	.LASF18:
+ 5051 0172 6570546F 		.ascii	"epToggle\000"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 121
 
 
- 5055              	.LASF60:
- 5056 0144 5553425F 		.ascii	"USB_MIDI_SIZE\000"
- 5056      4D494449 
- 5056      5F53495A 
- 5056      4500
- 5057              	.LASF20:
- 5058 0152 65704D6F 		.ascii	"epMode\000"
- 5058      646500
- 5059              	.LASF74:
- 5060 0159 5553425F 		.ascii	"USB_midi_in_ep\000"
- 5060      6D696469 
- 5060      5F696E5F 
- 5060      657000
- 5061              	.LASF66:
- 5062 0168 4D494449 		.ascii	"MIDI1_UART_rxBufferRead\000"
- 5062      315F5541 
- 5062      52545F72 
- 5062      78427566 
- 5062      66657252 
- 5063              	.LASF75:
- 5064 0180 5553425F 		.ascii	"USB_midiInBuffer\000"
- 5064      6D696469 
- 5064      496E4275 
- 5064      66666572 
- 5064      00
- 5065              	.LASF8:
- 5066 0191 756E7369 		.ascii	"unsigned int\000"
- 5066      676E6564 
- 5066      20696E74 
- 5066      00
- 5067              	.LASF31:
- 5068 019e 73726342 		.ascii	"srcBuff\000"
- 5068      75666600 
- 5069              	.LASF67:
- 5070 01a6 4D494449 		.ascii	"MIDI1_UART_rxBufferWrite\000"
- 5070      315F5541 
- 5070      52545F72 
- 5070      78427566 
- 5070      66657257 
- 5071              	.LASF5:
- 5072 01bf 6C6F6E67 		.ascii	"long unsigned int\000"
- 5072      20756E73 
- 5072      69676E65 
- 5072      6420696E 
- 5072      7400
- 5073              	.LASF27:
- 5074 01d1 73697A65 		.ascii	"size\000"
- 5074      00
- 5075              	.LASF3:
- 5076 01d6 73686F72 		.ascii	"short unsigned int\000"
- 5076      7420756E 
- 5076      7369676E 
- 5076      65642069 
- 5076      6E7400
- 5077              	.LASF46:
- 5078 01e9 5553425F 		.ascii	"USB_MIDI1_GetEvent\000"
- 5078      4D494449 
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 122
+ 5051      67676C65 
+ 5051      00
+ 5052              	.LASF12:
+ 5053 017b 646F7562 		.ascii	"double\000"
+ 5053      6C6500
+ 5054              	.LASF47:
+ 5055 0182 6D736752 		.ascii	"msgRtn\000"
+ 5055      746E00
+ 5056              	.LASF52:
+ 5057 0189 65704275 		.ascii	"epBuf\000"
+ 5057      6600
+ 5058              	.LASF60:
+ 5059 018f 5553425F 		.ascii	"USB_MIDI_SIZE\000"
+ 5059      4D494449 
+ 5059      5F53495A 
+ 5059      4500
+ 5060              	.LASF20:
+ 5061 019d 65704D6F 		.ascii	"epMode\000"
+ 5061      646500
+ 5062              	.LASF74:
+ 5063 01a4 5553425F 		.ascii	"USB_midi_in_ep\000"
+ 5063      6D696469 
+ 5063      5F696E5F 
+ 5063      657000
+ 5064              	.LASF66:
+ 5065 01b3 4D494449 		.ascii	"MIDI1_UART_rxBufferRead\000"
+ 5065      315F5541 
+ 5065      52545F72 
+ 5065      78427566 
+ 5065      66657252 
+ 5066              	.LASF75:
+ 5067 01cb 5553425F 		.ascii	"USB_midiInBuffer\000"
+ 5067      6D696469 
+ 5067      496E4275 
+ 5067      66666572 
+ 5067      00
+ 5068              	.LASF8:
+ 5069 01dc 756E7369 		.ascii	"unsigned int\000"
+ 5069      676E6564 
+ 5069      20696E74 
+ 5069      00
+ 5070              	.LASF31:
+ 5071 01e9 73726342 		.ascii	"srcBuff\000"
+ 5071      75666600 
+ 5072              	.LASF67:
+ 5073 01f1 4D494449 		.ascii	"MIDI1_UART_rxBufferWrite\000"
+ 5073      315F5541 
+ 5073      52545F72 
+ 5073      78427566 
+ 5073      66657257 
+ 5074              	.LASF5:
+ 5075 020a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 5075      20756E73 
+ 5075      69676E65 
+ 5075      6420696E 
+ 5075      7400
+ 5076              	.LASF27:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 122
 
 
- 5078      315F4765 
- 5078      74457665 
- 5078      6E7400
- 5079              	.LASF53:
- 5080 01fc 5553425F 		.ascii	"USB_MIDI2_GetEvent\000"
- 5080      4D494449 
- 5080      325F4765 
- 5080      74457665 
- 5080      6E7400
- 5081              	.LASF86:
- 5082 020f 4D494449 		.ascii	"MIDI1_UART_Start\000"
- 5082      315F5541 
- 5082      52545F53 
- 5082      74617274 
- 5082      00
- 5083              	.LASF39:
- 5084 0220 5553425F 		.ascii	"USB_MIDI_Init\000"
- 5084      4D494449 
- 5084      5F496E69 
- 5084      7400
- 5085              	.LASF30:
- 5086 022e 5553425F 		.ascii	"USB_MIDI_RX_STATUS\000"
- 5086      4D494449 
- 5086      5F52585F 
- 5086      53544154 
- 5086      555300
- 5087              	.LASF42:
- 5088 0241 5553425F 		.ascii	"USB_ProcessMidiIn\000"
- 5088      50726F63 
- 5088      6573734D 
- 5088      69646949 
- 5088      6E00
- 5089              	.LASF50:
- 5090 0253 72784275 		.ascii	"rxBufferLoopDetect\000"
- 5090      66666572 
- 5090      4C6F6F70 
- 5090      44657465 
- 5090      637400
- 5091              	.LASF23:
- 5092 0266 696E7465 		.ascii	"interface\000"
- 5092      72666163 
- 5092      6500
- 5093              	.LASF51:
- 5094 0270 5553425F 		.ascii	"USB_MIDI1_ProcessUsbOut\000"
- 5094      4D494449 
- 5094      315F5072 
- 5094      6F636573 
- 5094      73557362 
- 5095              	.LASF92:
- 5096 0288 4D494449 		.ascii	"MIDI2_UART_PutChar\000"
- 5096      325F5541 
- 5096      52545F50 
- 5096      75744368 
- 5096      617200
- 5097              	.LASF96:
- 5098 029b 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 5098      4320342E 
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 123
+ 5077 021c 73697A65 		.ascii	"size\000"
+ 5077      00
+ 5078              	.LASF3:
+ 5079 0221 73686F72 		.ascii	"short unsigned int\000"
+ 5079      7420756E 
+ 5079      7369676E 
+ 5079      65642069 
+ 5079      6E7400
+ 5080              	.LASF46:
+ 5081 0234 5553425F 		.ascii	"USB_MIDI1_GetEvent\000"
+ 5081      4D494449 
+ 5081      315F4765 
+ 5081      74457665 
+ 5081      6E7400
+ 5082              	.LASF53:
+ 5083 0247 5553425F 		.ascii	"USB_MIDI2_GetEvent\000"
+ 5083      4D494449 
+ 5083      325F4765 
+ 5083      74457665 
+ 5083      6E7400
+ 5084              	.LASF86:
+ 5085 025a 4D494449 		.ascii	"MIDI1_UART_Start\000"
+ 5085      315F5541 
+ 5085      52545F53 
+ 5085      74617274 
+ 5085      00
+ 5086              	.LASF39:
+ 5087 026b 5553425F 		.ascii	"USB_MIDI_Init\000"
+ 5087      4D494449 
+ 5087      5F496E69 
+ 5087      7400
+ 5088              	.LASF30:
+ 5089 0279 5553425F 		.ascii	"USB_MIDI_RX_STATUS\000"
+ 5089      4D494449 
+ 5089      5F52585F 
+ 5089      53544154 
+ 5089      555300
+ 5090              	.LASF42:
+ 5091 028c 5553425F 		.ascii	"USB_ProcessMidiIn\000"
+ 5091      50726F63 
+ 5091      6573734D 
+ 5091      69646949 
+ 5091      6E00
+ 5092              	.LASF50:
+ 5093 029e 72784275 		.ascii	"rxBufferLoopDetect\000"
+ 5093      66666572 
+ 5093      4C6F6F70 
+ 5093      44657465 
+ 5093      637400
+ 5094              	.LASF23:
+ 5095 02b1 696E7465 		.ascii	"interface\000"
+ 5095      72666163 
+ 5095      6500
+ 5096              	.LASF51:
+ 5097 02bb 5553425F 		.ascii	"USB_MIDI1_ProcessUsbOut\000"
+ 5097      4D494449 
+ 5097      315F5072 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 123
 
 
- 5098      392E3320 
- 5098      32303135 
- 5098      30333033 
- 5099 02ce 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 5099      20726576 
- 5099      6973696F 
- 5099      6E203232 
- 5099      31323230 
- 5100 0301 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
- 5100      66756E63 
- 5100      74696F6E 
- 5100      2D736563 
- 5100      74696F6E 
- 5101              	.LASF62:
- 5102 0329 5553425F 		.ascii	"USB_MIDI1_TxRunStat\000"
- 5102      4D494449 
- 5102      315F5478 
- 5102      52756E53 
- 5102      74617400 
- 5103              	.LASF17:
- 5104 033d 68774570 		.ascii	"hwEpState\000"
- 5104      53746174 
- 5104      6500
- 5105              	.LASF35:
- 5106 0347 73726342 		.ascii	"srcBuffOne\000"
- 5106      7566664F 
- 5106      6E6500
- 5107              	.LASF14:
- 5108 0352 73697A65 		.ascii	"sizetype\000"
- 5108      74797065 
- 5108      00
- 5109              	.LASF36:
- 5110 035b 6D696469 		.ascii	"midiMsg\000"
- 5110      4D736700 
- 5111              	.LASF15:
- 5112 0363 61747472 		.ascii	"attrib\000"
- 5112      696200
- 5113              	.LASF54:
- 5114 036a 5553425F 		.ascii	"USB_MIDI_IN_Service\000"
- 5114      4D494449 
- 5114      5F494E5F 
- 5114      53657276 
- 5114      69636500 
- 5115              	.LASF70:
- 5116 037e 4D494449 		.ascii	"MIDI2_UART_rxBufferRead\000"
- 5116      325F5541 
- 5116      52545F72 
- 5116      78427566 
- 5116      66657252 
- 5117              	.LASF28:
- 5118 0396 72756E73 		.ascii	"runstat\000"
- 5118      74617400 
- 5119              	.LASF72:
- 5120 039e 4D494449 		.ascii	"MIDI2_UART_rxBufferLoopDetect\000"
- 5120      325F5541 
- 5120      52545F72 
- 5120      78427566 
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 124
+ 5097      6F636573 
+ 5097      73557362 
+ 5098              	.LASF92:
+ 5099 02d3 4D494449 		.ascii	"MIDI2_UART_PutChar\000"
+ 5099      325F5541 
+ 5099      52545F50 
+ 5099      75744368 
+ 5099      617200
+ 5100              	.LASF96:
+ 5101 02e6 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 5101      4320342E 
+ 5101      392E3320 
+ 5101      32303135 
+ 5101      30333033 
+ 5102 0319 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 5102      20726576 
+ 5102      6973696F 
+ 5102      6E203232 
+ 5102      31323230 
+ 5103 034c 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 5103      66756E63 
+ 5103      74696F6E 
+ 5103      2D736563 
+ 5103      74696F6E 
+ 5104              	.LASF62:
+ 5105 0374 5553425F 		.ascii	"USB_MIDI1_TxRunStat\000"
+ 5105      4D494449 
+ 5105      315F5478 
+ 5105      52756E53 
+ 5105      74617400 
+ 5106              	.LASF17:
+ 5107 0388 68774570 		.ascii	"hwEpState\000"
+ 5107      53746174 
+ 5107      6500
+ 5108              	.LASF35:
+ 5109 0392 73726342 		.ascii	"srcBuffOne\000"
+ 5109      7566664F 
+ 5109      6E6500
+ 5110              	.LASF14:
+ 5111 039d 73697A65 		.ascii	"sizetype\000"
+ 5111      74797065 
+ 5111      00
+ 5112              	.LASF36:
+ 5113 03a6 6D696469 		.ascii	"midiMsg\000"
+ 5113      4D736700 
+ 5114              	.LASF15:
+ 5115 03ae 61747472 		.ascii	"attrib\000"
+ 5115      696200
+ 5116              	.LASF54:
+ 5117 03b5 5553425F 		.ascii	"USB_MIDI_IN_Service\000"
+ 5117      4D494449 
+ 5117      5F494E5F 
+ 5117      53657276 
+ 5117      69636500 
+ 5118              	.LASF70:
+ 5119 03c9 4D494449 		.ascii	"MIDI2_UART_rxBufferRead\000"
+ 5119      325F5541 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 124
 
 
- 5120      6665724C 
- 5121              	.LASF87:
- 5122 03bc 5553425F 		.ascii	"USB_LoadInEP\000"
- 5122      4C6F6164 
- 5122      496E4550 
- 5122      00
- 5123              	.LASF84:
- 5124 03c9 4D494449 		.ascii	"MIDI1_UART_EnableRxInt\000"
- 5124      315F5541 
- 5124      52545F45 
- 5124      6E61626C 
- 5124      65527849 
- 5125              	.LASF80:
- 5126 03e0 5553425F 		.ascii	"USB_EP\000"
- 5126      455000
- 5127              	.LASF88:
- 5128 03e7 4379496E 		.ascii	"CyIntSetPriority\000"
- 5128      74536574 
- 5128      5072696F 
- 5128      72697479 
- 5128      00
- 5129              	.LASF78:
- 5130 03f8 5553425F 		.ascii	"USB_MIDI1_InqFlags\000"
- 5130      4D494449 
- 5130      315F496E 
- 5130      71466C61 
- 5130      677300
- 5131              	.LASF79:
- 5132 040b 5553425F 		.ascii	"USB_MIDI2_InqFlags\000"
- 5132      4D494449 
- 5132      325F496E 
- 5132      71466C61 
- 5132      677300
- 5133              	.LASF38:
- 5134 041e 5553425F 		.ascii	"USB_PrepareInBuffer\000"
- 5134      50726570 
- 5134      61726549 
- 5134      6E427566 
- 5134      66657200 
- 5135              	.LASF11:
- 5136 0432 666C6F61 		.ascii	"float\000"
- 5136      7400
- 5137              	.LASF61:
- 5138 0438 5553425F 		.ascii	"USB_MIDI1_Event\000"
- 5138      4D494449 
- 5138      315F4576 
- 5138      656E7400 
- 5139              	.LASF16:
- 5140 0448 61706945 		.ascii	"apiEpState\000"
- 5140      70537461 
- 5140      746500
- 5141              	.LASF81:
- 5142 0453 5553425F 		.ascii	"USB_MIDI_IN_EP_Service\000"
- 5142      4D494449 
- 5142      5F494E5F 
- 5142      45505F53 
- 5142      65727669 
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 125
+ 5119      52545F72 
+ 5119      78427566 
+ 5119      66657252 
+ 5120              	.LASF28:
+ 5121 03e1 72756E73 		.ascii	"runstat\000"
+ 5121      74617400 
+ 5122              	.LASF72:
+ 5123 03e9 4D494449 		.ascii	"MIDI2_UART_rxBufferLoopDetect\000"
+ 5123      325F5541 
+ 5123      52545F72 
+ 5123      78427566 
+ 5123      6665724C 
+ 5124              	.LASF87:
+ 5125 0407 5553425F 		.ascii	"USB_LoadInEP\000"
+ 5125      4C6F6164 
+ 5125      496E4550 
+ 5125      00
+ 5126              	.LASF84:
+ 5127 0414 4D494449 		.ascii	"MIDI1_UART_EnableRxInt\000"
+ 5127      315F5541 
+ 5127      52545F45 
+ 5127      6E61626C 
+ 5127      65527849 
+ 5128              	.LASF80:
+ 5129 042b 5553425F 		.ascii	"USB_EP\000"
+ 5129      455000
+ 5130              	.LASF88:
+ 5131 0432 4379496E 		.ascii	"CyIntSetPriority\000"
+ 5131      74536574 
+ 5131      5072696F 
+ 5131      72697479 
+ 5131      00
+ 5132              	.LASF78:
+ 5133 0443 5553425F 		.ascii	"USB_MIDI1_InqFlags\000"
+ 5133      4D494449 
+ 5133      315F496E 
+ 5133      71466C61 
+ 5133      677300
+ 5134              	.LASF79:
+ 5135 0456 5553425F 		.ascii	"USB_MIDI2_InqFlags\000"
+ 5135      4D494449 
+ 5135      325F496E 
+ 5135      71466C61 
+ 5135      677300
+ 5136              	.LASF11:
+ 5137 0469 666C6F61 		.ascii	"float\000"
+ 5137      7400
+ 5138              	.LASF61:
+ 5139 046f 5553425F 		.ascii	"USB_MIDI1_Event\000"
+ 5139      4D494449 
+ 5139      315F4576 
+ 5139      656E7400 
+ 5140              	.LASF16:
+ 5141 047f 61706945 		.ascii	"apiEpState\000"
+ 5141      70537461 
+ 5141      746500
+ 5142              	.LASF81:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 125
 
 
- 5143              	.LASF91:
- 5144 046a 4D494449 		.ascii	"MIDI1_UART_PutChar\000"
- 5144      315F5541 
- 5144      52545F50 
- 5144      75744368 
- 5144      617200
- 5145              	.LASF73:
- 5146 047d 5553425F 		.ascii	"USB_midiInPointer\000"
- 5146      6D696469 
- 5146      496E506F 
- 5146      696E7465 
- 5146      7200
- 5147              	.LASF32:
- 5148 048f 6576656E 		.ascii	"eventLen\000"
- 5148      744C656E 
- 5148      00
- 5149              	.LASF1:
- 5150 0498 756E7369 		.ascii	"unsigned char\000"
- 5150      676E6564 
- 5150      20636861 
- 5150      7200
- 5151              	.LASF97:
- 5152 04a6 47656E65 		.ascii	"Generated_Source\\PSoC5\\USB_midi.c\000"
- 5152      72617465 
- 5152      645F536F 
- 5152      75726365 
- 5152      5C50536F 
- 5153              	.LASF2:
- 5154 04c8 73686F72 		.ascii	"short int\000"
- 5154      7420696E 
- 5154      7400
- 5155              	.LASF37:
- 5156 04d2 72657445 		.ascii	"retError\000"
- 5156      72726F72 
- 5156      00
- 5157              	.LASF71:
- 5158 04db 4D494449 		.ascii	"MIDI2_UART_rxBufferWrite\000"
- 5158      325F5541 
- 5158      52545F72 
- 5158      78427566 
- 5158      66657257 
- 5159              	.LASF69:
- 5160 04f4 4D494449 		.ascii	"MIDI2_UART_rxBuffer\000"
- 5160      325F5541 
- 5160      52545F72 
- 5160      78427566 
- 5160      66657200 
- 5161              	.LASF33:
- 5162 0508 6361626C 		.ascii	"cable\000"
- 5162      6500
- 5163              	.LASF95:
- 5164 050e 5553425F 		.ascii	"USB_ReadOutEP\000"
- 5164      52656164 
- 5164      4F757445 
- 5164      5000
- 5165              	.LASF56:
- 5166 051c 5553425F 		.ascii	"USB_MIDI_OUT_EP_Service\000"
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 126
+ 5143 048a 5553425F 		.ascii	"USB_MIDI_IN_EP_Service\000"
+ 5143      4D494449 
+ 5143      5F494E5F 
+ 5143      45505F53 
+ 5143      65727669 
+ 5144              	.LASF91:
+ 5145 04a1 4D494449 		.ascii	"MIDI1_UART_PutChar\000"
+ 5145      315F5541 
+ 5145      52545F50 
+ 5145      75744368 
+ 5145      617200
+ 5146              	.LASF73:
+ 5147 04b4 5553425F 		.ascii	"USB_midiInPointer\000"
+ 5147      6D696469 
+ 5147      496E506F 
+ 5147      696E7465 
+ 5147      7200
+ 5148              	.LASF32:
+ 5149 04c6 6576656E 		.ascii	"eventLen\000"
+ 5149      744C656E 
+ 5149      00
+ 5150              	.LASF1:
+ 5151 04cf 756E7369 		.ascii	"unsigned char\000"
+ 5151      676E6564 
+ 5151      20636861 
+ 5151      7200
+ 5152              	.LASF97:
+ 5153 04dd 47656E65 		.ascii	"Generated_Source\\PSoC5\\USB_midi.c\000"
+ 5153      72617465 
+ 5153      645F536F 
+ 5153      75726365 
+ 5153      5C50536F 
+ 5154              	.LASF2:
+ 5155 04ff 73686F72 		.ascii	"short int\000"
+ 5155      7420696E 
+ 5155      7400
+ 5156              	.LASF37:
+ 5157 0509 72657445 		.ascii	"retError\000"
+ 5157      72726F72 
+ 5157      00
+ 5158              	.LASF71:
+ 5159 0512 4D494449 		.ascii	"MIDI2_UART_rxBufferWrite\000"
+ 5159      325F5541 
+ 5159      52545F72 
+ 5159      78427566 
+ 5159      66657257 
+ 5160              	.LASF69:
+ 5161 052b 4D494449 		.ascii	"MIDI2_UART_rxBuffer\000"
+ 5161      325F5541 
+ 5161      52545F72 
+ 5161      78427566 
+ 5161      66657200 
+ 5162              	.LASF33:
+ 5163 053f 6361626C 		.ascii	"cable\000"
+ 5163      6500
+ 5164              	.LASF95:
+ 5165 0545 5553425F 		.ascii	"USB_ReadOutEP\000"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 126
 
 
- 5166      4D494449 
- 5166      5F4F5554 
- 5166      5F45505F 
- 5166      53657276 
- 5167              	.LASF58:
- 5168 0534 6F757450 		.ascii	"outPointer\000"
- 5168      6F696E74 
- 5168      657200
- 5169              	.LASF45:
- 5170 053f 6D696469 		.ascii	"midiReturn\000"
- 5170      52657475 
- 5170      726E00
- 5171              	.LASF48:
- 5172 054a 72784461 		.ascii	"rxData\000"
- 5172      746100
- 5173              	.LASF25:
- 5174 0551 6C656E67 		.ascii	"length\000"
- 5174      746800
- 5175              	.LASF13:
- 5176 0558 63686172 		.ascii	"char\000"
- 5176      00
- 5177              	.LASF22:
- 5178 055d 62756666 		.ascii	"bufferSize\000"
- 5178      65725369 
- 5178      7A6500
- 5179              	.LASF89:
- 5180 0568 4D494449 		.ascii	"MIDI2_UART_Start\000"
- 5180      325F5541 
- 5180      52545F53 
- 5180      74617274 
- 5180      00
- 5181              	.LASF82:
- 5182 0579 4D494449 		.ascii	"MIDI1_UART_DisableRxInt\000"
- 5182      315F5541 
- 5182      52545F44 
- 5182      69736162 
- 5182      6C655278 
- 5183              	.LASF99:
- 5184 0591 6D736749 		.ascii	"msgIndex\000"
- 5184      6E646578 
- 5184      00
- 5185              	.LASF21:
- 5186 059a 62756666 		.ascii	"buffOffset\000"
- 5186      4F666673 
- 5186      657400
- 5187              	.LASF76:
- 5188 05a5 5553425F 		.ascii	"USB_midi_out_ep\000"
- 5188      6D696469 
- 5188      5F6F7574 
- 5188      5F657000 
- 5189              	.LASF43:
- 5190 05b5 6D446174 		.ascii	"mData\000"
- 5190      6100
- 5191              	.LASF93:
- 5192 05bb 5553425F 		.ascii	"USB_GetEPState\000"
- 5192      47657445 
- 5192      50537461 
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 127
+ 5165      52656164 
+ 5165      4F757445 
+ 5165      5000
+ 5166              	.LASF56:
+ 5167 0553 5553425F 		.ascii	"USB_MIDI_OUT_EP_Service\000"
+ 5167      4D494449 
+ 5167      5F4F5554 
+ 5167      5F45505F 
+ 5167      53657276 
+ 5168              	.LASF58:
+ 5169 056b 6F757450 		.ascii	"outPointer\000"
+ 5169      6F696E74 
+ 5169      657200
+ 5170              	.LASF45:
+ 5171 0576 6D696469 		.ascii	"midiReturn\000"
+ 5171      52657475 
+ 5171      726E00
+ 5172              	.LASF48:
+ 5173 0581 72784461 		.ascii	"rxData\000"
+ 5173      746100
+ 5174              	.LASF25:
+ 5175 0588 6C656E67 		.ascii	"length\000"
+ 5175      746800
+ 5176              	.LASF13:
+ 5177 058f 63686172 		.ascii	"char\000"
+ 5177      00
+ 5178              	.LASF22:
+ 5179 0594 62756666 		.ascii	"bufferSize\000"
+ 5179      65725369 
+ 5179      7A6500
+ 5180              	.LASF89:
+ 5181 059f 4D494449 		.ascii	"MIDI2_UART_Start\000"
+ 5181      325F5541 
+ 5181      52545F53 
+ 5181      74617274 
+ 5181      00
+ 5182              	.LASF82:
+ 5183 05b0 4D494449 		.ascii	"MIDI1_UART_DisableRxInt\000"
+ 5183      315F5541 
+ 5183      52545F44 
+ 5183      69736162 
+ 5183      6C655278 
+ 5184              	.LASF99:
+ 5185 05c8 6D736749 		.ascii	"msgIndex\000"
+ 5185      6E646578 
+ 5185      00
+ 5186              	.LASF21:
+ 5187 05d1 62756666 		.ascii	"buffOffset\000"
+ 5187      4F666673 
+ 5187      657400
+ 5188              	.LASF76:
+ 5189 05dc 5553425F 		.ascii	"USB_midi_out_ep\000"
+ 5189      6D696469 
+ 5189      5F6F7574 
+ 5189      5F657000 
+ 5190              	.LASF43:
+ 5191 05ec 6D446174 		.ascii	"mData\000"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 127
 
 
- 5192      746500
- 5193              	.LASF57:
- 5194 05ca 6F75744C 		.ascii	"outLength\000"
- 5194      656E6774 
- 5194      6800
- 5195              	.LASF29:
- 5196 05d4 6D736742 		.ascii	"msgBuff\000"
- 5196      75666600 
- 5197              	.LASF59:
- 5198 05dc 646D6153 		.ascii	"dmaState\000"
- 5198      74617465 
- 5198      00
- 5199              	.LASF41:
- 5200 05e5 5553425F 		.ascii	"USB_PutUsbMidiIn\000"
- 5200      50757455 
- 5200      73624D69 
- 5200      6469496E 
- 5200      00
- 5201              	.LASF64:
- 5202 05f6 5553425F 		.ascii	"USB_MIDI2_TxRunStat\000"
- 5202      4D494449 
- 5202      325F5478 
- 5202      52756E53 
- 5202      74617400 
- 5203              	.LASF34:
- 5204 060a 73726342 		.ascii	"srcBuffZero\000"
- 5204      7566665A 
- 5204      65726F00 
- 5205              	.LASF94:
- 5206 0616 5553425F 		.ascii	"USB_GetEPCount\000"
- 5206      47657445 
- 5206      50436F75 
- 5206      6E7400
- 5207              	.LASF55:
- 5208 0625 5553425F 		.ascii	"USB_MIDI2_ProcessUsbOut\000"
- 5208      4D494449 
- 5208      325F5072 
- 5208      6F636573 
- 5208      73557362 
- 5209              	.LASF40:
- 5210 063d 5553425F 		.ascii	"USB_MIDI_EP_Init\000"
- 5210      4D494449 
- 5210      5F45505F 
- 5210      496E6974 
- 5210      00
- 5211              	.LASF98:
- 5212 064e 433A5C55 		.ascii	"C:\\Users\\anjmarqu\\Desktop\\Hummingbird\\Hummingb"
- 5212      73657273 
- 5212      5C616E6A 
- 5212      6D617271 
- 5212      755C4465 
- 5213 067c 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
- 5213      436F6E74 
- 5213      696E756F 
- 5213      7573204F 
- 5213      75747075 
+ 5191      6100
+ 5192              	.LASF93:
+ 5193 05f2 5553425F 		.ascii	"USB_GetEPState\000"
+ 5193      47657445 
+ 5193      50537461 
+ 5193      746500
+ 5194              	.LASF57:
+ 5195 0601 6F75744C 		.ascii	"outLength\000"
+ 5195      656E6774 
+ 5195      6800
+ 5196              	.LASF29:
+ 5197 060b 6D736742 		.ascii	"msgBuff\000"
+ 5197      75666600 
+ 5198              	.LASF59:
+ 5199 0613 646D6153 		.ascii	"dmaState\000"
+ 5199      74617465 
+ 5199      00
+ 5200              	.LASF41:
+ 5201 061c 5553425F 		.ascii	"USB_PutUsbMidiIn\000"
+ 5201      50757455 
+ 5201      73624D69 
+ 5201      6469496E 
+ 5201      00
+ 5202              	.LASF64:
+ 5203 062d 5553425F 		.ascii	"USB_MIDI2_TxRunStat\000"
+ 5203      4D494449 
+ 5203      325F5478 
+ 5203      52756E53 
+ 5203      74617400 
+ 5204              	.LASF34:
+ 5205 0641 73726342 		.ascii	"srcBuffZero\000"
+ 5205      7566665A 
+ 5205      65726F00 
+ 5206              	.LASF94:
+ 5207 064d 5553425F 		.ascii	"USB_GetEPCount\000"
+ 5207      47657445 
+ 5207      50436F75 
+ 5207      6E7400
+ 5208              	.LASF55:
+ 5209 065c 5553425F 		.ascii	"USB_MIDI2_ProcessUsbOut\000"
+ 5209      4D494449 
+ 5209      325F5072 
+ 5209      6F636573 
+ 5209      73557362 
+ 5210              	.LASF40:
+ 5211 0674 5553425F 		.ascii	"USB_MIDI_EP_Init\000"
+ 5211      4D494449 
+ 5211      5F45505F 
+ 5211      496E6974 
+ 5211      00
+ 5212              	.LASF38:
+ 5213 0685 5553425F 		.ascii	"USB_PrepareInBuffer\000"
+ 5213      50726570 
+ 5213      61726549 
+ 5213      6E427566 
+ 5213      66657200 
  5214              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cctZQADa.s 			page 128
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccpHskzH.s 			page 128
 
 

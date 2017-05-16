@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
   29:Generated_Source\PSoC5/TIMER_UI.c **** /*******************************************************************************
   30:Generated_Source\PSoC5/TIMER_UI.c **** * Function Name: TIMER_UI_Init
   31:Generated_Source\PSoC5/TIMER_UI.c **** ********************************************************************************
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 2
 
 
   32:Generated_Source\PSoC5/TIMER_UI.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
   75:Generated_Source\PSoC5/TIMER_UI.c **** 
   76:Generated_Source\PSoC5/TIMER_UI.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
   77:Generated_Source\PSoC5/TIMER_UI.c ****                 /* Set last 2 bits of control3 register if one shot(halt on
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 3
 
 
   78:Generated_Source\PSoC5/TIMER_UI.c ****                 interrupt) is enabled*/
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  132:Generated_Source\PSoC5/TIMER_UI.c ****             #if (!TIMER_UI_UDB_CONTROL_REG_REMOVED)
  133:Generated_Source\PSoC5/TIMER_UI.c ****                 if (0u == (TIMER_UI_CONTROL & TIMER_UI__B_TIMER__TM_SOFTWARE))
  134:Generated_Source\PSoC5/TIMER_UI.c ****                 {
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 4
 
 
  135:Generated_Source\PSoC5/TIMER_UI.c ****                     TIMER_UI_SetTriggerMode(TIMER_UI_INIT_TRIGGER_MODE);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  189:Generated_Source\PSoC5/TIMER_UI.c ****     #if (!TIMER_UI_UDB_CONTROL_REG_REMOVED || TIMER_UI_UsingFixedFunction)
  190:Generated_Source\PSoC5/TIMER_UI.c ****         TIMER_UI_CONTROL |= TIMER_UI_CTRL_ENABLE;
  191:Generated_Source\PSoC5/TIMER_UI.c ****     #endif /* Remove assignment if control register is removed */
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 5
 
 
  192:Generated_Source\PSoC5/TIMER_UI.c **** }
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  246:Generated_Source\PSoC5/TIMER_UI.c **** *******************************************************************************/
  247:Generated_Source\PSoC5/TIMER_UI.c **** void TIMER_UI_Stop(void) 
  248:Generated_Source\PSoC5/TIMER_UI.c **** {
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 6
 
 
  249:Generated_Source\PSoC5/TIMER_UI.c ****     /* Disable Timer */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  303:Generated_Source\PSoC5/TIMER_UI.c **** {
  304:Generated_Source\PSoC5/TIMER_UI.c ****     /* Generate a software capture by reading the counter register */
  305:Generated_Source\PSoC5/TIMER_UI.c ****     #if(TIMER_UI_UsingFixedFunction)
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 7
 
 
  306:Generated_Source\PSoC5/TIMER_UI.c ****         (void)CY_GET_REG16(TIMER_UI_COUNTER_LSB_PTR);
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  360:Generated_Source\PSoC5/TIMER_UI.c ****     #else
  361:Generated_Source\PSoC5/TIMER_UI.c ****         return (0);
  362:Generated_Source\PSoC5/TIMER_UI.c ****     #endif /* (!TIMER_UI_UDB_CONTROL_REG_REMOVED) */
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 8
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 8
 
 
  363:Generated_Source\PSoC5/TIMER_UI.c **** }
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  417:Generated_Source\PSoC5/TIMER_UI.c **** ********************************************************************************
  418:Generated_Source\PSoC5/TIMER_UI.c **** *
  419:Generated_Source\PSoC5/TIMER_UI.c **** * Summary:
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 9
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 9
 
 
  420:Generated_Source\PSoC5/TIMER_UI.c **** *  This function is used to change the period of the counter.  The new period
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  465:Generated_Source\PSoC5/TIMER_UI.c **** 
  466:Generated_Source\PSoC5/TIMER_UI.c **** /*******************************************************************************
  467:Generated_Source\PSoC5/TIMER_UI.c **** * Function Name: TIMER_UI_WriteCounter
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 10
 
 
  468:Generated_Source\PSoC5/TIMER_UI.c **** ********************************************************************************
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  491:Generated_Source\PSoC5/TIMER_UI.c **** }
  492:Generated_Source\PSoC5/TIMER_UI.c **** 
  493:Generated_Source\PSoC5/TIMER_UI.c **** 
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 11
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 11
 
 
  494:Generated_Source\PSoC5/TIMER_UI.c **** /*******************************************************************************
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  548:Generated_Source\PSoC5/TIMER_UI.c **** *  captureMode: This parameter sets the capture mode of the UDB capture feature
  549:Generated_Source\PSoC5/TIMER_UI.c **** *  The parameter values are defined using the
  550:Generated_Source\PSoC5/TIMER_UI.c **** *  #define TIMER_UI__B_TIMER__CM_NONE 0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 12
 
 
  551:Generated_Source\PSoC5/TIMER_UI.c **** #define TIMER_UI__B_TIMER__CM_RISINGEDGE 1
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  605:Generated_Source\PSoC5/TIMER_UI.c **** void TIMER_UI_SetTriggerMode(uint8 triggerMode) 
  606:Generated_Source\PSoC5/TIMER_UI.c **** {
  607:Generated_Source\PSoC5/TIMER_UI.c ****     /* This must only set to two bits of the control register associated */
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 13
 
 
  608:Generated_Source\PSoC5/TIMER_UI.c ****     triggerMode &= TIMER_UI_CTRL_TRIG_MODE_MASK;
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  662:Generated_Source\PSoC5/TIMER_UI.c ****     #if (!TIMER_UI_UDB_CONTROL_REG_REMOVED )   /* Remove assignment if control register is removed 
  663:Generated_Source\PSoC5/TIMER_UI.c ****         TIMER_UI_CONTROL &= ((uint8)(~TIMER_UI_CTRL_TRIG_EN));
  664:Generated_Source\PSoC5/TIMER_UI.c ****     #endif /* Remove code section if control register is not used */
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 14
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 14
 
 
  665:Generated_Source\PSoC5/TIMER_UI.c **** }
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  719:Generated_Source\PSoC5/TIMER_UI.c **** *  void
  720:Generated_Source\PSoC5/TIMER_UI.c **** *
  721:Generated_Source\PSoC5/TIMER_UI.c **** *******************************************************************************/
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 15
 
 
  722:Generated_Source\PSoC5/TIMER_UI.c **** void TIMER_UI_SetCaptureCount(uint8 captureCount) 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
   83              	.LBE30:
   84              	.LBE29:
   85              	.LBB31:
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 16
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 16
 
 
   86              	.LBB28:
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  136 0004 43F08003 		orr	r3, r3, #128
  137 0008 1370     		strb	r3, [r2]
  138 000a 7047     		bx	lr
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 17
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 17
 
 
  139              	.L15:
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  188              		.cfi_endproc
  189              	.LFE2:
  190              		.size	TIMER_UI_Start, .-TIMER_UI_Start
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 18
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 18
 
 
  191              		.section	.text.TIMER_UI_Stop,"ax",%progbits
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  241              		.size	TIMER_UI_SetInterruptMode, .-TIMER_UI_SetInterruptMode
  242              		.section	.text.TIMER_UI_SoftwareCapture,"ax",%progbits
  243              		.align	2
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 19
 
 
  244              		.global	TIMER_UI_SoftwareCapture
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  293              		.global	TIMER_UI_ReadControlRegister
  294              		.thumb
  295              		.thumb_func
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 20
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 20
 
 
  296              		.type	TIMER_UI_ReadControlRegister, %function
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  345              		.thumb_func
  346              		.type	TIMER_UI_ReadPeriod, %function
  347              	TIMER_UI_ReadPeriod:
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 21
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 21
 
 
  348              	.LFB9:
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  396              		.align	2
  397              		.global	TIMER_UI_ReadCapture
  398              		.thumb
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 22
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 22
 
 
  399              		.thumb_func
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  447              	.LFE12:
  448              		.size	TIMER_UI_WriteCounter, .-TIMER_UI_WriteCounter
  449              		.section	.text.TIMER_UI_ReadCounter,"ax",%progbits
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 23
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 23
 
 
  450              		.align	2
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  497 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
  498              	.LBE37:
  499              	.LBE36:
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 24
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 24
 
 
  500              		.loc 1 765 0
@@ -1431,14 +1431,14 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  545 0006 00000000 		.4byte	.Ldebug_abbrev0
  546 000a 04       		.byte	0x4
  547 000b 01       		.uleb128 0x1
- 548 000c 7D000000 		.4byte	.LASF37
+ 548 000c C8000000 		.4byte	.LASF37
  549 0010 01       		.byte	0x1
- 550 0011 A3020000 		.4byte	.LASF38
- 551 0015 C5020000 		.4byte	.LASF39
+ 550 0011 EE020000 		.4byte	.LASF38
+ 551 0015 7D000000 		.4byte	.LASF39
  552 0019 30000000 		.4byte	.Ldebug_ranges0+0x30
  553 001d 00000000 		.4byte	0
  554 0021 00000000 		.4byte	.Ldebug_line0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 25
 
 
  555 0025 02       		.uleb128 0x2
@@ -1448,11 +1448,11 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  559 002c 02       		.uleb128 0x2
  560 002d 01       		.byte	0x1
  561 002e 08       		.byte	0x8
- 562 002f 30010000 		.4byte	.LASF1
+ 562 002f 7B010000 		.4byte	.LASF1
  563 0033 02       		.uleb128 0x2
  564 0034 02       		.byte	0x2
  565 0035 05       		.byte	0x5
- 566 0036 99020000 		.4byte	.LASF2
+ 566 0036 E4020000 		.4byte	.LASF2
  567 003a 02       		.uleb128 0x2
  568 003b 02       		.byte	0x2
  569 003c 07       		.byte	0x7
@@ -1464,15 +1464,15 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  575 0048 02       		.uleb128 0x2
  576 0049 04       		.byte	0x4
  577 004a 07       		.byte	0x7
- 578 004b 43010000 		.4byte	.LASF5
+ 578 004b 8E010000 		.4byte	.LASF5
  579 004f 02       		.uleb128 0x2
  580 0050 08       		.byte	0x8
  581 0051 05       		.byte	0x5
- 582 0052 47020000 		.4byte	.LASF6
+ 582 0052 92020000 		.4byte	.LASF6
  583 0056 02       		.uleb128 0x2
  584 0057 08       		.byte	0x8
  585 0058 07       		.byte	0x7
- 586 0059 19010000 		.4byte	.LASF7
+ 586 0059 64010000 		.4byte	.LASF7
  587 005d 03       		.uleb128 0x3
  588 005e 04       		.byte	0x4
  589 005f 05       		.byte	0x5
@@ -1480,34 +1480,34 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  591 0064 02       		.uleb128 0x2
  592 0065 04       		.byte	0x4
  593 0066 07       		.byte	0x7
- 594 0067 E2010000 		.4byte	.LASF8
+ 594 0067 2D020000 		.4byte	.LASF8
  595 006b 04       		.uleb128 0x4
- 596 006c 55010000 		.4byte	.LASF9
+ 596 006c A0010000 		.4byte	.LASF9
  597 0070 02       		.byte	0x2
  598 0071 5B       		.byte	0x5b
  599 0072 2C000000 		.4byte	0x2c
  600 0076 04       		.uleb128 0x4
- 601 0077 C4010000 		.4byte	.LASF10
+ 601 0077 0F020000 		.4byte	.LASF10
  602 007b 02       		.byte	0x2
  603 007c 5D       		.byte	0x5d
  604 007d 48000000 		.4byte	0x48
  605 0081 02       		.uleb128 0x2
  606 0082 04       		.byte	0x4
  607 0083 04       		.byte	0x4
- 608 0084 0B010000 		.4byte	.LASF11
+ 608 0084 56010000 		.4byte	.LASF11
  609 0088 02       		.uleb128 0x2
  610 0089 08       		.byte	0x8
  611 008a 04       		.byte	0x4
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 26
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 26
 
 
- 612 008b AF010000 		.4byte	.LASF12
+ 612 008b FA010000 		.4byte	.LASF12
  613 008f 02       		.uleb128 0x2
  614 0090 01       		.byte	0x1
  615 0091 08       		.byte	0x8
  616 0092 19030000 		.4byte	.LASF13
  617 0096 04       		.uleb128 0x4
- 618 0097 3E010000 		.4byte	.LASF14
+ 618 0097 89010000 		.4byte	.LASF14
  619 009b 02       		.byte	0x2
  620 009c F0       		.byte	0xf0
  621 009d A1000000 		.4byte	0xa1
@@ -1523,7 +1523,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  631 00b6 02       		.uleb128 0x2
  632 00b7 04       		.byte	0x4
  633 00b8 07       		.byte	0x7
- 634 00b9 3E020000 		.4byte	.LASF16
+ 634 00b9 89020000 		.4byte	.LASF16
  635 00bd 06       		.uleb128 0x6
  636 00be 68000000 		.4byte	.LASF17
  637 00c2 01       		.byte	0x1
@@ -1531,7 +1531,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  639 00c5 76000000 		.4byte	0x76
  640 00c9 01       		.byte	0x1
  641 00ca 06       		.uleb128 0x6
- 642 00cb 63010000 		.4byte	.LASF18
+ 642 00cb AE010000 		.4byte	.LASF18
  643 00cf 01       		.byte	0x1
  644 00d0 4D01     		.2byte	0x14d
  645 00d2 6B000000 		.4byte	0x6b
@@ -1549,22 +1549,22 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  657 00ec 76000000 		.4byte	0x76
  658 00f0 00       		.byte	0
  659 00f1 07       		.uleb128 0x7
- 660 00f2 19020000 		.4byte	.LASF20
+ 660 00f2 64020000 		.4byte	.LASF20
  661 00f6 01       		.byte	0x1
  662 00f7 E001     		.2byte	0x1e0
  663 00f9 01       		.byte	0x1
  664 00fa 0B010000 		.4byte	0x10b
  665 00fe 08       		.uleb128 0x8
- 666 00ff 11010000 		.4byte	.LASF22
+ 666 00ff 5C010000 		.4byte	.LASF22
  667 0103 01       		.byte	0x1
  668 0104 E001     		.2byte	0x1e0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 27
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 27
 
 
  669 0106 76000000 		.4byte	0x76
  670 010a 00       		.byte	0
  671 010b 09       		.uleb128 0x9
- 672 010c 7F010000 		.4byte	.LASF25
+ 672 010c CA010000 		.4byte	.LASF25
  673 0110 01       		.byte	0x1
  674 0111 FB02     		.2byte	0x2fb
  675 0113 01       		.byte	0x1
@@ -1575,13 +1575,13 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  680 011c 01       		.byte	0x1
  681 011d 2E010000 		.4byte	0x12e
  682 0121 08       		.uleb128 0x8
- 683 0122 55020000 		.4byte	.LASF24
+ 683 0122 A0020000 		.4byte	.LASF24
  684 0126 01       		.byte	0x1
  685 0127 1701     		.2byte	0x117
  686 0129 6B000000 		.4byte	0x6b
  687 012d 00       		.byte	0
  688 012e 0A       		.uleb128 0xa
- 689 012f 78020000 		.4byte	.LASF26
+ 689 012f C3020000 		.4byte	.LASF26
  690 0133 01       		.byte	0x1
  691 0134 B4       		.byte	0xb4
  692 0135 01       		.byte	0x1
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  723 0181 51       		.byte	0x51
  724 0182 05       		.uleb128 0x5
  725 0183 0C       		.byte	0xc
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 28
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 28
 
 
  726 0184 3F4B4C00 		.4byte	0x4c4b3f
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  780 01fd FF02     		.2byte	0x2ff
  781 01ff 00       		.byte	0
  782 0200 0D       		.uleb128 0xd
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 29
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 29
 
 
  783 0201 14010000 		.4byte	0x114
@@ -1705,7 +1705,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  804 023a 01       		.uleb128 0x1
  805 023b 9C       		.byte	0x9c
  806 023c 0B       		.uleb128 0xb
- 807 023d 2F020000 		.4byte	.LASF28
+ 807 023d 7A020000 		.4byte	.LASF28
  808 0241 01       		.byte	0x1
  809 0242 D7       		.byte	0xd7
  810 0243 00000000 		.4byte	.LFB2
@@ -1724,7 +1724,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  823 0265 36010000 		.4byte	0x136
  824 0269 00       		.byte	0
  825 026a 17       		.uleb128 0x17
- 826 026b B6010000 		.4byte	.LASF29
+ 826 026b 01020000 		.4byte	.LASF29
  827 026f 01       		.byte	0x1
  828 0270 F7       		.byte	0xf7
  829 0271 00000000 		.4byte	.LFB3
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  837 0288 01       		.uleb128 0x1
  838 0289 9C       		.byte	0x9c
  839 028a 96020000 		.4byte	0x296
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 30
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 30
 
 
  840 028e 19       		.uleb128 0x19
@@ -1761,7 +1761,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  857 02b5 01       		.uleb128 0x1
  858 02b6 9C       		.byte	0x9c
  859 02b7 1B       		.uleb128 0x1b
- 860 02b8 92010000 		.4byte	.LASF32
+ 860 02b8 DD010000 		.4byte	.LASF32
  861 02bc 01       		.byte	0x1
  862 02bd 6401     		.2byte	0x164
  863 02bf 6B000000 		.4byte	0x6b
@@ -1779,7 +1779,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  875 02de 9C       		.byte	0x9c
  876 02df F2020000 		.4byte	0x2f2
  877 02e3 1D       		.uleb128 0x1d
- 878 02e4 5B010000 		.4byte	.LASF41
+ 878 02e4 A6010000 		.4byte	.LASF41
  879 02e8 01       		.byte	0x1
  880 02e9 7B01     		.2byte	0x17b
  881 02eb 6B000000 		.4byte	0x6b
@@ -1787,7 +1787,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  883 02f0 50       		.byte	0x50
  884 02f1 00       		.byte	0
  885 02f2 1B       		.uleb128 0x1b
- 886 02f3 EF010000 		.4byte	.LASF33
+ 886 02f3 3A020000 		.4byte	.LASF33
  887 02f7 01       		.byte	0x1
  888 02f8 9501     		.2byte	0x195
  889 02fa 76000000 		.4byte	0x76
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  894 0308 18       		.uleb128 0x18
  895 0309 D7000000 		.4byte	0xd7
  896 030d 00000000 		.4byte	.LFB10
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 31
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 31
 
 
  897 0311 0C000000 		.4byte	.LFE10-.LFB10
@@ -1858,13 +1858,13 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  951 037d 05       		.uleb128 0x5
  952 037e 0C       		.byte	0xc
  953 037f 04640040 		.4byte	0x40006404
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 32
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 32
 
 
  954 0383 00       		.byte	0
  955 0384 00       		.byte	0
  956 0385 1B       		.uleb128 0x1b
- 957 0386 63020000 		.4byte	.LASF34
+ 957 0386 AE020000 		.4byte	.LASF34
  958 038a 01       		.byte	0x1
  959 038b FC01     		.2byte	0x1fc
  960 038d 76000000 		.4byte	0x76
@@ -1893,7 +1893,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  983 03cc FF02     		.2byte	0x2ff
  984 03ce 00       		.byte	0
  985 03cf 20       		.uleb128 0x20
- 986 03d0 88020000 		.4byte	.LASF42
+ 986 03d0 D3020000 		.4byte	.LASF42
  987 03d4 01       		.byte	0x1
  988 03d5 1A       		.byte	0x1a
  989 03d6 6B000000 		.4byte	0x6b
@@ -1914,15 +1914,15 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  1004 03f7 04       		.byte	0x4
  1005 03f8 B1000000 		.4byte	0xb1
  1006 03fc 24       		.uleb128 0x24
- 1007 03fd CB010000 		.4byte	.LASF36
+ 1007 03fd 16020000 		.4byte	.LASF36
  1008 0401 03       		.byte	0x3
  1009 0402 7E       		.byte	0x7e
  1010 0403 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 33
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 33
 
 
  1011 0407 25       		.uleb128 0x25
- 1012 0408 03020000 		.4byte	.LASF43
+ 1012 0408 4E020000 		.4byte	.LASF43
  1013 040c 03       		.byte	0x3
  1014 040d 7F       		.byte	0x7f
  1015 040e 22       		.uleb128 0x22
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  1065 002c 03       		.uleb128 0x3
  1066 002d 0E       		.uleb128 0xe
  1067 002e 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 34
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 34
 
 
  1068 002f 0B       		.uleb128 0xb
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  1122 0065 00       		.byte	0
  1123 0066 03       		.uleb128 0x3
  1124 0067 0E       		.uleb128 0xe
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 35
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 35
 
 
  1125 0068 3A       		.uleb128 0x3a
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  1179 009e 19       		.uleb128 0x19
  1180 009f 11       		.uleb128 0x11
  1181 00a0 01       		.uleb128 0x1
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 36
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 36
 
 
  1182 00a1 12       		.uleb128 0x12
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  1236 00da 11       		.uleb128 0x11
  1237 00db 01       		.uleb128 0x1
  1238 00dc 31       		.uleb128 0x31
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 37
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 37
 
 
  1239 00dd 13       		.uleb128 0x13
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  1293 0118 11       		.uleb128 0x11
  1294 0119 01       		.uleb128 0x1
  1295 011a 31       		.uleb128 0x31
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 38
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 38
 
 
  1296 011b 13       		.uleb128 0x13
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  1350 0153 00       		.byte	0
  1351 0154 00       		.byte	0
  1352 0155 18       		.uleb128 0x18
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 39
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 39
 
 
  1353 0156 2E       		.uleb128 0x2e
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  1407 018e 0E       		.uleb128 0xe
  1408 018f 3A       		.uleb128 0x3a
  1409 0190 0B       		.uleb128 0xb
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 40
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 40
 
 
  1410 0191 3B       		.uleb128 0x3b
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  1464 01c9 00       		.byte	0
  1465 01ca 00       		.byte	0
  1466 01cb 1E       		.uleb128 0x1e
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 41
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 41
 
 
  1467 01cc 05       		.uleb128 0x5
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  1521 0205 00       		.byte	0
  1522 0206 22       		.uleb128 0x22
  1523 0207 05       		.uleb128 0x5
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 42
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 42
 
 
  1524 0208 00       		.byte	0
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  1578 0000 16000000 		.4byte	.LVL3
  1579 0004 23000000 		.4byte	.LVL4-1
  1580 0008 0100     		.2byte	0x1
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 43
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 43
 
 
  1581 000a 50       		.byte	0x50
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  1635 002c 10000000 		.4byte	.LFE3-.LFB3
  1636 0030 00000000 		.4byte	.LFB4
  1637 0034 0C000000 		.4byte	.LFE4-.LFB4
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 44
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 44
 
 
  1638 0038 00000000 		.4byte	.LFB5
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  1692 0078 00000000 		.4byte	.LFB9
  1693 007c 10000000 		.4byte	.LFE9
  1694 0080 00000000 		.4byte	.LFB10
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 45
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 45
 
 
  1695 0084 0C000000 		.4byte	.LFE10
@@ -2693,178 +2693,178 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  1722      5F526561 
  1722      64436170 
  1722      74757265 
- 1723              	.LASF37:
- 1724 007d 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1724      4320342E 
- 1724      392E3320 
- 1724      32303135 
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 46
+ 1723              	.LASF39:
+ 1724 007d 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
+ 1724      73657273 
+ 1724      5C6D6772 
+ 1724      6F6E6265 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 46
 
 
- 1724      30333033 
- 1725 00b0 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 1725      20726576 
- 1725      6973696F 
- 1725      6E203232 
- 1725      31323230 
- 1726 00e3 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
- 1726      66756E63 
- 1726      74696F6E 
- 1726      2D736563 
- 1726      74696F6E 
- 1727              	.LASF11:
- 1728 010b 666C6F61 		.ascii	"float\000"
- 1728      7400
- 1729              	.LASF22:
- 1730 0111 636F756E 		.ascii	"counter\000"
- 1730      74657200 
- 1731              	.LASF7:
- 1732 0119 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1732      206C6F6E 
- 1732      6720756E 
- 1732      7369676E 
- 1732      65642069 
- 1733              	.LASF1:
- 1734 0130 756E7369 		.ascii	"unsigned char\000"
- 1734      676E6564 
- 1734      20636861 
- 1734      7200
- 1735              	.LASF14:
- 1736 013e 72656738 		.ascii	"reg8\000"
- 1736      00
- 1737              	.LASF5:
- 1738 0143 6C6F6E67 		.ascii	"long unsigned int\000"
- 1738      20756E73 
- 1738      69676E65 
- 1738      6420696E 
- 1738      7400
- 1739              	.LASF9:
- 1740 0155 75696E74 		.ascii	"uint8\000"
- 1740      3800
- 1741              	.LASF41:
- 1742 015b 636F6E74 		.ascii	"control\000"
- 1742      726F6C00 
- 1743              	.LASF18:
- 1744 0163 54494D45 		.ascii	"TIMER_UI_ReadStatusRegister\000"
- 1744      525F5549 
- 1744      5F526561 
- 1744      64537461 
- 1744      74757352 
- 1745              	.LASF25:
- 1746 017f 54494D45 		.ascii	"TIMER_UI_ClearFIFO\000"
- 1746      525F5549 
- 1746      5F436C65 
- 1746      61724649 
- 1746      464F00
- 1747              	.LASF32:
- 1748 0192 54494D45 		.ascii	"TIMER_UI_ReadControlRegister\000"
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 47
+ 1724      725C4465 
+ 1725 00ab 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 1725      436F6E74 
+ 1725      696E756F 
+ 1725      7573204F 
+ 1725      75747075 
+ 1726              	.LASF37:
+ 1727 00c8 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1727      4320342E 
+ 1727      392E3320 
+ 1727      32303135 
+ 1727      30333033 
+ 1728 00fb 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1728      20726576 
+ 1728      6973696F 
+ 1728      6E203232 
+ 1728      31323230 
+ 1729 012e 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 1729      66756E63 
+ 1729      74696F6E 
+ 1729      2D736563 
+ 1729      74696F6E 
+ 1730              	.LASF11:
+ 1731 0156 666C6F61 		.ascii	"float\000"
+ 1731      7400
+ 1732              	.LASF22:
+ 1733 015c 636F756E 		.ascii	"counter\000"
+ 1733      74657200 
+ 1734              	.LASF7:
+ 1735 0164 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1735      206C6F6E 
+ 1735      6720756E 
+ 1735      7369676E 
+ 1735      65642069 
+ 1736              	.LASF1:
+ 1737 017b 756E7369 		.ascii	"unsigned char\000"
+ 1737      676E6564 
+ 1737      20636861 
+ 1737      7200
+ 1738              	.LASF14:
+ 1739 0189 72656738 		.ascii	"reg8\000"
+ 1739      00
+ 1740              	.LASF5:
+ 1741 018e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1741      20756E73 
+ 1741      69676E65 
+ 1741      6420696E 
+ 1741      7400
+ 1742              	.LASF9:
+ 1743 01a0 75696E74 		.ascii	"uint8\000"
+ 1743      3800
+ 1744              	.LASF41:
+ 1745 01a6 636F6E74 		.ascii	"control\000"
+ 1745      726F6C00 
+ 1746              	.LASF18:
+ 1747 01ae 54494D45 		.ascii	"TIMER_UI_ReadStatusRegister\000"
+ 1747      525F5549 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 47
 
 
- 1748      525F5549 
- 1748      5F526561 
- 1748      64436F6E 
- 1748      74726F6C 
- 1749              	.LASF12:
- 1750 01af 646F7562 		.ascii	"double\000"
- 1750      6C6500
- 1751              	.LASF29:
- 1752 01b6 54494D45 		.ascii	"TIMER_UI_Stop\000"
- 1752      525F5549 
- 1752      5F53746F 
- 1752      7000
- 1753              	.LASF10:
- 1754 01c4 75696E74 		.ascii	"uint32\000"
- 1754      333200
- 1755              	.LASF36:
- 1756 01cb 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 1756      74657243 
- 1756      72697469 
- 1756      63616C53 
- 1756      65637469 
- 1757              	.LASF8:
- 1758 01e2 756E7369 		.ascii	"unsigned int\000"
- 1758      676E6564 
- 1758      20696E74 
- 1758      00
- 1759              	.LASF33:
- 1760 01ef 54494D45 		.ascii	"TIMER_UI_ReadPeriod\000"
- 1760      525F5549 
- 1760      5F526561 
- 1760      64506572 
- 1760      696F6400 
- 1761              	.LASF43:
- 1762 0203 43794578 		.ascii	"CyExitCriticalSection\000"
- 1762      69744372 
- 1762      69746963 
- 1762      616C5365 
- 1762      6374696F 
- 1763              	.LASF20:
- 1764 0219 54494D45 		.ascii	"TIMER_UI_WriteCounter\000"
- 1764      525F5549 
- 1764      5F577269 
- 1764      7465436F 
- 1764      756E7465 
- 1765              	.LASF28:
- 1766 022f 54494D45 		.ascii	"TIMER_UI_Start\000"
- 1766      525F5549 
- 1766      5F537461 
- 1766      727400
- 1767              	.LASF16:
- 1768 023e 73697A65 		.ascii	"sizetype\000"
- 1768      74797065 
- 1768      00
- 1769              	.LASF6:
- 1770 0247 6C6F6E67 		.ascii	"long long int\000"
- 1770      206C6F6E 
- 1770      6720696E 
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 48
+ 1747      5F526561 
+ 1747      64537461 
+ 1747      74757352 
+ 1748              	.LASF25:
+ 1749 01ca 54494D45 		.ascii	"TIMER_UI_ClearFIFO\000"
+ 1749      525F5549 
+ 1749      5F436C65 
+ 1749      61724649 
+ 1749      464F00
+ 1750              	.LASF32:
+ 1751 01dd 54494D45 		.ascii	"TIMER_UI_ReadControlRegister\000"
+ 1751      525F5549 
+ 1751      5F526561 
+ 1751      64436F6E 
+ 1751      74726F6C 
+ 1752              	.LASF12:
+ 1753 01fa 646F7562 		.ascii	"double\000"
+ 1753      6C6500
+ 1754              	.LASF29:
+ 1755 0201 54494D45 		.ascii	"TIMER_UI_Stop\000"
+ 1755      525F5549 
+ 1755      5F53746F 
+ 1755      7000
+ 1756              	.LASF10:
+ 1757 020f 75696E74 		.ascii	"uint32\000"
+ 1757      333200
+ 1758              	.LASF36:
+ 1759 0216 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1759      74657243 
+ 1759      72697469 
+ 1759      63616C53 
+ 1759      65637469 
+ 1760              	.LASF8:
+ 1761 022d 756E7369 		.ascii	"unsigned int\000"
+ 1761      676E6564 
+ 1761      20696E74 
+ 1761      00
+ 1762              	.LASF33:
+ 1763 023a 54494D45 		.ascii	"TIMER_UI_ReadPeriod\000"
+ 1763      525F5549 
+ 1763      5F526561 
+ 1763      64506572 
+ 1763      696F6400 
+ 1764              	.LASF43:
+ 1765 024e 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1765      69744372 
+ 1765      69746963 
+ 1765      616C5365 
+ 1765      6374696F 
+ 1766              	.LASF20:
+ 1767 0264 54494D45 		.ascii	"TIMER_UI_WriteCounter\000"
+ 1767      525F5549 
+ 1767      5F577269 
+ 1767      7465436F 
+ 1767      756E7465 
+ 1768              	.LASF28:
+ 1769 027a 54494D45 		.ascii	"TIMER_UI_Start\000"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 48
 
 
- 1770      7400
- 1771              	.LASF24:
- 1772 0255 696E7465 		.ascii	"interruptMode\000"
- 1772      72727570 
- 1772      744D6F64 
- 1772      6500
- 1773              	.LASF34:
- 1774 0263 54494D45 		.ascii	"TIMER_UI_ReadCounter\000"
- 1774      525F5549 
- 1774      5F526561 
- 1774      64436F75 
- 1774      6E746572 
- 1775              	.LASF26:
- 1776 0278 54494D45 		.ascii	"TIMER_UI_Enable\000"
- 1776      525F5549 
- 1776      5F456E61 
- 1776      626C6500 
- 1777              	.LASF42:
- 1778 0288 54494D45 		.ascii	"TIMER_UI_initVar\000"
- 1778      525F5549 
- 1778      5F696E69 
- 1778      74566172 
- 1778      00
- 1779              	.LASF2:
- 1780 0299 73686F72 		.ascii	"short int\000"
- 1780      7420696E 
- 1780      7400
- 1781              	.LASF38:
- 1782 02a3 47656E65 		.ascii	"Generated_Source\\PSoC5\\TIMER_UI.c\000"
- 1782      72617465 
- 1782      645F536F 
- 1782      75726365 
- 1782      5C50536F 
- 1783              	.LASF39:
- 1784 02c5 433A5C55 		.ascii	"C:\\Users\\anjmarqu\\Desktop\\Hummingbird\\Hummingb"
- 1784      73657273 
- 1784      5C616E6A 
- 1784      6D617271 
- 1784      755C4465 
- 1785 02f3 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
- 1785      436F6E74 
- 1785      696E756F 
- 1785      7573204F 
- 1785      75747075 
+ 1769      525F5549 
+ 1769      5F537461 
+ 1769      727400
+ 1770              	.LASF16:
+ 1771 0289 73697A65 		.ascii	"sizetype\000"
+ 1771      74797065 
+ 1771      00
+ 1772              	.LASF6:
+ 1773 0292 6C6F6E67 		.ascii	"long long int\000"
+ 1773      206C6F6E 
+ 1773      6720696E 
+ 1773      7400
+ 1774              	.LASF24:
+ 1775 02a0 696E7465 		.ascii	"interruptMode\000"
+ 1775      72727570 
+ 1775      744D6F64 
+ 1775      6500
+ 1776              	.LASF34:
+ 1777 02ae 54494D45 		.ascii	"TIMER_UI_ReadCounter\000"
+ 1777      525F5549 
+ 1777      5F526561 
+ 1777      64436F75 
+ 1777      6E746572 
+ 1778              	.LASF26:
+ 1779 02c3 54494D45 		.ascii	"TIMER_UI_Enable\000"
+ 1779      525F5549 
+ 1779      5F456E61 
+ 1779      626C6500 
+ 1780              	.LASF42:
+ 1781 02d3 54494D45 		.ascii	"TIMER_UI_initVar\000"
+ 1781      525F5549 
+ 1781      5F696E69 
+ 1781      74566172 
+ 1781      00
+ 1782              	.LASF2:
+ 1783 02e4 73686F72 		.ascii	"short int\000"
+ 1783      7420696E 
+ 1783      7400
+ 1784              	.LASF38:
+ 1785 02ee 47656E65 		.ascii	"Generated_Source\\PSoC5\\TIMER_UI.c\000"
+ 1785      72617465 
+ 1785      645F536F 
+ 1785      75726365 
+ 1785      5C50536F 
  1786              	.LASF4:
  1787 0310 6C6F6E67 		.ascii	"long int\000"
  1787      20696E74 
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 1
  1791      68617200 
  1792              	.LASF30:
  1793 032a 54494D45 		.ascii	"TIMER_UI_SoftwareCapture\000"
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\cc8vHpi0.s 			page 49
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 49
 
 
  1793      525F5549 
