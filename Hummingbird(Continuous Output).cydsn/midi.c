@@ -1,5 +1,6 @@
 #include <math.h>
 #include "midi.h"
+#include <stdio.h>
 
 /*******************************************************************************
 * Function Name: GenerateMidiArray
@@ -80,6 +81,49 @@ char *midi_note_basename(int note)
 		return "B";
 	}
 
+	return "";
+}
+
+char *midi_note_truename(int note)
+{
+    char *noteStr = "   "; 
+	if (note % 12 == 0) {
+        sprintf(noteStr, "C-%d", midi_note_octave(note));
+		return noteStr;
+	} else if ((note - 1) % 12 == 0) {
+		sprintf(noteStr, "C#%d", midi_note_octave(note));
+		return noteStr;
+	} else if ((note - 2) % 12 == 0) {
+		sprintf(noteStr, "D-%d", midi_note_octave(note));
+		return noteStr;
+	} else if ((note - 3) % 12 == 0) {
+		sprintf(noteStr, "D#%d", midi_note_octave(note));
+		return noteStr;
+	} else if ((note - 4) % 12 == 0) {
+        sprintf(noteStr, "E-%d", midi_note_octave(note));
+		return noteStr;
+	} else if ((note - 5) % 12 == 0) {
+        sprintf(noteStr, "F-%d", midi_note_octave(note));
+		return noteStr;
+	} else if ((note - 6) % 12 == 0) {
+        sprintf(noteStr, "F#%d", midi_note_octave(note));
+		return noteStr;
+	} else if ((note - 7) % 12 == 0) {
+        sprintf(noteStr, "G-%d", midi_note_octave(note));
+		return noteStr;
+	} else if ((note - 8) % 12 == 0) {
+        sprintf(noteStr, "G#%d", midi_note_octave(note));
+		return noteStr;
+	} else if ((note - 9) % 12 == 0) {
+        sprintf(noteStr, "A-%d", midi_note_octave(note));
+		return noteStr;
+	} else if ((note - 10) % 12 == 0) {
+        sprintf(noteStr, "A#%d", midi_note_octave(note));
+		return noteStr;
+	} else if ((note - 11) % 12 == 0) {
+        sprintf(noteStr, "B-%d", midi_note_octave(note));
+		return noteStr;
+	}
 	return "";
 }
 
