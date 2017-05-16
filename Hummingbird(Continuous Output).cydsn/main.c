@@ -247,9 +247,15 @@ int main()
                 
                 // Unlocks the frame
                 frameLocked[sampleFrame] = false;
+<<<<<<< HEAD
                 CharLCD_PosPrintString(0,0,"      ");
                 CharLCD_PosPrintNumber(0,0,pitchHz);
                 //UpdateTuner(noteTable, NoteSnap(noteTable, pitchHz, curKey, curScale), pitchHz);
+=======
+//                CharLCD_PosPrintString(0,0,"      ");
+//                CharLCD_PosPrintNumber(0,0,pitchHz);
+                UpdateTuner(noteTable, NoteSnap(noteTable, pitchHz, curKey, curScale), pitchHz);
+>>>>>>> origin/master
                 //int note = NoteSnap(noteTable, pitchHz, curKey, curScale);
                 
                 // UPDATES TUNER

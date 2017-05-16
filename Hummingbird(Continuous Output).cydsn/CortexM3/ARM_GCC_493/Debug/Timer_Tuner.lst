@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
   29:Generated_Source\PSoC5/TIMER_TUNER.c **** /*******************************************************************************
   30:Generated_Source\PSoC5/TIMER_TUNER.c **** * Function Name: TIMER_TUNER_Init
   31:Generated_Source\PSoC5/TIMER_TUNER.c **** ********************************************************************************
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 2
 
 
   32:Generated_Source\PSoC5/TIMER_TUNER.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
   75:Generated_Source\PSoC5/TIMER_TUNER.c **** 
   76:Generated_Source\PSoC5/TIMER_TUNER.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
   77:Generated_Source\PSoC5/TIMER_TUNER.c ****                 /* Set last 2 bits of control3 register if one shot(halt on
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 3
 
 
   78:Generated_Source\PSoC5/TIMER_TUNER.c ****                 interrupt) is enabled*/
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  132:Generated_Source\PSoC5/TIMER_TUNER.c ****             #if (!TIMER_TUNER_UDB_CONTROL_REG_REMOVED)
  133:Generated_Source\PSoC5/TIMER_TUNER.c ****                 if (0u == (TIMER_TUNER_CONTROL & TIMER_TUNER__B_TIMER__TM_SOFTWARE))
  134:Generated_Source\PSoC5/TIMER_TUNER.c ****                 {
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 4
 
 
  135:Generated_Source\PSoC5/TIMER_TUNER.c ****                     TIMER_TUNER_SetTriggerMode(TIMER_TUNER_INIT_TRIGGER_MODE);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  189:Generated_Source\PSoC5/TIMER_TUNER.c ****     #if (!TIMER_TUNER_UDB_CONTROL_REG_REMOVED || TIMER_TUNER_UsingFixedFunction)
  190:Generated_Source\PSoC5/TIMER_TUNER.c ****         TIMER_TUNER_CONTROL |= TIMER_TUNER_CTRL_ENABLE;
  191:Generated_Source\PSoC5/TIMER_TUNER.c ****     #endif /* Remove assignment if control register is removed */
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 5
 
 
  192:Generated_Source\PSoC5/TIMER_TUNER.c **** }
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  246:Generated_Source\PSoC5/TIMER_TUNER.c **** *******************************************************************************/
  247:Generated_Source\PSoC5/TIMER_TUNER.c **** void TIMER_TUNER_Stop(void) 
  248:Generated_Source\PSoC5/TIMER_TUNER.c **** {
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 6
 
 
  249:Generated_Source\PSoC5/TIMER_TUNER.c ****     /* Disable Timer */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  303:Generated_Source\PSoC5/TIMER_TUNER.c **** {
  304:Generated_Source\PSoC5/TIMER_TUNER.c ****     /* Generate a software capture by reading the counter register */
  305:Generated_Source\PSoC5/TIMER_TUNER.c ****     #if(TIMER_TUNER_UsingFixedFunction)
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 7
 
 
  306:Generated_Source\PSoC5/TIMER_TUNER.c ****         (void)CY_GET_REG16(TIMER_TUNER_COUNTER_LSB_PTR);
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  360:Generated_Source\PSoC5/TIMER_TUNER.c ****     #else
  361:Generated_Source\PSoC5/TIMER_TUNER.c ****         return (0);
  362:Generated_Source\PSoC5/TIMER_TUNER.c ****     #endif /* (!TIMER_TUNER_UDB_CONTROL_REG_REMOVED) */
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 8
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 8
 
 
  363:Generated_Source\PSoC5/TIMER_TUNER.c **** }
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  417:Generated_Source\PSoC5/TIMER_TUNER.c **** ********************************************************************************
  418:Generated_Source\PSoC5/TIMER_TUNER.c **** *
  419:Generated_Source\PSoC5/TIMER_TUNER.c **** * Summary:
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 9
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 9
 
 
  420:Generated_Source\PSoC5/TIMER_TUNER.c **** *  This function is used to change the period of the counter.  The new period
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  465:Generated_Source\PSoC5/TIMER_TUNER.c **** 
  466:Generated_Source\PSoC5/TIMER_TUNER.c **** /*******************************************************************************
  467:Generated_Source\PSoC5/TIMER_TUNER.c **** * Function Name: TIMER_TUNER_WriteCounter
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 10
 
 
  468:Generated_Source\PSoC5/TIMER_TUNER.c **** ********************************************************************************
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  491:Generated_Source\PSoC5/TIMER_TUNER.c **** }
  492:Generated_Source\PSoC5/TIMER_TUNER.c **** 
  493:Generated_Source\PSoC5/TIMER_TUNER.c **** 
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 11
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 11
 
 
  494:Generated_Source\PSoC5/TIMER_TUNER.c **** /*******************************************************************************
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  548:Generated_Source\PSoC5/TIMER_TUNER.c **** *  captureMode: This parameter sets the capture mode of the UDB capture feature
  549:Generated_Source\PSoC5/TIMER_TUNER.c **** *  The parameter values are defined using the
  550:Generated_Source\PSoC5/TIMER_TUNER.c **** *  #define TIMER_TUNER__B_TIMER__CM_NONE 0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 12
 
 
  551:Generated_Source\PSoC5/TIMER_TUNER.c **** #define TIMER_TUNER__B_TIMER__CM_RISINGEDGE 1
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  605:Generated_Source\PSoC5/TIMER_TUNER.c **** void TIMER_TUNER_SetTriggerMode(uint8 triggerMode) 
  606:Generated_Source\PSoC5/TIMER_TUNER.c **** {
  607:Generated_Source\PSoC5/TIMER_TUNER.c ****     /* This must only set to two bits of the control register associated */
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 13
 
 
  608:Generated_Source\PSoC5/TIMER_TUNER.c ****     triggerMode &= TIMER_TUNER_CTRL_TRIG_MODE_MASK;
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  662:Generated_Source\PSoC5/TIMER_TUNER.c ****     #if (!TIMER_TUNER_UDB_CONTROL_REG_REMOVED )   /* Remove assignment if control register is remov
  663:Generated_Source\PSoC5/TIMER_TUNER.c ****         TIMER_TUNER_CONTROL &= ((uint8)(~TIMER_TUNER_CTRL_TRIG_EN));
  664:Generated_Source\PSoC5/TIMER_TUNER.c ****     #endif /* Remove code section if control register is not used */
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 14
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 14
 
 
  665:Generated_Source\PSoC5/TIMER_TUNER.c **** }
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  719:Generated_Source\PSoC5/TIMER_TUNER.c **** *  void
  720:Generated_Source\PSoC5/TIMER_TUNER.c **** *
  721:Generated_Source\PSoC5/TIMER_TUNER.c **** *******************************************************************************/
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 15
 
 
  722:Generated_Source\PSoC5/TIMER_TUNER.c **** void TIMER_TUNER_SetCaptureCount(uint8 captureCount) 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
   83              	.LBE30:
   84              	.LBE29:
   85              	.LBB31:
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 16
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 16
 
 
   86              	.LBB28:
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  136 0004 43F08003 		orr	r3, r3, #128
  137 0008 1370     		strb	r3, [r2]
  138 000a 7047     		bx	lr
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 17
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 17
 
 
  139              	.L15:
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  188              		.cfi_endproc
  189              	.LFE2:
  190              		.size	TIMER_TUNER_Start, .-TIMER_TUNER_Start
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 18
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 18
 
 
  191              		.section	.text.TIMER_TUNER_Stop,"ax",%progbits
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  241              		.size	TIMER_TUNER_SetInterruptMode, .-TIMER_TUNER_SetInterruptMode
  242              		.section	.text.TIMER_TUNER_SoftwareCapture,"ax",%progbits
  243              		.align	2
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 19
 
 
  244              		.global	TIMER_TUNER_SoftwareCapture
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  293              		.global	TIMER_TUNER_ReadControlRegister
  294              		.thumb
  295              		.thumb_func
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 20
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 20
 
 
  296              		.type	TIMER_TUNER_ReadControlRegister, %function
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  345              		.thumb_func
  346              		.type	TIMER_TUNER_ReadPeriod, %function
  347              	TIMER_TUNER_ReadPeriod:
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 21
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 21
 
 
  348              	.LFB9:
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  396              		.align	2
  397              		.global	TIMER_TUNER_ReadCapture
  398              		.thumb
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 22
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 22
 
 
  399              		.thumb_func
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  447              	.LFE12:
  448              		.size	TIMER_TUNER_WriteCounter, .-TIMER_TUNER_WriteCounter
  449              		.section	.text.TIMER_TUNER_ReadCounter,"ax",%progbits
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 23
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 23
 
 
  450              		.align	2
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  497 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
  498              	.LBE37:
  499              	.LBE36:
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 24
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 24
 
 
  500              		.loc 1 765 0
@@ -1431,14 +1431,14 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  545 0006 00000000 		.4byte	.Ldebug_abbrev0
  546 000a 04       		.byte	0x4
  547 000b 01       		.uleb128 0x1
- 548 000c 96000000 		.4byte	.LASF37
+ 548 000c E1000000 		.4byte	.LASF37
  549 0010 01       		.byte	0x1
  550 0011 8A030000 		.4byte	.LASF38
- 551 0015 E8020000 		.4byte	.LASF39
+ 551 0015 96000000 		.4byte	.LASF39
  552 0019 30000000 		.4byte	.Ldebug_ranges0+0x30
  553 001d 00000000 		.4byte	0
  554 0021 00000000 		.4byte	.Ldebug_line0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 25
 
 
  555 0025 02       		.uleb128 0x2
@@ -1448,11 +1448,11 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  559 002c 02       		.uleb128 0x2
  560 002d 01       		.byte	0x1
  561 002e 08       		.byte	0x8
- 562 002f 63010000 		.4byte	.LASF1
+ 562 002f AE010000 		.4byte	.LASF1
  563 0033 02       		.uleb128 0x2
  564 0034 02       		.byte	0x2
  565 0035 05       		.byte	0x5
- 566 0036 EA010000 		.4byte	.LASF2
+ 566 0036 35020000 		.4byte	.LASF2
  567 003a 02       		.uleb128 0x2
  568 003b 02       		.byte	0x2
  569 003c 07       		.byte	0x7
@@ -1464,15 +1464,15 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  575 0048 02       		.uleb128 0x2
  576 0049 04       		.byte	0x4
  577 004a 07       		.byte	0x7
- 578 004b 8E010000 		.4byte	.LASF5
+ 578 004b D9010000 		.4byte	.LASF5
  579 004f 02       		.uleb128 0x2
  580 0050 08       		.byte	0x8
  581 0051 05       		.byte	0x5
- 582 0052 98020000 		.4byte	.LASF6
+ 582 0052 E3020000 		.4byte	.LASF6
  583 0056 02       		.uleb128 0x2
  584 0057 08       		.byte	0x8
  585 0058 07       		.byte	0x7
- 586 0059 4C010000 		.4byte	.LASF7
+ 586 0059 97010000 		.4byte	.LASF7
  587 005d 03       		.uleb128 0x3
  588 005e 04       		.byte	0x4
  589 005f 05       		.byte	0x5
@@ -1480,14 +1480,14 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  591 0064 02       		.uleb128 0x2
  592 0065 04       		.byte	0x4
  593 0066 07       		.byte	0x7
- 594 0067 12020000 		.4byte	.LASF8
+ 594 0067 5D020000 		.4byte	.LASF8
  595 006b 04       		.uleb128 0x4
- 596 006c A0010000 		.4byte	.LASF9
+ 596 006c EB010000 		.4byte	.LASF9
  597 0070 02       		.byte	0x2
  598 0071 5B       		.byte	0x5b
  599 0072 2C000000 		.4byte	0x2c
  600 0076 04       		.uleb128 0x4
- 601 0077 F4010000 		.4byte	.LASF10
+ 601 0077 3F020000 		.4byte	.LASF10
  602 007b 02       		.byte	0x2
  603 007c 5D       		.byte	0x5d
  604 007d 48000000 		.4byte	0x48
@@ -1498,16 +1498,16 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  609 0088 02       		.uleb128 0x2
  610 0089 08       		.byte	0x8
  611 008a 04       		.byte	0x4
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 26
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 26
 
 
- 612 008b E3010000 		.4byte	.LASF12
+ 612 008b 2E020000 		.4byte	.LASF12
  613 008f 02       		.uleb128 0x2
  614 0090 01       		.byte	0x1
  615 0091 08       		.byte	0x8
  616 0092 3C030000 		.4byte	.LASF13
  617 0096 04       		.uleb128 0x4
- 618 0097 89010000 		.4byte	.LASF14
+ 618 0097 D4010000 		.4byte	.LASF14
  619 009b 02       		.byte	0x2
  620 009c F0       		.byte	0xf0
  621 009d A1000000 		.4byte	0xa1
@@ -1523,9 +1523,9 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  631 00b6 02       		.uleb128 0x2
  632 00b7 04       		.byte	0x4
  633 00b8 07       		.byte	0x7
- 634 00b9 8F020000 		.4byte	.LASF16
+ 634 00b9 DA020000 		.4byte	.LASF16
  635 00bd 06       		.uleb128 0x6
- 636 00be D0020000 		.4byte	.LASF17
+ 636 00be 1B030000 		.4byte	.LASF17
  637 00c2 01       		.byte	0x1
  638 00c3 C801     		.2byte	0x1c8
  639 00c5 76000000 		.4byte	0x76
@@ -1537,7 +1537,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  645 00d2 6B000000 		.4byte	0x6b
  646 00d6 01       		.byte	0x1
  647 00d7 07       		.uleb128 0x7
- 648 00d8 71010000 		.4byte	.LASF19
+ 648 00d8 BC010000 		.4byte	.LASF19
  649 00dc 01       		.byte	0x1
  650 00dd AF01     		.2byte	0x1af
  651 00df 01       		.byte	0x1
@@ -1555,10 +1555,10 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  663 00f9 01       		.byte	0x1
  664 00fa 0B010000 		.4byte	0x10b
  665 00fe 08       		.uleb128 0x8
- 666 00ff 44010000 		.4byte	.LASF22
+ 666 00ff 8F010000 		.4byte	.LASF22
  667 0103 01       		.byte	0x1
  668 0104 E001     		.2byte	0x1e0
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 27
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 27
 
 
  669 0106 76000000 		.4byte	0x76
@@ -1569,24 +1569,24 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  674 0111 FB02     		.2byte	0x2fb
  675 0113 01       		.byte	0x1
  676 0114 07       		.uleb128 0x7
- 677 0115 AE010000 		.4byte	.LASF23
+ 677 0115 F9010000 		.4byte	.LASF23
  678 0119 01       		.byte	0x1
  679 011a 1701     		.2byte	0x117
  680 011c 01       		.byte	0x1
  681 011d 2E010000 		.4byte	0x12e
  682 0121 08       		.uleb128 0x8
- 683 0122 A6020000 		.4byte	.LASF24
+ 683 0122 F1020000 		.4byte	.LASF24
  684 0126 01       		.byte	0x1
  685 0127 1701     		.2byte	0x117
  686 0129 6B000000 		.4byte	0x6b
  687 012d 00       		.byte	0
  688 012e 0A       		.uleb128 0xa
- 689 012f 68020000 		.4byte	.LASF26
+ 689 012f B3020000 		.4byte	.LASF26
  690 0133 01       		.byte	0x1
  691 0134 B4       		.byte	0xb4
  692 0135 01       		.byte	0x1
  693 0136 0B       		.uleb128 0xb
- 694 0137 BF020000 		.4byte	.LASF27
+ 694 0137 0A030000 		.4byte	.LASF27
  695 013b 01       		.byte	0x1
  696 013c 2B       		.byte	0x2b
  697 013d 00000000 		.4byte	.LFB0
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  723 0181 51       		.byte	0x51
  724 0182 05       		.uleb128 0x5
  725 0183 0C       		.byte	0xc
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 28
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 28
 
 
  726 0184 7F969800 		.4byte	0x98967f
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  780 01fd FF02     		.2byte	0x2ff
  781 01ff 00       		.byte	0
  782 0200 0D       		.uleb128 0xd
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 29
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 29
 
 
  783 0201 14010000 		.4byte	0x114
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  837 0288 01       		.uleb128 0x1
  838 0289 9C       		.byte	0x9c
  839 028a 96020000 		.4byte	0x296
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 30
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 30
 
 
  840 028e 19       		.uleb128 0x19
@@ -1747,7 +1747,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  843 0294 50       		.byte	0x50
  844 0295 00       		.byte	0
  845 0296 1A       		.uleb128 0x1a
- 846 0297 4C020000 		.4byte	.LASF30
+ 846 0297 97020000 		.4byte	.LASF30
  847 029b 01       		.byte	0x1
  848 029c 2E01     		.2byte	0x12e
  849 029e 00000000 		.4byte	.LFB5
@@ -1761,7 +1761,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  857 02b5 01       		.uleb128 0x1
  858 02b6 9C       		.byte	0x9c
  859 02b7 1B       		.uleb128 0x1b
- 860 02b8 24010000 		.4byte	.LASF32
+ 860 02b8 6F010000 		.4byte	.LASF32
  861 02bc 01       		.byte	0x1
  862 02bd 6401     		.2byte	0x164
  863 02bf 6B000000 		.4byte	0x6b
@@ -1779,7 +1779,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  875 02de 9C       		.byte	0x9c
  876 02df F2020000 		.4byte	0x2f2
  877 02e3 1D       		.uleb128 0x1d
- 878 02e4 A6010000 		.4byte	.LASF41
+ 878 02e4 F1010000 		.4byte	.LASF41
  879 02e8 01       		.byte	0x1
  880 02e9 7B01     		.2byte	0x17b
  881 02eb 6B000000 		.4byte	0x6b
@@ -1787,7 +1787,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  883 02f0 50       		.byte	0x50
  884 02f1 00       		.byte	0
  885 02f2 1B       		.uleb128 0x1b
- 886 02f3 1F020000 		.4byte	.LASF33
+ 886 02f3 6A020000 		.4byte	.LASF33
  887 02f7 01       		.byte	0x1
  888 02f8 9501     		.2byte	0x195
  889 02fa 76000000 		.4byte	0x76
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  894 0308 18       		.uleb128 0x18
  895 0309 D7000000 		.4byte	0xd7
  896 030d 00000000 		.4byte	.LFB10
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 31
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 31
 
 
  897 0311 0C000000 		.4byte	.LFE10-.LFB10
@@ -1858,13 +1858,13 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  951 037d 05       		.uleb128 0x5
  952 037e 0C       		.byte	0xc
  953 037f 09640040 		.4byte	0x40006409
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 32
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 32
 
 
  954 0383 00       		.byte	0
  955 0384 00       		.byte	0
  956 0385 1B       		.uleb128 0x1b
- 957 0386 CB010000 		.4byte	.LASF34
+ 957 0386 16020000 		.4byte	.LASF34
  958 038a 01       		.byte	0x1
  959 038b FC01     		.2byte	0x1fc
  960 038d 76000000 		.4byte	0x76
@@ -1893,7 +1893,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  983 03cc FF02     		.2byte	0x2ff
  984 03ce 00       		.byte	0
  985 03cf 20       		.uleb128 0x20
- 986 03d0 7B020000 		.4byte	.LASF42
+ 986 03d0 C6020000 		.4byte	.LASF42
  987 03d4 01       		.byte	0x1
  988 03d5 1A       		.byte	0x1a
  989 03d6 6B000000 		.4byte	0x6b
@@ -1901,7 +1901,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  991 03db 03       		.byte	0x3
  992 03dc 00000000 		.4byte	TIMER_TUNER_initVar
  993 03e0 21       		.uleb128 0x21
- 994 03e1 B4020000 		.4byte	.LASF35
+ 994 03e1 FF020000 		.4byte	.LASF35
  995 03e5 02       		.byte	0x2
  996 03e6 9E       		.byte	0x9e
  997 03e7 F6030000 		.4byte	0x3f6
@@ -1914,15 +1914,15 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  1004 03f7 04       		.byte	0x4
  1005 03f8 B1000000 		.4byte	0xb1
  1006 03fc 24       		.uleb128 0x24
- 1007 03fd FB010000 		.4byte	.LASF36
+ 1007 03fd 46020000 		.4byte	.LASF36
  1008 0401 03       		.byte	0x3
  1009 0402 7E       		.byte	0x7e
  1010 0403 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 33
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 33
 
 
  1011 0407 25       		.uleb128 0x25
- 1012 0408 36020000 		.4byte	.LASF43
+ 1012 0408 81020000 		.4byte	.LASF43
  1013 040c 03       		.byte	0x3
  1014 040d 7F       		.byte	0x7f
  1015 040e 22       		.uleb128 0x22
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  1065 002c 03       		.uleb128 0x3
  1066 002d 0E       		.uleb128 0xe
  1067 002e 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 34
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 34
 
 
  1068 002f 0B       		.uleb128 0xb
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  1122 0065 00       		.byte	0
  1123 0066 03       		.uleb128 0x3
  1124 0067 0E       		.uleb128 0xe
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 35
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 35
 
 
  1125 0068 3A       		.uleb128 0x3a
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  1179 009e 19       		.uleb128 0x19
  1180 009f 11       		.uleb128 0x11
  1181 00a0 01       		.uleb128 0x1
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 36
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 36
 
 
  1182 00a1 12       		.uleb128 0x12
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  1236 00da 11       		.uleb128 0x11
  1237 00db 01       		.uleb128 0x1
  1238 00dc 31       		.uleb128 0x31
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 37
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 37
 
 
  1239 00dd 13       		.uleb128 0x13
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  1293 0118 11       		.uleb128 0x11
  1294 0119 01       		.uleb128 0x1
  1295 011a 31       		.uleb128 0x31
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 38
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 38
 
 
  1296 011b 13       		.uleb128 0x13
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  1350 0153 00       		.byte	0
  1351 0154 00       		.byte	0
  1352 0155 18       		.uleb128 0x18
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 39
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 39
 
 
  1353 0156 2E       		.uleb128 0x2e
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  1407 018e 0E       		.uleb128 0xe
  1408 018f 3A       		.uleb128 0x3a
  1409 0190 0B       		.uleb128 0xb
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 40
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 40
 
 
  1410 0191 3B       		.uleb128 0x3b
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  1464 01c9 00       		.byte	0
  1465 01ca 00       		.byte	0
  1466 01cb 1E       		.uleb128 0x1e
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 41
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 41
 
 
  1467 01cc 05       		.uleb128 0x5
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  1521 0205 00       		.byte	0
  1522 0206 22       		.uleb128 0x22
  1523 0207 05       		.uleb128 0x5
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 42
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 42
 
 
  1524 0208 00       		.byte	0
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  1578 0000 16000000 		.4byte	.LVL3
  1579 0004 23000000 		.4byte	.LVL4-1
  1580 0008 0100     		.2byte	0x1
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 43
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 43
 
 
  1581 000a 50       		.byte	0x50
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  1635 002c 10000000 		.4byte	.LFE3-.LFB3
  1636 0030 00000000 		.4byte	.LFB4
  1637 0034 0C000000 		.4byte	.LFE4-.LFB4
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 44
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 44
 
 
  1638 0038 00000000 		.4byte	.LFB5
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  1692 0078 00000000 		.4byte	.LFB9
  1693 007c 10000000 		.4byte	.LFE9
  1694 0080 00000000 		.4byte	.LFB10
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 45
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 45
 
 
  1695 0084 0C000000 		.4byte	.LFE10
@@ -2698,179 +2698,179 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  1723              	.LASF28:
  1724 0084 54494D45 		.ascii	"TIMER_TUNER_Start\000"
  1724      525F5455 
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 46
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 46
 
 
  1724      4E45525F 
  1724      53746172 
  1724      7400
- 1725              	.LASF37:
- 1726 0096 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1726      4320342E 
- 1726      392E3320 
- 1726      32303135 
- 1726      30333033 
- 1727 00c9 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 1727      20726576 
- 1727      6973696F 
- 1727      6E203232 
- 1727      31323230 
- 1728 00fc 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
- 1728      66756E63 
- 1728      74696F6E 
- 1728      2D736563 
- 1728      74696F6E 
- 1729              	.LASF32:
- 1730 0124 54494D45 		.ascii	"TIMER_TUNER_ReadControlRegister\000"
- 1730      525F5455 
- 1730      4E45525F 
- 1730      52656164 
- 1730      436F6E74 
- 1731              	.LASF22:
- 1732 0144 636F756E 		.ascii	"counter\000"
- 1732      74657200 
- 1733              	.LASF7:
- 1734 014c 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1734      206C6F6E 
- 1734      6720756E 
- 1734      7369676E 
- 1734      65642069 
- 1735              	.LASF1:
- 1736 0163 756E7369 		.ascii	"unsigned char\000"
- 1736      676E6564 
- 1736      20636861 
- 1736      7200
- 1737              	.LASF19:
- 1738 0171 54494D45 		.ascii	"TIMER_TUNER_WritePeriod\000"
- 1738      525F5455 
- 1738      4E45525F 
- 1738      57726974 
- 1738      65506572 
- 1739              	.LASF14:
- 1740 0189 72656738 		.ascii	"reg8\000"
- 1740      00
- 1741              	.LASF5:
- 1742 018e 6C6F6E67 		.ascii	"long unsigned int\000"
- 1742      20756E73 
- 1742      69676E65 
- 1742      6420696E 
- 1742      7400
- 1743              	.LASF9:
- 1744 01a0 75696E74 		.ascii	"uint8\000"
- 1744      3800
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 47
+ 1725              	.LASF39:
+ 1726 0096 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
+ 1726      73657273 
+ 1726      5C6D6772 
+ 1726      6F6E6265 
+ 1726      725C4465 
+ 1727 00c4 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 1727      436F6E74 
+ 1727      696E756F 
+ 1727      7573204F 
+ 1727      75747075 
+ 1728              	.LASF37:
+ 1729 00e1 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1729      4320342E 
+ 1729      392E3320 
+ 1729      32303135 
+ 1729      30333033 
+ 1730 0114 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1730      20726576 
+ 1730      6973696F 
+ 1730      6E203232 
+ 1730      31323230 
+ 1731 0147 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 1731      66756E63 
+ 1731      74696F6E 
+ 1731      2D736563 
+ 1731      74696F6E 
+ 1732              	.LASF32:
+ 1733 016f 54494D45 		.ascii	"TIMER_TUNER_ReadControlRegister\000"
+ 1733      525F5455 
+ 1733      4E45525F 
+ 1733      52656164 
+ 1733      436F6E74 
+ 1734              	.LASF22:
+ 1735 018f 636F756E 		.ascii	"counter\000"
+ 1735      74657200 
+ 1736              	.LASF7:
+ 1737 0197 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1737      206C6F6E 
+ 1737      6720756E 
+ 1737      7369676E 
+ 1737      65642069 
+ 1738              	.LASF1:
+ 1739 01ae 756E7369 		.ascii	"unsigned char\000"
+ 1739      676E6564 
+ 1739      20636861 
+ 1739      7200
+ 1740              	.LASF19:
+ 1741 01bc 54494D45 		.ascii	"TIMER_TUNER_WritePeriod\000"
+ 1741      525F5455 
+ 1741      4E45525F 
+ 1741      57726974 
+ 1741      65506572 
+ 1742              	.LASF14:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 47
 
 
- 1745              	.LASF41:
- 1746 01a6 636F6E74 		.ascii	"control\000"
- 1746      726F6C00 
- 1747              	.LASF23:
- 1748 01ae 54494D45 		.ascii	"TIMER_TUNER_SetInterruptMode\000"
- 1748      525F5455 
- 1748      4E45525F 
- 1748      53657449 
- 1748      6E746572 
- 1749              	.LASF34:
- 1750 01cb 54494D45 		.ascii	"TIMER_TUNER_ReadCounter\000"
- 1750      525F5455 
- 1750      4E45525F 
- 1750      52656164 
- 1750      436F756E 
- 1751              	.LASF12:
- 1752 01e3 646F7562 		.ascii	"double\000"
- 1752      6C6500
- 1753              	.LASF2:
- 1754 01ea 73686F72 		.ascii	"short int\000"
- 1754      7420696E 
- 1754      7400
- 1755              	.LASF10:
- 1756 01f4 75696E74 		.ascii	"uint32\000"
- 1756      333200
- 1757              	.LASF36:
- 1758 01fb 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 1758      74657243 
- 1758      72697469 
- 1758      63616C53 
- 1758      65637469 
- 1759              	.LASF8:
- 1760 0212 756E7369 		.ascii	"unsigned int\000"
- 1760      676E6564 
- 1760      20696E74 
- 1760      00
- 1761              	.LASF33:
- 1762 021f 54494D45 		.ascii	"TIMER_TUNER_ReadPeriod\000"
- 1762      525F5455 
- 1762      4E45525F 
- 1762      52656164 
- 1762      50657269 
- 1763              	.LASF43:
- 1764 0236 43794578 		.ascii	"CyExitCriticalSection\000"
- 1764      69744372 
- 1764      69746963 
- 1764      616C5365 
- 1764      6374696F 
- 1765              	.LASF30:
- 1766 024c 54494D45 		.ascii	"TIMER_TUNER_SoftwareCapture\000"
- 1766      525F5455 
- 1766      4E45525F 
- 1766      536F6674 
- 1766      77617265 
- 1767              	.LASF26:
- 1768 0268 54494D45 		.ascii	"TIMER_TUNER_Enable\000"
- 1768      525F5455 
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 48
+ 1743 01d4 72656738 		.ascii	"reg8\000"
+ 1743      00
+ 1744              	.LASF5:
+ 1745 01d9 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1745      20756E73 
+ 1745      69676E65 
+ 1745      6420696E 
+ 1745      7400
+ 1746              	.LASF9:
+ 1747 01eb 75696E74 		.ascii	"uint8\000"
+ 1747      3800
+ 1748              	.LASF41:
+ 1749 01f1 636F6E74 		.ascii	"control\000"
+ 1749      726F6C00 
+ 1750              	.LASF23:
+ 1751 01f9 54494D45 		.ascii	"TIMER_TUNER_SetInterruptMode\000"
+ 1751      525F5455 
+ 1751      4E45525F 
+ 1751      53657449 
+ 1751      6E746572 
+ 1752              	.LASF34:
+ 1753 0216 54494D45 		.ascii	"TIMER_TUNER_ReadCounter\000"
+ 1753      525F5455 
+ 1753      4E45525F 
+ 1753      52656164 
+ 1753      436F756E 
+ 1754              	.LASF12:
+ 1755 022e 646F7562 		.ascii	"double\000"
+ 1755      6C6500
+ 1756              	.LASF2:
+ 1757 0235 73686F72 		.ascii	"short int\000"
+ 1757      7420696E 
+ 1757      7400
+ 1758              	.LASF10:
+ 1759 023f 75696E74 		.ascii	"uint32\000"
+ 1759      333200
+ 1760              	.LASF36:
+ 1761 0246 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1761      74657243 
+ 1761      72697469 
+ 1761      63616C53 
+ 1761      65637469 
+ 1762              	.LASF8:
+ 1763 025d 756E7369 		.ascii	"unsigned int\000"
+ 1763      676E6564 
+ 1763      20696E74 
+ 1763      00
+ 1764              	.LASF33:
+ 1765 026a 54494D45 		.ascii	"TIMER_TUNER_ReadPeriod\000"
+ 1765      525F5455 
+ 1765      4E45525F 
+ 1765      52656164 
+ 1765      50657269 
+ 1766              	.LASF43:
+ 1767 0281 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1767      69744372 
+ 1767      69746963 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 48
 
 
- 1768      4E45525F 
- 1768      456E6162 
- 1768      6C6500
- 1769              	.LASF42:
- 1770 027b 54494D45 		.ascii	"TIMER_TUNER_initVar\000"
- 1770      525F5455 
- 1770      4E45525F 
- 1770      696E6974 
- 1770      56617200 
- 1771              	.LASF16:
- 1772 028f 73697A65 		.ascii	"sizetype\000"
- 1772      74797065 
- 1772      00
- 1773              	.LASF6:
- 1774 0298 6C6F6E67 		.ascii	"long long int\000"
- 1774      206C6F6E 
- 1774      6720696E 
- 1774      7400
- 1775              	.LASF24:
- 1776 02a6 696E7465 		.ascii	"interruptMode\000"
- 1776      72727570 
- 1776      744D6F64 
- 1776      6500
- 1777              	.LASF35:
- 1778 02b4 43795365 		.ascii	"CySetReg24\000"
- 1778      74526567 
- 1778      323400
- 1779              	.LASF27:
- 1780 02bf 54494D45 		.ascii	"TIMER_TUNER_Init\000"
- 1780      525F5455 
- 1780      4E45525F 
- 1780      496E6974 
- 1780      00
- 1781              	.LASF17:
- 1782 02d0 54494D45 		.ascii	"TIMER_TUNER_ReadCapture\000"
- 1782      525F5455 
- 1782      4E45525F 
- 1782      52656164 
- 1782      43617074 
- 1783              	.LASF39:
- 1784 02e8 433A5C55 		.ascii	"C:\\Users\\anjmarqu\\Desktop\\Hummingbird\\Hummingb"
- 1784      73657273 
- 1784      5C616E6A 
- 1784      6D617271 
- 1784      755C4465 
- 1785 0316 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
- 1785      436F6E74 
- 1785      696E756F 
- 1785      7573204F 
- 1785      75747075 
+ 1767      616C5365 
+ 1767      6374696F 
+ 1768              	.LASF30:
+ 1769 0297 54494D45 		.ascii	"TIMER_TUNER_SoftwareCapture\000"
+ 1769      525F5455 
+ 1769      4E45525F 
+ 1769      536F6674 
+ 1769      77617265 
+ 1770              	.LASF26:
+ 1771 02b3 54494D45 		.ascii	"TIMER_TUNER_Enable\000"
+ 1771      525F5455 
+ 1771      4E45525F 
+ 1771      456E6162 
+ 1771      6C6500
+ 1772              	.LASF42:
+ 1773 02c6 54494D45 		.ascii	"TIMER_TUNER_initVar\000"
+ 1773      525F5455 
+ 1773      4E45525F 
+ 1773      696E6974 
+ 1773      56617200 
+ 1774              	.LASF16:
+ 1775 02da 73697A65 		.ascii	"sizetype\000"
+ 1775      74797065 
+ 1775      00
+ 1776              	.LASF6:
+ 1777 02e3 6C6F6E67 		.ascii	"long long int\000"
+ 1777      206C6F6E 
+ 1777      6720696E 
+ 1777      7400
+ 1778              	.LASF24:
+ 1779 02f1 696E7465 		.ascii	"interruptMode\000"
+ 1779      72727570 
+ 1779      744D6F64 
+ 1779      6500
+ 1780              	.LASF35:
+ 1781 02ff 43795365 		.ascii	"CySetReg24\000"
+ 1781      74526567 
+ 1781      323400
+ 1782              	.LASF27:
+ 1783 030a 54494D45 		.ascii	"TIMER_TUNER_Init\000"
+ 1783      525F5455 
+ 1783      4E45525F 
+ 1783      496E6974 
+ 1783      00
+ 1784              	.LASF17:
+ 1785 031b 54494D45 		.ascii	"TIMER_TUNER_ReadCapture\000"
+ 1785      525F5455 
+ 1785      4E45525F 
+ 1785      52656164 
+ 1785      43617074 
  1786              	.LASF4:
  1787 0333 6C6F6E67 		.ascii	"long int\000"
  1787      20696E74 
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 1
  1788              	.LASF13:
  1789 033c 63686172 		.ascii	"char\000"
  1789      00
-ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccs1AEnH.s 			page 49
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 49
 
 
  1790              	.LASF31:
