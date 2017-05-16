@@ -84,9 +84,8 @@ char *midi_note_basename(int note)
 	return "";
 }
 
-char *midi_note_truename(int note)
+char *midi_note_truename(int note, char noteStr[3])
 {
-    char *noteStr = "   "; 
 	if (note % 12 == 0) {
         sprintf(noteStr, "C-%d", midi_note_octave(note));
 		return noteStr;

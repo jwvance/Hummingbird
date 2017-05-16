@@ -64,9 +64,10 @@ void UpdateTuner(double freqTable[MIDI_LEN], uint8 midiNumber, float freq)
     //Clears the whole second row
     CharLCD_PosPrintString(1,0,"                    ");
     // Prints neighboring notes on either side and current note in the center    
-    CharLCD_PosPrintString(1,2,midi_note_basename(midiNumber-1));
-    CharLCD_PosPrintString(1,14,midi_note_basename(midiNumber+1));
-    CharLCD_PosPrintString(1,8,midi_note_basename(midiNumber));
+    char noteStr[3] = "   ";
+    CharLCD_PosPrintString(1,2,midi_note_truename(midiNumber-1, noteStr));
+    CharLCD_PosPrintString(1,14,midi_note_truename(midiNumber+1, noteStr));
+    CharLCD_PosPrintString(1,8,midi_note_truename(midiNumber, noteStr));
     
     // USER ON KEY
     if (freq > okayLb && freq < okayLb) {
@@ -118,8 +119,9 @@ enum MusicKey UpdateKeyLCD(uint16 currADC)
     enum MusicKey key = map(currADC, 0, 255, 0, 11);
     
     // Prints the string to the LCD, borrowing funciton from midi.c
+    char noteStr[3] = "   ";
     CharLCD_PosPrintString(0,11,"  ")
-    CharLCD_PosPrintString(0,11,midi_note_basename(key));
+    CharLCD_PosPrintString(0,11,midi_note_truename(key, noteStr));
     
     // Return the updated key to main
     return key;

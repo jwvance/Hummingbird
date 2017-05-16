@@ -41,7 +41,7 @@ int midi_note_changed(double freq, int last_midi, double notes[MIDI_LEN], float 
 char *midi_note_basename(int note);
 
 //returns full midi note including octave (eg. G#4)
-char *midi_note_truename(int note);
+char *midi_note_truename(int note, char str[3]);
 
 /*
  * Given a MIDI note, returns the octave that note is in.

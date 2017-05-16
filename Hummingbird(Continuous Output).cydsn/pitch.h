@@ -8,7 +8,7 @@
 
 #define R_THRES 0.9    
 #define LAG_MIN 6
-#define LAG_MAX 70
+#define LAG_MAX 100
     
 /*
  * Sets up the FFT tables to FRAME_LEN size.
