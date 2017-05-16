@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
   29:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** volatile uint8   I2C_CharLCD_mstrRdBufIndex;   /* Master Read buffer Index      */
   30:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** 
   31:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** /* Receive buffer variables */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 2
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 2
 
 
   32:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** volatile uint8 * I2C_CharLCD_mstrWrBufPtr;     /* Pointer to Master Write buffer */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
   30              		@ frame_needed = 0, uses_anonymous_args = 0
   31              	.LVL0:
   83:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****     uint8 errStatus;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 3
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 3
 
 
   84:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
   65 001a 0220     		movs	r0, #2
   66              	.LVL3:
  103:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****         {
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 4
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 4
 
 
  104:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****             /* Master is ready and waiting for ReStart */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
   75              		.cfi_offset 7, -12
   76              		.cfi_offset 8, -8
   77              		.cfi_offset 14, -4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 5
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 5
 
 
   93:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****             {
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  129:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** 
  118              		.loc 1 129 0
  119 0058 2A78     		ldrb	r2, [r5]	@ zero_extendqisi2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 6
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 6
 
 
  120              	.LVL7:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  162              	.LVL13:
  163 008c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
  164              	.LVL14:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 7
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 7
 
 
  165              	.L21:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  172:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** * Side Effects:
  173:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** *  The included ISR will start a transfer after start or restart condition is
  174:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** *  generated.
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 8
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 8
 
 
  175:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** *
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  207:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****         {
  208:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****             /* Master is ready to transaction: check if bus is free */
  209:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****             if(I2C_CharLCD_CHECK_BUS_FREE(I2C_CharLCD_MCSR_REG))
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 9
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 9
 
 
  210:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****             {
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  244:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****             /* Clear read status history */
  245:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****             I2C_CharLCD_mstrStatus &= (uint8) ~I2C_CharLCD_MSTAT_RD_CMPLT;
  246:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 10
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 10
 
 
  247:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****             /* Hardware actions: write address and generate Start or ReStart */
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  265 0036 06F0F706 		and	r6, r6, #247
  266 003a 2E70     		strb	r6, [r5]
  267              	.LVL21:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 11
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 11
 
 
  268              	.L27:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  306              	.LVL25:
  239:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** 
  307              		.loc 1 239 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 12
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 12
 
 
  308 006e 3160     		str	r1, [r6]
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  356              	.LFE1:
  357              		.size	I2C_CharLCD_MasterReadBuf, .-I2C_CharLCD_MasterReadBuf
  358              		.section	.text.I2C_CharLCD_MasterSendStart,"ax",%progbits
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 13
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 13
 
 
  359              		.align	2
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  376 0006 01D0     		beq	.L58
  300:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** 
  377              		.loc 1 300 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 14
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 14
 
 
  378 0008 0220     		movs	r0, #2
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  356:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****             if(I2C_CharLCD_CHECK_ADDR_NAK(I2C_CharLCD_CSR_REG))
  357:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****             {
  358:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****                 /* Address has been NACKed: reset FSM to IDLE */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 15
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 15
 
 
  359:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****                 I2C_CharLCD_state = I2C_CharLCD_SM_IDLE;
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  408              		.loc 1 320 0
  409 0024 4523     		movs	r3, #69
  410 0026 1370     		strb	r3, [r2]
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 16
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 16
 
 
  411              	.L49:
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  316:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****             }
  456              		.loc 1 316 0
  457 0050 4923     		movs	r3, #73
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 17
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 17
 
 
  315:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****                 I2C_CharLCD_state = I2C_CharLCD_SM_MSTR_RD_ADDR;
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  391:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** *
  392:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** * Side Effects:
  393:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** *  This function is entered without a "byte complete" bit set in the I2C_CSR
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 18
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 18
 
 
  394:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** *  register. It does not exit until it is set.
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  433:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****         }
  434:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** 
  435:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****     #if(I2C_CharLCD_MODE_MULTI_MASTER_ENABLED)
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 19
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 19
 
 
  436:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****         if(I2C_CharLCD_CHECK_LOST_ARB(I2C_CharLCD_CSR_REG))
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  529 0016 4523     		movs	r3, #69
  530 0018 2370     		strb	r3, [r4]
  531              	.L66:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 20
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 20
 
 
  428:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** 
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  576 0044 4923     		movs	r3, #73
  418:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****             I2C_CharLCD_state = I2C_CharLCD_SM_MSTR_RD_ADDR;
  577              		.loc 1 418 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 21
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 21
 
 
  578 0046 40F00100 		orr	r0, r0, #1
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  473:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** *  None.
  474:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** *
  475:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** * Return:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 22
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 22
 
 
  476:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** *  Status error - Zero means no errors.
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  500:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****         I2C_CharLCD_state = I2C_CharLCD_SM_IDLE;
  642              		.loc 1 500 0
  643 0012 084C     		ldr	r4, .L87+8
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 23
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 23
 
 
  499:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****         I2C_CharLCD_state = I2C_CharLCD_SM_IDLE;
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  678              		.thumb_func
  679              		.type	I2C_CharLCD_MasterWriteByte, %function
  680              	I2C_CharLCD_MasterWriteByte:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 24
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 24
 
 
  681              	.LFB5:
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  557:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****         I2C_CharLCD_DATA_REG = theByte;   /* Write DATA register */
  558:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****         I2C_CharLCD_TRANSMIT_DATA_MANUAL; /* Set transmit mode   */
  699              		.loc 1 558 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 25
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 25
 
 
  700 000c 0F4B     		ldr	r3, .L100+4
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  576:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****         else
  577:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****     #endif /* (I2C_CharLCD_MODE_MULTI_MASTER_ENABLED) */
  578:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 26
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 26
 
 
  579:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****         if(I2C_CharLCD_CHECK_DATA_ACK(I2C_CharLCD_CSR_REG))
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  768 004c D7490040 		.word	1073760727
  769 0050 D8490040 		.word	1073760728
  770 0054 00000000 		.word	I2C_CharLCD_state
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 27
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 27
 
 
  771              		.cfi_endproc
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  630:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****     if(I2C_CharLCD_CHECK_MASTER_MODE(I2C_CharLCD_MCSR_REG))
  788              		.loc 1 630 0
  789 0000 124B     		ldr	r3, .L114
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 28
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 28
 
 
  790 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  654:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****             I2C_CharLCD_ACK_AND_RECEIVE_MANUAL;
  655:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****         }
  656:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****         else              /* Do nothing for the follwong NACK */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 29
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 29
 
 
  657:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****         {
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  861 004a E6E7     		b	.L104
  862              	.L115:
  863              		.align	2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 30
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 30
 
 
  864              	.L114:
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  692:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** 
  693:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****     if (I2C_CharLCD_CHECK_SM_MASTER)
  890              		.loc 1 693 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 31
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 31
 
 
  891 0008 084B     		ldr	r3, .L121+8
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  703:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** 
  704:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** 
  705:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** /*******************************************************************************
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 32
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 32
 
 
  706:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** * Function Name: I2C_CharLCD_MasterClearStatus
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  736:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c ****     I2C_CharLCD_EnableInt(); /* Release lock */
  954              		.loc 1 736 0
  955 0012 41F8803C 		str	r3, [r1, #-128]
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 33
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 33
 
 
  737:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** 
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  982              		.loc 1 764 0
  983 0000 014B     		ldr	r3, .L128
  984 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 34
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 34
 
 
  765:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** }
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1012              	.L132:
  1013 0006 00BF     		.align	2
  1014              	.L131:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 35
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 35
 
 
  1015 0008 00000000 		.word	I2C_CharLCD_mstrWrBufIndex
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1038 0004 084C     		ldr	r4, .L135+4
  1039 0006 4FF40042 		mov	r2, #32768
  1040              		.loc 1 821 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 36
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 36
 
 
  1041 000a 0020     		movs	r0, #0
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  832:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** * Summary:
  833:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** *  Resets the write buffer pointer back to the first byte in the buffer.
  834:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** *
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 37
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 37
 
 
  835:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** * Parameters:
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1107 0016 03F0FD03 		and	r3, r3, #253
  1108 001a 0B70     		strb	r3, [r1]
  859:Generated_Source\PSoC5/I2C_CharLCD_MASTER.c **** }
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 38
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 38
 
 
  1109              		.loc 1 859 0
@@ -2259,10 +2259,10 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1143 0006 00000000 		.4byte	.Ldebug_abbrev0
  1144 000a 04       		.byte	0x4
  1145 000b 01       		.uleb128 0x1
- 1146 000c 6A010000 		.4byte	.LASF48
+ 1146 000c 3A010000 		.4byte	.LASF48
  1147 0010 01       		.byte	0x1
  1148 0011 00000000 		.4byte	.LASF49
- 1149 0015 1F010000 		.4byte	.LASF50
+ 1149 0015 C7030000 		.4byte	.LASF50
  1150 0019 00000000 		.4byte	.Ldebug_ranges0+0
  1151 001d 00000000 		.4byte	0
  1152 0021 00000000 		.4byte	.Ldebug_line0
@@ -2273,12 +2273,12 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1157 002c 02       		.uleb128 0x2
  1158 002d 01       		.byte	0x1
  1159 002e 08       		.byte	0x8
- 1160 002f 10020000 		.4byte	.LASF1
+ 1160 002f E0010000 		.4byte	.LASF1
  1161 0033 02       		.uleb128 0x2
  1162 0034 02       		.byte	0x2
  1163 0035 05       		.byte	0x5
- 1164 0036 C7030000 		.4byte	.LASF2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 39
+ 1164 0036 7C030000 		.4byte	.LASF2
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 39
 
 
  1165 003a 02       		.uleb128 0x2
@@ -2292,15 +2292,15 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1173 0048 02       		.uleb128 0x2
  1174 0049 04       		.byte	0x4
  1175 004a 07       		.byte	0x7
- 1176 004b 3F020000 		.4byte	.LASF5
+ 1176 004b 0F020000 		.4byte	.LASF5
  1177 004f 02       		.uleb128 0x2
  1178 0050 08       		.byte	0x8
  1179 0051 05       		.byte	0x5
- 1180 0052 B4030000 		.4byte	.LASF6
+ 1180 0052 69030000 		.4byte	.LASF6
  1181 0056 02       		.uleb128 0x2
  1182 0057 08       		.byte	0x8
  1183 0058 07       		.byte	0x7
- 1184 0059 0C030000 		.4byte	.LASF7
+ 1184 0059 C1020000 		.4byte	.LASF7
  1185 005d 03       		.uleb128 0x3
  1186 005e 04       		.byte	0x4
  1187 005f 05       		.byte	0x5
@@ -2310,19 +2310,19 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1191 0066 07       		.byte	0x7
  1192 0067 E9000000 		.4byte	.LASF8
  1193 006b 04       		.uleb128 0x4
- 1194 006c 51020000 		.4byte	.LASF9
+ 1194 006c 21020000 		.4byte	.LASF9
  1195 0070 02       		.byte	0x2
  1196 0071 5B       		.byte	0x5b
  1197 0072 2C000000 		.4byte	0x2c
  1198 0076 04       		.uleb128 0x4
- 1199 0077 F6020000 		.4byte	.LASF10
+ 1199 0077 AB020000 		.4byte	.LASF10
  1200 007b 02       		.byte	0x2
  1201 007c 5D       		.byte	0x5d
  1202 007d 48000000 		.4byte	0x48
  1203 0081 02       		.uleb128 0x2
  1204 0082 04       		.byte	0x4
  1205 0083 04       		.byte	0x4
- 1206 0084 F8010000 		.4byte	.LASF11
+ 1206 0084 C8010000 		.4byte	.LASF11
  1207 0088 02       		.uleb128 0x2
  1208 0089 08       		.byte	0x8
  1209 008a 04       		.byte	0x4
@@ -2330,15 +2330,15 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1211 008f 02       		.uleb128 0x2
  1212 0090 01       		.byte	0x1
  1213 0091 08       		.byte	0x8
- 1214 0092 C2030000 		.4byte	.LASF13
+ 1214 0092 77030000 		.4byte	.LASF13
  1215 0096 04       		.uleb128 0x4
- 1216 0097 3A020000 		.4byte	.LASF14
+ 1216 0097 0A020000 		.4byte	.LASF14
  1217 009b 02       		.byte	0x2
  1218 009c F0       		.byte	0xf0
  1219 009d A1000000 		.4byte	0xa1
  1220 00a1 05       		.uleb128 0x5
  1221 00a2 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 40
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 40
 
 
  1222 00a6 04       		.uleb128 0x4
@@ -2351,7 +2351,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1229 00b6 02       		.uleb128 0x2
  1230 00b7 04       		.byte	0x4
  1231 00b8 07       		.byte	0x7
- 1232 00b9 86030000 		.4byte	.LASF16
+ 1232 00b9 3B030000 		.4byte	.LASF16
  1233 00bd 06       		.uleb128 0x6
  1234 00be 04010000 		.4byte	.LASF20
  1235 00c2 01       		.byte	0x1
@@ -2363,13 +2363,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1241 00d1 9C       		.byte	0x9c
  1242 00d2 22010000 		.4byte	0x122
  1243 00d6 07       		.uleb128 0x7
- 1244 00d7 28030000 		.4byte	.LASF17
+ 1244 00d7 DD020000 		.4byte	.LASF17
  1245 00db 01       		.byte	0x1
  1246 00dc 50       		.byte	0x50
  1247 00dd 6B000000 		.4byte	0x6b
  1248 00e1 00000000 		.4byte	.LLST0
  1249 00e5 07       		.uleb128 0x7
- 1250 00e6 05030000 		.4byte	.LASF18
+ 1250 00e6 BA020000 		.4byte	.LASF18
  1251 00ea 01       		.byte	0x1
  1252 00eb 50       		.byte	0x50
  1253 00ec 22010000 		.4byte	0x122
@@ -2381,13 +2381,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1259 00fb 6B000000 		.4byte	0x6b
  1260 00ff 98000000 		.4byte	.LLST2
  1261 0103 07       		.uleb128 0x7
- 1262 0104 23030000 		.4byte	.LASF19
+ 1262 0104 D8020000 		.4byte	.LASF19
  1263 0108 01       		.byte	0x1
  1264 0109 50       		.byte	0x50
  1265 010a 6B000000 		.4byte	0x6b
  1266 010e D2000000 		.4byte	.LLST3
  1267 0112 09       		.uleb128 0x9
- 1268 0113 8F030000 		.4byte	.LASF23
+ 1268 0113 44030000 		.4byte	.LASF23
  1269 0117 01       		.byte	0x1
  1270 0118 53       		.byte	0x53
  1271 0119 6B000000 		.4byte	0x6b
@@ -2397,8 +2397,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1275 0123 04       		.byte	0x4
  1276 0124 6B000000 		.4byte	0x6b
  1277 0128 06       		.uleb128 0x6
- 1278 0129 35030000 		.4byte	.LASF21
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 41
+ 1278 0129 EA020000 		.4byte	.LASF21
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 41
 
 
  1279 012d 01       		.byte	0x1
@@ -2410,13 +2410,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1285 013c 9C       		.byte	0x9c
  1286 013d 8D010000 		.4byte	0x18d
  1287 0141 07       		.uleb128 0x7
- 1288 0142 28030000 		.4byte	.LASF17
+ 1288 0142 DD020000 		.4byte	.LASF17
  1289 0146 01       		.byte	0x1
  1290 0147 C4       		.byte	0xc4
  1291 0148 6B000000 		.4byte	0x6b
  1292 014c 6A010000 		.4byte	.LLST5
  1293 0150 07       		.uleb128 0x7
- 1294 0151 EF020000 		.4byte	.LASF22
+ 1294 0151 A4020000 		.4byte	.LASF22
  1295 0155 01       		.byte	0x1
  1296 0156 C4       		.byte	0xc4
  1297 0157 22010000 		.4byte	0x122
@@ -2428,20 +2428,20 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1303 0166 6B000000 		.4byte	0x6b
  1304 016a 02020000 		.4byte	.LLST7
  1305 016e 07       		.uleb128 0x7
- 1306 016f 23030000 		.4byte	.LASF19
+ 1306 016f D8020000 		.4byte	.LASF19
  1307 0173 01       		.byte	0x1
  1308 0174 C4       		.byte	0xc4
  1309 0175 6B000000 		.4byte	0x6b
  1310 0179 3C020000 		.4byte	.LLST8
  1311 017d 09       		.uleb128 0x9
- 1312 017e 8F030000 		.4byte	.LASF23
+ 1312 017e 44030000 		.4byte	.LASF23
  1313 0182 01       		.byte	0x1
  1314 0183 C7       		.byte	0xc7
  1315 0184 6B000000 		.4byte	0x6b
  1316 0188 85020000 		.4byte	.LLST9
  1317 018c 00       		.byte	0
  1318 018d 0B       		.uleb128 0xb
- 1319 018e 1E020000 		.4byte	.LASF24
+ 1319 018e EE010000 		.4byte	.LASF24
  1320 0192 01       		.byte	0x1
  1321 0193 2701     		.2byte	0x127
  1322 0195 6B000000 		.4byte	0x6b
@@ -2451,14 +2451,14 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1326 01a2 9C       		.byte	0x9c
  1327 01a3 D8010000 		.4byte	0x1d8
  1328 01a7 0C       		.uleb128 0xc
- 1329 01a8 28030000 		.4byte	.LASF17
+ 1329 01a8 DD020000 		.4byte	.LASF17
  1330 01ac 01       		.byte	0x1
  1331 01ad 2701     		.2byte	0x127
  1332 01af 6B000000 		.4byte	0x6b
  1333 01b3 D4020000 		.4byte	.LLST10
  1334 01b7 0C       		.uleb128 0xc
- 1335 01b8 EA020000 		.4byte	.LASF25
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 42
+ 1335 01b8 9F020000 		.4byte	.LASF25
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 42
 
 
  1336 01bc 01       		.byte	0x1
@@ -2466,14 +2466,14 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1338 01bf 6B000000 		.4byte	0x6b
  1339 01c3 3D030000 		.4byte	.LLST11
  1340 01c7 0D       		.uleb128 0xd
- 1341 01c8 8F030000 		.4byte	.LASF23
+ 1341 01c8 44030000 		.4byte	.LASF23
  1342 01cc 01       		.byte	0x1
  1343 01cd 2A01     		.2byte	0x12a
  1344 01cf 6B000000 		.4byte	0x6b
  1345 01d3 77030000 		.4byte	.LLST12
  1346 01d7 00       		.byte	0
  1347 01d8 0B       		.uleb128 0xb
- 1348 01d9 F4030000 		.4byte	.LASF26
+ 1348 01d9 A9030000 		.4byte	.LASF26
  1349 01dd 01       		.byte	0x1
  1350 01de 9401     		.2byte	0x194
  1351 01e0 6B000000 		.4byte	0x6b
@@ -2483,19 +2483,19 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1355 01ed 9C       		.byte	0x9c
  1356 01ee 23020000 		.4byte	0x223
  1357 01f2 0C       		.uleb128 0xc
- 1358 01f3 28030000 		.4byte	.LASF17
+ 1358 01f3 DD020000 		.4byte	.LASF17
  1359 01f7 01       		.byte	0x1
  1360 01f8 9401     		.2byte	0x194
  1361 01fa 6B000000 		.4byte	0x6b
  1362 01fe C5030000 		.4byte	.LLST13
  1363 0202 0C       		.uleb128 0xc
- 1364 0203 EA020000 		.4byte	.LASF25
+ 1364 0203 9F020000 		.4byte	.LASF25
  1365 0207 01       		.byte	0x1
  1366 0208 9401     		.2byte	0x194
  1367 020a 6B000000 		.4byte	0x6b
  1368 020e 15040000 		.4byte	.LLST14
  1369 0212 0D       		.uleb128 0xd
- 1370 0213 8F030000 		.4byte	.LASF23
+ 1370 0213 44030000 		.4byte	.LASF23
  1371 0217 01       		.byte	0x1
  1372 0218 9701     		.2byte	0x197
  1373 021a 6B000000 		.4byte	0x6b
@@ -2512,13 +2512,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1384 0238 9C       		.byte	0x9c
  1385 0239 4E020000 		.4byte	0x24e
  1386 023d 0D       		.uleb128 0xd
- 1387 023e 8F030000 		.4byte	.LASF23
+ 1387 023e 44030000 		.4byte	.LASF23
  1388 0242 01       		.byte	0x1
  1389 0243 EC01     		.2byte	0x1ec
  1390 0245 6B000000 		.4byte	0x6b
  1391 0249 A8040000 		.4byte	.LLST16
  1392 024d 00       		.byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 43
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 43
 
 
  1393 024e 0B       		.uleb128 0xb
@@ -2532,20 +2532,20 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1401 0263 9C       		.byte	0x9c
  1402 0264 89020000 		.4byte	0x289
  1403 0268 0C       		.uleb128 0xc
- 1404 0269 D1030000 		.4byte	.LASF29
+ 1404 0269 86030000 		.4byte	.LASF29
  1405 026d 01       		.byte	0x1
  1406 026e 2402     		.2byte	0x224
  1407 0270 6B000000 		.4byte	0x6b
  1408 0274 C7040000 		.4byte	.LLST17
  1409 0278 0D       		.uleb128 0xd
- 1410 0279 8F030000 		.4byte	.LASF23
+ 1410 0279 44030000 		.4byte	.LASF23
  1411 027d 01       		.byte	0x1
  1412 027e 2602     		.2byte	0x226
  1413 0280 6B000000 		.4byte	0x6b
  1414 0284 01050000 		.4byte	.LLST18
  1415 0288 00       		.byte	0
  1416 0289 0B       		.uleb128 0xb
- 1417 028a 99030000 		.4byte	.LASF30
+ 1417 028a 4E030000 		.4byte	.LASF30
  1418 028e 01       		.byte	0x1
  1419 028f 6F02     		.2byte	0x26f
  1420 0291 6B000000 		.4byte	0x6b
@@ -2555,13 +2555,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1424 029e 9C       		.byte	0x9c
  1425 029f C4020000 		.4byte	0x2c4
  1426 02a3 0C       		.uleb128 0xc
- 1427 02a4 FD020000 		.4byte	.LASF31
+ 1427 02a4 B2020000 		.4byte	.LASF31
  1428 02a8 01       		.byte	0x1
  1429 02a9 6F02     		.2byte	0x26f
  1430 02ab 6B000000 		.4byte	0x6b
  1431 02af 43050000 		.4byte	.LLST19
  1432 02b3 0D       		.uleb128 0xd
- 1433 02b4 D1030000 		.4byte	.LASF29
+ 1433 02b4 86030000 		.4byte	.LASF29
  1434 02b8 01       		.byte	0x1
  1435 02b9 7102     		.2byte	0x271
  1436 02bb 6B000000 		.4byte	0x6b
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1447 02d9 9C       		.byte	0x9c
  1448 02da ED020000 		.4byte	0x2ed
  1449 02de 0E       		.uleb128 0xe
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 44
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 44
 
 
  1450 02df FD000000 		.4byte	.LASF33
@@ -2589,7 +2589,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1455 02eb 50       		.byte	0x50
  1456 02ec 00       		.byte	0
  1457 02ed 0B       		.uleb128 0xb
- 1458 02ee 57020000 		.4byte	.LASF34
+ 1458 02ee 27020000 		.4byte	.LASF34
  1459 02f2 01       		.byte	0x1
  1460 02f3 D602     		.2byte	0x2d6
  1461 02f5 6B000000 		.4byte	0x6b
@@ -2607,7 +2607,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1473 0314 50       		.byte	0x50
  1474 0315 00       		.byte	0
  1475 0316 0F       		.uleb128 0xf
- 1476 0317 75020000 		.4byte	.LASF35
+ 1476 0317 45020000 		.4byte	.LASF35
  1477 031b 01       		.byte	0x1
  1478 031c FA02     		.2byte	0x2fa
  1479 031e 6B000000 		.4byte	0x6b
@@ -2625,7 +2625,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1491 0340 01       		.uleb128 0x1
  1492 0341 9C       		.byte	0x9c
  1493 0342 10       		.uleb128 0x10
- 1494 0343 67030000 		.4byte	.LASF37
+ 1494 0343 1C030000 		.4byte	.LASF37
  1495 0347 01       		.byte	0x1
  1496 0348 3103     		.2byte	0x331
  1497 034a 00000000 		.4byte	.LFB11
@@ -2633,18 +2633,18 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1499 0352 01       		.uleb128 0x1
  1500 0353 9C       		.byte	0x9c
  1501 0354 10       		.uleb128 0x10
- 1502 0355 B1020000 		.4byte	.LASF38
+ 1502 0355 66020000 		.4byte	.LASF38
  1503 0359 01       		.byte	0x1
  1504 035a 5303     		.2byte	0x353
  1505 035c 00000000 		.4byte	.LFB12
  1506 0360 34000000 		.4byte	.LFE12-.LFB12
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 45
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 45
 
 
  1507 0364 01       		.uleb128 0x1
  1508 0365 9C       		.byte	0x9c
  1509 0366 11       		.uleb128 0x11
- 1510 0367 FE010000 		.4byte	.LASF39
+ 1510 0367 CE010000 		.4byte	.LASF39
  1511 036b 03       		.byte	0x3
  1512 036c 23       		.byte	0x23
  1513 036d A1000000 		.4byte	0xa1
@@ -2657,7 +2657,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1520 037d 03       		.byte	0x3
  1521 037e 00000000 		.4byte	I2C_CharLCD_mstrStatus
  1522 0382 12       		.uleb128 0x12
- 1523 0383 4F030000 		.4byte	.LASF41
+ 1523 0383 04030000 		.4byte	.LASF41
  1524 0387 01       		.byte	0x1
  1525 0388 18       		.byte	0x18
  1526 0389 A1000000 		.4byte	0xa1
@@ -2684,7 +2684,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1547 03b6 03       		.byte	0x3
  1548 03b7 00000000 		.4byte	I2C_CharLCD_mstrRdBufSize
  1549 03bb 12       		.uleb128 0x12
- 1550 03bc 96020000 		.4byte	.LASF44
+ 1550 03bc 1F010000 		.4byte	.LASF44
  1551 03c0 01       		.byte	0x1
  1552 03c1 1D       		.byte	0x1d
  1553 03c2 A1000000 		.4byte	0xa1
@@ -2692,13 +2692,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1555 03c7 03       		.byte	0x3
  1556 03c8 00000000 		.4byte	I2C_CharLCD_mstrRdBufIndex
  1557 03cc 12       		.uleb128 0x12
- 1558 03cd D1020000 		.4byte	.LASF45
+ 1558 03cd 86020000 		.4byte	.LASF45
  1559 03d1 01       		.byte	0x1
  1560 03d2 20       		.byte	0x20
  1561 03d3 A4030000 		.4byte	0x3a4
  1562 03d7 05       		.uleb128 0x5
  1563 03d8 03       		.byte	0x3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 46
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 46
 
 
  1564 03d9 00000000 		.4byte	I2C_CharLCD_mstrWrBufPtr
@@ -2711,7 +2711,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1571 03e9 03       		.byte	0x3
  1572 03ea 00000000 		.4byte	I2C_CharLCD_mstrWrBufSize
  1573 03ee 12       		.uleb128 0x12
- 1574 03ef D9030000 		.4byte	.LASF47
+ 1574 03ef 8E030000 		.4byte	.LASF47
  1575 03f3 01       		.byte	0x1
  1576 03f4 22       		.byte	0x22
  1577 03f5 A1000000 		.4byte	0xa1
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1618 0022 0B       		.uleb128 0xb
  1619 0023 3E       		.uleb128 0x3e
  1620 0024 0B       		.uleb128 0xb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 47
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 47
 
 
  1621 0025 03       		.uleb128 0x3
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1675 005c 03       		.uleb128 0x3
  1676 005d 0E       		.uleb128 0xe
  1677 005e 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 48
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 48
 
 
  1678 005f 0B       		.uleb128 0xb
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1732 0095 0E       		.uleb128 0xe
  1733 0096 3A       		.uleb128 0x3a
  1734 0097 0B       		.uleb128 0xb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 49
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 49
 
 
  1735 0098 3B       		.uleb128 0x3b
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1789 00cf 0B       		.uleb128 0xb
  1790 00d0 3B       		.uleb128 0x3b
  1791 00d1 05       		.uleb128 0x5
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 50
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 50
 
 
  1792 00d2 49       		.uleb128 0x49
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1846 010a 11       		.uleb128 0x11
  1847 010b 34       		.uleb128 0x34
  1848 010c 00       		.byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 51
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 51
 
 
  1849 010d 03       		.uleb128 0x3
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1903 002f 01       		.uleb128 0x1
  1904 0030 50       		.byte	0x50
  1905 0031 9F       		.byte	0x9f
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 52
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 52
 
 
  1906 0032 1E000000 		.4byte	.LVL4
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  1960 00b1 8A000000 		.4byte	.LVL12
  1961 00b5 90000000 		.4byte	.LVL14
  1962 00b9 0100     		.2byte	0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 53
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 53
 
 
  1963 00bb 52       		.byte	0x52
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  2017 013d 9F       		.byte	0x9f
  2018 013e 2A000000 		.4byte	.LVL5
  2019 0142 8A000000 		.4byte	.LVL12
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 54
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 54
 
 
  2020 0146 0200     		.2byte	0x2
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  2074 01c4 C8000000 		.4byte	.LFE1
  2075 01c8 0400     		.2byte	0x4
  2076 01ca F3       		.byte	0xf3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 55
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 55
 
 
  2077 01cb 01       		.uleb128 0x1
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  2131 024b 6E000000 		.4byte	.LVL25
  2132 024f 0500     		.2byte	0x5
  2133 0251 03       		.byte	0x3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 56
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 56
 
 
  2134 0252 00000000 		.4byte	I2C_CharLCD_mstrControl
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  2188 02d4 00000000 		.4byte	.LVL30
  2189 02d8 0A000000 		.4byte	.LVL31
  2190 02dc 0100     		.2byte	0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 57
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 57
 
 
  2191 02de 50       		.byte	0x50
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  2245 035e 0100     		.2byte	0x1
  2246 0360 51       		.byte	0x51
  2247 0361 5A000000 		.4byte	.LVL41
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 58
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 58
 
 
  2248 0365 78000000 		.4byte	.LFE2
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  2302 03e8 50       		.byte	0x50
  2303 03e9 0E000000 		.4byte	.LVL47
  2304 03ed 12000000 		.4byte	.LVL48
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 59
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 59
 
 
  2305 03f1 0400     		.2byte	0x4
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  2359 0471 9F       		.byte	0x9f
  2360 0472 42000000 		.4byte	.LVL50
  2361 0476 44000000 		.4byte	.LVL51
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 60
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 60
 
 
  2362 047a 0100     		.2byte	0x1
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  2416 04fd 00000000 		.4byte	0
  2417              	.LLST18:
  2418 0501 00000000 		.4byte	.LVL58
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 61
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 61
 
 
  2419 0505 38000000 		.4byte	.LVL62
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  2473 0588 00000000 		.4byte	.LVL66
  2474 058c 2A000000 		.4byte	.LVL67
  2475 0590 0200     		.2byte	0x2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 62
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 62
 
 
  2476 0592 30       		.byte	0x30
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  2530 000c C8000000 		.4byte	.LFE1
  2531 0010 00000000 		.4byte	.LFB2
  2532 0014 78000000 		.4byte	.LFE2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 63
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 63
 
 
  2533 0018 00000000 		.4byte	.LFB3
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  2567      4D617374 
  2567      65724765 
  2568              	.LASF43:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 64
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 64
 
 
  2569 008a 4932435F 		.ascii	"I2C_CharLCD_mstrRdBufSize\000"
@@ -3821,192 +3821,192 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  2583      4C43445F 
  2583      4D617374 
  2583      65725772 
- 2584              	.LASF50:
- 2585 011f 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
- 2585      73657273 
- 2585      5C6D6772 
- 2585      6F6E6265 
- 2585      725C4465 
- 2586 014d 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
- 2586      436F6E74 
- 2586      696E756F 
- 2586      7573204F 
- 2586      75747075 
- 2587              	.LASF48:
- 2588 016a 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 2588      4320342E 
- 2588      392E3320 
- 2588      32303135 
- 2588      30333033 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 65
+ 2584              	.LASF44:
+ 2585 011f 4932435F 		.ascii	"I2C_CharLCD_mstrRdBufIndex\000"
+ 2585      43686172 
+ 2585      4C43445F 
+ 2585      6D737472 
+ 2585      52644275 
+ 2586              	.LASF48:
+ 2587 013a 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2587      4320342E 
+ 2587      392E3320 
+ 2587      32303135 
+ 2587      30333033 
+ 2588 016d 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 2588      20726576 
+ 2588      6973696F 
+ 2588      6E203232 
+ 2588      31323230 
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 65
 
 
- 2589 019d 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 2589      20726576 
- 2589      6973696F 
- 2589      6E203232 
- 2589      31323230 
- 2590 01d0 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
- 2590      66756E63 
- 2590      74696F6E 
- 2590      2D736563 
- 2590      74696F6E 
- 2591              	.LASF11:
- 2592 01f8 666C6F61 		.ascii	"float\000"
- 2592      7400
- 2593              	.LASF39:
- 2594 01fe 4932435F 		.ascii	"I2C_CharLCD_state\000"
- 2594      43686172 
- 2594      4C43445F 
- 2594      73746174 
- 2594      6500
- 2595              	.LASF1:
- 2596 0210 756E7369 		.ascii	"unsigned char\000"
- 2596      676E6564 
- 2596      20636861 
- 2596      7200
- 2597              	.LASF24:
- 2598 021e 4932435F 		.ascii	"I2C_CharLCD_MasterSendStart\000"
- 2598      43686172 
- 2598      4C43445F 
- 2598      4D617374 
- 2598      65725365 
- 2599              	.LASF14:
- 2600 023a 72656738 		.ascii	"reg8\000"
- 2600      00
- 2601              	.LASF5:
- 2602 023f 6C6F6E67 		.ascii	"long unsigned int\000"
- 2602      20756E73 
- 2602      69676E65 
- 2602      6420696E 
- 2602      7400
- 2603              	.LASF9:
- 2604 0251 75696E74 		.ascii	"uint8\000"
- 2604      3800
- 2605              	.LASF34:
- 2606 0257 4932435F 		.ascii	"I2C_CharLCD_MasterClearStatus\000"
- 2606      43686172 
- 2606      4C43445F 
- 2606      4D617374 
- 2606      6572436C 
- 2607              	.LASF35:
- 2608 0275 4932435F 		.ascii	"I2C_CharLCD_MasterGetReadBufSize\000"
- 2608      43686172 
- 2608      4C43445F 
- 2608      4D617374 
- 2608      65724765 
- 2609              	.LASF44:
- 2610 0296 4932435F 		.ascii	"I2C_CharLCD_mstrRdBufIndex\000"
- 2610      43686172 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 66
+ 2589 01a0 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 2589      66756E63 
+ 2589      74696F6E 
+ 2589      2D736563 
+ 2589      74696F6E 
+ 2590              	.LASF11:
+ 2591 01c8 666C6F61 		.ascii	"float\000"
+ 2591      7400
+ 2592              	.LASF39:
+ 2593 01ce 4932435F 		.ascii	"I2C_CharLCD_state\000"
+ 2593      43686172 
+ 2593      4C43445F 
+ 2593      73746174 
+ 2593      6500
+ 2594              	.LASF1:
+ 2595 01e0 756E7369 		.ascii	"unsigned char\000"
+ 2595      676E6564 
+ 2595      20636861 
+ 2595      7200
+ 2596              	.LASF24:
+ 2597 01ee 4932435F 		.ascii	"I2C_CharLCD_MasterSendStart\000"
+ 2597      43686172 
+ 2597      4C43445F 
+ 2597      4D617374 
+ 2597      65725365 
+ 2598              	.LASF14:
+ 2599 020a 72656738 		.ascii	"reg8\000"
+ 2599      00
+ 2600              	.LASF5:
+ 2601 020f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2601      20756E73 
+ 2601      69676E65 
+ 2601      6420696E 
+ 2601      7400
+ 2602              	.LASF9:
+ 2603 0221 75696E74 		.ascii	"uint8\000"
+ 2603      3800
+ 2604              	.LASF34:
+ 2605 0227 4932435F 		.ascii	"I2C_CharLCD_MasterClearStatus\000"
+ 2605      43686172 
+ 2605      4C43445F 
+ 2605      4D617374 
+ 2605      6572436C 
+ 2606              	.LASF35:
+ 2607 0245 4932435F 		.ascii	"I2C_CharLCD_MasterGetReadBufSize\000"
+ 2607      43686172 
+ 2607      4C43445F 
+ 2607      4D617374 
+ 2607      65724765 
+ 2608              	.LASF38:
+ 2609 0266 4932435F 		.ascii	"I2C_CharLCD_MasterClearWriteBuf\000"
+ 2609      43686172 
+ 2609      4C43445F 
+ 2609      4D617374 
+ 2609      6572436C 
+ 2610              	.LASF45:
+ 2611 0286 4932435F 		.ascii	"I2C_CharLCD_mstrWrBufPtr\000"
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 66
 
 
- 2610      4C43445F 
- 2610      6D737472 
- 2610      52644275 
- 2611              	.LASF38:
- 2612 02b1 4932435F 		.ascii	"I2C_CharLCD_MasterClearWriteBuf\000"
- 2612      43686172 
- 2612      4C43445F 
- 2612      4D617374 
- 2612      6572436C 
- 2613              	.LASF45:
- 2614 02d1 4932435F 		.ascii	"I2C_CharLCD_mstrWrBufPtr\000"
- 2614      43686172 
- 2614      4C43445F 
- 2614      6D737472 
- 2614      57724275 
- 2615              	.LASF25:
- 2616 02ea 525F6E57 		.ascii	"R_nW\000"
- 2616      00
- 2617              	.LASF22:
- 2618 02ef 72644461 		.ascii	"rdData\000"
- 2618      746100
- 2619              	.LASF10:
- 2620 02f6 75696E74 		.ascii	"uint32\000"
- 2620      333200
- 2621              	.LASF31:
- 2622 02fd 61636B6E 		.ascii	"acknNak\000"
- 2622      4E616B00 
- 2623              	.LASF18:
- 2624 0305 77724461 		.ascii	"wrData\000"
- 2624      746100
- 2625              	.LASF7:
- 2626 030c 6C6F6E67 		.ascii	"long long unsigned int\000"
- 2626      206C6F6E 
- 2626      6720756E 
- 2626      7369676E 
- 2626      65642069 
- 2627              	.LASF19:
- 2628 0323 6D6F6465 		.ascii	"mode\000"
- 2628      00
- 2629              	.LASF17:
- 2630 0328 736C6176 		.ascii	"slaveAddress\000"
- 2630      65416464 
- 2630      72657373 
- 2630      00
- 2631              	.LASF21:
- 2632 0335 4932435F 		.ascii	"I2C_CharLCD_MasterReadBuf\000"
- 2632      43686172 
- 2632      4C43445F 
- 2632      4D617374 
- 2632      65725265 
- 2633              	.LASF41:
- 2634 034f 4932435F 		.ascii	"I2C_CharLCD_mstrControl\000"
- 2634      43686172 
- 2634      4C43445F 
- 2634      6D737472 
- 2634      436F6E74 
- 2635              	.LASF37:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 67
+ 2611      43686172 
+ 2611      4C43445F 
+ 2611      6D737472 
+ 2611      57724275 
+ 2612              	.LASF25:
+ 2613 029f 525F6E57 		.ascii	"R_nW\000"
+ 2613      00
+ 2614              	.LASF22:
+ 2615 02a4 72644461 		.ascii	"rdData\000"
+ 2615      746100
+ 2616              	.LASF10:
+ 2617 02ab 75696E74 		.ascii	"uint32\000"
+ 2617      333200
+ 2618              	.LASF31:
+ 2619 02b2 61636B6E 		.ascii	"acknNak\000"
+ 2619      4E616B00 
+ 2620              	.LASF18:
+ 2621 02ba 77724461 		.ascii	"wrData\000"
+ 2621      746100
+ 2622              	.LASF7:
+ 2623 02c1 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2623      206C6F6E 
+ 2623      6720756E 
+ 2623      7369676E 
+ 2623      65642069 
+ 2624              	.LASF19:
+ 2625 02d8 6D6F6465 		.ascii	"mode\000"
+ 2625      00
+ 2626              	.LASF17:
+ 2627 02dd 736C6176 		.ascii	"slaveAddress\000"
+ 2627      65416464 
+ 2627      72657373 
+ 2627      00
+ 2628              	.LASF21:
+ 2629 02ea 4932435F 		.ascii	"I2C_CharLCD_MasterReadBuf\000"
+ 2629      43686172 
+ 2629      4C43445F 
+ 2629      4D617374 
+ 2629      65725265 
+ 2630              	.LASF41:
+ 2631 0304 4932435F 		.ascii	"I2C_CharLCD_mstrControl\000"
+ 2631      43686172 
+ 2631      4C43445F 
+ 2631      6D737472 
+ 2631      436F6E74 
+ 2632              	.LASF37:
+ 2633 031c 4932435F 		.ascii	"I2C_CharLCD_MasterClearReadBuf\000"
+ 2633      43686172 
+ 2633      4C43445F 
+ 2633      4D617374 
+ 2633      6572436C 
+ 2634              	.LASF16:
+ 2635 033b 73697A65 		.ascii	"sizetype\000"
+ 2635      74797065 
+ 2635      00
+ 2636              	.LASF23:
+ 2637 0344 65727253 		.ascii	"errStatus\000"
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 67
 
 
- 2636 0367 4932435F 		.ascii	"I2C_CharLCD_MasterClearReadBuf\000"
- 2636      43686172 
- 2636      4C43445F 
- 2636      4D617374 
- 2636      6572436C 
- 2637              	.LASF16:
- 2638 0386 73697A65 		.ascii	"sizetype\000"
- 2638      74797065 
- 2638      00
- 2639              	.LASF23:
- 2640 038f 65727253 		.ascii	"errStatus\000"
- 2640      74617475 
- 2640      7300
- 2641              	.LASF30:
- 2642 0399 4932435F 		.ascii	"I2C_CharLCD_MasterReadByte\000"
- 2642      43686172 
- 2642      4C43445F 
- 2642      4D617374 
- 2642      65725265 
- 2643              	.LASF6:
- 2644 03b4 6C6F6E67 		.ascii	"long long int\000"
- 2644      206C6F6E 
- 2644      6720696E 
- 2644      7400
- 2645              	.LASF13:
- 2646 03c2 63686172 		.ascii	"char\000"
- 2646      00
- 2647              	.LASF2:
- 2648 03c7 73686F72 		.ascii	"short int\000"
- 2648      7420696E 
- 2648      7400
- 2649              	.LASF29:
- 2650 03d1 74686542 		.ascii	"theByte\000"
- 2650      79746500 
- 2651              	.LASF47:
- 2652 03d9 4932435F 		.ascii	"I2C_CharLCD_mstrWrBufIndex\000"
- 2652      43686172 
- 2652      4C43445F 
- 2652      6D737472 
- 2652      57724275 
- 2653              	.LASF26:
- 2654 03f4 4932435F 		.ascii	"I2C_CharLCD_MasterSendRestart\000"
- 2654      43686172 
- 2654      4C43445F 
- 2654      4D617374 
- 2654      65725365 
+ 2637      74617475 
+ 2637      7300
+ 2638              	.LASF30:
+ 2639 034e 4932435F 		.ascii	"I2C_CharLCD_MasterReadByte\000"
+ 2639      43686172 
+ 2639      4C43445F 
+ 2639      4D617374 
+ 2639      65725265 
+ 2640              	.LASF6:
+ 2641 0369 6C6F6E67 		.ascii	"long long int\000"
+ 2641      206C6F6E 
+ 2641      6720696E 
+ 2641      7400
+ 2642              	.LASF13:
+ 2643 0377 63686172 		.ascii	"char\000"
+ 2643      00
+ 2644              	.LASF2:
+ 2645 037c 73686F72 		.ascii	"short int\000"
+ 2645      7420696E 
+ 2645      7400
+ 2646              	.LASF29:
+ 2647 0386 74686542 		.ascii	"theByte\000"
+ 2647      79746500 
+ 2648              	.LASF47:
+ 2649 038e 4932435F 		.ascii	"I2C_CharLCD_mstrWrBufIndex\000"
+ 2649      43686172 
+ 2649      4C43445F 
+ 2649      6D737472 
+ 2649      57724275 
+ 2650              	.LASF26:
+ 2651 03a9 4932435F 		.ascii	"I2C_CharLCD_MasterSendRestart\000"
+ 2651      43686172 
+ 2651      4C43445F 
+ 2651      4D617374 
+ 2651      65725365 
+ 2652              	.LASF50:
+ 2653 03c7 433A5C55 		.ascii	"C:\\Users\\anjmarqu\\Desktop\\Hummingbird\\Hummingb"
+ 2653      73657273 
+ 2653      5C616E6A 
+ 2653      6D617271 
+ 2653      755C4465 
+ 2654 03f5 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 2654      436F6E74 
+ 2654      696E756F 
+ 2654      7573204F 
+ 2654      75747075 
  2655              	.LASF40:
  2656 0412 4932435F 		.ascii	"I2C_CharLCD_mstrStatus\000"
  2656      43686172 
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 1
  2658      20696E74 
  2658      00
  2659              	.LASF0:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGSRcbj.s 			page 68
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccpBuZOz.s 			page 68
 
 
  2660 0432 7369676E 		.ascii	"signed char\000"

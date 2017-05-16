@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
   30:Generated_Source\PSoC5/cyPm.c **** 
   31:Generated_Source\PSoC5/cyPm.c **** static CY_PM_BACKUP_STRUCT          cyPmBackup;
   32:Generated_Source\PSoC5/cyPm.c **** static CY_PM_CLOCK_BACKUP_STRUCT    cyPmClockBackup;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 2
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 2
 
 
   33:Generated_Source\PSoC5/cyPm.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
   87:Generated_Source\PSoC5/cyPm.c **** 
   88:Generated_Source\PSoC5/cyPm.c ****     /* Save current flash wait cycles and set the maximum value */
   89:Generated_Source\PSoC5/cyPm.c ****     cyPmClockBackup.flashWaitCycles = CY_PM_CACHE_CR_CYCLES_MASK & CY_PM_CACHE_CR_REG;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 3
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 3
 
 
   90:Generated_Source\PSoC5/cyPm.c ****     CyFlash_SetWaitCycles(CY_PM_MAX_FLASH_WAIT_CYCLES);
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  144:Generated_Source\PSoC5/cyPm.c ****         cyPmClockBackup.pllEnableState = CY_PM_DISABLED;
  145:Generated_Source\PSoC5/cyPm.c ****     }
  146:Generated_Source\PSoC5/cyPm.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 4
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 4
 
 
  147:Generated_Source\PSoC5/cyPm.c ****     /* IMO - set appropriate frequency for LPM */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  201:Generated_Source\PSoC5/cyPm.c ****     /* Master clock - save divider and set it to divide-by-one (if no yet) */
  202:Generated_Source\PSoC5/cyPm.c ****     cyPmClockBackup.clkSyncDiv = CY_PM_CLKDIST_MSTR0_REG;
  203:Generated_Source\PSoC5/cyPm.c ****     if(CY_PM_DIV_BY_ONE != cyPmClockBackup.clkSyncDiv)
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 5
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 5
 
 
  204:Generated_Source\PSoC5/cyPm.c ****     {
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  258:Generated_Source\PSoC5/cyPm.c **** *
  259:Generated_Source\PSoC5/cyPm.c **** * Summary:
  260:Generated_Source\PSoC5/cyPm.c **** *  Restores any state that was preserved by the last call to CyPmSaveClocks().
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 6
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 6
 
 
  261:Generated_Source\PSoC5/cyPm.c **** *  The Flash wait state setting is also restored.
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  315:Generated_Source\PSoC5/cyPm.c ****         (void) CyXTAL_Start(CY_PM_XTAL_MHZ_NO_WAIT);
  316:Generated_Source\PSoC5/cyPm.c **** 
  317:Generated_Source\PSoC5/cyPm.c ****         /* Read XERR bit to clear it */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 7
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 7
 
 
  318:Generated_Source\PSoC5/cyPm.c ****         (void) CY_PM_FASTCLK_XMHZ_CSR_REG;
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  372:Generated_Source\PSoC5/cyPm.c ****     else
  373:Generated_Source\PSoC5/cyPm.c ****     {
  374:Generated_Source\PSoC5/cyPm.c ****         /* Restore IMO frequency */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 8
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 8
 
 
  375:Generated_Source\PSoC5/cyPm.c ****         CyIMO_SetFreq(cyPmImoFreqMhz2Reg[cyPmClockBackup.imoFreq]);
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  429:Generated_Source\PSoC5/cyPm.c **** 
  430:Generated_Source\PSoC5/cyPm.c ****         /* It should take 250 us lock: 251-80 = 171 */
  431:Generated_Source\PSoC5/cyPm.c ****         for(i = 171u; i > 0u; i--)
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 9
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 9
 
 
  432:Generated_Source\PSoC5/cyPm.c ****         {
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  486:Generated_Source\PSoC5/cyPm.c ****     CY_PM_CACHE_CR_REG = ((CY_PM_CACHE_CR_REG & ((uint8)(~CY_PM_CACHE_CR_CYCLES_MASK))) |
  487:Generated_Source\PSoC5/cyPm.c ****                            cyPmClockBackup.flashWaitCycles);
  488:Generated_Source\PSoC5/cyPm.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 10
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 10
 
 
  489:Generated_Source\PSoC5/cyPm.c ****     /* Digital and analog clocks - restore state */
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  543:Generated_Source\PSoC5/cyPm.c **** *  Sleep Timer component and one second interval should be configured with the
  544:Generated_Source\PSoC5/cyPm.c **** *  RTC component.
  545:Generated_Source\PSoC5/cyPm.c **** *
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 11
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 11
 
 
  546:Generated_Source\PSoC5/cyPm.c **** *  The wakeup behavior depends on the wakeupSource parameter in the following
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  600:Generated_Source\PSoC5/cyPm.c **** *  PM_ALT_ACT_SRC_PICU              PICU
  601:Generated_Source\PSoC5/cyPm.c **** *  PM_ALT_ACT_SRC_I2C               I2C
  602:Generated_Source\PSoC5/cyPm.c **** *  PM_ALT_ACT_SRC_BOOSTCONVERTER    Boost Converter
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 12
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 12
 
 
  603:Generated_Source\PSoC5/cyPm.c **** *  PM_ALT_ACT_SRC_FTW               Fast Timewheel*
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  657:Generated_Source\PSoC5/cyPm.c **** 
  658:Generated_Source\PSoC5/cyPm.c ****             /* Include associated timer to wakeupSource */
  659:Generated_Source\PSoC5/cyPm.c ****             wakeupSource |= PM_ALT_ACT_SRC_FTW;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 13
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 13
 
 
  660:Generated_Source\PSoC5/cyPm.c ****         }
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  714:Generated_Source\PSoC5/cyPm.c **** 
  715:Generated_Source\PSoC5/cyPm.c ****     /* Restore wake up configuration */
  716:Generated_Source\PSoC5/cyPm.c ****     CY_PM_WAKEUP_CFG0_REG = cyPmBackup.wakeupCfg0;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 14
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 14
 
 
  717:Generated_Source\PSoC5/cyPm.c ****     CY_PM_WAKEUP_CFG1_REG = cyPmBackup.wakeupCfg1;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  771:Generated_Source\PSoC5/cyPm.c **** *  PM_SLEEP_TIME_CTW_2MS            CTW: 2 ms
  772:Generated_Source\PSoC5/cyPm.c **** *  PM_SLEEP_TIME_CTW_4MS            CTW: 4 ms
  773:Generated_Source\PSoC5/cyPm.c **** *  PM_SLEEP_TIME_CTW_8MS            CTW: 8 ms
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 15
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 15
 
 
  774:Generated_Source\PSoC5/cyPm.c **** *  PM_SLEEP_TIME_CTW_16MS           CTW: 16 ms
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  828:Generated_Source\PSoC5/cyPm.c **** *  delay is measured using rising edges of the 1 kHz ILO.
  829:Generated_Source\PSoC5/cyPm.c **** *
  830:Generated_Source\PSoC5/cyPm.c **** *  For PSoC 3 silicon hardware buzz should be disabled before entering a sleep
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 16
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 16
 
 
  831:Generated_Source\PSoC5/cyPm.c **** *  power mode. It is disabled by PSoC Creator during startup.
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  885:Generated_Source\PSoC5/cyPm.c ****             /* Hardware buzz expected to be disabled in Sleep mode */
  886:Generated_Source\PSoC5/cyPm.c ****             CYASSERT(0u == (CY_PM_PWRSYS_WAKE_TR2_REG & CY_PM_PWRSYS_WAKE_TR2_EN_BUZZ));
  887:Generated_Source\PSoC5/cyPm.c ****         }
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 17
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 17
 
 
  888:Generated_Source\PSoC5/cyPm.c **** 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  942:Generated_Source\PSoC5/cyPm.c ****         {
  943:Generated_Source\PSoC5/cyPm.c ****             /* Save current and set new configuration of CTW */
  944:Generated_Source\PSoC5/cyPm.c ****             CyPmCtwSetInterval((uint8)(wakeupTime - 1u));
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 18
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 18
 
 
  945:Generated_Source\PSoC5/cyPm.c **** 
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  999:Generated_Source\PSoC5/cyPm.c ****         cyPmBackup.imoActFreq = CY_PM_FASTCLK_IMO_CR_REG & CY_PM_FASTCLK_IMO_CR_FREQ_MASK;
 1000:Generated_Source\PSoC5/cyPm.c **** 
 1001:Generated_Source\PSoC5/cyPm.c ****         /* Set IMO frequency to 12 MHz */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 19
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 19
 
 
 1002:Generated_Source\PSoC5/cyPm.c ****         CY_PM_FASTCLK_IMO_CR_REG &= ((uint8) (~CY_PM_FASTCLK_IMO_CR_FREQ_MASK));
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1056:Generated_Source\PSoC5/cyPm.c ****     #endif /* (CY_PSOC3) */
 1057:Generated_Source\PSoC5/cyPm.c **** 
 1058:Generated_Source\PSoC5/cyPm.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 20
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 20
 
 
 1059:Generated_Source\PSoC5/cyPm.c ****     /* Restore current wake up configuration */
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1113:Generated_Source\PSoC5/cyPm.c **** {
 1114:Generated_Source\PSoC5/cyPm.c ****     uint8 interruptState;
 1115:Generated_Source\PSoC5/cyPm.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 21
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 21
 
 
 1116:Generated_Source\PSoC5/cyPm.c ****     /* Save current global interrupt enable and disable it */
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1170:Generated_Source\PSoC5/cyPm.c ****     }
 1171:Generated_Source\PSoC5/cyPm.c **** 
 1172:Generated_Source\PSoC5/cyPm.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 22
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 22
 
 
 1173:Generated_Source\PSoC5/cyPm.c ****     /* Switch to Hibernate Mode */
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1227:Generated_Source\PSoC5/cyPm.c **** *
 1228:Generated_Source\PSoC5/cyPm.c **** * Parameters:
 1229:Generated_Source\PSoC5/cyPm.c **** *  mask: Bits in the shadow register to clear.
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 23
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 23
 
 
 1230:Generated_Source\PSoC5/cyPm.c **** *
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1284:Generated_Source\PSoC5/cyPm.c **** static void CyPmHibSaveSet(void) 
 1285:Generated_Source\PSoC5/cyPm.c **** {
 1286:Generated_Source\PSoC5/cyPm.c ****     /* I2C backup reg must be off when the sleep regulator is unavailable */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 24
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 24
 
 
 1287:Generated_Source\PSoC5/cyPm.c ****     if(0u != (CY_PM_PWRSYS_CR1_REG & CY_PM_PWRSYS_CR1_I2CREG_BACKUP))
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1341:Generated_Source\PSoC5/cyPm.c ****     CyPmHibSlpSaveSet();
 1342:Generated_Source\PSoC5/cyPm.c **** 
 1343:Generated_Source\PSoC5/cyPm.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 25
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 25
 
 
 1344:Generated_Source\PSoC5/cyPm.c ****     /***************************************************************************
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1398:Generated_Source\PSoC5/cyPm.c **** 
 1399:Generated_Source\PSoC5/cyPm.c **** 
 1400:Generated_Source\PSoC5/cyPm.c ****     if(CY_PM_DISABLED == cyPmBackup.slpTrBypass)
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 26
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 26
 
 
 1401:Generated_Source\PSoC5/cyPm.c ****     {
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1455:Generated_Source\PSoC5/cyPm.c ****     else
 1456:Generated_Source\PSoC5/cyPm.c ****     {
 1457:Generated_Source\PSoC5/cyPm.c ****         /* Set CTW interval if needed */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 27
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 27
 
 
 1458:Generated_Source\PSoC5/cyPm.c ****         if(CY_PM_TW_CFG1_REG != ctwInterval)
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1512:Generated_Source\PSoC5/cyPm.c **** *  - Sets a new FTW interval.
 1513:Generated_Source\PSoC5/cyPm.c **** *
 1514:Generated_Source\PSoC5/cyPm.c **** * Parameters:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 28
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 28
 
 
 1515:Generated_Source\PSoC5/cyPm.c **** *  ftwInterval - FTW counter interval.
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1569:Generated_Source\PSoC5/cyPm.c **** *  - Saves the boost reference selection and sets it to internal
 1570:Generated_Source\PSoC5/cyPm.c **** *
 1571:Generated_Source\PSoC5/cyPm.c **** * Parameters:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 29
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 29
 
 
 1572:Generated_Source\PSoC5/cyPm.c **** *  None
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
   56              		.loc 1 1590 0
   57 0020 0430     		adds	r0, r0, #4
 1586:Generated_Source\PSoC5/cyPm.c ****     cyPmBackup.scctData[3u]   = CY_GET_REG8(CYREG_SC0_SW4 );
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 30
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 30
 
 
   58              		.loc 1 1586 0
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
   86              		.loc 1 1594 0
   87 004c 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
 1587:Generated_Source\PSoC5/cyPm.c ****     cyPmBackup.scctData[4u]   = CY_GET_REG8(CYREG_SC0_SW6 );
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 31
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 31
 
 
   88              		.loc 1 1587 0
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  117 006e 83F811B0 		strb	fp, [r3, #17]
 1601:Generated_Source\PSoC5/cyPm.c ****     cyPmBackup.scctData[16u]  = CY_GET_REG8(CYREG_SC2_SW3 );
  118              		.loc 1 1601 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 32
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 32
 
 
  119 0072 97F818B0 		ldrb	fp, [r7, #24]	@ zero_extendqisi2
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1611:Generated_Source\PSoC5/cyPm.c ****     cyPmBackup.scctData[25u]  = CY_GET_REG8(CYREG_SC3_SW6 );
  156              		.loc 1 1611 0
  157 00a4 3D4D     		ldr	r5, .L7+56
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 33
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 33
 
 
 1606:Generated_Source\PSoC5/cyPm.c **** 
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1614:Generated_Source\PSoC5/cyPm.c **** 
  194              		.loc 1 1614 0
  195 00da 91F800B0 		ldrb	fp, [r1]	@ zero_extendqisi2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 34
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 34
 
 
 1613:Generated_Source\PSoC5/cyPm.c ****     cyPmBackup.scctData[27u]  = CY_GET_REG8(CYREG_SC3_SW10);
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1665:Generated_Source\PSoC5/cyPm.c **** 
 1666:Generated_Source\PSoC5/cyPm.c ****             /* Disable SWV clocks */
 1667:Generated_Source\PSoC5/cyPm.c ****             CY_PM_MLOGIC_DBG_REG &= ((uint8)(~CY_PM_MLOGIC_DBG_SWV_CLK_EN));
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 35
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 35
 
 
 1668:Generated_Source\PSoC5/cyPm.c ****         }
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  230              		.loc 1 1630 0
  231 0112 3A74     		strb	r2, [r7, #16]
 1632:Generated_Source\PSoC5/cyPm.c ****     CY_SET_REG8(CYREG_SC2_SW2 , 0u);
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 36
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 36
 
 
  232              		.loc 1 1632 0
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  266 0144 83F82E10 		strb	r1, [r3, #46]
  267 0148 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
  268              	.L6:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 37
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 37
 
 
 1685:Generated_Source\PSoC5/cyPm.c ****     }
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1692:Generated_Source\PSoC5/cyPm.c **** 
 1693:Generated_Source\PSoC5/cyPm.c **** 
 1694:Generated_Source\PSoC5/cyPm.c **** /*******************************************************************************
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 38
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 38
 
 
 1695:Generated_Source\PSoC5/cyPm.c **** * Function Name: CyPmHibSlpRestore
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  345              		.loc 1 1720 0
  346 001c 93F80E90 		ldrb	r9, [r3, #14]	@ zero_extendqisi2
 1721:Generated_Source\PSoC5/cyPm.c ****     CY_SET_REG8(CYREG_SC0_SW10, cyPmBackup.scctData[6u] );
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 39
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 39
 
 
  347              		.loc 1 1721 0
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1729:Generated_Source\PSoC5/cyPm.c ****     CY_SET_REG8(CYREG_SC1_SW10, cyPmBackup.scctData[13u]);
  383              		.loc 1 1729 0
  384 005c 93F81680 		ldrb	r8, [r3, #22]	@ zero_extendqisi2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 40
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 40
 
 
 1723:Generated_Source\PSoC5/cyPm.c ****     CY_SET_REG8(CYREG_SC1_SW2 , cyPmBackup.scctData[8u] );
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1738:Generated_Source\PSoC5/cyPm.c **** 
 1739:Generated_Source\PSoC5/cyPm.c ****     CY_SET_REG8(CYREG_SC3_SW0 , cyPmBackup.scctData[21u]);
  421              		.loc 1 1739 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 41
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 41
 
 
  422 009a 93F81EB0 		ldrb	fp, [r3, #30]	@ zero_extendqisi2
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  445              		.loc 1 1739 0
  446 00ca DFF868A0 		ldr	r10, .L12+48
 1740:Generated_Source\PSoC5/cyPm.c ****     CY_SET_REG8(CYREG_SC3_SW3 , cyPmBackup.scctData[23u]);
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 42
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 42
 
 
  447              		.loc 1 1740 0
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  488 0110 035A0040 		.word	1073764867
  489 0114 045A0040 		.word	1073764868
  490 0118 065A0040 		.word	1073764870
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 43
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 43
 
 
  491 011c 085A0040 		.word	1073764872
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  536              		.loc 1 86 0
  537 0014 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
  538 0016 1C70     		strb	r4, [r3]
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 44
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 44
 
 
   89:Generated_Source\PSoC5/cyPm.c ****     CyFlash_SetWaitCycles(CY_PM_MAX_FLASH_WAIT_CYCLES);
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  576 0058 002B     		cmp	r3, #0
  577 005a 75D0     		beq	.L15
  100:Generated_Source\PSoC5/cyPm.c ****     }
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 45
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 45
 
 
  578              		.loc 1 100 0
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  622 00ae 48D0     		beq	.L26
  173:Generated_Source\PSoC5/cyPm.c **** 
  623              		.loc 1 173 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 46
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 46
 
 
  624 00b0 4FF04023 		mov	r3, #1073758208
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  668 00fe 34D1     		bne	.L61
  669              	.L32:
  215:Generated_Source\PSoC5/cyPm.c ****     cyPmClockBackup.clkBusDiv |= CY_PM_CLK_BUS_LSB_DIV_REG;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 47
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 47
 
 
  670              		.loc 1 215 0
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  712              		.loc 1 181 0
  713 0142 84F83720 		strb	r2, [r4, #55]
  714 0146 C0E7     		b	.L28
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 48
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 48
 
 
  715              	.L15:
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  759 0182 84F83620 		strb	r2, [r4, #54]
  162:Generated_Source\PSoC5/cyPm.c **** 
  760              		.loc 1 162 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 49
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 49
 
 
  761 0186 FFF7FEFF 		bl	CyIMO_Start
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  805 01c8 54E7     		b	.L17
  806              	.L65:
  129:Generated_Source\PSoC5/cyPm.c ****             break;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 50
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 50
 
 
  807              		.loc 1 129 0 discriminator 1
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  857 0006 824D     		ldr	r5, .L111+4
  290:Generated_Source\PSoC5/cyPm.c ****         CY_IMO_FREQ_12MHZ, CY_IMO_FREQ_6MHZ,  CY_IMO_FREQ_24MHZ, CY_IMO_FREQ_3MHZ,
  858              		.loc 1 290 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 51
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 51
 
 
  859 0008 3346     		mov	r3, r6
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  900              		.loc 1 367 0
  901 0052 02AA     		add	r2, sp, #8
  902 0054 1344     		add	r3, r3, r2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 52
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 52
 
 
  903 0056 13F8080C 		ldrb	r0, [r3, #-8]	@ zero_extendqisi2
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  945 00a0 02F03002 		and	r2, r2, #48
  946 00a4 9A42     		cmp	r2, r3
  947 00a6 04D0     		beq	.L82
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 53
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 53
 
 
  407:Generated_Source\PSoC5/cyPm.c ****                                 cyPmClockBackup.clkImoSrc;
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  482:Generated_Source\PSoC5/cyPm.c ****     }
  991              		.loc 1 482 0
  992 00e6 FFF7FEFF 		bl	CyBusClk_SetDivider
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 54
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 54
 
 
  993              	.LVL23:
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  1035              		.loc 1 461 0
  1036 0126 424A     		ldr	r2, .L111+36
  1037 0128 94F83A30 		ldrb	r3, [r4, #58]	@ zero_extendqisi2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 55
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 55
 
 
  1038 012c 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  1083              		.loc 1 298 0
  1084 0172 F05C     		ldrb	r0, [r6, r3]	@ zero_extendqisi2
  1085 0174 00EB8000 		add	r0, r0, r0, lsl #2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 56
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 56
 
 
  1086 0178 C0EB0010 		rsb	r0, r0, r0, lsl #4
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  1130              		.loc 1 321 0 discriminator 2
  1131 01ca 002C     		cmp	r4, #0
  1132 01cc ECD1     		bne	.L74
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 57
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 57
 
 
  1133 01ce 30E7     		b	.L73
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  1176 0206 FFF7FEFF 		bl	CyIMO_SetFreq
  1177              	.LVL42:
  1178 020a 38E7     		b	.L78
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 58
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 58
 
 
  1179              	.L112:
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  688:Generated_Source\PSoC5/cyPm.c ****     CY_PM_WAKEUP_CFG0_REG = (uint8) (wakeupSource >> 4u);
  1229              		.loc 1 688 0 is_stmt 1
  1230 000c 154D     		ldr	r5, .L119
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 59
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 59
 
 
  689:Generated_Source\PSoC5/cyPm.c **** 
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  1267              		.loc 1 696 0
  1268 0046 9F71     		strb	r7, [r3, #6]
  704:Generated_Source\PSoC5/cyPm.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 60
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 60
 
 
  1269              		.loc 1 704 0
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  1314              		.thumb
  1315              		.thumb_func
  1316              		.type	CyPmSleep, %function
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 61
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 61
 
 
  1317              	CyPmSleep:
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  1362 0030 C4F30710 		ubfx	r0, r4, #4, #8
  970:Generated_Source\PSoC5/cyPm.c ****     CY_PM_WAKEUP_CFG1_REG = (((uint8) wakeupSource) & CY_PM_WAKEUP_SRC_CMPS_MASK);
  1363              		.loc 1 970 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 62
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 62
 
 
  1364 0034 2C4B     		ldr	r3, .L135+12
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  1400              		.loc 1 1002 0
  1401 0060 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
  999:Generated_Source\PSoC5/cyPm.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 63
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 63
 
 
  1402              		.loc 1 999 0
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  1444              		.loc 1 1023 0
  1445 0096 1649     		ldr	r1, .L135+20
  1446 0098 92F82C20 		ldrb	r2, [r2, #44]	@ zero_extendqisi2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 64
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 64
 
 
  1447 009c 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  1488              	.LVL51:
  1489              	.L134:
  1490              		.cfi_restore_state
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 65
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 65
 
 
  991:Generated_Source\PSoC5/cyPm.c ****     }
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  1540 0008 904B     		ldr	r3, .L177
  1541 000a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  1542 000c 1D07     		lsls	r5, r3, #28
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 66
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 66
 
 
  1543              	.LVL54:
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  1585 0040 3378     		ldrb	r3, [r6]	@ zero_extendqisi2
 1314:Generated_Source\PSoC5/cyPm.c **** 
  1586              		.loc 1 1314 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 67
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 67
 
 
  1587 0042 C2F38002 		ubfx	r2, r2, #2, #1
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1792:Generated_Source\PSoC5/cyPm.c ****     {
 1793:Generated_Source\PSoC5/cyPm.c ****         cyPmBackup.lvidEn = CY_PM_ENABLED;
 1794:Generated_Source\PSoC5/cyPm.c ****         cyPmBackup.lvidTrip = CY_VD_LVI_TRIP_REG & CY_VD_LVI_TRIP_LVID_MASK;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 68
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 68
 
 
 1795:Generated_Source\PSoC5/cyPm.c **** 
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1829:Generated_Source\PSoC5/cyPm.c ****     {
 1830:Generated_Source\PSoC5/cyPm.c ****         cyPmBackup.hviaEn = CY_PM_DISABLED;
  1631              		.loc 1 1830 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 69
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 69
 
 
  1632 0098 84F82920 		strb	r2, [r4, #41]
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  1674              	.LBE29:
 1144:Generated_Source\PSoC5/cyPm.c ****     CY_PM_WAKEUP_CFG0_REG = CY_PM_WAKEUP_PICU;
  1675              		.loc 1 1144 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 70
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 70
 
 
  1676 00be 93F80080 		ldrb	r8, [r3]	@ zero_extendqisi2
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1150:Generated_Source\PSoC5/cyPm.c ****     CY_PM_WAKEUP_CFG2_REG = 0x00u;
  1715              		.loc 1 1150 0
  1716 00ea A671     		strb	r6, [r4, #6]
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 71
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 71
 
 
 1155:Generated_Source\PSoC5/cyPm.c ****     {
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  1762              	.LBB34:
  1763              	.LBB35:
 1831:Generated_Source\PSoC5/cyPm.c ****     }
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 72
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 72
 
 
 1832:Generated_Source\PSoC5/cyPm.c **** }
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  1783              		.loc 1 1380 0
  1784 0142 FFF7FEFF 		bl	CyPmHibSlpRestore
  1785              	.LVL57:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 73
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 73
 
 
 1383:Generated_Source\PSoC5/cyPm.c ****     {
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1410:Generated_Source\PSoC5/cyPm.c ****     CY_PM_PWRSYS_WAKE_TR1_REG = cyPmBackup.wakeupTrim1;
  1829              		.loc 1 1410 0
  1830 0178 DFF8E890 		ldr	r9, .L177+24
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 74
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 74
 
 
 1411:Generated_Source\PSoC5/cyPm.c **** }
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  1874              	.LBB24:
 1322:Generated_Source\PSoC5/cyPm.c ****     }
  1875              		.loc 1 1322 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 75
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 75
 
 
  1876 019e 3378     		ldrb	r3, [r6]	@ zero_extendqisi2
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  1916              	.LBE16:
  1917              	.LBE24:
  1918              	.LBE47:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 76
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 76
 
 
 1166:Generated_Source\PSoC5/cyPm.c **** 
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1809:Generated_Source\PSoC5/cyPm.c ****         cyPmBackup.lviaTrip = CY_VD_LVI_TRIP_REG >> 4u;
  1957              		.loc 1 1809 0
  1958 0206 84F82710 		strb	r1, [r4, #39]
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 77
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 77
 
 
 1816:Generated_Source\PSoC5/cyPm.c ****     }
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2005              	.L172:
 1857:Generated_Source\PSoC5/cyPm.c ****     }
  2006              		.loc 1 1857 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 78
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 78
 
 
  2007 023c 92F82A00 		ldrb	r0, [r2, #42]	@ zero_extendqisi2
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2058 0004 FFF7FEFF 		bl	CyEnterCriticalSection
  2059              	.LVL69:
 1250:Generated_Source\PSoC5/cyPm.c ****     tmpStatus = interruptStatus;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 79
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 79
 
 
  2060              		.loc 1 1250 0
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1438:Generated_Source\PSoC5/cyPm.c **** 
  2108              		.loc 1 1438 0
  2109 0006 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 80
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 80
 
 
  2110 0008 03F0F703 		and	r3, r3, #247
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2154 004c 82430040 		.word	1073759106
  2155 0050 81430040 		.word	1073759105
  2156              		.cfi_endproc
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 81
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 81
 
 
  2157              	.LFE8:
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2206              		.thumb_func
  2207              		.type	CyPmFtwSetInterval, %function
  2208              	CyPmFtwSetInterval:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 82
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 82
 
 
  2209              	.LFB10:
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
 1547:Generated_Source\PSoC5/cyPm.c ****         {
  2253              		.loc 1 1547 0
  2254 0034 064B     		ldr	r3, .L200+4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 83
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 83
 
 
  2255 0036 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2304      00000000 
  2304      00000000 
  2304      00000000 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 84
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 84
 
 
  2305 002f 00       		.space	1
@@ -5007,10 +5007,10 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2324 0006 00000000 		.4byte	.Ldebug_abbrev0
  2325 000a 04       		.byte	0x4
  2326 000b 01       		.uleb128 0x1
- 2327 000c BF030000 		.4byte	.LASF113
+ 2327 000c 74030000 		.4byte	.LASF113
  2328 0010 01       		.byte	0x1
- 2329 0011 35030000 		.4byte	.LASF114
- 2330 0015 3F010000 		.4byte	.LASF115
+ 2329 0011 EA020000 		.4byte	.LASF114
+ 2330 0015 A6060000 		.4byte	.LASF115
  2331 0019 C0000000 		.4byte	.Ldebug_ranges0+0xc0
  2332 001d 00000000 		.4byte	0
  2333 0021 00000000 		.4byte	.Ldebug_line0
@@ -5021,24 +5021,24 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2338 002c 02       		.uleb128 0x2
  2339 002d 01       		.byte	0x1
  2340 002e 08       		.byte	0x8
- 2341 002f 23050000 		.4byte	.LASF1
+ 2341 002f E3040000 		.4byte	.LASF1
  2342 0033 02       		.uleb128 0x2
  2343 0034 02       		.byte	0x2
  2344 0035 05       		.byte	0x5
- 2345 0036 5C050000 		.4byte	.LASF2
+ 2345 0036 1C050000 		.4byte	.LASF2
  2346 003a 02       		.uleb128 0x2
  2347 003b 02       		.byte	0x2
  2348 003c 07       		.byte	0x7
- 2349 003d EC020000 		.4byte	.LASF3
+ 2349 003d A1020000 		.4byte	.LASF3
  2350 0041 02       		.uleb128 0x2
  2351 0042 04       		.byte	0x4
  2352 0043 05       		.byte	0x5
- 2353 0044 B7010000 		.4byte	.LASF4
+ 2353 0044 6C010000 		.4byte	.LASF4
  2354 0048 02       		.uleb128 0x2
  2355 0049 04       		.byte	0x4
  2356 004a 07       		.byte	0x7
- 2357 004b 5D020000 		.4byte	.LASF5
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 85
+ 2357 004b 12020000 		.4byte	.LASF5
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 85
 
 
  2358 004f 02       		.uleb128 0x2
@@ -5056,9 +5056,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2370 0064 02       		.uleb128 0x2
  2371 0065 04       		.byte	0x4
  2372 0066 07       		.byte	0x7
- 2373 0067 2F020000 		.4byte	.LASF8
+ 2373 0067 E4010000 		.4byte	.LASF8
  2374 006b 04       		.uleb128 0x4
- 2375 006c D2010000 		.4byte	.LASF9
+ 2375 006c 87010000 		.4byte	.LASF9
  2376 0070 02       		.byte	0x2
  2377 0071 5B       		.byte	0x5b
  2378 0072 2C000000 		.4byte	0x2c
@@ -5068,29 +5068,29 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2382 007c 5C       		.byte	0x5c
  2383 007d 3A000000 		.4byte	0x3a
  2384 0081 04       		.uleb128 0x4
- 2385 0082 F9010000 		.4byte	.LASF11
+ 2385 0082 AE010000 		.4byte	.LASF11
  2386 0086 02       		.byte	0x2
  2387 0087 5D       		.byte	0x5d
  2388 0088 48000000 		.4byte	0x48
  2389 008c 02       		.uleb128 0x2
  2390 008d 04       		.byte	0x4
  2391 008e 04       		.byte	0x4
- 2392 008f C4040000 		.4byte	.LASF12
+ 2392 008f 84040000 		.4byte	.LASF12
  2393 0093 02       		.uleb128 0x2
  2394 0094 08       		.byte	0x8
  2395 0095 04       		.byte	0x4
- 2396 0096 F2010000 		.4byte	.LASF13
+ 2396 0096 A7010000 		.4byte	.LASF13
  2397 009a 02       		.uleb128 0x2
  2398 009b 01       		.byte	0x1
  2399 009c 08       		.byte	0x8
- 2400 009d 86050000 		.4byte	.LASF14
+ 2400 009d 46050000 		.4byte	.LASF14
  2401 00a1 04       		.uleb128 0x4
- 2402 00a2 A6060000 		.4byte	.LASF15
+ 2402 00a2 66060000 		.4byte	.LASF15
  2403 00a6 02       		.byte	0x2
  2404 00a7 E8       		.byte	0xe8
  2405 00a8 48000000 		.4byte	0x48
  2406 00ac 04       		.uleb128 0x4
- 2407 00ad 0B050000 		.4byte	.LASF16
+ 2407 00ad CB040000 		.4byte	.LASF16
  2408 00b1 02       		.byte	0x2
  2409 00b2 F0       		.byte	0xf0
  2410 00b3 B7000000 		.4byte	0xb7
@@ -5098,25 +5098,25 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2412 00b8 6B000000 		.4byte	0x6b
  2413 00bc 02       		.uleb128 0x2
  2414 00bd 04       		.byte	0x4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 86
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 86
 
 
  2415 00be 07       		.byte	0x7
- 2416 00bf 4D040000 		.4byte	.LASF17
+ 2416 00bf 0D040000 		.4byte	.LASF17
  2417 00c3 06       		.uleb128 0x6
- 2418 00c4 76020000 		.4byte	.LASF34
+ 2418 00c4 2B020000 		.4byte	.LASF34
  2419 00c8 12       		.byte	0x12
  2420 00c9 03       		.byte	0x3
  2421 00ca F1       		.byte	0xf1
  2422 00cb 87010000 		.4byte	0x187
  2423 00cf 07       		.uleb128 0x7
- 2424 00d0 69040000 		.4byte	.LASF18
+ 2424 00d0 29040000 		.4byte	.LASF18
  2425 00d4 03       		.byte	0x3
  2426 00d5 F4       		.byte	0xf4
  2427 00d6 6B000000 		.4byte	0x6b
  2428 00da 00       		.byte	0
  2429 00db 07       		.uleb128 0x7
- 2430 00dc 70040000 		.4byte	.LASF19
+ 2430 00dc 30040000 		.4byte	.LASF19
  2431 00e0 03       		.byte	0x3
  2432 00e1 F5       		.byte	0xf5
  2433 00e2 6B000000 		.4byte	0x6b
@@ -5128,7 +5128,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2439 00ee 6B000000 		.4byte	0x6b
  2440 00f2 02       		.byte	0x2
  2441 00f3 07       		.uleb128 0x7
- 2442 00f4 55020000 		.4byte	.LASF21
+ 2442 00f4 0A020000 		.4byte	.LASF21
  2443 00f8 03       		.byte	0x3
  2444 00f9 F7       		.byte	0xf7
  2445 00fa 6B000000 		.4byte	0x6b
@@ -5140,7 +5140,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2451 0106 6B000000 		.4byte	0x6b
  2452 010a 04       		.byte	0x4
  2453 010b 07       		.uleb128 0x7
- 2454 010c AF060000 		.4byte	.LASF23
+ 2454 010c 6F060000 		.4byte	.LASF23
  2455 0110 03       		.byte	0x3
  2456 0111 F9       		.byte	0xf9
  2457 0112 6B000000 		.4byte	0x6b
@@ -5152,22 +5152,22 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2463 011e 6B000000 		.4byte	0x6b
  2464 0122 06       		.byte	0x6
  2465 0123 07       		.uleb128 0x7
- 2466 0124 BA040000 		.4byte	.LASF25
+ 2466 0124 7A040000 		.4byte	.LASF25
  2467 0128 03       		.byte	0x3
  2468 0129 FB       		.byte	0xfb
  2469 012a 6B000000 		.4byte	0x6b
  2470 012e 07       		.byte	0x7
  2471 012f 07       		.uleb128 0x7
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 87
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 87
 
 
- 2472 0130 8D030000 		.4byte	.LASF26
+ 2472 0130 42030000 		.4byte	.LASF26
  2473 0134 03       		.byte	0x3
  2474 0135 FC       		.byte	0xfc
  2475 0136 6B000000 		.4byte	0x6b
  2476 013a 08       		.byte	0x8
  2477 013b 07       		.uleb128 0x7
- 2478 013c B1010000 		.4byte	.LASF27
+ 2478 013c 66010000 		.4byte	.LASF27
  2479 0140 03       		.byte	0x3
  2480 0141 FD       		.byte	0xfd
  2481 0142 6B000000 		.4byte	0x6b
@@ -5179,37 +5179,37 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2487 014e 6B000000 		.4byte	0x6b
  2488 0152 0A       		.byte	0xa
  2489 0153 07       		.uleb128 0x7
- 2490 0154 8A010000 		.4byte	.LASF29
+ 2490 0154 3F010000 		.4byte	.LASF29
  2491 0158 03       		.byte	0x3
  2492 0159 FF       		.byte	0xff
  2493 015a 76000000 		.4byte	0x76
  2494 015e 0C       		.byte	0xc
  2495 015f 08       		.uleb128 0x8
- 2496 0160 41050000 		.4byte	.LASF30
+ 2496 0160 01050000 		.4byte	.LASF30
  2497 0164 03       		.byte	0x3
  2498 0165 0001     		.2byte	0x100
  2499 0167 6B000000 		.4byte	0x6b
  2500 016b 0E       		.byte	0xe
  2501 016c 08       		.uleb128 0x8
- 2502 016d 00020000 		.4byte	.LASF31
+ 2502 016d B5010000 		.4byte	.LASF31
  2503 0171 03       		.byte	0x3
  2504 0172 0101     		.2byte	0x101
  2505 0174 6B000000 		.4byte	0x6b
  2506 0178 0F       		.byte	0xf
  2507 0179 08       		.uleb128 0x8
- 2508 017a 29060000 		.4byte	.LASF32
+ 2508 017a E9050000 		.4byte	.LASF32
  2509 017e 03       		.byte	0x3
  2510 017f 0201     		.2byte	0x102
  2511 0181 6B000000 		.4byte	0x6b
  2512 0185 10       		.byte	0x10
  2513 0186 00       		.byte	0
  2514 0187 09       		.uleb128 0x9
- 2515 0188 D2020000 		.4byte	.LASF33
+ 2515 0188 87020000 		.4byte	.LASF33
  2516 018c 03       		.byte	0x3
  2517 018d 0401     		.2byte	0x104
  2518 018f C3000000 		.4byte	0xc3
  2519 0193 0A       		.uleb128 0xa
- 2520 0194 A3020000 		.4byte	.LASF35
+ 2520 0194 58020000 		.4byte	.LASF35
  2521 0198 2F       		.byte	0x2f
  2522 0199 03       		.byte	0x3
  2523 019a 0701     		.2byte	0x107
@@ -5218,43 +5218,43 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2526 01a1 18010000 		.4byte	.LASF36
  2527 01a5 03       		.byte	0x3
  2528 01a6 0901     		.2byte	0x109
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 88
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 88
 
 
  2529 01a8 6B000000 		.4byte	0x6b
  2530 01ac 00       		.byte	0
  2531 01ad 08       		.uleb128 0x8
- 2532 01ae 50050000 		.4byte	.LASF37
+ 2532 01ae 10050000 		.4byte	.LASF37
  2533 01b2 03       		.byte	0x3
  2534 01b3 0A01     		.2byte	0x10a
  2535 01b5 6B000000 		.4byte	0x6b
  2536 01b9 01       		.byte	0x1
  2537 01ba 08       		.uleb128 0x8
- 2538 01bb 78050000 		.4byte	.LASF38
+ 2538 01bb 38050000 		.4byte	.LASF38
  2539 01bf 03       		.byte	0x3
  2540 01c0 0B01     		.2byte	0x10b
  2541 01c2 6B000000 		.4byte	0x6b
  2542 01c6 02       		.byte	0x2
  2543 01c7 08       		.uleb128 0x8
- 2544 01c8 B3030000 		.4byte	.LASF39
+ 2544 01c8 68030000 		.4byte	.LASF39
  2545 01cc 03       		.byte	0x3
  2546 01cd 0D01     		.2byte	0x10d
  2547 01cf 6B000000 		.4byte	0x6b
  2548 01d3 03       		.byte	0x3
  2549 01d4 08       		.uleb128 0x8
- 2550 01d5 53030000 		.4byte	.LASF40
+ 2550 01d5 08030000 		.4byte	.LASF40
  2551 01d9 03       		.byte	0x3
  2552 01da 1701     		.2byte	0x117
  2553 01dc 6B000000 		.4byte	0x6b
  2554 01e0 04       		.byte	0x4
  2555 01e1 08       		.uleb128 0x8
- 2556 01e2 5E030000 		.4byte	.LASF41
+ 2556 01e2 13030000 		.4byte	.LASF41
  2557 01e6 03       		.byte	0x3
  2558 01e7 1801     		.2byte	0x118
  2559 01e9 6B000000 		.4byte	0x6b
  2560 01ed 05       		.byte	0x5
  2561 01ee 08       		.uleb128 0x8
- 2562 01ef 69030000 		.4byte	.LASF42
+ 2562 01ef 1E030000 		.4byte	.LASF42
  2563 01f3 03       		.byte	0x3
  2564 01f4 1901     		.2byte	0x119
  2565 01f6 6B000000 		.4byte	0x6b
@@ -5272,16 +5272,16 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2577 0210 6B000000 		.4byte	0x6b
  2578 0214 08       		.byte	0x8
  2579 0215 08       		.uleb128 0x8
- 2580 0216 3C020000 		.4byte	.LASF45
+ 2580 0216 F1010000 		.4byte	.LASF45
  2581 021a 03       		.byte	0x3
  2582 021b 1E01     		.2byte	0x11e
  2583 021d A5020000 		.4byte	0x2a5
  2584 0221 09       		.byte	0x9
  2585 0222 08       		.uleb128 0x8
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 89
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 89
 
 
- 2586 0223 6F020000 		.4byte	.LASF46
+ 2586 0223 24020000 		.4byte	.LASF46
  2587 0227 03       		.byte	0x3
  2588 0228 2101     		.2byte	0x121
  2589 022a 6B000000 		.4byte	0x6b
@@ -5293,7 +5293,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2595 0237 6B000000 		.4byte	0x6b
  2596 023b 26       		.byte	0x26
  2597 023c 08       		.uleb128 0x8
- 2598 023d 50060000 		.4byte	.LASF48
+ 2598 023d 10060000 		.4byte	.LASF48
  2599 0241 03       		.byte	0x3
  2600 0242 2301     		.2byte	0x123
  2601 0244 6B000000 		.4byte	0x6b
@@ -5311,34 +5311,34 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2613 025e 6B000000 		.4byte	0x6b
  2614 0262 29       		.byte	0x29
  2615 0263 08       		.uleb128 0x8
- 2616 0264 EA040000 		.4byte	.LASF51
+ 2616 0264 AA040000 		.4byte	.LASF51
  2617 0268 03       		.byte	0x3
  2618 0269 2601     		.2byte	0x126
  2619 026b 6B000000 		.4byte	0x6b
  2620 026f 2A       		.byte	0x2a
  2621 0270 08       		.uleb128 0x8
- 2622 0271 BF060000 		.4byte	.LASF52
+ 2622 0271 7F060000 		.4byte	.LASF52
  2623 0275 03       		.byte	0x3
  2624 0276 2701     		.2byte	0x127
  2625 0278 6B000000 		.4byte	0x6b
  2626 027c 2B       		.byte	0x2b
  2627 027d 08       		.uleb128 0x8
- 2628 027e 24020000 		.4byte	.LASF53
+ 2628 027e D9010000 		.4byte	.LASF53
  2629 0282 03       		.byte	0x3
  2630 0283 2901     		.2byte	0x129
  2631 0285 6B000000 		.4byte	0x6b
  2632 0289 2C       		.byte	0x2c
  2633 028a 08       		.uleb128 0x8
- 2634 028b B3050000 		.4byte	.LASF54
+ 2634 028b 73050000 		.4byte	.LASF54
  2635 028f 03       		.byte	0x3
  2636 0290 2A01     		.2byte	0x12a
  2637 0292 6B000000 		.4byte	0x6b
  2638 0296 2D       		.byte	0x2d
  2639 0297 08       		.uleb128 0x8
- 2640 0298 81030000 		.4byte	.LASF55
+ 2640 0298 36030000 		.4byte	.LASF55
  2641 029c 03       		.byte	0x3
  2642 029d 2C01     		.2byte	0x12c
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 90
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 90
 
 
  2643 029f 6B000000 		.4byte	0x6b
@@ -5357,7 +5357,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2656 02bb 2E01     		.2byte	0x12e
  2657 02bd 93010000 		.4byte	0x193
  2658 02c1 0D       		.uleb128 0xd
- 2659 02c2 66050000 		.4byte	.LASF57
+ 2659 02c2 26050000 		.4byte	.LASF57
  2660 02c6 01       		.byte	0x1
  2661 02c7 2D06     		.2byte	0x62d
  2662 02c9 00000000 		.4byte	.LFB11
@@ -5373,7 +5373,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2672 02e3 01       		.uleb128 0x1
  2673 02e4 9C       		.byte	0x9c
  2674 02e5 0E       		.uleb128 0xe
- 2675 02e6 97030000 		.4byte	.LASF59
+ 2675 02e6 4C030000 		.4byte	.LASF59
  2676 02ea 01       		.byte	0x1
  2677 02eb 50       		.byte	0x50
  2678 02ec 00000000 		.4byte	.LFB0
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2697 0317 21030000 		.4byte	0x321
  2698 031b 10       		.uleb128 0x10
  2699 031c 01       		.uleb128 0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 91
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 91
 
 
  2700 031d 50       		.byte	0x50
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2754 0389 8A010000 		.4byte	.LVL9
  2755 038d B4080000 		.4byte	0x8b4
  2756 0391 0F       		.uleb128 0xf
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 92
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 92
 
 
  2757 0392 90010000 		.4byte	.LVL10
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2811 03fb 01       		.byte	0x1
  2812 03fc 1A01     		.2byte	0x11a
  2813 03fe 00000000 		.4byte	.LFB1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 93
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 93
 
 
  2814 0402 40020000 		.4byte	.LFE1-.LFB1
@@ -5526,7 +5526,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2816 0407 9C       		.byte	0x9c
  2817 0408 23050000 		.4byte	0x523
  2818 040c 14       		.uleb128 0x14
- 2819 040d 49060000 		.4byte	.LASF61
+ 2819 040d 09060000 		.4byte	.LASF61
  2820 0411 01       		.byte	0x1
  2821 0412 1C01     		.2byte	0x11c
  2822 0414 A1000000 		.4byte	0xa1
@@ -5538,13 +5538,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2828 041f 76000000 		.4byte	0x76
  2829 0423 00000000 		.4byte	.LLST0
  2830 0427 16       		.uleb128 0x16
- 2831 0428 74030000 		.4byte	.LASF62
+ 2831 0428 29030000 		.4byte	.LASF62
  2832 042c 01       		.byte	0x1
  2833 042d 1E01     		.2byte	0x11e
  2834 042f 76000000 		.4byte	0x76
  2835 0433 37000000 		.4byte	.LLST1
  2836 0437 17       		.uleb128 0x17
- 2837 0438 56040000 		.4byte	.LASF63
+ 2837 0438 16040000 		.4byte	.LASF63
  2838 043c 01       		.byte	0x1
  2839 043d 2201     		.2byte	0x122
  2840 043f 33050000 		.4byte	0x533
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2868 047f 38010000 		.4byte	.LVL25
  2869 0483 9C080000 		.4byte	0x89c
  2870 0487 11       		.uleb128 0x11
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 94
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 94
 
 
  2871 0488 40010000 		.4byte	.LVL26
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2925 0509 13050000 		.4byte	0x513
  2926 050d 10       		.uleb128 0x10
  2927 050e 01       		.uleb128 0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 95
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 95
 
 
  2928 050f 50       		.byte	0x50
@@ -5665,7 +5665,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2949 0533 18       		.uleb128 0x18
  2950 0534 23050000 		.4byte	0x523
  2951 0538 13       		.uleb128 0x13
- 2952 0539 F2040000 		.4byte	.LASF64
+ 2952 0539 B2040000 		.4byte	.LASF64
  2953 053d 01       		.byte	0x1
  2954 053e 7C02     		.2byte	0x27c
  2955 0540 00000000 		.4byte	.LFB2
@@ -5674,13 +5674,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2958 0549 9C       		.byte	0x9c
  2959 054a 7E050000 		.4byte	0x57e
  2960 054e 19       		.uleb128 0x19
- 2961 054f 88060000 		.4byte	.LASF65
+ 2961 054f 48060000 		.4byte	.LASF65
  2962 0553 01       		.byte	0x1
  2963 0554 7C02     		.2byte	0x27c
  2964 0556 76000000 		.4byte	0x76
  2965 055a 63000000 		.4byte	.LLST2
  2966 055e 19       		.uleb128 0x19
- 2967 055f 87040000 		.4byte	.LASF66
+ 2967 055f 47040000 		.4byte	.LASF66
  2968 0563 01       		.byte	0x1
  2969 0564 7C02     		.2byte	0x27c
  2970 0566 76000000 		.4byte	0x76
@@ -5696,9 +5696,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2980 057c 00       		.byte	0
  2981 057d 00       		.byte	0
  2982 057e 13       		.uleb128 0x13
- 2983 057f E0040000 		.4byte	.LASF67
+ 2983 057f A0040000 		.4byte	.LASF67
  2984 0583 01       		.byte	0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 96
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 96
 
 
  2985 0584 4803     		.2byte	0x348
@@ -5708,19 +5708,19 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  2989 058f 9C       		.byte	0x9c
  2990 0590 F2050000 		.4byte	0x5f2
  2991 0594 19       		.uleb128 0x19
- 2992 0595 88060000 		.4byte	.LASF65
+ 2992 0595 48060000 		.4byte	.LASF65
  2993 0599 01       		.byte	0x1
  2994 059a 4803     		.2byte	0x348
  2995 059c 6B000000 		.4byte	0x6b
  2996 05a0 A5000000 		.4byte	.LLST4
  2997 05a4 19       		.uleb128 0x19
- 2998 05a5 87040000 		.4byte	.LASF66
+ 2998 05a5 47040000 		.4byte	.LASF66
  2999 05a9 01       		.byte	0x1
  3000 05aa 4803     		.2byte	0x348
  3001 05ac 76000000 		.4byte	0x76
  3002 05b0 C6000000 		.4byte	.LLST5
  3003 05b4 16       		.uleb128 0x16
- 3004 05b5 94010000 		.4byte	.LASF68
+ 3004 05b5 49010000 		.4byte	.LASF68
  3005 05b9 01       		.byte	0x1
  3006 05ba 4A03     		.2byte	0x34a
  3007 05bc 6B000000 		.4byte	0x6b
@@ -5742,7 +5742,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3023 05ed DD080000 		.4byte	0x8dd
  3024 05f1 00       		.byte	0
  3025 05f2 1B       		.uleb128 0x1b
- 3026 05f3 79060000 		.4byte	.LASF69
+ 3026 05f3 39060000 		.4byte	.LASF69
  3027 05f7 01       		.byte	0x1
  3028 05f8 0405     		.2byte	0x504
  3029 05fa 01       		.byte	0x1
@@ -5752,20 +5752,20 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3033 0601 FD06     		.2byte	0x6fd
  3034 0603 01       		.byte	0x1
  3035 0604 1B       		.uleb128 0x1b
- 3036 0605 10020000 		.4byte	.LASF71
+ 3036 0605 C5010000 		.4byte	.LASF71
  3037 0609 01       		.byte	0x1
  3038 060a 5E05     		.2byte	0x55e
  3039 060c 01       		.byte	0x1
  3040 060d 1B       		.uleb128 0x1b
- 3041 060e C0010000 		.4byte	.LASF72
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 97
+ 3041 060e 75010000 		.4byte	.LASF72
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 97
 
 
  3042 0612 01       		.byte	0x1
  3043 0613 3C07     		.2byte	0x73c
  3044 0615 01       		.byte	0x1
  3045 0616 13       		.uleb128 0x13
- 3046 0617 C3050000 		.4byte	.LASF73
+ 3046 0617 83050000 		.4byte	.LASF73
  3047 061b 01       		.byte	0x1
  3048 061c 5804     		.2byte	0x458
  3049 061e 00000000 		.4byte	.LFB4
@@ -5774,7 +5774,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3052 0627 9C       		.byte	0x9c
  3053 0628 19070000 		.4byte	0x719
  3054 062c 16       		.uleb128 0x16
- 3055 062d 94010000 		.4byte	.LASF68
+ 3055 062d 49010000 		.4byte	.LASF68
  3056 0631 01       		.byte	0x1
  3057 0632 5A04     		.2byte	0x45a
  3058 0634 6B000000 		.4byte	0x6b
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3096 0698 C1020000 		.4byte	0x2c1
  3097 069c 00       		.byte	0
  3098 069d 1C       		.uleb128 0x1c
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 98
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 98
 
 
  3099 069e 04060000 		.4byte	0x604
@@ -5865,7 +5865,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3140 0714 42090000 		.4byte	0x942
  3141 0718 00       		.byte	0
  3142 0719 1D       		.uleb128 0x1d
- 3143 071a 06060000 		.4byte	.LASF116
+ 3143 071a C6050000 		.4byte	.LASF116
  3144 071e 01       		.byte	0x1
  3145 071f D804     		.2byte	0x4d8
  3146 0721 6B000000 		.4byte	0x6b
@@ -5875,10 +5875,10 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3150 072e 9C       		.byte	0x9c
  3151 072f 88070000 		.4byte	0x788
  3152 0733 19       		.uleb128 0x19
- 3153 0734 1F020000 		.4byte	.LASF74
+ 3153 0734 D4010000 		.4byte	.LASF74
  3154 0738 01       		.byte	0x1
  3155 0739 D804     		.2byte	0x4d8
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 99
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 99
 
 
  3156 073b 6B000000 		.4byte	0x6b
@@ -5892,7 +5892,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3164 0750 03       		.byte	0x3
  3165 0751 42000000 		.4byte	interruptStatus.4805
  3166 0755 16       		.uleb128 0x16
- 3167 0756 94010000 		.4byte	.LASF68
+ 3167 0756 49010000 		.4byte	.LASF68
  3168 075a 01       		.byte	0x1
  3169 075b DB04     		.2byte	0x4db
  3170 075d 6B000000 		.4byte	0x6b
@@ -5911,7 +5911,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3183 0783 42090000 		.4byte	0x942
  3184 0787 00       		.byte	0
  3185 0788 13       		.uleb128 0x13
- 3186 0789 36060000 		.4byte	.LASF77
+ 3186 0789 F6050000 		.4byte	.LASF77
  3187 078d 01       		.byte	0x1
  3188 078e 9B05     		.2byte	0x59b
  3189 0790 00000000 		.4byte	.LFB8
@@ -5920,7 +5920,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3192 0799 9C       		.byte	0x9c
  3193 079a B8070000 		.4byte	0x7b8
  3194 079e 19       		.uleb128 0x19
- 3195 079f FF020000 		.4byte	.LASF78
+ 3195 079f B4020000 		.4byte	.LASF78
  3196 07a3 01       		.byte	0x1
  3197 07a4 9B05     		.2byte	0x59b
  3198 07a6 6B000000 		.4byte	0x6b
@@ -5930,7 +5930,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3202 07b3 B7090000 		.4byte	0x9b7
  3203 07b7 00       		.byte	0
  3204 07b8 13       		.uleb128 0x13
- 3205 07b9 17050000 		.4byte	.LASF79
+ 3205 07b9 D7040000 		.4byte	.LASF79
  3206 07bd 01       		.byte	0x1
  3207 07be CF05     		.2byte	0x5cf
  3208 07c0 00000000 		.4byte	.LFB9
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3210 07c8 01       		.uleb128 0x1
  3211 07c9 9C       		.byte	0x9c
  3212 07ca D8070000 		.4byte	0x7d8
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 100
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 100
 
 
  3213 07ce 11       		.uleb128 0x11
@@ -5955,7 +5955,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3224 07e9 9C       		.byte	0x9c
  3225 07ea 08080000 		.4byte	0x808
  3226 07ee 19       		.uleb128 0x19
- 3227 07ef E7050000 		.4byte	.LASF81
+ 3227 07ef A7050000 		.4byte	.LASF81
  3228 07f3 01       		.byte	0x1
  3229 07f4 F405     		.2byte	0x5f4
  3230 07f6 6B000000 		.4byte	0x6b
@@ -5965,7 +5965,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3234 0803 B0090000 		.4byte	0x9b0
  3235 0807 00       		.byte	0
  3236 0808 1E       		.uleb128 0x1e
- 3237 0809 E6060000 		.4byte	.LASF82
+ 3237 0809 02040000 		.4byte	.LASF82
  3238 080d 01       		.byte	0x1
  3239 080e 1F       		.byte	0x1f
  3240 080f B5020000 		.4byte	0x2b5
@@ -5973,7 +5973,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3242 0814 03       		.byte	0x3
  3243 0815 00000000 		.4byte	cyPmBackup
  3244 0819 1E       		.uleb128 0x1e
- 3245 081a 31050000 		.4byte	.LASF83
+ 3245 081a F1040000 		.4byte	.LASF83
  3246 081e 01       		.byte	0x1
  3247 081f 20       		.byte	0x20
  3248 0820 87010000 		.4byte	0x187
@@ -5981,7 +5981,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3250 0825 03       		.byte	0x3
  3251 0826 30000000 		.4byte	cyPmClockBackup
  3252 082a 1E       		.uleb128 0x1e
- 3253 082b F3050000 		.4byte	.LASF84
+ 3253 082b B3050000 		.4byte	.LASF84
  3254 082f 01       		.byte	0x1
  3255 0830 23       		.byte	0x23
  3256 0831 3B080000 		.4byte	0x83b
@@ -5991,18 +5991,18 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3260 083b 18       		.uleb128 0x18
  3261 083c 23050000 		.4byte	0x523
  3262 0840 1F       		.uleb128 0x1f
- 3263 0841 D1050000 		.4byte	.LASF85
+ 3263 0841 91050000 		.4byte	.LASF85
  3264 0845 04       		.byte	0x4
  3265 0846 4B       		.byte	0x4b
  3266 0847 51080000 		.4byte	0x851
  3267 084b 20       		.uleb128 0x20
  3268 084c 6B000000 		.4byte	0x6b
  3269 0850 00       		.byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 101
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 101
 
 
  3270 0851 1F       		.uleb128 0x1f
- 3271 0852 57060000 		.4byte	.LASF86
+ 3271 0852 17060000 		.4byte	.LASF86
  3272 0856 05       		.byte	0x5
  3273 0857 49       		.byte	0x49
  3274 0858 62080000 		.4byte	0x862
@@ -6010,7 +6010,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3276 085d 6B000000 		.4byte	0x6b
  3277 0861 00       		.byte	0
  3278 0862 1F       		.uleb128 0x1f
- 3279 0863 45020000 		.4byte	.LASF87
+ 3279 0863 FA010000 		.4byte	.LASF87
  3280 0867 05       		.byte	0x5
  3281 0868 4A       		.byte	0x4a
  3282 0869 73080000 		.4byte	0x873
@@ -6018,11 +6018,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3284 086e 6B000000 		.4byte	0x6b
  3285 0872 00       		.byte	0
  3286 0873 21       		.uleb128 0x21
- 3287 0874 DA060000 		.4byte	.LASF91
+ 3287 0874 9A060000 		.4byte	.LASF91
  3288 0878 05       		.byte	0x5
  3289 0879 67       		.byte	0x67
  3290 087a 1F       		.uleb128 0x1f
- 3291 087b 15060000 		.4byte	.LASF88
+ 3291 087b D5050000 		.4byte	.LASF88
  3292 087f 05       		.byte	0x5
  3293 0880 50       		.byte	0x50
  3294 0881 8B080000 		.4byte	0x88b
@@ -6030,7 +6030,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3296 0886 76000000 		.4byte	0x76
  3297 088a 00       		.byte	0
  3298 088b 1F       		.uleb128 0x1f
- 3299 088c 1F030000 		.4byte	.LASF89
+ 3299 088c D4020000 		.4byte	.LASF89
  3300 0890 05       		.byte	0x5
  3301 0891 4E       		.byte	0x4e
  3302 0892 9C080000 		.4byte	0x89c
@@ -6038,7 +6038,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3304 0897 6B000000 		.4byte	0x6b
  3305 089b 00       		.byte	0
  3306 089c 1F       		.uleb128 0x1f
- 3307 089d A3040000 		.4byte	.LASF90
+ 3307 089d 63040000 		.4byte	.LASF90
  3308 08a1 05       		.byte	0x5
  3309 08a2 4F       		.byte	0x4f
  3310 08a3 AD080000 		.4byte	0x8ad
@@ -6046,7 +6046,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3312 08a8 6B000000 		.4byte	0x6b
  3313 08ac 00       		.byte	0
  3314 08ad 21       		.uleb128 0x21
- 3315 08ae 8B050000 		.4byte	.LASF92
+ 3315 08ae 4B050000 		.4byte	.LASF92
  3316 08b2 05       		.byte	0x5
  3317 08b3 4C       		.byte	0x4c
  3318 08b4 1F       		.uleb128 0x1f
@@ -6058,10 +6058,10 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3324 08c0 6B000000 		.4byte	0x6b
  3325 08c4 00       		.byte	0
  3326 08c5 1F       		.uleb128 0x1f
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 102
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 102
 
 
- 3327 08c6 E8010000 		.4byte	.LASF94
+ 3327 08c6 9D010000 		.4byte	.LASF94
  3328 08ca 05       		.byte	0x5
  3329 08cb 78       		.byte	0x78
  3330 08cc D6080000 		.4byte	0x8d6
@@ -6069,11 +6069,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3332 08d1 76000000 		.4byte	0x76
  3333 08d5 00       		.byte	0
  3334 08d6 21       		.uleb128 0x21
- 3335 08d7 94040000 		.4byte	.LASF95
+ 3335 08d7 54040000 		.4byte	.LASF95
  3336 08db 05       		.byte	0x5
  3337 08dc 43       		.byte	0x43
  3338 08dd 1F       		.uleb128 0x1f
- 3339 08de 10050000 		.4byte	.LASF96
+ 3339 08de D0040000 		.4byte	.LASF96
  3340 08e2 05       		.byte	0x5
  3341 08e3 80       		.byte	0x80
  3342 08e4 EE080000 		.4byte	0x8ee
@@ -6081,15 +6081,15 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3344 08e9 6B000000 		.4byte	0x6b
  3345 08ed 00       		.byte	0
  3346 08ee 21       		.uleb128 0x21
- 3347 08ef C7020000 		.4byte	.LASF97
+ 3347 08ef 7C020000 		.4byte	.LASF97
  3348 08f3 05       		.byte	0x5
  3349 08f4 48       		.byte	0x48
  3350 08f5 21       		.uleb128 0x21
- 3351 08f6 65060000 		.4byte	.LASF98
+ 3351 08f6 25060000 		.4byte	.LASF98
  3352 08fa 05       		.byte	0x5
  3353 08fb 4B       		.byte	0x4b
  3354 08fc 1F       		.uleb128 0x1f
- 3355 08fd FD040000 		.4byte	.LASF99
+ 3355 08fd BD040000 		.4byte	.LASF99
  3356 0901 05       		.byte	0x5
  3357 0902 7A       		.byte	0x7a
  3358 0903 0D090000 		.4byte	0x90d
@@ -6097,7 +6097,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3360 0908 81000000 		.4byte	0x81
  3361 090c 00       		.byte	0
  3362 090d 22       		.uleb128 0x22
- 3363 090e A6030000 		.4byte	.LASF100
+ 3363 090e 5B030000 		.4byte	.LASF100
  3364 0912 05       		.byte	0x5
  3365 0913 66       		.byte	0x66
  3366 0914 A1000000 		.4byte	0xa1
@@ -6106,7 +6106,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3369 091d 6B000000 		.4byte	0x6b
  3370 0921 00       		.byte	0
  3371 0922 22       		.uleb128 0x22
- 3372 0923 D8010000 		.4byte	.LASF101
+ 3372 0923 8D010000 		.4byte	.LASF101
  3373 0927 05       		.byte	0x5
  3374 0928 42       		.byte	0x42
  3375 0929 A1000000 		.4byte	0xa1
@@ -6115,15 +6115,15 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3378 0932 6B000000 		.4byte	0x6b
  3379 0936 00       		.byte	0
  3380 0937 23       		.uleb128 0x23
- 3381 0938 8C020000 		.4byte	.LASF117
+ 3381 0938 41020000 		.4byte	.LASF117
  3382 093c 05       		.byte	0x5
  3383 093d 7E       		.byte	0x7e
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 103
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 103
 
 
  3384 093e 6B000000 		.4byte	0x6b
  3385 0942 1F       		.uleb128 0x1f
- 3386 0943 CA040000 		.4byte	.LASF102
+ 3386 0943 8A040000 		.4byte	.LASF102
  3387 0947 05       		.byte	0x5
  3388 0948 7F       		.byte	0x7f
  3389 0949 53090000 		.4byte	0x953
@@ -6131,7 +6131,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3391 094e 6B000000 		.4byte	0x6b
  3392 0952 00       		.byte	0
  3393 0953 21       		.uleb128 0x21
- 3394 0954 A0050000 		.4byte	.LASF103
+ 3394 0954 60050000 		.4byte	.LASF103
  3395 0958 05       		.byte	0x5
  3396 0959 9D       		.byte	0x9d
  3397 095a 21       		.uleb128 0x21
@@ -6139,11 +6139,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3399 095f 05       		.byte	0x5
  3400 0960 9E       		.byte	0x9e
  3401 0961 21       		.uleb128 0x21
- 3402 0962 0B030000 		.4byte	.LASF105
+ 3402 0962 C0020000 		.4byte	.LASF105
  3403 0966 05       		.byte	0x5
  3404 0967 A0       		.byte	0xa0
  3405 0968 22       		.uleb128 0x22
- 3406 0969 B4020000 		.4byte	.LASF106
+ 3406 0969 69020000 		.4byte	.LASF106
  3407 096d 05       		.byte	0x5
  3408 096e 5F       		.byte	0x5f
  3409 096f 6B000000 		.4byte	0x6b
@@ -6152,11 +6152,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3412 0978 6B000000 		.4byte	0x6b
  3413 097c 00       		.byte	0
  3414 097d 21       		.uleb128 0x21
- 3415 097e C7060000 		.4byte	.LASF107
+ 3415 097e 87060000 		.4byte	.LASF107
  3416 0982 05       		.byte	0x5
  3417 0983 9F       		.byte	0x9f
  3418 0984 1F       		.uleb128 0x1f
- 3419 0985 93060000 		.4byte	.LASF108
+ 3419 0985 53060000 		.4byte	.LASF108
  3420 0989 05       		.byte	0x5
  3421 098a 9C       		.byte	0x9c
  3422 098b 9A090000 		.4byte	0x99a
@@ -6176,14 +6176,14 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3436 09ab 6B000000 		.4byte	0x6b
  3437 09af 00       		.byte	0
  3438 09b0 21       		.uleb128 0x21
- 3439 09b1 77040000 		.4byte	.LASF110
+ 3439 09b1 37040000 		.4byte	.LASF110
  3440 09b5 05       		.byte	0x5
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 104
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 104
 
 
  3441 09b6 5A       		.byte	0x5a
  3442 09b7 21       		.uleb128 0x21
- 3443 09b8 A3010000 		.4byte	.LASF111
+ 3443 09b8 58010000 		.4byte	.LASF111
  3444 09bc 05       		.byte	0x5
  3445 09bd 58       		.byte	0x58
  3446 09be 21       		.uleb128 0x21
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3495 002a 16       		.uleb128 0x16
  3496 002b 00       		.byte	0
  3497 002c 03       		.uleb128 0x3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 105
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 105
 
 
  3498 002d 0E       		.uleb128 0xe
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3552 0063 05       		.uleb128 0x5
  3553 0064 49       		.uleb128 0x49
  3554 0065 13       		.uleb128 0x13
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 106
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 106
 
 
  3555 0066 38       		.uleb128 0x38
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3609 009c 0E       		.uleb128 0xe
  3610 009d 3A       		.uleb128 0x3a
  3611 009e 0B       		.uleb128 0xb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 107
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 107
 
 
  3612 009f 3B       		.uleb128 0x3b
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3666 00db 18       		.uleb128 0x18
  3667 00dc 9142     		.uleb128 0x2111
  3668 00de 18       		.uleb128 0x18
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 108
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 108
 
 
  3669 00df 00       		.byte	0
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3723 011a 49       		.uleb128 0x49
  3724 011b 13       		.uleb128 0x13
  3725 011c 1C       		.uleb128 0x1c
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 109
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 109
 
 
  3726 011d 0B       		.uleb128 0xb
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3780 0153 00       		.byte	0
  3781 0154 19       		.uleb128 0x19
  3782 0155 05       		.uleb128 0x5
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 110
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 110
 
 
  3783 0156 00       		.byte	0
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3837 018f 00       		.byte	0
  3838 0190 00       		.byte	0
  3839 0191 1D       		.uleb128 0x1d
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 111
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 111
 
 
  3840 0192 2E       		.uleb128 0x2e
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3894 01c9 3C       		.uleb128 0x3c
  3895 01ca 19       		.uleb128 0x19
  3896 01cb 01       		.uleb128 0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 112
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 112
 
 
  3897 01cc 13       		.uleb128 0x13
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  3951 0202 0E       		.uleb128 0xe
  3952 0203 3A       		.uleb128 0x3a
  3953 0204 0B       		.uleb128 0xb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 113
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 113
 
 
  3954 0205 3B       		.uleb128 0x3b
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  4008 0057 FF       		.byte	0xff
  4009 0058 1A       		.byte	0x1a
  4010 0059 21       		.byte	0x21
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 114
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 114
 
 
  4011 005a 9F       		.byte	0x9f
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  4065 00dc 01       		.uleb128 0x1
  4066 00dd 51       		.byte	0x51
  4067 00de 9F       		.byte	0x9f
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 115
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 115
 
 
  4068 00df 00000000 		.4byte	0
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  4122 016e 54000000 		.4byte	.LFE8
  4123 0172 0400     		.2byte	0x4
  4124 0174 F3       		.byte	0xf3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 116
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 116
 
 
  4125 0175 01       		.uleb128 0x1
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  4179 0004 16000000 		.4byte	.LBE10
  4180 0008 20000000 		.4byte	.LBB26
  4181 000c A4000000 		.4byte	.LBE26
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 117
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 117
 
 
  4182 0010 A6000000 		.4byte	.LBB27
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  4236 00e8 00000000 		.4byte	.LFB3
  4237 00ec F8000000 		.4byte	.LFE3
  4238 00f0 00000000 		.4byte	.LFB4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 118
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 118
 
 
  4239 00f4 84020000 		.4byte	.LFE4
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  4268      5F535452 
  4268      55435400 
  4269              	.LASF112:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 119
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 119
 
 
  4270 0072 43795854 		.ascii	"CyXTAL_32KHZ_Start\000"
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  4291              	.LASF36:
  4292 0118 696C6F50 		.ascii	"iloPowerMode\000"
  4292      6F776572 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 120
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 120
 
 
  4292      4D6F6465 
@@ -7152,477 +7152,477 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 1
  4296 0133 7369676E 		.ascii	"signed char\000"
  4296      65642063 
  4296      68617200 
- 4297              	.LASF115:
- 4298 013f 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
- 4298      73657273 
- 4298      5C6D6772 
- 4298      6F6E6265 
- 4298      725C4465 
- 4299 016d 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
- 4299      436F6E74 
- 4299      696E756F 
- 4299      7573204F 
- 4299      75747075 
- 4300              	.LASF29:
- 4301 018a 636C6B42 		.ascii	"clkBusDiv\000"
- 4301      75734469 
- 4301      7600
- 4302              	.LASF68:
- 4303 0194 696E7465 		.ascii	"interruptState\000"
- 4303      72727570 
- 4303      74537461 
- 4303      746500
- 4304              	.LASF111:
- 4305 01a3 4379494C 		.ascii	"CyILO_Start1K\000"
- 4305      4F5F5374 
- 4305      61727431 
- 4305      4B00
- 4306              	.LASF27:
- 4307 01b1 696D6F32 		.ascii	"imo2x\000"
- 4307      7800
- 4308              	.LASF4:
- 4309 01b7 6C6F6E67 		.ascii	"long int\000"
- 4309      20696E74 
- 4309      00
- 4310              	.LASF72:
- 4311 01c0 4379506D 		.ascii	"CyPmHviLviRestore\000"
- 4311      4876694C 
- 4311      76695265 
- 4311      73746F72 
- 4311      6500
- 4312              	.LASF9:
- 4313 01d2 75696E74 		.ascii	"uint8\000"
- 4313      3800
- 4314              	.LASF101:
- 4315 01d8 4379504C 		.ascii	"CyPLL_OUT_Start\000"
- 4315      4C5F4F55 
- 4315      545F5374 
- 4315      61727400 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 121
+ 4297              	.LASF29:
+ 4298 013f 636C6B42 		.ascii	"clkBusDiv\000"
+ 4298      75734469 
+ 4298      7600
+ 4299              	.LASF68:
+ 4300 0149 696E7465 		.ascii	"interruptState\000"
+ 4300      72727570 
+ 4300      74537461 
+ 4300      746500
+ 4301              	.LASF111:
+ 4302 0158 4379494C 		.ascii	"CyILO_Start1K\000"
+ 4302      4F5F5374 
+ 4302      61727431 
+ 4302      4B00
+ 4303              	.LASF27:
+ 4304 0166 696D6F32 		.ascii	"imo2x\000"
+ 4304      7800
+ 4305              	.LASF4:
+ 4306 016c 6C6F6E67 		.ascii	"long int\000"
+ 4306      20696E74 
+ 4306      00
+ 4307              	.LASF72:
+ 4308 0175 4379506D 		.ascii	"CyPmHviLviRestore\000"
+ 4308      4876694C 
+ 4308      76695265 
+ 4308      73746F72 
+ 4308      6500
+ 4309              	.LASF9:
+ 4310 0187 75696E74 		.ascii	"uint8\000"
+ 4310      3800
+ 4311              	.LASF101:
+ 4312 018d 4379504C 		.ascii	"CyPLL_OUT_Start\000"
+ 4312      4C5F4F55 
+ 4312      545F5374 
+ 4312      61727400 
+ 4313              	.LASF94:
+ 4314 019d 43794465 		.ascii	"CyDelayUs\000"
+ 4314      6C617955 
+ 4314      7300
+ 4315              	.LASF13:
+ 4316 01a7 646F7562 		.ascii	"double\000"
+ 4316      6C6500
+ 4317              	.LASF11:
+ 4318 01ae 75696E74 		.ascii	"uint32\000"
+ 4318      333200
+ 4319              	.LASF31:
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 121
 
 
- 4316              	.LASF94:
- 4317 01e8 43794465 		.ascii	"CyDelayUs\000"
- 4317      6C617955 
- 4317      7300
- 4318              	.LASF13:
- 4319 01f2 646F7562 		.ascii	"double\000"
- 4319      6C6500
- 4320              	.LASF11:
- 4321 01f9 75696E74 		.ascii	"uint32\000"
- 4321      333200
- 4322              	.LASF31:
- 4323 0200 786D687A 		.ascii	"xmhzEnableState\000"
- 4323      456E6162 
- 4323      6C655374 
- 4323      61746500 
- 4324              	.LASF71:
- 4325 0210 4379506D 		.ascii	"CyPmHibRestore\000"
- 4325      48696252 
- 4325      6573746F 
- 4325      726500
- 4326              	.LASF74:
- 4327 021f 6D61736B 		.ascii	"mask\000"
- 4327      00
- 4328              	.LASF53:
- 4329 0224 696D6F41 		.ascii	"imoActFreq\000"
- 4329      63744672 
- 4329      657100
- 4330              	.LASF8:
- 4331 022f 756E7369 		.ascii	"unsigned int\000"
- 4331      676E6564 
- 4331      20696E74 
- 4331      00
- 4332              	.LASF45:
- 4333 023c 73636374 		.ascii	"scctData\000"
- 4333      44617461 
- 4333      00
- 4334              	.LASF87:
- 4335 0245 4379494D 		.ascii	"CyIMO_SetSource\000"
- 4335      4F5F5365 
- 4335      74536F75 
- 4335      72636500 
- 4336              	.LASF21:
- 4337 0255 696D6F46 		.ascii	"imoFreq\000"
- 4337      72657100 
- 4338              	.LASF5:
- 4339 025d 6C6F6E67 		.ascii	"long unsigned int\000"
- 4339      20756E73 
- 4339      69676E65 
- 4339      6420696E 
- 4339      7400
- 4340              	.LASF46:
- 4341 026f 6C766964 		.ascii	"lvidEn\000"
- 4341      456E00
- 4342              	.LASF34:
- 4343 0276 6379506D 		.ascii	"cyPmClockBackupStruct\000"
- 4343      436C6F63 
- 4343      6B426163 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 122
+ 4320 01b5 786D687A 		.ascii	"xmhzEnableState\000"
+ 4320      456E6162 
+ 4320      6C655374 
+ 4320      61746500 
+ 4321              	.LASF71:
+ 4322 01c5 4379506D 		.ascii	"CyPmHibRestore\000"
+ 4322      48696252 
+ 4322      6573746F 
+ 4322      726500
+ 4323              	.LASF74:
+ 4324 01d4 6D61736B 		.ascii	"mask\000"
+ 4324      00
+ 4325              	.LASF53:
+ 4326 01d9 696D6F41 		.ascii	"imoActFreq\000"
+ 4326      63744672 
+ 4326      657100
+ 4327              	.LASF8:
+ 4328 01e4 756E7369 		.ascii	"unsigned int\000"
+ 4328      676E6564 
+ 4328      20696E74 
+ 4328      00
+ 4329              	.LASF45:
+ 4330 01f1 73636374 		.ascii	"scctData\000"
+ 4330      44617461 
+ 4330      00
+ 4331              	.LASF87:
+ 4332 01fa 4379494D 		.ascii	"CyIMO_SetSource\000"
+ 4332      4F5F5365 
+ 4332      74536F75 
+ 4332      72636500 
+ 4333              	.LASF21:
+ 4334 020a 696D6F46 		.ascii	"imoFreq\000"
+ 4334      72657100 
+ 4335              	.LASF5:
+ 4336 0212 6C6F6E67 		.ascii	"long unsigned int\000"
+ 4336      20756E73 
+ 4336      69676E65 
+ 4336      6420696E 
+ 4336      7400
+ 4337              	.LASF46:
+ 4338 0224 6C766964 		.ascii	"lvidEn\000"
+ 4338      456E00
+ 4339              	.LASF34:
+ 4340 022b 6379506D 		.ascii	"cyPmClockBackupStruct\000"
+ 4340      436C6F63 
+ 4340      6B426163 
+ 4340      6B757053 
+ 4340      74727563 
+ 4341              	.LASF117:
+ 4342 0241 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 4342      74657243 
+ 4342      72697469 
+ 4342      63616C53 
+ 4342      65637469 
+ 4343              	.LASF35:
+ 4344 0258 6379506D 		.ascii	"cyPmBackupStruct\000"
+ 4344      4261636B 
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 122
 
 
- 4343      6B757053 
- 4343      74727563 
- 4344              	.LASF117:
- 4345 028c 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 4345      74657243 
- 4345      72697469 
- 4345      63616C53 
- 4345      65637469 
- 4346              	.LASF35:
- 4347 02a3 6379506D 		.ascii	"cyPmBackupStruct\000"
- 4347      4261636B 
- 4347      75705374 
- 4347      72756374 
- 4347      00
- 4348              	.LASF106:
- 4349 02b4 4379494C 		.ascii	"CyILO_SetPowerMode\000"
- 4349      4F5F5365 
- 4349      74506F77 
- 4349      65724D6F 
- 4349      646500
- 4350              	.LASF97:
- 4351 02c7 4379494D 		.ascii	"CyIMO_Stop\000"
- 4351      4F5F5374 
- 4351      6F7000
- 4352              	.LASF33:
- 4353 02d2 43595F50 		.ascii	"CY_PM_CLOCK_BACKUP_STRUCT\000"
- 4353      4D5F434C 
- 4353      4F434B5F 
- 4353      4241434B 
- 4353      55505F53 
- 4354              	.LASF3:
- 4355 02ec 73686F72 		.ascii	"short unsigned int\000"
- 4355      7420756E 
- 4355      7369676E 
- 4355      65642069 
- 4355      6E7400
- 4356              	.LASF78:
- 4357 02ff 63747749 		.ascii	"ctwInterval\000"
- 4357      6E746572 
- 4357      76616C00 
- 4358              	.LASF105:
- 4359 030b 43795664 		.ascii	"CyVdHvAnalogDisable\000"
- 4359      4876416E 
- 4359      616C6F67 
- 4359      44697361 
- 4359      626C6500 
- 4360              	.LASF89:
- 4361 031f 43794D61 		.ascii	"CyMasterClk_SetSource\000"
- 4361      73746572 
- 4361      436C6B5F 
- 4361      53657453 
- 4361      6F757263 
- 4362              	.LASF114:
- 4363 0335 47656E65 		.ascii	"Generated_Source\\PSoC5\\cyPm.c\000"
- 4363      72617465 
- 4363      645F536F 
- 4363      75726365 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 123
+ 4344      75705374 
+ 4344      72756374 
+ 4344      00
+ 4345              	.LASF106:
+ 4346 0269 4379494C 		.ascii	"CyILO_SetPowerMode\000"
+ 4346      4F5F5365 
+ 4346      74506F77 
+ 4346      65724D6F 
+ 4346      646500
+ 4347              	.LASF97:
+ 4348 027c 4379494D 		.ascii	"CyIMO_Stop\000"
+ 4348      4F5F5374 
+ 4348      6F7000
+ 4349              	.LASF33:
+ 4350 0287 43595F50 		.ascii	"CY_PM_CLOCK_BACKUP_STRUCT\000"
+ 4350      4D5F434C 
+ 4350      4F434B5F 
+ 4350      4241434B 
+ 4350      55505F53 
+ 4351              	.LASF3:
+ 4352 02a1 73686F72 		.ascii	"short unsigned int\000"
+ 4352      7420756E 
+ 4352      7369676E 
+ 4352      65642069 
+ 4352      6E7400
+ 4353              	.LASF78:
+ 4354 02b4 63747749 		.ascii	"ctwInterval\000"
+ 4354      6E746572 
+ 4354      76616C00 
+ 4355              	.LASF105:
+ 4356 02c0 43795664 		.ascii	"CyVdHvAnalogDisable\000"
+ 4356      4876416E 
+ 4356      616C6F67 
+ 4356      44697361 
+ 4356      626C6500 
+ 4357              	.LASF89:
+ 4358 02d4 43794D61 		.ascii	"CyMasterClk_SetSource\000"
+ 4358      73746572 
+ 4358      436C6B5F 
+ 4358      53657453 
+ 4358      6F757263 
+ 4359              	.LASF114:
+ 4360 02ea 47656E65 		.ascii	"Generated_Source\\PSoC5\\cyPm.c\000"
+ 4360      72617465 
+ 4360      645F536F 
+ 4360      75726365 
+ 4360      5C50536F 
+ 4361              	.LASF40:
+ 4362 0308 77616B65 		.ascii	"wakeupCfg0\000"
+ 4362      75704366 
+ 4362      673000
+ 4363              	.LASF41:
+ 4364 0313 77616B65 		.ascii	"wakeupCfg1\000"
+ 4364      75704366 
+ 4364      673100
+ 4365              	.LASF42:
+ 4366 031e 77616B65 		.ascii	"wakeupCfg2\000"
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 123
 
 
- 4363      5C50536F 
- 4364              	.LASF40:
- 4365 0353 77616B65 		.ascii	"wakeupCfg0\000"
- 4365      75704366 
- 4365      673000
- 4366              	.LASF41:
- 4367 035e 77616B65 		.ascii	"wakeupCfg1\000"
- 4367      75704366 
- 4367      673100
- 4368              	.LASF42:
- 4369 0369 77616B65 		.ascii	"wakeupCfg2\000"
- 4369      75704366 
- 4369      673200
- 4370              	.LASF62:
- 4371 0374 636C6B42 		.ascii	"clkBusDivTmp\000"
- 4371      75734469 
- 4371      76546D70 
- 4371      00
- 4372              	.LASF55:
- 4373 0381 626F6F73 		.ascii	"boostRefExt\000"
- 4373      74526566 
- 4373      45787400 
- 4374              	.LASF26:
- 4375 038d 636C6B49 		.ascii	"clkImoSrc\000"
- 4375      6D6F5372 
- 4375      6300
- 4376              	.LASF59:
- 4377 0397 4379506D 		.ascii	"CyPmSaveClocks\000"
- 4377      53617665 
- 4377      436C6F63 
- 4377      6B7300
- 4378              	.LASF100:
- 4379 03a6 43795854 		.ascii	"CyXTAL_Start\000"
- 4379      414C5F53 
- 4379      74617274 
- 4379      00
- 4380              	.LASF39:
- 4381 03b3 736C7054 		.ascii	"slpTrBypass\000"
- 4381      72427970 
- 4381      61737300 
- 4382              	.LASF113:
- 4383 03bf 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 4383      4320342E 
- 4383      392E3320 
- 4383      32303135 
- 4383      30333033 
- 4384 03f2 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 4384      20726576 
- 4384      6973696F 
- 4384      6E203232 
- 4384      31323230 
- 4385 0425 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
- 4385      66756E63 
- 4385      74696F6E 
- 4385      2D736563 
- 4385      74696F6E 
- 4386              	.LASF17:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 124
+ 4366      75704366 
+ 4366      673200
+ 4367              	.LASF62:
+ 4368 0329 636C6B42 		.ascii	"clkBusDivTmp\000"
+ 4368      75734469 
+ 4368      76546D70 
+ 4368      00
+ 4369              	.LASF55:
+ 4370 0336 626F6F73 		.ascii	"boostRefExt\000"
+ 4370      74526566 
+ 4370      45787400 
+ 4371              	.LASF26:
+ 4372 0342 636C6B49 		.ascii	"clkImoSrc\000"
+ 4372      6D6F5372 
+ 4372      6300
+ 4373              	.LASF59:
+ 4374 034c 4379506D 		.ascii	"CyPmSaveClocks\000"
+ 4374      53617665 
+ 4374      436C6F63 
+ 4374      6B7300
+ 4375              	.LASF100:
+ 4376 035b 43795854 		.ascii	"CyXTAL_Start\000"
+ 4376      414C5F53 
+ 4376      74617274 
+ 4376      00
+ 4377              	.LASF39:
+ 4378 0368 736C7054 		.ascii	"slpTrBypass\000"
+ 4378      72427970 
+ 4378      61737300 
+ 4379              	.LASF113:
+ 4380 0374 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 4380      4320342E 
+ 4380      392E3320 
+ 4380      32303135 
+ 4380      30333033 
+ 4381 03a7 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 4381      20726576 
+ 4381      6973696F 
+ 4381      6E203232 
+ 4381      31323230 
+ 4382 03da 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 4382      66756E63 
+ 4382      74696F6E 
+ 4382      2D736563 
+ 4382      74696F6E 
+ 4383              	.LASF82:
+ 4384 0402 6379506D 		.ascii	"cyPmBackup\000"
+ 4384      4261636B 
+ 4384      757000
+ 4385              	.LASF17:
+ 4386 040d 73697A65 		.ascii	"sizetype\000"
+ 4386      74797065 
+ 4386      00
+ 4387              	.LASF63:
+ 4388 0416 6379506D 		.ascii	"cyPmImoFreqMhz2Reg\000"
+ 4388      496D6F46 
+ 4388      7265714D 
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 124
 
 
- 4387 044d 73697A65 		.ascii	"sizetype\000"
- 4387      74797065 
- 4387      00
- 4388              	.LASF63:
- 4389 0456 6379506D 		.ascii	"cyPmImoFreqMhz2Reg\000"
- 4389      496D6F46 
- 4389      7265714D 
- 4389      687A3252 
- 4389      656700
- 4390              	.LASF18:
- 4391 0469 656E436C 		.ascii	"enClkA\000"
- 4391      6B4100
- 4392              	.LASF19:
- 4393 0470 656E436C 		.ascii	"enClkD\000"
- 4393      6B4400
- 4394              	.LASF110:
- 4395 0477 4379494C 		.ascii	"CyILO_Start100K\000"
- 4395      4F5F5374 
- 4395      61727431 
- 4395      30304B00 
- 4396              	.LASF66:
- 4397 0487 77616B65 		.ascii	"wakeupSource\000"
- 4397      7570536F 
- 4397      75726365 
- 4397      00
- 4398              	.LASF95:
- 4399 0494 4379504C 		.ascii	"CyPLL_OUT_Stop\000"
- 4399      4C5F4F55 
- 4399      545F5374 
- 4399      6F7000
- 4400              	.LASF90:
- 4401 04a3 43794D61 		.ascii	"CyMasterClk_SetDivider\000"
- 4401      73746572 
- 4401      436C6B5F 
- 4401      53657444 
- 4401      69766964 
- 4402              	.LASF25:
- 4403 04ba 696D6F43 		.ascii	"imoClkSrc\000"
- 4403      6C6B5372 
- 4403      6300
- 4404              	.LASF12:
- 4405 04c4 666C6F61 		.ascii	"float\000"
- 4405      7400
- 4406              	.LASF102:
- 4407 04ca 43794578 		.ascii	"CyExitCriticalSection\000"
- 4407      69744372 
- 4407      69746963 
- 4407      616C5365 
- 4407      6374696F 
- 4408              	.LASF67:
- 4409 04e0 4379506D 		.ascii	"CyPmSleep\000"
- 4409      536C6565 
- 4409      7000
- 4410              	.LASF51:
- 4411 04ea 6C766964 		.ascii	"lvidRst\000"
- 4411      52737400 
- 4412              	.LASF64:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 125
+ 4388      687A3252 
+ 4388      656700
+ 4389              	.LASF18:
+ 4390 0429 656E436C 		.ascii	"enClkA\000"
+ 4390      6B4100
+ 4391              	.LASF19:
+ 4392 0430 656E436C 		.ascii	"enClkD\000"
+ 4392      6B4400
+ 4393              	.LASF110:
+ 4394 0437 4379494C 		.ascii	"CyILO_Start100K\000"
+ 4394      4F5F5374 
+ 4394      61727431 
+ 4394      30304B00 
+ 4395              	.LASF66:
+ 4396 0447 77616B65 		.ascii	"wakeupSource\000"
+ 4396      7570536F 
+ 4396      75726365 
+ 4396      00
+ 4397              	.LASF95:
+ 4398 0454 4379504C 		.ascii	"CyPLL_OUT_Stop\000"
+ 4398      4C5F4F55 
+ 4398      545F5374 
+ 4398      6F7000
+ 4399              	.LASF90:
+ 4400 0463 43794D61 		.ascii	"CyMasterClk_SetDivider\000"
+ 4400      73746572 
+ 4400      436C6B5F 
+ 4400      53657444 
+ 4400      69766964 
+ 4401              	.LASF25:
+ 4402 047a 696D6F43 		.ascii	"imoClkSrc\000"
+ 4402      6C6B5372 
+ 4402      6300
+ 4403              	.LASF12:
+ 4404 0484 666C6F61 		.ascii	"float\000"
+ 4404      7400
+ 4405              	.LASF102:
+ 4406 048a 43794578 		.ascii	"CyExitCriticalSection\000"
+ 4406      69744372 
+ 4406      69746963 
+ 4406      616C5365 
+ 4406      6374696F 
+ 4407              	.LASF67:
+ 4408 04a0 4379506D 		.ascii	"CyPmSleep\000"
+ 4408      536C6565 
+ 4408      7000
+ 4409              	.LASF51:
+ 4410 04aa 6C766964 		.ascii	"lvidRst\000"
+ 4410      52737400 
+ 4411              	.LASF64:
+ 4412 04b2 4379506D 		.ascii	"CyPmAltAct\000"
+ 4412      416C7441 
+ 4412      637400
+ 4413              	.LASF99:
+ 4414 04bd 43794465 		.ascii	"CyDelayCycles\000"
+ 4414      6C617943 
+ 4414      79636C65 
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 125
 
 
- 4413 04f2 4379506D 		.ascii	"CyPmAltAct\000"
- 4413      416C7441 
- 4413      637400
- 4414              	.LASF99:
- 4415 04fd 43794465 		.ascii	"CyDelayCycles\000"
- 4415      6C617943 
- 4415      79636C65 
- 4415      7300
- 4416              	.LASF16:
- 4417 050b 72656738 		.ascii	"reg8\000"
- 4417      00
- 4418              	.LASF96:
- 4419 0510 43794861 		.ascii	"CyHalt\000"
- 4419      6C7400
- 4420              	.LASF79:
- 4421 0517 4379506D 		.ascii	"CyPmOppsSet\000"
- 4421      4F707073 
- 4421      53657400 
- 4422              	.LASF1:
- 4423 0523 756E7369 		.ascii	"unsigned char\000"
- 4423      676E6564 
- 4423      20636861 
- 4423      7200
- 4424              	.LASF83:
- 4425 0531 6379506D 		.ascii	"cyPmClockBackup\000"
- 4425      436C6F63 
- 4425      6B426163 
- 4425      6B757000 
- 4426              	.LASF30:
- 4427 0541 706C6C45 		.ascii	"pllEnableState\000"
- 4427      6E61626C 
- 4427      65537461 
- 4427      746500
- 4428              	.LASF37:
- 4429 0550 696C6F31 		.ascii	"ilo1kEnable\000"
- 4429      6B456E61 
- 4429      626C6500 
- 4430              	.LASF2:
- 4431 055c 73686F72 		.ascii	"short int\000"
- 4431      7420696E 
- 4431      7400
- 4432              	.LASF57:
- 4433 0566 4379506D 		.ascii	"CyPmHibSlpSaveSet\000"
- 4433      48696253 
- 4433      6C705361 
- 4433      76655365 
- 4433      7400
- 4434              	.LASF38:
- 4435 0578 696C6F31 		.ascii	"ilo100kEnable\000"
- 4435      30306B45 
- 4435      6E61626C 
- 4435      6500
- 4436              	.LASF14:
- 4437 0586 63686172 		.ascii	"char\000"
- 4437      00
- 4438              	.LASF92:
- 4439 058b 4379494D 		.ascii	"CyIMO_DisableDoubler\000"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 126
+ 4414      7300
+ 4415              	.LASF16:
+ 4416 04cb 72656738 		.ascii	"reg8\000"
+ 4416      00
+ 4417              	.LASF96:
+ 4418 04d0 43794861 		.ascii	"CyHalt\000"
+ 4418      6C7400
+ 4419              	.LASF79:
+ 4420 04d7 4379506D 		.ascii	"CyPmOppsSet\000"
+ 4420      4F707073 
+ 4420      53657400 
+ 4421              	.LASF1:
+ 4422 04e3 756E7369 		.ascii	"unsigned char\000"
+ 4422      676E6564 
+ 4422      20636861 
+ 4422      7200
+ 4423              	.LASF83:
+ 4424 04f1 6379506D 		.ascii	"cyPmClockBackup\000"
+ 4424      436C6F63 
+ 4424      6B426163 
+ 4424      6B757000 
+ 4425              	.LASF30:
+ 4426 0501 706C6C45 		.ascii	"pllEnableState\000"
+ 4426      6E61626C 
+ 4426      65537461 
+ 4426      746500
+ 4427              	.LASF37:
+ 4428 0510 696C6F31 		.ascii	"ilo1kEnable\000"
+ 4428      6B456E61 
+ 4428      626C6500 
+ 4429              	.LASF2:
+ 4430 051c 73686F72 		.ascii	"short int\000"
+ 4430      7420696E 
+ 4430      7400
+ 4431              	.LASF57:
+ 4432 0526 4379506D 		.ascii	"CyPmHibSlpSaveSet\000"
+ 4432      48696253 
+ 4432      6C705361 
+ 4432      76655365 
+ 4432      7400
+ 4433              	.LASF38:
+ 4434 0538 696C6F31 		.ascii	"ilo100kEnable\000"
+ 4434      30306B45 
+ 4434      6E61626C 
+ 4434      6500
+ 4435              	.LASF14:
+ 4436 0546 63686172 		.ascii	"char\000"
+ 4436      00
+ 4437              	.LASF92:
+ 4438 054b 4379494D 		.ascii	"CyIMO_DisableDoubler\000"
+ 4438      4F5F4469 
+ 4438      7361626C 
+ 4438      65446F75 
+ 4438      626C6572 
+ 4439              	.LASF103:
+ 4440 0560 43795664 		.ascii	"CyVdLvDigitDisable\000"
+ 4440      4C764469 
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 126
 
 
- 4439      4F5F4469 
- 4439      7361626C 
- 4439      65446F75 
- 4439      626C6572 
- 4440              	.LASF103:
- 4441 05a0 43795664 		.ascii	"CyVdLvDigitDisable\000"
- 4441      4C764469 
- 4441      67697444 
- 4441      69736162 
- 4441      6C6500
- 4442              	.LASF54:
- 4443 05b3 696D6F41 		.ascii	"imoActFreq12Mhz\000"
- 4443      63744672 
- 4443      65713132 
- 4443      4D687A00 
- 4444              	.LASF73:
- 4445 05c3 4379506D 		.ascii	"CyPmHibernate\000"
- 4445      48696265 
- 4445      726E6174 
- 4445      6500
- 4446              	.LASF85:
- 4447 05d1 4379466C 		.ascii	"CyFlash_SetWaitCycles\000"
- 4447      6173685F 
- 4447      53657457 
- 4447      61697443 
- 4447      79636C65 
- 4448              	.LASF81:
- 4449 05e7 66747749 		.ascii	"ftwInterval\000"
- 4449      6E746572 
- 4449      76616C00 
- 4450              	.LASF84:
- 4451 05f3 6379506D 		.ascii	"cyPmImoFreqReg2Mhz\000"
- 4451      496D6F46 
- 4451      72657152 
- 4451      6567324D 
- 4451      687A00
- 4452              	.LASF116:
- 4453 0606 4379506D 		.ascii	"CyPmReadStatus\000"
- 4453      52656164 
- 4453      53746174 
- 4453      757300
- 4454              	.LASF88:
- 4455 0615 43794275 		.ascii	"CyBusClk_SetDivider\000"
- 4455      73436C6B 
- 4455      5F536574 
- 4455      44697669 
- 4455      64657200 
- 4456              	.LASF32:
- 4457 0629 636C6B44 		.ascii	"clkDistDelay\000"
- 4457      69737444 
- 4457      656C6179 
- 4457      00
- 4458              	.LASF77:
- 4459 0636 4379506D 		.ascii	"CyPmCtwSetInterval\000"
- 4459      43747753 
- 4459      6574496E 
- 4459      74657276 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 127
+ 4440      67697444 
+ 4440      69736162 
+ 4440      6C6500
+ 4441              	.LASF54:
+ 4442 0573 696D6F41 		.ascii	"imoActFreq12Mhz\000"
+ 4442      63744672 
+ 4442      65713132 
+ 4442      4D687A00 
+ 4443              	.LASF73:
+ 4444 0583 4379506D 		.ascii	"CyPmHibernate\000"
+ 4444      48696265 
+ 4444      726E6174 
+ 4444      6500
+ 4445              	.LASF85:
+ 4446 0591 4379466C 		.ascii	"CyFlash_SetWaitCycles\000"
+ 4446      6173685F 
+ 4446      53657457 
+ 4446      61697443 
+ 4446      79636C65 
+ 4447              	.LASF81:
+ 4448 05a7 66747749 		.ascii	"ftwInterval\000"
+ 4448      6E746572 
+ 4448      76616C00 
+ 4449              	.LASF84:
+ 4450 05b3 6379506D 		.ascii	"cyPmImoFreqReg2Mhz\000"
+ 4450      496D6F46 
+ 4450      72657152 
+ 4450      6567324D 
+ 4450      687A00
+ 4451              	.LASF116:
+ 4452 05c6 4379506D 		.ascii	"CyPmReadStatus\000"
+ 4452      52656164 
+ 4452      53746174 
+ 4452      757300
+ 4453              	.LASF88:
+ 4454 05d5 43794275 		.ascii	"CyBusClk_SetDivider\000"
+ 4454      73436C6B 
+ 4454      5F536574 
+ 4454      44697669 
+ 4454      64657200 
+ 4455              	.LASF32:
+ 4456 05e9 636C6B44 		.ascii	"clkDistDelay\000"
+ 4456      69737444 
+ 4456      656C6179 
+ 4456      00
+ 4457              	.LASF77:
+ 4458 05f6 4379506D 		.ascii	"CyPmCtwSetInterval\000"
+ 4458      43747753 
+ 4458      6574496E 
+ 4458      74657276 
+ 4458      616C00
+ 4459              	.LASF61:
+ 4460 0609 73746174 		.ascii	"status\000"
+ 4460      757300
+ 4461              	.LASF48:
+ 4462 0610 6C766961 		.ascii	"lviaEn\000"
+ 4462      456E00
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 127
 
 
- 4459      616C00
- 4460              	.LASF61:
- 4461 0649 73746174 		.ascii	"status\000"
- 4461      757300
- 4462              	.LASF48:
- 4463 0650 6C766961 		.ascii	"lviaEn\000"
- 4463      456E00
- 4464              	.LASF86:
- 4465 0657 4379494D 		.ascii	"CyIMO_SetFreq\000"
- 4465      4F5F5365 
- 4465      74467265 
- 4465      7100
- 4466              	.LASF98:
- 4467 0665 4379494D 		.ascii	"CyIMO_EnableDoubler\000"
- 4467      4F5F456E 
- 4467      61626C65 
- 4467      446F7562 
- 4467      6C657200 
- 4468              	.LASF69:
- 4469 0679 4379506D 		.ascii	"CyPmHibSaveSet\000"
- 4469      48696253 
- 4469      61766553 
- 4469      657400
- 4470              	.LASF65:
- 4471 0688 77616B65 		.ascii	"wakeupTime\000"
- 4471      75705469 
- 4471      6D6500
- 4472              	.LASF108:
- 4473 0693 43795664 		.ascii	"CyVdLvAnalogEnable\000"
- 4473      4C76416E 
- 4473      616C6F67 
- 4473      456E6162 
- 4473      6C6500
- 4474              	.LASF15:
- 4475 06a6 63797374 		.ascii	"cystatus\000"
- 4475      61747573 
- 4475      00
- 4476              	.LASF23:
- 4477 06af 666C6173 		.ascii	"flashWaitCycles\000"
- 4477      68576169 
- 4477      74437963 
- 4477      6C657300 
- 4478              	.LASF52:
- 4479 06bf 6C766961 		.ascii	"lviaRst\000"
- 4479      52737400 
- 4480              	.LASF107:
- 4481 06c7 43795664 		.ascii	"CyVdHvAnalogEnable\000"
- 4481      4876416E 
- 4481      616C6F67 
- 4481      456E6162 
- 4481      6C6500
- 4482              	.LASF91:
- 4483 06da 43795854 		.ascii	"CyXTAL_Stop\000"
- 4483      414C5F53 
- 4483      746F7000 
- 4484              	.LASF82:
- 4485 06e6 6379506D 		.ascii	"cyPmBackup\000"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMe4oJu.s 			page 128
+ 4463              	.LASF86:
+ 4464 0617 4379494D 		.ascii	"CyIMO_SetFreq\000"
+ 4464      4F5F5365 
+ 4464      74467265 
+ 4464      7100
+ 4465              	.LASF98:
+ 4466 0625 4379494D 		.ascii	"CyIMO_EnableDoubler\000"
+ 4466      4F5F456E 
+ 4466      61626C65 
+ 4466      446F7562 
+ 4466      6C657200 
+ 4467              	.LASF69:
+ 4468 0639 4379506D 		.ascii	"CyPmHibSaveSet\000"
+ 4468      48696253 
+ 4468      61766553 
+ 4468      657400
+ 4469              	.LASF65:
+ 4470 0648 77616B65 		.ascii	"wakeupTime\000"
+ 4470      75705469 
+ 4470      6D6500
+ 4471              	.LASF108:
+ 4472 0653 43795664 		.ascii	"CyVdLvAnalogEnable\000"
+ 4472      4C76416E 
+ 4472      616C6F67 
+ 4472      456E6162 
+ 4472      6C6500
+ 4473              	.LASF15:
+ 4474 0666 63797374 		.ascii	"cystatus\000"
+ 4474      61747573 
+ 4474      00
+ 4475              	.LASF23:
+ 4476 066f 666C6173 		.ascii	"flashWaitCycles\000"
+ 4476      68576169 
+ 4476      74437963 
+ 4476      6C657300 
+ 4477              	.LASF52:
+ 4478 067f 6C766961 		.ascii	"lviaRst\000"
+ 4478      52737400 
+ 4479              	.LASF107:
+ 4480 0687 43795664 		.ascii	"CyVdHvAnalogEnable\000"
+ 4480      4876416E 
+ 4480      616C6F67 
+ 4480      456E6162 
+ 4480      6C6500
+ 4481              	.LASF91:
+ 4482 069a 43795854 		.ascii	"CyXTAL_Stop\000"
+ 4482      414C5F53 
+ 4482      746F7000 
+ 4483              	.LASF115:
+ 4484 06a6 433A5C55 		.ascii	"C:\\Users\\anjmarqu\\Desktop\\Hummingbird\\Hummingb"
+ 4484      73657273 
+ 4484      5C616E6A 
+ 4484      6D617271 
+ 4484      755C4465 
+ 4485 06d4 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 4485      436F6E74 
+ 4485      696E756F 
+ARM GAS  C:\Users\anjmarqu\AppData\Local\Temp\ccluUWAx.s 			page 128
 
 
- 4485      4261636B 
- 4485      757000
+ 4485      7573204F 
+ 4485      75747075 
  4486              	.LASF47:
  4487 06f1 6C766964 		.ascii	"lvidTrip\000"
  4487      54726970 

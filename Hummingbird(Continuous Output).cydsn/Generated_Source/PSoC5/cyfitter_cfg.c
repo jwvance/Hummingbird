@@ -133,7 +133,7 @@ static void CyClockStartupError(uint8 errorCode)
 }
 #endif
 
-#define CY_CFG_BASE_ADDR_COUNT 42u
+#define CY_CFG_BASE_ADDR_COUNT 43u
 CYPACKED typedef struct
 {
 	uint8 offset;
@@ -141,31 +141,31 @@ CYPACKED typedef struct
 } CYPACKED_ATTR cy_cfg_addrvalue_t;
 
 #define cy_cfg_addr_table ((const uint32 CYFAR *)0x48000000u)
-#define cy_cfg_data_table ((const cy_cfg_addrvalue_t CYFAR *)0x480000A8u)
+#define cy_cfg_data_table ((const cy_cfg_addrvalue_t CYFAR *)0x480000ACu)
 
 /* IDMUX_IRQ Address: CYREG_IDMUX_IRQ_CTL0 Size (bytes): 8 */
-#define BS_IDMUX_IRQ_VAL ((const uint8 CYFAR *)0x48000E9Cu)
+#define BS_IDMUX_IRQ_VAL ((const uint8 CYFAR *)0x48000F90u)
 
 /* UCFG_BCTL0 Address: CYREG_BCTL0_MDCLK_EN Size (bytes): 16 */
-#define BS_UCFG_BCTL0_VAL ((const uint8 CYFAR *)0x48000EA4u)
+#define BS_UCFG_BCTL0_VAL ((const uint8 CYFAR *)0x48000F98u)
 
 /* IOPINS0_7 Address: CYREG_PRT12_DR Size (bytes): 10 */
-#define BS_IOPINS0_7_VAL ((const uint8 CYFAR *)0x48000EB4u)
+#define BS_IOPINS0_7_VAL ((const uint8 CYFAR *)0x48000FA8u)
 
 /* IOPINS0_8 Address: CYREG_PRT15_DR Size (bytes): 10 */
-#define BS_IOPINS0_8_VAL ((const uint8 CYFAR *)0x48000EC0u)
+#define BS_IOPINS0_8_VAL ((const uint8 CYFAR *)0x48000FB4u)
 
 /* IOPINS0_1 Address: CYREG_PRT1_DM0 Size (bytes): 8 */
-#define BS_IOPINS0_1_VAL ((const uint8 CYFAR *)0x48000ECCu)
+#define BS_IOPINS0_1_VAL ((const uint8 CYFAR *)0x48000FC0u)
 
 /* IOPINS0_2 Address: CYREG_PRT2_DM0 Size (bytes): 8 */
-#define BS_IOPINS0_2_VAL ((const uint8 CYFAR *)0x48000ED4u)
+#define BS_IOPINS0_2_VAL ((const uint8 CYFAR *)0x48000FC8u)
 
 /* IOPINS0_3 Address: CYREG_PRT3_DR Size (bytes): 10 */
-#define BS_IOPINS0_3_VAL ((const uint8 CYFAR *)0x48000EDCu)
+#define BS_IOPINS0_3_VAL ((const uint8 CYFAR *)0x48000FD0u)
 
 /* PHUB_CFGMEM1 Address: CYREG_PHUB_CFGMEM1_CFG0 Size (bytes): 4 */
-#define BS_PHUB_CFGMEM1_VAL ((const uint8 CYFAR *)0x48000EE8u)
+#define BS_PHUB_CFGMEM1_VAL ((const uint8 CYFAR *)0x48000FDCu)
 
 
 /*******************************************************************************
