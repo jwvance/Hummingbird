@@ -86,7 +86,6 @@ int main()
     //Start interrupts
     isr_1_StartEx(GetSample);
     UI_isr_StartEx(UserInterfaceISR);
-    tuner_isr_StartEx(TimerISR);
     
     //Start LCD over I2C Protocol
     I2C_CharLCD_Start();
@@ -248,31 +247,25 @@ int main()
                 
                 // Unlocks the frame
                 frameLocked[sampleFrame] = false;
-<<<<<<< HEAD
-                
+
                 
                 int note = lastNote;                
-=======
-<<<<<<< HEAD
+
                 CharLCD_PosPrintString(0,0,"      ");
                 CharLCD_PosPrintNumber(0,0,pitchHz);
                 //UpdateTuner(noteTable, NoteSnap(noteTable, pitchHz, curKey, curScale), pitchHz);
-=======
+
 //                CharLCD_PosPrintString(0,0,"      ");
 //                CharLCD_PosPrintNumber(0,0,pitchHz);
                 UpdateTuner(noteTable, NoteSnap(noteTable, pitchHz, curKey, curScale), pitchHz);
->>>>>>> origin/master
+
                 //int note = NoteSnap(noteTable, pitchHz, curKey, curScale);
                 
                 // UPDATES TUNER
                 if(timerFlag == 1) {
                     UpdateTuner(noteTable, NoteSnap(noteTable, pitchHz, curKey, curScale), pitchHz);
                     timerFlag = 0;
-                }
-                
-                int note = lastNote;
->>>>>>> origin/master
-                
+                }                
                 if(pitchHz < 1000 && pitchHz > 60){  //eliminate extreme, unintentional freqs
                     if (midi_note_changed(pitchHz, lastNote, noteTable, (float)tempHyst/100)) {
                         note = NoteSnap(noteTable, pitchHz, curKey, curScale);
@@ -426,14 +419,6 @@ CY_ISR(UserInterfaceISR){
     } 
     
 }
-<<<<<<< HEAD
-=======
 
-CY_ISR(TimerISR){
-    TIMER_TUNER_STATUS;
-    if(timerFlag == 0) {
-        timerFlag = 1;
-    }
-}
->>>>>>> origin/master
+
 /* [] END OF FILE */
