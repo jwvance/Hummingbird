@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc1cq9WD.s 			page 1
+=======
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
 ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
@@ -51,6 +55,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
   15:main.c        **** #define VELO_VAL 100
   16:main.c        **** #define NOTE_HISTORY_LEN 5
   17:main.c        **** int start = 1;
+<<<<<<< HEAD
 <<<<<<< HEAD
   18:main.c        **** int timerFlag = 0;
   19:main.c        **** 
@@ -449,6 +454,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  391:main.c        **** CY_ISR(UserInterfaceISR){
   30              		.loc 1 391 0
 =======
+=======
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
   18:main.c        **** 
   19:main.c        **** #define UI_THRES 10
   20:main.c        **** 
@@ -840,6 +847,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  385:main.c        **** // This ISR checks each POT and updates the LCD if necessary
  386:main.c        **** CY_ISR(UserInterfaceISR){
   30              		.loc 1 386 0
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
   31              		.cfi_startproc
   32              		@ args = 0, pretend = 0, frame = 8
@@ -855,6 +865,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
   42              		.cfi_offset 10, -12
   43              		.cfi_offset 11, -8
   44              		.cfi_offset 14, -4
+<<<<<<< HEAD
 <<<<<<< HEAD
  392:main.c        ****     TIMER_UI_STATUS;
   45              		.loc 1 392 0
@@ -887,6 +898,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  399:main.c        ****     currKey = ADC_UI_GetResult16(KEY);
   62              		.loc 1 399 0
 =======
+=======
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  387:main.c        ****     TIMER_UI_STATUS;
   45              		.loc 1 387 0
   46 0004 4B4B     		ldr	r3, .L16
@@ -917,6 +930,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
 
 
   62              		.loc 1 394 0
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
   63 0018 0020     		movs	r0, #0
   64 001a FFF7FEFF 		bl	ADC_UI_GetResult16
@@ -927,8 +943,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
   69 0024 8046     		mov	r8, r0
   70              	.LVL5:
 <<<<<<< HEAD
+<<<<<<< HEAD
  400:main.c        ****     currScale = ADC_UI_GetResult16(SCALE);
   71              		.loc 1 400 0
+=======
+ 395:main.c        ****     currScale = ADC_UI_GetResult16(SCALE);
+  71              		.loc 1 395 0
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
  395:main.c        ****     currScale = ADC_UI_GetResult16(SCALE);
   71              		.loc 1 395 0
@@ -943,8 +964,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
   79 0032 0746     		mov	r7, r0
   80              	.LVL9:
 <<<<<<< HEAD
+<<<<<<< HEAD
  401:main.c        ****     currHyst = ADC_UI_GetResult16(HYST);
   81              		.loc 1 401 0
+=======
+ 396:main.c        ****     currHyst = ADC_UI_GetResult16(HYST);
+  81              		.loc 1 396 0
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
  396:main.c        ****     currHyst = ADC_UI_GetResult16(HYST);
   81              		.loc 1 396 0
@@ -959,8 +985,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
   89 0040 0646     		mov	r6, r0
   90              	.LVL13:
 <<<<<<< HEAD
+<<<<<<< HEAD
  402:main.c        ****     currVelo = ADC_UI_GetResult16(VELO);
   91              		.loc 1 402 0
+=======
+ 397:main.c        ****     currVelo = ADC_UI_GetResult16(VELO);
+  91              		.loc 1 397 0
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
  397:main.c        ****     currVelo = ADC_UI_GetResult16(VELO);
   91              		.loc 1 397 0
@@ -973,6 +1004,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
   97 004a FFF7FEFF 		bl	__aeabi_i2f
   98              	.LVL16:
 <<<<<<< HEAD
+<<<<<<< HEAD
  403:main.c        **** 
  404:main.c        ****     if(currKey < lastKey - UI_THRES || currKey > lastKey + UI_THRES){
   99              		.loc 1 404 0
@@ -982,6 +1014,17 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  102 0050 0546     		mov	r5, r0
  103              	.LVL17:
  104              		.loc 1 404 0
+=======
+ 398:main.c        **** 
+ 399:main.c        ****     if(currKey < lastKey - UI_THRES || currKey > lastKey + UI_THRES){
+  99              		.loc 1 399 0
+ 100 004e 3A4C     		ldr	r4, .L16+4
+ 397:main.c        ****     currVelo = ADC_UI_GetResult16(VELO);
+ 101              		.loc 1 397 0
+ 102 0050 0546     		mov	r5, r0
+ 103              	.LVL17:
+ 104              		.loc 1 399 0
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
  398:main.c        **** 
  399:main.c        ****     if(currKey < lastKey - UI_THRES || currKey > lastKey + UI_THRES){
@@ -1011,7 +1054,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  114 0066 0028     		cmp	r0, #0
  115 0068 5DD1     		bne	.L2
 <<<<<<< HEAD
+<<<<<<< HEAD
  116              		.loc 1 404 0 is_stmt 0 discriminator 1
+=======
+ 116              		.loc 1 399 0 is_stmt 0 discriminator 1
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
  116              		.loc 1 399 0 is_stmt 0 discriminator 1
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
@@ -1026,17 +1073,23 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  125 007c 53D1     		bne	.L2
  126              	.L3:
 <<<<<<< HEAD
+<<<<<<< HEAD
  405:main.c        ****         lastKey = currKey;
  406:main.c        ****         UI_Update_Mask |= 0b0001;   //set bit for LCD update
  407:main.c        ****     } 
  408:main.c        ****     if(currScale < lastScale - UI_THRES || currScale > lastScale + UI_THRES){
  127              		.loc 1 408 0 is_stmt 1
 =======
+=======
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  400:main.c        ****         lastKey = currKey;
  401:main.c        ****         UI_Update_Mask |= 0b0001;   //set bit for LCD update
  402:main.c        ****     } 
  403:main.c        ****     if(currScale < lastScale - UI_THRES || currScale > lastScale + UI_THRES){
  127              		.loc 1 403 0 is_stmt 1
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  128 007e B4F80480 		ldrh	r8, [r4, #4]
  129              	.LVL23:
@@ -1050,7 +1103,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  137 0092 0028     		cmp	r0, #0
  138 0094 37D1     		bne	.L5
 <<<<<<< HEAD
+<<<<<<< HEAD
  139              		.loc 1 408 0 is_stmt 0 discriminator 1
+=======
+ 139              		.loc 1 403 0 is_stmt 0 discriminator 1
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
  139              		.loc 1 403 0 is_stmt 0 discriminator 1
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
@@ -1064,17 +1121,23 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  147 00a6 70BB     		cbnz	r0, .L5
  148              	.L6:
 <<<<<<< HEAD
+<<<<<<< HEAD
  409:main.c        ****         lastScale = currScale;
  410:main.c        ****         UI_Update_Mask |= 0b0010;   //set bit for LCD  update
  411:main.c        ****     }
  412:main.c        ****     if(currHyst < lastHyst - 1 || currHyst > lastHyst + 1){
  149              		.loc 1 412 0 is_stmt 1
 =======
+=======
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  404:main.c        ****         lastScale = currScale;
  405:main.c        ****         UI_Update_Mask |= 0b0010;   //set bit for LCD  update
  406:main.c        ****     }
  407:main.c        ****     if(currHyst < lastHyst - 1 || currHyst > lastHyst + 1){
  149              		.loc 1 407 0 is_stmt 1
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  150 00a8 244F     		ldr	r7, .L16+8
  151              	.LVL28:
@@ -1091,12 +1154,18 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  159              	.LVL30:
  160 00be 50BB     		cbnz	r0, .L8
 <<<<<<< HEAD
+<<<<<<< HEAD
  161              		.loc 1 412 0 is_stmt 0 discriminator 1
 =======
+=======
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  161              		.loc 1 407 0 is_stmt 0 discriminator 1
 ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 11
 
 
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  162 00c0 08F10100 		add	r0, r8, #1
  163 00c4 FFF7FEFF 		bl	__aeabi_i2f
@@ -1108,17 +1177,23 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  169 00d0 08BB     		cbnz	r0, .L8
  170              	.L9:
 <<<<<<< HEAD
+<<<<<<< HEAD
  413:main.c        ****         lastHyst = currHyst;
  414:main.c        ****         UI_Update_Mask |= 0b0100;   //set bit for LCD  update
  415:main.c        ****     }
  416:main.c        ****     if(currVelo < lastVelo - 1 || currVelo > lastVelo + 1){
  171              		.loc 1 416 0 is_stmt 1
 =======
+=======
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  408:main.c        ****         lastHyst = currHyst;
  409:main.c        ****         UI_Update_Mask |= 0b0100;   //set bit for LCD  update
  410:main.c        ****     }
  411:main.c        ****     if(currVelo < lastVelo - 1 || currVelo > lastVelo + 1){
  171              		.loc 1 411 0 is_stmt 1
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  172 00d2 7E88     		ldrh	r6, [r7, #2]
  173              	.LVL33:
@@ -1131,7 +1206,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  180              	.LVL35:
  181 00e2 38B9     		cbnz	r0, .L11
 <<<<<<< HEAD
+<<<<<<< HEAD
  182              		.loc 1 416 0 is_stmt 0 discriminator 1
+=======
+ 182              		.loc 1 411 0 is_stmt 0 discriminator 1
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
  182              		.loc 1 411 0 is_stmt 0 discriminator 1
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
@@ -1144,6 +1223,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  189              	.LVL37:
  190 00f2 28B1     		cbz	r0, .L1
  191              	.L11:
+<<<<<<< HEAD
 <<<<<<< HEAD
  417:main.c        ****         lastVelo = currVelo;
  418:main.c        ****         UI_Update_Mask |= 0b1000;   //set bit for LCD  update
@@ -1172,10 +1252,26 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  197 00fa 43F00803 		orr	r3, r3, #8
  198 00fe A370     		strb	r3, [r4, #2]
  199              	.L1:
+=======
+ 412:main.c        ****         lastVelo = currVelo;
+ 413:main.c        ****         UI_Update_Mask |= 0b1000;   //set bit for LCD  update
+ 192              		.loc 1 413 0 is_stmt 1
+ 193 00f4 A378     		ldrb	r3, [r4, #2]	@ zero_extendqisi2
+ 412:main.c        ****         lastVelo = currVelo;
+ 194              		.loc 1 412 0
+ 195 00f6 A7F80290 		strh	r9, [r7, #2]	@ movhi
+ 196              		.loc 1 413 0
+ 197 00fa 43F00803 		orr	r3, r3, #8
+ 198 00fe A370     		strb	r3, [r4, #2]
+ 199              	.L1:
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  414:main.c        ****     } 
  415:main.c        ****     
  416:main.c        **** }
  200              		.loc 1 416 0
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  201 0100 03B0     		add	sp, sp, #12
  202              		.cfi_remember_state
@@ -1188,6 +1284,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  206              	.LVL38:
  207              	.L5:
  208              		.cfi_restore_state
+<<<<<<< HEAD
 <<<<<<< HEAD
  410:main.c        ****     }
  209              		.loc 1 410 0
@@ -1216,16 +1313,34 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  405:main.c        ****     }
  213              		.loc 1 405 0
  214 010c 43F00203 		orr	r3, r3, #2
+=======
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 12
+
+
+ 405:main.c        ****     }
+ 209              		.loc 1 405 0
+ 210 0106 A378     		ldrb	r3, [r4, #2]	@ zero_extendqisi2
+ 404:main.c        ****         UI_Update_Mask |= 0b0010;   //set bit for LCD  update
+ 211              		.loc 1 404 0
+ 212 0108 BDF80020 		ldrh	r2, [sp]
+ 405:main.c        ****     }
+ 213              		.loc 1 405 0
+ 214 010c 43F00203 		orr	r3, r3, #2
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  404:main.c        ****         UI_Update_Mask |= 0b0010;   //set bit for LCD  update
  215              		.loc 1 404 0
  216 0110 A280     		strh	r2, [r4, #4]	@ movhi
  405:main.c        ****     }
  217              		.loc 1 405 0
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  218 0112 A370     		strb	r3, [r4, #2]
  219 0114 C8E7     		b	.L6
  220              	.LVL39:
  221              	.L8:
+<<<<<<< HEAD
 <<<<<<< HEAD
  414:main.c        ****     }
  222              		.loc 1 414 0
@@ -1257,10 +1372,27 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  409:main.c        ****     }
  230              		.loc 1 409 0
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
+ 409:main.c        ****     }
+ 222              		.loc 1 409 0
+ 223 0116 A378     		ldrb	r3, [r4, #2]	@ zero_extendqisi2
+ 408:main.c        ****         UI_Update_Mask |= 0b0100;   //set bit for LCD  update
+ 224              		.loc 1 408 0
+ 225 0118 BDF80420 		ldrh	r2, [sp, #4]
+ 409:main.c        ****     }
+ 226              		.loc 1 409 0
+ 227 011c 43F00403 		orr	r3, r3, #4
+ 408:main.c        ****         UI_Update_Mask |= 0b0100;   //set bit for LCD  update
+ 228              		.loc 1 408 0
+ 229 0120 3A80     		strh	r2, [r7]	@ movhi
+ 409:main.c        ****     }
+ 230              		.loc 1 409 0
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  231 0122 A370     		strb	r3, [r4, #2]
  232 0124 D5E7     		b	.L9
  233              	.LVL40:
  234              	.L2:
+<<<<<<< HEAD
 <<<<<<< HEAD
  406:main.c        ****     } 
  235              		.loc 1 406 0
@@ -1270,6 +1402,16 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  238 0128 A4F800B0 		strh	fp, [r4]	@ movhi
  406:main.c        ****     } 
  239              		.loc 1 406 0
+=======
+ 401:main.c        ****     } 
+ 235              		.loc 1 401 0
+ 236 0126 A378     		ldrb	r3, [r4, #2]	@ zero_extendqisi2
+ 400:main.c        ****         UI_Update_Mask |= 0b0001;   //set bit for LCD update
+ 237              		.loc 1 400 0
+ 238 0128 A4F800B0 		strh	fp, [r4]	@ movhi
+ 401:main.c        ****     } 
+ 239              		.loc 1 401 0
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
  401:main.c        ****     } 
  235              		.loc 1 401 0
@@ -1307,8 +1449,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  258              	GetSample:
  259              	.LFB58:
 <<<<<<< HEAD
+<<<<<<< HEAD
  362:main.c        ****     TIMER_SAMPLERATE_STATUS;
  260              		.loc 1 362 0
+=======
+ 357:main.c        ****     TIMER_SAMPLERATE_STATUS;
+ 260              		.loc 1 357 0
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
  357:main.c        ****     TIMER_SAMPLERATE_STATUS;
  260              		.loc 1 357 0
@@ -1320,6 +1467,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  265              		.cfi_def_cfa_offset 8
  266              		.cfi_offset 4, -8
  267              		.cfi_offset 14, -4
+<<<<<<< HEAD
 <<<<<<< HEAD
  363:main.c        ****     
  268              		.loc 1 363 0
@@ -1338,6 +1486,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  366:main.c        ****             ADCoutput = ADC_MIC_GetResult16();
  278              		.loc 1 366 0
 =======
+=======
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  358:main.c        ****     
  268              		.loc 1 358 0
  269 0002 1B4B     		ldr	r3, .L28
@@ -1354,6 +1504,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  277 000c 38B1     		cbz	r0, .L18
  361:main.c        ****             ADCoutput = ADC_MIC_GetResult16();
  278              		.loc 1 361 0
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  279 000e 194C     		ldr	r4, .L28+4
  280 0010 A379     		ldrb	r3, [r4, #6]	@ zero_extendqisi2
@@ -1361,8 +1514,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  282 0014 127A     		ldrb	r2, [r2, #8]	@ zero_extendqisi2
  283 0016 1AB1     		cbz	r2, .L27
 <<<<<<< HEAD
+<<<<<<< HEAD
  384:main.c        ****         }
  284              		.loc 1 384 0
+=======
+ 379:main.c        ****         }
+ 284              		.loc 1 379 0
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
  379:main.c        ****         }
  284              		.loc 1 379 0
@@ -1372,6 +1530,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  287              	.L18:
  288 001e 10BD     		pop	{r4, pc}
  289              	.L27:
+<<<<<<< HEAD
 <<<<<<< HEAD
  367:main.c        ****             
  290              		.loc 1 367 0
@@ -1441,6 +1600,35 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  368:main.c        ****                 dataFrames[currFrame][frameIndex] = ADCoutput;
  305              		.loc 1 368 0
  306 0032 B2F5007F 		cmp	r2, #512
+=======
+ 362:main.c        ****             
+ 290              		.loc 1 362 0
+ 291 0020 FFF7FEFF 		bl	ADC_MIC_GetResult16
+ 292              	.LVL42:
+ 293 0024 144A     		ldr	r2, .L28+8
+ 364:main.c        ****                 max_value = ADCoutput;
+ 294              		.loc 1 364 0
+ 295 0026 E368     		ldr	r3, [r4, #12]
+ 362:main.c        ****             
+ 296              		.loc 1 362 0
+ 297 0028 1080     		strh	r0, [r2]	@ movhi
+ 368:main.c        ****                 dataFrames[currFrame][frameIndex] = ADCoutput;
+ 298              		.loc 1 368 0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 14
+
+
+ 299 002a 228A     		ldrh	r2, [r4, #16]
+ 364:main.c        ****                 max_value = ADCoutput;
+ 300              		.loc 1 364 0
+ 301 002c 9842     		cmp	r0, r3
+ 365:main.c        ****             }
+ 302              		.loc 1 365 0
+ 303 002e C8BF     		it	gt
+ 304 0030 E060     		strgt	r0, [r4, #12]
+ 368:main.c        ****                 dataFrames[currFrame][frameIndex] = ADCoutput;
+ 305              		.loc 1 368 0
+ 306 0032 B2F5007F 		cmp	r2, #512
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  307 0036 0F4B     		ldr	r3, .L28+4
  308 0038 08D2     		bcs	.L22
  369:main.c        ****                 frameIndex++;
@@ -1454,6 +1642,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  315 0044 1A82     		strh	r2, [r3, #16]	@ movhi
  369:main.c        ****                 frameIndex++;
  316              		.loc 1 369 0
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  317 0046 24F81100 		strh	r0, [r4, r1, lsl #1]	@ movhi
  318 004a 10BD     		pop	{r4, pc}
@@ -1461,8 +1652,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  320              	.LBB4:
  321              	.LBB5:
 <<<<<<< HEAD
+<<<<<<< HEAD
  377:main.c        ****                 frameIndex = 0;
  322              		.loc 1 377 0
+=======
+ 372:main.c        ****                 frameIndex = 0;
+ 322              		.loc 1 372 0
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
  372:main.c        ****                 frameIndex = 0;
  322              		.loc 1 372 0
@@ -1471,6 +1667,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  324 004e 9A79     		ldrb	r2, [r3, #6]	@ zero_extendqisi2
  325 0050 3B29     		cmp	r1, #59
  326 0052 03EB0204 		add	r4, r3, r2
+<<<<<<< HEAD
 <<<<<<< HEAD
  380:main.c        ****                 frameProcessed = false;                         // Signals to main that there is a 
  327              		.loc 1 380 0
@@ -1501,6 +1698,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  381:main.c        ****             }
  343              		.loc 1 381 0
 =======
+=======
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  375:main.c        ****                 frameProcessed = false;                         // Signals to main that there is a 
  327              		.loc 1 375 0
  328 0056 82F00102 		eor	r2, r2, #1
@@ -1529,6 +1728,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  342 006a D960     		str	r1, [r3, #12]
  376:main.c        ****             }
  343              		.loc 1 376 0
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  344 006c 9975     		strb	r1, [r3, #22]
  345 006e 10BD     		pop	{r4, pc}
@@ -1544,6 +1746,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  355              		.cfi_endproc
  356              	.LFE58:
  357              		.size	GetSample, .-GetSample
+<<<<<<< HEAD
 <<<<<<< HEAD
  358              		.global	__aeabi_f2uiz
  359              		.global	__aeabi_f2d
@@ -5999,6 +6202,267 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  555              		.loc 1 195 0
  556 00fe FFF7FEFF 		bl	initDisplay
  557              	.LVL68:
+=======
+ 358              		.global	__aeabi_f2d
+ 359              		.global	__aeabi_ui2f
+ 360              		.global	__aeabi_fdiv
+ 361              		.global	__aeabi_f2uiz
+ 362              		.section	.text.startup.main,"ax",%progbits
+ 363              		.align	2
+ 364              		.global	main
+ 365              		.thumb
+ 366              		.thumb_func
+ 367              		.type	main, %function
+ 368              	main:
+ 369              	.LFB56:
+  74:main.c        ****     /******* Initilizations *******/
+ 370              		.loc 1 74 0
+ 371              		.cfi_startproc
+ 372              		@ args = 0, pretend = 0, frame = 8
+ 373              		@ frame_needed = 0, uses_anonymous_args = 0
+ 374 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 375              		.cfi_def_cfa_offset 36
+ 376              		.cfi_offset 4, -36
+ 377              		.cfi_offset 5, -32
+ 378              		.cfi_offset 6, -28
+ 379              		.cfi_offset 7, -24
+ 380              		.cfi_offset 8, -20
+ 381              		.cfi_offset 9, -16
+ 382              		.cfi_offset 10, -12
+ 383              		.cfi_offset 11, -8
+ 384              		.cfi_offset 14, -4
+ 385 0004 85B0     		sub	sp, sp, #20
+ 386              		.cfi_def_cfa_offset 56
+  77:main.c        ****     
+ 387              		.loc 1 77 0
+ 388              	@ 77 "main.c" 1
+ 389 0006 62B6     		CPSIE   i
+ 390              	@ 0 "" 2
+  84:main.c        ****     UI_isr_StartEx(UserInterfaceISR);
+ 391              		.loc 1 84 0
+ 392              		.thumb
+ 393 0008 C148     		ldr	r0, .L93
+ 394 000a FFF7FEFF 		bl	isr_1_StartEx
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 16
+
+
+ 395              	.LVL43:
+  85:main.c        ****     
+ 396              		.loc 1 85 0
+ 397 000e C148     		ldr	r0, .L93+4
+ 398 0010 FFF7FEFF 		bl	UI_isr_StartEx
+ 399              	.LVL44:
+  88:main.c        ****     CharLCD_Start();
+ 400              		.loc 1 88 0
+ 401 0014 FFF7FEFF 		bl	I2C_CharLCD_Start
+ 402              	.LVL45:
+  89:main.c        ****             
+ 403              		.loc 1 89 0
+ 404 0018 FFF7FEFF 		bl	CharLCD_Start
+ 405              	.LVL46:
+  92:main.c        ****     TIMER_UI_Start();
+ 406              		.loc 1 92 0
+ 407 001c FFF7FEFF 		bl	TIMER_SAMPLERATE_Start
+ 408              	.LVL47:
+  93:main.c        ****     
+ 409              		.loc 1 93 0
+ 410 0020 FFF7FEFF 		bl	TIMER_UI_Start
+ 411              	.LVL48:
+  96:main.c        ****     ADC_MIC_StartConvert();
+ 412              		.loc 1 96 0
+ 413 0024 FFF7FEFF 		bl	ADC_MIC_Start
+ 414              	.LVL49:
+  97:main.c        ****     ADC_UI_Start();
+ 415              		.loc 1 97 0
+ 416 0028 FFF7FEFF 		bl	ADC_MIC_StartConvert
+ 417              	.LVL50:
+  98:main.c        ****     ADC_UI_StartConvert();
+ 418              		.loc 1 98 0
+ 419 002c FFF7FEFF 		bl	ADC_UI_Start
+ 420              	.LVL51:
+  99:main.c        ****      
+ 421              		.loc 1 99 0
+ 422 0030 FFF7FEFF 		bl	ADC_UI_StartConvert
+ 423              	.LVL52:
+ 102:main.c        ****     
+ 424              		.loc 1 102 0
+ 425 0034 FFF7FEFF 		bl	UART_MIDITX_Start
+ 426              	.LVL53:
+ 104:main.c        ****     
+ 427              		.loc 1 104 0
+ 428 0038 FFF7FEFF 		bl	pitch_init
+ 429              	.LVL54:
+ 107:main.c        **** 
+ 430              		.loc 1 107 0
+ 431 003c B648     		ldr	r0, .L93+8
+ 432 003e FFF7FEFF 		bl	populate_midi_array
+ 433              	.LVL55:
+ 110:main.c        ****     
+ 434              		.loc 1 110 0
+ 435 0042 0221     		movs	r1, #2
+ 436 0044 0020     		movs	r0, #0
+ 437 0046 FFF7FEFF 		bl	USB_Start
+ 438              	.LVL56:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 17
+
+
+ 115:main.c        ****     CharLCD_Position(0,0);
+ 439              		.loc 1 115 0
+ 440 004a 0120     		movs	r0, #1
+ 441 004c FFF7FEFF 		bl	CharLCD_WriteControl
+ 442              	.LVL57:
+ 116:main.c        ****     CharLCD_PrintString("   -HUMMINGBIRD-  ");
+ 443              		.loc 1 116 0
+ 444 0050 0020     		movs	r0, #0
+ 445 0052 0146     		mov	r1, r0
+ 446 0054 FFF7FEFF 		bl	CharLCD_Position
+ 447              	.LVL58:
+ 117:main.c        ****     CharLCD_Position(1,0);
+ 448              		.loc 1 117 0
+ 449 0058 B048     		ldr	r0, .L93+12
+ 450 005a FFF7FEFF 		bl	CharLCD_PrintString
+ 451              	.LVL59:
+ 118:main.c        ****     CharLCD_PrintString("       v0.8  ");
+ 452              		.loc 1 118 0
+ 453 005e 0021     		movs	r1, #0
+ 454 0060 0120     		movs	r0, #1
+ 455 0062 FFF7FEFF 		bl	CharLCD_Position
+ 456              	.LVL60:
+ 119:main.c        ****     CyDelay(1000);
+ 457              		.loc 1 119 0
+ 458 0066 AE48     		ldr	r0, .L93+16
+ 459 0068 FFF7FEFF 		bl	CharLCD_PrintString
+ 460              	.LVL61:
+ 120:main.c        ****     CharLCD_Position(3,0);
+ 461              		.loc 1 120 0
+ 462 006c 4FF47A70 		mov	r0, #1000
+ 463 0070 FFF7FEFF 		bl	CyDelay
+ 464              	.LVL62:
+ 121:main.c        ****     CharLCD_PrintString("Hum when ready...");
+ 465              		.loc 1 121 0
+ 466 0074 0320     		movs	r0, #3
+ 467 0076 0021     		movs	r1, #0
+ 468 0078 FFF7FEFF 		bl	CharLCD_Position
+ 469              	.LVL63:
+ 122:main.c        ****     
+ 470              		.loc 1 122 0
+ 471 007c A948     		ldr	r0, .L93+20
+ 472 007e FFF7FEFF 		bl	CharLCD_PrintString
+ 473              	.LVL64:
+ 474 0082 DFF8B0A2 		ldr	r10, .L93+36
+ 475 0086 A84C     		ldr	r4, .L93+24
+ 476 0088 DFF8D4B2 		ldr	fp, .L93+80
+ 477 008c A74E     		ldr	r6, .L93+28
+ 478 008e A84D     		ldr	r5, .L93+32
+ 479              	.L43:
+ 193:main.c        ****                 if (start) {
+ 480              		.loc 1 193 0
+ 481 0090 9AF80230 		ldrb	r3, [r10, #2]	@ zero_extendqisi2
+ 482 0094 A74F     		ldr	r7, .L93+36
+ 483 0096 5BB1     		cbz	r3, .L32
+ 194:main.c        ****                     initDisplay();
+ 484              		.loc 1 194 0
+ 485 0098 6268     		ldr	r2, [r4, #4]
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 18
+
+
+ 486 009a DFF88C82 		ldr	r8, .L93+24
+ 487 009e 72BB     		cbnz	r2, .L84
+ 488              	.L33:
+ 198:main.c        ****                     UI_Update_Mask &= 0b1110;   //clear KEY bit
+ 489              		.loc 1 198 0
+ 490 00a0 D907     		lsls	r1, r3, #31
+ 491 00a2 34D4     		bmi	.L85
+ 492              	.L34:
+ 202:main.c        ****                     UI_Update_Mask &= 0b1101;   //clear SCALE bit
+ 493              		.loc 1 202 0
+ 494 00a4 9A07     		lsls	r2, r3, #30
+ 495 00a6 40D4     		bmi	.L86
+ 496              	.L35:
+ 206:main.c        ****                     UI_Update_Mask &= 0b1011;   //clear HYST bit
+ 497              		.loc 1 206 0
+ 498 00a8 5F07     		lsls	r7, r3, #29
+ 499 00aa 4CD4     		bmi	.L87
+ 500              	.L36:
+ 217:main.c        ****                     UI_Update_Mask &= 0b0111;   //clear VELO bit
+ 501              		.loc 1 217 0
+ 502 00ac 1807     		lsls	r0, r3, #28
+ 503 00ae 73D4     		bmi	.L88
+ 504              	.L32:
+ 229:main.c        ****             if (frameReady[sampleFrame]&&!frameProcessed) {
+ 505              		.loc 1 229 0
+ 506 00b0 9AF80630 		ldrb	r3, [r10, #6]	@ zero_extendqisi2
+ 507 00b4 9F4F     		ldr	r7, .L93+36
+ 508 00b6 83F00103 		eor	r3, r3, #1
+ 230:main.c        ****                 if (start) {
+ 509              		.loc 1 230 0
+ 510 00ba 0AEB0302 		add	r2, r10, r3
+ 511 00be 127D     		ldrb	r2, [r2, #20]	@ zero_extendqisi2
+ 512 00c0 1846     		mov	r0, r3
+ 229:main.c        ****             if (frameReady[sampleFrame]&&!frameProcessed) {
+ 513              		.loc 1 229 0
+ 514 00c2 8AF81930 		strb	r3, [r10, #25]
+ 230:main.c        ****                 if (start) {
+ 515              		.loc 1 230 0
+ 516 00c6 002A     		cmp	r2, #0
+ 517 00c8 40F08780 		bne	.L89
+ 518              	.L41:
+ 310:main.c        ****                 midiMsg[1] = lastNote;
+ 519              		.loc 1 310 0
+ 520 00cc 8023     		movs	r3, #128
+ 311:main.c        ****                 midiMsg[2] = 0u;
+ 521              		.loc 1 311 0
+ 522 00ce A168     		ldr	r1, [r4, #8]
+ 314:main.c        ****                 UART_MIDITX_PutChar(midiMsg[1]);
+ 523              		.loc 1 314 0
+ 524 00d0 1846     		mov	r0, r3
+ 312:main.c        ****                 
+ 525              		.loc 1 312 0
+ 526 00d2 0022     		movs	r2, #0
+ 310:main.c        ****                 midiMsg[1] = lastNote;
+ 527              		.loc 1 310 0
+ 528 00d4 2B70     		strb	r3, [r5]
+ 311:main.c        ****                 midiMsg[2] = 0u;
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 19
+
+
+ 529              		.loc 1 311 0
+ 530 00d6 6970     		strb	r1, [r5, #1]
+ 312:main.c        ****                 
+ 531              		.loc 1 312 0
+ 532 00d8 AA70     		strb	r2, [r5, #2]
+ 314:main.c        ****                 UART_MIDITX_PutChar(midiMsg[1]);
+ 533              		.loc 1 314 0
+ 534 00da FFF7FEFF 		bl	UART_MIDITX_PutChar
+ 535              	.LVL65:
+ 315:main.c        ****                 UART_MIDITX_PutChar(midiMsg[2]);
+ 536              		.loc 1 315 0
+ 537 00de 6878     		ldrb	r0, [r5, #1]	@ zero_extendqisi2
+ 538 00e0 FFF7FEFF 		bl	UART_MIDITX_PutChar
+ 539              	.LVL66:
+ 316:main.c        **** 
+ 540              		.loc 1 316 0
+ 541 00e4 A878     		ldrb	r0, [r5, #2]	@ zero_extendqisi2
+ 542 00e6 FFF7FEFF 		bl	UART_MIDITX_PutChar
+ 543              	.LVL67:
+ 193:main.c        ****                 if (start) {
+ 544              		.loc 1 193 0
+ 545 00ea 9AF80230 		ldrb	r3, [r10, #2]	@ zero_extendqisi2
+ 546 00ee 914F     		ldr	r7, .L93+36
+ 547 00f0 002B     		cmp	r3, #0
+ 548 00f2 DDD0     		beq	.L32
+ 194:main.c        ****                     initDisplay();
+ 549              		.loc 1 194 0
+ 550 00f4 6268     		ldr	r2, [r4, #4]
+ 551 00f6 DFF83082 		ldr	r8, .L93+24
+ 552 00fa 002A     		cmp	r2, #0
+ 553 00fc D0D0     		beq	.L33
+ 554              	.L84:
+ 195:main.c        ****                     start = 0;
+ 555              		.loc 1 195 0
+ 556 00fe FFF7FEFF 		bl	initDisplay
+ 557              	.LVL68:
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  558 0102 BB78     		ldrb	r3, [r7, #2]	@ zero_extendqisi2
  196:main.c        ****                 }
  559              		.loc 1 196 0
@@ -9799,4 +10263,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccdvJA6e.s 			page 1
  3743      53746172 
  3743      7400
  3744              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering

@@ -246,6 +246,7 @@ int main()
                 // Unlocks the frame
                 frameLocked[sampleFrame] = false;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
                 
                 int note = lastNote;                
@@ -260,11 +261,16 @@ int main()
 
                 //int note = NoteSnap(noteTable, pitchHz, curKey, curScale);
 =======
+=======
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 //                CharLCD_PosPrintString(0,0,"      ");
 //                CharLCD_PosPrintNumber(0,0,pitchHz);
                 UpdateTuner(noteTable, NoteSnap(noteTable, pitchHz, curKey, curScale), pitchHz);
                 //int note = NoteSnap(noteTable, pitchHz, curKey, curScale);
                 int note = lastNote;
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
                 
                 // UPDATES TUNER

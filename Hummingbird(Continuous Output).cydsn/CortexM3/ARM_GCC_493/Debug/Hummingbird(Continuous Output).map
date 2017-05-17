@@ -1399,7 +1399,11 @@ END GROUP
                 0x00000000                PROVIDE (CY_ECC_OFFSET, ecc_offset)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .text           0x00000000     0x867c
+=======
+.text           0x00000000     0x7fbc
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
 .text           0x00000000     0x7fbc
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
@@ -1426,6 +1430,7 @@ END GROUP
                 0x000001c4       0x80 .\CortexM3\ARM_GCC_493\Debug\main.o
                 0x000001c4                GetSample
  .text.startup.main
+<<<<<<< HEAD
 <<<<<<< HEAD
                 0x00000244      0x410 .\CortexM3\ARM_GCC_493\Debug\main.o
                 0x00000244                main
@@ -2324,6 +2329,357 @@ END GROUP
                 0x00004310       0x14 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(cyutils.o)
                 0x00004310                CySetReg24
  .text.USB_DispatchAUDIOClassRqst
+=======
+                0x00000244      0x3ac .\CortexM3\ARM_GCC_493\Debug\main.o
+                0x00000244                main
+ .text.memdup   0x000005f0       0x1c .\CortexM3\ARM_GCC_493\Debug\fft.o
+ *fill*         0x0000060c        0x4 
+ .text.fft_init
+                0x00000610       0x78 .\CortexM3\ARM_GCC_493\Debug\fft.o
+                0x00000610                fft_init
+ .text.transform_radix2
+                0x00000688      0x1b4 .\CortexM3\ARM_GCC_493\Debug\fft.o
+                0x00000688                transform_radix2
+ .text.transform_bluestein
+                0x0000083c      0x2c4 .\CortexM3\ARM_GCC_493\Debug\fft.o
+                0x0000083c                transform_bluestein
+ .text.transform.part.1
+                0x00000b00       0x18 .\CortexM3\ARM_GCC_493\Debug\fft.o
+ .text.transform
+                0x00000b18       0x18 .\CortexM3\ARM_GCC_493\Debug\fft.o
+                0x00000b18                transform
+ .text.inverse_transform
+                0x00000b30       0x18 .\CortexM3\ARM_GCC_493\Debug\fft.o
+                0x00000b30                inverse_transform
+ .text.convolve_complex.part.0
+                0x00000b48      0x184 .\CortexM3\ARM_GCC_493\Debug\fft.o
+ .text.populate_midi_array
+                0x00000ccc       0x48 .\CortexM3\ARM_GCC_493\Debug\midi.o
+                0x00000ccc                populate_midi_array
+ .text.midi_note_changed
+                0x00000d14       0xc4 .\CortexM3\ARM_GCC_493\Debug\midi.o
+                0x00000d14                midi_note_changed
+ .text.midi_note_basename
+                0x00000dd8      0x190 .\CortexM3\ARM_GCC_493\Debug\midi.o
+                0x00000dd8                midi_note_basename
+ .text.midi_note_truename
+                0x00000f68      0x200 .\CortexM3\ARM_GCC_493\Debug\midi.o
+                0x00000f68                midi_note_truename
+ .text.NoteSnap
+                0x00001168      0x6a8 .\CortexM3\ARM_GCC_493\Debug\midi.o
+                0x00001168                NoteSnap
+ .text.pitch_init
+                0x00001810       0x14 .\CortexM3\ARM_GCC_493\Debug\pitch.o
+                0x00001810                pitch_init
+ .text.pitch_auto_fft
+                0x00001824       0xe0 .\CortexM3\ARM_GCC_493\Debug\pitch.o
+                0x00001824                pitch_auto_fft
+ .text.map      0x00001904       0x1c .\CortexM3\ARM_GCC_493\Debug\hbird.o
+                0x00001904                map
+ .text.UpdateScaleLCD
+                0x00001920       0xac .\CortexM3\ARM_GCC_493\Debug\hbird.o
+                0x00001920                UpdateScaleLCD
+ *fill*         0x000019cc        0x4 
+ .text.UpdateTuner
+                0x000019d0      0x2d0 .\CortexM3\ARM_GCC_493\Debug\hbird.o
+                0x000019d0                UpdateTuner
+ .text.UpdateKeyLCD
+                0x00001ca0       0x48 .\CortexM3\ARM_GCC_493\Debug\hbird.o
+                0x00001ca0                UpdateKeyLCD
+ .text.initDisplay
+                0x00001ce8       0xc0 .\CortexM3\ARM_GCC_493\Debug\hbird.o
+                0x00001ce8                initDisplay
+ .text.IntDefaultHandler
+                0x00001da8        0x4 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+                0x00001da8                IntDefaultHandler
+ .text.Start_c  0x00001dac       0x60 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+                0x00001dac                Start_c
+ .text.startup.initialize_psoc
+                0x00001e0c       0x78 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+                0x00001e0c                initialize_psoc
+ .text.cyfitter_cfg
+                0x00001e84      0x364 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(cyfitter_cfg.o)
+                0x00001e84                cyfitter_cfg
+ .text.USB_Init
+                0x000021e8      0x124 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB.o)
+                0x000021e8                USB_Init
+ .text.USB_InitComponent
+                0x0000230c       0xb8 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB.o)
+                0x0000230c                USB_InitComponent
+ .text.USB_Start
+                0x000023c4       0x28 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB.o)
+                0x000023c4                USB_Start
+ .text.USB_ReInitComponent
+                0x000023ec       0x68 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB.o)
+                0x000023ec                USB_ReInitComponent
+ .text.USB_HandleSetup
+                0x00002454       0x7c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_drv.o)
+                0x00002454                USB_HandleSetup
+ .text.USB_LoadEP0
+                0x000024d0       0xa8 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_drv.o)
+                0x000024d0                USB_LoadEP0
+ .text.USB_InitControlRead
+                0x00002578       0x8c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_drv.o)
+                0x00002578                USB_InitControlRead
+ .text.USB_ControlReadStatusStage
+                0x00002604       0x4c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_drv.o)
+                0x00002604                USB_ControlReadStatusStage
+ .text.USB_ControlWriteDataStage
+                0x00002650       0x8c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_drv.o)
+                0x00002650                USB_ControlWriteDataStage
+ .text.USB_HandleOUT
+                0x000026dc       0x4c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_drv.o)
+                0x000026dc                USB_HandleOUT
+ .text.USB_InitNoDataControlTransfer
+                0x00002728       0x30 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_drv.o)
+                0x00002728                USB_InitNoDataControlTransfer
+ .text.USB_NoDataControlStatusStage
+                0x00002758       0x60 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_drv.o)
+                0x00002758                USB_NoDataControlStatusStage
+ .text.USB_HandleIN
+                0x000027b8       0x5c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_drv.o)
+                0x000027b8                USB_HandleIN
+ .text.USB_EP_0_ISR
+                0x00002814       0x8c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_drv.o)
+                0x00002814                USB_EP_0_ISR
+ .text.USB_EP_1_ISR
+                0x000028a0       0x34 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_episr.o)
+                0x000028a0                USB_EP_1_ISR
+ .text.USB_EP_2_ISR
+                0x000028d4       0x34 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_episr.o)
+                0x000028d4                USB_EP_2_ISR
+ .text.USB_SOF_ISR
+                0x00002908        0x4 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_episr.o)
+                0x00002908                USB_SOF_ISR
+ .text.USB_BUS_RESET_ISR
+                0x0000290c        0x4 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_episr.o)
+                0x0000290c                USB_BUS_RESET_ISR
+ .text.USB_ConfigAltChanged.part.0
+                0x00002910      0x1bc .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_std.o)
+ .text.USB_ReadDieID
+                0x00002acc       0x54 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_std.o)
+                0x00002acc                USB_ReadDieID
+ .text.USB_ConfigReg
+                0x00002b20       0x98 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_std.o)
+                0x00002b20                USB_ConfigReg
+ .text.USB_GetInterfaceClassTablePtr
+                0x00002bb8       0x44 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_std.o)
+                0x00002bb8                USB_GetInterfaceClassTablePtr
+ .text.USB_Config
+                0x00002bfc      0x1e4 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_std.o)
+                0x00002bfc                USB_Config
+ .text.USB_SetEndpointHalt
+                0x00002de0       0x58 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_std.o)
+                0x00002de0                USB_SetEndpointHalt
+ .text.USB_ClearEndpointHalt
+                0x00002e38       0x84 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_std.o)
+                0x00002e38                USB_ClearEndpointHalt
+ .text.USB_ValidateAlternateSetting
+                0x00002ebc       0x74 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_std.o)
+                0x00002ebc                USB_ValidateAlternateSetting
+ .text.USB_HandleStandardRqst
+                0x00002f30      0x364 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_std.o)
+                0x00002f30                USB_HandleStandardRqst
+ .text.USB_HandleVendorRqst
+                0x00003294       0x34 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_vnd.o)
+                0x00003294                USB_HandleVendorRqst
+ .text.CyDmacConfigure
+                0x000032c8       0x34 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CyDmac.o)
+                0x000032c8                CyDmacConfigure
+ .text.CyDmaChEnable
+                0x000032fc       0x3c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CyDmac.o)
+                0x000032fc                CyDmaChEnable
+ .text.CyDmaClearPendingDrq
+                0x00003338       0x30 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CyDmac.o)
+                0x00003338                CyDmaClearPendingDrq
+ .text.CyDmaChPriority
+                0x00003368       0x24 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CyDmac.o)
+                0x00003368                CyDmaChPriority
+ .text.CyDmaChSetExtendedAddress
+                0x0000338c       0x30 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CyDmac.o)
+                0x0000338c                CyDmaChSetExtendedAddress
+ .text.CyDmaChSetInitialTd
+                0x000033bc       0x18 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CyDmac.o)
+                0x000033bc                CyDmaChSetInitialTd
+ .text.CyDmaChSetConfiguration
+                0x000033d4       0x48 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CyDmac.o)
+                0x000033d4                CyDmaChSetConfiguration
+ .text.CyDmaTdAllocate
+                0x0000341c       0x38 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CyDmac.o)
+                0x0000341c                CyDmaTdAllocate
+ .text.CyDmaTdSetConfiguration
+                0x00003454       0x30 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CyDmac.o)
+                0x00003454                CyDmaTdSetConfiguration
+ .text.CyDmaTdSetAddress
+                0x00003484       0x1c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CyDmac.o)
+                0x00003484                CyDmaTdSetAddress
+ .text.CyHalt   0x000034a0        0x4 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CyLib.o)
+                0x000034a0                CyHalt
+ .text.CyDelay  0x000034a4       0x48 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CyLib.o)
+                0x000034a4                CyDelay
+ .text.CyDelayUs
+                0x000034ec       0x10 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CyLib.o)
+                0x000034ec                CyDelayUs
+ .text.CyIntSetVector
+                0x000034fc       0x20 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CyLib.o)
+                0x000034fc                CyIntSetVector
+ .text.CyIntSetPriority
+                0x0000351c       0x20 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CyLib.o)
+                0x0000351c                CyIntSetPriority
+ .text.isr_1_StartEx
+                0x0000353c       0x30 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(isr_1.o)
+                0x0000353c                isr_1_StartEx
+ .text.UI_isr_StartEx
+                0x0000356c       0x2c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(UI_isr.o)
+                0x0000356c                UI_isr_StartEx
+ .text.I2C_CharLCD_Init
+                0x00003598       0x8c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(I2C_CharLCD.o)
+                0x00003598                I2C_CharLCD_Init
+ .text.I2C_CharLCD_Enable
+                0x00003624       0x2c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(I2C_CharLCD.o)
+                0x00003624                I2C_CharLCD_Enable
+ .text.I2C_CharLCD_Start
+                0x00003650       0x28 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(I2C_CharLCD.o)
+                0x00003650                I2C_CharLCD_Start
+ .text.I2C_CharLCD_ISR
+                0x00003678      0x250 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(I2C_CharLCD_INT.o)
+                0x00003678                I2C_CharLCD_ISR
+ .text.I2C_CharLCD_MasterWriteBuf
+                0x000038c8       0xc4 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(I2C_CharLCD_MASTER.o)
+                0x000038c8                I2C_CharLCD_MasterWriteBuf
+ .text.CharLCD_WriteData
+                0x0000398c       0x44 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CharLCD_I2C.o)
+                0x0000398c                CharLCD_WriteData
+ .text.CharLCD_PrintString
+                0x000039d0       0x1c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CharLCD_I2C.o)
+                0x000039d0                CharLCD_PrintString
+ .text.CharLCD_WriteControl
+                0x000039ec       0x44 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CharLCD_I2C.o)
+                0x000039ec                CharLCD_WriteControl
+ .text.CharLCD_Position
+                0x00003a30       0x34 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CharLCD_I2C.o)
+                0x00003a30                CharLCD_Position
+ .text.CharLCD_WrtCntrlUpNib
+                0x00003a64       0x30 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CharLCD_I2C.o)
+                0x00003a64                CharLCD_WrtCntrlUpNib
+ .text.CharLCD_Init
+                0x00003a94       0x6c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CharLCD_I2C.o)
+                0x00003a94                CharLCD_Init
+ .text.CharLCD_Start
+                0x00003b00       0x20 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CharLCD_I2C.o)
+                0x00003b00                CharLCD_Start
+ .text.CharLCD_PrintNumber
+                0x00003b20       0xb8 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CharLCD_I2C.o)
+                0x00003b20                CharLCD_PrintNumber
+ .text.ADC_MIC_Enable
+                0x00003bd8       0xa0 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_MIC.o)
+                0x00003bd8                ADC_MIC_Enable
+ .text.ADC_MIC_SetResolution
+                0x00003c78       0x88 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_MIC.o)
+                0x00003c78                ADC_MIC_SetResolution
+ .text.ADC_MIC_Init
+                0x00003d00       0x3c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_MIC.o)
+                0x00003d00                ADC_MIC_Init
+ .text.ADC_MIC_Start
+                0x00003d3c       0x1c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_MIC.o)
+                0x00003d3c                ADC_MIC_Start
+ .text.ADC_MIC_StartConvert
+                0x00003d58       0x10 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_MIC.o)
+                0x00003d58                ADC_MIC_StartConvert
+ .text.ADC_MIC_IsEndConversion
+                0x00003d68       0x28 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_MIC.o)
+                0x00003d68                ADC_MIC_IsEndConversion
+ .text.ADC_MIC_GetResult16
+                0x00003d90       0x18 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_MIC.o)
+                0x00003d90                ADC_MIC_GetResult16
+ .text.ADC_MIC_ISR
+                0x00003da8        0x4 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_MIC_INT.o)
+                0x00003da8                ADC_MIC_ISR
+ .text.TIMER_SAMPLERATE_Init
+                0x00003dac       0x5c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(TIMER_SAMPLERATE.o)
+                0x00003dac                TIMER_SAMPLERATE_Init
+ .text.TIMER_SAMPLERATE_Start
+                0x00003e08       0x24 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(TIMER_SAMPLERATE.o)
+                0x00003e08                TIMER_SAMPLERATE_Start
+ .text.ADC_UI_Init
+                0x00003e2c       0x40 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_UI.o)
+                0x00003e2c                ADC_UI_Init
+ .text.ADC_UI_Enable
+                0x00003e6c       0xc8 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_UI.o)
+                0x00003e6c                ADC_UI_Enable
+ .text.ADC_UI_Start
+                0x00003f34       0x28 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_UI.o)
+                0x00003f34                ADC_UI_Start
+ .text.ADC_UI_StartConvert
+                0x00003f5c       0x10 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_UI.o)
+                0x00003f5c                ADC_UI_StartConvert
+ .text.ADC_UI_StopConvert
+                0x00003f6c        0x4 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_UI.o)
+                0x00003f6c                ADC_UI_StopConvert
+ .text.ADC_UI_IsEndConversion
+                0x00003f70       0x18 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_UI.o)
+                0x00003f70                ADC_UI_IsEndConversion
+ .text.ADC_UI_GetResult16
+                0x00003f88       0x1c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_UI.o)
+                0x00003f88                ADC_UI_GetResult16
+ .text.ADC_UI_ISR
+                0x00003fa4        0x4 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_UI_INT.o)
+                0x00003fa4                ADC_UI_ISR
+ .text.TIMER_UI_Init
+                0x00003fa8       0x5c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(TIMER_UI.o)
+                0x00003fa8                TIMER_UI_Init
+ .text.TIMER_UI_Start
+                0x00004004       0x24 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(TIMER_UI.o)
+                0x00004004                TIMER_UI_Start
+ .text.ADC_MIC_theACLK_SetModeRegister
+                0x00004028       0x14 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_MIC_theACLK.o)
+                0x00004028                ADC_MIC_theACLK_SetModeRegister
+ .text.ADC_UI_SAR_Enable
+                0x0000403c       0x84 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_UI_SAR.o)
+                0x0000403c                ADC_UI_SAR_Enable
+ .text.ADC_UI_SAR_SetResolution
+                0x000040c0       0x78 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_UI_SAR.o)
+                0x000040c0                ADC_UI_SAR_SetResolution
+ .text.ADC_UI_SAR_Start
+                0x00004138       0x34 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_UI_SAR.o)
+                0x00004138                ADC_UI_SAR_Start
+ .text.ADC_UI_SAR_StopConvert
+                0x0000416c       0x18 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_UI_SAR.o)
+                0x0000416c                ADC_UI_SAR_StopConvert
+ .text.ADC_UI_TempBuf_DmaInitialize
+                0x00004184       0x44 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_UI_TempBuf_dma.o)
+                0x00004184                ADC_UI_TempBuf_DmaInitialize
+ .text.ADC_UI_FinalBuf_DmaInitialize
+                0x000041c8       0x3c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_UI_FinalBuf_dma.o)
+                0x000041c8                ADC_UI_FinalBuf_DmaInitialize
+ .text.ADC_UI_IRQ_SetVector
+                0x00004204        0xc .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_UI_IRQ.o)
+                0x00004204                ADC_UI_IRQ_SetVector
+ .text.ADC_UI_IRQ_SetPriority
+                0x00004210       0x10 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(ADC_UI_IRQ.o)
+                0x00004210                ADC_UI_IRQ_SetPriority
+ .text.UART_MIDITX_Enable
+                0x00004220       0x1c .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(UART_MIDITX.o)
+                0x00004220                UART_MIDITX_Enable
+ .text.UART_MIDITX_Start
+                0x0000423c       0x38 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(UART_MIDITX.o)
+                0x0000423c                UART_MIDITX_Start
+ .text.UART_MIDITX_PutChar
+                0x00004274       0x18 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(UART_MIDITX.o)
+                0x00004274                UART_MIDITX_PutChar
+ *fill*         0x0000428c        0x4 
+ .text          0x00004290       0x20 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(CyBootAsmGnu.o)
+                0x00004290                CyDelayCycles
+                0x000042a0                CyEnterCriticalSection
+                0x000042a8                CyExitCriticalSection
+ .text.USB_DispatchClassRqst
+                0x000042b0       0x60 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_cls.o)
+                0x000042b0                USB_DispatchClassRqst
+ .text.CySetReg24
+                0x00004310       0x14 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(cyutils.o)
+                0x00004310                CySetReg24
+ .text.USB_DispatchAUDIOClassRqst
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
                 0x00004324       0x34 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_audio.o)
                 0x00004324                USB_DispatchAUDIOClassRqst
  .text.cos      0x00004358       0x90 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libm.a(lib_a-s_cos.o)
@@ -2512,6 +2868,9 @@ END GROUP
  *fill*         0x00007f9e        0x2 
  .text._sbrk    0x00007fa0       0x1c c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libnosys.a(sbrk.o)
                 0x00007fa0                _sbrk
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  *(.plt)
  *(.gnu.warning)
@@ -2526,10 +2885,17 @@ END GROUP
  *(.gcc_except_table)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .v4_bx          0x0000867c        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
 .iplt           0x0000867c        0x0
+=======
+.v4_bx          0x00007fbc        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.iplt           0x00007fbc        0x0
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
 .v4_bx          0x00007fbc        0x0
  .v4_bx         0x00000000        0x0 linker stubs
@@ -2541,6 +2907,7 @@ END GROUP
 .eh_frame_hdr
  *(.eh_frame_hdr)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .eh_frame       0x0000867c        0x4
  *(.eh_frame)
@@ -2726,12 +3093,108 @@ END GROUP
                 0x000085ec                __fini_array_end = .
                 0x000085ec                . = ALIGN (0x4)
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
+.eh_frame       0x00007fbc        0x4
+ *(.eh_frame)
+ .eh_frame      0x00007fbc        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
+ .eh_frame      0x00007fbc        0x4 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtend.o
+                0x00007fc0                PROVIDE (__exidx_start, .)
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x00007fc0                __exidx_end = .
+
+.rodata         0x00007fc0      0x640
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata.str1.4
+                0x00007fc0       0x5f .\CortexM3\ARM_GCC_493\Debug\main.o
+                                 0x60 (size before relaxing)
+ *fill*         0x0000801f        0x1 
+ .rodata.str1.4
+                0x00008020       0x8d .\CortexM3\ARM_GCC_493\Debug\midi.o
+                                 0x94 (size before relaxing)
+ *fill*         0x000080ad        0x3 
+ .rodata        0x000080b0       0x14 .\CortexM3\ARM_GCC_493\Debug\hbird.o
+                0x000080b4                MIDI_IDENTITY_REPLY
+ .rodata.str1.4
+                0x000080c4       0x7c .\CortexM3\ARM_GCC_493\Debug\hbird.o
+                                 0xa8 (size before relaxing)
+ .rodata        0x00008140       0x30 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(cyfitter_cfg.o)
+ .rodata        0x00008170       0x14 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_std.o)
+ .rodata        0x00008184      0x1ec .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_descr.o)
+                0x00008184                USB_MSOS_CONFIGURATION_DESCR
+                0x000081ac                USB_MSOS_DESCRIPTOR
+                0x000081c0                USB_TABLE
+                0x000081c8                USB_DEVICE0_TABLE
+                0x000081d8                USB_DEVICE0_CONFIGURATION0_TABLE
+                0x00008200                USB_DEVICE0_CONFIGURATION0_INTERFACE_CLASS
+                0x00008204                USB_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE
+                0x00008214                USB_SN_STRING_DESCRIPTOR
+                0x00008218                USB_STRING_DESCRIPTORS
+                0x000082d4                USB_DEVICE0_CONFIGURATION0_DESCR
+                0x0000835c                USB_DEVICE0_DESCR
+ .rodata.str1.4
+                0x00008370        0x4 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libm.a(lib_a-w_pow.o)
+ *fill*         0x00008374        0x4 
+ .rodata.dp_h   0x00008378       0x10 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libm.a(lib_a-e_pow.o)
+ .rodata.dp_l   0x00008388       0x10 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libm.a(lib_a-e_pow.o)
+ .rodata.bp     0x00008398       0x10 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libm.a(lib_a-e_pow.o)
+ .rodata.str1.4
+                0x00000000        0x4 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libm.a(lib_a-e_pow.o)
+ .rodata.npio2_hw
+                0x000083a8       0x80 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libm.a(lib_a-e_rem_pio2.o)
+ .rodata.two_over_pi
+                0x00008428      0x108 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libm.a(lib_a-e_rem_pio2.o)
+ .rodata.init_jk
+                0x00008530       0x10 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libm.a(lib_a-k_rem_pio2.o)
+ .rodata.PIo2   0x00008540       0x40 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libm.a(lib_a-k_rem_pio2.o)
+ .rodata.TWO52  0x00008580       0x10 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libm.a(lib_a-s_rint.o)
+ .rodata.str1.1
+                0x00008590        0x2 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .rodata.str1.1
+                0x00008592       0x11 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+ .rodata.str1.1
+                0x000085a3       0x22 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x000085c8                . = ALIGN (0x4)
+ *fill*         0x000085c5        0x3 
+ *(.init)
+ .init          0x000085c8        0x4 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crti.o
+                0x000085c8                _init
+ .init          0x000085cc        0x8 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
+                0x000085d4                . = ALIGN (0x4)
+                0x000085d4                __preinit_array_start = .
+ *(.preinit_array)
+                0x000085d4                __preinit_array_end = .
+                0x000085d4                . = ALIGN (0x4)
+                0x000085d4                __init_array_start = .
+ *(SORT(.init_array.*))
+ *(.init_array)
+ .init_array    0x000085d4        0x4 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
+ .init_array    0x000085d8        0x4 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+                0x000085dc                __init_array_end = .
+                0x000085dc                . = ALIGN (0x4)
+ *(.fini)
+ .fini          0x000085dc        0x4 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crti.o
+                0x000085dc                _fini
+ .fini          0x000085e0        0x8 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
+                0x000085e8                . = ALIGN (0x4)
+                0x000085e8                __fini_array_start = .
+ *(.fini_array)
+ .fini_array    0x000085e8        0x4 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
+ *(SORT(.fini_array.*))
+                0x000085ec                __fini_array_end = .
+                0x000085ec                . = ALIGN (0x4)
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0x00008cac                . = ALIGN (0x4)
+=======
+                0x000085ec                . = ALIGN (0x4)
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
                 0x000085ec                . = ALIGN (0x4)
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
@@ -2739,6 +3202,7 @@ END GROUP
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
+<<<<<<< HEAD
 <<<<<<< HEAD
                 0x00008cac                . = ALIGN (0x4)
                 0x00008cac                __cy_regions = .
@@ -2751,6 +3215,8 @@ END GROUP
  *fill*         0x00008cbc        0x4 
                 0x00008cc0                _etext = .
 =======
+=======
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
                 0x000085ec                . = ALIGN (0x4)
                 0x000085ec                __cy_regions = .
                 0x000085ec        0x4 LONG 0x8600 __cy_region_init_ram
@@ -2761,6 +3227,9 @@ END GROUP
                 0x00008600                . = ALIGN (0x8)
  *fill*         0x000085fc        0x4 
                 0x00008600                _etext = .
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 .ramvectors     0x1fff8000      0x100
@@ -2776,7 +3245,11 @@ END GROUP
                 0x1fff8104                CyResetStatus
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .data           0x1fff8108      0x180 load address 0x00008cc0
+=======
+.data           0x1fff8108      0x180 load address 0x00008600
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
 .data           0x1fff8108      0x180 load address 0x00008600
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
@@ -2822,10 +3295,17 @@ END GROUP
                 0x1fff8288                _edata = .
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .igot.plt       0x1fff8288        0x0 load address 0x00008e40
  .igot.plt      0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
 
 .bss            0x1fff8288     0x1df8 load address 0x00008e40
+=======
+.igot.plt       0x1fff8288        0x0 load address 0x00008780
+ .igot.plt      0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
+
+.bss            0x1fff8288     0x1df0 load address 0x00008780
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
 .igot.plt       0x1fff8288        0x0 load address 0x00008780
  .igot.plt      0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
@@ -2849,6 +3329,7 @@ END GROUP
                 0x1fff82bb                curKey
                 0x1fff82bc                curScale
                 0x1fff82bd                sampleFrame
+<<<<<<< HEAD
 <<<<<<< HEAD
                 0x1fff82c0                timerFlag
                 0x1fff82c4                pitchPrev
@@ -2887,6 +3368,8 @@ END GROUP
  .bss           0x1fff930e        0x2 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(UART_MIDITX.o)
                 0x1fff930e                UART_MIDITX_initVar
 =======
+=======
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
                 0x1fff82c0                numFrames
                 0x1fff82c4                inqFlags_old
                 0x1fff82c5                usbActivityCounter
@@ -2921,6 +3404,9 @@ END GROUP
                 0x1fff9305                ADC_UI_SAR_initVar
  .bss           0x1fff9306        0x2 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(UART_MIDITX.o)
                 0x1fff9306                UART_MIDITX_initVar
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  .bss.__malloc_sbrk_start
                 0x1fff9308        0x4 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
@@ -3002,17 +3488,21 @@ END GROUP
                 0x1fffa078                . = ALIGN (0x8)
  *(.ram.b)
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0x1fffa080                _end = .
                 0x1fffa080                __end = .
                 0x1fffa080                PROVIDE (end, .)
                 0x1fffa080                PROVIDE (__bss_end__, .)
                 0x00008cc0                __cy_region_init_ram = LOADADDR (.data)
 =======
+=======
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
                 0x1fffa078                _end = .
                 0x1fffa078                __end = .
                 0x1fffa078                PROVIDE (end, .)
                 0x1fffa078                PROVIDE (__bss_end__, .)
                 0x00008600                __cy_region_init_ram = LOADADDR (.data)
+<<<<<<< HEAD
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
                 0x00000180                __cy_region_init_size_ram = (_edata - ADDR (.data))
                 0x00001df0                __cy_region_zero_size_ram = (_end - _edata)
@@ -3024,11 +3514,19 @@ END GROUP
  *fill*         0x1fffa080       0x80 
                 0x1fffa100                __cy_heap_limit = .
 =======
+=======
+                0x00000180                __cy_region_init_size_ram = (_edata - ADDR (.data))
+                0x00001df0                __cy_region_zero_size_ram = (_end - _edata)
+
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 .heap           0x1fffa078       0x80 load address 0x00008780
                 0x1fffa078                . = _end
                 0x1fffa0f8                . = (. + 0x80)
  *fill*         0x1fffa078       0x80 
                 0x1fffa0f8                __cy_heap_limit = .
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 .stack          0x20007800      0x800
@@ -3075,7 +3573,11 @@ END GROUP
                 0x90500000                cy_metadata
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .rel.dyn        0x00008e40        0x0 load address 0x9050000c
+=======
+.rel.dyn        0x00008780        0x0 load address 0x9050000c
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
 .rel.dyn        0x00008780        0x0 load address 0x9050000c
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
@@ -3200,6 +3702,7 @@ END GROUP
  *(.debug_pubnames)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .debug_info     0x00000000     0xf257
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0xcea .\CortexM3\ARM_GCC_493\Debug\main.o
@@ -3250,6 +3753,8 @@ END GROUP
  .debug_info    0x0000f021      0x162 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(MIDI2_UART_INT.o)
  .debug_info    0x0000f183       0xd4 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_audio.o)
 =======
+=======
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 .debug_info     0x00000000     0xf1ae
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0xc59 .\CortexM3\ARM_GCC_493\Debug\main.o
@@ -3299,6 +3804,9 @@ END GROUP
  .debug_info    0x0000ee16      0x162 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(MIDI1_UART_INT.o)
  .debug_info    0x0000ef78      0x162 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(MIDI2_UART_INT.o)
  .debug_info    0x0000f0da       0xd4 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_audio.o)
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 .debug_abbrev   0x00000000     0x4e7b
@@ -3352,6 +3860,7 @@ END GROUP
  .debug_abbrev  0x00004e05       0x76 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_audio.o)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .debug_line     0x00000000     0x656b
  *(.debug_line)
  .debug_line    0x00000000      0x378 .\CortexM3\ARM_GCC_493\Debug\main.o
@@ -3404,6 +3913,10 @@ END GROUP
 =======
 .debug_line     0x00000000     0x6543
  *(.debug_line)
+=======
+.debug_line     0x00000000     0x6543
+ *(.debug_line)
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
  .debug_line    0x00000000      0x36c .\CortexM3\ARM_GCC_493\Debug\main.o
  .debug_line    0x0000036c      0x409 .\CortexM3\ARM_GCC_493\Debug\fft.o
  .debug_line    0x00000775      0x3b8 .\CortexM3\ARM_GCC_493\Debug\midi.o
@@ -3451,6 +3964,9 @@ END GROUP
  .debug_line    0x00006321       0xcf .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(MIDI1_UART_INT.o)
  .debug_line    0x000063f0       0xcf .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(MIDI2_UART_INT.o)
  .debug_line    0x000064bf       0x84 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_audio.o)
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 .debug_frame    0x00000000     0x4224
@@ -3544,6 +4060,7 @@ END GROUP
  .debug_frame   0x000041a8       0x3c c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
  .debug_frame   0x000041e4       0x20 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
  .debug_frame   0x00004204       0x20 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libnosys.a(sbrk.o)
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 .debug_str      0x00000000     0x4744
@@ -3684,6 +4201,9 @@ END GROUP
  .debug_loc     0x00009220       0x55 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(MIDI2_UART_INT.o)
  .debug_loc     0x00009275       0x13 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_audio.o)
 =======
+=======
+
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 .debug_str      0x00000000     0x4772
  *(.debug_str)
  .debug_str     0x00000000      0x63a .\CortexM3\ARM_GCC_493\Debug\main.o
@@ -3821,6 +4341,9 @@ END GROUP
  .debug_loc     0x00009172       0x55 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(MIDI1_UART_INT.o)
  .debug_loc     0x000091c7       0x55 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(MIDI2_UART_INT.o)
  .debug_loc     0x0000921c       0x13 .\CortexM3\ARM_GCC_493\Debug\Hummingbird(Continuous Output).a(USB_audio.o)
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 .debug_macinfo

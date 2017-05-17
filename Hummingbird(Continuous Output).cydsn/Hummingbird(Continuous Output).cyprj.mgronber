@@ -1673,9 +1673,15 @@
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif</v>
 </warp_dep>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <deps_time v="131394590970462285" />
 <top_block v="TopDesign" />
 <last_generation v="33" />
+=======
+<deps_time v="131394508255442768" />
+<top_block v="TopDesign" />
+<last_generation v="25" />
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
 <deps_time v="131394508255442768" />
 <top_block v="TopDesign" />
@@ -2754,6 +2760,10 @@
 <file name=".\Generated_Source\PSoC5\isr_1.h" />
 <file name=".\Generated_Source\PSoC5\project.h" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<file name=".\Generated_Source\PSoC5\tuner_isr.h" />
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
 <file name=".\Generated_Source\PSoC5\tuner_isr.h" />
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
@@ -2845,6 +2855,7 @@
 </file>
 <file name=".\Generated_Source\PSoC5\isr_1.c" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 <file name=".\CortexM3\ARM_GCC_493\Debug\fft.o">
 <dep name=".\fft.c" />
 <dep name=".\fft.h" />
@@ -2853,6 +2864,8 @@
 <file name=".\fft.h" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\hbird.o">
 =======
+=======
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 <file name=".\CortexM3\ARM_GCC_493\Debug\tuner_isr.o">
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -2867,6 +2880,9 @@
 </file>
 <file name=".\Generated_Source\PSoC5\tuner_isr.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\main.o">
+<<<<<<< HEAD
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+=======
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 <dep name=".\Generated_Source\PSoC5\ADC_MIC.h" />
 <dep name=".\Generated_Source\PSoC5\ADC_MIC_IRQ.h" />
@@ -2945,11 +2961,19 @@
 </file>
 <file name=".\device.h" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 <file name=".\hbird.c" />
 <file name=".\hbird.h" />
 <file name=".\midi.h" />
 <file name=".\pitch.h" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\main.o">
+=======
+<file name=".\fft.h" />
+<file name=".\hbird.h" />
+<file name=".\main.c" />
+<file name=".\midi.h" />
+<file name=".\pitch.h" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\midi.o">
 <dep name=".\Generated_Source\PSoC5\ADC_MIC.h" />
 <dep name=".\Generated_Source\PSoC5\ADC_MIC_IRQ.h" />
 <dep name=".\Generated_Source\PSoC5\ADC_MIC_theACLK.h" />
@@ -2989,6 +3013,7 @@
 <dep name=".\Generated_Source\PSoC5\SDA.h" />
 <dep name=".\Generated_Source\PSoC5\SDA_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\TIMER_SAMPLERATE.h" />
+<dep name=".\Generated_Source\PSoC5\TIMER_TUNER.h" />
 <dep name=".\Generated_Source\PSoC5\TIMER_UI.h" />
 <dep name=".\Generated_Source\PSoC5\UART_MIDITX.h" />
 <dep name=".\Generated_Source\PSoC5\UI_isr.h" />
@@ -3016,6 +3041,82 @@
 <dep name=".\Generated_Source\PSoC5\cytypes.h" />
 <dep name=".\Generated_Source\PSoC5\isr_1.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
+<dep name=".\Generated_Source\PSoC5\tuner_isr.h" />
+<dep name=".\device.h" />
+<dep name=".\midi.c" />
+<dep name=".\midi.h" />
+</file>
+<file name=".\midi.c" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\pitch.o">
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+<dep name=".\Generated_Source\PSoC5\ADC_MIC.h" />
+<dep name=".\Generated_Source\PSoC5\ADC_MIC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\ADC_MIC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\ADC_UI.h" />
+<dep name=".\Generated_Source\PSoC5\ADC_UI_FinalBuf_dma.h" />
+<dep name=".\Generated_Source\PSoC5\ADC_UI_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\ADC_UI_IntClock.h" />
+<dep name=".\Generated_Source\PSoC5\ADC_UI_SAR.h" />
+<dep name=".\Generated_Source\PSoC5\ADC_UI_TempBuf_dma.h" />
+<dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
+<dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
+<dep name=".\Generated_Source\PSoC5\CharLCD_I2C.h" />
+<dep name=".\Generated_Source\PSoC5\Clock_1.h" />
+<dep name=".\Generated_Source\PSoC5\Clock_2.h" />
+<dep name=".\Generated_Source\PSoC5\CyDmac.h" />
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\I2C_CharLCD.h" />
+<dep name=".\Generated_Source\PSoC5\I2C_CharLCD_PVT.h" />
+<dep name=".\Generated_Source\PSoC5\MIC_GND.h" />
+<dep name=".\Generated_Source\PSoC5\MIC_GND_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MIC_IN.h" />
+<dep name=".\Generated_Source\PSoC5\MIC_IN_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MIDI1_UART.h" />
+<dep name=".\Generated_Source\PSoC5\MIDI2_UART.h" />
+<dep name=".\Generated_Source\PSoC5\POT_IN_HYST.h" />
+<dep name=".\Generated_Source\PSoC5\POT_IN_HYST_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\POT_IN_KEY.h" />
+<dep name=".\Generated_Source\PSoC5\POT_IN_KEY_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\POT_IN_SCALE.h" />
+<dep name=".\Generated_Source\PSoC5\POT_IN_SCALE_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\POT_IN_VELO.h" />
+<dep name=".\Generated_Source\PSoC5\POT_IN_VELO_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\SCL.h" />
+<dep name=".\Generated_Source\PSoC5\SCL_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\SDA.h" />
+<dep name=".\Generated_Source\PSoC5\SDA_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\TIMER_SAMPLERATE.h" />
+<dep name=".\Generated_Source\PSoC5\TIMER_TUNER.h" />
+<dep name=".\Generated_Source\PSoC5\TIMER_UI.h" />
+<dep name=".\Generated_Source\PSoC5\UART_MIDITX.h" />
+<dep name=".\Generated_Source\PSoC5\UI_isr.h" />
+<dep name=".\Generated_Source\PSoC5\USB.h" />
+<dep name=".\Generated_Source\PSoC5\USB_Dm.h" />
+<dep name=".\Generated_Source\PSoC5\USB_Dm_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\USB_Dp.h" />
+<dep name=".\Generated_Source\PSoC5\USB_Dp_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\USB_audio.h" />
+<dep name=".\Generated_Source\PSoC5\USB_cdc.h" />
+<dep name=".\Generated_Source\PSoC5\USB_hid.h" />
+<dep name=".\Generated_Source\PSoC5\USB_midi.h" />
+<dep name=".\Generated_Source\PSoC5\USB_pvt.h" />
+<dep name=".\Generated_Source\PSoC5\core_cm3.h" />
+<dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
+<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
+<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\isr_1.h" />
+<dep name=".\Generated_Source\PSoC5\project.h" />
+<dep name=".\Generated_Source\PSoC5\tuner_isr.h" />
 <dep name=".\device.h" />
 <dep name=".\fft.h" />
 <dep name=".\hbird.h" />
@@ -3023,6 +3124,7 @@
 <dep name=".\midi.h" />
 <dep name=".\pitch.h" />
 </file>
+<<<<<<< HEAD
 <file name=".\main.c" />
 =======
 <file name=".\fft.h" />
@@ -3185,6 +3287,8 @@
 <dep name=".\pitch.c" />
 <dep name=".\pitch.h" />
 </file>
+=======
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 <file name=".\pitch.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o">
 <dep name=".\Generated_Source\PSoC5\CyBootAsmGnu.s" />
@@ -3271,8 +3375,11 @@
 <dep name=".\pitch.h" />
 </file>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <file name=".\Generated_Source\PSoC5\tuner_isr.c" />
 =======
+=======
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 <file name=".\hbird.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\fft.o">
 <dep name=".\fft.c" />
@@ -4025,7 +4132,11 @@
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
 <<<<<<< HEAD
+<<<<<<< HEAD
 <deps_time v="131394591151606047" />
+=======
+<deps_time v="131394508369286067" />
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 =======
 <deps_time v="131394508369286067" />
 >>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
