@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 1
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 1
 
 
    1              		.syntax unified
@@ -66,15 +58,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
   46              		.global	__aeabi_dmul
   47              		.global	__aeabi_ddiv
   48              		.section	.text.pitch_zero_cross,"ax",%progbits
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 2
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 2
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 2
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 2
 
 
   49              		.align	2
@@ -134,15 +118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
   89 0028 FFF7FEFF 		bl	__aeabi_dmul
   90              	.LVL6:
   91 002c 02A3     		adr	r3, .L10
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 3
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 3
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 3
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 3
 
 
   92 002e D3E90023 		ldrd	r2, [r3]
@@ -202,15 +178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
   29:pitch.c       ****     
   30:pitch.c       ****   
   31:pitch.c       ****     int16 lag;
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 4
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 4
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 4
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 4
 
 
   32:pitch.c       ****     for(lag = LAG_MIN; lag < LAG_MAX + 1; lag++){
@@ -270,15 +238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  176 0042 0EFB0200 		mla	r0, lr, r2, r0
  177              	.LVL14:
   36:pitch.c       ****             ac = ac + samples[i] * samples[i + lag];              
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 5
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 5
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 5
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 5
 
 
  178              		.loc 1 36 0 discriminator 3
@@ -338,15 +298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  225              		.global	__aeabi_fadd
  226              		.global	__aeabi_fcmpgt
  227              		.section	.text.pitch_auto_fft,"ax",%progbits
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 6
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 6
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 6
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 6
 
 
  228              		.align	2
@@ -406,15 +358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  273 002e FFF7FEFF 		bl	__aeabi_fdiv
  274              	.LVL29:
   57:pitch.c       ****         f[i] = (float)samples[i] / 100;
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 7
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 7
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 7
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 7
 
 
  275              		.loc 1 57 0 discriminator 3
@@ -474,15 +418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
   63:pitch.c       ****         // Multiply by conjugate
  317              		.loc 1 63 0 discriminator 3
  318 0082 EAD1     		bne	.L28
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 8
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 8
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 8
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 8
 
 
   67:pitch.c       ****     }
@@ -542,15 +478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
   81:pitch.c       ****     return (float)SAMPLE_RATE / best_lag;
  356              		.loc 1 81 0
  357 00bc 4046     		mov	r0, r8
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 9
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 9
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 9
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 9
 
 
  358 00be FFF7FEFF 		bl	__aeabi_i2f
@@ -610,15 +538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
   89:pitch.c       ****     
   90:pitch.c       ****     uint16 lag;
   91:pitch.c       ****     for (lag = LAG_MIN; lag < LAG_MAX + 1; lag++) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 10
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 10
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 10
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 10
 
 
  405              		.loc 1 91 0
@@ -678,15 +598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  441              		.loc 1 95 0 discriminator 3
  442 0042 9245     		cmp	r10, r2
   96:pitch.c       ****         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 11
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 11
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 11
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 11
 
 
  443              		.loc 1 96 0 discriminator 3
@@ -746,15 +658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  488              		.cfi_def_cfa_offset 36
  489              		@ sp needed
  490 0084 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 12
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 12
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 12
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 12
 
 
  491              	.LVL57:
@@ -814,15 +718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  536 0015 5D000000 		.4byte	.LASF37
  537 0019 38000000 		.4byte	.Ldebug_ranges0+0x38
  538 001d 00000000 		.4byte	0
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 13
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 13
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 13
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 13
 
 
  539 0021 00000000 		.4byte	.Ldebug_line0
@@ -882,15 +778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  593 0084 ED010000 		.4byte	.LASF11
  594 0088 05       		.uleb128 0x5
  595 0089 04       		.byte	0x4
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 14
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 14
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 14
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 14
 
 
  596 008a 03       		.uleb128 0x3
@@ -950,15 +838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  650 00f4 03       		.byte	0x3
  651 00f5 00080000 		.4byte	.LANCHOR0+2048
  652 00f9 08       		.uleb128 0x8
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 15
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 15
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 15
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 15
 
 
  653 00fa 01       		.uleb128 0x1
@@ -1018,15 +898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  707 0172 6D000000 		.4byte	.LLST3
  708 0176 0B       		.uleb128 0xb
  709 0177 7200     		.ascii	"r\000"
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 16
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 16
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 16
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 16
 
 
  710 0179 01       		.byte	0x1
@@ -1086,15 +958,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  764 01fa 0F       		.uleb128 0xf
  765 01fb 6600     		.ascii	"f\000"
  766 01fd 01       		.byte	0x1
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 17
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 17
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 17
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 17
 
 
  767 01fe 35       		.byte	0x35
@@ -1154,15 +1018,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  821 026b 50       		.byte	0x50
  822 026c 03       		.uleb128 0x3
  823 026d 91       		.byte	0x91
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 18
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 18
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 18
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 18
 
 
  824 026e E06F     		.sleb128 -2080
@@ -1222,15 +1078,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  878 02c3 01       		.uleb128 0x1
  879 02c4 51       		.byte	0x51
  880 02c5 03       		.uleb128 0x3
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 19
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 19
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 19
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 19
 
 
  881 02c6 91       		.byte	0x91
@@ -1290,15 +1138,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  935 0333 01       		.byte	0x1
  936 0334 58       		.byte	0x58
  937 0335 37000000 		.4byte	0x37
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 20
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 20
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 20
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 20
 
 
  938 0339 80020000 		.4byte	.LLST18
@@ -1358,15 +1198,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  992 03b6 18       		.uleb128 0x18
  993 03b7 C8030000 		.4byte	0x3c8
  994 03bb 18       		.uleb128 0x18
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 21
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 21
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 21
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 21
 
 
  995 03bc 25000000 		.4byte	0x25
@@ -1426,15 +1258,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  1049              		.section	.debug_abbrev,"",%progbits
  1050              	.Ldebug_abbrev0:
  1051 0000 01       		.uleb128 0x1
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 22
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 22
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 22
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 22
 
 
  1052 0001 11       		.uleb128 0x11
@@ -1494,15 +1318,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  1106 0037 0F       		.uleb128 0xf
  1107 0038 00       		.byte	0
  1108 0039 0B       		.uleb128 0xb
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 23
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 23
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 23
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 23
 
 
  1109 003a 0B       		.uleb128 0xb
@@ -1562,15 +1378,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  1163 0077 0B       		.uleb128 0xb
  1164 0078 3B       		.uleb128 0x3b
  1165 0079 0B       		.uleb128 0xb
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 24
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 24
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 24
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 24
 
 
  1166 007a 27       		.uleb128 0x27
@@ -1630,15 +1438,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  1220 00b1 00       		.byte	0
  1221 00b2 0D       		.uleb128 0xd
  1222 00b3 34       		.uleb128 0x34
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 25
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 25
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 25
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 25
 
 
  1223 00b4 00       		.byte	0
@@ -1698,15 +1498,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  1277 00ec 01       		.uleb128 0x1
  1278 00ed 31       		.uleb128 0x31
  1279 00ee 13       		.uleb128 0x13
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 26
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 26
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 26
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 26
 
 
  1280 00ef 01       		.uleb128 0x1
@@ -1766,15 +1558,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  1334 0127 00       		.byte	0
  1335 0128 17       		.uleb128 0x17
  1336 0129 2E       		.uleb128 0x2e
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 27
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 27
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 27
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 27
 
 
  1337 012a 01       		.byte	0x1
@@ -1834,15 +1618,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  1391 0160 3B       		.uleb128 0x3b
  1392 0161 0B       		.uleb128 0xb
  1393 0162 27       		.uleb128 0x27
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 28
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 28
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 28
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 28
 
 
  1394 0163 19       		.uleb128 0x19
@@ -1902,15 +1678,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  1448              	.LLST3:
  1449 006d 00000000 		.4byte	.LVL9
  1450 0071 18000000 		.4byte	.LVL10
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 29
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 29
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 29
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 29
 
 
  1451 0075 0100     		.2byte	0x1
@@ -1970,15 +1738,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  1505 00fb 66000000 		.4byte	.LVL19
  1506 00ff 70000000 		.4byte	.LVL20
  1507 0103 0300     		.2byte	0x3
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 30
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 30
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 30
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 30
 
 
  1508 0105 7A       		.byte	0x7a
@@ -2038,15 +1798,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  1562 018a 5A000000 		.4byte	.LVL31
  1563 018e E0000000 		.4byte	.LFE59
  1564 0192 0400     		.2byte	0x4
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 31
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 31
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 31
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 31
 
 
  1565 0194 F3       		.byte	0xf3
@@ -2106,15 +1858,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  1619 0219 00000000 		.4byte	0
  1620 021d 00000000 		.4byte	0
  1621              	.LLST15:
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 32
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 32
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 32
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 32
 
 
  1622 0221 00000000 		.4byte	.LVL44
@@ -2174,15 +1918,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  1676 02ae 7B       		.byte	0x7b
  1677 02af 00       		.sleb128 0
  1678 02b0 1C       		.byte	0x1c
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 33
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 33
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 33
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 33
 
 
  1679 02b1 9F       		.byte	0x9f
@@ -2242,15 +1978,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  1733 0006 00000000 		.4byte	.Ldebug_info0
  1734 000a 04       		.byte	0x4
  1735 000b 00       		.byte	0
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 34
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 34
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 34
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 34
 
 
  1736 000c 0000     		.2byte	0
@@ -2310,15 +2038,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  1784      685F616D 
  1784      646600
  1785              	.LASF23:
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 35
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 35
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 35
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 35
 
 
  1786 0012 62657374 		.ascii	"best_lag\000"
@@ -2378,15 +2098,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  1805      74696F6E 
  1806              	.LASF17:
  1807 0136 666C6F61 		.ascii	"float\000"
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 36
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 36
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 36
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 36
 
 
  1807      7400
@@ -2446,15 +2158,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  1835      206C6F6E 
  1835      6720756E 
  1835      7369676E 
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 37
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 37
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 37
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 37
 
 
  1835      65642069 
@@ -2514,15 +2218,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 1
  1861      6D00
  1862              	.LASF30:
  1863 0260 5F426F6F 		.ascii	"_Bool\000"
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccy3k3Dh.s 			page 38
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 38
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
-=======
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccm7ofmD.s 			page 38
->>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccICZszk.s 			page 38
 
 
  1863      6C00

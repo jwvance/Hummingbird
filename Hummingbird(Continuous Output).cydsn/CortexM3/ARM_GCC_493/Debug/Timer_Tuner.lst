@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
   29:Generated_Source\PSoC5/TIMER_TUNER.c **** /*******************************************************************************
   30:Generated_Source\PSoC5/TIMER_TUNER.c **** * Function Name: TIMER_TUNER_Init
   31:Generated_Source\PSoC5/TIMER_TUNER.c **** ********************************************************************************
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 2
 
 
   32:Generated_Source\PSoC5/TIMER_TUNER.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
   75:Generated_Source\PSoC5/TIMER_TUNER.c **** 
   76:Generated_Source\PSoC5/TIMER_TUNER.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
   77:Generated_Source\PSoC5/TIMER_TUNER.c ****                 /* Set last 2 bits of control3 register if one shot(halt on
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 3
 
 
   78:Generated_Source\PSoC5/TIMER_TUNER.c ****                 interrupt) is enabled*/
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
  132:Generated_Source\PSoC5/TIMER_TUNER.c ****             #if (!TIMER_TUNER_UDB_CONTROL_REG_REMOVED)
  133:Generated_Source\PSoC5/TIMER_TUNER.c ****                 if (0u == (TIMER_TUNER_CONTROL & TIMER_TUNER__B_TIMER__TM_SOFTWARE))
  134:Generated_Source\PSoC5/TIMER_TUNER.c ****                 {
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 4
 
 
  135:Generated_Source\PSoC5/TIMER_TUNER.c ****                     TIMER_TUNER_SetTriggerMode(TIMER_TUNER_INIT_TRIGGER_MODE);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
  189:Generated_Source\PSoC5/TIMER_TUNER.c ****     #if (!TIMER_TUNER_UDB_CONTROL_REG_REMOVED || TIMER_TUNER_UsingFixedFunction)
  190:Generated_Source\PSoC5/TIMER_TUNER.c ****         TIMER_TUNER_CONTROL |= TIMER_TUNER_CTRL_ENABLE;
  191:Generated_Source\PSoC5/TIMER_TUNER.c ****     #endif /* Remove assignment if control register is removed */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 5
 
 
  192:Generated_Source\PSoC5/TIMER_TUNER.c **** }
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
  246:Generated_Source\PSoC5/TIMER_TUNER.c **** *******************************************************************************/
  247:Generated_Source\PSoC5/TIMER_TUNER.c **** void TIMER_TUNER_Stop(void) 
  248:Generated_Source\PSoC5/TIMER_TUNER.c **** {
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 6
 
 
  249:Generated_Source\PSoC5/TIMER_TUNER.c ****     /* Disable Timer */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
  303:Generated_Source\PSoC5/TIMER_TUNER.c **** {
  304:Generated_Source\PSoC5/TIMER_TUNER.c ****     /* Generate a software capture by reading the counter register */
  305:Generated_Source\PSoC5/TIMER_TUNER.c ****     #if(TIMER_TUNER_UsingFixedFunction)
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 7
 
 
  306:Generated_Source\PSoC5/TIMER_TUNER.c ****         (void)CY_GET_REG16(TIMER_TUNER_COUNTER_LSB_PTR);
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
  360:Generated_Source\PSoC5/TIMER_TUNER.c ****     #else
  361:Generated_Source\PSoC5/TIMER_TUNER.c ****         return (0);
  362:Generated_Source\PSoC5/TIMER_TUNER.c ****     #endif /* (!TIMER_TUNER_UDB_CONTROL_REG_REMOVED) */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 8
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 8
 
 
  363:Generated_Source\PSoC5/TIMER_TUNER.c **** }
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
  417:Generated_Source\PSoC5/TIMER_TUNER.c **** ********************************************************************************
  418:Generated_Source\PSoC5/TIMER_TUNER.c **** *
  419:Generated_Source\PSoC5/TIMER_TUNER.c **** * Summary:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 9
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 9
 
 
  420:Generated_Source\PSoC5/TIMER_TUNER.c **** *  This function is used to change the period of the counter.  The new period
@@ -500,9 +500,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
  436:Generated_Source\PSoC5/TIMER_TUNER.c ****     #else
  437:Generated_Source\PSoC5/TIMER_TUNER.c ****         CY_SET_REG24(TIMER_TUNER_PERIOD_LSB_PTR, period);
   38              		.loc 1 437 0
-  39 0002 0F48     		ldr	r0, .L11
-  40 0004 0F49     		ldr	r1, .L11+4
-  41 0006 FFF7FEFF 		bl	CySetReg24
+  39 0002 1048     		ldr	r0, .L11
+  40 0004 6FF07F41 		mvn	r1, #-16777216
+  41 0008 FFF7FEFF 		bl	CySetReg24
   42              	.LVL1:
   43              	.LBE21:
   44              	.LBE20:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
  465:Generated_Source\PSoC5/TIMER_TUNER.c **** 
  466:Generated_Source\PSoC5/TIMER_TUNER.c **** /*******************************************************************************
  467:Generated_Source\PSoC5/TIMER_TUNER.c **** * Function Name: TIMER_TUNER_WriteCounter
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 10
 
 
  468:Generated_Source\PSoC5/TIMER_TUNER.c **** ********************************************************************************
@@ -564,25 +564,25 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
  488:Generated_Source\PSoC5/TIMER_TUNER.c ****     #else
  489:Generated_Source\PSoC5/TIMER_TUNER.c ****         CY_SET_REG24(TIMER_TUNER_COUNTER_LSB_PTR, counter);
   47              		.loc 1 489 0
-  48 000a 0E49     		ldr	r1, .L11+4
-  49 000c 0E48     		ldr	r0, .L11+8
-  50 000e FFF7FEFF 		bl	CySetReg24
+  48 000c 6FF07F41 		mvn	r1, #-16777216
+  49 0010 0D48     		ldr	r0, .L11+4
+  50 0012 FFF7FEFF 		bl	CySetReg24
   51              	.LVL2:
   52              	.LBE23:
   53              	.LBE22:
  142:Generated_Source\PSoC5/TIMER_TUNER.c **** 
   54              		.loc 1 142 0
-  55 0012 FFF7FEFF 		bl	CyEnterCriticalSection
+  55 0016 FFF7FEFF 		bl	CyEnterCriticalSection
   56              	.LVL3:
  145:Generated_Source\PSoC5/TIMER_TUNER.c **** 
   57              		.loc 1 145 0
-  58 0016 0D4A     		ldr	r2, .L11+12
-  59 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  60 001a 43F01003 		orr	r3, r3, #16
-  61 001e 1370     		strb	r3, [r2]
+  58 001a 0C4A     		ldr	r2, .L11+8
+  59 001c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  60 001e 43F01003 		orr	r3, r3, #16
+  61 0022 1370     		strb	r3, [r2]
  148:Generated_Source\PSoC5/TIMER_TUNER.c **** 
   62              		.loc 1 148 0
-  63 0020 FFF7FEFF 		bl	CyExitCriticalSection
+  63 0024 FFF7FEFF 		bl	CyExitCriticalSection
   64              	.LVL4:
   65              	.LBB24:
   66              	.LBB25:
@@ -590,15 +590,15 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
   68              	.LBB27:
  335:Generated_Source\PSoC5/TIMER_TUNER.c **** }
   69              		.loc 1 335 0
-  70 0024 0A4A     		ldr	r2, .L11+16
-  71 0026 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  70 0028 094A     		ldr	r2, .L11+12
+  71 002a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
   72              	.LBE27:
   73              	.LBE26:
  490:Generated_Source\PSoC5/TIMER_TUNER.c ****     #endif /* Set Write Counter only for the UDB implementation (Write Counter not available in fix
  491:Generated_Source\PSoC5/TIMER_TUNER.c **** }
  492:Generated_Source\PSoC5/TIMER_TUNER.c **** 
  493:Generated_Source\PSoC5/TIMER_TUNER.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 11
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 11
 
 
  494:Generated_Source\PSoC5/TIMER_TUNER.c **** /*******************************************************************************
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
  548:Generated_Source\PSoC5/TIMER_TUNER.c **** *  captureMode: This parameter sets the capture mode of the UDB capture feature
  549:Generated_Source\PSoC5/TIMER_TUNER.c **** *  The parameter values are defined using the
  550:Generated_Source\PSoC5/TIMER_TUNER.c **** *  #define TIMER_TUNER__B_TIMER__CM_NONE 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 12
 
 
  551:Generated_Source\PSoC5/TIMER_TUNER.c **** #define TIMER_TUNER__B_TIMER__CM_RISINGEDGE 1
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
  605:Generated_Source\PSoC5/TIMER_TUNER.c **** void TIMER_TUNER_SetTriggerMode(uint8 triggerMode) 
  606:Generated_Source\PSoC5/TIMER_TUNER.c **** {
  607:Generated_Source\PSoC5/TIMER_TUNER.c ****     /* This must only set to two bits of the control register associated */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 13
 
 
  608:Generated_Source\PSoC5/TIMER_TUNER.c ****     triggerMode &= TIMER_TUNER_CTRL_TRIG_MODE_MASK;
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
  662:Generated_Source\PSoC5/TIMER_TUNER.c ****     #if (!TIMER_TUNER_UDB_CONTROL_REG_REMOVED )   /* Remove assignment if control register is remov
  663:Generated_Source\PSoC5/TIMER_TUNER.c ****         TIMER_TUNER_CONTROL &= ((uint8)(~TIMER_TUNER_CTRL_TRIG_EN));
  664:Generated_Source\PSoC5/TIMER_TUNER.c ****     #endif /* Remove code section if control register is not used */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 14
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 14
 
 
  665:Generated_Source\PSoC5/TIMER_TUNER.c **** }
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
  719:Generated_Source\PSoC5/TIMER_TUNER.c **** *  void
  720:Generated_Source\PSoC5/TIMER_TUNER.c **** *
  721:Generated_Source\PSoC5/TIMER_TUNER.c **** *******************************************************************************/
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 15
 
 
  722:Generated_Source\PSoC5/TIMER_TUNER.c **** void TIMER_TUNER_SetCaptureCount(uint8 captureCount) 
@@ -886,30 +886,30 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
  764:Generated_Source\PSoC5/TIMER_TUNER.c **** {
  765:Generated_Source\PSoC5/TIMER_TUNER.c ****     while(0u != (TIMER_TUNER_ReadStatusRegister() & TIMER_TUNER_STATUS_FIFONEMP))
   74              		.loc 1 765 0
-  75 0028 1907     		lsls	r1, r3, #28
-  76 002a 04D5     		bpl	.L2
+  75 002c 1907     		lsls	r1, r3, #28
+  76 002e 04D5     		bpl	.L2
   77              	.LBB29:
   78              	.LBB30:
  461:Generated_Source\PSoC5/TIMER_TUNER.c ****    #endif /* (TIMER_TUNER_UsingFixedFunction) */
   79              		.loc 1 461 0
-  80 002c 0949     		ldr	r1, .L11+20
+  80 0030 0849     		ldr	r1, .L11+16
   81              	.L6:
-  82 002e 0B68     		ldr	r3, [r1]
+  82 0032 0B68     		ldr	r3, [r1]
   83              	.LBE30:
   84              	.LBE29:
   85              	.LBB31:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 16
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 16
 
 
   86              	.LBB28:
  335:Generated_Source\PSoC5/TIMER_TUNER.c **** }
   87              		.loc 1 335 0
-  88 0030 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  88 0034 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
   89              	.LBE28:
   90              	.LBE31:
   91              		.loc 1 765 0
-  92 0032 1B07     		lsls	r3, r3, #28
-  93 0034 FBD4     		bmi	.L6
+  92 0036 1B07     		lsls	r3, r3, #28
+  93 0038 FBD4     		bmi	.L6
   94              	.L2:
   95              	.LVL5:
   96              	.LBE25:
@@ -918,1992 +918,1991 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 1
   99              	.LBB33:
  281:Generated_Source\PSoC5/TIMER_TUNER.c **** }
  100              		.loc 1 281 0
- 101 0036 084B     		ldr	r3, .L11+24
- 102 0038 0122     		movs	r2, #1
- 103 003a 1A70     		strb	r2, [r3]
- 104 003c 08BD     		pop	{r3, pc}
+ 101 003a 074B     		ldr	r3, .L11+20
+ 102 003c 0122     		movs	r2, #1
+ 103 003e 1A70     		strb	r2, [r3]
+ 104 0040 08BD     		pop	{r3, pc}
  105              	.L12:
- 106 003e 00BF     		.align	2
+ 106 0042 00BF     		.align	2
  107              	.L11:
- 108 0040 29640040 		.word	1073767465
- 109 0044 7F969800 		.word	9999999
- 110 0048 09640040 		.word	1073767433
- 111 004c 9A650040 		.word	1073767834
- 112 0050 6A650040 		.word	1073767786
- 113 0054 49640040 		.word	1073767497
- 114 0058 8A650040 		.word	1073767818
- 115              	.LBE33:
- 116              	.LBE32:
- 117              		.cfi_endproc
- 118              	.LFE0:
- 119              		.size	TIMER_TUNER_Init, .-TIMER_TUNER_Init
- 120              		.section	.text.TIMER_TUNER_Enable,"ax",%progbits
- 121              		.align	2
- 122              		.global	TIMER_TUNER_Enable
- 123              		.thumb
- 124              		.thumb_func
- 125              		.type	TIMER_TUNER_Enable, %function
- 126              	TIMER_TUNER_Enable:
- 127              	.LFB1:
+ 108 0044 29640040 		.word	1073767465
+ 109 0048 09640040 		.word	1073767433
+ 110 004c 9A650040 		.word	1073767834
+ 111 0050 6A650040 		.word	1073767786
+ 112 0054 49640040 		.word	1073767497
+ 113 0058 8A650040 		.word	1073767818
+ 114              	.LBE33:
+ 115              	.LBE32:
+ 116              		.cfi_endproc
+ 117              	.LFE0:
+ 118              		.size	TIMER_TUNER_Init, .-TIMER_TUNER_Init
+ 119              		.section	.text.TIMER_TUNER_Enable,"ax",%progbits
+ 120              		.align	2
+ 121              		.global	TIMER_TUNER_Enable
+ 122              		.thumb
+ 123              		.thumb_func
+ 124              		.type	TIMER_TUNER_Enable, %function
+ 125              	TIMER_TUNER_Enable:
+ 126              	.LFB1:
  181:Generated_Source\PSoC5/TIMER_TUNER.c ****     /* Globally Enable the Fixed Function Block chosen */
- 128              		.loc 1 181 0
- 129              		.cfi_startproc
- 130              		@ args = 0, pretend = 0, frame = 0
- 131              		@ frame_needed = 0, uses_anonymous_args = 0
- 132              		@ link register save eliminated.
+ 127              		.loc 1 181 0
+ 128              		.cfi_startproc
+ 129              		@ args = 0, pretend = 0, frame = 0
+ 130              		@ frame_needed = 0, uses_anonymous_args = 0
+ 131              		@ link register save eliminated.
  190:Generated_Source\PSoC5/TIMER_TUNER.c ****     #endif /* Remove assignment if control register is removed */
- 133              		.loc 1 190 0
- 134 0000 024A     		ldr	r2, .L14
- 135 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 136 0004 43F08003 		orr	r3, r3, #128
- 137 0008 1370     		strb	r3, [r2]
- 138 000a 7047     		bx	lr
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 17
+ 132              		.loc 1 190 0
+ 133 0000 024A     		ldr	r2, .L14
+ 134 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 135 0004 43F08003 		orr	r3, r3, #128
+ 136 0008 1370     		strb	r3, [r2]
+ 137 000a 7047     		bx	lr
+ 138              	.L15:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 17
 
 
- 139              	.L15:
- 140              		.align	2
- 141              	.L14:
- 142 000c 79650040 		.word	1073767801
- 143              		.cfi_endproc
- 144              	.LFE1:
- 145              		.size	TIMER_TUNER_Enable, .-TIMER_TUNER_Enable
- 146              		.section	.text.TIMER_TUNER_Start,"ax",%progbits
- 147              		.align	2
- 148              		.global	TIMER_TUNER_Start
- 149              		.thumb
- 150              		.thumb_func
- 151              		.type	TIMER_TUNER_Start, %function
- 152              	TIMER_TUNER_Start:
- 153              	.LFB2:
+ 139              		.align	2
+ 140              	.L14:
+ 141 000c 79650040 		.word	1073767801
+ 142              		.cfi_endproc
+ 143              	.LFE1:
+ 144              		.size	TIMER_TUNER_Enable, .-TIMER_TUNER_Enable
+ 145              		.section	.text.TIMER_TUNER_Start,"ax",%progbits
+ 146              		.align	2
+ 147              		.global	TIMER_TUNER_Start
+ 148              		.thumb
+ 149              		.thumb_func
+ 150              		.type	TIMER_TUNER_Start, %function
+ 151              	TIMER_TUNER_Start:
+ 152              	.LFB2:
  216:Generated_Source\PSoC5/TIMER_TUNER.c ****     if(TIMER_TUNER_initVar == 0u)
- 154              		.loc 1 216 0
- 155              		.cfi_startproc
- 156              		@ args = 0, pretend = 0, frame = 0
- 157              		@ frame_needed = 0, uses_anonymous_args = 0
- 158 0000 10B5     		push	{r4, lr}
- 159              		.cfi_def_cfa_offset 8
- 160              		.cfi_offset 4, -8
- 161              		.cfi_offset 14, -4
+ 153              		.loc 1 216 0
+ 154              		.cfi_startproc
+ 155              		@ args = 0, pretend = 0, frame = 0
+ 156              		@ frame_needed = 0, uses_anonymous_args = 0
+ 157 0000 10B5     		push	{r4, lr}
+ 158              		.cfi_def_cfa_offset 8
+ 159              		.cfi_offset 4, -8
+ 160              		.cfi_offset 14, -4
  217:Generated_Source\PSoC5/TIMER_TUNER.c ****     {
- 162              		.loc 1 217 0
- 163 0002 064C     		ldr	r4, .L19
- 164 0004 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
- 165 0006 1BB9     		cbnz	r3, .L17
+ 161              		.loc 1 217 0
+ 162 0002 064C     		ldr	r4, .L19
+ 163 0004 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 164 0006 1BB9     		cbnz	r3, .L17
  219:Generated_Source\PSoC5/TIMER_TUNER.c **** 
- 166              		.loc 1 219 0
- 167 0008 FFF7FEFF 		bl	TIMER_TUNER_Init
- 168              	.LVL6:
+ 165              		.loc 1 219 0
+ 166 0008 FFF7FEFF 		bl	TIMER_TUNER_Init
+ 167              	.LVL6:
  221:Generated_Source\PSoC5/TIMER_TUNER.c ****     }
- 169              		.loc 1 221 0
- 170 000c 0123     		movs	r3, #1
- 171 000e 2370     		strb	r3, [r4]
- 172              	.L17:
- 173              	.LBB34:
- 174              	.LBB35:
+ 168              		.loc 1 221 0
+ 169 000c 0123     		movs	r3, #1
+ 170 000e 2370     		strb	r3, [r4]
+ 171              	.L17:
+ 172              	.LBB34:
+ 173              	.LBB35:
  190:Generated_Source\PSoC5/TIMER_TUNER.c ****     #endif /* Remove assignment if control register is removed */
- 175              		.loc 1 190 0
- 176 0010 034A     		ldr	r2, .L19+4
- 177 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 178 0014 43F08003 		orr	r3, r3, #128
- 179 0018 1370     		strb	r3, [r2]
- 180 001a 10BD     		pop	{r4, pc}
- 181              	.L20:
- 182              		.align	2
- 183              	.L19:
- 184 001c 00000000 		.word	.LANCHOR0
- 185 0020 79650040 		.word	1073767801
- 186              	.LBE35:
- 187              	.LBE34:
- 188              		.cfi_endproc
- 189              	.LFE2:
- 190              		.size	TIMER_TUNER_Start, .-TIMER_TUNER_Start
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 18
+ 174              		.loc 1 190 0
+ 175 0010 034A     		ldr	r2, .L19+4
+ 176 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 177 0014 43F08003 		orr	r3, r3, #128
+ 178 0018 1370     		strb	r3, [r2]
+ 179 001a 10BD     		pop	{r4, pc}
+ 180              	.L20:
+ 181              		.align	2
+ 182              	.L19:
+ 183 001c 00000000 		.word	.LANCHOR0
+ 184 0020 79650040 		.word	1073767801
+ 185              	.LBE35:
+ 186              	.LBE34:
+ 187              		.cfi_endproc
+ 188              	.LFE2:
+ 189              		.size	TIMER_TUNER_Start, .-TIMER_TUNER_Start
+ 190              		.section	.text.TIMER_TUNER_Stop,"ax",%progbits
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 18
 
 
- 191              		.section	.text.TIMER_TUNER_Stop,"ax",%progbits
- 192              		.align	2
- 193              		.global	TIMER_TUNER_Stop
- 194              		.thumb
- 195              		.thumb_func
- 196              		.type	TIMER_TUNER_Stop, %function
- 197              	TIMER_TUNER_Stop:
- 198              	.LFB3:
+ 191              		.align	2
+ 192              		.global	TIMER_TUNER_Stop
+ 193              		.thumb
+ 194              		.thumb_func
+ 195              		.type	TIMER_TUNER_Stop, %function
+ 196              	TIMER_TUNER_Stop:
+ 197              	.LFB3:
  248:Generated_Source\PSoC5/TIMER_TUNER.c ****     /* Disable Timer */
- 199              		.loc 1 248 0
- 200              		.cfi_startproc
- 201              		@ args = 0, pretend = 0, frame = 0
- 202              		@ frame_needed = 0, uses_anonymous_args = 0
- 203              		@ link register save eliminated.
+ 198              		.loc 1 248 0
+ 199              		.cfi_startproc
+ 200              		@ args = 0, pretend = 0, frame = 0
+ 201              		@ frame_needed = 0, uses_anonymous_args = 0
+ 202              		@ link register save eliminated.
  251:Generated_Source\PSoC5/TIMER_TUNER.c ****     #endif /* Remove assignment if control register is removed */
- 204              		.loc 1 251 0
- 205 0000 024A     		ldr	r2, .L22
- 206 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 207 0004 03F07F03 		and	r3, r3, #127
- 208 0008 1370     		strb	r3, [r2]
- 209 000a 7047     		bx	lr
- 210              	.L23:
- 211              		.align	2
- 212              	.L22:
- 213 000c 79650040 		.word	1073767801
- 214              		.cfi_endproc
- 215              	.LFE3:
- 216              		.size	TIMER_TUNER_Stop, .-TIMER_TUNER_Stop
- 217              		.section	.text.TIMER_TUNER_SetInterruptMode,"ax",%progbits
- 218              		.align	2
- 219              		.global	TIMER_TUNER_SetInterruptMode
- 220              		.thumb
- 221              		.thumb_func
- 222              		.type	TIMER_TUNER_SetInterruptMode, %function
- 223              	TIMER_TUNER_SetInterruptMode:
- 224              	.LFB4:
+ 203              		.loc 1 251 0
+ 204 0000 024A     		ldr	r2, .L22
+ 205 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 206 0004 03F07F03 		and	r3, r3, #127
+ 207 0008 1370     		strb	r3, [r2]
+ 208 000a 7047     		bx	lr
+ 209              	.L23:
+ 210              		.align	2
+ 211              	.L22:
+ 212 000c 79650040 		.word	1073767801
+ 213              		.cfi_endproc
+ 214              	.LFE3:
+ 215              		.size	TIMER_TUNER_Stop, .-TIMER_TUNER_Stop
+ 216              		.section	.text.TIMER_TUNER_SetInterruptMode,"ax",%progbits
+ 217              		.align	2
+ 218              		.global	TIMER_TUNER_SetInterruptMode
+ 219              		.thumb
+ 220              		.thumb_func
+ 221              		.type	TIMER_TUNER_SetInterruptMode, %function
+ 222              	TIMER_TUNER_SetInterruptMode:
+ 223              	.LFB4:
  280:Generated_Source\PSoC5/TIMER_TUNER.c ****     TIMER_TUNER_STATUS_MASK = interruptMode;
- 225              		.loc 1 280 0
- 226              		.cfi_startproc
- 227              		@ args = 0, pretend = 0, frame = 0
- 228              		@ frame_needed = 0, uses_anonymous_args = 0
- 229              		@ link register save eliminated.
- 230              	.LVL7:
+ 224              		.loc 1 280 0
+ 225              		.cfi_startproc
+ 226              		@ args = 0, pretend = 0, frame = 0
+ 227              		@ frame_needed = 0, uses_anonymous_args = 0
+ 228              		@ link register save eliminated.
+ 229              	.LVL7:
  281:Generated_Source\PSoC5/TIMER_TUNER.c **** }
- 231              		.loc 1 281 0
- 232 0000 014B     		ldr	r3, .L25
- 233 0002 1870     		strb	r0, [r3]
- 234 0004 7047     		bx	lr
- 235              	.L26:
- 236 0006 00BF     		.align	2
- 237              	.L25:
- 238 0008 8A650040 		.word	1073767818
- 239              		.cfi_endproc
- 240              	.LFE4:
- 241              		.size	TIMER_TUNER_SetInterruptMode, .-TIMER_TUNER_SetInterruptMode
- 242              		.section	.text.TIMER_TUNER_SoftwareCapture,"ax",%progbits
- 243              		.align	2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 19
+ 230              		.loc 1 281 0
+ 231 0000 014B     		ldr	r3, .L25
+ 232 0002 1870     		strb	r0, [r3]
+ 233 0004 7047     		bx	lr
+ 234              	.L26:
+ 235 0006 00BF     		.align	2
+ 236              	.L25:
+ 237 0008 8A650040 		.word	1073767818
+ 238              		.cfi_endproc
+ 239              	.LFE4:
+ 240              		.size	TIMER_TUNER_SetInterruptMode, .-TIMER_TUNER_SetInterruptMode
+ 241              		.section	.text.TIMER_TUNER_SoftwareCapture,"ax",%progbits
+ 242              		.align	2
+ 243              		.global	TIMER_TUNER_SoftwareCapture
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 19
 
 
- 244              		.global	TIMER_TUNER_SoftwareCapture
- 245              		.thumb
- 246              		.thumb_func
- 247              		.type	TIMER_TUNER_SoftwareCapture, %function
- 248              	TIMER_TUNER_SoftwareCapture:
- 249              	.LFB5:
+ 244              		.thumb
+ 245              		.thumb_func
+ 246              		.type	TIMER_TUNER_SoftwareCapture, %function
+ 247              	TIMER_TUNER_SoftwareCapture:
+ 248              	.LFB5:
  303:Generated_Source\PSoC5/TIMER_TUNER.c ****     /* Generate a software capture by reading the counter register */
- 250              		.loc 1 303 0
- 251              		.cfi_startproc
- 252              		@ args = 0, pretend = 0, frame = 0
- 253              		@ frame_needed = 0, uses_anonymous_args = 0
- 254              		@ link register save eliminated.
+ 249              		.loc 1 303 0
+ 250              		.cfi_startproc
+ 251              		@ args = 0, pretend = 0, frame = 0
+ 252              		@ frame_needed = 0, uses_anonymous_args = 0
+ 253              		@ link register save eliminated.
  308:Generated_Source\PSoC5/TIMER_TUNER.c ****     #endif/* (TIMER_TUNER_UsingFixedFunction) */
- 255              		.loc 1 308 0
- 256 0000 014B     		ldr	r3, .L28
- 257 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 258 0004 7047     		bx	lr
- 259              	.L29:
- 260 0006 00BF     		.align	2
- 261              	.L28:
- 262 0008 09640040 		.word	1073767433
- 263              		.cfi_endproc
- 264              	.LFE5:
- 265              		.size	TIMER_TUNER_SoftwareCapture, .-TIMER_TUNER_SoftwareCapture
- 266              		.section	.text.TIMER_TUNER_ReadStatusRegister,"ax",%progbits
- 267              		.align	2
- 268              		.global	TIMER_TUNER_ReadStatusRegister
- 269              		.thumb
- 270              		.thumb_func
- 271              		.type	TIMER_TUNER_ReadStatusRegister, %function
- 272              	TIMER_TUNER_ReadStatusRegister:
- 273              	.LFB6:
+ 254              		.loc 1 308 0
+ 255 0000 014B     		ldr	r3, .L28
+ 256 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 257 0004 7047     		bx	lr
+ 258              	.L29:
+ 259 0006 00BF     		.align	2
+ 260              	.L28:
+ 261 0008 09640040 		.word	1073767433
+ 262              		.cfi_endproc
+ 263              	.LFE5:
+ 264              		.size	TIMER_TUNER_SoftwareCapture, .-TIMER_TUNER_SoftwareCapture
+ 265              		.section	.text.TIMER_TUNER_ReadStatusRegister,"ax",%progbits
+ 266              		.align	2
+ 267              		.global	TIMER_TUNER_ReadStatusRegister
+ 268              		.thumb
+ 269              		.thumb_func
+ 270              		.type	TIMER_TUNER_ReadStatusRegister, %function
+ 271              	TIMER_TUNER_ReadStatusRegister:
+ 272              	.LFB6:
  334:Generated_Source\PSoC5/TIMER_TUNER.c ****     return (TIMER_TUNER_STATUS);
- 274              		.loc 1 334 0
- 275              		.cfi_startproc
- 276              		@ args = 0, pretend = 0, frame = 0
- 277              		@ frame_needed = 0, uses_anonymous_args = 0
- 278              		@ link register save eliminated.
+ 273              		.loc 1 334 0
+ 274              		.cfi_startproc
+ 275              		@ args = 0, pretend = 0, frame = 0
+ 276              		@ frame_needed = 0, uses_anonymous_args = 0
+ 277              		@ link register save eliminated.
  335:Generated_Source\PSoC5/TIMER_TUNER.c **** }
- 279              		.loc 1 335 0
- 280 0000 014B     		ldr	r3, .L31
- 281 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 278              		.loc 1 335 0
+ 279 0000 014B     		ldr	r3, .L31
+ 280 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
  336:Generated_Source\PSoC5/TIMER_TUNER.c **** 
- 282              		.loc 1 336 0
- 283 0004 7047     		bx	lr
- 284              	.L32:
- 285 0006 00BF     		.align	2
- 286              	.L31:
- 287 0008 6A650040 		.word	1073767786
- 288              		.cfi_endproc
- 289              	.LFE6:
- 290              		.size	TIMER_TUNER_ReadStatusRegister, .-TIMER_TUNER_ReadStatusRegister
- 291              		.section	.text.TIMER_TUNER_ReadControlRegister,"ax",%progbits
- 292              		.align	2
- 293              		.global	TIMER_TUNER_ReadControlRegister
- 294              		.thumb
- 295              		.thumb_func
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 20
+ 281              		.loc 1 336 0
+ 282 0004 7047     		bx	lr
+ 283              	.L32:
+ 284 0006 00BF     		.align	2
+ 285              	.L31:
+ 286 0008 6A650040 		.word	1073767786
+ 287              		.cfi_endproc
+ 288              	.LFE6:
+ 289              		.size	TIMER_TUNER_ReadStatusRegister, .-TIMER_TUNER_ReadStatusRegister
+ 290              		.section	.text.TIMER_TUNER_ReadControlRegister,"ax",%progbits
+ 291              		.align	2
+ 292              		.global	TIMER_TUNER_ReadControlRegister
+ 293              		.thumb
+ 294              		.thumb_func
+ 295              		.type	TIMER_TUNER_ReadControlRegister, %function
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 20
 
 
- 296              		.type	TIMER_TUNER_ReadControlRegister, %function
- 297              	TIMER_TUNER_ReadControlRegister:
- 298              	.LFB7:
+ 296              	TIMER_TUNER_ReadControlRegister:
+ 297              	.LFB7:
  357:Generated_Source\PSoC5/TIMER_TUNER.c ****     #if (!TIMER_TUNER_UDB_CONTROL_REG_REMOVED) 
- 299              		.loc 1 357 0
- 300              		.cfi_startproc
- 301              		@ args = 0, pretend = 0, frame = 0
- 302              		@ frame_needed = 0, uses_anonymous_args = 0
- 303              		@ link register save eliminated.
+ 298              		.loc 1 357 0
+ 299              		.cfi_startproc
+ 300              		@ args = 0, pretend = 0, frame = 0
+ 301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 302              		@ link register save eliminated.
  359:Generated_Source\PSoC5/TIMER_TUNER.c ****     #else
- 304              		.loc 1 359 0
- 305 0000 014B     		ldr	r3, .L34
- 306 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 303              		.loc 1 359 0
+ 304 0000 014B     		ldr	r3, .L34
+ 305 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
  363:Generated_Source\PSoC5/TIMER_TUNER.c **** 
- 307              		.loc 1 363 0
- 308 0004 7047     		bx	lr
- 309              	.L35:
- 310 0006 00BF     		.align	2
- 311              	.L34:
- 312 0008 79650040 		.word	1073767801
- 313              		.cfi_endproc
- 314              	.LFE7:
- 315              		.size	TIMER_TUNER_ReadControlRegister, .-TIMER_TUNER_ReadControlRegister
- 316              		.section	.text.TIMER_TUNER_WriteControlRegister,"ax",%progbits
- 317              		.align	2
- 318              		.global	TIMER_TUNER_WriteControlRegister
- 319              		.thumb
- 320              		.thumb_func
- 321              		.type	TIMER_TUNER_WriteControlRegister, %function
- 322              	TIMER_TUNER_WriteControlRegister:
- 323              	.LFB8:
+ 306              		.loc 1 363 0
+ 307 0004 7047     		bx	lr
+ 308              	.L35:
+ 309 0006 00BF     		.align	2
+ 310              	.L34:
+ 311 0008 79650040 		.word	1073767801
+ 312              		.cfi_endproc
+ 313              	.LFE7:
+ 314              		.size	TIMER_TUNER_ReadControlRegister, .-TIMER_TUNER_ReadControlRegister
+ 315              		.section	.text.TIMER_TUNER_WriteControlRegister,"ax",%progbits
+ 316              		.align	2
+ 317              		.global	TIMER_TUNER_WriteControlRegister
+ 318              		.thumb
+ 319              		.thumb_func
+ 320              		.type	TIMER_TUNER_WriteControlRegister, %function
+ 321              	TIMER_TUNER_WriteControlRegister:
+ 322              	.LFB8:
  380:Generated_Source\PSoC5/TIMER_TUNER.c ****     #if (!TIMER_TUNER_UDB_CONTROL_REG_REMOVED) 
- 324              		.loc 1 380 0
- 325              		.cfi_startproc
- 326              		@ args = 0, pretend = 0, frame = 0
- 327              		@ frame_needed = 0, uses_anonymous_args = 0
- 328              		@ link register save eliminated.
- 329              	.LVL8:
+ 323              		.loc 1 380 0
+ 324              		.cfi_startproc
+ 325              		@ args = 0, pretend = 0, frame = 0
+ 326              		@ frame_needed = 0, uses_anonymous_args = 0
+ 327              		@ link register save eliminated.
+ 328              	.LVL8:
  382:Generated_Source\PSoC5/TIMER_TUNER.c ****     #else
- 330              		.loc 1 382 0
- 331 0000 014B     		ldr	r3, .L37
- 332 0002 1870     		strb	r0, [r3]
- 333 0004 7047     		bx	lr
- 334              	.L38:
- 335 0006 00BF     		.align	2
- 336              	.L37:
- 337 0008 79650040 		.word	1073767801
- 338              		.cfi_endproc
- 339              	.LFE8:
- 340              		.size	TIMER_TUNER_WriteControlRegister, .-TIMER_TUNER_WriteControlRegister
- 341              		.section	.text.TIMER_TUNER_ReadPeriod,"ax",%progbits
- 342              		.align	2
- 343              		.global	TIMER_TUNER_ReadPeriod
- 344              		.thumb
- 345              		.thumb_func
- 346              		.type	TIMER_TUNER_ReadPeriod, %function
- 347              	TIMER_TUNER_ReadPeriod:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 21
+ 329              		.loc 1 382 0
+ 330 0000 014B     		ldr	r3, .L37
+ 331 0002 1870     		strb	r0, [r3]
+ 332 0004 7047     		bx	lr
+ 333              	.L38:
+ 334 0006 00BF     		.align	2
+ 335              	.L37:
+ 336 0008 79650040 		.word	1073767801
+ 337              		.cfi_endproc
+ 338              	.LFE8:
+ 339              		.size	TIMER_TUNER_WriteControlRegister, .-TIMER_TUNER_WriteControlRegister
+ 340              		.section	.text.TIMER_TUNER_ReadPeriod,"ax",%progbits
+ 341              		.align	2
+ 342              		.global	TIMER_TUNER_ReadPeriod
+ 343              		.thumb
+ 344              		.thumb_func
+ 345              		.type	TIMER_TUNER_ReadPeriod, %function
+ 346              	TIMER_TUNER_ReadPeriod:
+ 347              	.LFB9:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 21
 
 
- 348              	.LFB9:
  406:Generated_Source\PSoC5/TIMER_TUNER.c ****    #if(TIMER_TUNER_UsingFixedFunction)
- 349              		.loc 1 406 0
- 350              		.cfi_startproc
- 351              		@ args = 0, pretend = 0, frame = 0
- 352              		@ frame_needed = 0, uses_anonymous_args = 0
- 353              		@ link register save eliminated.
+ 348              		.loc 1 406 0
+ 349              		.cfi_startproc
+ 350              		@ args = 0, pretend = 0, frame = 0
+ 351              		@ frame_needed = 0, uses_anonymous_args = 0
+ 352              		@ link register save eliminated.
  410:Generated_Source\PSoC5/TIMER_TUNER.c ****    #endif /* (TIMER_TUNER_UsingFixedFunction) */
- 354              		.loc 1 410 0
- 355 0000 024B     		ldr	r3, .L40
- 356 0002 1868     		ldr	r0, [r3]
+ 353              		.loc 1 410 0
+ 354 0000 024B     		ldr	r3, .L40
+ 355 0002 1868     		ldr	r0, [r3]
  412:Generated_Source\PSoC5/TIMER_TUNER.c **** 
- 357              		.loc 1 412 0
- 358 0004 20F07F40 		bic	r0, r0, #-16777216
- 359 0008 7047     		bx	lr
- 360              	.L41:
- 361 000a 00BF     		.align	2
- 362              	.L40:
- 363 000c 29640040 		.word	1073767465
- 364              		.cfi_endproc
- 365              	.LFE9:
- 366              		.size	TIMER_TUNER_ReadPeriod, .-TIMER_TUNER_ReadPeriod
- 367              		.section	.text.TIMER_TUNER_WritePeriod,"ax",%progbits
- 368              		.align	2
- 369              		.global	TIMER_TUNER_WritePeriod
- 370              		.thumb
- 371              		.thumb_func
- 372              		.type	TIMER_TUNER_WritePeriod, %function
- 373              	TIMER_TUNER_WritePeriod:
- 374              	.LFB10:
+ 356              		.loc 1 412 0
+ 357 0004 20F07F40 		bic	r0, r0, #-16777216
+ 358 0008 7047     		bx	lr
+ 359              	.L41:
+ 360 000a 00BF     		.align	2
+ 361              	.L40:
+ 362 000c 29640040 		.word	1073767465
+ 363              		.cfi_endproc
+ 364              	.LFE9:
+ 365              		.size	TIMER_TUNER_ReadPeriod, .-TIMER_TUNER_ReadPeriod
+ 366              		.section	.text.TIMER_TUNER_WritePeriod,"ax",%progbits
+ 367              		.align	2
+ 368              		.global	TIMER_TUNER_WritePeriod
+ 369              		.thumb
+ 370              		.thumb_func
+ 371              		.type	TIMER_TUNER_WritePeriod, %function
+ 372              	TIMER_TUNER_WritePeriod:
+ 373              	.LFB10:
  432:Generated_Source\PSoC5/TIMER_TUNER.c ****     #if(TIMER_TUNER_UsingFixedFunction)
- 375              		.loc 1 432 0
- 376              		.cfi_startproc
- 377              		@ args = 0, pretend = 0, frame = 0
- 378              		@ frame_needed = 0, uses_anonymous_args = 0
- 379              		@ link register save eliminated.
- 380              	.LVL9:
+ 374              		.loc 1 432 0
+ 375              		.cfi_startproc
+ 376              		@ args = 0, pretend = 0, frame = 0
+ 377              		@ frame_needed = 0, uses_anonymous_args = 0
+ 378              		@ link register save eliminated.
+ 379              	.LVL9:
  432:Generated_Source\PSoC5/TIMER_TUNER.c ****     #if(TIMER_TUNER_UsingFixedFunction)
- 381              		.loc 1 432 0
- 382 0000 0146     		mov	r1, r0
+ 380              		.loc 1 432 0
+ 381 0000 0146     		mov	r1, r0
  437:Generated_Source\PSoC5/TIMER_TUNER.c ****     #endif /*Write Period value with appropriate resolution suffix depending on UDB or fixed functi
- 383              		.loc 1 437 0
- 384 0002 0148     		ldr	r0, .L43
- 385              	.LVL10:
- 386 0004 FFF7FEBF 		b	CySetReg24
- 387              	.LVL11:
- 388              	.L44:
- 389              		.align	2
- 390              	.L43:
- 391 0008 29640040 		.word	1073767465
- 392              		.cfi_endproc
- 393              	.LFE10:
- 394              		.size	TIMER_TUNER_WritePeriod, .-TIMER_TUNER_WritePeriod
- 395              		.section	.text.TIMER_TUNER_ReadCapture,"ax",%progbits
- 396              		.align	2
- 397              		.global	TIMER_TUNER_ReadCapture
- 398              		.thumb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 22
+ 382              		.loc 1 437 0
+ 383 0002 0148     		ldr	r0, .L43
+ 384              	.LVL10:
+ 385 0004 FFF7FEBF 		b	CySetReg24
+ 386              	.LVL11:
+ 387              	.L44:
+ 388              		.align	2
+ 389              	.L43:
+ 390 0008 29640040 		.word	1073767465
+ 391              		.cfi_endproc
+ 392              	.LFE10:
+ 393              		.size	TIMER_TUNER_WritePeriod, .-TIMER_TUNER_WritePeriod
+ 394              		.section	.text.TIMER_TUNER_ReadCapture,"ax",%progbits
+ 395              		.align	2
+ 396              		.global	TIMER_TUNER_ReadCapture
+ 397              		.thumb
+ 398              		.thumb_func
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 22
 
 
- 399              		.thumb_func
- 400              		.type	TIMER_TUNER_ReadCapture, %function
- 401              	TIMER_TUNER_ReadCapture:
- 402              	.LFB11:
+ 399              		.type	TIMER_TUNER_ReadCapture, %function
+ 400              	TIMER_TUNER_ReadCapture:
+ 401              	.LFB11:
  457:Generated_Source\PSoC5/TIMER_TUNER.c ****    #if(TIMER_TUNER_UsingFixedFunction)
- 403              		.loc 1 457 0
- 404              		.cfi_startproc
- 405              		@ args = 0, pretend = 0, frame = 0
- 406              		@ frame_needed = 0, uses_anonymous_args = 0
- 407              		@ link register save eliminated.
+ 402              		.loc 1 457 0
+ 403              		.cfi_startproc
+ 404              		@ args = 0, pretend = 0, frame = 0
+ 405              		@ frame_needed = 0, uses_anonymous_args = 0
+ 406              		@ link register save eliminated.
  461:Generated_Source\PSoC5/TIMER_TUNER.c ****    #endif /* (TIMER_TUNER_UsingFixedFunction) */
- 408              		.loc 1 461 0
- 409 0000 024B     		ldr	r3, .L46
- 410 0002 1868     		ldr	r0, [r3]
+ 407              		.loc 1 461 0
+ 408 0000 024B     		ldr	r3, .L46
+ 409 0002 1868     		ldr	r0, [r3]
  463:Generated_Source\PSoC5/TIMER_TUNER.c **** 
- 411              		.loc 1 463 0
- 412 0004 20F07F40 		bic	r0, r0, #-16777216
- 413 0008 7047     		bx	lr
- 414              	.L47:
- 415 000a 00BF     		.align	2
- 416              	.L46:
- 417 000c 49640040 		.word	1073767497
- 418              		.cfi_endproc
- 419              	.LFE11:
- 420              		.size	TIMER_TUNER_ReadCapture, .-TIMER_TUNER_ReadCapture
- 421              		.section	.text.TIMER_TUNER_WriteCounter,"ax",%progbits
- 422              		.align	2
- 423              		.global	TIMER_TUNER_WriteCounter
- 424              		.thumb
- 425              		.thumb_func
- 426              		.type	TIMER_TUNER_WriteCounter, %function
- 427              	TIMER_TUNER_WriteCounter:
- 428              	.LFB12:
+ 410              		.loc 1 463 0
+ 411 0004 20F07F40 		bic	r0, r0, #-16777216
+ 412 0008 7047     		bx	lr
+ 413              	.L47:
+ 414 000a 00BF     		.align	2
+ 415              	.L46:
+ 416 000c 49640040 		.word	1073767497
+ 417              		.cfi_endproc
+ 418              	.LFE11:
+ 419              		.size	TIMER_TUNER_ReadCapture, .-TIMER_TUNER_ReadCapture
+ 420              		.section	.text.TIMER_TUNER_WriteCounter,"ax",%progbits
+ 421              		.align	2
+ 422              		.global	TIMER_TUNER_WriteCounter
+ 423              		.thumb
+ 424              		.thumb_func
+ 425              		.type	TIMER_TUNER_WriteCounter, %function
+ 426              	TIMER_TUNER_WriteCounter:
+ 427              	.LFB12:
  481:Generated_Source\PSoC5/TIMER_TUNER.c ****    #if(TIMER_TUNER_UsingFixedFunction)
- 429              		.loc 1 481 0
- 430              		.cfi_startproc
- 431              		@ args = 0, pretend = 0, frame = 0
- 432              		@ frame_needed = 0, uses_anonymous_args = 0
- 433              		@ link register save eliminated.
- 434              	.LVL12:
+ 428              		.loc 1 481 0
+ 429              		.cfi_startproc
+ 430              		@ args = 0, pretend = 0, frame = 0
+ 431              		@ frame_needed = 0, uses_anonymous_args = 0
+ 432              		@ link register save eliminated.
+ 433              	.LVL12:
  481:Generated_Source\PSoC5/TIMER_TUNER.c ****    #if(TIMER_TUNER_UsingFixedFunction)
- 435              		.loc 1 481 0
- 436 0000 0146     		mov	r1, r0
+ 434              		.loc 1 481 0
+ 435 0000 0146     		mov	r1, r0
  489:Generated_Source\PSoC5/TIMER_TUNER.c ****     #endif /* Set Write Counter only for the UDB implementation (Write Counter not available in fix
- 437              		.loc 1 489 0
- 438 0002 0148     		ldr	r0, .L49
- 439              	.LVL13:
- 440 0004 FFF7FEBF 		b	CySetReg24
- 441              	.LVL14:
- 442              	.L50:
- 443              		.align	2
- 444              	.L49:
- 445 0008 09640040 		.word	1073767433
- 446              		.cfi_endproc
- 447              	.LFE12:
- 448              		.size	TIMER_TUNER_WriteCounter, .-TIMER_TUNER_WriteCounter
- 449              		.section	.text.TIMER_TUNER_ReadCounter,"ax",%progbits
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 23
+ 436              		.loc 1 489 0
+ 437 0002 0148     		ldr	r0, .L49
+ 438              	.LVL13:
+ 439 0004 FFF7FEBF 		b	CySetReg24
+ 440              	.LVL14:
+ 441              	.L50:
+ 442              		.align	2
+ 443              	.L49:
+ 444 0008 09640040 		.word	1073767433
+ 445              		.cfi_endproc
+ 446              	.LFE12:
+ 447              		.size	TIMER_TUNER_WriteCounter, .-TIMER_TUNER_WriteCounter
+ 448              		.section	.text.TIMER_TUNER_ReadCounter,"ax",%progbits
+ 449              		.align	2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 23
 
 
- 450              		.align	2
- 451              		.global	TIMER_TUNER_ReadCounter
- 452              		.thumb
- 453              		.thumb_func
- 454              		.type	TIMER_TUNER_ReadCounter, %function
- 455              	TIMER_TUNER_ReadCounter:
- 456              	.LFB13:
+ 450              		.global	TIMER_TUNER_ReadCounter
+ 451              		.thumb
+ 452              		.thumb_func
+ 453              		.type	TIMER_TUNER_ReadCounter, %function
+ 454              	TIMER_TUNER_ReadCounter:
+ 455              	.LFB13:
  509:Generated_Source\PSoC5/TIMER_TUNER.c ****     /* Force capture by reading Accumulator */
- 457              		.loc 1 509 0
- 458              		.cfi_startproc
- 459              		@ args = 0, pretend = 0, frame = 0
- 460              		@ frame_needed = 0, uses_anonymous_args = 0
- 461              		@ link register save eliminated.
+ 456              		.loc 1 509 0
+ 457              		.cfi_startproc
+ 458              		@ args = 0, pretend = 0, frame = 0
+ 459              		@ frame_needed = 0, uses_anonymous_args = 0
+ 460              		@ link register save eliminated.
  523:Generated_Source\PSoC5/TIMER_TUNER.c ****     #endif /* (TIMER_TUNER_UsingFixedFunction) */
- 462              		.loc 1 523 0
- 463 0000 034B     		ldr	r3, .L52
+ 461              		.loc 1 523 0
+ 462 0000 034B     		ldr	r3, .L52
  516:Generated_Source\PSoC5/TIMER_TUNER.c ****     #endif/* (TIMER_TUNER_UsingFixedFunction) */
- 464              		.loc 1 516 0
- 465 0002 044A     		ldr	r2, .L52+4
- 466 0004 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 463              		.loc 1 516 0
+ 464 0002 044A     		ldr	r2, .L52+4
+ 465 0004 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
  523:Generated_Source\PSoC5/TIMER_TUNER.c ****     #endif /* (TIMER_TUNER_UsingFixedFunction) */
- 467              		.loc 1 523 0
- 468 0006 1868     		ldr	r0, [r3]
+ 466              		.loc 1 523 0
+ 467 0006 1868     		ldr	r0, [r3]
  525:Generated_Source\PSoC5/TIMER_TUNER.c **** 
- 469              		.loc 1 525 0
- 470 0008 20F07F40 		bic	r0, r0, #-16777216
- 471 000c 7047     		bx	lr
- 472              	.L53:
- 473 000e 00BF     		.align	2
- 474              	.L52:
- 475 0010 49640040 		.word	1073767497
- 476 0014 09640040 		.word	1073767433
- 477              		.cfi_endproc
- 478              	.LFE13:
- 479              		.size	TIMER_TUNER_ReadCounter, .-TIMER_TUNER_ReadCounter
- 480              		.section	.text.TIMER_TUNER_ClearFIFO,"ax",%progbits
- 481              		.align	2
- 482              		.global	TIMER_TUNER_ClearFIFO
- 483              		.thumb
- 484              		.thumb_func
- 485              		.type	TIMER_TUNER_ClearFIFO, %function
- 486              	TIMER_TUNER_ClearFIFO:
- 487              	.LFB14:
+ 468              		.loc 1 525 0
+ 469 0008 20F07F40 		bic	r0, r0, #-16777216
+ 470 000c 7047     		bx	lr
+ 471              	.L53:
+ 472 000e 00BF     		.align	2
+ 473              	.L52:
+ 474 0010 49640040 		.word	1073767497
+ 475 0014 09640040 		.word	1073767433
+ 476              		.cfi_endproc
+ 477              	.LFE13:
+ 478              		.size	TIMER_TUNER_ReadCounter, .-TIMER_TUNER_ReadCounter
+ 479              		.section	.text.TIMER_TUNER_ClearFIFO,"ax",%progbits
+ 480              		.align	2
+ 481              		.global	TIMER_TUNER_ClearFIFO
+ 482              		.thumb
+ 483              		.thumb_func
+ 484              		.type	TIMER_TUNER_ClearFIFO, %function
+ 485              	TIMER_TUNER_ClearFIFO:
+ 486              	.LFB14:
  764:Generated_Source\PSoC5/TIMER_TUNER.c ****     while(0u != (TIMER_TUNER_ReadStatusRegister() & TIMER_TUNER_STATUS_FIFONEMP))
- 488              		.loc 1 764 0
- 489              		.cfi_startproc
- 490              		@ args = 0, pretend = 0, frame = 0
- 491              		@ frame_needed = 0, uses_anonymous_args = 0
- 492              		@ link register save eliminated.
- 493              	.LBB36:
- 494              	.LBB37:
+ 487              		.loc 1 764 0
+ 488              		.cfi_startproc
+ 489              		@ args = 0, pretend = 0, frame = 0
+ 490              		@ frame_needed = 0, uses_anonymous_args = 0
+ 491              		@ link register save eliminated.
+ 492              	.LBB36:
+ 493              	.LBB37:
  335:Generated_Source\PSoC5/TIMER_TUNER.c **** }
- 495              		.loc 1 335 0
- 496 0000 044A     		ldr	r2, .L62
- 497 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 498              	.LBE37:
- 499              	.LBE36:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 24
+ 494              		.loc 1 335 0
+ 495 0000 044A     		ldr	r2, .L62
+ 496 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 497              	.LBE37:
+ 498              	.LBE36:
+ 499              		.loc 1 765 0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 24
 
 
- 500              		.loc 1 765 0
- 501 0004 1907     		lsls	r1, r3, #28
- 502 0006 04D5     		bpl	.L54
- 503              	.LBB39:
- 504              	.LBB40:
+ 500 0004 1907     		lsls	r1, r3, #28
+ 501 0006 04D5     		bpl	.L54
+ 502              	.LBB39:
+ 503              	.LBB40:
  461:Generated_Source\PSoC5/TIMER_TUNER.c ****    #endif /* (TIMER_TUNER_UsingFixedFunction) */
- 505              		.loc 1 461 0
- 506 0008 0349     		ldr	r1, .L62+4
- 507              	.L59:
- 508 000a 0B68     		ldr	r3, [r1]
- 509              	.LBE40:
- 510              	.LBE39:
- 511              	.LBB41:
- 512              	.LBB38:
+ 504              		.loc 1 461 0
+ 505 0008 0349     		ldr	r1, .L62+4
+ 506              	.L59:
+ 507 000a 0B68     		ldr	r3, [r1]
+ 508              	.LBE40:
+ 509              	.LBE39:
+ 510              	.LBB41:
+ 511              	.LBB38:
  335:Generated_Source\PSoC5/TIMER_TUNER.c **** }
- 513              		.loc 1 335 0
- 514 000c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 515              	.LBE38:
- 516              	.LBE41:
- 517              		.loc 1 765 0
- 518 000e 1B07     		lsls	r3, r3, #28
- 519 0010 FBD4     		bmi	.L59
- 520              	.L54:
- 521 0012 7047     		bx	lr
- 522              	.L63:
- 523              		.align	2
- 524              	.L62:
- 525 0014 6A650040 		.word	1073767786
- 526 0018 49640040 		.word	1073767497
- 527              		.cfi_endproc
- 528              	.LFE14:
- 529              		.size	TIMER_TUNER_ClearFIFO, .-TIMER_TUNER_ClearFIFO
- 530              		.global	TIMER_TUNER_initVar
- 531              		.bss
- 532              		.set	.LANCHOR0,. + 0
- 533              		.type	TIMER_TUNER_initVar, %object
- 534              		.size	TIMER_TUNER_initVar, 1
- 535              	TIMER_TUNER_initVar:
- 536 0000 00       		.space	1
- 537              		.text
- 538              	.Letext0:
- 539              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
- 540              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
- 541              		.section	.debug_info,"",%progbits
- 542              	.Ldebug_info0:
- 543 0000 11040000 		.4byte	0x411
- 544 0004 0400     		.2byte	0x4
- 545 0006 00000000 		.4byte	.Ldebug_abbrev0
- 546 000a 04       		.byte	0x4
- 547 000b 01       		.uleb128 0x1
- 548 000c E1000000 		.4byte	.LASF37
- 549 0010 01       		.byte	0x1
- 550 0011 8A030000 		.4byte	.LASF38
- 551 0015 96000000 		.4byte	.LASF39
- 552 0019 30000000 		.4byte	.Ldebug_ranges0+0x30
- 553 001d 00000000 		.4byte	0
- 554 0021 00000000 		.4byte	.Ldebug_line0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 25
+ 512              		.loc 1 335 0
+ 513 000c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 514              	.LBE38:
+ 515              	.LBE41:
+ 516              		.loc 1 765 0
+ 517 000e 1B07     		lsls	r3, r3, #28
+ 518 0010 FBD4     		bmi	.L59
+ 519              	.L54:
+ 520 0012 7047     		bx	lr
+ 521              	.L63:
+ 522              		.align	2
+ 523              	.L62:
+ 524 0014 6A650040 		.word	1073767786
+ 525 0018 49640040 		.word	1073767497
+ 526              		.cfi_endproc
+ 527              	.LFE14:
+ 528              		.size	TIMER_TUNER_ClearFIFO, .-TIMER_TUNER_ClearFIFO
+ 529              		.global	TIMER_TUNER_initVar
+ 530              		.bss
+ 531              		.set	.LANCHOR0,. + 0
+ 532              		.type	TIMER_TUNER_initVar, %object
+ 533              		.size	TIMER_TUNER_initVar, 1
+ 534              	TIMER_TUNER_initVar:
+ 535 0000 00       		.space	1
+ 536              		.text
+ 537              	.Letext0:
+ 538              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 539              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
+ 540              		.section	.debug_info,"",%progbits
+ 541              	.Ldebug_info0:
+ 542 0000 11040000 		.4byte	0x411
+ 543 0004 0400     		.2byte	0x4
+ 544 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 545 000a 04       		.byte	0x4
+ 546 000b 01       		.uleb128 0x1
+ 547 000c E1000000 		.4byte	.LASF37
+ 548 0010 01       		.byte	0x1
+ 549 0011 8A030000 		.4byte	.LASF38
+ 550 0015 96000000 		.4byte	.LASF39
+ 551 0019 30000000 		.4byte	.Ldebug_ranges0+0x30
+ 552 001d 00000000 		.4byte	0
+ 553 0021 00000000 		.4byte	.Ldebug_line0
+ 554 0025 02       		.uleb128 0x2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 25
 
 
- 555 0025 02       		.uleb128 0x2
- 556 0026 01       		.byte	0x1
- 557 0027 06       		.byte	0x6
- 558 0028 68030000 		.4byte	.LASF0
- 559 002c 02       		.uleb128 0x2
- 560 002d 01       		.byte	0x1
- 561 002e 08       		.byte	0x8
- 562 002f AE010000 		.4byte	.LASF1
- 563 0033 02       		.uleb128 0x2
- 564 0034 02       		.byte	0x2
- 565 0035 05       		.byte	0x5
- 566 0036 35020000 		.4byte	.LASF2
- 567 003a 02       		.uleb128 0x2
- 568 003b 02       		.byte	0x2
- 569 003c 07       		.byte	0x7
- 570 003d 71000000 		.4byte	.LASF3
- 571 0041 02       		.uleb128 0x2
- 572 0042 04       		.byte	0x4
- 573 0043 05       		.byte	0x5
- 574 0044 33030000 		.4byte	.LASF4
- 575 0048 02       		.uleb128 0x2
- 576 0049 04       		.byte	0x4
- 577 004a 07       		.byte	0x7
- 578 004b D9010000 		.4byte	.LASF5
- 579 004f 02       		.uleb128 0x2
- 580 0050 08       		.byte	0x8
- 581 0051 05       		.byte	0x5
- 582 0052 E3020000 		.4byte	.LASF6
- 583 0056 02       		.uleb128 0x2
- 584 0057 08       		.byte	0x8
- 585 0058 07       		.byte	0x7
- 586 0059 97010000 		.4byte	.LASF7
- 587 005d 03       		.uleb128 0x3
- 588 005e 04       		.byte	0x4
- 589 005f 05       		.byte	0x5
- 590 0060 696E7400 		.ascii	"int\000"
- 591 0064 02       		.uleb128 0x2
- 592 0065 04       		.byte	0x4
- 593 0066 07       		.byte	0x7
- 594 0067 5D020000 		.4byte	.LASF8
- 595 006b 04       		.uleb128 0x4
- 596 006c EB010000 		.4byte	.LASF9
- 597 0070 02       		.byte	0x2
- 598 0071 5B       		.byte	0x5b
- 599 0072 2C000000 		.4byte	0x2c
- 600 0076 04       		.uleb128 0x4
- 601 0077 3F020000 		.4byte	.LASF10
- 602 007b 02       		.byte	0x2
- 603 007c 5D       		.byte	0x5d
- 604 007d 48000000 		.4byte	0x48
- 605 0081 02       		.uleb128 0x2
- 606 0082 04       		.byte	0x4
- 607 0083 04       		.byte	0x4
- 608 0084 62030000 		.4byte	.LASF11
- 609 0088 02       		.uleb128 0x2
- 610 0089 08       		.byte	0x8
- 611 008a 04       		.byte	0x4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 26
+ 555 0026 01       		.byte	0x1
+ 556 0027 06       		.byte	0x6
+ 557 0028 68030000 		.4byte	.LASF0
+ 558 002c 02       		.uleb128 0x2
+ 559 002d 01       		.byte	0x1
+ 560 002e 08       		.byte	0x8
+ 561 002f AE010000 		.4byte	.LASF1
+ 562 0033 02       		.uleb128 0x2
+ 563 0034 02       		.byte	0x2
+ 564 0035 05       		.byte	0x5
+ 565 0036 35020000 		.4byte	.LASF2
+ 566 003a 02       		.uleb128 0x2
+ 567 003b 02       		.byte	0x2
+ 568 003c 07       		.byte	0x7
+ 569 003d 71000000 		.4byte	.LASF3
+ 570 0041 02       		.uleb128 0x2
+ 571 0042 04       		.byte	0x4
+ 572 0043 05       		.byte	0x5
+ 573 0044 33030000 		.4byte	.LASF4
+ 574 0048 02       		.uleb128 0x2
+ 575 0049 04       		.byte	0x4
+ 576 004a 07       		.byte	0x7
+ 577 004b D9010000 		.4byte	.LASF5
+ 578 004f 02       		.uleb128 0x2
+ 579 0050 08       		.byte	0x8
+ 580 0051 05       		.byte	0x5
+ 581 0052 E3020000 		.4byte	.LASF6
+ 582 0056 02       		.uleb128 0x2
+ 583 0057 08       		.byte	0x8
+ 584 0058 07       		.byte	0x7
+ 585 0059 97010000 		.4byte	.LASF7
+ 586 005d 03       		.uleb128 0x3
+ 587 005e 04       		.byte	0x4
+ 588 005f 05       		.byte	0x5
+ 589 0060 696E7400 		.ascii	"int\000"
+ 590 0064 02       		.uleb128 0x2
+ 591 0065 04       		.byte	0x4
+ 592 0066 07       		.byte	0x7
+ 593 0067 5D020000 		.4byte	.LASF8
+ 594 006b 04       		.uleb128 0x4
+ 595 006c EB010000 		.4byte	.LASF9
+ 596 0070 02       		.byte	0x2
+ 597 0071 5B       		.byte	0x5b
+ 598 0072 2C000000 		.4byte	0x2c
+ 599 0076 04       		.uleb128 0x4
+ 600 0077 3F020000 		.4byte	.LASF10
+ 601 007b 02       		.byte	0x2
+ 602 007c 5D       		.byte	0x5d
+ 603 007d 48000000 		.4byte	0x48
+ 604 0081 02       		.uleb128 0x2
+ 605 0082 04       		.byte	0x4
+ 606 0083 04       		.byte	0x4
+ 607 0084 62030000 		.4byte	.LASF11
+ 608 0088 02       		.uleb128 0x2
+ 609 0089 08       		.byte	0x8
+ 610 008a 04       		.byte	0x4
+ 611 008b 2E020000 		.4byte	.LASF12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 26
 
 
- 612 008b 2E020000 		.4byte	.LASF12
- 613 008f 02       		.uleb128 0x2
- 614 0090 01       		.byte	0x1
- 615 0091 08       		.byte	0x8
- 616 0092 3C030000 		.4byte	.LASF13
- 617 0096 04       		.uleb128 0x4
- 618 0097 D4010000 		.4byte	.LASF14
- 619 009b 02       		.byte	0x2
- 620 009c F0       		.byte	0xf0
- 621 009d A1000000 		.4byte	0xa1
- 622 00a1 05       		.uleb128 0x5
- 623 00a2 6B000000 		.4byte	0x6b
- 624 00a6 04       		.uleb128 0x4
- 625 00a7 00000000 		.4byte	.LASF15
- 626 00ab 02       		.byte	0x2
- 627 00ac F2       		.byte	0xf2
- 628 00ad B1000000 		.4byte	0xb1
- 629 00b1 05       		.uleb128 0x5
- 630 00b2 76000000 		.4byte	0x76
- 631 00b6 02       		.uleb128 0x2
- 632 00b7 04       		.byte	0x4
- 633 00b8 07       		.byte	0x7
- 634 00b9 DA020000 		.4byte	.LASF16
- 635 00bd 06       		.uleb128 0x6
- 636 00be 1B030000 		.4byte	.LASF17
- 637 00c2 01       		.byte	0x1
- 638 00c3 C801     		.2byte	0x1c8
- 639 00c5 76000000 		.4byte	0x76
- 640 00c9 01       		.byte	0x1
- 641 00ca 06       		.uleb128 0x6
- 642 00cb 3A000000 		.4byte	.LASF18
- 643 00cf 01       		.byte	0x1
- 644 00d0 4D01     		.2byte	0x14d
- 645 00d2 6B000000 		.4byte	0x6b
- 646 00d6 01       		.byte	0x1
- 647 00d7 07       		.uleb128 0x7
- 648 00d8 BC010000 		.4byte	.LASF19
- 649 00dc 01       		.byte	0x1
- 650 00dd AF01     		.2byte	0x1af
- 651 00df 01       		.byte	0x1
- 652 00e0 F1000000 		.4byte	0xf1
- 653 00e4 08       		.uleb128 0x8
- 654 00e5 59000000 		.4byte	.LASF21
- 655 00e9 01       		.byte	0x1
- 656 00ea AF01     		.2byte	0x1af
- 657 00ec 76000000 		.4byte	0x76
- 658 00f0 00       		.byte	0
- 659 00f1 07       		.uleb128 0x7
- 660 00f2 06000000 		.4byte	.LASF20
- 661 00f6 01       		.byte	0x1
- 662 00f7 E001     		.2byte	0x1e0
- 663 00f9 01       		.byte	0x1
- 664 00fa 0B010000 		.4byte	0x10b
- 665 00fe 08       		.uleb128 0x8
- 666 00ff 8F010000 		.4byte	.LASF22
- 667 0103 01       		.byte	0x1
- 668 0104 E001     		.2byte	0x1e0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 27
+ 612 008f 02       		.uleb128 0x2
+ 613 0090 01       		.byte	0x1
+ 614 0091 08       		.byte	0x8
+ 615 0092 3C030000 		.4byte	.LASF13
+ 616 0096 04       		.uleb128 0x4
+ 617 0097 D4010000 		.4byte	.LASF14
+ 618 009b 02       		.byte	0x2
+ 619 009c F0       		.byte	0xf0
+ 620 009d A1000000 		.4byte	0xa1
+ 621 00a1 05       		.uleb128 0x5
+ 622 00a2 6B000000 		.4byte	0x6b
+ 623 00a6 04       		.uleb128 0x4
+ 624 00a7 00000000 		.4byte	.LASF15
+ 625 00ab 02       		.byte	0x2
+ 626 00ac F2       		.byte	0xf2
+ 627 00ad B1000000 		.4byte	0xb1
+ 628 00b1 05       		.uleb128 0x5
+ 629 00b2 76000000 		.4byte	0x76
+ 630 00b6 02       		.uleb128 0x2
+ 631 00b7 04       		.byte	0x4
+ 632 00b8 07       		.byte	0x7
+ 633 00b9 DA020000 		.4byte	.LASF16
+ 634 00bd 06       		.uleb128 0x6
+ 635 00be 1B030000 		.4byte	.LASF17
+ 636 00c2 01       		.byte	0x1
+ 637 00c3 C801     		.2byte	0x1c8
+ 638 00c5 76000000 		.4byte	0x76
+ 639 00c9 01       		.byte	0x1
+ 640 00ca 06       		.uleb128 0x6
+ 641 00cb 3A000000 		.4byte	.LASF18
+ 642 00cf 01       		.byte	0x1
+ 643 00d0 4D01     		.2byte	0x14d
+ 644 00d2 6B000000 		.4byte	0x6b
+ 645 00d6 01       		.byte	0x1
+ 646 00d7 07       		.uleb128 0x7
+ 647 00d8 BC010000 		.4byte	.LASF19
+ 648 00dc 01       		.byte	0x1
+ 649 00dd AF01     		.2byte	0x1af
+ 650 00df 01       		.byte	0x1
+ 651 00e0 F1000000 		.4byte	0xf1
+ 652 00e4 08       		.uleb128 0x8
+ 653 00e5 59000000 		.4byte	.LASF21
+ 654 00e9 01       		.byte	0x1
+ 655 00ea AF01     		.2byte	0x1af
+ 656 00ec 76000000 		.4byte	0x76
+ 657 00f0 00       		.byte	0
+ 658 00f1 07       		.uleb128 0x7
+ 659 00f2 06000000 		.4byte	.LASF20
+ 660 00f6 01       		.byte	0x1
+ 661 00f7 E001     		.2byte	0x1e0
+ 662 00f9 01       		.byte	0x1
+ 663 00fa 0B010000 		.4byte	0x10b
+ 664 00fe 08       		.uleb128 0x8
+ 665 00ff 8F010000 		.4byte	.LASF22
+ 666 0103 01       		.byte	0x1
+ 667 0104 E001     		.2byte	0x1e0
+ 668 0106 76000000 		.4byte	0x76
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 27
 
 
- 669 0106 76000000 		.4byte	0x76
- 670 010a 00       		.byte	0
- 671 010b 09       		.uleb128 0x9
- 672 010c 74030000 		.4byte	.LASF25
- 673 0110 01       		.byte	0x1
- 674 0111 FB02     		.2byte	0x2fb
- 675 0113 01       		.byte	0x1
- 676 0114 07       		.uleb128 0x7
- 677 0115 F9010000 		.4byte	.LASF23
- 678 0119 01       		.byte	0x1
- 679 011a 1701     		.2byte	0x117
- 680 011c 01       		.byte	0x1
- 681 011d 2E010000 		.4byte	0x12e
- 682 0121 08       		.uleb128 0x8
- 683 0122 F1020000 		.4byte	.LASF24
- 684 0126 01       		.byte	0x1
- 685 0127 1701     		.2byte	0x117
- 686 0129 6B000000 		.4byte	0x6b
- 687 012d 00       		.byte	0
- 688 012e 0A       		.uleb128 0xa
- 689 012f B3020000 		.4byte	.LASF26
- 690 0133 01       		.byte	0x1
- 691 0134 B4       		.byte	0xb4
- 692 0135 01       		.byte	0x1
- 693 0136 0B       		.uleb128 0xb
- 694 0137 0A030000 		.4byte	.LASF27
- 695 013b 01       		.byte	0x1
- 696 013c 2B       		.byte	0x2b
- 697 013d 00000000 		.4byte	.LFB0
- 698 0141 5C000000 		.4byte	.LFE0-.LFB0
- 699 0145 01       		.uleb128 0x1
- 700 0146 9C       		.byte	0x9c
- 701 0147 2D020000 		.4byte	0x22d
- 702 014b 0C       		.uleb128 0xc
- 703 014c 1F000000 		.4byte	.LASF40
- 704 0150 01       		.byte	0x1
- 705 0151 2F       		.byte	0x2f
- 706 0152 6B000000 		.4byte	0x6b
- 707 0156 00000000 		.4byte	.LLST0
- 708 015a 0D       		.uleb128 0xd
- 709 015b D7000000 		.4byte	0xd7
- 710 015f 02000000 		.4byte	.LBB20
- 711 0163 08000000 		.4byte	.LBE20-.LBB20
- 712 0167 01       		.byte	0x1
- 713 0168 76       		.byte	0x76
- 714 0169 93010000 		.4byte	0x193
- 715 016d 0E       		.uleb128 0xe
- 716 016e E4000000 		.4byte	0xe4
- 717 0172 7F969800 		.4byte	0x98967f
- 718 0176 0F       		.uleb128 0xf
- 719 0177 0A000000 		.4byte	.LVL1
- 720 017b E0030000 		.4byte	0x3e0
- 721 017f 10       		.uleb128 0x10
- 722 0180 01       		.uleb128 0x1
- 723 0181 51       		.byte	0x51
- 724 0182 05       		.uleb128 0x5
- 725 0183 0C       		.byte	0xc
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 28
+ 669 010a 00       		.byte	0
+ 670 010b 09       		.uleb128 0x9
+ 671 010c 74030000 		.4byte	.LASF25
+ 672 0110 01       		.byte	0x1
+ 673 0111 FB02     		.2byte	0x2fb
+ 674 0113 01       		.byte	0x1
+ 675 0114 07       		.uleb128 0x7
+ 676 0115 F9010000 		.4byte	.LASF23
+ 677 0119 01       		.byte	0x1
+ 678 011a 1701     		.2byte	0x117
+ 679 011c 01       		.byte	0x1
+ 680 011d 2E010000 		.4byte	0x12e
+ 681 0121 08       		.uleb128 0x8
+ 682 0122 F1020000 		.4byte	.LASF24
+ 683 0126 01       		.byte	0x1
+ 684 0127 1701     		.2byte	0x117
+ 685 0129 6B000000 		.4byte	0x6b
+ 686 012d 00       		.byte	0
+ 687 012e 0A       		.uleb128 0xa
+ 688 012f B3020000 		.4byte	.LASF26
+ 689 0133 01       		.byte	0x1
+ 690 0134 B4       		.byte	0xb4
+ 691 0135 01       		.byte	0x1
+ 692 0136 0B       		.uleb128 0xb
+ 693 0137 0A030000 		.4byte	.LASF27
+ 694 013b 01       		.byte	0x1
+ 695 013c 2B       		.byte	0x2b
+ 696 013d 00000000 		.4byte	.LFB0
+ 697 0141 5C000000 		.4byte	.LFE0-.LFB0
+ 698 0145 01       		.uleb128 0x1
+ 699 0146 9C       		.byte	0x9c
+ 700 0147 2D020000 		.4byte	0x22d
+ 701 014b 0C       		.uleb128 0xc
+ 702 014c 1F000000 		.4byte	.LASF40
+ 703 0150 01       		.byte	0x1
+ 704 0151 2F       		.byte	0x2f
+ 705 0152 6B000000 		.4byte	0x6b
+ 706 0156 00000000 		.4byte	.LLST0
+ 707 015a 0D       		.uleb128 0xd
+ 708 015b D7000000 		.4byte	0xd7
+ 709 015f 02000000 		.4byte	.LBB20
+ 710 0163 0A000000 		.4byte	.LBE20-.LBB20
+ 711 0167 01       		.byte	0x1
+ 712 0168 76       		.byte	0x76
+ 713 0169 93010000 		.4byte	0x193
+ 714 016d 0E       		.uleb128 0xe
+ 715 016e E4000000 		.4byte	0xe4
+ 716 0172 FFFFFF00 		.4byte	0xffffff
+ 717 0176 0F       		.uleb128 0xf
+ 718 0177 0C000000 		.4byte	.LVL1
+ 719 017b E0030000 		.4byte	0x3e0
+ 720 017f 10       		.uleb128 0x10
+ 721 0180 01       		.uleb128 0x1
+ 722 0181 51       		.byte	0x51
+ 723 0182 05       		.uleb128 0x5
+ 724 0183 0C       		.byte	0xc
+ 725 0184 FFFFFF00 		.4byte	0xffffff
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 28
 
 
- 726 0184 7F969800 		.4byte	0x98967f
- 727 0188 10       		.uleb128 0x10
- 728 0189 01       		.uleb128 0x1
- 729 018a 50       		.byte	0x50
- 730 018b 05       		.uleb128 0x5
- 731 018c 0C       		.byte	0xc
- 732 018d 29640040 		.4byte	0x40006429
- 733 0191 00       		.byte	0
- 734 0192 00       		.byte	0
- 735 0193 0D       		.uleb128 0xd
- 736 0194 F1000000 		.4byte	0xf1
- 737 0198 0A000000 		.4byte	.LBB22
- 738 019c 08000000 		.4byte	.LBE22-.LBB22
- 739 01a0 01       		.byte	0x1
- 740 01a1 77       		.byte	0x77
- 741 01a2 CC010000 		.4byte	0x1cc
- 742 01a6 0E       		.uleb128 0xe
- 743 01a7 FE000000 		.4byte	0xfe
- 744 01ab 7F969800 		.4byte	0x98967f
- 745 01af 0F       		.uleb128 0xf
- 746 01b0 12000000 		.4byte	.LVL2
- 747 01b4 E0030000 		.4byte	0x3e0
- 748 01b8 10       		.uleb128 0x10
- 749 01b9 01       		.uleb128 0x1
- 750 01ba 51       		.byte	0x51
- 751 01bb 05       		.uleb128 0x5
- 752 01bc 0C       		.byte	0xc
- 753 01bd 7F969800 		.4byte	0x98967f
- 754 01c1 10       		.uleb128 0x10
- 755 01c2 01       		.uleb128 0x1
- 756 01c3 50       		.byte	0x50
- 757 01c4 05       		.uleb128 0x5
- 758 01c5 0C       		.byte	0xc
- 759 01c6 09640040 		.4byte	0x40006409
- 760 01ca 00       		.byte	0
- 761 01cb 00       		.byte	0
- 762 01cc 0D       		.uleb128 0xd
- 763 01cd 0B010000 		.4byte	0x10b
- 764 01d1 24000000 		.4byte	.LBB24
- 765 01d5 12000000 		.4byte	.LBE24-.LBB24
- 766 01d9 01       		.byte	0x1
- 767 01da 9F       		.byte	0x9f
- 768 01db 00020000 		.4byte	0x200
- 769 01df 11       		.uleb128 0x11
- 770 01e0 CA000000 		.4byte	0xca
- 771 01e4 24000000 		.4byte	.LBB26
- 772 01e8 00000000 		.4byte	.Ldebug_ranges0+0
- 773 01ec 01       		.byte	0x1
- 774 01ed FD02     		.2byte	0x2fd
- 775 01ef 12       		.uleb128 0x12
- 776 01f0 BD000000 		.4byte	0xbd
- 777 01f4 2C000000 		.4byte	.LBB29
- 778 01f8 04000000 		.4byte	.LBE29-.LBB29
- 779 01fc 01       		.byte	0x1
- 780 01fd FF02     		.2byte	0x2ff
- 781 01ff 00       		.byte	0
- 782 0200 0D       		.uleb128 0xd
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 29
+ 726 0188 10       		.uleb128 0x10
+ 727 0189 01       		.uleb128 0x1
+ 728 018a 50       		.byte	0x50
+ 729 018b 05       		.uleb128 0x5
+ 730 018c 0C       		.byte	0xc
+ 731 018d 29640040 		.4byte	0x40006429
+ 732 0191 00       		.byte	0
+ 733 0192 00       		.byte	0
+ 734 0193 0D       		.uleb128 0xd
+ 735 0194 F1000000 		.4byte	0xf1
+ 736 0198 0C000000 		.4byte	.LBB22
+ 737 019c 0A000000 		.4byte	.LBE22-.LBB22
+ 738 01a0 01       		.byte	0x1
+ 739 01a1 77       		.byte	0x77
+ 740 01a2 CC010000 		.4byte	0x1cc
+ 741 01a6 0E       		.uleb128 0xe
+ 742 01a7 FE000000 		.4byte	0xfe
+ 743 01ab FFFFFF00 		.4byte	0xffffff
+ 744 01af 0F       		.uleb128 0xf
+ 745 01b0 16000000 		.4byte	.LVL2
+ 746 01b4 E0030000 		.4byte	0x3e0
+ 747 01b8 10       		.uleb128 0x10
+ 748 01b9 01       		.uleb128 0x1
+ 749 01ba 51       		.byte	0x51
+ 750 01bb 05       		.uleb128 0x5
+ 751 01bc 0C       		.byte	0xc
+ 752 01bd FFFFFF00 		.4byte	0xffffff
+ 753 01c1 10       		.uleb128 0x10
+ 754 01c2 01       		.uleb128 0x1
+ 755 01c3 50       		.byte	0x50
+ 756 01c4 05       		.uleb128 0x5
+ 757 01c5 0C       		.byte	0xc
+ 758 01c6 09640040 		.4byte	0x40006409
+ 759 01ca 00       		.byte	0
+ 760 01cb 00       		.byte	0
+ 761 01cc 0D       		.uleb128 0xd
+ 762 01cd 0B010000 		.4byte	0x10b
+ 763 01d1 28000000 		.4byte	.LBB24
+ 764 01d5 12000000 		.4byte	.LBE24-.LBB24
+ 765 01d9 01       		.byte	0x1
+ 766 01da 9F       		.byte	0x9f
+ 767 01db 00020000 		.4byte	0x200
+ 768 01df 11       		.uleb128 0x11
+ 769 01e0 CA000000 		.4byte	0xca
+ 770 01e4 28000000 		.4byte	.LBB26
+ 771 01e8 00000000 		.4byte	.Ldebug_ranges0+0
+ 772 01ec 01       		.byte	0x1
+ 773 01ed FD02     		.2byte	0x2fd
+ 774 01ef 12       		.uleb128 0x12
+ 775 01f0 BD000000 		.4byte	0xbd
+ 776 01f4 30000000 		.4byte	.LBB29
+ 777 01f8 04000000 		.4byte	.LBE29-.LBB29
+ 778 01fc 01       		.byte	0x1
+ 779 01fd FF02     		.2byte	0x2ff
+ 780 01ff 00       		.byte	0
+ 781 0200 0D       		.uleb128 0xd
+ 782 0201 14010000 		.4byte	0x114
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 29
 
 
- 783 0201 14010000 		.4byte	0x114
- 784 0205 36000000 		.4byte	.LBB32
- 785 0209 26000000 		.4byte	.LBE32-.LBB32
- 786 020d 01       		.byte	0x1
- 787 020e A2       		.byte	0xa2
- 788 020f 1A020000 		.4byte	0x21a
- 789 0213 13       		.uleb128 0x13
- 790 0214 21010000 		.4byte	0x121
- 791 0218 01       		.byte	0x1
- 792 0219 00       		.byte	0
- 793 021a 14       		.uleb128 0x14
- 794 021b 16000000 		.4byte	.LVL3
- 795 021f FC030000 		.4byte	0x3fc
- 796 0223 14       		.uleb128 0x14
- 797 0224 24000000 		.4byte	.LVL4
- 798 0228 07040000 		.4byte	0x407
- 799 022c 00       		.byte	0
- 800 022d 15       		.uleb128 0x15
- 801 022e 2E010000 		.4byte	0x12e
- 802 0232 00000000 		.4byte	.LFB1
- 803 0236 10000000 		.4byte	.LFE1-.LFB1
- 804 023a 01       		.uleb128 0x1
- 805 023b 9C       		.byte	0x9c
- 806 023c 0B       		.uleb128 0xb
- 807 023d 84000000 		.4byte	.LASF28
- 808 0241 01       		.byte	0x1
- 809 0242 D7       		.byte	0xd7
- 810 0243 00000000 		.4byte	.LFB2
- 811 0247 24000000 		.4byte	.LFE2-.LFB2
- 812 024b 01       		.uleb128 0x1
- 813 024c 9C       		.byte	0x9c
- 814 024d 6A020000 		.4byte	0x26a
- 815 0251 16       		.uleb128 0x16
- 816 0252 2E010000 		.4byte	0x12e
- 817 0256 10000000 		.4byte	.LBB34
- 818 025a 14000000 		.4byte	.LBE34-.LBB34
- 819 025e 01       		.byte	0x1
- 820 025f E1       		.byte	0xe1
- 821 0260 14       		.uleb128 0x14
- 822 0261 0C000000 		.4byte	.LVL6
- 823 0265 36010000 		.4byte	0x136
- 824 0269 00       		.byte	0
- 825 026a 17       		.uleb128 0x17
- 826 026b 60000000 		.4byte	.LASF29
- 827 026f 01       		.byte	0x1
- 828 0270 F7       		.byte	0xf7
- 829 0271 00000000 		.4byte	.LFB3
- 830 0275 10000000 		.4byte	.LFE3-.LFB3
- 831 0279 01       		.uleb128 0x1
- 832 027a 9C       		.byte	0x9c
- 833 027b 18       		.uleb128 0x18
- 834 027c 14010000 		.4byte	0x114
- 835 0280 00000000 		.4byte	.LFB4
- 836 0284 0C000000 		.4byte	.LFE4-.LFB4
- 837 0288 01       		.uleb128 0x1
- 838 0289 9C       		.byte	0x9c
- 839 028a 96020000 		.4byte	0x296
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 30
+ 783 0205 3A000000 		.4byte	.LBB32
+ 784 0209 22000000 		.4byte	.LBE32-.LBB32
+ 785 020d 01       		.byte	0x1
+ 786 020e A2       		.byte	0xa2
+ 787 020f 1A020000 		.4byte	0x21a
+ 788 0213 13       		.uleb128 0x13
+ 789 0214 21010000 		.4byte	0x121
+ 790 0218 01       		.byte	0x1
+ 791 0219 00       		.byte	0
+ 792 021a 14       		.uleb128 0x14
+ 793 021b 1A000000 		.4byte	.LVL3
+ 794 021f FC030000 		.4byte	0x3fc
+ 795 0223 14       		.uleb128 0x14
+ 796 0224 28000000 		.4byte	.LVL4
+ 797 0228 07040000 		.4byte	0x407
+ 798 022c 00       		.byte	0
+ 799 022d 15       		.uleb128 0x15
+ 800 022e 2E010000 		.4byte	0x12e
+ 801 0232 00000000 		.4byte	.LFB1
+ 802 0236 10000000 		.4byte	.LFE1-.LFB1
+ 803 023a 01       		.uleb128 0x1
+ 804 023b 9C       		.byte	0x9c
+ 805 023c 0B       		.uleb128 0xb
+ 806 023d 84000000 		.4byte	.LASF28
+ 807 0241 01       		.byte	0x1
+ 808 0242 D7       		.byte	0xd7
+ 809 0243 00000000 		.4byte	.LFB2
+ 810 0247 24000000 		.4byte	.LFE2-.LFB2
+ 811 024b 01       		.uleb128 0x1
+ 812 024c 9C       		.byte	0x9c
+ 813 024d 6A020000 		.4byte	0x26a
+ 814 0251 16       		.uleb128 0x16
+ 815 0252 2E010000 		.4byte	0x12e
+ 816 0256 10000000 		.4byte	.LBB34
+ 817 025a 14000000 		.4byte	.LBE34-.LBB34
+ 818 025e 01       		.byte	0x1
+ 819 025f E1       		.byte	0xe1
+ 820 0260 14       		.uleb128 0x14
+ 821 0261 0C000000 		.4byte	.LVL6
+ 822 0265 36010000 		.4byte	0x136
+ 823 0269 00       		.byte	0
+ 824 026a 17       		.uleb128 0x17
+ 825 026b 60000000 		.4byte	.LASF29
+ 826 026f 01       		.byte	0x1
+ 827 0270 F7       		.byte	0xf7
+ 828 0271 00000000 		.4byte	.LFB3
+ 829 0275 10000000 		.4byte	.LFE3-.LFB3
+ 830 0279 01       		.uleb128 0x1
+ 831 027a 9C       		.byte	0x9c
+ 832 027b 18       		.uleb128 0x18
+ 833 027c 14010000 		.4byte	0x114
+ 834 0280 00000000 		.4byte	.LFB4
+ 835 0284 0C000000 		.4byte	.LFE4-.LFB4
+ 836 0288 01       		.uleb128 0x1
+ 837 0289 9C       		.byte	0x9c
+ 838 028a 96020000 		.4byte	0x296
+ 839 028e 19       		.uleb128 0x19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 30
 
 
- 840 028e 19       		.uleb128 0x19
- 841 028f 21010000 		.4byte	0x121
- 842 0293 01       		.uleb128 0x1
- 843 0294 50       		.byte	0x50
- 844 0295 00       		.byte	0
- 845 0296 1A       		.uleb128 0x1a
- 846 0297 97020000 		.4byte	.LASF30
- 847 029b 01       		.byte	0x1
- 848 029c 2E01     		.2byte	0x12e
- 849 029e 00000000 		.4byte	.LFB5
- 850 02a2 0C000000 		.4byte	.LFE5-.LFB5
- 851 02a6 01       		.uleb128 0x1
- 852 02a7 9C       		.byte	0x9c
- 853 02a8 15       		.uleb128 0x15
- 854 02a9 CA000000 		.4byte	0xca
- 855 02ad 00000000 		.4byte	.LFB6
- 856 02b1 0C000000 		.4byte	.LFE6-.LFB6
- 857 02b5 01       		.uleb128 0x1
- 858 02b6 9C       		.byte	0x9c
- 859 02b7 1B       		.uleb128 0x1b
- 860 02b8 6F010000 		.4byte	.LASF32
- 861 02bc 01       		.byte	0x1
- 862 02bd 6401     		.2byte	0x164
- 863 02bf 6B000000 		.4byte	0x6b
- 864 02c3 00000000 		.4byte	.LFB7
- 865 02c7 0C000000 		.4byte	.LFE7-.LFB7
- 866 02cb 01       		.uleb128 0x1
- 867 02cc 9C       		.byte	0x9c
- 868 02cd 1C       		.uleb128 0x1c
- 869 02ce 41030000 		.4byte	.LASF31
- 870 02d2 01       		.byte	0x1
- 871 02d3 7B01     		.2byte	0x17b
- 872 02d5 00000000 		.4byte	.LFB8
- 873 02d9 0C000000 		.4byte	.LFE8-.LFB8
- 874 02dd 01       		.uleb128 0x1
- 875 02de 9C       		.byte	0x9c
- 876 02df F2020000 		.4byte	0x2f2
- 877 02e3 1D       		.uleb128 0x1d
- 878 02e4 F1010000 		.4byte	.LASF41
- 879 02e8 01       		.byte	0x1
- 880 02e9 7B01     		.2byte	0x17b
- 881 02eb 6B000000 		.4byte	0x6b
- 882 02ef 01       		.uleb128 0x1
- 883 02f0 50       		.byte	0x50
- 884 02f1 00       		.byte	0
- 885 02f2 1B       		.uleb128 0x1b
- 886 02f3 6A020000 		.4byte	.LASF33
- 887 02f7 01       		.byte	0x1
- 888 02f8 9501     		.2byte	0x195
- 889 02fa 76000000 		.4byte	0x76
- 890 02fe 00000000 		.4byte	.LFB9
- 891 0302 10000000 		.4byte	.LFE9-.LFB9
- 892 0306 01       		.uleb128 0x1
- 893 0307 9C       		.byte	0x9c
- 894 0308 18       		.uleb128 0x18
- 895 0309 D7000000 		.4byte	0xd7
- 896 030d 00000000 		.4byte	.LFB10
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 31
+ 840 028f 21010000 		.4byte	0x121
+ 841 0293 01       		.uleb128 0x1
+ 842 0294 50       		.byte	0x50
+ 843 0295 00       		.byte	0
+ 844 0296 1A       		.uleb128 0x1a
+ 845 0297 97020000 		.4byte	.LASF30
+ 846 029b 01       		.byte	0x1
+ 847 029c 2E01     		.2byte	0x12e
+ 848 029e 00000000 		.4byte	.LFB5
+ 849 02a2 0C000000 		.4byte	.LFE5-.LFB5
+ 850 02a6 01       		.uleb128 0x1
+ 851 02a7 9C       		.byte	0x9c
+ 852 02a8 15       		.uleb128 0x15
+ 853 02a9 CA000000 		.4byte	0xca
+ 854 02ad 00000000 		.4byte	.LFB6
+ 855 02b1 0C000000 		.4byte	.LFE6-.LFB6
+ 856 02b5 01       		.uleb128 0x1
+ 857 02b6 9C       		.byte	0x9c
+ 858 02b7 1B       		.uleb128 0x1b
+ 859 02b8 6F010000 		.4byte	.LASF32
+ 860 02bc 01       		.byte	0x1
+ 861 02bd 6401     		.2byte	0x164
+ 862 02bf 6B000000 		.4byte	0x6b
+ 863 02c3 00000000 		.4byte	.LFB7
+ 864 02c7 0C000000 		.4byte	.LFE7-.LFB7
+ 865 02cb 01       		.uleb128 0x1
+ 866 02cc 9C       		.byte	0x9c
+ 867 02cd 1C       		.uleb128 0x1c
+ 868 02ce 41030000 		.4byte	.LASF31
+ 869 02d2 01       		.byte	0x1
+ 870 02d3 7B01     		.2byte	0x17b
+ 871 02d5 00000000 		.4byte	.LFB8
+ 872 02d9 0C000000 		.4byte	.LFE8-.LFB8
+ 873 02dd 01       		.uleb128 0x1
+ 874 02de 9C       		.byte	0x9c
+ 875 02df F2020000 		.4byte	0x2f2
+ 876 02e3 1D       		.uleb128 0x1d
+ 877 02e4 F1010000 		.4byte	.LASF41
+ 878 02e8 01       		.byte	0x1
+ 879 02e9 7B01     		.2byte	0x17b
+ 880 02eb 6B000000 		.4byte	0x6b
+ 881 02ef 01       		.uleb128 0x1
+ 882 02f0 50       		.byte	0x50
+ 883 02f1 00       		.byte	0
+ 884 02f2 1B       		.uleb128 0x1b
+ 885 02f3 6A020000 		.4byte	.LASF33
+ 886 02f7 01       		.byte	0x1
+ 887 02f8 9501     		.2byte	0x195
+ 888 02fa 76000000 		.4byte	0x76
+ 889 02fe 00000000 		.4byte	.LFB9
+ 890 0302 10000000 		.4byte	.LFE9-.LFB9
+ 891 0306 01       		.uleb128 0x1
+ 892 0307 9C       		.byte	0x9c
+ 893 0308 18       		.uleb128 0x18
+ 894 0309 D7000000 		.4byte	0xd7
+ 895 030d 00000000 		.4byte	.LFB10
+ 896 0311 0C000000 		.4byte	.LFE10-.LFB10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 31
 
 
- 897 0311 0C000000 		.4byte	.LFE10-.LFB10
- 898 0315 01       		.uleb128 0x1
- 899 0316 9C       		.byte	0x9c
- 900 0317 3F030000 		.4byte	0x33f
- 901 031b 1E       		.uleb128 0x1e
- 902 031c E4000000 		.4byte	0xe4
- 903 0320 13000000 		.4byte	.LLST1
- 904 0324 1F       		.uleb128 0x1f
- 905 0325 08000000 		.4byte	.LVL11
- 906 0329 E0030000 		.4byte	0x3e0
- 907 032d 10       		.uleb128 0x10
- 908 032e 01       		.uleb128 0x1
- 909 032f 51       		.byte	0x51
- 910 0330 03       		.uleb128 0x3
- 911 0331 F3       		.byte	0xf3
- 912 0332 01       		.uleb128 0x1
- 913 0333 50       		.byte	0x50
- 914 0334 10       		.uleb128 0x10
- 915 0335 01       		.uleb128 0x1
- 916 0336 50       		.byte	0x50
- 917 0337 05       		.uleb128 0x5
- 918 0338 0C       		.byte	0xc
- 919 0339 29640040 		.4byte	0x40006429
- 920 033d 00       		.byte	0
- 921 033e 00       		.byte	0
- 922 033f 15       		.uleb128 0x15
- 923 0340 BD000000 		.4byte	0xbd
- 924 0344 00000000 		.4byte	.LFB11
- 925 0348 10000000 		.4byte	.LFE11-.LFB11
- 926 034c 01       		.uleb128 0x1
- 927 034d 9C       		.byte	0x9c
- 928 034e 18       		.uleb128 0x18
- 929 034f F1000000 		.4byte	0xf1
- 930 0353 00000000 		.4byte	.LFB12
- 931 0357 0C000000 		.4byte	.LFE12-.LFB12
- 932 035b 01       		.uleb128 0x1
- 933 035c 9C       		.byte	0x9c
- 934 035d 85030000 		.4byte	0x385
- 935 0361 1E       		.uleb128 0x1e
- 936 0362 FE000000 		.4byte	0xfe
- 937 0366 3F000000 		.4byte	.LLST2
- 938 036a 1F       		.uleb128 0x1f
- 939 036b 08000000 		.4byte	.LVL14
- 940 036f E0030000 		.4byte	0x3e0
- 941 0373 10       		.uleb128 0x10
- 942 0374 01       		.uleb128 0x1
- 943 0375 51       		.byte	0x51
- 944 0376 03       		.uleb128 0x3
- 945 0377 F3       		.byte	0xf3
- 946 0378 01       		.uleb128 0x1
- 947 0379 50       		.byte	0x50
- 948 037a 10       		.uleb128 0x10
- 949 037b 01       		.uleb128 0x1
- 950 037c 50       		.byte	0x50
- 951 037d 05       		.uleb128 0x5
- 952 037e 0C       		.byte	0xc
- 953 037f 09640040 		.4byte	0x40006409
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 32
+ 897 0315 01       		.uleb128 0x1
+ 898 0316 9C       		.byte	0x9c
+ 899 0317 3F030000 		.4byte	0x33f
+ 900 031b 1E       		.uleb128 0x1e
+ 901 031c E4000000 		.4byte	0xe4
+ 902 0320 13000000 		.4byte	.LLST1
+ 903 0324 1F       		.uleb128 0x1f
+ 904 0325 08000000 		.4byte	.LVL11
+ 905 0329 E0030000 		.4byte	0x3e0
+ 906 032d 10       		.uleb128 0x10
+ 907 032e 01       		.uleb128 0x1
+ 908 032f 51       		.byte	0x51
+ 909 0330 03       		.uleb128 0x3
+ 910 0331 F3       		.byte	0xf3
+ 911 0332 01       		.uleb128 0x1
+ 912 0333 50       		.byte	0x50
+ 913 0334 10       		.uleb128 0x10
+ 914 0335 01       		.uleb128 0x1
+ 915 0336 50       		.byte	0x50
+ 916 0337 05       		.uleb128 0x5
+ 917 0338 0C       		.byte	0xc
+ 918 0339 29640040 		.4byte	0x40006429
+ 919 033d 00       		.byte	0
+ 920 033e 00       		.byte	0
+ 921 033f 15       		.uleb128 0x15
+ 922 0340 BD000000 		.4byte	0xbd
+ 923 0344 00000000 		.4byte	.LFB11
+ 924 0348 10000000 		.4byte	.LFE11-.LFB11
+ 925 034c 01       		.uleb128 0x1
+ 926 034d 9C       		.byte	0x9c
+ 927 034e 18       		.uleb128 0x18
+ 928 034f F1000000 		.4byte	0xf1
+ 929 0353 00000000 		.4byte	.LFB12
+ 930 0357 0C000000 		.4byte	.LFE12-.LFB12
+ 931 035b 01       		.uleb128 0x1
+ 932 035c 9C       		.byte	0x9c
+ 933 035d 85030000 		.4byte	0x385
+ 934 0361 1E       		.uleb128 0x1e
+ 935 0362 FE000000 		.4byte	0xfe
+ 936 0366 3F000000 		.4byte	.LLST2
+ 937 036a 1F       		.uleb128 0x1f
+ 938 036b 08000000 		.4byte	.LVL14
+ 939 036f E0030000 		.4byte	0x3e0
+ 940 0373 10       		.uleb128 0x10
+ 941 0374 01       		.uleb128 0x1
+ 942 0375 51       		.byte	0x51
+ 943 0376 03       		.uleb128 0x3
+ 944 0377 F3       		.byte	0xf3
+ 945 0378 01       		.uleb128 0x1
+ 946 0379 50       		.byte	0x50
+ 947 037a 10       		.uleb128 0x10
+ 948 037b 01       		.uleb128 0x1
+ 949 037c 50       		.byte	0x50
+ 950 037d 05       		.uleb128 0x5
+ 951 037e 0C       		.byte	0xc
+ 952 037f 09640040 		.4byte	0x40006409
+ 953 0383 00       		.byte	0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 32
 
 
- 954 0383 00       		.byte	0
- 955 0384 00       		.byte	0
- 956 0385 1B       		.uleb128 0x1b
- 957 0386 16020000 		.4byte	.LASF34
- 958 038a 01       		.byte	0x1
- 959 038b FC01     		.2byte	0x1fc
- 960 038d 76000000 		.4byte	0x76
- 961 0391 00000000 		.4byte	.LFB13
- 962 0395 18000000 		.4byte	.LFE13-.LFB13
- 963 0399 01       		.uleb128 0x1
- 964 039a 9C       		.byte	0x9c
- 965 039b 18       		.uleb128 0x18
- 966 039c 0B010000 		.4byte	0x10b
- 967 03a0 00000000 		.4byte	.LFB14
- 968 03a4 1C000000 		.4byte	.LFE14-.LFB14
- 969 03a8 01       		.uleb128 0x1
- 970 03a9 9C       		.byte	0x9c
- 971 03aa CF030000 		.4byte	0x3cf
- 972 03ae 11       		.uleb128 0x11
- 973 03af CA000000 		.4byte	0xca
- 974 03b3 00000000 		.4byte	.LBB36
- 975 03b7 18000000 		.4byte	.Ldebug_ranges0+0x18
- 976 03bb 01       		.byte	0x1
- 977 03bc FD02     		.2byte	0x2fd
- 978 03be 12       		.uleb128 0x12
- 979 03bf BD000000 		.4byte	0xbd
- 980 03c3 08000000 		.4byte	.LBB39
- 981 03c7 04000000 		.4byte	.LBE39-.LBB39
- 982 03cb 01       		.byte	0x1
- 983 03cc FF02     		.2byte	0x2ff
- 984 03ce 00       		.byte	0
- 985 03cf 20       		.uleb128 0x20
- 986 03d0 C6020000 		.4byte	.LASF42
- 987 03d4 01       		.byte	0x1
- 988 03d5 1A       		.byte	0x1a
- 989 03d6 6B000000 		.4byte	0x6b
- 990 03da 05       		.uleb128 0x5
- 991 03db 03       		.byte	0x3
- 992 03dc 00000000 		.4byte	TIMER_TUNER_initVar
- 993 03e0 21       		.uleb128 0x21
- 994 03e1 FF020000 		.4byte	.LASF35
- 995 03e5 02       		.byte	0x2
- 996 03e6 9E       		.byte	0x9e
- 997 03e7 F6030000 		.4byte	0x3f6
- 998 03eb 22       		.uleb128 0x22
- 999 03ec F6030000 		.4byte	0x3f6
- 1000 03f0 22       		.uleb128 0x22
- 1001 03f1 76000000 		.4byte	0x76
- 1002 03f5 00       		.byte	0
- 1003 03f6 23       		.uleb128 0x23
- 1004 03f7 04       		.byte	0x4
- 1005 03f8 B1000000 		.4byte	0xb1
- 1006 03fc 24       		.uleb128 0x24
- 1007 03fd 46020000 		.4byte	.LASF36
- 1008 0401 03       		.byte	0x3
- 1009 0402 7E       		.byte	0x7e
- 1010 0403 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 33
+ 954 0384 00       		.byte	0
+ 955 0385 1B       		.uleb128 0x1b
+ 956 0386 16020000 		.4byte	.LASF34
+ 957 038a 01       		.byte	0x1
+ 958 038b FC01     		.2byte	0x1fc
+ 959 038d 76000000 		.4byte	0x76
+ 960 0391 00000000 		.4byte	.LFB13
+ 961 0395 18000000 		.4byte	.LFE13-.LFB13
+ 962 0399 01       		.uleb128 0x1
+ 963 039a 9C       		.byte	0x9c
+ 964 039b 18       		.uleb128 0x18
+ 965 039c 0B010000 		.4byte	0x10b
+ 966 03a0 00000000 		.4byte	.LFB14
+ 967 03a4 1C000000 		.4byte	.LFE14-.LFB14
+ 968 03a8 01       		.uleb128 0x1
+ 969 03a9 9C       		.byte	0x9c
+ 970 03aa CF030000 		.4byte	0x3cf
+ 971 03ae 11       		.uleb128 0x11
+ 972 03af CA000000 		.4byte	0xca
+ 973 03b3 00000000 		.4byte	.LBB36
+ 974 03b7 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 975 03bb 01       		.byte	0x1
+ 976 03bc FD02     		.2byte	0x2fd
+ 977 03be 12       		.uleb128 0x12
+ 978 03bf BD000000 		.4byte	0xbd
+ 979 03c3 08000000 		.4byte	.LBB39
+ 980 03c7 04000000 		.4byte	.LBE39-.LBB39
+ 981 03cb 01       		.byte	0x1
+ 982 03cc FF02     		.2byte	0x2ff
+ 983 03ce 00       		.byte	0
+ 984 03cf 20       		.uleb128 0x20
+ 985 03d0 C6020000 		.4byte	.LASF42
+ 986 03d4 01       		.byte	0x1
+ 987 03d5 1A       		.byte	0x1a
+ 988 03d6 6B000000 		.4byte	0x6b
+ 989 03da 05       		.uleb128 0x5
+ 990 03db 03       		.byte	0x3
+ 991 03dc 00000000 		.4byte	TIMER_TUNER_initVar
+ 992 03e0 21       		.uleb128 0x21
+ 993 03e1 FF020000 		.4byte	.LASF35
+ 994 03e5 02       		.byte	0x2
+ 995 03e6 9E       		.byte	0x9e
+ 996 03e7 F6030000 		.4byte	0x3f6
+ 997 03eb 22       		.uleb128 0x22
+ 998 03ec F6030000 		.4byte	0x3f6
+ 999 03f0 22       		.uleb128 0x22
+ 1000 03f1 76000000 		.4byte	0x76
+ 1001 03f5 00       		.byte	0
+ 1002 03f6 23       		.uleb128 0x23
+ 1003 03f7 04       		.byte	0x4
+ 1004 03f8 B1000000 		.4byte	0xb1
+ 1005 03fc 24       		.uleb128 0x24
+ 1006 03fd 46020000 		.4byte	.LASF36
+ 1007 0401 03       		.byte	0x3
+ 1008 0402 7E       		.byte	0x7e
+ 1009 0403 6B000000 		.4byte	0x6b
+ 1010 0407 25       		.uleb128 0x25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 33
 
 
- 1011 0407 25       		.uleb128 0x25
- 1012 0408 81020000 		.4byte	.LASF43
- 1013 040c 03       		.byte	0x3
- 1014 040d 7F       		.byte	0x7f
- 1015 040e 22       		.uleb128 0x22
- 1016 040f 6B000000 		.4byte	0x6b
- 1017 0413 00       		.byte	0
- 1018 0414 00       		.byte	0
- 1019              		.section	.debug_abbrev,"",%progbits
- 1020              	.Ldebug_abbrev0:
- 1021 0000 01       		.uleb128 0x1
- 1022 0001 11       		.uleb128 0x11
- 1023 0002 01       		.byte	0x1
- 1024 0003 25       		.uleb128 0x25
- 1025 0004 0E       		.uleb128 0xe
- 1026 0005 13       		.uleb128 0x13
- 1027 0006 0B       		.uleb128 0xb
- 1028 0007 03       		.uleb128 0x3
- 1029 0008 0E       		.uleb128 0xe
- 1030 0009 1B       		.uleb128 0x1b
- 1031 000a 0E       		.uleb128 0xe
- 1032 000b 55       		.uleb128 0x55
- 1033 000c 17       		.uleb128 0x17
- 1034 000d 11       		.uleb128 0x11
- 1035 000e 01       		.uleb128 0x1
- 1036 000f 10       		.uleb128 0x10
- 1037 0010 17       		.uleb128 0x17
- 1038 0011 00       		.byte	0
- 1039 0012 00       		.byte	0
- 1040 0013 02       		.uleb128 0x2
- 1041 0014 24       		.uleb128 0x24
- 1042 0015 00       		.byte	0
- 1043 0016 0B       		.uleb128 0xb
- 1044 0017 0B       		.uleb128 0xb
- 1045 0018 3E       		.uleb128 0x3e
- 1046 0019 0B       		.uleb128 0xb
- 1047 001a 03       		.uleb128 0x3
- 1048 001b 0E       		.uleb128 0xe
- 1049 001c 00       		.byte	0
- 1050 001d 00       		.byte	0
- 1051 001e 03       		.uleb128 0x3
- 1052 001f 24       		.uleb128 0x24
- 1053 0020 00       		.byte	0
- 1054 0021 0B       		.uleb128 0xb
- 1055 0022 0B       		.uleb128 0xb
- 1056 0023 3E       		.uleb128 0x3e
- 1057 0024 0B       		.uleb128 0xb
- 1058 0025 03       		.uleb128 0x3
- 1059 0026 08       		.uleb128 0x8
- 1060 0027 00       		.byte	0
- 1061 0028 00       		.byte	0
- 1062 0029 04       		.uleb128 0x4
- 1063 002a 16       		.uleb128 0x16
- 1064 002b 00       		.byte	0
- 1065 002c 03       		.uleb128 0x3
- 1066 002d 0E       		.uleb128 0xe
- 1067 002e 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 34
+ 1011 0408 81020000 		.4byte	.LASF43
+ 1012 040c 03       		.byte	0x3
+ 1013 040d 7F       		.byte	0x7f
+ 1014 040e 22       		.uleb128 0x22
+ 1015 040f 6B000000 		.4byte	0x6b
+ 1016 0413 00       		.byte	0
+ 1017 0414 00       		.byte	0
+ 1018              		.section	.debug_abbrev,"",%progbits
+ 1019              	.Ldebug_abbrev0:
+ 1020 0000 01       		.uleb128 0x1
+ 1021 0001 11       		.uleb128 0x11
+ 1022 0002 01       		.byte	0x1
+ 1023 0003 25       		.uleb128 0x25
+ 1024 0004 0E       		.uleb128 0xe
+ 1025 0005 13       		.uleb128 0x13
+ 1026 0006 0B       		.uleb128 0xb
+ 1027 0007 03       		.uleb128 0x3
+ 1028 0008 0E       		.uleb128 0xe
+ 1029 0009 1B       		.uleb128 0x1b
+ 1030 000a 0E       		.uleb128 0xe
+ 1031 000b 55       		.uleb128 0x55
+ 1032 000c 17       		.uleb128 0x17
+ 1033 000d 11       		.uleb128 0x11
+ 1034 000e 01       		.uleb128 0x1
+ 1035 000f 10       		.uleb128 0x10
+ 1036 0010 17       		.uleb128 0x17
+ 1037 0011 00       		.byte	0
+ 1038 0012 00       		.byte	0
+ 1039 0013 02       		.uleb128 0x2
+ 1040 0014 24       		.uleb128 0x24
+ 1041 0015 00       		.byte	0
+ 1042 0016 0B       		.uleb128 0xb
+ 1043 0017 0B       		.uleb128 0xb
+ 1044 0018 3E       		.uleb128 0x3e
+ 1045 0019 0B       		.uleb128 0xb
+ 1046 001a 03       		.uleb128 0x3
+ 1047 001b 0E       		.uleb128 0xe
+ 1048 001c 00       		.byte	0
+ 1049 001d 00       		.byte	0
+ 1050 001e 03       		.uleb128 0x3
+ 1051 001f 24       		.uleb128 0x24
+ 1052 0020 00       		.byte	0
+ 1053 0021 0B       		.uleb128 0xb
+ 1054 0022 0B       		.uleb128 0xb
+ 1055 0023 3E       		.uleb128 0x3e
+ 1056 0024 0B       		.uleb128 0xb
+ 1057 0025 03       		.uleb128 0x3
+ 1058 0026 08       		.uleb128 0x8
+ 1059 0027 00       		.byte	0
+ 1060 0028 00       		.byte	0
+ 1061 0029 04       		.uleb128 0x4
+ 1062 002a 16       		.uleb128 0x16
+ 1063 002b 00       		.byte	0
+ 1064 002c 03       		.uleb128 0x3
+ 1065 002d 0E       		.uleb128 0xe
+ 1066 002e 3A       		.uleb128 0x3a
+ 1067 002f 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 34
 
 
- 1068 002f 0B       		.uleb128 0xb
- 1069 0030 3B       		.uleb128 0x3b
- 1070 0031 0B       		.uleb128 0xb
- 1071 0032 49       		.uleb128 0x49
- 1072 0033 13       		.uleb128 0x13
- 1073 0034 00       		.byte	0
- 1074 0035 00       		.byte	0
- 1075 0036 05       		.uleb128 0x5
- 1076 0037 35       		.uleb128 0x35
- 1077 0038 00       		.byte	0
- 1078 0039 49       		.uleb128 0x49
- 1079 003a 13       		.uleb128 0x13
- 1080 003b 00       		.byte	0
- 1081 003c 00       		.byte	0
- 1082 003d 06       		.uleb128 0x6
- 1083 003e 2E       		.uleb128 0x2e
- 1084 003f 00       		.byte	0
- 1085 0040 3F       		.uleb128 0x3f
- 1086 0041 19       		.uleb128 0x19
- 1087 0042 03       		.uleb128 0x3
- 1088 0043 0E       		.uleb128 0xe
- 1089 0044 3A       		.uleb128 0x3a
- 1090 0045 0B       		.uleb128 0xb
- 1091 0046 3B       		.uleb128 0x3b
- 1092 0047 05       		.uleb128 0x5
- 1093 0048 27       		.uleb128 0x27
- 1094 0049 19       		.uleb128 0x19
- 1095 004a 49       		.uleb128 0x49
- 1096 004b 13       		.uleb128 0x13
- 1097 004c 20       		.uleb128 0x20
- 1098 004d 0B       		.uleb128 0xb
- 1099 004e 00       		.byte	0
- 1100 004f 00       		.byte	0
- 1101 0050 07       		.uleb128 0x7
- 1102 0051 2E       		.uleb128 0x2e
- 1103 0052 01       		.byte	0x1
- 1104 0053 3F       		.uleb128 0x3f
- 1105 0054 19       		.uleb128 0x19
- 1106 0055 03       		.uleb128 0x3
- 1107 0056 0E       		.uleb128 0xe
- 1108 0057 3A       		.uleb128 0x3a
- 1109 0058 0B       		.uleb128 0xb
- 1110 0059 3B       		.uleb128 0x3b
- 1111 005a 05       		.uleb128 0x5
- 1112 005b 27       		.uleb128 0x27
- 1113 005c 19       		.uleb128 0x19
- 1114 005d 20       		.uleb128 0x20
- 1115 005e 0B       		.uleb128 0xb
- 1116 005f 01       		.uleb128 0x1
- 1117 0060 13       		.uleb128 0x13
- 1118 0061 00       		.byte	0
- 1119 0062 00       		.byte	0
- 1120 0063 08       		.uleb128 0x8
- 1121 0064 05       		.uleb128 0x5
- 1122 0065 00       		.byte	0
- 1123 0066 03       		.uleb128 0x3
- 1124 0067 0E       		.uleb128 0xe
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 35
+ 1068 0030 3B       		.uleb128 0x3b
+ 1069 0031 0B       		.uleb128 0xb
+ 1070 0032 49       		.uleb128 0x49
+ 1071 0033 13       		.uleb128 0x13
+ 1072 0034 00       		.byte	0
+ 1073 0035 00       		.byte	0
+ 1074 0036 05       		.uleb128 0x5
+ 1075 0037 35       		.uleb128 0x35
+ 1076 0038 00       		.byte	0
+ 1077 0039 49       		.uleb128 0x49
+ 1078 003a 13       		.uleb128 0x13
+ 1079 003b 00       		.byte	0
+ 1080 003c 00       		.byte	0
+ 1081 003d 06       		.uleb128 0x6
+ 1082 003e 2E       		.uleb128 0x2e
+ 1083 003f 00       		.byte	0
+ 1084 0040 3F       		.uleb128 0x3f
+ 1085 0041 19       		.uleb128 0x19
+ 1086 0042 03       		.uleb128 0x3
+ 1087 0043 0E       		.uleb128 0xe
+ 1088 0044 3A       		.uleb128 0x3a
+ 1089 0045 0B       		.uleb128 0xb
+ 1090 0046 3B       		.uleb128 0x3b
+ 1091 0047 05       		.uleb128 0x5
+ 1092 0048 27       		.uleb128 0x27
+ 1093 0049 19       		.uleb128 0x19
+ 1094 004a 49       		.uleb128 0x49
+ 1095 004b 13       		.uleb128 0x13
+ 1096 004c 20       		.uleb128 0x20
+ 1097 004d 0B       		.uleb128 0xb
+ 1098 004e 00       		.byte	0
+ 1099 004f 00       		.byte	0
+ 1100 0050 07       		.uleb128 0x7
+ 1101 0051 2E       		.uleb128 0x2e
+ 1102 0052 01       		.byte	0x1
+ 1103 0053 3F       		.uleb128 0x3f
+ 1104 0054 19       		.uleb128 0x19
+ 1105 0055 03       		.uleb128 0x3
+ 1106 0056 0E       		.uleb128 0xe
+ 1107 0057 3A       		.uleb128 0x3a
+ 1108 0058 0B       		.uleb128 0xb
+ 1109 0059 3B       		.uleb128 0x3b
+ 1110 005a 05       		.uleb128 0x5
+ 1111 005b 27       		.uleb128 0x27
+ 1112 005c 19       		.uleb128 0x19
+ 1113 005d 20       		.uleb128 0x20
+ 1114 005e 0B       		.uleb128 0xb
+ 1115 005f 01       		.uleb128 0x1
+ 1116 0060 13       		.uleb128 0x13
+ 1117 0061 00       		.byte	0
+ 1118 0062 00       		.byte	0
+ 1119 0063 08       		.uleb128 0x8
+ 1120 0064 05       		.uleb128 0x5
+ 1121 0065 00       		.byte	0
+ 1122 0066 03       		.uleb128 0x3
+ 1123 0067 0E       		.uleb128 0xe
+ 1124 0068 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 35
 
 
- 1125 0068 3A       		.uleb128 0x3a
- 1126 0069 0B       		.uleb128 0xb
- 1127 006a 3B       		.uleb128 0x3b
- 1128 006b 05       		.uleb128 0x5
- 1129 006c 49       		.uleb128 0x49
- 1130 006d 13       		.uleb128 0x13
- 1131 006e 00       		.byte	0
- 1132 006f 00       		.byte	0
- 1133 0070 09       		.uleb128 0x9
- 1134 0071 2E       		.uleb128 0x2e
- 1135 0072 00       		.byte	0
- 1136 0073 3F       		.uleb128 0x3f
- 1137 0074 19       		.uleb128 0x19
- 1138 0075 03       		.uleb128 0x3
- 1139 0076 0E       		.uleb128 0xe
- 1140 0077 3A       		.uleb128 0x3a
- 1141 0078 0B       		.uleb128 0xb
- 1142 0079 3B       		.uleb128 0x3b
- 1143 007a 05       		.uleb128 0x5
- 1144 007b 27       		.uleb128 0x27
- 1145 007c 19       		.uleb128 0x19
- 1146 007d 20       		.uleb128 0x20
- 1147 007e 0B       		.uleb128 0xb
- 1148 007f 00       		.byte	0
- 1149 0080 00       		.byte	0
- 1150 0081 0A       		.uleb128 0xa
- 1151 0082 2E       		.uleb128 0x2e
- 1152 0083 00       		.byte	0
- 1153 0084 3F       		.uleb128 0x3f
- 1154 0085 19       		.uleb128 0x19
- 1155 0086 03       		.uleb128 0x3
- 1156 0087 0E       		.uleb128 0xe
- 1157 0088 3A       		.uleb128 0x3a
- 1158 0089 0B       		.uleb128 0xb
- 1159 008a 3B       		.uleb128 0x3b
- 1160 008b 0B       		.uleb128 0xb
- 1161 008c 27       		.uleb128 0x27
- 1162 008d 19       		.uleb128 0x19
- 1163 008e 20       		.uleb128 0x20
- 1164 008f 0B       		.uleb128 0xb
- 1165 0090 00       		.byte	0
- 1166 0091 00       		.byte	0
- 1167 0092 0B       		.uleb128 0xb
- 1168 0093 2E       		.uleb128 0x2e
- 1169 0094 01       		.byte	0x1
- 1170 0095 3F       		.uleb128 0x3f
- 1171 0096 19       		.uleb128 0x19
- 1172 0097 03       		.uleb128 0x3
- 1173 0098 0E       		.uleb128 0xe
- 1174 0099 3A       		.uleb128 0x3a
- 1175 009a 0B       		.uleb128 0xb
- 1176 009b 3B       		.uleb128 0x3b
- 1177 009c 0B       		.uleb128 0xb
- 1178 009d 27       		.uleb128 0x27
- 1179 009e 19       		.uleb128 0x19
- 1180 009f 11       		.uleb128 0x11
- 1181 00a0 01       		.uleb128 0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 36
+ 1125 0069 0B       		.uleb128 0xb
+ 1126 006a 3B       		.uleb128 0x3b
+ 1127 006b 05       		.uleb128 0x5
+ 1128 006c 49       		.uleb128 0x49
+ 1129 006d 13       		.uleb128 0x13
+ 1130 006e 00       		.byte	0
+ 1131 006f 00       		.byte	0
+ 1132 0070 09       		.uleb128 0x9
+ 1133 0071 2E       		.uleb128 0x2e
+ 1134 0072 00       		.byte	0
+ 1135 0073 3F       		.uleb128 0x3f
+ 1136 0074 19       		.uleb128 0x19
+ 1137 0075 03       		.uleb128 0x3
+ 1138 0076 0E       		.uleb128 0xe
+ 1139 0077 3A       		.uleb128 0x3a
+ 1140 0078 0B       		.uleb128 0xb
+ 1141 0079 3B       		.uleb128 0x3b
+ 1142 007a 05       		.uleb128 0x5
+ 1143 007b 27       		.uleb128 0x27
+ 1144 007c 19       		.uleb128 0x19
+ 1145 007d 20       		.uleb128 0x20
+ 1146 007e 0B       		.uleb128 0xb
+ 1147 007f 00       		.byte	0
+ 1148 0080 00       		.byte	0
+ 1149 0081 0A       		.uleb128 0xa
+ 1150 0082 2E       		.uleb128 0x2e
+ 1151 0083 00       		.byte	0
+ 1152 0084 3F       		.uleb128 0x3f
+ 1153 0085 19       		.uleb128 0x19
+ 1154 0086 03       		.uleb128 0x3
+ 1155 0087 0E       		.uleb128 0xe
+ 1156 0088 3A       		.uleb128 0x3a
+ 1157 0089 0B       		.uleb128 0xb
+ 1158 008a 3B       		.uleb128 0x3b
+ 1159 008b 0B       		.uleb128 0xb
+ 1160 008c 27       		.uleb128 0x27
+ 1161 008d 19       		.uleb128 0x19
+ 1162 008e 20       		.uleb128 0x20
+ 1163 008f 0B       		.uleb128 0xb
+ 1164 0090 00       		.byte	0
+ 1165 0091 00       		.byte	0
+ 1166 0092 0B       		.uleb128 0xb
+ 1167 0093 2E       		.uleb128 0x2e
+ 1168 0094 01       		.byte	0x1
+ 1169 0095 3F       		.uleb128 0x3f
+ 1170 0096 19       		.uleb128 0x19
+ 1171 0097 03       		.uleb128 0x3
+ 1172 0098 0E       		.uleb128 0xe
+ 1173 0099 3A       		.uleb128 0x3a
+ 1174 009a 0B       		.uleb128 0xb
+ 1175 009b 3B       		.uleb128 0x3b
+ 1176 009c 0B       		.uleb128 0xb
+ 1177 009d 27       		.uleb128 0x27
+ 1178 009e 19       		.uleb128 0x19
+ 1179 009f 11       		.uleb128 0x11
+ 1180 00a0 01       		.uleb128 0x1
+ 1181 00a1 12       		.uleb128 0x12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 36
 
 
- 1182 00a1 12       		.uleb128 0x12
- 1183 00a2 06       		.uleb128 0x6
- 1184 00a3 40       		.uleb128 0x40
- 1185 00a4 18       		.uleb128 0x18
- 1186 00a5 9742     		.uleb128 0x2117
- 1187 00a7 19       		.uleb128 0x19
- 1188 00a8 01       		.uleb128 0x1
- 1189 00a9 13       		.uleb128 0x13
- 1190 00aa 00       		.byte	0
- 1191 00ab 00       		.byte	0
- 1192 00ac 0C       		.uleb128 0xc
- 1193 00ad 34       		.uleb128 0x34
- 1194 00ae 00       		.byte	0
- 1195 00af 03       		.uleb128 0x3
- 1196 00b0 0E       		.uleb128 0xe
- 1197 00b1 3A       		.uleb128 0x3a
- 1198 00b2 0B       		.uleb128 0xb
- 1199 00b3 3B       		.uleb128 0x3b
- 1200 00b4 0B       		.uleb128 0xb
- 1201 00b5 49       		.uleb128 0x49
- 1202 00b6 13       		.uleb128 0x13
- 1203 00b7 02       		.uleb128 0x2
- 1204 00b8 17       		.uleb128 0x17
- 1205 00b9 00       		.byte	0
- 1206 00ba 00       		.byte	0
- 1207 00bb 0D       		.uleb128 0xd
- 1208 00bc 1D       		.uleb128 0x1d
- 1209 00bd 01       		.byte	0x1
- 1210 00be 31       		.uleb128 0x31
- 1211 00bf 13       		.uleb128 0x13
- 1212 00c0 11       		.uleb128 0x11
- 1213 00c1 01       		.uleb128 0x1
- 1214 00c2 12       		.uleb128 0x12
- 1215 00c3 06       		.uleb128 0x6
- 1216 00c4 58       		.uleb128 0x58
- 1217 00c5 0B       		.uleb128 0xb
- 1218 00c6 59       		.uleb128 0x59
- 1219 00c7 0B       		.uleb128 0xb
- 1220 00c8 01       		.uleb128 0x1
- 1221 00c9 13       		.uleb128 0x13
- 1222 00ca 00       		.byte	0
- 1223 00cb 00       		.byte	0
- 1224 00cc 0E       		.uleb128 0xe
- 1225 00cd 05       		.uleb128 0x5
- 1226 00ce 00       		.byte	0
- 1227 00cf 31       		.uleb128 0x31
- 1228 00d0 13       		.uleb128 0x13
- 1229 00d1 1C       		.uleb128 0x1c
- 1230 00d2 06       		.uleb128 0x6
- 1231 00d3 00       		.byte	0
- 1232 00d4 00       		.byte	0
- 1233 00d5 0F       		.uleb128 0xf
- 1234 00d6 898201   		.uleb128 0x4109
- 1235 00d9 01       		.byte	0x1
- 1236 00da 11       		.uleb128 0x11
- 1237 00db 01       		.uleb128 0x1
- 1238 00dc 31       		.uleb128 0x31
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 37
+ 1182 00a2 06       		.uleb128 0x6
+ 1183 00a3 40       		.uleb128 0x40
+ 1184 00a4 18       		.uleb128 0x18
+ 1185 00a5 9742     		.uleb128 0x2117
+ 1186 00a7 19       		.uleb128 0x19
+ 1187 00a8 01       		.uleb128 0x1
+ 1188 00a9 13       		.uleb128 0x13
+ 1189 00aa 00       		.byte	0
+ 1190 00ab 00       		.byte	0
+ 1191 00ac 0C       		.uleb128 0xc
+ 1192 00ad 34       		.uleb128 0x34
+ 1193 00ae 00       		.byte	0
+ 1194 00af 03       		.uleb128 0x3
+ 1195 00b0 0E       		.uleb128 0xe
+ 1196 00b1 3A       		.uleb128 0x3a
+ 1197 00b2 0B       		.uleb128 0xb
+ 1198 00b3 3B       		.uleb128 0x3b
+ 1199 00b4 0B       		.uleb128 0xb
+ 1200 00b5 49       		.uleb128 0x49
+ 1201 00b6 13       		.uleb128 0x13
+ 1202 00b7 02       		.uleb128 0x2
+ 1203 00b8 17       		.uleb128 0x17
+ 1204 00b9 00       		.byte	0
+ 1205 00ba 00       		.byte	0
+ 1206 00bb 0D       		.uleb128 0xd
+ 1207 00bc 1D       		.uleb128 0x1d
+ 1208 00bd 01       		.byte	0x1
+ 1209 00be 31       		.uleb128 0x31
+ 1210 00bf 13       		.uleb128 0x13
+ 1211 00c0 11       		.uleb128 0x11
+ 1212 00c1 01       		.uleb128 0x1
+ 1213 00c2 12       		.uleb128 0x12
+ 1214 00c3 06       		.uleb128 0x6
+ 1215 00c4 58       		.uleb128 0x58
+ 1216 00c5 0B       		.uleb128 0xb
+ 1217 00c6 59       		.uleb128 0x59
+ 1218 00c7 0B       		.uleb128 0xb
+ 1219 00c8 01       		.uleb128 0x1
+ 1220 00c9 13       		.uleb128 0x13
+ 1221 00ca 00       		.byte	0
+ 1222 00cb 00       		.byte	0
+ 1223 00cc 0E       		.uleb128 0xe
+ 1224 00cd 05       		.uleb128 0x5
+ 1225 00ce 00       		.byte	0
+ 1226 00cf 31       		.uleb128 0x31
+ 1227 00d0 13       		.uleb128 0x13
+ 1228 00d1 1C       		.uleb128 0x1c
+ 1229 00d2 06       		.uleb128 0x6
+ 1230 00d3 00       		.byte	0
+ 1231 00d4 00       		.byte	0
+ 1232 00d5 0F       		.uleb128 0xf
+ 1233 00d6 898201   		.uleb128 0x4109
+ 1234 00d9 01       		.byte	0x1
+ 1235 00da 11       		.uleb128 0x11
+ 1236 00db 01       		.uleb128 0x1
+ 1237 00dc 31       		.uleb128 0x31
+ 1238 00dd 13       		.uleb128 0x13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 37
 
 
- 1239 00dd 13       		.uleb128 0x13
- 1240 00de 00       		.byte	0
- 1241 00df 00       		.byte	0
- 1242 00e0 10       		.uleb128 0x10
- 1243 00e1 8A8201   		.uleb128 0x410a
- 1244 00e4 00       		.byte	0
- 1245 00e5 02       		.uleb128 0x2
- 1246 00e6 18       		.uleb128 0x18
- 1247 00e7 9142     		.uleb128 0x2111
- 1248 00e9 18       		.uleb128 0x18
- 1249 00ea 00       		.byte	0
- 1250 00eb 00       		.byte	0
- 1251 00ec 11       		.uleb128 0x11
- 1252 00ed 1D       		.uleb128 0x1d
- 1253 00ee 00       		.byte	0
- 1254 00ef 31       		.uleb128 0x31
- 1255 00f0 13       		.uleb128 0x13
- 1256 00f1 52       		.uleb128 0x52
- 1257 00f2 01       		.uleb128 0x1
- 1258 00f3 55       		.uleb128 0x55
- 1259 00f4 17       		.uleb128 0x17
- 1260 00f5 58       		.uleb128 0x58
- 1261 00f6 0B       		.uleb128 0xb
- 1262 00f7 59       		.uleb128 0x59
- 1263 00f8 05       		.uleb128 0x5
- 1264 00f9 00       		.byte	0
- 1265 00fa 00       		.byte	0
- 1266 00fb 12       		.uleb128 0x12
- 1267 00fc 1D       		.uleb128 0x1d
- 1268 00fd 00       		.byte	0
- 1269 00fe 31       		.uleb128 0x31
- 1270 00ff 13       		.uleb128 0x13
- 1271 0100 11       		.uleb128 0x11
- 1272 0101 01       		.uleb128 0x1
- 1273 0102 12       		.uleb128 0x12
- 1274 0103 06       		.uleb128 0x6
- 1275 0104 58       		.uleb128 0x58
- 1276 0105 0B       		.uleb128 0xb
- 1277 0106 59       		.uleb128 0x59
- 1278 0107 05       		.uleb128 0x5
- 1279 0108 00       		.byte	0
- 1280 0109 00       		.byte	0
- 1281 010a 13       		.uleb128 0x13
- 1282 010b 05       		.uleb128 0x5
- 1283 010c 00       		.byte	0
- 1284 010d 31       		.uleb128 0x31
- 1285 010e 13       		.uleb128 0x13
- 1286 010f 1C       		.uleb128 0x1c
- 1287 0110 0B       		.uleb128 0xb
- 1288 0111 00       		.byte	0
- 1289 0112 00       		.byte	0
- 1290 0113 14       		.uleb128 0x14
- 1291 0114 898201   		.uleb128 0x4109
- 1292 0117 00       		.byte	0
- 1293 0118 11       		.uleb128 0x11
- 1294 0119 01       		.uleb128 0x1
- 1295 011a 31       		.uleb128 0x31
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 38
+ 1239 00de 00       		.byte	0
+ 1240 00df 00       		.byte	0
+ 1241 00e0 10       		.uleb128 0x10
+ 1242 00e1 8A8201   		.uleb128 0x410a
+ 1243 00e4 00       		.byte	0
+ 1244 00e5 02       		.uleb128 0x2
+ 1245 00e6 18       		.uleb128 0x18
+ 1246 00e7 9142     		.uleb128 0x2111
+ 1247 00e9 18       		.uleb128 0x18
+ 1248 00ea 00       		.byte	0
+ 1249 00eb 00       		.byte	0
+ 1250 00ec 11       		.uleb128 0x11
+ 1251 00ed 1D       		.uleb128 0x1d
+ 1252 00ee 00       		.byte	0
+ 1253 00ef 31       		.uleb128 0x31
+ 1254 00f0 13       		.uleb128 0x13
+ 1255 00f1 52       		.uleb128 0x52
+ 1256 00f2 01       		.uleb128 0x1
+ 1257 00f3 55       		.uleb128 0x55
+ 1258 00f4 17       		.uleb128 0x17
+ 1259 00f5 58       		.uleb128 0x58
+ 1260 00f6 0B       		.uleb128 0xb
+ 1261 00f7 59       		.uleb128 0x59
+ 1262 00f8 05       		.uleb128 0x5
+ 1263 00f9 00       		.byte	0
+ 1264 00fa 00       		.byte	0
+ 1265 00fb 12       		.uleb128 0x12
+ 1266 00fc 1D       		.uleb128 0x1d
+ 1267 00fd 00       		.byte	0
+ 1268 00fe 31       		.uleb128 0x31
+ 1269 00ff 13       		.uleb128 0x13
+ 1270 0100 11       		.uleb128 0x11
+ 1271 0101 01       		.uleb128 0x1
+ 1272 0102 12       		.uleb128 0x12
+ 1273 0103 06       		.uleb128 0x6
+ 1274 0104 58       		.uleb128 0x58
+ 1275 0105 0B       		.uleb128 0xb
+ 1276 0106 59       		.uleb128 0x59
+ 1277 0107 05       		.uleb128 0x5
+ 1278 0108 00       		.byte	0
+ 1279 0109 00       		.byte	0
+ 1280 010a 13       		.uleb128 0x13
+ 1281 010b 05       		.uleb128 0x5
+ 1282 010c 00       		.byte	0
+ 1283 010d 31       		.uleb128 0x31
+ 1284 010e 13       		.uleb128 0x13
+ 1285 010f 1C       		.uleb128 0x1c
+ 1286 0110 0B       		.uleb128 0xb
+ 1287 0111 00       		.byte	0
+ 1288 0112 00       		.byte	0
+ 1289 0113 14       		.uleb128 0x14
+ 1290 0114 898201   		.uleb128 0x4109
+ 1291 0117 00       		.byte	0
+ 1292 0118 11       		.uleb128 0x11
+ 1293 0119 01       		.uleb128 0x1
+ 1294 011a 31       		.uleb128 0x31
+ 1295 011b 13       		.uleb128 0x13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 38
 
 
- 1296 011b 13       		.uleb128 0x13
- 1297 011c 00       		.byte	0
- 1298 011d 00       		.byte	0
- 1299 011e 15       		.uleb128 0x15
- 1300 011f 2E       		.uleb128 0x2e
- 1301 0120 00       		.byte	0
- 1302 0121 31       		.uleb128 0x31
- 1303 0122 13       		.uleb128 0x13
- 1304 0123 11       		.uleb128 0x11
- 1305 0124 01       		.uleb128 0x1
- 1306 0125 12       		.uleb128 0x12
- 1307 0126 06       		.uleb128 0x6
- 1308 0127 40       		.uleb128 0x40
- 1309 0128 18       		.uleb128 0x18
- 1310 0129 9742     		.uleb128 0x2117
- 1311 012b 19       		.uleb128 0x19
- 1312 012c 00       		.byte	0
- 1313 012d 00       		.byte	0
- 1314 012e 16       		.uleb128 0x16
- 1315 012f 1D       		.uleb128 0x1d
- 1316 0130 00       		.byte	0
- 1317 0131 31       		.uleb128 0x31
- 1318 0132 13       		.uleb128 0x13
- 1319 0133 11       		.uleb128 0x11
- 1320 0134 01       		.uleb128 0x1
- 1321 0135 12       		.uleb128 0x12
- 1322 0136 06       		.uleb128 0x6
- 1323 0137 58       		.uleb128 0x58
- 1324 0138 0B       		.uleb128 0xb
- 1325 0139 59       		.uleb128 0x59
- 1326 013a 0B       		.uleb128 0xb
- 1327 013b 00       		.byte	0
- 1328 013c 00       		.byte	0
- 1329 013d 17       		.uleb128 0x17
- 1330 013e 2E       		.uleb128 0x2e
- 1331 013f 00       		.byte	0
- 1332 0140 3F       		.uleb128 0x3f
- 1333 0141 19       		.uleb128 0x19
- 1334 0142 03       		.uleb128 0x3
- 1335 0143 0E       		.uleb128 0xe
- 1336 0144 3A       		.uleb128 0x3a
- 1337 0145 0B       		.uleb128 0xb
- 1338 0146 3B       		.uleb128 0x3b
- 1339 0147 0B       		.uleb128 0xb
- 1340 0148 27       		.uleb128 0x27
- 1341 0149 19       		.uleb128 0x19
- 1342 014a 11       		.uleb128 0x11
- 1343 014b 01       		.uleb128 0x1
- 1344 014c 12       		.uleb128 0x12
- 1345 014d 06       		.uleb128 0x6
- 1346 014e 40       		.uleb128 0x40
- 1347 014f 18       		.uleb128 0x18
- 1348 0150 9742     		.uleb128 0x2117
- 1349 0152 19       		.uleb128 0x19
- 1350 0153 00       		.byte	0
- 1351 0154 00       		.byte	0
- 1352 0155 18       		.uleb128 0x18
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 39
+ 1296 011c 00       		.byte	0
+ 1297 011d 00       		.byte	0
+ 1298 011e 15       		.uleb128 0x15
+ 1299 011f 2E       		.uleb128 0x2e
+ 1300 0120 00       		.byte	0
+ 1301 0121 31       		.uleb128 0x31
+ 1302 0122 13       		.uleb128 0x13
+ 1303 0123 11       		.uleb128 0x11
+ 1304 0124 01       		.uleb128 0x1
+ 1305 0125 12       		.uleb128 0x12
+ 1306 0126 06       		.uleb128 0x6
+ 1307 0127 40       		.uleb128 0x40
+ 1308 0128 18       		.uleb128 0x18
+ 1309 0129 9742     		.uleb128 0x2117
+ 1310 012b 19       		.uleb128 0x19
+ 1311 012c 00       		.byte	0
+ 1312 012d 00       		.byte	0
+ 1313 012e 16       		.uleb128 0x16
+ 1314 012f 1D       		.uleb128 0x1d
+ 1315 0130 00       		.byte	0
+ 1316 0131 31       		.uleb128 0x31
+ 1317 0132 13       		.uleb128 0x13
+ 1318 0133 11       		.uleb128 0x11
+ 1319 0134 01       		.uleb128 0x1
+ 1320 0135 12       		.uleb128 0x12
+ 1321 0136 06       		.uleb128 0x6
+ 1322 0137 58       		.uleb128 0x58
+ 1323 0138 0B       		.uleb128 0xb
+ 1324 0139 59       		.uleb128 0x59
+ 1325 013a 0B       		.uleb128 0xb
+ 1326 013b 00       		.byte	0
+ 1327 013c 00       		.byte	0
+ 1328 013d 17       		.uleb128 0x17
+ 1329 013e 2E       		.uleb128 0x2e
+ 1330 013f 00       		.byte	0
+ 1331 0140 3F       		.uleb128 0x3f
+ 1332 0141 19       		.uleb128 0x19
+ 1333 0142 03       		.uleb128 0x3
+ 1334 0143 0E       		.uleb128 0xe
+ 1335 0144 3A       		.uleb128 0x3a
+ 1336 0145 0B       		.uleb128 0xb
+ 1337 0146 3B       		.uleb128 0x3b
+ 1338 0147 0B       		.uleb128 0xb
+ 1339 0148 27       		.uleb128 0x27
+ 1340 0149 19       		.uleb128 0x19
+ 1341 014a 11       		.uleb128 0x11
+ 1342 014b 01       		.uleb128 0x1
+ 1343 014c 12       		.uleb128 0x12
+ 1344 014d 06       		.uleb128 0x6
+ 1345 014e 40       		.uleb128 0x40
+ 1346 014f 18       		.uleb128 0x18
+ 1347 0150 9742     		.uleb128 0x2117
+ 1348 0152 19       		.uleb128 0x19
+ 1349 0153 00       		.byte	0
+ 1350 0154 00       		.byte	0
+ 1351 0155 18       		.uleb128 0x18
+ 1352 0156 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 39
 
 
- 1353 0156 2E       		.uleb128 0x2e
- 1354 0157 01       		.byte	0x1
- 1355 0158 31       		.uleb128 0x31
- 1356 0159 13       		.uleb128 0x13
- 1357 015a 11       		.uleb128 0x11
- 1358 015b 01       		.uleb128 0x1
- 1359 015c 12       		.uleb128 0x12
- 1360 015d 06       		.uleb128 0x6
- 1361 015e 40       		.uleb128 0x40
- 1362 015f 18       		.uleb128 0x18
- 1363 0160 9742     		.uleb128 0x2117
- 1364 0162 19       		.uleb128 0x19
- 1365 0163 01       		.uleb128 0x1
- 1366 0164 13       		.uleb128 0x13
- 1367 0165 00       		.byte	0
- 1368 0166 00       		.byte	0
- 1369 0167 19       		.uleb128 0x19
- 1370 0168 05       		.uleb128 0x5
- 1371 0169 00       		.byte	0
- 1372 016a 31       		.uleb128 0x31
- 1373 016b 13       		.uleb128 0x13
- 1374 016c 02       		.uleb128 0x2
- 1375 016d 18       		.uleb128 0x18
- 1376 016e 00       		.byte	0
- 1377 016f 00       		.byte	0
- 1378 0170 1A       		.uleb128 0x1a
- 1379 0171 2E       		.uleb128 0x2e
- 1380 0172 00       		.byte	0
- 1381 0173 3F       		.uleb128 0x3f
- 1382 0174 19       		.uleb128 0x19
- 1383 0175 03       		.uleb128 0x3
- 1384 0176 0E       		.uleb128 0xe
- 1385 0177 3A       		.uleb128 0x3a
- 1386 0178 0B       		.uleb128 0xb
- 1387 0179 3B       		.uleb128 0x3b
- 1388 017a 05       		.uleb128 0x5
- 1389 017b 27       		.uleb128 0x27
- 1390 017c 19       		.uleb128 0x19
- 1391 017d 11       		.uleb128 0x11
- 1392 017e 01       		.uleb128 0x1
- 1393 017f 12       		.uleb128 0x12
- 1394 0180 06       		.uleb128 0x6
- 1395 0181 40       		.uleb128 0x40
- 1396 0182 18       		.uleb128 0x18
- 1397 0183 9742     		.uleb128 0x2117
- 1398 0185 19       		.uleb128 0x19
- 1399 0186 00       		.byte	0
- 1400 0187 00       		.byte	0
- 1401 0188 1B       		.uleb128 0x1b
- 1402 0189 2E       		.uleb128 0x2e
- 1403 018a 00       		.byte	0
- 1404 018b 3F       		.uleb128 0x3f
- 1405 018c 19       		.uleb128 0x19
- 1406 018d 03       		.uleb128 0x3
- 1407 018e 0E       		.uleb128 0xe
- 1408 018f 3A       		.uleb128 0x3a
- 1409 0190 0B       		.uleb128 0xb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 40
+ 1353 0157 01       		.byte	0x1
+ 1354 0158 31       		.uleb128 0x31
+ 1355 0159 13       		.uleb128 0x13
+ 1356 015a 11       		.uleb128 0x11
+ 1357 015b 01       		.uleb128 0x1
+ 1358 015c 12       		.uleb128 0x12
+ 1359 015d 06       		.uleb128 0x6
+ 1360 015e 40       		.uleb128 0x40
+ 1361 015f 18       		.uleb128 0x18
+ 1362 0160 9742     		.uleb128 0x2117
+ 1363 0162 19       		.uleb128 0x19
+ 1364 0163 01       		.uleb128 0x1
+ 1365 0164 13       		.uleb128 0x13
+ 1366 0165 00       		.byte	0
+ 1367 0166 00       		.byte	0
+ 1368 0167 19       		.uleb128 0x19
+ 1369 0168 05       		.uleb128 0x5
+ 1370 0169 00       		.byte	0
+ 1371 016a 31       		.uleb128 0x31
+ 1372 016b 13       		.uleb128 0x13
+ 1373 016c 02       		.uleb128 0x2
+ 1374 016d 18       		.uleb128 0x18
+ 1375 016e 00       		.byte	0
+ 1376 016f 00       		.byte	0
+ 1377 0170 1A       		.uleb128 0x1a
+ 1378 0171 2E       		.uleb128 0x2e
+ 1379 0172 00       		.byte	0
+ 1380 0173 3F       		.uleb128 0x3f
+ 1381 0174 19       		.uleb128 0x19
+ 1382 0175 03       		.uleb128 0x3
+ 1383 0176 0E       		.uleb128 0xe
+ 1384 0177 3A       		.uleb128 0x3a
+ 1385 0178 0B       		.uleb128 0xb
+ 1386 0179 3B       		.uleb128 0x3b
+ 1387 017a 05       		.uleb128 0x5
+ 1388 017b 27       		.uleb128 0x27
+ 1389 017c 19       		.uleb128 0x19
+ 1390 017d 11       		.uleb128 0x11
+ 1391 017e 01       		.uleb128 0x1
+ 1392 017f 12       		.uleb128 0x12
+ 1393 0180 06       		.uleb128 0x6
+ 1394 0181 40       		.uleb128 0x40
+ 1395 0182 18       		.uleb128 0x18
+ 1396 0183 9742     		.uleb128 0x2117
+ 1397 0185 19       		.uleb128 0x19
+ 1398 0186 00       		.byte	0
+ 1399 0187 00       		.byte	0
+ 1400 0188 1B       		.uleb128 0x1b
+ 1401 0189 2E       		.uleb128 0x2e
+ 1402 018a 00       		.byte	0
+ 1403 018b 3F       		.uleb128 0x3f
+ 1404 018c 19       		.uleb128 0x19
+ 1405 018d 03       		.uleb128 0x3
+ 1406 018e 0E       		.uleb128 0xe
+ 1407 018f 3A       		.uleb128 0x3a
+ 1408 0190 0B       		.uleb128 0xb
+ 1409 0191 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 40
 
 
- 1410 0191 3B       		.uleb128 0x3b
- 1411 0192 05       		.uleb128 0x5
- 1412 0193 27       		.uleb128 0x27
- 1413 0194 19       		.uleb128 0x19
- 1414 0195 49       		.uleb128 0x49
- 1415 0196 13       		.uleb128 0x13
- 1416 0197 11       		.uleb128 0x11
- 1417 0198 01       		.uleb128 0x1
- 1418 0199 12       		.uleb128 0x12
- 1419 019a 06       		.uleb128 0x6
- 1420 019b 40       		.uleb128 0x40
- 1421 019c 18       		.uleb128 0x18
- 1422 019d 9742     		.uleb128 0x2117
- 1423 019f 19       		.uleb128 0x19
- 1424 01a0 00       		.byte	0
- 1425 01a1 00       		.byte	0
- 1426 01a2 1C       		.uleb128 0x1c
- 1427 01a3 2E       		.uleb128 0x2e
- 1428 01a4 01       		.byte	0x1
- 1429 01a5 3F       		.uleb128 0x3f
- 1430 01a6 19       		.uleb128 0x19
- 1431 01a7 03       		.uleb128 0x3
- 1432 01a8 0E       		.uleb128 0xe
- 1433 01a9 3A       		.uleb128 0x3a
- 1434 01aa 0B       		.uleb128 0xb
- 1435 01ab 3B       		.uleb128 0x3b
- 1436 01ac 05       		.uleb128 0x5
- 1437 01ad 27       		.uleb128 0x27
- 1438 01ae 19       		.uleb128 0x19
- 1439 01af 11       		.uleb128 0x11
- 1440 01b0 01       		.uleb128 0x1
- 1441 01b1 12       		.uleb128 0x12
- 1442 01b2 06       		.uleb128 0x6
- 1443 01b3 40       		.uleb128 0x40
- 1444 01b4 18       		.uleb128 0x18
- 1445 01b5 9742     		.uleb128 0x2117
- 1446 01b7 19       		.uleb128 0x19
- 1447 01b8 01       		.uleb128 0x1
- 1448 01b9 13       		.uleb128 0x13
- 1449 01ba 00       		.byte	0
- 1450 01bb 00       		.byte	0
- 1451 01bc 1D       		.uleb128 0x1d
- 1452 01bd 05       		.uleb128 0x5
- 1453 01be 00       		.byte	0
- 1454 01bf 03       		.uleb128 0x3
- 1455 01c0 0E       		.uleb128 0xe
- 1456 01c1 3A       		.uleb128 0x3a
- 1457 01c2 0B       		.uleb128 0xb
- 1458 01c3 3B       		.uleb128 0x3b
- 1459 01c4 05       		.uleb128 0x5
- 1460 01c5 49       		.uleb128 0x49
- 1461 01c6 13       		.uleb128 0x13
- 1462 01c7 02       		.uleb128 0x2
- 1463 01c8 18       		.uleb128 0x18
- 1464 01c9 00       		.byte	0
- 1465 01ca 00       		.byte	0
- 1466 01cb 1E       		.uleb128 0x1e
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 41
+ 1410 0192 05       		.uleb128 0x5
+ 1411 0193 27       		.uleb128 0x27
+ 1412 0194 19       		.uleb128 0x19
+ 1413 0195 49       		.uleb128 0x49
+ 1414 0196 13       		.uleb128 0x13
+ 1415 0197 11       		.uleb128 0x11
+ 1416 0198 01       		.uleb128 0x1
+ 1417 0199 12       		.uleb128 0x12
+ 1418 019a 06       		.uleb128 0x6
+ 1419 019b 40       		.uleb128 0x40
+ 1420 019c 18       		.uleb128 0x18
+ 1421 019d 9742     		.uleb128 0x2117
+ 1422 019f 19       		.uleb128 0x19
+ 1423 01a0 00       		.byte	0
+ 1424 01a1 00       		.byte	0
+ 1425 01a2 1C       		.uleb128 0x1c
+ 1426 01a3 2E       		.uleb128 0x2e
+ 1427 01a4 01       		.byte	0x1
+ 1428 01a5 3F       		.uleb128 0x3f
+ 1429 01a6 19       		.uleb128 0x19
+ 1430 01a7 03       		.uleb128 0x3
+ 1431 01a8 0E       		.uleb128 0xe
+ 1432 01a9 3A       		.uleb128 0x3a
+ 1433 01aa 0B       		.uleb128 0xb
+ 1434 01ab 3B       		.uleb128 0x3b
+ 1435 01ac 05       		.uleb128 0x5
+ 1436 01ad 27       		.uleb128 0x27
+ 1437 01ae 19       		.uleb128 0x19
+ 1438 01af 11       		.uleb128 0x11
+ 1439 01b0 01       		.uleb128 0x1
+ 1440 01b1 12       		.uleb128 0x12
+ 1441 01b2 06       		.uleb128 0x6
+ 1442 01b3 40       		.uleb128 0x40
+ 1443 01b4 18       		.uleb128 0x18
+ 1444 01b5 9742     		.uleb128 0x2117
+ 1445 01b7 19       		.uleb128 0x19
+ 1446 01b8 01       		.uleb128 0x1
+ 1447 01b9 13       		.uleb128 0x13
+ 1448 01ba 00       		.byte	0
+ 1449 01bb 00       		.byte	0
+ 1450 01bc 1D       		.uleb128 0x1d
+ 1451 01bd 05       		.uleb128 0x5
+ 1452 01be 00       		.byte	0
+ 1453 01bf 03       		.uleb128 0x3
+ 1454 01c0 0E       		.uleb128 0xe
+ 1455 01c1 3A       		.uleb128 0x3a
+ 1456 01c2 0B       		.uleb128 0xb
+ 1457 01c3 3B       		.uleb128 0x3b
+ 1458 01c4 05       		.uleb128 0x5
+ 1459 01c5 49       		.uleb128 0x49
+ 1460 01c6 13       		.uleb128 0x13
+ 1461 01c7 02       		.uleb128 0x2
+ 1462 01c8 18       		.uleb128 0x18
+ 1463 01c9 00       		.byte	0
+ 1464 01ca 00       		.byte	0
+ 1465 01cb 1E       		.uleb128 0x1e
+ 1466 01cc 05       		.uleb128 0x5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 41
 
 
- 1467 01cc 05       		.uleb128 0x5
- 1468 01cd 00       		.byte	0
- 1469 01ce 31       		.uleb128 0x31
- 1470 01cf 13       		.uleb128 0x13
- 1471 01d0 02       		.uleb128 0x2
- 1472 01d1 17       		.uleb128 0x17
- 1473 01d2 00       		.byte	0
- 1474 01d3 00       		.byte	0
- 1475 01d4 1F       		.uleb128 0x1f
- 1476 01d5 898201   		.uleb128 0x4109
- 1477 01d8 01       		.byte	0x1
- 1478 01d9 11       		.uleb128 0x11
- 1479 01da 01       		.uleb128 0x1
- 1480 01db 9542     		.uleb128 0x2115
- 1481 01dd 19       		.uleb128 0x19
- 1482 01de 31       		.uleb128 0x31
- 1483 01df 13       		.uleb128 0x13
- 1484 01e0 00       		.byte	0
- 1485 01e1 00       		.byte	0
- 1486 01e2 20       		.uleb128 0x20
- 1487 01e3 34       		.uleb128 0x34
- 1488 01e4 00       		.byte	0
- 1489 01e5 03       		.uleb128 0x3
- 1490 01e6 0E       		.uleb128 0xe
- 1491 01e7 3A       		.uleb128 0x3a
- 1492 01e8 0B       		.uleb128 0xb
- 1493 01e9 3B       		.uleb128 0x3b
- 1494 01ea 0B       		.uleb128 0xb
- 1495 01eb 49       		.uleb128 0x49
- 1496 01ec 13       		.uleb128 0x13
- 1497 01ed 3F       		.uleb128 0x3f
- 1498 01ee 19       		.uleb128 0x19
- 1499 01ef 02       		.uleb128 0x2
- 1500 01f0 18       		.uleb128 0x18
- 1501 01f1 00       		.byte	0
- 1502 01f2 00       		.byte	0
- 1503 01f3 21       		.uleb128 0x21
- 1504 01f4 2E       		.uleb128 0x2e
- 1505 01f5 01       		.byte	0x1
- 1506 01f6 3F       		.uleb128 0x3f
- 1507 01f7 19       		.uleb128 0x19
- 1508 01f8 03       		.uleb128 0x3
- 1509 01f9 0E       		.uleb128 0xe
- 1510 01fa 3A       		.uleb128 0x3a
- 1511 01fb 0B       		.uleb128 0xb
- 1512 01fc 3B       		.uleb128 0x3b
- 1513 01fd 0B       		.uleb128 0xb
- 1514 01fe 27       		.uleb128 0x27
- 1515 01ff 19       		.uleb128 0x19
- 1516 0200 3C       		.uleb128 0x3c
- 1517 0201 19       		.uleb128 0x19
- 1518 0202 01       		.uleb128 0x1
- 1519 0203 13       		.uleb128 0x13
- 1520 0204 00       		.byte	0
- 1521 0205 00       		.byte	0
- 1522 0206 22       		.uleb128 0x22
- 1523 0207 05       		.uleb128 0x5
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 42
+ 1467 01cd 00       		.byte	0
+ 1468 01ce 31       		.uleb128 0x31
+ 1469 01cf 13       		.uleb128 0x13
+ 1470 01d0 02       		.uleb128 0x2
+ 1471 01d1 17       		.uleb128 0x17
+ 1472 01d2 00       		.byte	0
+ 1473 01d3 00       		.byte	0
+ 1474 01d4 1F       		.uleb128 0x1f
+ 1475 01d5 898201   		.uleb128 0x4109
+ 1476 01d8 01       		.byte	0x1
+ 1477 01d9 11       		.uleb128 0x11
+ 1478 01da 01       		.uleb128 0x1
+ 1479 01db 9542     		.uleb128 0x2115
+ 1480 01dd 19       		.uleb128 0x19
+ 1481 01de 31       		.uleb128 0x31
+ 1482 01df 13       		.uleb128 0x13
+ 1483 01e0 00       		.byte	0
+ 1484 01e1 00       		.byte	0
+ 1485 01e2 20       		.uleb128 0x20
+ 1486 01e3 34       		.uleb128 0x34
+ 1487 01e4 00       		.byte	0
+ 1488 01e5 03       		.uleb128 0x3
+ 1489 01e6 0E       		.uleb128 0xe
+ 1490 01e7 3A       		.uleb128 0x3a
+ 1491 01e8 0B       		.uleb128 0xb
+ 1492 01e9 3B       		.uleb128 0x3b
+ 1493 01ea 0B       		.uleb128 0xb
+ 1494 01eb 49       		.uleb128 0x49
+ 1495 01ec 13       		.uleb128 0x13
+ 1496 01ed 3F       		.uleb128 0x3f
+ 1497 01ee 19       		.uleb128 0x19
+ 1498 01ef 02       		.uleb128 0x2
+ 1499 01f0 18       		.uleb128 0x18
+ 1500 01f1 00       		.byte	0
+ 1501 01f2 00       		.byte	0
+ 1502 01f3 21       		.uleb128 0x21
+ 1503 01f4 2E       		.uleb128 0x2e
+ 1504 01f5 01       		.byte	0x1
+ 1505 01f6 3F       		.uleb128 0x3f
+ 1506 01f7 19       		.uleb128 0x19
+ 1507 01f8 03       		.uleb128 0x3
+ 1508 01f9 0E       		.uleb128 0xe
+ 1509 01fa 3A       		.uleb128 0x3a
+ 1510 01fb 0B       		.uleb128 0xb
+ 1511 01fc 3B       		.uleb128 0x3b
+ 1512 01fd 0B       		.uleb128 0xb
+ 1513 01fe 27       		.uleb128 0x27
+ 1514 01ff 19       		.uleb128 0x19
+ 1515 0200 3C       		.uleb128 0x3c
+ 1516 0201 19       		.uleb128 0x19
+ 1517 0202 01       		.uleb128 0x1
+ 1518 0203 13       		.uleb128 0x13
+ 1519 0204 00       		.byte	0
+ 1520 0205 00       		.byte	0
+ 1521 0206 22       		.uleb128 0x22
+ 1522 0207 05       		.uleb128 0x5
+ 1523 0208 00       		.byte	0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 42
 
 
- 1524 0208 00       		.byte	0
- 1525 0209 49       		.uleb128 0x49
- 1526 020a 13       		.uleb128 0x13
- 1527 020b 00       		.byte	0
- 1528 020c 00       		.byte	0
- 1529 020d 23       		.uleb128 0x23
- 1530 020e 0F       		.uleb128 0xf
- 1531 020f 00       		.byte	0
- 1532 0210 0B       		.uleb128 0xb
- 1533 0211 0B       		.uleb128 0xb
- 1534 0212 49       		.uleb128 0x49
- 1535 0213 13       		.uleb128 0x13
- 1536 0214 00       		.byte	0
- 1537 0215 00       		.byte	0
- 1538 0216 24       		.uleb128 0x24
- 1539 0217 2E       		.uleb128 0x2e
- 1540 0218 00       		.byte	0
- 1541 0219 3F       		.uleb128 0x3f
- 1542 021a 19       		.uleb128 0x19
- 1543 021b 03       		.uleb128 0x3
- 1544 021c 0E       		.uleb128 0xe
- 1545 021d 3A       		.uleb128 0x3a
- 1546 021e 0B       		.uleb128 0xb
- 1547 021f 3B       		.uleb128 0x3b
- 1548 0220 0B       		.uleb128 0xb
- 1549 0221 27       		.uleb128 0x27
- 1550 0222 19       		.uleb128 0x19
- 1551 0223 49       		.uleb128 0x49
- 1552 0224 13       		.uleb128 0x13
- 1553 0225 3C       		.uleb128 0x3c
- 1554 0226 19       		.uleb128 0x19
- 1555 0227 00       		.byte	0
- 1556 0228 00       		.byte	0
- 1557 0229 25       		.uleb128 0x25
- 1558 022a 2E       		.uleb128 0x2e
- 1559 022b 01       		.byte	0x1
- 1560 022c 3F       		.uleb128 0x3f
- 1561 022d 19       		.uleb128 0x19
- 1562 022e 03       		.uleb128 0x3
- 1563 022f 0E       		.uleb128 0xe
- 1564 0230 3A       		.uleb128 0x3a
- 1565 0231 0B       		.uleb128 0xb
- 1566 0232 3B       		.uleb128 0x3b
- 1567 0233 0B       		.uleb128 0xb
- 1568 0234 27       		.uleb128 0x27
- 1569 0235 19       		.uleb128 0x19
- 1570 0236 3C       		.uleb128 0x3c
- 1571 0237 19       		.uleb128 0x19
- 1572 0238 00       		.byte	0
- 1573 0239 00       		.byte	0
- 1574 023a 00       		.byte	0
- 1575              		.section	.debug_loc,"",%progbits
- 1576              	.Ldebug_loc0:
- 1577              	.LLST0:
- 1578 0000 16000000 		.4byte	.LVL3
- 1579 0004 23000000 		.4byte	.LVL4-1
- 1580 0008 0100     		.2byte	0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 43
+ 1524 0209 49       		.uleb128 0x49
+ 1525 020a 13       		.uleb128 0x13
+ 1526 020b 00       		.byte	0
+ 1527 020c 00       		.byte	0
+ 1528 020d 23       		.uleb128 0x23
+ 1529 020e 0F       		.uleb128 0xf
+ 1530 020f 00       		.byte	0
+ 1531 0210 0B       		.uleb128 0xb
+ 1532 0211 0B       		.uleb128 0xb
+ 1533 0212 49       		.uleb128 0x49
+ 1534 0213 13       		.uleb128 0x13
+ 1535 0214 00       		.byte	0
+ 1536 0215 00       		.byte	0
+ 1537 0216 24       		.uleb128 0x24
+ 1538 0217 2E       		.uleb128 0x2e
+ 1539 0218 00       		.byte	0
+ 1540 0219 3F       		.uleb128 0x3f
+ 1541 021a 19       		.uleb128 0x19
+ 1542 021b 03       		.uleb128 0x3
+ 1543 021c 0E       		.uleb128 0xe
+ 1544 021d 3A       		.uleb128 0x3a
+ 1545 021e 0B       		.uleb128 0xb
+ 1546 021f 3B       		.uleb128 0x3b
+ 1547 0220 0B       		.uleb128 0xb
+ 1548 0221 27       		.uleb128 0x27
+ 1549 0222 19       		.uleb128 0x19
+ 1550 0223 49       		.uleb128 0x49
+ 1551 0224 13       		.uleb128 0x13
+ 1552 0225 3C       		.uleb128 0x3c
+ 1553 0226 19       		.uleb128 0x19
+ 1554 0227 00       		.byte	0
+ 1555 0228 00       		.byte	0
+ 1556 0229 25       		.uleb128 0x25
+ 1557 022a 2E       		.uleb128 0x2e
+ 1558 022b 01       		.byte	0x1
+ 1559 022c 3F       		.uleb128 0x3f
+ 1560 022d 19       		.uleb128 0x19
+ 1561 022e 03       		.uleb128 0x3
+ 1562 022f 0E       		.uleb128 0xe
+ 1563 0230 3A       		.uleb128 0x3a
+ 1564 0231 0B       		.uleb128 0xb
+ 1565 0232 3B       		.uleb128 0x3b
+ 1566 0233 0B       		.uleb128 0xb
+ 1567 0234 27       		.uleb128 0x27
+ 1568 0235 19       		.uleb128 0x19
+ 1569 0236 3C       		.uleb128 0x3c
+ 1570 0237 19       		.uleb128 0x19
+ 1571 0238 00       		.byte	0
+ 1572 0239 00       		.byte	0
+ 1573 023a 00       		.byte	0
+ 1574              		.section	.debug_loc,"",%progbits
+ 1575              	.Ldebug_loc0:
+ 1576              	.LLST0:
+ 1577 0000 1A000000 		.4byte	.LVL3
+ 1578 0004 27000000 		.4byte	.LVL4-1
+ 1579 0008 0100     		.2byte	0x1
+ 1580 000a 50       		.byte	0x50
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 43
 
 
- 1581 000a 50       		.byte	0x50
- 1582 000b 00000000 		.4byte	0
- 1583 000f 00000000 		.4byte	0
- 1584              	.LLST1:
- 1585 0013 00000000 		.4byte	.LVL9
- 1586 0017 04000000 		.4byte	.LVL10
- 1587 001b 0100     		.2byte	0x1
- 1588 001d 50       		.byte	0x50
- 1589 001e 04000000 		.4byte	.LVL10
- 1590 0022 07000000 		.4byte	.LVL11-1
- 1591 0026 0100     		.2byte	0x1
- 1592 0028 51       		.byte	0x51
- 1593 0029 07000000 		.4byte	.LVL11-1
- 1594 002d 0C000000 		.4byte	.LFE10
- 1595 0031 0400     		.2byte	0x4
- 1596 0033 F3       		.byte	0xf3
- 1597 0034 01       		.uleb128 0x1
- 1598 0035 50       		.byte	0x50
- 1599 0036 9F       		.byte	0x9f
- 1600 0037 00000000 		.4byte	0
- 1601 003b 00000000 		.4byte	0
- 1602              	.LLST2:
- 1603 003f 00000000 		.4byte	.LVL12
- 1604 0043 04000000 		.4byte	.LVL13
- 1605 0047 0100     		.2byte	0x1
- 1606 0049 50       		.byte	0x50
- 1607 004a 04000000 		.4byte	.LVL13
- 1608 004e 07000000 		.4byte	.LVL14-1
- 1609 0052 0100     		.2byte	0x1
- 1610 0054 51       		.byte	0x51
- 1611 0055 07000000 		.4byte	.LVL14-1
- 1612 0059 0C000000 		.4byte	.LFE12
- 1613 005d 0400     		.2byte	0x4
- 1614 005f F3       		.byte	0xf3
- 1615 0060 01       		.uleb128 0x1
- 1616 0061 50       		.byte	0x50
- 1617 0062 9F       		.byte	0x9f
- 1618 0063 00000000 		.4byte	0
- 1619 0067 00000000 		.4byte	0
- 1620              		.section	.debug_aranges,"",%progbits
- 1621 0000 8C000000 		.4byte	0x8c
- 1622 0004 0200     		.2byte	0x2
- 1623 0006 00000000 		.4byte	.Ldebug_info0
- 1624 000a 04       		.byte	0x4
- 1625 000b 00       		.byte	0
- 1626 000c 0000     		.2byte	0
- 1627 000e 0000     		.2byte	0
- 1628 0010 00000000 		.4byte	.LFB0
- 1629 0014 5C000000 		.4byte	.LFE0-.LFB0
- 1630 0018 00000000 		.4byte	.LFB1
- 1631 001c 10000000 		.4byte	.LFE1-.LFB1
- 1632 0020 00000000 		.4byte	.LFB2
- 1633 0024 24000000 		.4byte	.LFE2-.LFB2
- 1634 0028 00000000 		.4byte	.LFB3
- 1635 002c 10000000 		.4byte	.LFE3-.LFB3
- 1636 0030 00000000 		.4byte	.LFB4
- 1637 0034 0C000000 		.4byte	.LFE4-.LFB4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 44
+ 1581 000b 00000000 		.4byte	0
+ 1582 000f 00000000 		.4byte	0
+ 1583              	.LLST1:
+ 1584 0013 00000000 		.4byte	.LVL9
+ 1585 0017 04000000 		.4byte	.LVL10
+ 1586 001b 0100     		.2byte	0x1
+ 1587 001d 50       		.byte	0x50
+ 1588 001e 04000000 		.4byte	.LVL10
+ 1589 0022 07000000 		.4byte	.LVL11-1
+ 1590 0026 0100     		.2byte	0x1
+ 1591 0028 51       		.byte	0x51
+ 1592 0029 07000000 		.4byte	.LVL11-1
+ 1593 002d 0C000000 		.4byte	.LFE10
+ 1594 0031 0400     		.2byte	0x4
+ 1595 0033 F3       		.byte	0xf3
+ 1596 0034 01       		.uleb128 0x1
+ 1597 0035 50       		.byte	0x50
+ 1598 0036 9F       		.byte	0x9f
+ 1599 0037 00000000 		.4byte	0
+ 1600 003b 00000000 		.4byte	0
+ 1601              	.LLST2:
+ 1602 003f 00000000 		.4byte	.LVL12
+ 1603 0043 04000000 		.4byte	.LVL13
+ 1604 0047 0100     		.2byte	0x1
+ 1605 0049 50       		.byte	0x50
+ 1606 004a 04000000 		.4byte	.LVL13
+ 1607 004e 07000000 		.4byte	.LVL14-1
+ 1608 0052 0100     		.2byte	0x1
+ 1609 0054 51       		.byte	0x51
+ 1610 0055 07000000 		.4byte	.LVL14-1
+ 1611 0059 0C000000 		.4byte	.LFE12
+ 1612 005d 0400     		.2byte	0x4
+ 1613 005f F3       		.byte	0xf3
+ 1614 0060 01       		.uleb128 0x1
+ 1615 0061 50       		.byte	0x50
+ 1616 0062 9F       		.byte	0x9f
+ 1617 0063 00000000 		.4byte	0
+ 1618 0067 00000000 		.4byte	0
+ 1619              		.section	.debug_aranges,"",%progbits
+ 1620 0000 8C000000 		.4byte	0x8c
+ 1621 0004 0200     		.2byte	0x2
+ 1622 0006 00000000 		.4byte	.Ldebug_info0
+ 1623 000a 04       		.byte	0x4
+ 1624 000b 00       		.byte	0
+ 1625 000c 0000     		.2byte	0
+ 1626 000e 0000     		.2byte	0
+ 1627 0010 00000000 		.4byte	.LFB0
+ 1628 0014 5C000000 		.4byte	.LFE0-.LFB0
+ 1629 0018 00000000 		.4byte	.LFB1
+ 1630 001c 10000000 		.4byte	.LFE1-.LFB1
+ 1631 0020 00000000 		.4byte	.LFB2
+ 1632 0024 24000000 		.4byte	.LFE2-.LFB2
+ 1633 0028 00000000 		.4byte	.LFB3
+ 1634 002c 10000000 		.4byte	.LFE3-.LFB3
+ 1635 0030 00000000 		.4byte	.LFB4
+ 1636 0034 0C000000 		.4byte	.LFE4-.LFB4
+ 1637 0038 00000000 		.4byte	.LFB5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 44
 
 
- 1638 0038 00000000 		.4byte	.LFB5
- 1639 003c 0C000000 		.4byte	.LFE5-.LFB5
- 1640 0040 00000000 		.4byte	.LFB6
- 1641 0044 0C000000 		.4byte	.LFE6-.LFB6
- 1642 0048 00000000 		.4byte	.LFB7
- 1643 004c 0C000000 		.4byte	.LFE7-.LFB7
- 1644 0050 00000000 		.4byte	.LFB8
- 1645 0054 0C000000 		.4byte	.LFE8-.LFB8
- 1646 0058 00000000 		.4byte	.LFB9
- 1647 005c 10000000 		.4byte	.LFE9-.LFB9
- 1648 0060 00000000 		.4byte	.LFB10
- 1649 0064 0C000000 		.4byte	.LFE10-.LFB10
- 1650 0068 00000000 		.4byte	.LFB11
- 1651 006c 10000000 		.4byte	.LFE11-.LFB11
- 1652 0070 00000000 		.4byte	.LFB12
- 1653 0074 0C000000 		.4byte	.LFE12-.LFB12
- 1654 0078 00000000 		.4byte	.LFB13
- 1655 007c 18000000 		.4byte	.LFE13-.LFB13
- 1656 0080 00000000 		.4byte	.LFB14
- 1657 0084 1C000000 		.4byte	.LFE14-.LFB14
- 1658 0088 00000000 		.4byte	0
- 1659 008c 00000000 		.4byte	0
- 1660              		.section	.debug_ranges,"",%progbits
- 1661              	.Ldebug_ranges0:
- 1662 0000 24000000 		.4byte	.LBB26
- 1663 0004 28000000 		.4byte	.LBE26
- 1664 0008 30000000 		.4byte	.LBB31
- 1665 000c 32000000 		.4byte	.LBE31
- 1666 0010 00000000 		.4byte	0
- 1667 0014 00000000 		.4byte	0
- 1668 0018 00000000 		.4byte	.LBB36
- 1669 001c 04000000 		.4byte	.LBE36
- 1670 0020 0C000000 		.4byte	.LBB41
- 1671 0024 0E000000 		.4byte	.LBE41
- 1672 0028 00000000 		.4byte	0
- 1673 002c 00000000 		.4byte	0
- 1674 0030 00000000 		.4byte	.LFB0
- 1675 0034 5C000000 		.4byte	.LFE0
- 1676 0038 00000000 		.4byte	.LFB1
- 1677 003c 10000000 		.4byte	.LFE1
- 1678 0040 00000000 		.4byte	.LFB2
- 1679 0044 24000000 		.4byte	.LFE2
- 1680 0048 00000000 		.4byte	.LFB3
- 1681 004c 10000000 		.4byte	.LFE3
- 1682 0050 00000000 		.4byte	.LFB4
- 1683 0054 0C000000 		.4byte	.LFE4
- 1684 0058 00000000 		.4byte	.LFB5
- 1685 005c 0C000000 		.4byte	.LFE5
- 1686 0060 00000000 		.4byte	.LFB6
- 1687 0064 0C000000 		.4byte	.LFE6
- 1688 0068 00000000 		.4byte	.LFB7
- 1689 006c 0C000000 		.4byte	.LFE7
- 1690 0070 00000000 		.4byte	.LFB8
- 1691 0074 0C000000 		.4byte	.LFE8
- 1692 0078 00000000 		.4byte	.LFB9
- 1693 007c 10000000 		.4byte	.LFE9
- 1694 0080 00000000 		.4byte	.LFB10
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 45
+ 1638 003c 0C000000 		.4byte	.LFE5-.LFB5
+ 1639 0040 00000000 		.4byte	.LFB6
+ 1640 0044 0C000000 		.4byte	.LFE6-.LFB6
+ 1641 0048 00000000 		.4byte	.LFB7
+ 1642 004c 0C000000 		.4byte	.LFE7-.LFB7
+ 1643 0050 00000000 		.4byte	.LFB8
+ 1644 0054 0C000000 		.4byte	.LFE8-.LFB8
+ 1645 0058 00000000 		.4byte	.LFB9
+ 1646 005c 10000000 		.4byte	.LFE9-.LFB9
+ 1647 0060 00000000 		.4byte	.LFB10
+ 1648 0064 0C000000 		.4byte	.LFE10-.LFB10
+ 1649 0068 00000000 		.4byte	.LFB11
+ 1650 006c 10000000 		.4byte	.LFE11-.LFB11
+ 1651 0070 00000000 		.4byte	.LFB12
+ 1652 0074 0C000000 		.4byte	.LFE12-.LFB12
+ 1653 0078 00000000 		.4byte	.LFB13
+ 1654 007c 18000000 		.4byte	.LFE13-.LFB13
+ 1655 0080 00000000 		.4byte	.LFB14
+ 1656 0084 1C000000 		.4byte	.LFE14-.LFB14
+ 1657 0088 00000000 		.4byte	0
+ 1658 008c 00000000 		.4byte	0
+ 1659              		.section	.debug_ranges,"",%progbits
+ 1660              	.Ldebug_ranges0:
+ 1661 0000 28000000 		.4byte	.LBB26
+ 1662 0004 2C000000 		.4byte	.LBE26
+ 1663 0008 34000000 		.4byte	.LBB31
+ 1664 000c 36000000 		.4byte	.LBE31
+ 1665 0010 00000000 		.4byte	0
+ 1666 0014 00000000 		.4byte	0
+ 1667 0018 00000000 		.4byte	.LBB36
+ 1668 001c 04000000 		.4byte	.LBE36
+ 1669 0020 0C000000 		.4byte	.LBB41
+ 1670 0024 0E000000 		.4byte	.LBE41
+ 1671 0028 00000000 		.4byte	0
+ 1672 002c 00000000 		.4byte	0
+ 1673 0030 00000000 		.4byte	.LFB0
+ 1674 0034 5C000000 		.4byte	.LFE0
+ 1675 0038 00000000 		.4byte	.LFB1
+ 1676 003c 10000000 		.4byte	.LFE1
+ 1677 0040 00000000 		.4byte	.LFB2
+ 1678 0044 24000000 		.4byte	.LFE2
+ 1679 0048 00000000 		.4byte	.LFB3
+ 1680 004c 10000000 		.4byte	.LFE3
+ 1681 0050 00000000 		.4byte	.LFB4
+ 1682 0054 0C000000 		.4byte	.LFE4
+ 1683 0058 00000000 		.4byte	.LFB5
+ 1684 005c 0C000000 		.4byte	.LFE5
+ 1685 0060 00000000 		.4byte	.LFB6
+ 1686 0064 0C000000 		.4byte	.LFE6
+ 1687 0068 00000000 		.4byte	.LFB7
+ 1688 006c 0C000000 		.4byte	.LFE7
+ 1689 0070 00000000 		.4byte	.LFB8
+ 1690 0074 0C000000 		.4byte	.LFE8
+ 1691 0078 00000000 		.4byte	.LFB9
+ 1692 007c 10000000 		.4byte	.LFE9
+ 1693 0080 00000000 		.4byte	.LFB10
+ 1694 0084 0C000000 		.4byte	.LFE10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 45
 
 
- 1695 0084 0C000000 		.4byte	.LFE10
- 1696 0088 00000000 		.4byte	.LFB11
- 1697 008c 10000000 		.4byte	.LFE11
- 1698 0090 00000000 		.4byte	.LFB12
- 1699 0094 0C000000 		.4byte	.LFE12
- 1700 0098 00000000 		.4byte	.LFB13
- 1701 009c 18000000 		.4byte	.LFE13
- 1702 00a0 00000000 		.4byte	.LFB14
- 1703 00a4 1C000000 		.4byte	.LFE14
- 1704 00a8 00000000 		.4byte	0
- 1705 00ac 00000000 		.4byte	0
- 1706              		.section	.debug_line,"",%progbits
- 1707              	.Ldebug_line0:
- 1708 0000 A2010000 		.section	.debug_str,"MS",%progbits,1
- 1708      02005300 
- 1708      00000201 
- 1708      FB0E0D00 
- 1708      01010101 
- 1709              	.LASF15:
- 1710 0000 72656733 		.ascii	"reg32\000"
- 1710      3200
- 1711              	.LASF20:
- 1712 0006 54494D45 		.ascii	"TIMER_TUNER_WriteCounter\000"
- 1712      525F5455 
- 1712      4E45525F 
- 1712      57726974 
- 1712      65436F75 
- 1713              	.LASF40:
- 1714 001f 54494D45 		.ascii	"TIMER_TUNER_interruptState\000"
- 1714      525F5455 
- 1714      4E45525F 
- 1714      696E7465 
- 1714      72727570 
- 1715              	.LASF18:
- 1716 003a 54494D45 		.ascii	"TIMER_TUNER_ReadStatusRegister\000"
- 1716      525F5455 
- 1716      4E45525F 
- 1716      52656164 
- 1716      53746174 
- 1717              	.LASF21:
- 1718 0059 70657269 		.ascii	"period\000"
- 1718      6F6400
- 1719              	.LASF29:
- 1720 0060 54494D45 		.ascii	"TIMER_TUNER_Stop\000"
- 1720      525F5455 
- 1720      4E45525F 
- 1720      53746F70 
- 1720      00
- 1721              	.LASF3:
- 1722 0071 73686F72 		.ascii	"short unsigned int\000"
- 1722      7420756E 
- 1722      7369676E 
- 1722      65642069 
- 1722      6E7400
- 1723              	.LASF28:
- 1724 0084 54494D45 		.ascii	"TIMER_TUNER_Start\000"
- 1724      525F5455 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 46
+ 1695 0088 00000000 		.4byte	.LFB11
+ 1696 008c 10000000 		.4byte	.LFE11
+ 1697 0090 00000000 		.4byte	.LFB12
+ 1698 0094 0C000000 		.4byte	.LFE12
+ 1699 0098 00000000 		.4byte	.LFB13
+ 1700 009c 18000000 		.4byte	.LFE13
+ 1701 00a0 00000000 		.4byte	.LFB14
+ 1702 00a4 1C000000 		.4byte	.LFE14
+ 1703 00a8 00000000 		.4byte	0
+ 1704 00ac 00000000 		.4byte	0
+ 1705              		.section	.debug_line,"",%progbits
+ 1706              	.Ldebug_line0:
+ 1707 0000 A1010000 		.section	.debug_str,"MS",%progbits,1
+ 1707      02005300 
+ 1707      00000201 
+ 1707      FB0E0D00 
+ 1707      01010101 
+ 1708              	.LASF15:
+ 1709 0000 72656733 		.ascii	"reg32\000"
+ 1709      3200
+ 1710              	.LASF20:
+ 1711 0006 54494D45 		.ascii	"TIMER_TUNER_WriteCounter\000"
+ 1711      525F5455 
+ 1711      4E45525F 
+ 1711      57726974 
+ 1711      65436F75 
+ 1712              	.LASF40:
+ 1713 001f 54494D45 		.ascii	"TIMER_TUNER_interruptState\000"
+ 1713      525F5455 
+ 1713      4E45525F 
+ 1713      696E7465 
+ 1713      72727570 
+ 1714              	.LASF18:
+ 1715 003a 54494D45 		.ascii	"TIMER_TUNER_ReadStatusRegister\000"
+ 1715      525F5455 
+ 1715      4E45525F 
+ 1715      52656164 
+ 1715      53746174 
+ 1716              	.LASF21:
+ 1717 0059 70657269 		.ascii	"period\000"
+ 1717      6F6400
+ 1718              	.LASF29:
+ 1719 0060 54494D45 		.ascii	"TIMER_TUNER_Stop\000"
+ 1719      525F5455 
+ 1719      4E45525F 
+ 1719      53746F70 
+ 1719      00
+ 1720              	.LASF3:
+ 1721 0071 73686F72 		.ascii	"short unsigned int\000"
+ 1721      7420756E 
+ 1721      7369676E 
+ 1721      65642069 
+ 1721      6E7400
+ 1722              	.LASF28:
+ 1723 0084 54494D45 		.ascii	"TIMER_TUNER_Start\000"
+ 1723      525F5455 
+ 1723      4E45525F 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 46
 
 
- 1724      4E45525F 
- 1724      53746172 
- 1724      7400
- 1725              	.LASF39:
- 1726 0096 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
- 1726      73657273 
- 1726      5C6D6772 
- 1726      6F6E6265 
- 1726      725C4465 
- 1727 00c4 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
- 1727      436F6E74 
- 1727      696E756F 
- 1727      7573204F 
- 1727      75747075 
- 1728              	.LASF37:
- 1729 00e1 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1729      4320342E 
- 1729      392E3320 
- 1729      32303135 
- 1729      30333033 
- 1730 0114 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 1730      20726576 
- 1730      6973696F 
- 1730      6E203232 
- 1730      31323230 
- 1731 0147 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
- 1731      66756E63 
- 1731      74696F6E 
- 1731      2D736563 
- 1731      74696F6E 
- 1732              	.LASF32:
- 1733 016f 54494D45 		.ascii	"TIMER_TUNER_ReadControlRegister\000"
- 1733      525F5455 
- 1733      4E45525F 
- 1733      52656164 
- 1733      436F6E74 
- 1734              	.LASF22:
- 1735 018f 636F756E 		.ascii	"counter\000"
- 1735      74657200 
- 1736              	.LASF7:
- 1737 0197 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1737      206C6F6E 
- 1737      6720756E 
- 1737      7369676E 
- 1737      65642069 
- 1738              	.LASF1:
- 1739 01ae 756E7369 		.ascii	"unsigned char\000"
- 1739      676E6564 
- 1739      20636861 
- 1739      7200
- 1740              	.LASF19:
- 1741 01bc 54494D45 		.ascii	"TIMER_TUNER_WritePeriod\000"
- 1741      525F5455 
- 1741      4E45525F 
- 1741      57726974 
- 1741      65506572 
- 1742              	.LASF14:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 47
+ 1723      53746172 
+ 1723      7400
+ 1724              	.LASF39:
+ 1725 0096 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
+ 1725      73657273 
+ 1725      5C6D6772 
+ 1725      6F6E6265 
+ 1725      725C4465 
+ 1726 00c4 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 1726      436F6E74 
+ 1726      696E756F 
+ 1726      7573204F 
+ 1726      75747075 
+ 1727              	.LASF37:
+ 1728 00e1 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1728      4320342E 
+ 1728      392E3320 
+ 1728      32303135 
+ 1728      30333033 
+ 1729 0114 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1729      20726576 
+ 1729      6973696F 
+ 1729      6E203232 
+ 1729      31323230 
+ 1730 0147 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 1730      66756E63 
+ 1730      74696F6E 
+ 1730      2D736563 
+ 1730      74696F6E 
+ 1731              	.LASF32:
+ 1732 016f 54494D45 		.ascii	"TIMER_TUNER_ReadControlRegister\000"
+ 1732      525F5455 
+ 1732      4E45525F 
+ 1732      52656164 
+ 1732      436F6E74 
+ 1733              	.LASF22:
+ 1734 018f 636F756E 		.ascii	"counter\000"
+ 1734      74657200 
+ 1735              	.LASF7:
+ 1736 0197 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1736      206C6F6E 
+ 1736      6720756E 
+ 1736      7369676E 
+ 1736      65642069 
+ 1737              	.LASF1:
+ 1738 01ae 756E7369 		.ascii	"unsigned char\000"
+ 1738      676E6564 
+ 1738      20636861 
+ 1738      7200
+ 1739              	.LASF19:
+ 1740 01bc 54494D45 		.ascii	"TIMER_TUNER_WritePeriod\000"
+ 1740      525F5455 
+ 1740      4E45525F 
+ 1740      57726974 
+ 1740      65506572 
+ 1741              	.LASF14:
+ 1742 01d4 72656738 		.ascii	"reg8\000"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 47
 
 
- 1743 01d4 72656738 		.ascii	"reg8\000"
- 1743      00
- 1744              	.LASF5:
- 1745 01d9 6C6F6E67 		.ascii	"long unsigned int\000"
- 1745      20756E73 
- 1745      69676E65 
- 1745      6420696E 
- 1745      7400
- 1746              	.LASF9:
- 1747 01eb 75696E74 		.ascii	"uint8\000"
- 1747      3800
- 1748              	.LASF41:
- 1749 01f1 636F6E74 		.ascii	"control\000"
- 1749      726F6C00 
- 1750              	.LASF23:
- 1751 01f9 54494D45 		.ascii	"TIMER_TUNER_SetInterruptMode\000"
- 1751      525F5455 
- 1751      4E45525F 
- 1751      53657449 
- 1751      6E746572 
- 1752              	.LASF34:
- 1753 0216 54494D45 		.ascii	"TIMER_TUNER_ReadCounter\000"
- 1753      525F5455 
- 1753      4E45525F 
- 1753      52656164 
- 1753      436F756E 
- 1754              	.LASF12:
- 1755 022e 646F7562 		.ascii	"double\000"
- 1755      6C6500
- 1756              	.LASF2:
- 1757 0235 73686F72 		.ascii	"short int\000"
- 1757      7420696E 
- 1757      7400
- 1758              	.LASF10:
- 1759 023f 75696E74 		.ascii	"uint32\000"
- 1759      333200
- 1760              	.LASF36:
- 1761 0246 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 1761      74657243 
- 1761      72697469 
- 1761      63616C53 
- 1761      65637469 
- 1762              	.LASF8:
- 1763 025d 756E7369 		.ascii	"unsigned int\000"
- 1763      676E6564 
- 1763      20696E74 
- 1763      00
- 1764              	.LASF33:
- 1765 026a 54494D45 		.ascii	"TIMER_TUNER_ReadPeriod\000"
- 1765      525F5455 
- 1765      4E45525F 
- 1765      52656164 
- 1765      50657269 
- 1766              	.LASF43:
- 1767 0281 43794578 		.ascii	"CyExitCriticalSection\000"
- 1767      69744372 
- 1767      69746963 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 48
+ 1742      00
+ 1743              	.LASF5:
+ 1744 01d9 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1744      20756E73 
+ 1744      69676E65 
+ 1744      6420696E 
+ 1744      7400
+ 1745              	.LASF9:
+ 1746 01eb 75696E74 		.ascii	"uint8\000"
+ 1746      3800
+ 1747              	.LASF41:
+ 1748 01f1 636F6E74 		.ascii	"control\000"
+ 1748      726F6C00 
+ 1749              	.LASF23:
+ 1750 01f9 54494D45 		.ascii	"TIMER_TUNER_SetInterruptMode\000"
+ 1750      525F5455 
+ 1750      4E45525F 
+ 1750      53657449 
+ 1750      6E746572 
+ 1751              	.LASF34:
+ 1752 0216 54494D45 		.ascii	"TIMER_TUNER_ReadCounter\000"
+ 1752      525F5455 
+ 1752      4E45525F 
+ 1752      52656164 
+ 1752      436F756E 
+ 1753              	.LASF12:
+ 1754 022e 646F7562 		.ascii	"double\000"
+ 1754      6C6500
+ 1755              	.LASF2:
+ 1756 0235 73686F72 		.ascii	"short int\000"
+ 1756      7420696E 
+ 1756      7400
+ 1757              	.LASF10:
+ 1758 023f 75696E74 		.ascii	"uint32\000"
+ 1758      333200
+ 1759              	.LASF36:
+ 1760 0246 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1760      74657243 
+ 1760      72697469 
+ 1760      63616C53 
+ 1760      65637469 
+ 1761              	.LASF8:
+ 1762 025d 756E7369 		.ascii	"unsigned int\000"
+ 1762      676E6564 
+ 1762      20696E74 
+ 1762      00
+ 1763              	.LASF33:
+ 1764 026a 54494D45 		.ascii	"TIMER_TUNER_ReadPeriod\000"
+ 1764      525F5455 
+ 1764      4E45525F 
+ 1764      52656164 
+ 1764      50657269 
+ 1765              	.LASF43:
+ 1766 0281 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1766      69744372 
+ 1766      69746963 
+ 1766      616C5365 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 48
 
 
- 1767      616C5365 
- 1767      6374696F 
- 1768              	.LASF30:
- 1769 0297 54494D45 		.ascii	"TIMER_TUNER_SoftwareCapture\000"
- 1769      525F5455 
- 1769      4E45525F 
- 1769      536F6674 
- 1769      77617265 
- 1770              	.LASF26:
- 1771 02b3 54494D45 		.ascii	"TIMER_TUNER_Enable\000"
- 1771      525F5455 
- 1771      4E45525F 
- 1771      456E6162 
- 1771      6C6500
- 1772              	.LASF42:
- 1773 02c6 54494D45 		.ascii	"TIMER_TUNER_initVar\000"
- 1773      525F5455 
- 1773      4E45525F 
- 1773      696E6974 
- 1773      56617200 
- 1774              	.LASF16:
- 1775 02da 73697A65 		.ascii	"sizetype\000"
- 1775      74797065 
- 1775      00
- 1776              	.LASF6:
- 1777 02e3 6C6F6E67 		.ascii	"long long int\000"
- 1777      206C6F6E 
- 1777      6720696E 
- 1777      7400
- 1778              	.LASF24:
- 1779 02f1 696E7465 		.ascii	"interruptMode\000"
- 1779      72727570 
- 1779      744D6F64 
- 1779      6500
- 1780              	.LASF35:
- 1781 02ff 43795365 		.ascii	"CySetReg24\000"
- 1781      74526567 
- 1781      323400
- 1782              	.LASF27:
- 1783 030a 54494D45 		.ascii	"TIMER_TUNER_Init\000"
- 1783      525F5455 
- 1783      4E45525F 
- 1783      496E6974 
- 1783      00
- 1784              	.LASF17:
- 1785 031b 54494D45 		.ascii	"TIMER_TUNER_ReadCapture\000"
- 1785      525F5455 
- 1785      4E45525F 
- 1785      52656164 
- 1785      43617074 
- 1786              	.LASF4:
- 1787 0333 6C6F6E67 		.ascii	"long int\000"
- 1787      20696E74 
- 1787      00
- 1788              	.LASF13:
- 1789 033c 63686172 		.ascii	"char\000"
- 1789      00
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccHdeWLW.s 			page 49
+ 1766      6374696F 
+ 1767              	.LASF30:
+ 1768 0297 54494D45 		.ascii	"TIMER_TUNER_SoftwareCapture\000"
+ 1768      525F5455 
+ 1768      4E45525F 
+ 1768      536F6674 
+ 1768      77617265 
+ 1769              	.LASF26:
+ 1770 02b3 54494D45 		.ascii	"TIMER_TUNER_Enable\000"
+ 1770      525F5455 
+ 1770      4E45525F 
+ 1770      456E6162 
+ 1770      6C6500
+ 1771              	.LASF42:
+ 1772 02c6 54494D45 		.ascii	"TIMER_TUNER_initVar\000"
+ 1772      525F5455 
+ 1772      4E45525F 
+ 1772      696E6974 
+ 1772      56617200 
+ 1773              	.LASF16:
+ 1774 02da 73697A65 		.ascii	"sizetype\000"
+ 1774      74797065 
+ 1774      00
+ 1775              	.LASF6:
+ 1776 02e3 6C6F6E67 		.ascii	"long long int\000"
+ 1776      206C6F6E 
+ 1776      6720696E 
+ 1776      7400
+ 1777              	.LASF24:
+ 1778 02f1 696E7465 		.ascii	"interruptMode\000"
+ 1778      72727570 
+ 1778      744D6F64 
+ 1778      6500
+ 1779              	.LASF35:
+ 1780 02ff 43795365 		.ascii	"CySetReg24\000"
+ 1780      74526567 
+ 1780      323400
+ 1781              	.LASF27:
+ 1782 030a 54494D45 		.ascii	"TIMER_TUNER_Init\000"
+ 1782      525F5455 
+ 1782      4E45525F 
+ 1782      496E6974 
+ 1782      00
+ 1783              	.LASF17:
+ 1784 031b 54494D45 		.ascii	"TIMER_TUNER_ReadCapture\000"
+ 1784      525F5455 
+ 1784      4E45525F 
+ 1784      52656164 
+ 1784      43617074 
+ 1785              	.LASF4:
+ 1786 0333 6C6F6E67 		.ascii	"long int\000"
+ 1786      20696E74 
+ 1786      00
+ 1787              	.LASF13:
+ 1788 033c 63686172 		.ascii	"char\000"
+ 1788      00
+ 1789              	.LASF31:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8WcG0y.s 			page 49
 
 
- 1790              	.LASF31:
- 1791 0341 54494D45 		.ascii	"TIMER_TUNER_WriteControlRegister\000"
- 1791      525F5455 
- 1791      4E45525F 
- 1791      57726974 
- 1791      65436F6E 
- 1792              	.LASF11:
- 1793 0362 666C6F61 		.ascii	"float\000"
- 1793      7400
- 1794              	.LASF0:
- 1795 0368 7369676E 		.ascii	"signed char\000"
- 1795      65642063 
- 1795      68617200 
- 1796              	.LASF25:
- 1797 0374 54494D45 		.ascii	"TIMER_TUNER_ClearFIFO\000"
- 1797      525F5455 
- 1797      4E45525F 
- 1797      436C6561 
- 1797      72464946 
- 1798              	.LASF38:
- 1799 038a 47656E65 		.ascii	"Generated_Source\\PSoC5\\TIMER_TUNER.c\000"
- 1799      72617465 
- 1799      645F536F 
- 1799      75726365 
- 1799      5C50536F 
- 1800              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 1790 0341 54494D45 		.ascii	"TIMER_TUNER_WriteControlRegister\000"
+ 1790      525F5455 
+ 1790      4E45525F 
+ 1790      57726974 
+ 1790      65436F6E 
+ 1791              	.LASF11:
+ 1792 0362 666C6F61 		.ascii	"float\000"
+ 1792      7400
+ 1793              	.LASF0:
+ 1794 0368 7369676E 		.ascii	"signed char\000"
+ 1794      65642063 
+ 1794      68617200 
+ 1795              	.LASF25:
+ 1796 0374 54494D45 		.ascii	"TIMER_TUNER_ClearFIFO\000"
+ 1796      525F5455 
+ 1796      4E45525F 
+ 1796      436C6561 
+ 1796      72464946 
+ 1797              	.LASF38:
+ 1798 038a 47656E65 		.ascii	"Generated_Source\\PSoC5\\TIMER_TUNER.c\000"
+ 1798      72617465 
+ 1798      645F536F 
+ 1798      75726365 
+ 1798      5C50536F 
+ 1799              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
