@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cciUygEC.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 1
   29:Generated_Source\PSoC5/USB_audio.c **** /***************************************
   30:Generated_Source\PSoC5/USB_audio.c **** * Custom Declarations
   31:Generated_Source\PSoC5/USB_audio.c **** ***************************************/
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cciUygEC.s 			page 2
 
 
   32:Generated_Source\PSoC5/USB_audio.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 1
   86:Generated_Source\PSoC5/USB_audio.c **** *             transfer completes.
   87:Generated_Source\PSoC5/USB_audio.c **** *   USB_currentMute: Contains mute configuration set by Host.
   88:Generated_Source\PSoC5/USB_audio.c **** *   USB_currentVolume: Contains volume level set by Host.
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cciUygEC.s 			page 3
 
 
   89:Generated_Source\PSoC5/USB_audio.c **** *
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 1
  129:Generated_Source\PSoC5/USB_audio.c ****                     break;
  130:Generated_Source\PSoC5/USB_audio.c ****             }
  131:Generated_Source\PSoC5/USB_audio.c ****         }
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cciUygEC.s 			page 4
 
 
  132:Generated_Source\PSoC5/USB_audio.c ****         else if((bmRequestType & USB_RQST_RCPT_MASK) == USB_RQST_RCPT_IFC)
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 1
  186:Generated_Source\PSoC5/USB_audio.c ****                 case USB_GET_RES:    /* GET_RES */
  187:Generated_Source\PSoC5/USB_audio.c ****                     if(CY_GET_REG8(USB_wValueHi) == USB_VOLUME_CONTROL)
  188:Generated_Source\PSoC5/USB_audio.c ****                     {
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cciUygEC.s 			page 5
 
 
  189:Generated_Source\PSoC5/USB_audio.c ****                          /* Entity ID Control Selector is VOLUME, */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 1
  240:Generated_Source\PSoC5/USB_audio.c ****                     break;
  241:Generated_Source\PSoC5/USB_audio.c ****                 default:
  242:Generated_Source\PSoC5/USB_audio.c ****                     break;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cciUygEC.s 			page 6
 
 
  243:Generated_Source\PSoC5/USB_audio.c ****             }
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 1
  294:Generated_Source\PSoC5/USB_audio.c ****     }
  295:Generated_Source\PSoC5/USB_audio.c ****     else
  296:Generated_Source\PSoC5/USB_audio.c ****     {   
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cciUygEC.s 			page 7
 
 
  297:Generated_Source\PSoC5/USB_audio.c ****         /* requestHandled is initialized as FALSE by default */
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 1
   93 0026 01       		.byte	0x1
   94 0027 06       		.byte	0x6
   95 0028 53010000 		.4byte	.LASF0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 8
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cciUygEC.s 			page 8
 
 
   96 002c 02       		.uleb128 0x2
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 1
  150 008c 1B000000 		.4byte	.LASF13
  151 0090 02       		.byte	0x2
  152 0091 F0       		.byte	0xf0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 9
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cciUygEC.s 			page 9
 
 
  153 0092 96000000 		.4byte	0x96
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 1
  207 0016 0B       		.uleb128 0xb
  208 0017 0B       		.uleb128 0xb
  209 0018 3E       		.uleb128 0x3e
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cciUygEC.s 			page 10
 
 
  210 0019 0B       		.uleb128 0xb
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 1
  264 004f 06       		.uleb128 0x6
  265 0050 40       		.uleb128 0x40
  266 0051 18       		.uleb128 0x18
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 11
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cciUygEC.s 			page 11
 
 
  267 0052 9742     		.uleb128 0x2117
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 1
  321 0018 00000000 		.4byte	0
  322 001c 00000000 		.4byte	0
  323              		.section	.debug_ranges,"",%progbits
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cciUygEC.s 			page 12
 
 
  324              	.Ldebug_ranges0:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 1
  348      6E203232 
  348      31323230 
  349 00c4 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cciUygEC.s 			page 13
 
 
  349      66756E63 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 1
  373 018a 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
  373      73657273 
  373      5C6D6772 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMxasVf.s 			page 14
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cciUygEC.s 			page 14
 
 
  373      6F6E6265 

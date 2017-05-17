@@ -55,8 +55,6 @@
 #include "POT_IN_HYST.h"
 #include "POT_IN_VELO_aliases.h"
 #include "POT_IN_VELO.h"
-#include "TIMER_TUNER.h"
-#include "tuner_isr.h"
 #include "USB_Dm_aliases.h"
 #include "USB_Dm.h"
 #include "USB_Dp_aliases.h"

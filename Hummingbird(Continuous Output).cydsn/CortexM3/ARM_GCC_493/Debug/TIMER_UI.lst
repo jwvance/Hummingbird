@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
   29:Generated_Source\PSoC5/TIMER_UI.c **** /*******************************************************************************
   30:Generated_Source\PSoC5/TIMER_UI.c **** * Function Name: TIMER_UI_Init
   31:Generated_Source\PSoC5/TIMER_UI.c **** ********************************************************************************
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 2
 
 
   32:Generated_Source\PSoC5/TIMER_UI.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
   75:Generated_Source\PSoC5/TIMER_UI.c **** 
   76:Generated_Source\PSoC5/TIMER_UI.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
   77:Generated_Source\PSoC5/TIMER_UI.c ****                 /* Set last 2 bits of control3 register if one shot(halt on
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 3
 
 
   78:Generated_Source\PSoC5/TIMER_UI.c ****                 interrupt) is enabled*/
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  132:Generated_Source\PSoC5/TIMER_UI.c ****             #if (!TIMER_UI_UDB_CONTROL_REG_REMOVED)
  133:Generated_Source\PSoC5/TIMER_UI.c ****                 if (0u == (TIMER_UI_CONTROL & TIMER_UI__B_TIMER__TM_SOFTWARE))
  134:Generated_Source\PSoC5/TIMER_UI.c ****                 {
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 4
 
 
  135:Generated_Source\PSoC5/TIMER_UI.c ****                     TIMER_UI_SetTriggerMode(TIMER_UI_INIT_TRIGGER_MODE);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  189:Generated_Source\PSoC5/TIMER_UI.c ****     #if (!TIMER_UI_UDB_CONTROL_REG_REMOVED || TIMER_UI_UsingFixedFunction)
  190:Generated_Source\PSoC5/TIMER_UI.c ****         TIMER_UI_CONTROL |= TIMER_UI_CTRL_ENABLE;
  191:Generated_Source\PSoC5/TIMER_UI.c ****     #endif /* Remove assignment if control register is removed */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 5
 
 
  192:Generated_Source\PSoC5/TIMER_UI.c **** }
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  246:Generated_Source\PSoC5/TIMER_UI.c **** *******************************************************************************/
  247:Generated_Source\PSoC5/TIMER_UI.c **** void TIMER_UI_Stop(void) 
  248:Generated_Source\PSoC5/TIMER_UI.c **** {
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 6
 
 
  249:Generated_Source\PSoC5/TIMER_UI.c ****     /* Disable Timer */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  303:Generated_Source\PSoC5/TIMER_UI.c **** {
  304:Generated_Source\PSoC5/TIMER_UI.c ****     /* Generate a software capture by reading the counter register */
  305:Generated_Source\PSoC5/TIMER_UI.c ****     #if(TIMER_UI_UsingFixedFunction)
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 7
 
 
  306:Generated_Source\PSoC5/TIMER_UI.c ****         (void)CY_GET_REG16(TIMER_UI_COUNTER_LSB_PTR);
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  360:Generated_Source\PSoC5/TIMER_UI.c ****     #else
  361:Generated_Source\PSoC5/TIMER_UI.c ****         return (0);
  362:Generated_Source\PSoC5/TIMER_UI.c ****     #endif /* (!TIMER_UI_UDB_CONTROL_REG_REMOVED) */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 8
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 8
 
 
  363:Generated_Source\PSoC5/TIMER_UI.c **** }
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  417:Generated_Source\PSoC5/TIMER_UI.c **** ********************************************************************************
  418:Generated_Source\PSoC5/TIMER_UI.c **** *
  419:Generated_Source\PSoC5/TIMER_UI.c **** * Summary:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 9
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 9
 
 
  420:Generated_Source\PSoC5/TIMER_UI.c **** *  This function is used to change the period of the counter.  The new period
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  465:Generated_Source\PSoC5/TIMER_UI.c **** 
  466:Generated_Source\PSoC5/TIMER_UI.c **** /*******************************************************************************
  467:Generated_Source\PSoC5/TIMER_UI.c **** * Function Name: TIMER_UI_WriteCounter
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 10
 
 
  468:Generated_Source\PSoC5/TIMER_UI.c **** ********************************************************************************
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  491:Generated_Source\PSoC5/TIMER_UI.c **** }
  492:Generated_Source\PSoC5/TIMER_UI.c **** 
  493:Generated_Source\PSoC5/TIMER_UI.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 11
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 11
 
 
  494:Generated_Source\PSoC5/TIMER_UI.c **** /*******************************************************************************
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  548:Generated_Source\PSoC5/TIMER_UI.c **** *  captureMode: This parameter sets the capture mode of the UDB capture feature
  549:Generated_Source\PSoC5/TIMER_UI.c **** *  The parameter values are defined using the
  550:Generated_Source\PSoC5/TIMER_UI.c **** *  #define TIMER_UI__B_TIMER__CM_NONE 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 12
 
 
  551:Generated_Source\PSoC5/TIMER_UI.c **** #define TIMER_UI__B_TIMER__CM_RISINGEDGE 1
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  605:Generated_Source\PSoC5/TIMER_UI.c **** void TIMER_UI_SetTriggerMode(uint8 triggerMode) 
  606:Generated_Source\PSoC5/TIMER_UI.c **** {
  607:Generated_Source\PSoC5/TIMER_UI.c ****     /* This must only set to two bits of the control register associated */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 13
 
 
  608:Generated_Source\PSoC5/TIMER_UI.c ****     triggerMode &= TIMER_UI_CTRL_TRIG_MODE_MASK;
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  662:Generated_Source\PSoC5/TIMER_UI.c ****     #if (!TIMER_UI_UDB_CONTROL_REG_REMOVED )   /* Remove assignment if control register is removed 
  663:Generated_Source\PSoC5/TIMER_UI.c ****         TIMER_UI_CONTROL &= ((uint8)(~TIMER_UI_CTRL_TRIG_EN));
  664:Generated_Source\PSoC5/TIMER_UI.c ****     #endif /* Remove code section if control register is not used */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 14
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 14
 
 
  665:Generated_Source\PSoC5/TIMER_UI.c **** }
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  719:Generated_Source\PSoC5/TIMER_UI.c **** *  void
  720:Generated_Source\PSoC5/TIMER_UI.c **** *
  721:Generated_Source\PSoC5/TIMER_UI.c **** *******************************************************************************/
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 15
 
 
  722:Generated_Source\PSoC5/TIMER_UI.c **** void TIMER_UI_SetCaptureCount(uint8 captureCount) 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
   83              	.LBE30:
   84              	.LBE29:
   85              	.LBB31:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 16
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 16
 
 
   86              	.LBB28:
@@ -925,13 +925,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  105              	.L12:
  106 003e 00BF     		.align	2
  107              	.L11:
- 108 0040 24640040 		.word	1073767460
+ 108 0040 28650040 		.word	1073767720
  109 0044 3F4B4C00 		.word	4999999
- 110 0048 04640040 		.word	1073767428
- 111 004c 96640040 		.word	1073767574
- 112 0050 66640040 		.word	1073767526
- 113 0054 44640040 		.word	1073767492
- 114 0058 86640040 		.word	1073767558
+ 110 0048 08650040 		.word	1073767688
+ 111 004c 99640040 		.word	1073767577
+ 112 0050 69640040 		.word	1073767529
+ 113 0054 48650040 		.word	1073767752
+ 114 0058 89640040 		.word	1073767561
  115              	.LBE33:
  116              	.LBE32:
  117              		.cfi_endproc
@@ -958,13 +958,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  136 0004 43F08003 		orr	r3, r3, #128
  137 0008 1370     		strb	r3, [r2]
  138 000a 7047     		bx	lr
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 17
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 17
 
 
  139              	.L15:
  140              		.align	2
  141              	.L14:
- 142 000c 75640040 		.word	1073767541
+ 142 000c 79650040 		.word	1073767801
  143              		.cfi_endproc
  144              	.LFE1:
  145              		.size	TIMER_UI_Enable, .-TIMER_UI_Enable
@@ -1012,13 +1012,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  182              		.align	2
  183              	.L19:
  184 001c 00000000 		.word	.LANCHOR0
- 185 0020 75640040 		.word	1073767541
+ 185 0020 79650040 		.word	1073767801
  186              	.LBE35:
  187              	.LBE34:
  188              		.cfi_endproc
  189              	.LFE2:
  190              		.size	TIMER_UI_Start, .-TIMER_UI_Start
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 18
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 18
 
 
  191              		.section	.text.TIMER_UI_Stop,"ax",%progbits
@@ -1045,7 +1045,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  210              	.L23:
  211              		.align	2
  212              	.L22:
- 213 000c 75640040 		.word	1073767541
+ 213 000c 79650040 		.word	1073767801
  214              		.cfi_endproc
  215              	.LFE3:
  216              		.size	TIMER_UI_Stop, .-TIMER_UI_Stop
@@ -1072,13 +1072,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  235              	.L26:
  236 0006 00BF     		.align	2
  237              	.L25:
- 238 0008 86640040 		.word	1073767558
+ 238 0008 89640040 		.word	1073767561
  239              		.cfi_endproc
  240              	.LFE4:
  241              		.size	TIMER_UI_SetInterruptMode, .-TIMER_UI_SetInterruptMode
  242              		.section	.text.TIMER_UI_SoftwareCapture,"ax",%progbits
  243              		.align	2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 19
 
 
  244              		.global	TIMER_UI_SoftwareCapture
@@ -1101,7 +1101,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  259              	.L29:
  260 0006 00BF     		.align	2
  261              	.L28:
- 262 0008 04640040 		.word	1073767428
+ 262 0008 08650040 		.word	1073767688
  263              		.cfi_endproc
  264              	.LFE5:
  265              		.size	TIMER_UI_SoftwareCapture, .-TIMER_UI_SoftwareCapture
@@ -1129,7 +1129,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  284              	.L32:
  285 0006 00BF     		.align	2
  286              	.L31:
- 287 0008 66640040 		.word	1073767526
+ 287 0008 69640040 		.word	1073767529
  288              		.cfi_endproc
  289              	.LFE6:
  290              		.size	TIMER_UI_ReadStatusRegister, .-TIMER_UI_ReadStatusRegister
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  293              		.global	TIMER_UI_ReadControlRegister
  294              		.thumb
  295              		.thumb_func
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 20
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 20
 
 
  296              		.type	TIMER_UI_ReadControlRegister, %function
@@ -1160,7 +1160,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  309              	.L35:
  310 0006 00BF     		.align	2
  311              	.L34:
- 312 0008 75640040 		.word	1073767541
+ 312 0008 79650040 		.word	1073767801
  313              		.cfi_endproc
  314              	.LFE7:
  315              		.size	TIMER_UI_ReadControlRegister, .-TIMER_UI_ReadControlRegister
@@ -1187,7 +1187,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  334              	.L38:
  335 0006 00BF     		.align	2
  336              	.L37:
- 337 0008 75640040 		.word	1073767541
+ 337 0008 79650040 		.word	1073767801
  338              		.cfi_endproc
  339              	.LFE8:
  340              		.size	TIMER_UI_WriteControlRegister, .-TIMER_UI_WriteControlRegister
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  345              		.thumb_func
  346              		.type	TIMER_UI_ReadPeriod, %function
  347              	TIMER_UI_ReadPeriod:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 21
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 21
 
 
  348              	.LFB9:
@@ -1219,7 +1219,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  360              	.L41:
  361 000a 00BF     		.align	2
  362              	.L40:
- 363 000c 24640040 		.word	1073767460
+ 363 000c 28650040 		.word	1073767720
  364              		.cfi_endproc
  365              	.LFE9:
  366              		.size	TIMER_UI_ReadPeriod, .-TIMER_UI_ReadPeriod
@@ -1250,7 +1250,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  388              	.L44:
  389              		.align	2
  390              	.L43:
- 391 0008 24640040 		.word	1073767460
+ 391 0008 28650040 		.word	1073767720
  392              		.cfi_endproc
  393              	.LFE10:
  394              		.size	TIMER_UI_WritePeriod, .-TIMER_UI_WritePeriod
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  396              		.align	2
  397              		.global	TIMER_UI_ReadCapture
  398              		.thumb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 22
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 22
 
 
  399              		.thumb_func
@@ -1282,7 +1282,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  414              	.L47:
  415 000a 00BF     		.align	2
  416              	.L46:
- 417 000c 44640040 		.word	1073767492
+ 417 000c 48650040 		.word	1073767752
  418              		.cfi_endproc
  419              	.LFE11:
  420              		.size	TIMER_UI_ReadCapture, .-TIMER_UI_ReadCapture
@@ -1313,12 +1313,12 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  442              	.L50:
  443              		.align	2
  444              	.L49:
- 445 0008 04640040 		.word	1073767428
+ 445 0008 08650040 		.word	1073767688
  446              		.cfi_endproc
  447              	.LFE12:
  448              		.size	TIMER_UI_WriteCounter, .-TIMER_UI_WriteCounter
  449              		.section	.text.TIMER_UI_ReadCounter,"ax",%progbits
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 23
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 23
 
 
  450              		.align	2
@@ -1351,8 +1351,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  472              	.L53:
  473 000e 00BF     		.align	2
  474              	.L52:
- 475 0010 44640040 		.word	1073767492
- 476 0014 04640040 		.word	1073767428
+ 475 0010 48650040 		.word	1073767752
+ 476 0014 08650040 		.word	1073767688
  477              		.cfi_endproc
  478              	.LFE13:
  479              		.size	TIMER_UI_ReadCounter, .-TIMER_UI_ReadCounter
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  497 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
  498              	.LBE37:
  499              	.LBE36:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 24
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 24
 
 
  500              		.loc 1 765 0
@@ -1408,8 +1408,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  522              	.L63:
  523              		.align	2
  524              	.L62:
- 525 0014 66640040 		.word	1073767526
- 526 0018 44640040 		.word	1073767492
+ 525 0014 69640040 		.word	1073767529
+ 526 0018 48650040 		.word	1073767752
  527              		.cfi_endproc
  528              	.LFE14:
  529              		.size	TIMER_UI_ClearFIFO, .-TIMER_UI_ClearFIFO
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  552 0019 30000000 		.4byte	.Ldebug_ranges0+0x30
  553 001d 00000000 		.4byte	0
  554 0021 00000000 		.4byte	.Ldebug_line0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 25
 
 
  555 0025 02       		.uleb128 0x2
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  609 0088 02       		.uleb128 0x2
  610 0089 08       		.byte	0x8
  611 008a 04       		.byte	0x4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 26
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 26
 
 
  612 008b FA010000 		.4byte	.LASF12
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  666 00ff 5C010000 		.4byte	.LASF22
  667 0103 01       		.byte	0x1
  668 0104 E001     		.2byte	0x1e0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 27
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 27
 
 
  669 0106 76000000 		.4byte	0x76
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  723 0181 51       		.byte	0x51
  724 0182 05       		.uleb128 0x5
  725 0183 0C       		.byte	0xc
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 28
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 28
 
 
  726 0184 3F4B4C00 		.4byte	0x4c4b3f
@@ -1627,7 +1627,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  729 018a 50       		.byte	0x50
  730 018b 05       		.uleb128 0x5
  731 018c 0C       		.byte	0xc
- 732 018d 24640040 		.4byte	0x40006424
+ 732 018d 28650040 		.4byte	0x40006528
  733 0191 00       		.byte	0
  734 0192 00       		.byte	0
  735 0193 0D       		.uleb128 0xd
@@ -1654,7 +1654,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  756 01c3 50       		.byte	0x50
  757 01c4 05       		.uleb128 0x5
  758 01c5 0C       		.byte	0xc
- 759 01c6 04640040 		.4byte	0x40006404
+ 759 01c6 08650040 		.4byte	0x40006508
  760 01ca 00       		.byte	0
  761 01cb 00       		.byte	0
  762 01cc 0D       		.uleb128 0xd
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  780 01fd FF02     		.2byte	0x2ff
  781 01ff 00       		.byte	0
  782 0200 0D       		.uleb128 0xd
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 29
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 29
 
 
  783 0201 14010000 		.4byte	0x114
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  837 0288 01       		.uleb128 0x1
  838 0289 9C       		.byte	0x9c
  839 028a 96020000 		.4byte	0x296
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 30
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 30
 
 
  840 028e 19       		.uleb128 0x19
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  894 0308 18       		.uleb128 0x18
  895 0309 D7000000 		.4byte	0xd7
  896 030d 00000000 		.4byte	.LFB10
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 31
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 31
 
 
  897 0311 0C000000 		.4byte	.LFE10-.LFB10
@@ -1823,7 +1823,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  916 0336 50       		.byte	0x50
  917 0337 05       		.uleb128 0x5
  918 0338 0C       		.byte	0xc
- 919 0339 24640040 		.4byte	0x40006424
+ 919 0339 28650040 		.4byte	0x40006528
  920 033d 00       		.byte	0
  921 033e 00       		.byte	0
  922 033f 15       		.uleb128 0x15
@@ -1857,8 +1857,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  950 037c 50       		.byte	0x50
  951 037d 05       		.uleb128 0x5
  952 037e 0C       		.byte	0xc
- 953 037f 04640040 		.4byte	0x40006404
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 32
+ 953 037f 08650040 		.4byte	0x40006508
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 32
 
 
  954 0383 00       		.byte	0
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  1008 0401 03       		.byte	0x3
  1009 0402 7E       		.byte	0x7e
  1010 0403 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 33
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 33
 
 
  1011 0407 25       		.uleb128 0x25
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  1065 002c 03       		.uleb128 0x3
  1066 002d 0E       		.uleb128 0xe
  1067 002e 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 34
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 34
 
 
  1068 002f 0B       		.uleb128 0xb
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  1122 0065 00       		.byte	0
  1123 0066 03       		.uleb128 0x3
  1124 0067 0E       		.uleb128 0xe
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 35
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 35
 
 
  1125 0068 3A       		.uleb128 0x3a
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  1179 009e 19       		.uleb128 0x19
  1180 009f 11       		.uleb128 0x11
  1181 00a0 01       		.uleb128 0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 36
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 36
 
 
  1182 00a1 12       		.uleb128 0x12
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  1236 00da 11       		.uleb128 0x11
  1237 00db 01       		.uleb128 0x1
  1238 00dc 31       		.uleb128 0x31
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 37
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 37
 
 
  1239 00dd 13       		.uleb128 0x13
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  1293 0118 11       		.uleb128 0x11
  1294 0119 01       		.uleb128 0x1
  1295 011a 31       		.uleb128 0x31
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 38
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 38
 
 
  1296 011b 13       		.uleb128 0x13
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  1350 0153 00       		.byte	0
  1351 0154 00       		.byte	0
  1352 0155 18       		.uleb128 0x18
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 39
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 39
 
 
  1353 0156 2E       		.uleb128 0x2e
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  1407 018e 0E       		.uleb128 0xe
  1408 018f 3A       		.uleb128 0x3a
  1409 0190 0B       		.uleb128 0xb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 40
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 40
 
 
  1410 0191 3B       		.uleb128 0x3b
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  1464 01c9 00       		.byte	0
  1465 01ca 00       		.byte	0
  1466 01cb 1E       		.uleb128 0x1e
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 41
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 41
 
 
  1467 01cc 05       		.uleb128 0x5
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  1521 0205 00       		.byte	0
  1522 0206 22       		.uleb128 0x22
  1523 0207 05       		.uleb128 0x5
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 42
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 42
 
 
  1524 0208 00       		.byte	0
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  1578 0000 16000000 		.4byte	.LVL3
  1579 0004 23000000 		.4byte	.LVL4-1
  1580 0008 0100     		.2byte	0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 43
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 43
 
 
  1581 000a 50       		.byte	0x50
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  1635 002c 10000000 		.4byte	.LFE3-.LFB3
  1636 0030 00000000 		.4byte	.LFB4
  1637 0034 0C000000 		.4byte	.LFE4-.LFB4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 44
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 44
 
 
  1638 0038 00000000 		.4byte	.LFB5
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  1692 0078 00000000 		.4byte	.LFB9
  1693 007c 10000000 		.4byte	.LFE9
  1694 0080 00000000 		.4byte	.LFB10
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 45
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 45
 
 
  1695 0084 0C000000 		.4byte	.LFE10
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  1724      73657273 
  1724      5C6D6772 
  1724      6F6E6265 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 46
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 46
 
 
  1724      725C4465 
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  1746              	.LASF18:
  1747 01ae 54494D45 		.ascii	"TIMER_UI_ReadStatusRegister\000"
  1747      525F5549 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 47
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 47
 
 
  1747      5F526561 
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  1767      756E7465 
  1768              	.LASF28:
  1769 027a 54494D45 		.ascii	"TIMER_UI_Start\000"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 48
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 48
 
 
  1769      525F5549 
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 1
  1791      68617200 
  1792              	.LASF30:
  1793 032a 54494D45 		.ascii	"TIMER_UI_SoftwareCapture\000"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cctTYOVi.s 			page 49
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMyFcxv.s 			page 49
 
 
  1793      525F5549 
