@@ -250,16 +250,6 @@ int main()
 
                 
                 int note = lastNote;                
-
-                CharLCD_PosPrintString(0,0,"      ");
-                CharLCD_PosPrintNumber(0,0,pitchHz);
-                //UpdateTuner(noteTable, NoteSnap(noteTable, pitchHz, curKey, curScale), pitchHz);
-
-//                CharLCD_PosPrintString(0,0,"      ");
-//                CharLCD_PosPrintNumber(0,0,pitchHz);
-                UpdateTuner(noteTable, NoteSnap(noteTable, pitchHz, curKey, curScale), pitchHz);
-
-                //int note = NoteSnap(noteTable, pitchHz, curKey, curScale);
                 
                 // UPDATES TUNER
                 if(timerFlag == 1) {

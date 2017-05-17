@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
   29:Generated_Source\PSoC5/USB_midi.c **** /***************************************
   30:Generated_Source\PSoC5/USB_midi.c **** *    MIDI Constants
   31:Generated_Source\PSoC5/USB_midi.c **** ***************************************/
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 2
 
 
   32:Generated_Source\PSoC5/USB_midi.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
   86:Generated_Source\PSoC5/USB_midi.c ****     #endif /* (USB_MIDI_EXT_MODE >= USB_TWO_EXT_INTRF) */
   87:Generated_Source\PSoC5/USB_midi.c **** #endif /* (USB_MIDI_EXT_MODE >= USB_ONE_EXT_INTRF) */
   88:Generated_Source\PSoC5/USB_midi.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 3
 
 
   89:Generated_Source\PSoC5/USB_midi.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  143:Generated_Source\PSoC5/USB_midi.c **** 
  144:Generated_Source\PSoC5/USB_midi.c ****     #if(USB_EP_MM == USB__EP_DMAAUTO)
  145:Generated_Source\PSoC5/USB_midi.c ****         #if (USB_MIDI_IN_BUFF_SIZE > 0)
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 4
 
 
  146:Generated_Source\PSoC5/USB_midi.c ****             /* Init DMA configurations for IN EP*/
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  200:Generated_Source\PSoC5/USB_midi.c ****     {
  201:Generated_Source\PSoC5/USB_midi.c ****         #if USB_MIDI_OUT_BUFF_SIZE >= 256
  202:Generated_Source\PSoC5/USB_midi.c ****             uint16 outLength;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 5
 
 
  203:Generated_Source\PSoC5/USB_midi.c ****             uint16 outPointer;
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  257:Generated_Source\PSoC5/USB_midi.c ****                             USB_MIDI_CABLE_00)
  258:Generated_Source\PSoC5/USB_midi.c ****                         {
  259:Generated_Source\PSoC5/USB_midi.c ****                             USB_MIDI1_ProcessUsbOut(&USB_midiOutBuffer[outPointer]);
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 6
 
 
  260:Generated_Source\PSoC5/USB_midi.c ****                         }
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  314:Generated_Source\PSoC5/USB_midi.c ****     *  USB_midiInBuffer: Function loads the data from this buffer to
  315:Generated_Source\PSoC5/USB_midi.c ****     *    the USB IN endpoint.
  316:Generated_Source\PSoC5/USB_midi.c ****     *   USB_midiInPointer: Cleared to zero when data are sent.
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 7
 
 
  317:Generated_Source\PSoC5/USB_midi.c ****     *
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  339:Generated_Source\PSoC5/USB_midi.c ****             #if(USB_EP_MM == USB__EP_MANUAL)
  340:Generated_Source\PSoC5/USB_midi.c ****                 USB_midiInPointer = 0u;
   59              		.loc 1 340 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 8
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 8
 
 
   60 0020 0023     		movs	r3, #0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  373:Generated_Source\PSoC5/USB_midi.c ****     *******************************************************************************/
  374:Generated_Source\PSoC5/USB_midi.c ****     void USB_MIDI_IN_Service(void) 
  375:Generated_Source\PSoC5/USB_midi.c ****     {
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 9
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 9
 
 
  376:Generated_Source\PSoC5/USB_midi.c ****         /* Service the MIDI UART inputs until either both receivers have no more
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  430:Generated_Source\PSoC5/USB_midi.c ****     *
  431:Generated_Source\PSoC5/USB_midi.c ****     * Parameters:
  432:Generated_Source\PSoC5/USB_midi.c ****     *  ic:   0 = No message (should never happen)
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 10
 
 
  433:Generated_Source\PSoC5/USB_midi.c ****     *        1 - 3 = Complete MIDI message in midiMsg
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  487:Generated_Source\PSoC5/USB_midi.c ****                 msgIndex = 0u;
  488:Generated_Source\PSoC5/USB_midi.c ****                 do
  489:Generated_Source\PSoC5/USB_midi.c ****                 {
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 11
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 11
 
 
  490:Generated_Source\PSoC5/USB_midi.c ****                     USB_PrepareInBuffer(USB_MIDI_SYSEX, &midiMsg[msgIndex],
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  544:Generated_Source\PSoC5/USB_midi.c ****     *                     (put eventLen bytes in buffer)
  545:Generated_Source\PSoC5/USB_midi.c ****     *        MIDI_EOSEX = End of SysEx message
  546:Generated_Source\PSoC5/USB_midi.c ****     *                     (put eventLen bytes in buffer,
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 12
 
 
  547:Generated_Source\PSoC5/USB_midi.c ****     *                      and append MIDI_EOSEX)
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  102              		.loc 1 578 0
  103 0008 1DD8     		bhi	.L25
  579:Generated_Source\PSoC5/USB_midi.c ****         {
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 13
 
 
  580:Generated_Source\PSoC5/USB_midi.c ****             USB_midiInBuffer[USB_midiInPointer] = USB_SINGLE_BYTE | cable;
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  110              		.loc 1 627 0 is_stmt 1
  111 0012 F728     		cmp	r0, #247
  112 0014 5BD0     		beq	.L27
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 14
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 14
 
 
  113              	.LVL5:
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  154              		.loc 1 580 0
  155 0046 6A4A     		ldr	r2, .L31+4
  156              	.LVL11:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 15
 
 
  157 0048 684C     		ldr	r4, .L31
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  197 007a 5FFA8CFC 		uxtb	ip, ip
  587:Generated_Source\PSoC5/USB_midi.c ****         }
  198              		.loc 1 587 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 16
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 16
 
 
  199 007e 0131     		adds	r1, r1, #1
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  239 00aa 8455     		strb	r4, [r0, r6]
  621:Generated_Source\PSoC5/USB_midi.c ****             USB_midiInBuffer[USB_midiInPointer] = srcBuffOne;
  240              		.loc 1 621 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 17
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 17
 
 
  241 00ac 0133     		adds	r3, r3, #1
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  282              		.loc 1 593 0
  283 00da 454A     		ldr	r2, .L31+4
  284              	.LVL27:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 18
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 18
 
 
  285 00dc 4348     		ldr	r0, .L31
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  323 0102 1178     		ldrb	r1, [r2]	@ zero_extendqisi2
  632:Generated_Source\PSoC5/USB_midi.c ****                                                                         USB_SYSEX_ENDS_WITH1 | cabl
  324              		.loc 1 632 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 19
 
 
  325 0104 43F00503 		orr	r3, r3, #5
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  609:Generated_Source\PSoC5/USB_midi.c ****             }
  367              		.loc 1 609 0
  368 013e 1678     		ldrb	r6, [r2]	@ zero_extendqisi2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 20
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 20
 
 
  608:Generated_Source\PSoC5/USB_midi.c ****                 USB_midiInPointer++;
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  652:Generated_Source\PSoC5/USB_midi.c ****                     break;
  653:Generated_Source\PSoC5/USB_midi.c ****                 case 2u:
  654:Generated_Source\PSoC5/USB_midi.c ****                     USB_midiInBuffer[USB_midiInPointer] =
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 21
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 21
 
 
  403              		.loc 1 654 0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  445              	.LVL49:
  446              		.loc 1 662 0
  447 0198 0133     		adds	r3, r3, #1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 22
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 22
 
 
  448 019a DBB2     		uxtb	r3, r3
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  489 01c8 0026     		movs	r6, #0
  649:Generated_Source\PSoC5/USB_midi.c ****                     USB_midiInBuffer[USB_midiInPointer] = 0u;
  490              		.loc 1 649 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 23
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 23
 
 
  491 01ca 0133     		adds	r3, r3, #1
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  535 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
  536              		.cfi_def_cfa_offset 36
  537              		.cfi_offset 4, -36
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 24
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 24
 
 
  538              		.cfi_offset 5, -32
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  581 0034 03EB4303 		add	r3, r3, r3, lsl #1
  582 0038 06EB8303 		add	r3, r6, r3, lsl #2
  583 003c 1B89     		ldrh	r3, [r3, #8]
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 25
 
 
  584 003e 9BB2     		uxth	r3, r3
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  627              	.LVL64:
  495:Generated_Source\PSoC5/USB_midi.c ****                     {
  628              		.loc 1 495 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 26
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 26
 
 
  629 007e 9BB2     		uxth	r3, r3
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  673              		.loc 1 511 0
  674 00bc 2246     		mov	r2, r4
  675 00be 0199     		ldr	r1, [sp, #4]
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 27
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 27
 
 
  676 00c0 4346     		mov	r3, r8
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  674:Generated_Source\PSoC5/USB_midi.c **** 
  675:Generated_Source\PSoC5/USB_midi.c **** 
  676:Generated_Source\PSoC5/USB_midi.c **** /* The implementation for external serial input and output connections
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 28
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 28
 
 
  677:Generated_Source\PSoC5/USB_midi.c **** *  to route USB MIDI data to and from those connections.
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  734 0008 2C72     		strb	r4, [r5, #8]
  706:Generated_Source\PSoC5/USB_midi.c ****         USB_MIDI1_Event.length = 0u;
  735              		.loc 1 706 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 29
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 29
 
 
  736 000a 2C70     		strb	r4, [r5]
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  722:Generated_Source\PSoC5/USB_midi.c ****             USB_MIDI2_TxRunStat = 0u;
  770              		.loc 1 722 0
  771 0034 EC73     		strb	r4, [r5, #15]
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 30
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 30
 
 
  725:Generated_Source\PSoC5/USB_midi.c ****             /* Start second UART block */
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  812              		@ frame_needed = 0, uses_anonymous_args = 0
  813 0000 08B5     		push	{r3, lr}
  814              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 31
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 31
 
 
  815              		.cfi_offset 3, -8
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  748:Generated_Source\PSoC5/USB_midi.c ****     *   *rxStat = pointer to a MIDI_RX_STATUS structure
  749:Generated_Source\PSoC5/USB_midi.c ****     *
  750:Generated_Source\PSoC5/USB_midi.c ****     * Return:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 32
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 32
 
 
  751:Generated_Source\PSoC5/USB_midi.c ****     *   0, if no complete message
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  789:Generated_Source\PSoC5/USB_midi.c ****                             break;
  790:Generated_Source\PSoC5/USB_midi.c ****                         case USB_MIDI_SPP:
  791:Generated_Source\PSoC5/USB_midi.c ****                             rxStat->msgBuff[0u] = USB_MIDI_SPP;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 33
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 33
 
 
  792:Generated_Source\PSoC5/USB_midi.c ****                             rxStat->runstat = 0u;
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  846:Generated_Source\PSoC5/USB_midi.c ****         /* Otherwise, it's a data byte */
  847:Generated_Source\PSoC5/USB_midi.c ****         else
  848:Generated_Source\PSoC5/USB_midi.c ****         {
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 34
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 34
 
 
  849:Generated_Source\PSoC5/USB_midi.c ****             if (rxStat->runstat == USB_MIDI_SYSEX)
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  868:Generated_Source\PSoC5/USB_midi.c ****                     midiReturn = rxStat->size;
  869:Generated_Source\PSoC5/USB_midi.c ****                 }
  870:Generated_Source\PSoC5/USB_midi.c ****             }
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 35
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 35
 
 
  871:Generated_Source\PSoC5/USB_midi.c ****             else if (rxStat->runstat != 0u)
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  873:Generated_Source\PSoC5/USB_midi.c ****                 rxStat->msgBuff[1u] = mData;
  916              		.loc 1 873 0
  917 0032 0B71     		strb	r3, [r1, #4]
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 36
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 36
 
 
  874:Generated_Source\PSoC5/USB_midi.c ****                 rxStat->count = 2u;
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  960 006a 3BD0     		beq	.L80
  961 006c C02B     		cmp	r3, #192
  962 006e 31D0     		beq	.L74
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 37
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 37
 
 
  963              	.L71:
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  1002 0092 30BC     		pop	{r4, r5}
  1003              		.cfi_remember_state
  1004              		.cfi_restore 4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 38
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 38
 
 
  1005              		.cfi_restore 5
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  836:Generated_Source\PSoC5/USB_midi.c ****                         break;
  1053              		.loc 1 836 0
  1054 00d4 0223     		movs	r3, #2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 39
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 39
 
 
  1055 00d6 0B70     		strb	r3, [r1]
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  786:Generated_Source\PSoC5/USB_midi.c ****                             rxStat->count = 0u;
  1101              		.loc 1 786 0
  1102 0102 4A78     		ldrb	r2, [r1, #1]	@ zero_extendqisi2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 40
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 40
 
 
  785:Generated_Source\PSoC5/USB_midi.c ****                             rxStat->size = rxStat->count;
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  805:Generated_Source\PSoC5/USB_midi.c ****                             rxStat->length = 2u;
  1142              		.loc 1 805 0
  1143 0122 0122     		movs	r2, #1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 41
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 41
 
 
  806:Generated_Source\PSoC5/USB_midi.c ****                             break;
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  1182              	.L64:
  779:Generated_Source\PSoC5/USB_midi.c ****                             rxStat->runstat = USB_MIDI_SYSEX;
  1183              		.loc 1 779 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 42
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 42
 
 
  1184 0146 F023     		movs	r3, #240
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  919:Generated_Source\PSoC5/USB_midi.c ****     *   MIDI_EOSEX, if end of system exclusive
  920:Generated_Source\PSoC5/USB_midi.c ****     *   0xf8 - 0xff, if single byte real time message
  921:Generated_Source\PSoC5/USB_midi.c ****     *
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 43
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 43
 
 
  922:Generated_Source\PSoC5/USB_midi.c ****     * Global variables:
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  1242 0016 9142     		cmp	r1, r2
  1243 0018 28D0     		beq	.L152
  1244              	.L139:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 44
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 44
 
 
  945:Generated_Source\PSoC5/USB_midi.c ****         {
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  1259              		.loc 1 969 0
  1260 0028 154F     		ldr	r7, .L154+8
  971:Generated_Source\PSoC5/USB_midi.c ****                     if(rxBufferRead >= MIDI1_UART_RXBUFFERSIZE)
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 45
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 45
 
 
  1261              		.loc 1 971 0
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  995:Generated_Source\PSoC5/USB_midi.c ****                     rxBufferLoopDetect = MIDI1_UART_rxBufferLoopDetect;
  1293              		.loc 1 995 0
  1294 0050 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 46
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 46
 
 
  966:Generated_Source\PSoC5/USB_midi.c ****             #endif /*  ((MIDI1_UART_RXBUFFERSIZE >= 256u) && (CY_PSOC3)) */
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  1325 0072 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
  1326              	.LVL124:
  1327              	.L155:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 47
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 47
 
 
  1328 0076 00BF     		.align	2
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
 1043:Generated_Source\PSoC5/USB_midi.c ****         uint8 i;
 1044:Generated_Source\PSoC5/USB_midi.c **** 
 1045:Generated_Source\PSoC5/USB_midi.c ****         /* User code is required at the beginning of the procedure */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 48
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 48
 
 
 1046:Generated_Source\PSoC5/USB_midi.c ****         /* `#START MIDI1_PROCESS_OUT_BEGIN` */
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
 1071:Generated_Source\PSoC5/USB_midi.c ****             }
 1072:Generated_Source\PSoC5/USB_midi.c ****             else if(cmd == USB_SYSEX_ENDS_WITH2)
  1378              		.loc 1 1072 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 49
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 49
 
 
  1379 001a 062B     		cmp	r3, #6
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
 1108:Generated_Source\PSoC5/USB_midi.c ****                 USB_MIDI1_TxRunStat = 0u;
  1398              		.loc 1 1108 0
  1399 0032 1A72     		strb	r2, [r3, #8]
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 50
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 50
 
 
 1054:Generated_Source\PSoC5/USB_midi.c ****             /* Universal System Exclusive message parsing */
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  1440 005a F02B     		cmp	r3, #240
  1441 005c F4D1     		bne	.L176
 1058:Generated_Source\PSoC5/USB_midi.c ****                    (epBuf[USB_EVENT_BYTE2] == USB_MIDI_SYSEX_NON_REAL_TIME))
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 51
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 51
 
 
  1442              		.loc 1 1058 0 is_stmt 0 discriminator 1
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  1488              	.LVL144:
 1082:Generated_Source\PSoC5/USB_midi.c ****                     (epBuf[USB_EVENT_BYTE2] == USB_MIDI_SYSEX_IDENTITY_REQ))
  1489              		.loc 1 1082 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 52
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 52
 
 
  1490 0088 E2D1     		bne	.L165
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
 1141:Generated_Source\PSoC5/USB_midi.c ****     *   1 - 4, if message complete
 1142:Generated_Source\PSoC5/USB_midi.c ****     *   MIDI_SYSEX, if start or continuation of system exclusive
 1143:Generated_Source\PSoC5/USB_midi.c ****     *   MIDI_EOSEX, if end of system exclusive
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 53
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 53
 
 
 1144:Generated_Source\PSoC5/USB_midi.c ****     *   0xf8 - 0xff, if single byte real time message
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  1544              	.LVL146:
  1545              		.loc 1 1168 0
  1546 0016 9142     		cmp	r1, r2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 54
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 54
 
 
  1547 0018 28D0     		beq	.L198
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
 1193:Generated_Source\PSoC5/USB_midi.c ****                     rxBufferRead++;
  1563              		.loc 1 1193 0
  1564 0028 154F     		ldr	r7, .L200+8
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 55
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 55
 
 
 1194:Generated_Source\PSoC5/USB_midi.c ****                     if(rxBufferRead >= MIDI2_UART_RXBUFFERSIZE)
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
 1217:Generated_Source\PSoC5/USB_midi.c ****                     /* Read buffer loop condition to the local variable */
 1218:Generated_Source\PSoC5/USB_midi.c ****                     rxBufferLoopDetect = MIDI2_UART_rxBufferLoopDetect;
  1597              		.loc 1 1218 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 56
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 56
 
 
  1598 0050 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  1628              		.loc 1 1234 0
  1629 0072 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
  1630              	.LVL156:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 57
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 57
 
 
  1631              	.L201:
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  1679 0010 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
  1680 0012 1C2B     		cmp	r3, #28
  1681 0014 0AD9     		bls	.L216
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 58
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 58
 
 
  1682              	.LVL160:
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  1727              	.L215:
  388:Generated_Source\PSoC5/USB_midi.c ****                     if (m1 != 0u)
  1728              		.loc 1 388 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 59
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 59
 
 
  1729 0042 FFF7FEFF 		bl	USB_MIDI1_GetEvent
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
 1256:Generated_Source\PSoC5/USB_midi.c ****     *  USB_INQ_SYSEX_FLAG: Non-Real Time SySEx message received.
 1257:Generated_Source\PSoC5/USB_midi.c ****     *  USB_INQ_IDENTITY_REQ_FLAG: Identity Request received.
 1258:Generated_Source\PSoC5/USB_midi.c ****     *    This bit should be cleared by user when Identity Reply message generated.
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 60
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 60
 
 
 1259:Generated_Source\PSoC5/USB_midi.c ****     *
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
 1282:Generated_Source\PSoC5/USB_midi.c ****                    (epBuf[USB_EVENT_BYTE2] == USB_MIDI_SYSEX_NON_REAL_TIME))
 1283:Generated_Source\PSoC5/USB_midi.c ****                 {   /* SySEx starts */
 1284:Generated_Source\PSoC5/USB_midi.c ****                     USB_MIDI2_InqFlags |= USB_INQ_SYSEX_FLAG;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 61
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 61
 
 
 1285:Generated_Source\PSoC5/USB_midi.c ****                 }
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  1807 002c 197D     		ldrb	r1, [r3, #20]	@ zero_extendqisi2
  1808 002e 8A42     		cmp	r2, r1
  1809 0030 1ED0     		beq	.L244
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 62
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 62
 
 
  1810              	.LVL173:
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  1842              		.loc 1 1331 0
  1843 0050 134B     		ldr	r3, .L245+4
  1844 0052 0022     		movs	r2, #0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 63
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 63
 
 
  1845 0054 EDE7     		b	.L241
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
 1304:Generated_Source\PSoC5/USB_midi.c ****                     if((epBuf[USB_EVENT_BYTE1] == USB_MIDI_SYSEX_GEN_INFORMATION) &&
  1892              		.loc 1 1304 0
  1893 007c 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 64
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 64
 
 
 1305:Generated_Source\PSoC5/USB_midi.c ****                        (epBuf[USB_EVENT_BYTE2] == USB_MIDI_SYSEX_IDENTITY_REQ))
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  1940              		.cfi_offset 5, -16
  1941              		.cfi_offset 6, -12
  1942              		.cfi_offset 7, -8
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 65
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 65
 
 
  1943              		.cfi_offset 14, -4
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  1988 0038 2944     		add	r1, r1, r5
  280:Generated_Source\PSoC5/USB_midi.c ****                 }
  1989              		.loc 1 280 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 66
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 66
 
 
  1990 003a E4B2     		uxtb	r4, r4
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  2038              		.set	.LANCHOR1,. + 0
  2039              		.type	USB_MIDI_SIZE, %object
  2040              		.size	USB_MIDI_SIZE, 16
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 67
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 67
 
 
  2041              	USB_MIDI_SIZE:
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  2093 000b 01       		.uleb128 0x1
  2094 000c E6020000 		.4byte	.LASF96
  2095 0010 01       		.byte	0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 68
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 68
 
 
  2096 0011 DD040000 		.4byte	.LASF97
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  2150 007d 3A000000 		.4byte	0x3a
  2151 0081 02       		.uleb128 0x2
  2152 0082 04       		.byte	0x4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 69
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 69
 
 
  2153 0083 04       		.byte	0x4
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  2207 00ec 84       		.byte	0x84
  2208 00ed 6B000000 		.4byte	0x6b
  2209 00f1 05       		.byte	0x5
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 70
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 70
 
 
  2210 00f2 07       		.uleb128 0x7
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  2264 015b 0B060000 		.4byte	.LASF29
  2265 015f 04       		.byte	0x4
  2266 0160 27       		.byte	0x27
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 71
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 71
 
 
  2267 0161 67010000 		.4byte	0x167
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  2321 01d8 6B000000 		.4byte	0x6b
  2322 01dc 00000000 		.4byte	.LLST0
  2323 01e0 11       		.uleb128 0x11
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 72
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 72
 
 
  2324 01e1 E9010000 		.4byte	.LASF31
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  2378 026b CB01     		.2byte	0x1cb
  2379 026d 31020000 		.4byte	0x231
  2380 0271 59040000 		.4byte	.LLST7
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 73
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 73
 
 
  2381 0275 11       		.uleb128 0x11
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  2435 02e1 0C       		.uleb128 0xc
  2436 02e2 B0000000 		.4byte	.LVL68
  2437 02e6 BC080000 		.4byte	0x8bc
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 74
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 74
 
 
  2438 02ea 0C       		.uleb128 0xc
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  2492 033b 03       		.uleb128 0x3
  2493 033c 91       		.byte	0x91
  2494 033d 54       		.sleb128 -44
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 75
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 75
 
 
  2495 033e 06       		.byte	0x6
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  2549 039f 17       		.uleb128 0x17
  2550 03a0 42000000 		.4byte	.LVL80
  2551 03a4 D1080000 		.4byte	0x8d1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 76
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 76
 
 
  2552 03a8 B7030000 		.4byte	0x3b7
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  2606 040f EC050000 		.4byte	.LASF43
  2607 0413 01       		.byte	0x1
  2608 0414 F602     		.2byte	0x2f6
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 77
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 77
 
 
  2609 0416 6B000000 		.4byte	0x6b
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  2663 049e 50000000 		.4byte	.LVL120
  2664 04a2 F4030000 		.4byte	0x3f4
  2665 04a6 00       		.byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 78
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 78
 
 
  2666 04a7 0F       		.uleb128 0xf
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  2720 0530 81050000 		.4byte	.LASF48
  2721 0534 01       		.byte	0x1
  2722 0535 8204     		.2byte	0x482
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 79
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 79
 
 
  2723 0537 6B000000 		.4byte	0x6b
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  2777 05c1 0E       		.uleb128 0xe
  2778 05c2 01       		.uleb128 0x1
  2779 05c3 51       		.byte	0x51
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 80
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 80
 
 
  2780 05c4 05       		.uleb128 0x5
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  2834 0627 6B000000 		.4byte	0x6b
  2835 062b 84090000 		.4byte	.LLST27
  2836 062f 1C       		.uleb128 0x1c
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 81
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 81
 
 
  2837 0630 6C656E00 		.ascii	"len\000"
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  2891 06b7 51       		.byte	0x51
  2892 06b8 05       		.uleb128 0x5
  2893 06b9 03       		.byte	0x3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 82
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 82
 
 
  2894 06ba 00000000 		.4byte	USB_midiOutBuffer
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  2948 0720 77010000 		.4byte	0x177
  2949 0724 05       		.uleb128 0x5
  2950 0725 03       		.byte	0x3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 83
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 83
 
 
  2951 0726 00000000 		.4byte	USB_MIDI1_Event
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  3005 07a2 20       		.uleb128 0x20
  3006 07a3 2B050000 		.4byte	.LASF69
  3007 07a7 06       		.byte	0x6
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 84
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 84
 
 
  3008 07a8 5201     		.2byte	0x152
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  3062 0821 96000000 		.4byte	0x96
  3063 0825 05       		.uleb128 0x5
  3064 0826 03       		.byte	0x3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 85
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 85
 
 
  3065 0827 00000000 		.4byte	USB_midi_out_ep
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  3119 089f 6B000000 		.4byte	0x6b
  3120 08a3 24       		.uleb128 0x24
  3121 08a4 31020000 		.4byte	0x231
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 86
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 86
 
 
  3122 08a8 24       		.uleb128 0x24
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  3176 0911 D3020000 		.4byte	.LASF92
  3177 0915 06       		.byte	0x6
  3178 0916 9F       		.byte	0x9f
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 87
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 87
 
 
  3179 0917 21090000 		.4byte	0x921
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  3233 000d 11       		.uleb128 0x11
  3234 000e 01       		.uleb128 0x1
  3235 000f 10       		.uleb128 0x10
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 88
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 88
 
 
  3236 0010 17       		.uleb128 0x17
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  3290 0046 01       		.uleb128 0x1
  3291 0047 13       		.uleb128 0x13
  3292 0048 00       		.byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 89
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 89
 
 
  3293 0049 00       		.byte	0
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  3347 007f 31       		.uleb128 0x31
  3348 0080 13       		.uleb128 0x13
  3349 0081 11       		.uleb128 0x11
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 90
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 90
 
 
  3350 0082 01       		.uleb128 0x1
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  3404 00c0 06       		.uleb128 0x6
  3405 00c1 40       		.uleb128 0x40
  3406 00c2 18       		.uleb128 0x18
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 91
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 91
 
 
  3407 00c3 9742     		.uleb128 0x2117
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  3461 00fa 0B       		.uleb128 0xb
  3462 00fb 0B       		.uleb128 0xb
  3463 00fc 49       		.uleb128 0x49
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 92
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 92
 
 
  3464 00fd 13       		.uleb128 0x13
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  3518 0136 01       		.uleb128 0x1
  3519 0137 31       		.uleb128 0x31
  3520 0138 13       		.uleb128 0x13
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 93
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 93
 
 
  3521 0139 01       		.uleb128 0x1
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  3575 0176 03       		.uleb128 0x3
  3576 0177 0E       		.uleb128 0xe
  3577 0178 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 94
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 94
 
 
  3578 0179 0B       		.uleb128 0xb
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  3632 01af 1F       		.uleb128 0x1f
  3633 01b0 34       		.uleb128 0x34
  3634 01b1 00       		.byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 95
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 95
 
 
  3635 01b2 03       		.uleb128 0x3
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  3689 01e8 0B       		.uleb128 0xb
  3690 01e9 49       		.uleb128 0x49
  3691 01ea 13       		.uleb128 0x13
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 96
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 96
 
 
  3692 01eb 3F       		.uleb128 0x3f
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  3746 0221 2E       		.uleb128 0x2e
  3747 0222 00       		.byte	0
  3748 0223 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 97
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 97
 
 
  3749 0224 19       		.uleb128 0x19
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  3803 0030 50       		.byte	0x50
  3804 0031 9F       		.byte	0x9f
  3805 0032 CE000000 		.4byte	.LVL25
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 98
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 98
 
 
  3806 0036 DE000000 		.4byte	.LVL28
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  3860 00b4 4E000000 		.4byte	.LVL13
  3861 00b8 92000000 		.4byte	.LVL18
  3862 00bc 0400     		.2byte	0x4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 99
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 99
 
 
  3863 00be F3       		.byte	0xf3
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  3917 0138 52       		.byte	0x52
  3918 0139 16000000 		.4byte	.LVL5
  3919 013d 18000000 		.4byte	.LVL6
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 100
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 100
 
 
  3920 0141 0400     		.2byte	0x4
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  3974 01ba 4E010000 		.4byte	.LVL40
  3975 01be 0400     		.2byte	0x4
  3976 01c0 F3       		.byte	0xf3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 101
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 101
 
 
  3977 01c1 01       		.uleb128 0x1
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  4031 023b 3C000000 		.4byte	.LVL9
  4032 023f 46000000 		.4byte	.LVL10
  4033 0243 0400     		.2byte	0x4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 102
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 102
 
 
  4034 0245 F3       		.byte	0xf3
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  4088 02c0 0400     		.2byte	0x4
  4089 02c2 F3       		.byte	0xf3
  4090 02c3 01       		.uleb128 0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 103
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 103
 
 
  4091 02c4 53       		.byte	0x53
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  4145 0345 F3       		.byte	0xf3
  4146 0346 01       		.uleb128 0x1
  4147 0347 51       		.byte	0x51
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 104
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 104
 
 
  4148 0348 92000000 		.4byte	.LVL18
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  4202 03c9 01       		.uleb128 0x1
  4203 03ca 51       		.byte	0x51
  4204 03cb 23       		.byte	0x23
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 105
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 105
 
 
  4205 03cc 01       		.uleb128 0x1
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  4259 044d F3       		.byte	0xf3
  4260 044e 01       		.uleb128 0x1
  4261 044f 50       		.byte	0x50
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 106
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 106
 
 
  4262 0450 9F       		.byte	0x9f
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  4316 04d9 74       		.byte	0x74
  4317 04da 04       		.sleb128 4
  4318 04db 20000000 		.4byte	.LVL86
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 107
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 107
 
 
  4319 04df 26000000 		.4byte	.LVL88
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  4373 055f 04       		.sleb128 4
  4374 0560 DC000000 		.4byte	.LVL100
  4375 0564 EA000000 		.4byte	.LVL101
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 108
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 108
 
 
  4376 0568 0100     		.2byte	0x1
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  4430 05e1 00000000 		.4byte	0
  4431              	.LLST11:
  4432 05e5 00000000 		.4byte	.LVL84
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 109
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 109
 
 
  4433 05e9 22000000 		.4byte	.LVL87
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  4487 0670 31       		.byte	0x31
  4488 0671 9F       		.byte	0x9f
  4489 0672 1E010000 		.4byte	.LVL107
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 110
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 110
 
 
  4490 0676 58010000 		.4byte	.LFE7
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  4544 0703 56000000 		.4byte	.LVL121
  4545 0707 76000000 		.4byte	.LVL124
  4546 070b 0100     		.2byte	0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 111
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 111
 
 
  4547 070d 53       		.byte	0x53
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  4601 078c 3F       		.byte	0x3f
  4602 078d 1A       		.byte	0x1a
  4603 078e 9F       		.byte	0x9f
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 112
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 112
 
 
  4604 078f 56000000 		.4byte	.LVL137
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  4658 0805 00000000 		.4byte	0
  4659              	.LLST19:
  4660 0809 14000000 		.4byte	.LVL127
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 113
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 113
 
 
  4661 080d 36000000 		.4byte	.LVL131
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  4715 0897 00000000 		.4byte	0
  4716 089b 00000000 		.4byte	0
  4717              	.LLST22:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 114
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 114
 
 
  4718 089f 22000000 		.4byte	.LVL147
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  4772 0931 56       		.byte	0x56
  4773 0932 2C000000 		.4byte	.LVL162
  4774 0936 30000000 		.4byte	.LVL163
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 115
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 115
 
 
  4775 093a 0100     		.2byte	0x1
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  4829 09c0 0700     		.2byte	0x7
  4830 09c2 70       		.byte	0x70
  4831 09c3 00       		.sleb128 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 116
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 116
 
 
  4832 09c4 94       		.byte	0x94
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  4886 0a30 70000000 		.4byte	.LVL184
  4887 0a34 A8000000 		.4byte	.LFE11
  4888 0a38 0100     		.2byte	0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 117
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 117
 
 
  4889 0a3a 56       		.byte	0x56
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  4943 0ac8 00000000 		.4byte	0
  4944              		.section	.debug_aranges,"",%progbits
  4945 0000 74000000 		.4byte	0x74
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 118
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 118
 
 
  4946 0004 0200     		.2byte	0x2
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  5000 0050 00000000 		.4byte	.LFB11
  5001 0054 A8000000 		.4byte	.LFE11
  5002 0058 00000000 		.4byte	.LFB1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 119
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 119
 
 
  5003 005c 74000000 		.4byte	.LFE1
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  5027              	.LASF85:
  5028 0094 4D494449 		.ascii	"MIDI2_UART_EnableRxInt\000"
  5028      325F5541 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 120
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 120
 
 
  5028      52545F45 
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  5049      3800
  5050              	.LASF18:
  5051 0172 6570546F 		.ascii	"epToggle\000"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 121
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 121
 
 
  5051      67676C65 
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  5075      6420696E 
  5075      7400
  5076              	.LASF27:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 122
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 122
 
 
  5077 021c 73697A65 		.ascii	"size\000"
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  5097 02bb 5553425F 		.ascii	"USB_MIDI1_ProcessUsbOut\000"
  5097      4D494449 
  5097      315F5072 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 123
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 123
 
 
  5097      6F636573 
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  5118              	.LASF70:
  5119 03c9 4D494449 		.ascii	"MIDI2_UART_rxBufferRead\000"
  5119      325F5541 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 124
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 124
 
 
  5119      52545F72 
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  5141      70537461 
  5141      746500
  5142              	.LASF81:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 125
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 125
 
 
  5143 048a 5553425F 		.ascii	"USB_MIDI_IN_EP_Service\000"
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  5163      6500
  5164              	.LASF95:
  5165 0545 5553425F 		.ascii	"USB_ReadOutEP\000"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 126
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 126
 
 
  5165      52656164 
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  5189      5F657000 
  5190              	.LASF43:
  5191 05ec 6D446174 		.ascii	"mData\000"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 127
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 127
 
 
  5191      6100
@@ -7618,6 +7618,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 1
  5213      6E427566 
  5213      66657200 
  5214              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccMM0fqk.s 			page 128
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccnShIf2.s 			page 128
 
 
