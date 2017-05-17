@@ -326,9 +326,6 @@ int NoteSnap(double freqTable[MIDI_LEN], float freq, enum MusicKey key, enum Mus
     }
 
 
-    else if(scale==CHROMATIC){
-        return midi_note_from_freq(freq);
-    }
     // Blues scale
     else if(scale==BLUES) {
             while(freq > freqTable[i] && i<127) {        //C

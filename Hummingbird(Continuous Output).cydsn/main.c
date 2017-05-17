@@ -15,7 +15,6 @@
 #define VELO_VAL 100
 #define NOTE_HISTORY_LEN 5
 int start = 1;
-int timerFlag = 0;
 
 #define UI_THRES 10
 
@@ -58,7 +57,6 @@ int lastNote = -1;                  // Last sent MIDI note. -1 means no MIDI sig
 int i=0;
 int numFrames = 0;                  // TEST VARIABLE counts number of frames that have been good
 float pitchHz;
-float pitchPrev=0;
 uint16 tempHyst;
 double noteTable[MIDI_LEN]; //(index=midi note, value=frequency)
 uint8 frame1InUse=0;
@@ -247,6 +245,7 @@ int main()
                 
                 // Unlocks the frame
                 frameLocked[sampleFrame] = false;
+<<<<<<< HEAD
 
                 
                 int note = lastNote;                
@@ -260,6 +259,13 @@ int main()
                 UpdateTuner(noteTable, NoteSnap(noteTable, pitchHz, curKey, curScale), pitchHz);
 
                 //int note = NoteSnap(noteTable, pitchHz, curKey, curScale);
+=======
+//                CharLCD_PosPrintString(0,0,"      ");
+//                CharLCD_PosPrintNumber(0,0,pitchHz);
+                UpdateTuner(noteTable, NoteSnap(noteTable, pitchHz, curKey, curScale), pitchHz);
+                //int note = NoteSnap(noteTable, pitchHz, curKey, curScale);
+                int note = lastNote;
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
                 
                 // UPDATES TUNER
                 if(timerFlag == 1) {
@@ -269,45 +275,56 @@ int main()
                 if(pitchHz < 1000 && pitchHz > 60){  //eliminate extreme, unintentional freqs
                     if (midi_note_changed(pitchHz, lastNote, noteTable, (float)tempHyst/100)) {
                         note = NoteSnap(noteTable, pitchHz, curKey, curScale);
-                    }               
-                    
-                    // If the new note is not the same as the last and does not = -1, the error value from note snap
-                    if (note != lastNote && note != -1) {
-                        // If not the initial condition, send a note off signal when new note is detected
-                        if (lastNote != -1) {
-                            midiMsg[0] = USB_MIDI_NOTE_OFF;
-                            midiMsg[1] = lastNote;
-                            midiMsg[2] = 0u;        
-                            
-                            UART_MIDITX_PutChar(midiMsg[0]);
-                            UART_MIDITX_PutChar(midiMsg[1]);
-                            UART_MIDITX_PutChar(midiMsg[2]);
-                            //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);
+                        //note = midi_note_from_freq(pitchHz);
+                        CharLCD_PosPrintNumber(3,3,numFrames);
+                        if(numFrames<255)
+                        {
+                            numFrames++;
                         }
-                        
-                        midiMsg[0] = USB_MIDI_NOTE_ON;
-                        midiMsg[1] = note;
-                        midiMsg[2] = lastVelo;
+                        else
+                        {
+                            numFrames=0;
+                        }
+                    }
+                }
+                
+                int changed = note != lastNote && note != -1;
+                
+                // If the new note is not the same as the last and does not = -1, the error value from note snap
+                if (note != lastNote && note != -1) {
+                    // If not the initial condition, send a note off signal when new note is detected
+                    if (lastNote != -1) {
+                        midiMsg[0] = USB_MIDI_NOTE_OFF;
+                        midiMsg[1] = lastNote;
+                        midiMsg[2] = 0u;        
                         
                         UART_MIDITX_PutChar(midiMsg[0]);
                         UART_MIDITX_PutChar(midiMsg[1]);
                         UART_MIDITX_PutChar(midiMsg[2]);
-                        //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);                                       
-                        
-                        lastNote = note;  
+                        //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);
                     }
-             
-                    // Updates display if a new frequency was output
-                    if(pitchHz!=pitchPrev)
-                    {
-                        CharLCD_PosPrintString(0,0,"   ");
-                        CharLCD_PosPrintNumber(0,0,pitchHz);
-                        CharLCD_PrintString("Hz");
-                        // Updates the Tuner
-                        UpdateTuner(noteTable, note, pitchHz);
-                        pitchPrev=pitchHz;
-                    }
+                    
+                    midiMsg[0] = USB_MIDI_NOTE_ON;
+                    midiMsg[1] = note;
+                    midiMsg[2] = lastVelo;
+                    
+                    UART_MIDITX_PutChar(midiMsg[0]);
+                    UART_MIDITX_PutChar(midiMsg[1]);
+                    UART_MIDITX_PutChar(midiMsg[2]);
+                    //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);                                       
+                    
+                    lastNote = note;  
                 }
+         
+                // Updates display for debugging
+                CharLCD_PosPrintString(0,0,"   ");
+                CharLCD_PosPrintNumber(0,0,pitchHz);
+                CharLCD_PrintString("Hz");
+                //if (changed) {
+                    //CharLCD_PosPrintString(1,0,"   ");
+                    //CharLCD_PosPrintString(1,0,midi_note_basename(midiMsg[1]));
+                    //CharLCD_PosPrintNumber(1,2,midiMsg[1]);   //print number of midi note
+                //}
             } 
             // If the frameReady was low, meaning no note is being hummed, send MIDI note off
             if(!frameReady[sampleFrame])

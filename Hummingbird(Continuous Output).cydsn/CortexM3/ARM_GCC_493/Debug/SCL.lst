@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 1
+=======
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8rtY6s.s 			page 1
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 
    1              		.syntax unified
@@ -58,7 +62,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 1
   29:Generated_Source\PSoC5/SCL.c **** * \brief Writes the value to the physical port (data output register), masking
   30:Generated_Source\PSoC5/SCL.c **** *  and shifting the bits appropriately. 
   31:Generated_Source\PSoC5/SCL.c **** *
+<<<<<<< HEAD
 ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 2
+=======
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8rtY6s.s 			page 2
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 
   32:Generated_Source\PSoC5/SCL.c **** * The data output register controls the signal applied to the physical pin in 
@@ -118,7 +126,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 1
   51              		.cfi_endproc
   52              	.LFE0:
   53              		.size	SCL_Write, .-SCL_Write
+<<<<<<< HEAD
 ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 3
+=======
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8rtY6s.s 			page 3
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 
   54              		.section	.text.SCL_SetDriveMode,"ax",%progbits
@@ -178,7 +190,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 1
   76 0010 7047     		bx	lr
   77              	.L6:
   78 0012 00BF     		.align	2
+<<<<<<< HEAD
 ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 4
+=======
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8rtY6s.s 			page 4
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 
   79              	.L5:
@@ -238,7 +254,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 1
  109              		.size	SCL_Read, .-SCL_Read
  110              		.section	.text.SCL_ReadDataReg,"ax",%progbits
  111              		.align	2
+<<<<<<< HEAD
 ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 5
+=======
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8rtY6s.s 			page 5
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 
  112              		.global	SCL_ReadDataReg
@@ -298,7 +318,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 1
  138              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
  139              		.section	.debug_info,"",%progbits
  140              	.Ldebug_info0:
+<<<<<<< HEAD
 ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 6
+=======
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8rtY6s.s 			page 6
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 
  141 0000 1B010000 		.4byte	0x11b
@@ -358,7 +382,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 1
  195 0070 02       		.byte	0x2
  196 0071 5B       		.byte	0x5b
  197 0072 2C000000 		.4byte	0x2c
+<<<<<<< HEAD
 ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 7
+=======
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8rtY6s.s 			page 7
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 
  198 0076 02       		.uleb128 0x2
@@ -418,7 +446,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 1
  252 00eb 6B000000 		.4byte	0x6b
  253 00ef 39000000 		.4byte	.LLST2
  254 00f3 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 8
+=======
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8rtY6s.s 			page 8
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 
  255 00f4 09       		.uleb128 0x9
@@ -478,7 +510,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 1
  309 0021 0B       		.uleb128 0xb
  310 0022 0B       		.uleb128 0xb
  311 0023 3E       		.uleb128 0x3e
+<<<<<<< HEAD
 ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 9
+=======
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8rtY6s.s 			page 9
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 
  312 0024 0B       		.uleb128 0xb
@@ -538,7 +574,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 1
  366 005b 0E       		.uleb128 0xe
  367 005c 3A       		.uleb128 0x3a
  368 005d 0B       		.uleb128 0xb
+<<<<<<< HEAD
 ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 10
+=======
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8rtY6s.s 			page 10
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 
  369 005e 3B       		.uleb128 0x3b
@@ -598,7 +638,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 1
  423 0008 0100     		.2byte	0x1
  424 000a 50       		.byte	0x50
  425 000b 06000000 		.4byte	.LVL1
+<<<<<<< HEAD
 ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 11
+=======
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8rtY6s.s 			page 11
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 
  426 000f 18000000 		.4byte	.LFE0
@@ -658,7 +702,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 1
  480 0000 00000000 		.4byte	.LFB0
  481 0004 18000000 		.4byte	.LFE0
  482 0008 00000000 		.4byte	.LFB1
+<<<<<<< HEAD
 ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 12
+=======
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8rtY6s.s 			page 12
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 
  483 000c 18000000 		.4byte	.LFE1
@@ -718,7 +766,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 1
  506              	.LASF9:
  507 0107 666C6F61 		.ascii	"float\000"
  507      7400
+<<<<<<< HEAD
 ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 13
+=======
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8rtY6s.s 			page 13
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 
  508              	.LASF1:
@@ -778,7 +830,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 1
  532              	.LASF2:
  533 01a1 73686F72 		.ascii	"short int\000"
  533      7420696E 
+<<<<<<< HEAD
 ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIOhCky.s 			page 14
+=======
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc8rtY6s.s 			page 14
+>>>>>>> parent of 07369c6... MAG got tuner and pitch display to stop flickering
 
 
  533      7400
