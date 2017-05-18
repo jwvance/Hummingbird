@@ -10,24 +10,23 @@
 #include <hbird.h>
 
 /**** Defines ****/
-#define THRESHHOLD 200
+#define VOL_THRESHHOLD 200    //minimum volume to exceed before note is played (out of 255)
 #define HYST_VAL 0.75
 #define VELO_VAL 100
-#define NOTE_HISTORY_LEN 5
-int start = 1;
-int timerFlag = 0;
+#define UI_THRES 10    //minimum difference in ADC reading before LCD updates
 
-#define UI_THRES 10
+int initSystem = 1;
+int timerFlag = 0;
 
 uint8 UI_Update_Mask = 0;
 
 //previous POT values for UI
 uint16 lastKey = 0;
 uint16 lastScale = 0;
-uint16 lastHyst = 150;
+uint16 lastHyst = 0;
 uint16 lastVelo = VELO_VAL;
 
-int noteHistory[5] = {};
+char noteHistory[24] = {};    //note stream array, 4 extra slots for off screen sliding
 
 // Variables for Button I/O
 uint8 csButtStates = 0u;
@@ -38,12 +37,10 @@ char8 LCDstr[10];
 
 // Variables for audio aquisition ISR
 int16 dataFrames[2][FRAME_LEN];
-
 int16 ADCoutput;
 uint16 frameIndex = 0;
 uint8 currFrame = 0;
 uint8 sampleFrame = 0;              // Frame for main to process on.
-
 int max_value = 0;
 
 //Flags
@@ -119,23 +116,22 @@ int main()
     CharLCD_Position(0,0);
     CharLCD_PrintString("   -HUMMINGBIRD-  ");
     CharLCD_Position(1,0);
-    CharLCD_PrintString("       v0.8  ");
+    CharLCD_PrintString("       v0.9  ");
     CyDelay(1000);
     CharLCD_Position(3,0);
     CharLCD_PrintString("Hum when ready...");
     
     /*
-    int j = 0;
+    CharLCD_ClearDisplay();
     while(1){
-        CharLCD_ClearDisplay();
+        
         //CharLCD_Position(2,7);
         //CharLCD_PrintNumber(ADC_UI_GetResult16(KEY));
         
-        PushArray(noteHistory, j, NOTE_HISTORY_LEN);
-        PrintNoteHistory(noteHistory);
-        
-        CyDelay(1000);
-        j++;
+        if(!PrintNoteHistory(noteHistory)){
+            PushArray(noteHistory, "C#6");
+        }
+        CyDelay(250);
     }
     */
     
@@ -194,9 +190,9 @@ int main()
             
             /*********************** L C D  U P D A T E ****************************/
             if(UI_Update_Mask){
-                if (start) {
+                if (initSystem) {  //clear splash screen from LCD
                     initDisplay();
-                    start = 0;
+                    initSystem = 0;
                 }
                 if(UI_Update_Mask & 0b0001){
                     UI_Update_Mask &= 0b1110;   //clear KEY bit
@@ -214,8 +210,7 @@ int main()
                     if(tempHyst > 100) { tempHyst = 100; }
                     CharLCD_PrintNumber(tempHyst);
                     CharLCD_PrintString("%");
-                    // NOTE: tempHyst is used by the actual hyst function, but is divided by 100 to create values from .50 to .99
-                    
+                    // NOTE: tempHyst is used by the actual hyst function, but is divided by 100 to create values from .50 to .99 
                 }
                 if(UI_Update_Mask & 0b1000){
                     UI_Update_Mask &= 0b0111;   //clear VELO bit
@@ -230,10 +225,10 @@ int main()
             /*********************** M I D I  O U T P U T ****************************/
             // This is the frame we are operating on. It is always the opposite of the current frame, which is being written
             sampleFrame = currFrame ^ 0b01; 
-            if (frameReady[sampleFrame]&&!frameProcessed) {
-                if (start) {
+            if (frameReady[sampleFrame] && !frameProcessed) {
+                if (initSystem) {   //clear splash screen from LCD
                     initDisplay();
-                    start = 0;
+                    initSystem = 0;
                 }
                 // Lock the current frame and unset the current flag.
                 frameLocked[sampleFrame] = true;
@@ -247,7 +242,6 @@ int main()
                 
                 // Unlocks the frame
                 frameLocked[sampleFrame] = false;
-
                 
                 int note = lastNote;                
                 
@@ -288,7 +282,7 @@ int main()
                     }
              
                     // Updates display if a new frequency was output
-                    if(pitchHz!=pitchPrev)
+                    if(pitchHz != pitchPrev)
                     {
                         CharLCD_PosPrintString(0,0,"   ");
                         CharLCD_PosPrintNumber(0,0,pitchHz);
@@ -312,7 +306,6 @@ int main()
 
                 //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);  
             }
-           
 
                 #if 0
                 #if(USB_EP_MM == USB__EP_DMAAUTO) 
@@ -363,8 +356,9 @@ CY_ISR(GetSample){
             if (frameIndex < FRAME_LEN) {
                 dataFrames[currFrame][frameIndex] = ADCoutput;
                 frameIndex++;
+                
             } else {                                            // Frame is getting the last value before switching.
-                frameReady[currFrame] = max_value >= THRESHHOLD;  // Sets the frameReady (note is on) high if the voice went over the
+                frameReady[currFrame] = max_value >= VOL_THRESHHOLD;  // Sets the frameReady (note is on) high if the voice went over the
                 frameIndex = 0;
                 max_value = 0;
                 currFrame = currFrame ^ 0b01;                   // Swap current frame index.
@@ -406,8 +400,7 @@ CY_ISR(UserInterfaceISR){
     if(currVelo < lastVelo - 1 || currVelo > lastVelo + 1){
         lastVelo = currVelo;
         UI_Update_Mask |= 0b1000;   //set bit for LCD  update
-    } 
-    
+    }    
 }
 
 
