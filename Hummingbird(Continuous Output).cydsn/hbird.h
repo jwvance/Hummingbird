@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <midi.h>
 #include <pitch.h>
+#include <string.h>
 
 //defines for UI ADC mux
 #define KEY     0
@@ -41,9 +42,9 @@ void UpdateTuner(double freqTable[MIDI_LEN], uint8 midiNumber, float freq);
 
 void initDisplay(void);
 
-void PushArray(int array[], int value, int size);
+void PushArray(char array[], char *value);
 
-void PrintNoteHistory(int array[]);
+int PrintNoteHistory(char array[]);
 
 /* [] END OF FILE */
 

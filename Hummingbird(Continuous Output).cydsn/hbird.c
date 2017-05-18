@@ -174,36 +174,40 @@ void initDisplay(void){
     CharLCD_PrintNumber(tempVelo); 
 }
 
-void PushArray(int *array, int value, int size){
-    
-    CharLCD_PosPrintNumber(0,5,size);
-    
-    int i;
-    for(i = size-1; i > 0; i--){
-        array[i] = array[i-1];
-    }
-    array[0] = value;
+void PushArray(char array[], char *value){   
+    array[0] = value[0];
+    array[1] = value[1];
+    array[2] = value[2];
+    array[3] = ' ';
 }
 
-void PrintNoteHistory(int array[]){
-    
-    char parentStr[20] = {};
-    sprintf(parentStr, "%d, %d, %d, %d, %d,", array[0], array[1], array[2], array[3], array[4]);
-    CharLCD_PosPrintString(3,0,parentStr);
-    
-    
-    /*
-    char tempStr[20] = {};
-    int j;
-    for(j = 6; j >= 0; j--){
+int PrintNoteHistory(char array[]){
+
+    static int status = 4;
+    char tempBuf[22] = {};
+
+    if(status > 0){
+        //shift parent array
         int i;
-        for(i = 0; i < 20; i++){
-            tempStr[i] = parentStr[i + j];   
+        for(i = 25; i > 0; i--){
+            
+            array[i] = array[i - 1];
+            
         }
+        if(status == 4){
+            array[0] = ' ';
+        }
+        status--;
+        
+        //create string to print after shifting by 1
+        memcpy(tempBuf, &array[4], 20);
+        CharLCD_PosPrintString(3,0,tempBuf);
+        
+    }else{
+        status = 4;
     }
-    */
     
-      
+    return status; 
 }
 
 //Random Crap from main.c
