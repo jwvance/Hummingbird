@@ -10,7 +10,7 @@
 #include <hbird.h>
 
 /**** Defines ****/
-#define THRESHHOLD 60
+#define THRESHHOLD 200
 #define HYST_VAL 0.75
 #define VELO_VAL 100
 #define NOTE_HISTORY_LEN 5

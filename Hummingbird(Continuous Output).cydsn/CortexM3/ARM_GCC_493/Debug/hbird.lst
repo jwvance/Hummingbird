@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 1
 
 
    1              		.syntax unified
@@ -31,11 +31,40 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
    2:hbird.c       **** *   hbird.c
    3:hbird.c       **** *   
    4:hbird.c       **** */
-   5:hbird.c       **** #include "hbird.h"
-   6:hbird.c       **** 
-   7:hbird.c       **** long map(long x, long in_min, long in_max, long out_min, long out_max)
-   8:hbird.c       **** {
-  27              		.loc 1 8 0
+   5:hbird.c       **** 
+   6:hbird.c       **** /*
+   7:hbird.c       **** 
+   8:hbird.c       **** float hyst;
+   9:hbird.c       **** 
+  10:hbird.c       **** if( 60 < freq < 100)
+  11:hbird.c       ****     hyst = 2.5
+  12:hbird.c       **** 
+  13:hbird.c       **** if(100 < freq < 200)
+  14:hbird.c       ****     hyst = 3.5
+  15:hbird.c       **** 
+  16:hbird.c       **** if(200 < freq < 300)
+  17:hbird.c       ****     hyst = 4.5
+  18:hbird.c       **** 
+  19:hbird.c       **** if(300 < freq < 400)
+  20:hbird.c       ****     hyst 5.5
+  21:hbird.c       **** 
+  22:hbird.c       **** 
+  23:hbird.c       **** 
+  24:hbird.c       **** */
+  25:hbird.c       **** 
+  26:hbird.c       **** 
+  27:hbird.c       **** 
+  28:hbird.c       **** 
+  29:hbird.c       **** 
+  30:hbird.c       **** 
+  31:hbird.c       **** #include "hbird.h"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 2
+
+
+  32:hbird.c       **** 
+  33:hbird.c       **** long map(long x, long in_min, long in_max, long out_min, long out_max)
+  34:hbird.c       **** {
+  27              		.loc 1 34 0
   28              		.cfi_startproc
   29              		@ args = 4, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -44,10 +73,10 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
   33 0000 10B4     		push	{r4}
   34              		.cfi_def_cfa_offset 4
   35              		.cfi_offset 4, -4
-  36              		.loc 1 8 0
+  36              		.loc 1 34 0
   37 0002 019C     		ldr	r4, [sp, #4]
-   9:hbird.c       ****   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-  38              		.loc 1 9 0
+  35:hbird.c       ****   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+  38              		.loc 1 35 0
   39 0004 401A     		subs	r0, r0, r1
   40              	.LVL1:
   41 0006 E41A     		subs	r4, r4, r3
@@ -55,12 +84,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
   43 000c 521A     		subs	r2, r2, r1
   44              	.LVL2:
   45 000e 90FBF2F0 		sdiv	r0, r0, r2
-  10:hbird.c       **** }
-  46              		.loc 1 10 0
+  36:hbird.c       **** }
+  46              		.loc 1 36 0
   47 0012 5DF8044B 		ldr	r4, [sp], #4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 2
-
-
   48              		.cfi_restore 4
   49              		.cfi_def_cfa_offset 0
   50              	.LVL3:
@@ -77,10 +103,10 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
   61              		.type	UpdateScaleLCD, %function
   62              	UpdateScaleLCD:
   63              	.LFB57:
-  11:hbird.c       **** 
-  12:hbird.c       **** enum MusicScale UpdateScaleLCD(uint16 currADC)
-  13:hbird.c       **** {
-  64              		.loc 1 13 0
+  37:hbird.c       **** 
+  38:hbird.c       **** enum MusicScale UpdateScaleLCD(uint16 currADC)
+  39:hbird.c       **** {
+  64              		.loc 1 39 0
   65              		.cfi_startproc
   66              		@ args = 0, pretend = 0, frame = 0
   67              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -89,53 +115,53 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
   70              		.cfi_def_cfa_offset 8
   71              		.cfi_offset 4, -8
   72              		.cfi_offset 14, -4
-  73              		.loc 1 13 0
+  73              		.loc 1 39 0
   74 0002 0446     		mov	r4, r0
-  14:hbird.c       ****     // Sets the LCD to the right position
-  15:hbird.c       ****     CharLCD_Position(0,14);
-  75              		.loc 1 15 0
+  40:hbird.c       ****     // Sets the LCD to the right position
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 3
+
+
+  41:hbird.c       ****     CharLCD_Position(0,14);
+  75              		.loc 1 41 0
   76 0004 0E21     		movs	r1, #14
   77 0006 0020     		movs	r0, #0
   78              	.LVL5:
   79 0008 FFF7FEFF 		bl	CharLCD_Position
   80              	.LVL6:
-  16:hbird.c       ****     CharLCD_PrintString("      ");  //clear 6 chars
-  81              		.loc 1 16 0
+  42:hbird.c       ****     CharLCD_PrintString("      ");  //clear 6 chars
+  81              		.loc 1 42 0
   82 000c 1E48     		ldr	r0, .L15
   83 000e FFF7FEFF 		bl	CharLCD_PrintString
   84              	.LVL7:
-  17:hbird.c       ****     CharLCD_Position(0,14);
-  85              		.loc 1 17 0
+  43:hbird.c       ****     CharLCD_Position(0,14);
+  85              		.loc 1 43 0
   86 0012 0020     		movs	r0, #0
   87 0014 0E21     		movs	r1, #14
   88 0016 FFF7FEFF 		bl	CharLCD_Position
   89              	.LVL8:
   90              	.LBB10:
   91              	.LBB11:
-   9:hbird.c       **** }
-  92              		.loc 1 9 0
+  35:hbird.c       **** }
+  92              		.loc 1 35 0
   93 001a 04EB4404 		add	r4, r4, r4, lsl #1
   94              	.LVL9:
   95 001e 1B4B     		ldr	r3, .L15+4
   96 0020 6000     		lsls	r0, r4, #1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 3
-
-
   97 0022 83FB0023 		smull	r2, r3, r3, r0
   98 0026 C417     		asrs	r4, r0, #31
   99 0028 1844     		add	r0, r0, r3
  100 002a C4EBE010 		rsb	r0, r4, r0, asr #7
  101              	.LBE11:
  102              	.LBE10:
-  18:hbird.c       ****     //maps ADC val to one of the scales
-  19:hbird.c       ****  
-  20:hbird.c       ****     enum MusicScale scale = map(currADC, 0, 255, 0, 6);
- 103              		.loc 1 20 0
+  44:hbird.c       ****     //maps ADC val to one of the scales
+  45:hbird.c       ****  
+  46:hbird.c       ****     enum MusicScale scale = map(currADC, 0, 255, 0, 6);
+ 103              		.loc 1 46 0
  104 002e C4B2     		uxtb	r4, r0
  105              	.LVL10:
-  21:hbird.c       ****     // Prints the string to the LCD
-  22:hbird.c       ****     switch(scale){
- 106              		.loc 1 22 0
+  47:hbird.c       ****     // Prints the string to the LCD
+  48:hbird.c       ****     switch(scale){
+ 106              		.loc 1 48 0
  107 0030 062C     		cmp	r4, #6
  108 0032 08D8     		bhi	.L4
  109 0034 DFE804F0 		tbb	[pc, r4]
@@ -149,103 +175,103 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  117 003e 04       		.byte	(.L12-.L6)/2
  118 003f 00       		.p2align 1
  119              	.L12:
-  23:hbird.c       ****         case MAJOR:
-  24:hbird.c       ****             CharLCD_PrintString("Major");
-  25:hbird.c       ****             break;        
-  26:hbird.c       ****         case NATURAL_MINOR:
-  27:hbird.c       ****             CharLCD_PrintString("NatMin");
-  28:hbird.c       ****             break;        
-  29:hbird.c       ****         case MAJOR_PENT:
-  30:hbird.c       ****             CharLCD_PrintString("PntMaj");
-  31:hbird.c       ****             break;        
-  32:hbird.c       ****         case MINOR_PENT:
-  33:hbird.c       ****             CharLCD_PrintString("PntMin");
-  34:hbird.c       ****             break;        
-  35:hbird.c       ****         case WHOLE_TONE:
-  36:hbird.c       ****             CharLCD_PrintString("Whole");
-  37:hbird.c       ****             break;        
-  38:hbird.c       ****         case BLUES:
-  39:hbird.c       ****             CharLCD_PrintString("Blues");
-  40:hbird.c       ****             break;
-  41:hbird.c       ****         case CHROMATIC:
-  42:hbird.c       ****             CharLCD_PrintString("Chroma");
- 120              		.loc 1 42 0
+  49:hbird.c       ****         case MAJOR:
+  50:hbird.c       ****             CharLCD_PrintString("Major");
+  51:hbird.c       ****             break;        
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 4
+
+
+  52:hbird.c       ****         case NATURAL_MINOR:
+  53:hbird.c       ****             CharLCD_PrintString("NatMin");
+  54:hbird.c       ****             break;        
+  55:hbird.c       ****         case MAJOR_PENT:
+  56:hbird.c       ****             CharLCD_PrintString("PntMaj");
+  57:hbird.c       ****             break;        
+  58:hbird.c       ****         case MINOR_PENT:
+  59:hbird.c       ****             CharLCD_PrintString("PntMin");
+  60:hbird.c       ****             break;        
+  61:hbird.c       ****         case WHOLE_TONE:
+  62:hbird.c       ****             CharLCD_PrintString("Whole");
+  63:hbird.c       ****             break;        
+  64:hbird.c       ****         case BLUES:
+  65:hbird.c       ****             CharLCD_PrintString("Blues");
+  66:hbird.c       ****             break;
+  67:hbird.c       ****         case CHROMATIC:
+  68:hbird.c       ****             CharLCD_PrintString("Chroma");
+ 120              		.loc 1 68 0
  121 0040 1348     		ldr	r0, .L15+8
  122 0042 FFF7FEFF 		bl	CharLCD_PrintString
  123              	.LVL11:
  124              	.L4:
-  43:hbird.c       ****             break;
-  44:hbird.c       ****     }
-  45:hbird.c       ****     // Returns the current scale to main
-  46:hbird.c       ****     return scale;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 4
-
-
-  47:hbird.c       **** }
- 125              		.loc 1 47 0
+  69:hbird.c       ****             break;
+  70:hbird.c       ****     }
+  71:hbird.c       ****     // Returns the current scale to main
+  72:hbird.c       ****     return scale;
+  73:hbird.c       **** }
+ 125              		.loc 1 73 0
  126 0046 2046     		mov	r0, r4
  127 0048 10BD     		pop	{r4, pc}
  128              	.LVL12:
  129              	.L5:
-  24:hbird.c       ****             break;        
- 130              		.loc 1 24 0
+  50:hbird.c       ****             break;        
+ 130              		.loc 1 50 0
  131 004a 1248     		ldr	r0, .L15+12
  132 004c FFF7FEFF 		bl	CharLCD_PrintString
  133              	.LVL13:
- 134              		.loc 1 47 0
+ 134              		.loc 1 73 0
  135 0050 2046     		mov	r0, r4
  136 0052 10BD     		pop	{r4, pc}
  137              	.LVL14:
  138              	.L7:
-  27:hbird.c       ****             break;        
- 139              		.loc 1 27 0
+  53:hbird.c       ****             break;        
+ 139              		.loc 1 53 0
  140 0054 1048     		ldr	r0, .L15+16
  141 0056 FFF7FEFF 		bl	CharLCD_PrintString
  142              	.LVL15:
- 143              		.loc 1 47 0
+ 143              		.loc 1 73 0
  144 005a 2046     		mov	r0, r4
  145 005c 10BD     		pop	{r4, pc}
  146              	.LVL16:
  147              	.L8:
-  30:hbird.c       ****             break;        
- 148              		.loc 1 30 0
+  56:hbird.c       ****             break;        
+ 148              		.loc 1 56 0
  149 005e 0F48     		ldr	r0, .L15+20
  150 0060 FFF7FEFF 		bl	CharLCD_PrintString
  151              	.LVL17:
- 152              		.loc 1 47 0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 5
+
+
+ 152              		.loc 1 73 0
  153 0064 2046     		mov	r0, r4
  154 0066 10BD     		pop	{r4, pc}
  155              	.LVL18:
  156              	.L9:
-  33:hbird.c       ****             break;        
- 157              		.loc 1 33 0
+  59:hbird.c       ****             break;        
+ 157              		.loc 1 59 0
  158 0068 0D48     		ldr	r0, .L15+24
  159 006a FFF7FEFF 		bl	CharLCD_PrintString
  160              	.LVL19:
- 161              		.loc 1 47 0
+ 161              		.loc 1 73 0
  162 006e 2046     		mov	r0, r4
  163 0070 10BD     		pop	{r4, pc}
  164              	.LVL20:
  165              	.L10:
-  36:hbird.c       ****             break;        
- 166              		.loc 1 36 0
+  62:hbird.c       ****             break;        
+ 166              		.loc 1 62 0
  167 0072 0C48     		ldr	r0, .L15+28
  168 0074 FFF7FEFF 		bl	CharLCD_PrintString
  169              	.LVL21:
- 170              		.loc 1 47 0
+ 170              		.loc 1 73 0
  171 0078 2046     		mov	r0, r4
  172 007a 10BD     		pop	{r4, pc}
  173              	.LVL22:
  174              	.L11:
-  39:hbird.c       ****             break;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 5
-
-
- 175              		.loc 1 39 0
+  65:hbird.c       ****             break;
+ 175              		.loc 1 65 0
  176 007c 0A48     		ldr	r0, .L15+32
  177 007e FFF7FEFF 		bl	CharLCD_PrintString
  178              	.LVL23:
- 179              		.loc 1 47 0
+ 179              		.loc 1 73 0
  180 0082 2046     		mov	r0, r4
  181 0084 10BD     		pop	{r4, pc}
  182              	.LVL24:
@@ -272,6 +298,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  203              		.global	__aeabi_dadd
  204              		.global	__aeabi_fsub
  205              		.global	__aeabi_fdiv
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 6
+
+
  206              		.global	__aeabi_fadd
  207              		.global	__aeabi_fcmplt
  208              		.global	__aeabi_fcmpge
@@ -286,10 +315,10 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  217              		.type	UpdateTuner, %function
  218              	UpdateTuner:
  219              	.LFB58:
-  48:hbird.c       **** 
-  49:hbird.c       **** void UpdateTuner(double freqTable[MIDI_LEN], uint8 midiNumber, float freq) 
-  50:hbird.c       **** {
- 220              		.loc 1 50 0
+  74:hbird.c       **** 
+  75:hbird.c       **** void UpdateTuner(double freqTable[MIDI_LEN], uint8 midiNumber, float freq) 
+  76:hbird.c       **** {
+ 220              		.loc 1 76 0
  221              		.cfi_startproc
  222              		@ args = 0, pretend = 0, frame = 24
  223              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -298,9 +327,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  226              		.cfi_def_cfa_offset 36
  227              		.cfi_offset 4, -36
  228              		.cfi_offset 5, -32
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 6
-
-
  229              		.cfi_offset 6, -28
  230              		.cfi_offset 7, -24
  231              		.cfi_offset 8, -20
@@ -310,78 +336,78 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  235              		.cfi_offset 14, -4
  236 0004 0D46     		mov	r5, r1
  237 0006 9246     		mov	r10, r2
-  51:hbird.c       ****     float up, lb, okayUp, okayLb, upperThresh, lowerThresh;   //define upper and lower bounds for t
-  52:hbird.c       ****     up = (freqTable[midiNumber+1] - freqTable[midiNumber])/2;
- 238              		.loc 1 52 0
+  77:hbird.c       ****     float up, lb, okayUp, okayLb, upperThresh, lowerThresh;   //define upper and lower bounds for t
+  78:hbird.c       ****     up = (freqTable[midiNumber+1] - freqTable[midiNumber])/2;
+ 238              		.loc 1 78 0
  239 0008 01F10108 		add	r8, r1, #1
  240 000c 4FEAC803 		lsl	r3, r8, #3
  241 0010 A3F10804 		sub	r4, r3, #8
-  50:hbird.c       ****     float up, lb, okayUp, okayLb, upperThresh, lowerThresh;   //define upper and lower bounds for t
- 242              		.loc 1 50 0
+  76:hbird.c       ****     float up, lb, okayUp, okayLb, upperThresh, lowerThresh;   //define upper and lower bounds for t
+ 242              		.loc 1 76 0
  243 0014 87B0     		sub	sp, sp, #28
  244              		.cfi_def_cfa_offset 64
- 245              		.loc 1 52 0
+ 245              		.loc 1 78 0
  246 0016 0444     		add	r4, r4, r0
  247 0018 0344     		add	r3, r3, r0
-  53:hbird.c       ****     lb = (freqTable[midiNumber]-freqTable[midiNumber-1])/2;
-  54:hbird.c       ****     
-  55:hbird.c       ****     // setting threshold for which the user is on key
-  56:hbird.c       ****     okayUp = freqTable[midiNumber] + (.1*up);
-  57:hbird.c       ****     okayLb = freqTable[midiNumber] - (0.1*lb);
-  58:hbird.c       ****     
-  59:hbird.c       ****     upperThresh = up - okayUp;
-  60:hbird.c       ****     lowerThresh = okayLb - lb;
-  61:hbird.c       ****     
-  62:hbird.c       ****     // Here i define variables that split the interval between the snapped midi note & upper/lower 
-  63:hbird.c       ****     float up1, up2, lb1, lb2;
-  64:hbird.c       ****     //Clears the whole second row
-  65:hbird.c       ****     CharLCD_PosPrintString(1,0,"                    ");
- 248              		.loc 1 65 0
+  79:hbird.c       ****     lb = (freqTable[midiNumber]-freqTable[midiNumber-1])/2;
+  80:hbird.c       ****     
+  81:hbird.c       ****     // setting threshold for which the user is on key
+  82:hbird.c       ****     okayUp = freqTable[midiNumber] + (.1*up);
+  83:hbird.c       ****     okayLb = freqTable[midiNumber] - (0.1*lb);
+  84:hbird.c       ****     
+  85:hbird.c       ****     upperThresh = up - okayUp;
+  86:hbird.c       ****     lowerThresh = okayLb - lb;
+  87:hbird.c       ****     
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 7
+
+
+  88:hbird.c       ****     // Here i define variables that split the interval between the snapped midi note & upper/lower 
+  89:hbird.c       ****     float up1, up2, lb1, lb2;
+  90:hbird.c       ****     //Clears the whole second row
+  91:hbird.c       ****     CharLCD_PosPrintString(1,0,"                    ");
+ 248              		.loc 1 91 0
  249 001a 0021     		movs	r1, #0
  250              	.LVL26:
  251 001c 0120     		movs	r0, #1
  252              	.LVL27:
-  66:hbird.c       ****     // Prints neighboring notes on either side and current note in the center    
-  67:hbird.c       ****     char noteStr[3] = "   ";
- 253              		.loc 1 67 0
+  92:hbird.c       ****     // Prints neighboring notes on either side and current note in the center    
+  93:hbird.c       ****     char noteStr[3] = "   ";
+ 253              		.loc 1 93 0
  254 001e DFF894B2 		ldr	fp, .L49+20
-  52:hbird.c       ****     lb = (freqTable[midiNumber]-freqTable[midiNumber-1])/2;
- 255              		.loc 1 52 0
+  78:hbird.c       ****     lb = (freqTable[midiNumber]-freqTable[midiNumber-1])/2;
+ 255              		.loc 1 78 0
  256 0022 D4E90067 		ldrd	r6, [r4]
  257 0026 CDE90067 		strd	r6, [sp]
  258 002a D3E90067 		ldrd	r6, [r3]
  259              	.LVL28:
-  53:hbird.c       ****     lb = (freqTable[midiNumber]-freqTable[midiNumber-1])/2;
- 260              		.loc 1 53 0
+  79:hbird.c       ****     lb = (freqTable[midiNumber]-freqTable[midiNumber-1])/2;
+ 260              		.loc 1 79 0
  261 002e 53E90423 		ldrd	r2, [r3, #-16]
  262              	.LVL29:
  263 0032 CDE90223 		strd	r2, [sp, #8]
  264              	.LVL30:
-  65:hbird.c       ****     // Prints neighboring notes on either side and current note in the center    
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 7
-
-
- 265              		.loc 1 65 0
+  91:hbird.c       ****     // Prints neighboring notes on either side and current note in the center    
+ 265              		.loc 1 91 0
  266 0036 FFF7FEFF 		bl	CharLCD_Position
  267              	.LVL31:
  268 003a 9B48     		ldr	r0, .L49+8
  269 003c FFF7FEFF 		bl	CharLCD_PrintString
  270              	.LVL32:
- 271              		.loc 1 67 0
+ 271              		.loc 1 93 0
  272 0040 DBF80030 		ldr	r3, [fp]
-  68:hbird.c       ****     CharLCD_PosPrintString(1,2,midi_note_truename(midiNumber-1, noteStr));
- 273              		.loc 1 68 0
+  94:hbird.c       ****     CharLCD_PosPrintString(1,2,midi_note_truename(midiNumber-1, noteStr));
+ 273              		.loc 1 94 0
  274 0044 0120     		movs	r0, #1
-  67:hbird.c       ****     CharLCD_PosPrintString(1,2,midi_note_truename(midiNumber-1, noteStr));
- 275              		.loc 1 67 0
+  93:hbird.c       ****     CharLCD_PosPrintString(1,2,midi_note_truename(midiNumber-1, noteStr));
+ 275              		.loc 1 93 0
  276 0046 1A0C     		lsrs	r2, r3, #16
- 277              		.loc 1 68 0
+ 277              		.loc 1 94 0
  278 0048 0221     		movs	r1, #2
-  67:hbird.c       ****     CharLCD_PosPrintString(1,2,midi_note_truename(midiNumber-1, noteStr));
- 279              		.loc 1 67 0
+  93:hbird.c       ****     CharLCD_PosPrintString(1,2,midi_note_truename(midiNumber-1, noteStr));
+ 279              		.loc 1 93 0
  280 004a ADF81430 		strh	r3, [sp, #20]	@ movhi
  281 004e 8DF81620 		strb	r2, [sp, #22]
- 282              		.loc 1 68 0
+ 282              		.loc 1 94 0
  283 0052 FFF7FEFF 		bl	CharLCD_Position
  284              	.LVL33:
  285 0056 05A9     		add	r1, sp, #20
@@ -390,8 +416,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  288              	.LVL34:
  289 005e FFF7FEFF 		bl	CharLCD_PrintString
  290              	.LVL35:
-  69:hbird.c       ****     CharLCD_PosPrintString(1,14,midi_note_truename(midiNumber+1, noteStr));
- 291              		.loc 1 69 0
+  95:hbird.c       ****     CharLCD_PosPrintString(1,14,midi_note_truename(midiNumber+1, noteStr));
+ 291              		.loc 1 95 0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 8
+
+
  292 0062 0120     		movs	r0, #1
  293 0064 0E21     		movs	r1, #14
  294 0066 FFF7FEFF 		bl	CharLCD_Position
@@ -402,8 +431,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  299              	.LVL37:
  300 0072 FFF7FEFF 		bl	CharLCD_PrintString
  301              	.LVL38:
-  70:hbird.c       ****     CharLCD_PosPrintString(1,8,midi_note_truename(midiNumber, noteStr));
- 302              		.loc 1 70 0
+  96:hbird.c       ****     CharLCD_PosPrintString(1,8,midi_note_truename(midiNumber, noteStr));
+ 302              		.loc 1 96 0
  303 0076 0120     		movs	r0, #1
  304 0078 0821     		movs	r1, #8
  305 007a FFF7FEFF 		bl	CharLCD_Position
@@ -414,20 +443,17 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  310              	.LVL40:
  311 0086 FFF7FEFF 		bl	CharLCD_PrintString
  312              	.LVL41:
-  71:hbird.c       ****     
-  72:hbird.c       ****     // USER ON KEY
-  73:hbird.c       ****     if (freq > okayLb && freq < okayLb) {
-  74:hbird.c       ****         CharLCD_PosPrintString(1,7,">");
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 8
-
-
-  75:hbird.c       ****         CharLCD_PosPrintString(1,11,"<");
-  76:hbird.c       ****     }
-  77:hbird.c       ****             
-  78:hbird.c       ****     
-  79:hbird.c       ****     // USER IS SHARP
-  80:hbird.c       ****     if(freq >= freqTable[midiNumber]) {
- 313              		.loc 1 80 0
+  97:hbird.c       ****     
+  98:hbird.c       ****     // USER ON KEY
+  99:hbird.c       ****     if (freq > okayLb && freq < okayLb) {
+ 100:hbird.c       ****         CharLCD_PosPrintString(1,7,">");
+ 101:hbird.c       ****         CharLCD_PosPrintString(1,11,"<");
+ 102:hbird.c       ****     }
+ 103:hbird.c       ****             
+ 104:hbird.c       ****     
+ 105:hbird.c       ****     // USER IS SHARP
+ 106:hbird.c       ****     if(freq >= freqTable[midiNumber]) {
+ 313              		.loc 1 106 0
  314 008a 5046     		mov	r0, r10
  315 008c FFF7FEFF 		bl	__aeabi_f2d
  316              	.LVL42:
@@ -440,8 +466,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  323              	.LVL43:
  324 009e 0028     		cmp	r0, #0
  325 00a0 61D0     		beq	.L40
-  52:hbird.c       ****     lb = (freqTable[midiNumber]-freqTable[midiNumber-1])/2;
- 326              		.loc 1 52 0
+  78:hbird.c       ****     lb = (freqTable[midiNumber]-freqTable[midiNumber-1])/2;
+ 326              		.loc 1 78 0
  327 00a2 3046     		mov	r0, r6
  328 00a4 3946     		mov	r1, r7
  329 00a6 DDE90067 		ldrd	r6, [sp]
@@ -452,13 +478,16 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  334              	.LVL45:
  335 00b2 0022     		movs	r2, #0
  336 00b4 7D4B     		ldr	r3, .L49+12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 9
+
+
  337 00b6 FFF7FEFF 		bl	__aeabi_dmul
  338              	.LVL46:
  339 00ba FFF7FEFF 		bl	__aeabi_d2f
  340              	.LVL47:
  341 00be 8046     		mov	r8, r0
-  56:hbird.c       ****     okayLb = freqTable[midiNumber] - (0.1*lb);
- 342              		.loc 1 56 0
+  82:hbird.c       ****     okayLb = freqTable[midiNumber] - (0.1*lb);
+ 342              		.loc 1 82 0
  343 00c0 FFF7FEFF 		bl	__aeabi_f2d
  344              	.LVL48:
  345 00c4 76A3     		adr	r3, .L49
@@ -474,16 +503,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  355 00da FFF7FEFF 		bl	__aeabi_d2f
  356              	.LVL51:
  357 00de 0146     		mov	r1, r0
-  59:hbird.c       ****     lowerThresh = okayLb - lb;
- 358              		.loc 1 59 0
+  85:hbird.c       ****     lowerThresh = okayLb - lb;
+ 358              		.loc 1 85 0
  359 00e0 4046     		mov	r0, r8
  360 00e2 FFF7FEFF 		bl	__aeabi_fsub
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 9
-
-
  361              	.LVL52:
-  81:hbird.c       ****         up1 = freqTable[midiNumber] + upperThresh/3; 
- 362              		.loc 1 81 0
+ 107:hbird.c       ****         up1 = freqTable[midiNumber] + upperThresh/3; 
+ 362              		.loc 1 107 0
  363 00e6 7249     		ldr	r1, .L49+16
  364 00e8 FFF7FEFF 		bl	__aeabi_fdiv
  365              	.LVL53:
@@ -497,14 +523,14 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  373              	.LVL55:
  374 00fc FFF7FEFF 		bl	__aeabi_d2f
  375              	.LVL56:
-  82:hbird.c       ****         up2 = freqTable[midiNumber] + 2*up1;
- 376              		.loc 1 82 0
+ 108:hbird.c       ****         up2 = freqTable[midiNumber] + 2*up1;
+ 376              		.loc 1 108 0
  377 0100 0146     		mov	r1, r0
-  81:hbird.c       ****         up1 = freqTable[midiNumber] + upperThresh/3; 
- 378              		.loc 1 81 0
+ 107:hbird.c       ****         up1 = freqTable[midiNumber] + upperThresh/3; 
+ 378              		.loc 1 107 0
  379 0102 0646     		mov	r6, r0
  380              	.LVL57:
- 381              		.loc 1 82 0
+ 381              		.loc 1 108 0
  382 0104 FFF7FEFF 		bl	__aeabi_fadd
  383              	.LVL58:
  384 0108 FFF7FEFF 		bl	__aeabi_f2d
@@ -512,41 +538,41 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  386 010c 0246     		mov	r2, r0
  387 010e 0B46     		mov	r3, r1
  388 0110 2046     		mov	r0, r4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 10
+
+
  389 0112 2946     		mov	r1, r5
  390 0114 FFF7FEFF 		bl	__aeabi_dadd
  391              	.LVL60:
  392 0118 FFF7FEFF 		bl	__aeabi_d2f
  393              	.LVL61:
-  83:hbird.c       ****         
-  84:hbird.c       ****         
-  85:hbird.c       ****         if(freq < up1) {
- 394              		.loc 1 85 0
+ 109:hbird.c       ****         
+ 110:hbird.c       ****         
+ 111:hbird.c       ****         if(freq < up1) {
+ 394              		.loc 1 111 0
  395 011c 3146     		mov	r1, r6
-  82:hbird.c       ****         up2 = freqTable[midiNumber] + 2*up1;
- 396              		.loc 1 82 0
+ 108:hbird.c       ****         up2 = freqTable[midiNumber] + 2*up1;
+ 396              		.loc 1 108 0
  397 011e 0446     		mov	r4, r0
  398              	.LVL62:
- 399              		.loc 1 85 0
+ 399              		.loc 1 111 0
  400 0120 5046     		mov	r0, r10
  401              	.LVL63:
  402 0122 FFF7FEFF 		bl	__aeabi_fcmplt
  403              	.LVL64:
  404 0126 0028     		cmp	r0, #0
  405 0128 40F08480 		bne	.L45
-  86:hbird.c       ****             CharLCD_PosPrintString(1,5,"   ");
-  87:hbird.c       ****             CharLCD_PosPrintString(1,11,">  ");
-  88:hbird.c       ****         } 
-  89:hbird.c       ****         else if(freq < up2 && freq >= up1) {
- 406              		.loc 1 89 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 10
-
-
+ 112:hbird.c       ****             CharLCD_PosPrintString(1,5,"   ");
+ 113:hbird.c       ****             CharLCD_PosPrintString(1,11,">  ");
+ 114:hbird.c       ****         } 
+ 115:hbird.c       ****         else if(freq < up2 && freq >= up1) {
+ 406              		.loc 1 115 0
  407 012c 2146     		mov	r1, r4
  408 012e 5046     		mov	r0, r10
  409 0130 FFF7FEFF 		bl	__aeabi_fcmplt
  410              	.LVL65:
  411 0134 30B1     		cbz	r0, .L23
- 412              		.loc 1 89 0 is_stmt 0 discriminator 1
+ 412              		.loc 1 115 0 is_stmt 0 discriminator 1
  413 0136 5046     		mov	r0, r10
  414 0138 3146     		mov	r1, r6
  415 013a FFF7FEFF 		bl	__aeabi_fcmpge
@@ -554,12 +580,12 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  417 013e 0028     		cmp	r0, #0
  418 0140 40F08980 		bne	.L46
  419              	.L23:
-  90:hbird.c       ****             CharLCD_PosPrintString(1,5,"   ");
-  91:hbird.c       ****             CharLCD_PosPrintString(1,11," > ");
-  92:hbird.c       ****         }
-  93:hbird.c       ****         else {
-  94:hbird.c       ****             CharLCD_PosPrintString(1,5,"   ");
- 420              		.loc 1 94 0 is_stmt 1
+ 116:hbird.c       ****             CharLCD_PosPrintString(1,5,"   ");
+ 117:hbird.c       ****             CharLCD_PosPrintString(1,11," > ");
+ 118:hbird.c       ****         }
+ 119:hbird.c       ****         else {
+ 120:hbird.c       ****             CharLCD_PosPrintString(1,5,"   ");
+ 420              		.loc 1 120 0 is_stmt 1
  421 0144 0521     		movs	r1, #5
  422 0146 0120     		movs	r0, #1
  423 0148 FFF7FEFF 		bl	CharLCD_Position
@@ -567,40 +593,40 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  425 014c 5948     		ldr	r0, .L49+20
  426 014e FFF7FEFF 		bl	CharLCD_PrintString
  427              	.LVL68:
-  95:hbird.c       ****             CharLCD_PosPrintString(1,11,"  >");
- 428              		.loc 1 95 0
+ 121:hbird.c       ****             CharLCD_PosPrintString(1,11,"  >");
+ 428              		.loc 1 121 0
  429 0152 0120     		movs	r0, #1
  430 0154 0B21     		movs	r1, #11
  431 0156 FFF7FEFF 		bl	CharLCD_Position
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 11
+
+
  432              	.LVL69:
  433 015a 5748     		ldr	r0, .L49+24
  434 015c FFF7FEFF 		bl	CharLCD_PrintString
  435              	.LVL70:
  436              	.L17:
-  96:hbird.c       ****         }
-  97:hbird.c       ****     }
-  98:hbird.c       ****     // USER IS FLAT
-  99:hbird.c       ****     else if(freq < freqTable[midiNumber]) {
- 100:hbird.c       ****         lb1 = freqTable[midiNumber] - (lowerThresh/3);
- 101:hbird.c       ****         lb2 = freqTable[midiNumber] - (2*lb1);
- 102:hbird.c       ****         if(freq > lb1) {
- 103:hbird.c       ****             CharLCD_PosPrintString(1,5,"  <");
- 104:hbird.c       ****             CharLCD_PosPrintString(1,11,"   ");
- 105:hbird.c       ****         }
- 106:hbird.c       ****         else if(freq > lb2 && freq <= lb1) {
- 107:hbird.c       ****             CharLCD_PosPrintString(1,5," < ");
- 108:hbird.c       ****             CharLCD_PosPrintString(1,11,"   ");
- 109:hbird.c       ****         }
- 110:hbird.c       ****         else {
- 111:hbird.c       ****             CharLCD_PosPrintString(1,5,"<  ");
- 112:hbird.c       ****             CharLCD_PosPrintString(1,11,"   ");
- 113:hbird.c       ****         }
- 114:hbird.c       ****     }
- 115:hbird.c       **** }
- 437              		.loc 1 115 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 11
-
-
+ 122:hbird.c       ****         }
+ 123:hbird.c       ****     }
+ 124:hbird.c       ****     // USER IS FLAT
+ 125:hbird.c       ****     else if(freq < freqTable[midiNumber]) {
+ 126:hbird.c       ****         lb1 = freqTable[midiNumber] - (lowerThresh/3);
+ 127:hbird.c       ****         lb2 = freqTable[midiNumber] - (2*lb1);
+ 128:hbird.c       ****         if(freq > lb1) {
+ 129:hbird.c       ****             CharLCD_PosPrintString(1,5,"  <");
+ 130:hbird.c       ****             CharLCD_PosPrintString(1,11,"   ");
+ 131:hbird.c       ****         }
+ 132:hbird.c       ****         else if(freq > lb2 && freq <= lb1) {
+ 133:hbird.c       ****             CharLCD_PosPrintString(1,5," < ");
+ 134:hbird.c       ****             CharLCD_PosPrintString(1,11,"   ");
+ 135:hbird.c       ****         }
+ 136:hbird.c       ****         else {
+ 137:hbird.c       ****             CharLCD_PosPrintString(1,5,"<  ");
+ 138:hbird.c       ****             CharLCD_PosPrintString(1,11,"   ");
+ 139:hbird.c       ****         }
+ 140:hbird.c       ****     }
+ 141:hbird.c       **** }
+ 437              		.loc 1 141 0
  438 0160 07B0     		add	sp, sp, #28
  439              		.cfi_remember_state
  440              		.cfi_def_cfa_offset 36
@@ -610,8 +636,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  444              	.LVL72:
  445              	.L40:
  446              		.cfi_restore_state
-  99:hbird.c       ****         lb1 = freqTable[midiNumber] - (lowerThresh/3);
- 447              		.loc 1 99 0
+ 125:hbird.c       ****         lb1 = freqTable[midiNumber] - (lowerThresh/3);
+ 447              		.loc 1 125 0
  448 0166 4046     		mov	r0, r8
  449 0168 4946     		mov	r1, r9
  450 016a 2246     		mov	r2, r4
@@ -620,8 +646,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  453              	.LVL73:
  454 0172 0028     		cmp	r0, #0
  455 0174 F4D0     		beq	.L17
-  53:hbird.c       ****     
- 456              		.loc 1 53 0
+  79:hbird.c       ****     
+ 456              		.loc 1 79 0
  457 0176 DDE90067 		ldrd	r6, [sp]
  458              	.LVL74:
  459 017a DDE90223 		ldrd	r2, [sp, #8]
@@ -632,12 +658,15 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  464 0186 0022     		movs	r2, #0
  465 0188 484B     		ldr	r3, .L49+12
  466 018a FFF7FEFF 		bl	__aeabi_dmul
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 12
+
+
  467              	.LVL76:
  468 018e FFF7FEFF 		bl	__aeabi_d2f
  469              	.LVL77:
  470 0192 8046     		mov	r8, r0
-  57:hbird.c       ****     
- 471              		.loc 1 57 0
+  83:hbird.c       ****     
+ 471              		.loc 1 83 0
  472 0194 FFF7FEFF 		bl	__aeabi_f2d
  473              	.LVL78:
  474 0198 41A3     		adr	r3, .L49
@@ -652,16 +681,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  483              	.LVL80:
  484 01ae FFF7FEFF 		bl	__aeabi_d2f
  485              	.LVL81:
-  60:hbird.c       ****     
- 486              		.loc 1 60 0
+  86:hbird.c       ****     
+ 486              		.loc 1 86 0
  487 01b2 4146     		mov	r1, r8
  488 01b4 FFF7FEFF 		bl	__aeabi_fsub
  489              	.LVL82:
- 100:hbird.c       ****         lb2 = freqTable[midiNumber] - (2*lb1);
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 12
-
-
- 490              		.loc 1 100 0
+ 126:hbird.c       ****         lb2 = freqTable[midiNumber] - (2*lb1);
+ 490              		.loc 1 126 0
  491 01b8 3D49     		ldr	r1, .L49+16
  492 01ba FFF7FEFF 		bl	__aeabi_fdiv
  493              	.LVL83:
@@ -675,15 +701,15 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  501              	.LVL85:
  502 01ce FFF7FEFF 		bl	__aeabi_d2f
  503              	.LVL86:
- 101:hbird.c       ****         if(freq > lb1) {
- 504              		.loc 1 101 0
+ 127:hbird.c       ****         if(freq > lb1) {
+ 504              		.loc 1 127 0
  505 01d2 0146     		mov	r1, r0
- 100:hbird.c       ****         lb2 = freqTable[midiNumber] - (2*lb1);
- 506              		.loc 1 100 0
+ 126:hbird.c       ****         lb2 = freqTable[midiNumber] - (2*lb1);
+ 506              		.loc 1 126 0
  507 01d4 0646     		mov	r6, r0
  508              	.LVL87:
- 101:hbird.c       ****         if(freq > lb1) {
- 509              		.loc 1 101 0
+ 127:hbird.c       ****         if(freq > lb1) {
+ 509              		.loc 1 127 0
  510 01d6 FFF7FEFF 		bl	__aeabi_fadd
  511              	.LVL88:
  512 01da FFF7FEFF 		bl	__aeabi_f2d
@@ -692,37 +718,37 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  515 01e0 0B46     		mov	r3, r1
  516 01e2 2046     		mov	r0, r4
  517 01e4 2946     		mov	r1, r5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 13
+
+
  518 01e6 FFF7FEFF 		bl	__aeabi_dsub
  519              	.LVL90:
  520 01ea FFF7FEFF 		bl	__aeabi_d2f
  521              	.LVL91:
- 102:hbird.c       ****             CharLCD_PosPrintString(1,5,"  <");
- 522              		.loc 1 102 0
+ 128:hbird.c       ****             CharLCD_PosPrintString(1,5,"  <");
+ 522              		.loc 1 128 0
  523 01ee 3146     		mov	r1, r6
- 101:hbird.c       ****         if(freq > lb1) {
- 524              		.loc 1 101 0
+ 127:hbird.c       ****         if(freq > lb1) {
+ 524              		.loc 1 127 0
  525 01f0 0446     		mov	r4, r0
  526              	.LVL92:
- 102:hbird.c       ****             CharLCD_PosPrintString(1,5,"  <");
- 527              		.loc 1 102 0
+ 128:hbird.c       ****             CharLCD_PosPrintString(1,5,"  <");
+ 527              		.loc 1 128 0
  528 01f2 5046     		mov	r0, r10
  529              	.LVL93:
  530 01f4 FFF7FEFF 		bl	__aeabi_fcmpgt
  531              	.LVL94:
  532 01f8 0028     		cmp	r0, #0
  533 01fa 3BD1     		bne	.L47
- 106:hbird.c       ****             CharLCD_PosPrintString(1,5," < ");
- 534              		.loc 1 106 0
+ 132:hbird.c       ****             CharLCD_PosPrintString(1,5," < ");
+ 534              		.loc 1 132 0
  535 01fc 2146     		mov	r1, r4
  536 01fe 5046     		mov	r0, r10
  537 0200 FFF7FEFF 		bl	__aeabi_fcmpgt
  538              	.LVL95:
  539 0204 28B1     		cbz	r0, .L29
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 13
-
-
- 106:hbird.c       ****             CharLCD_PosPrintString(1,5," < ");
- 540              		.loc 1 106 0 is_stmt 0 discriminator 1
+ 132:hbird.c       ****             CharLCD_PosPrintString(1,5," < ");
+ 540              		.loc 1 132 0 is_stmt 0 discriminator 1
  541 0206 5046     		mov	r0, r10
  542 0208 3146     		mov	r1, r6
  543 020a FFF7FEFF 		bl	__aeabi_fcmple
@@ -730,8 +756,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  545 020e 0028     		cmp	r0, #0
  546 0210 3FD1     		bne	.L48
  547              	.L29:
- 111:hbird.c       ****             CharLCD_PosPrintString(1,11,"   ");
- 548              		.loc 1 111 0 is_stmt 1
+ 137:hbird.c       ****             CharLCD_PosPrintString(1,11,"   ");
+ 548              		.loc 1 137 0 is_stmt 1
  549 0212 0521     		movs	r1, #5
  550 0214 0120     		movs	r0, #1
  551 0216 FFF7FEFF 		bl	CharLCD_Position
@@ -739,8 +765,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  553 021a 2848     		ldr	r0, .L49+28
  554 021c FFF7FEFF 		bl	CharLCD_PrintString
  555              	.LVL98:
- 112:hbird.c       ****         }
- 556              		.loc 1 112 0
+ 138:hbird.c       ****         }
+ 556              		.loc 1 138 0
  557 0220 0B21     		movs	r1, #11
  558 0222 0120     		movs	r0, #1
  559 0224 FFF7FEFF 		bl	CharLCD_Position
@@ -748,18 +774,21 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  561 0228 2248     		ldr	r0, .L49+20
  562 022a FFF7FEFF 		bl	CharLCD_PrintString
  563              	.LVL100:
- 564              		.loc 1 115 0
+ 564              		.loc 1 141 0
  565 022e 07B0     		add	sp, sp, #28
  566              		.cfi_remember_state
  567              		.cfi_def_cfa_offset 36
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 14
+
+
  568              	.LVL101:
  569              		@ sp needed
  570 0230 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
  571              	.LVL102:
  572              	.L45:
  573              		.cfi_restore_state
-  86:hbird.c       ****             CharLCD_PosPrintString(1,11,">  ");
- 574              		.loc 1 86 0
+ 112:hbird.c       ****             CharLCD_PosPrintString(1,11,">  ");
+ 574              		.loc 1 112 0
  575 0234 0521     		movs	r1, #5
  576 0236 0120     		movs	r0, #1
  577 0238 FFF7FEFF 		bl	CharLCD_Position
@@ -767,8 +796,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  579 023c 5846     		mov	r0, fp
  580 023e FFF7FEFF 		bl	CharLCD_PrintString
  581              	.LVL104:
-  87:hbird.c       ****         } 
- 582              		.loc 1 87 0
+ 113:hbird.c       ****         } 
+ 582              		.loc 1 113 0
  583 0242 0B21     		movs	r1, #11
  584 0244 0120     		movs	r0, #1
  585 0246 FFF7FEFF 		bl	CharLCD_Position
@@ -776,11 +805,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  587 024a 1D48     		ldr	r0, .L49+32
  588 024c FFF7FEFF 		bl	CharLCD_PrintString
  589              	.LVL106:
- 590              		.loc 1 115 0
+ 590              		.loc 1 141 0
  591 0250 07B0     		add	sp, sp, #28
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 14
-
-
  592              		.cfi_remember_state
  593              		.cfi_def_cfa_offset 36
  594              	.LVL107:
@@ -789,8 +815,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  597              	.LVL108:
  598              	.L46:
  599              		.cfi_restore_state
-  90:hbird.c       ****             CharLCD_PosPrintString(1,11," > ");
- 600              		.loc 1 90 0
+ 116:hbird.c       ****             CharLCD_PosPrintString(1,11," > ");
+ 600              		.loc 1 116 0
  601 0256 0521     		movs	r1, #5
  602 0258 0120     		movs	r0, #1
  603 025a FFF7FEFF 		bl	CharLCD_Position
@@ -798,8 +824,8 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  605 025e 5846     		mov	r0, fp
  606 0260 FFF7FEFF 		bl	CharLCD_PrintString
  607              	.LVL110:
-  91:hbird.c       ****         }
- 608              		.loc 1 91 0
+ 117:hbird.c       ****         }
+ 608              		.loc 1 117 0
  609 0264 0120     		movs	r0, #1
  610 0266 0B21     		movs	r1, #11
  611 0268 FFF7FEFF 		bl	CharLCD_Position
@@ -810,20 +836,23 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  616 0272 75E7     		b	.L17
  617              	.LVL113:
  618              	.L47:
- 103:hbird.c       ****             CharLCD_PosPrintString(1,11,"   ");
- 619              		.loc 1 103 0
+ 129:hbird.c       ****             CharLCD_PosPrintString(1,11,"   ");
+ 619              		.loc 1 129 0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 15
+
+
  620 0274 0120     		movs	r0, #1
  621 0276 0521     		movs	r1, #5
  622 0278 FFF7FEFF 		bl	CharLCD_Position
  623              	.LVL114:
  624 027c 1248     		ldr	r0, .L49+40
  625              	.L44:
- 107:hbird.c       ****             CharLCD_PosPrintString(1,11,"   ");
- 626              		.loc 1 107 0
+ 133:hbird.c       ****             CharLCD_PosPrintString(1,11,"   ");
+ 626              		.loc 1 133 0
  627 027e FFF7FEFF 		bl	CharLCD_PrintString
  628              	.LVL115:
- 108:hbird.c       ****         }
- 629              		.loc 1 108 0
+ 134:hbird.c       ****         }
+ 629              		.loc 1 134 0
  630 0282 0120     		movs	r0, #1
  631 0284 0B21     		movs	r1, #11
  632 0286 FFF7FEFF 		bl	CharLCD_Position
@@ -833,14 +862,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  636              	.LVL117:
  637 0290 66E7     		b	.L17
  638              	.L48:
- 107:hbird.c       ****             CharLCD_PosPrintString(1,11,"   ");
- 639              		.loc 1 107 0
+ 133:hbird.c       ****             CharLCD_PosPrintString(1,11,"   ");
+ 639              		.loc 1 133 0
  640 0292 0120     		movs	r0, #1
  641 0294 0521     		movs	r1, #5
  642 0296 FFF7FEFF 		bl	CharLCD_Position
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 15
-
-
  643              	.LVL118:
  644 029a 0C48     		ldr	r0, .L49+44
  645 029c EFE7     		b	.L44
@@ -870,17 +896,20 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  669              		.type	UpdateKeyLCD, %function
  670              	UpdateKeyLCD:
  671              	.LFB59:
- 116:hbird.c       **** enum MusicKey UpdateKeyLCD(uint16 currADC)
- 117:hbird.c       **** {   
- 672              		.loc 1 117 0
+ 142:hbird.c       **** enum MusicKey UpdateKeyLCD(uint16 currADC)
+ 143:hbird.c       **** {   
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 16
+
+
+ 672              		.loc 1 143 0
  673              		.cfi_startproc
  674              		@ args = 0, pretend = 0, frame = 0
  675              		@ frame_needed = 0, uses_anonymous_args = 0
  676              	.LVL119:
  677              	.LBB12:
  678              	.LBB13:
-   9:hbird.c       **** }
- 679              		.loc 1 9 0
+  35:hbird.c       **** }
+ 679              		.loc 1 35 0
  680 0000 00EB8002 		add	r2, r0, r0, lsl #2
  681 0004 0E4B     		ldr	r3, .L53
  682 0006 00EB4200 		add	r0, r0, r2, lsl #1
@@ -888,54 +917,54 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  684 000a 83FB0023 		smull	r2, r3, r3, r0
  685              	.LBE13:
  686              	.LBE12:
- 687              		.loc 1 117 0
+ 687              		.loc 1 143 0
  688 000e 10B5     		push	{r4, lr}
  689              		.cfi_def_cfa_offset 8
  690              		.cfi_offset 4, -8
  691              		.cfi_offset 14, -4
  692              	.LBB17:
  693              	.LBB14:
-   9:hbird.c       **** }
- 694              		.loc 1 9 0
+  35:hbird.c       **** }
+ 694              		.loc 1 35 0
  695 0010 0344     		add	r3, r3, r0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 16
-
-
  696              	.LBE14:
  697              	.LBE17:
- 118:hbird.c       ****     // maps ADC value to one of the keys
- 119:hbird.c       ****     enum MusicKey key = map(currADC, 0, 255, 0, 11);
- 120:hbird.c       ****     
- 121:hbird.c       ****     // Prints the string to the LCD, borrowing funciton from midi.c
- 122:hbird.c       ****     char noteStr[4] = "   ";
- 123:hbird.c       ****     CharLCD_PosPrintString(0,11,"  ")
- 698              		.loc 1 123 0
+ 144:hbird.c       ****     // maps ADC value to one of the keys
+ 145:hbird.c       ****     enum MusicKey key = map(currADC, 0, 255, 0, 11);
+ 146:hbird.c       ****     
+ 147:hbird.c       ****     // Prints the string to the LCD, borrowing funciton from midi.c
+ 148:hbird.c       ****     char noteStr[4] = "   ";
+ 149:hbird.c       ****     CharLCD_PosPrintString(0,11,"  ")
+ 698              		.loc 1 149 0
  699 0012 0B21     		movs	r1, #11
  700              	.LBB18:
  701              	.LBB15:
-   9:hbird.c       **** }
- 702              		.loc 1 9 0
+  35:hbird.c       **** }
+ 702              		.loc 1 35 0
  703 0014 C417     		asrs	r4, r0, #31
  704              	.LBE15:
  705              	.LBE18:
- 706              		.loc 1 123 0
+ 706              		.loc 1 149 0
  707 0016 0020     		movs	r0, #0
  708              	.LBB19:
  709              	.LBB16:
-   9:hbird.c       **** }
- 710              		.loc 1 9 0
+  35:hbird.c       **** }
+ 710              		.loc 1 35 0
  711 0018 C4EBE314 		rsb	r4, r4, r3, asr #7
  712              	.LVL121:
  713              	.LBE16:
  714              	.LBE19:
- 715              		.loc 1 123 0
+ 715              		.loc 1 149 0
  716 001c FFF7FEFF 		bl	CharLCD_Position
  717              	.LVL122:
  718 0020 0848     		ldr	r0, .L53+4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 17
+
+
  719 0022 FFF7FEFF 		bl	CharLCD_PrintString
  720              	.LVL123:
- 124:hbird.c       ****     CharLCD_PosPrintString(0,11,midi_note_basename(key));
- 721              		.loc 1 124 0
+ 150:hbird.c       ****     CharLCD_PosPrintString(0,11,midi_note_basename(key));
+ 721              		.loc 1 150 0
  722 0026 E4B2     		uxtb	r4, r4
  723 0028 0B21     		movs	r1, #11
  724 002a 0020     		movs	r0, #0
@@ -946,11 +975,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  729              	.LVL125:
  730 0036 FFF7FEFF 		bl	CharLCD_PrintString
  731              	.LVL126:
- 125:hbird.c       ****     
- 126:hbird.c       ****     // Return the updated key to main
- 127:hbird.c       ****     return key;
- 128:hbird.c       **** }
- 732              		.loc 1 128 0
+ 151:hbird.c       ****     
+ 152:hbird.c       ****     // Return the updated key to main
+ 153:hbird.c       ****     return key;
+ 154:hbird.c       **** }
+ 732              		.loc 1 154 0
  733 003a 2046     		mov	r0, r4
  734 003c 10BD     		pop	{r4, pc}
  735              	.LVL127:
@@ -958,9 +987,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  737 003e 00BF     		.align	2
  738              	.L53:
  739 0040 81808080 		.word	-2139062143
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 17
-
-
  740 0044 70000000 		.word	.LC16
  741              		.cfi_endproc
  742              	.LFE59:
@@ -973,9 +999,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  749              		.type	initDisplay, %function
  750              	initDisplay:
  751              	.LFB60:
- 129:hbird.c       **** 
- 130:hbird.c       **** void initDisplay(void){
- 752              		.loc 1 130 0
+ 155:hbird.c       **** 
+ 156:hbird.c       **** void initDisplay(void){
+ 752              		.loc 1 156 0
  753              		.cfi_startproc
  754              		@ args = 0, pretend = 0, frame = 0
  755              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -985,48 +1011,48 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  759              		.cfi_offset 5, -12
  760              		.cfi_offset 6, -8
  761              		.cfi_offset 14, -4
- 131:hbird.c       ****     
- 132:hbird.c       ****     CharLCD_ClearDisplay();
- 762              		.loc 1 132 0
+ 157:hbird.c       ****     
+ 158:hbird.c       ****     CharLCD_ClearDisplay();
+ 762              		.loc 1 158 0
  763 0002 0120     		movs	r0, #1
  764 0004 FFF7FEFF 		bl	CharLCD_WriteControl
  765              	.LVL128:
- 133:hbird.c       ****     
- 134:hbird.c       ****     UpdateKeyLCD(ADC_UI_GetResult16(KEY));   //update key
- 766              		.loc 1 134 0
+ 159:hbird.c       ****     
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 18
+
+
+ 160:hbird.c       ****     UpdateKeyLCD(ADC_UI_GetResult16(KEY));   //update key
+ 766              		.loc 1 160 0
  767 0008 0020     		movs	r0, #0
  768 000a FFF7FEFF 		bl	ADC_UI_GetResult16
  769              	.LVL129:
  770 000e 80B2     		uxth	r0, r0
  771 0010 FFF7FEFF 		bl	UpdateKeyLCD
  772              	.LVL130:
- 135:hbird.c       ****     UpdateScaleLCD(ADC_UI_GetResult16(SCALE));   //update scale
- 773              		.loc 1 135 0
+ 161:hbird.c       ****     UpdateScaleLCD(ADC_UI_GetResult16(SCALE));   //update scale
+ 773              		.loc 1 161 0
  774 0014 0120     		movs	r0, #1
  775 0016 FFF7FEFF 		bl	ADC_UI_GetResult16
  776              	.LVL131:
- 136:hbird.c       ****      
- 137:hbird.c       ****     CharLCD_PosPrintString(2,11,"          ");
- 777              		.loc 1 137 0
+ 162:hbird.c       ****      
+ 163:hbird.c       ****     CharLCD_PosPrintString(2,11,"          ");
+ 777              		.loc 1 163 0
  778 001a 244E     		ldr	r6, .L57
- 135:hbird.c       ****     UpdateScaleLCD(ADC_UI_GetResult16(SCALE));   //update scale
- 779              		.loc 1 135 0
+ 161:hbird.c       ****     UpdateScaleLCD(ADC_UI_GetResult16(SCALE));   //update scale
+ 779              		.loc 1 161 0
  780 001c 80B2     		uxth	r0, r0
  781 001e FFF7FEFF 		bl	UpdateScaleLCD
  782              	.LVL132:
- 783              		.loc 1 137 0
+ 783              		.loc 1 163 0
  784 0022 0B21     		movs	r1, #11
  785 0024 0220     		movs	r0, #2
  786 0026 FFF7FEFF 		bl	CharLCD_Position
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 18
-
-
  787              	.LVL133:
  788 002a 3046     		mov	r0, r6
  789 002c FFF7FEFF 		bl	CharLCD_PrintString
  790              	.LVL134:
- 138:hbird.c       ****     CharLCD_PosPrintString(2,11,"Hist:");  
- 791              		.loc 1 138 0
+ 164:hbird.c       ****     CharLCD_PosPrintString(2,11,"Hist:");  
+ 791              		.loc 1 164 0
  792 0030 0B21     		movs	r1, #11
  793 0032 0220     		movs	r0, #2
  794 0034 FFF7FEFF 		bl	CharLCD_Position
@@ -1034,15 +1060,15 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  796 0038 1D48     		ldr	r0, .L57+4
  797 003a FFF7FEFF 		bl	CharLCD_PrintString
  798              	.LVL136:
- 139:hbird.c       ****     uint16 tempHyst = map(ADC_UI_GetResult16(HYST),0,255,0,101);
- 799              		.loc 1 139 0
+ 165:hbird.c       ****     uint16 tempHyst = map(ADC_UI_GetResult16(HYST),0,255,0,101);
+ 799              		.loc 1 165 0
  800 003e 0220     		movs	r0, #2
  801 0040 FFF7FEFF 		bl	ADC_UI_GetResult16
  802              	.LVL137:
  803              	.LBB20:
  804              	.LBB21:
-   9:hbird.c       **** }
- 805              		.loc 1 9 0
+  35:hbird.c       **** }
+ 805              		.loc 1 35 0
  806 0044 6524     		movs	r4, #101
  807 0046 04FB00F0 		mul	r0, r4, r0
  808              	.LVL138:
@@ -1052,39 +1078,39 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  812 0052 1044     		add	r0, r0, r2
  813 0054 C3EBE010 		rsb	r0, r3, r0, asr #7
  814              	.LBE21:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 19
+
+
  815              	.LBE20:
- 816              		.loc 1 139 0
+ 816              		.loc 1 165 0
  817 0058 80B2     		uxth	r0, r0
  818              	.LVL139:
- 140:hbird.c       ****     if(tempHyst > 100) { tempHyst = 100; }
- 141:hbird.c       ****     CharLCD_PrintNumber(tempHyst);
- 819              		.loc 1 141 0
+ 166:hbird.c       ****     if(tempHyst > 100) { tempHyst = 100; }
+ 167:hbird.c       ****     CharLCD_PrintNumber(tempHyst);
+ 819              		.loc 1 167 0
  820 005a 6428     		cmp	r0, #100
  821 005c 28BF     		it	cs
  822 005e 6420     		movcs	r0, #100
  823              	.LVL140:
  824 0060 FFF7FEFF 		bl	CharLCD_PrintNumber
  825              	.LVL141:
- 142:hbird.c       ****     CharLCD_PrintString("%");
- 826              		.loc 1 142 0
+ 168:hbird.c       ****     CharLCD_PrintString("%");
+ 826              		.loc 1 168 0
  827 0064 1448     		ldr	r0, .L57+12
  828 0066 FFF7FEFF 		bl	CharLCD_PrintString
  829              	.LVL142:
- 143:hbird.c       **** 
- 144:hbird.c       ****     CharLCD_PosPrintString(2,0,"          ");
- 830              		.loc 1 144 0
+ 169:hbird.c       **** 
+ 170:hbird.c       ****     CharLCD_PosPrintString(2,0,"          ");
+ 830              		.loc 1 170 0
  831 006a 0021     		movs	r1, #0
  832 006c 0220     		movs	r0, #2
  833 006e FFF7FEFF 		bl	CharLCD_Position
  834              	.LVL143:
  835 0072 3046     		mov	r0, r6
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 19
-
-
  836 0074 FFF7FEFF 		bl	CharLCD_PrintString
  837              	.LVL144:
- 145:hbird.c       ****     CharLCD_PosPrintString(2,0,"Velo:"); 
- 838              		.loc 1 145 0
+ 171:hbird.c       ****     CharLCD_PosPrintString(2,0,"Velo:"); 
+ 838              		.loc 1 171 0
  839 0078 0021     		movs	r1, #0
  840 007a 0220     		movs	r0, #2
  841 007c FFF7FEFF 		bl	CharLCD_Position
@@ -1092,15 +1118,15 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  843 0080 0E48     		ldr	r0, .L57+16
  844 0082 FFF7FEFF 		bl	CharLCD_PrintString
  845              	.LVL146:
- 146:hbird.c       ****     uint16 tempVelo = map(ADC_UI_GetResult16(HYST),0,255,0,101);
- 846              		.loc 1 146 0
+ 172:hbird.c       ****     uint16 tempVelo = map(ADC_UI_GetResult16(HYST),0,255,0,101);
+ 846              		.loc 1 172 0
  847 0086 0220     		movs	r0, #2
  848 0088 FFF7FEFF 		bl	ADC_UI_GetResult16
  849              	.LVL147:
  850              	.LBB22:
  851              	.LBB23:
-   9:hbird.c       **** }
- 852              		.loc 1 9 0
+  35:hbird.c       **** }
+ 852              		.loc 1 35 0
  853 008c 04FB00F0 		mul	r0, r4, r0
  854              	.LVL148:
  855 0090 85FB0035 		smull	r3, r5, r5, r0
@@ -1109,26 +1135,29 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  858 0098 C3EBE010 		rsb	r0, r3, r0, asr #7
  859              	.LBE23:
  860              	.LBE22:
- 861              		.loc 1 146 0
+ 861              		.loc 1 172 0
  862 009c 80B2     		uxth	r0, r0
  863              	.LVL149:
- 147:hbird.c       ****     if(tempVelo > 100) { tempVelo = 100; }
- 148:hbird.c       ****     CharLCD_PrintNumber(tempVelo); 
- 864              		.loc 1 148 0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 20
+
+
+ 173:hbird.c       ****     if(tempVelo > 100) { tempVelo = 100; }
+ 174:hbird.c       ****     CharLCD_PrintNumber(tempVelo); 
+ 864              		.loc 1 174 0
  865 009e 6428     		cmp	r0, #100
  866 00a0 28BF     		it	cs
  867 00a2 6420     		movcs	r0, #100
  868              	.LVL150:
- 149:hbird.c       **** }
- 869              		.loc 1 149 0
+ 175:hbird.c       **** }
+ 869              		.loc 1 175 0
  870 00a4 BDE87040 		pop	{r4, r5, r6, lr}
  871              		.cfi_restore 14
  872              		.cfi_restore 6
  873              		.cfi_restore 5
  874              		.cfi_restore 4
  875              		.cfi_def_cfa_offset 0
- 148:hbird.c       **** }
- 876              		.loc 1 148 0
+ 174:hbird.c       **** }
+ 876              		.loc 1 174 0
  877 00a8 FFF7FEBF 		b	CharLCD_PrintNumber
  878              	.LVL151:
  879              	.L58:
@@ -1138,9 +1167,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  883 00b0 80000000 		.word	.LC18
  884 00b4 81808080 		.word	-2139062143
  885 00b8 88000000 		.word	.LC19
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 20
-
-
  886 00bc 8C000000 		.word	.LC20
  887              		.cfi_endproc
  888              	.LFE60:
@@ -1153,9 +1179,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  895              		.type	PushArray, %function
  896              	PushArray:
  897              	.LFB61:
- 150:hbird.c       **** 
- 151:hbird.c       **** void PushArray(int *array, int value, int size){
- 898              		.loc 1 151 0
+ 176:hbird.c       **** 
+ 177:hbird.c       **** void PushArray(int *array, int value, int size){
+ 898              		.loc 1 177 0
  899              		.cfi_startproc
  900              		@ args = 0, pretend = 0, frame = 0
  901              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1166,13 +1192,16 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  906              		.cfi_offset 5, -12
  907              		.cfi_offset 6, -8
  908              		.cfi_offset 14, -4
- 909              		.loc 1 151 0
+ 909              		.loc 1 177 0
  910 0002 1446     		mov	r4, r2
  911 0004 0546     		mov	r5, r0
  912 0006 0E46     		mov	r6, r1
- 152:hbird.c       ****     
- 153:hbird.c       ****     CharLCD_PosPrintNumber(0,5,size);
- 913              		.loc 1 153 0
+ 178:hbird.c       ****     
+ 179:hbird.c       ****     CharLCD_PosPrintNumber(0,5,size);
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 21
+
+
+ 913              		.loc 1 179 0
  914 0008 0020     		movs	r0, #0
  915              	.LVL153:
  916 000a 0521     		movs	r1, #5
@@ -1182,10 +1211,10 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  920 0010 A0B2     		uxth	r0, r4
  921 0012 FFF7FEFF 		bl	CharLCD_PrintNumber
  922              	.LVL156:
- 154:hbird.c       ****     
- 155:hbird.c       ****     int i;
- 156:hbird.c       ****     for(i = size-1; i > 0; i--){
- 923              		.loc 1 156 0
+ 180:hbird.c       ****     
+ 181:hbird.c       ****     int i;
+ 182:hbird.c       ****     for(i = size-1; i > 0; i--){
+ 923              		.loc 1 182 0
  924 0016 012C     		cmp	r4, #1
  925 0018 09DD     		ble	.L62
  926 001a 04F18042 		add	r2, r4, #1073741824
@@ -1193,24 +1222,21 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  928 0020 05EB8202 		add	r2, r5, r2, lsl #2
  929              	.LVL157:
  930              	.L61:
- 157:hbird.c       ****         array[i] = array[i-1];
- 931              		.loc 1 157 0 discriminator 3
+ 183:hbird.c       ****         array[i] = array[i-1];
+ 931              		.loc 1 183 0 discriminator 3
  932 0024 52F8043D 		ldr	r3, [r2, #-4]!
- 156:hbird.c       ****         array[i] = array[i-1];
- 933              		.loc 1 156 0 discriminator 3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 21
-
-
+ 182:hbird.c       ****         array[i] = array[i-1];
+ 933              		.loc 1 182 0 discriminator 3
  934 0028 AA42     		cmp	r2, r5
- 935              		.loc 1 157 0 discriminator 3
+ 935              		.loc 1 183 0 discriminator 3
  936 002a 5360     		str	r3, [r2, #4]
- 156:hbird.c       ****         array[i] = array[i-1];
- 937              		.loc 1 156 0 discriminator 3
+ 182:hbird.c       ****         array[i] = array[i-1];
+ 937              		.loc 1 182 0 discriminator 3
  938 002c FAD1     		bne	.L61
  939              	.L62:
- 158:hbird.c       ****     }
- 159:hbird.c       ****     array[0] = value;
- 940              		.loc 1 159 0
+ 184:hbird.c       ****     }
+ 185:hbird.c       ****     array[0] = value;
+ 940              		.loc 1 185 0
  941 002e 2E60     		str	r6, [r5]
  942 0030 70BD     		pop	{r4, r5, r6, pc}
  943              		.cfi_endproc
@@ -1224,56 +1250,56 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  951              		.type	PrintNoteHistory, %function
  952              	PrintNoteHistory:
  953              	.LFB62:
- 160:hbird.c       **** }
- 161:hbird.c       **** 
- 162:hbird.c       **** void PrintNoteHistory(int array[]){
- 954              		.loc 1 162 0
+ 186:hbird.c       **** }
+ 187:hbird.c       **** 
+ 188:hbird.c       **** void PrintNoteHistory(int array[]){
+ 954              		.loc 1 188 0
  955              		.cfi_startproc
  956              		@ args = 0, pretend = 0, frame = 24
  957              		@ frame_needed = 0, uses_anonymous_args = 0
  958              	.LVL158:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 22
+
+
  959 0000 30B5     		push	{r4, r5, lr}
  960              		.cfi_def_cfa_offset 12
  961              		.cfi_offset 4, -12
  962              		.cfi_offset 5, -8
  963              		.cfi_offset 14, -4
- 163:hbird.c       ****     
- 164:hbird.c       ****     char parentStr[20] = {};
- 165:hbird.c       ****     sprintf(parentStr, "%d, %d, %d, %d, %d,", array[0], array[1], array[2], array[3], array[4]);
- 964              		.loc 1 165 0
+ 189:hbird.c       ****     
+ 190:hbird.c       ****     char parentStr[20] = {};
+ 191:hbird.c       ****     sprintf(parentStr, "%d, %d, %d, %d, %d,", array[0], array[1], array[2], array[3], array[4]);
+ 964              		.loc 1 191 0
  965 0002 90E82C00 		ldmia	r0, {r2, r3, r5}
  966 0006 C468     		ldr	r4, [r0, #12]
  967 0008 0169     		ldr	r1, [r0, #16]
- 162:hbird.c       ****     
- 968              		.loc 1 162 0
+ 188:hbird.c       ****     
+ 968              		.loc 1 188 0
  969 000a 8BB0     		sub	sp, sp, #44
  970              		.cfi_def_cfa_offset 56
- 971              		.loc 1 165 0
+ 971              		.loc 1 191 0
  972 000c 0194     		str	r4, [sp, #4]
  973 000e 0291     		str	r1, [sp, #8]
- 164:hbird.c       ****     sprintf(parentStr, "%d, %d, %d, %d, %d,", array[0], array[1], array[2], array[3], array[4]);
- 974              		.loc 1 164 0
+ 190:hbird.c       ****     sprintf(parentStr, "%d, %d, %d, %d, %d,", array[0], array[1], array[2], array[3], array[4]);
+ 974              		.loc 1 190 0
  975 0010 0024     		movs	r4, #0
- 976              		.loc 1 165 0
+ 976              		.loc 1 191 0
  977 0012 0095     		str	r5, [sp]
  978 0014 05A8     		add	r0, sp, #20
  979              	.LVL159:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 22
-
-
  980 0016 0849     		ldr	r1, .L68
- 164:hbird.c       ****     sprintf(parentStr, "%d, %d, %d, %d, %d,", array[0], array[1], array[2], array[3], array[4]);
- 981              		.loc 1 164 0
+ 190:hbird.c       ****     sprintf(parentStr, "%d, %d, %d, %d, %d,", array[0], array[1], array[2], array[3], array[4]);
+ 981              		.loc 1 190 0
  982 0018 0594     		str	r4, [sp, #20]
  983 001a 0694     		str	r4, [sp, #24]
  984 001c 0794     		str	r4, [sp, #28]
  985 001e 0894     		str	r4, [sp, #32]
  986 0020 0994     		str	r4, [sp, #36]
- 987              		.loc 1 165 0
+ 987              		.loc 1 191 0
  988 0022 FFF7FEFF 		bl	sprintf
  989              	.LVL160:
- 166:hbird.c       ****     CharLCD_PosPrintString(3,0,parentStr);
- 990              		.loc 1 166 0
+ 192:hbird.c       ****     CharLCD_PosPrintString(3,0,parentStr);
+ 990              		.loc 1 192 0
  991 0026 2146     		mov	r1, r4
  992 0028 0320     		movs	r0, #3
  993 002a FFF7FEFF 		bl	CharLCD_Position
@@ -1281,22 +1307,25 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  995 002e 05A8     		add	r0, sp, #20
  996 0030 FFF7FEFF 		bl	CharLCD_PrintString
  997              	.LVL162:
- 167:hbird.c       ****     
- 168:hbird.c       ****     
- 169:hbird.c       ****     /*
- 170:hbird.c       ****     char tempStr[20] = {};
- 171:hbird.c       ****     int j;
- 172:hbird.c       ****     for(j = 6; j >= 0; j--){
- 173:hbird.c       ****         int i;
- 174:hbird.c       ****         for(i = 0; i < 20; i++){
- 175:hbird.c       ****             tempStr[i] = parentStr[i + j];   
- 176:hbird.c       ****         }
- 177:hbird.c       ****     }
- 178:hbird.c       ****     */
- 179:hbird.c       ****     
- 180:hbird.c       ****       
- 181:hbird.c       **** }
- 998              		.loc 1 181 0
+ 193:hbird.c       ****     
+ 194:hbird.c       ****     
+ 195:hbird.c       ****     /*
+ 196:hbird.c       ****     char tempStr[20] = {};
+ 197:hbird.c       ****     int j;
+ 198:hbird.c       ****     for(j = 6; j >= 0; j--){
+ 199:hbird.c       ****         int i;
+ 200:hbird.c       ****         for(i = 0; i < 20; i++){
+ 201:hbird.c       ****             tempStr[i] = parentStr[i + j];   
+ 202:hbird.c       ****         }
+ 203:hbird.c       ****     }
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 23
+
+
+ 204:hbird.c       ****     */
+ 205:hbird.c       ****     
+ 206:hbird.c       ****       
+ 207:hbird.c       **** }
+ 998              		.loc 1 207 0
  999 0034 0BB0     		add	sp, sp, #44
  1000              		.cfi_def_cfa_offset 12
  1001              		@ sp needed
@@ -1318,9 +1347,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1017              		.size	MIDI_IDENTITY_REPLY, 14
  1018              	MIDI_IDENTITY_REPLY:
  1019 0004 F0       		.byte	-16
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 23
-
-
  1020 0005 7E       		.byte	126
  1021 0006 7F       		.byte	127
  1022 0007 06       		.byte	6
@@ -1352,6 +1378,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1045 0018 506E744D 		.ascii	"PntMaj\000"
  1045      616A00
  1046 001f 00       		.space	1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 24
+
+
  1047              	.LC4:
  1048 0020 506E744D 		.ascii	"PntMin\000"
  1048      696E00
@@ -1378,9 +1407,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1062              	.LC10:
  1063 0058 3E202000 		.ascii	">  \000"
  1064              	.LC11:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 24
-
-
  1065 005c 203E2000 		.ascii	" > \000"
  1066              	.LC12:
  1067 0060 20203E00 		.ascii	"  >\000"
@@ -1412,6 +1438,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1089              	.LC21:
  1090 0094 25642C20 		.ascii	"%d, %d, %d, %d, %d,\000"
  1090      25642C20 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 25
+
+
  1090      25642C20 
  1090      25642C20 
  1090      25642C00 
@@ -1438,9 +1467,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1111 0015 0C010000 		.4byte	.LASF78
  1112 0019 28000000 		.4byte	.Ldebug_ranges0+0x28
  1113 001d 00000000 		.4byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 25
-
-
  1114 0021 00000000 		.4byte	.Ldebug_line0
  1115 0025 02       		.uleb128 0x2
  1116 0026 08       		.byte	0x8
@@ -1472,6 +1498,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1142 0055 3F       		.byte	0x3f
  1143 0056 5A000000 		.4byte	0x5a
  1144 005a 02       		.uleb128 0x2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 26
+
+
  1145 005b 04       		.byte	0x4
  1146 005c 05       		.byte	0x5
  1147 005d F2000000 		.4byte	.LASF6
@@ -1498,9 +1527,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1168 0084 03       		.uleb128 0x3
  1169 0085 F1020000 		.4byte	.LASF12
  1170 0089 03       		.byte	0x3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 26
-
-
  1171 008a 2C       		.byte	0x2c
  1172 008b 4F000000 		.4byte	0x4f
  1173 008f 03       		.uleb128 0x3
@@ -1532,6 +1558,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1199 00c4 07       		.byte	0x7
  1200 00c5 3F000000 		.4byte	.LASF18
  1201 00c9 05       		.uleb128 0x5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 27
+
+
  1202 00ca 04       		.byte	0x4
  1203 00cb BB000000 		.4byte	0xbb
  1204 00cf 05       		.uleb128 0x5
@@ -1558,9 +1587,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1225 00f9 CB000000 		.4byte	.LASF22
  1226 00fd 03       		.sleb128 3
  1227 00fe 08       		.uleb128 0x8
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 27
-
-
  1228 00ff B5020000 		.4byte	.LASF23
  1229 0103 04       		.sleb128 4
  1230 0104 08       		.uleb128 0x8
@@ -1592,6 +1618,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1256 0136 0C       		.byte	0xc
  1257 0137 66010000 		.4byte	0x166
  1258 013b 08       		.uleb128 0x8
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 28
+
+
  1259 013c 40030000 		.4byte	.LASF33
  1260 0140 00       		.sleb128 0
  1261 0141 08       		.uleb128 0x8
@@ -1616,42 +1645,42 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1280 0166 09       		.uleb128 0x9
  1281 0167 6D617000 		.ascii	"map\000"
  1282 016b 01       		.byte	0x1
- 1283 016c 07       		.byte	0x7
+ 1283 016c 21       		.byte	0x21
  1284 016d 5A000000 		.4byte	0x5a
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 28
-
-
  1285 0171 01       		.byte	0x1
  1286 0172 AC010000 		.4byte	0x1ac
  1287 0176 0A       		.uleb128 0xa
  1288 0177 7800     		.ascii	"x\000"
  1289 0179 01       		.byte	0x1
- 1290 017a 07       		.byte	0x7
+ 1290 017a 21       		.byte	0x21
  1291 017b 5A000000 		.4byte	0x5a
  1292 017f 0B       		.uleb128 0xb
  1293 0180 4E000000 		.4byte	.LASF40
  1294 0184 01       		.byte	0x1
- 1295 0185 07       		.byte	0x7
+ 1295 0185 21       		.byte	0x21
  1296 0186 5A000000 		.4byte	0x5a
  1297 018a 0B       		.uleb128 0xb
  1298 018b 00000000 		.4byte	.LASF41
  1299 018f 01       		.byte	0x1
- 1300 0190 07       		.byte	0x7
+ 1300 0190 21       		.byte	0x21
  1301 0191 5A000000 		.4byte	0x5a
  1302 0195 0B       		.uleb128 0xb
  1303 0196 1B000000 		.4byte	.LASF42
  1304 019a 01       		.byte	0x1
- 1305 019b 07       		.byte	0x7
+ 1305 019b 21       		.byte	0x21
  1306 019c 5A000000 		.4byte	0x5a
  1307 01a0 0B       		.uleb128 0xb
  1308 01a1 0D040000 		.4byte	.LASF43
  1309 01a5 01       		.byte	0x1
- 1310 01a6 07       		.byte	0x7
+ 1310 01a6 21       		.byte	0x21
  1311 01a7 5A000000 		.4byte	0x5a
  1312 01ab 00       		.byte	0
  1313 01ac 0C       		.uleb128 0xc
  1314 01ad 66010000 		.4byte	0x166
  1315 01b1 00000000 		.4byte	.LFB56
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 29
+
+
  1316 01b5 1A000000 		.4byte	.LFE56-.LFB56
  1317 01b9 01       		.uleb128 0x1
  1318 01ba 9C       		.byte	0x9c
@@ -1677,10 +1706,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1338 01e9 0F       		.uleb128 0xf
  1339 01ea E3000000 		.4byte	.LASF54
  1340 01ee 01       		.byte	0x1
- 1341 01ef 0C       		.byte	0xc
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 29
-
-
+ 1341 01ef 26       		.byte	0x26
  1342 01f0 2F010000 		.4byte	0x12f
  1343 01f4 00000000 		.4byte	.LFB57
  1344 01f8 AC000000 		.4byte	.LFE57-.LFB57
@@ -1690,13 +1716,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1348 0202 10       		.uleb128 0x10
  1349 0203 FB030000 		.4byte	.LASF44
  1350 0207 01       		.byte	0x1
- 1351 0208 0C       		.byte	0xc
+ 1351 0208 26       		.byte	0x26
  1352 0209 9A000000 		.4byte	0x9a
  1353 020d 62000000 		.4byte	.LLST3
  1354 0211 11       		.uleb128 0x11
  1355 0212 D5010000 		.4byte	.LASF48
  1356 0216 01       		.byte	0x1
- 1357 0217 14       		.byte	0x14
+ 1357 0217 2E       		.byte	0x2e
  1358 0218 2F010000 		.4byte	0x12f
  1359 021c 83000000 		.4byte	.LLST4
  1360 0220 12       		.uleb128 0x12
@@ -1704,7 +1730,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1362 0225 1A000000 		.4byte	.LBB10
  1363 0229 14000000 		.4byte	.LBE10-.LBB10
  1364 022d 01       		.byte	0x1
- 1365 022e 14       		.byte	0x14
+ 1365 022e 2E       		.byte	0x2e
  1366 022f 55020000 		.4byte	0x255
  1367 0233 13       		.uleb128 0x13
  1368 0234 A0010000 		.4byte	0x1a0
@@ -1712,6 +1738,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1370 0239 13       		.uleb128 0x13
  1371 023a 95010000 		.4byte	0x195
  1372 023e 00       		.byte	0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 30
+
+
  1373 023f 13       		.uleb128 0x13
  1374 0240 8A010000 		.4byte	0x18a
  1375 0244 FF       		.byte	0xff
@@ -1738,9 +1767,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1396 026b 30       		.byte	0x30
  1397 026c 00       		.byte	0
  1398 026d 14       		.uleb128 0x14
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 30
-
-
  1399 026e 12000000 		.4byte	.LVL7
  1400 0272 170B0000 		.4byte	0xb17
  1401 0276 84020000 		.4byte	0x284
@@ -1772,6 +1798,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1427 02a5 B3020000 		.4byte	0x2b3
  1428 02a9 15       		.uleb128 0x15
  1429 02aa 01       		.uleb128 0x1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 31
+
+
  1430 02ab 50       		.byte	0x50
  1431 02ac 05       		.uleb128 0x5
  1432 02ad 03       		.byte	0x3
@@ -1798,9 +1827,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1453 02da 05       		.uleb128 0x5
  1454 02db 03       		.byte	0x3
  1455 02dc 10000000 		.4byte	.LC2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 31
-
-
  1456 02e0 00       		.byte	0
  1457 02e1 14       		.uleb128 0x14
  1458 02e2 64000000 		.4byte	.LVL17
@@ -1832,6 +1858,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1484 031d 01       		.uleb128 0x1
  1485 031e 50       		.byte	0x50
  1486 031f 05       		.uleb128 0x5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 32
+
+
  1487 0320 03       		.byte	0x3
  1488 0321 28000000 		.4byte	.LC5
  1489 0325 00       		.byte	0
@@ -1849,7 +1878,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1501 033a 17       		.uleb128 0x17
  1502 033b DB010000 		.4byte	.LASF56
  1503 033f 01       		.byte	0x1
- 1504 0340 31       		.byte	0x31
+ 1504 0340 4B       		.byte	0x4b
  1505 0341 00000000 		.4byte	.LFB58
  1506 0345 D0020000 		.4byte	.LFE58-.LFB58
  1507 0349 01       		.uleb128 0x1
@@ -1858,91 +1887,88 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1510 034f 10       		.uleb128 0x10
  1511 0350 03040000 		.4byte	.LASF45
  1512 0354 01       		.byte	0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 32
-
-
- 1513 0355 31       		.byte	0x31
+ 1513 0355 4B       		.byte	0x4b
  1514 0356 CC060000 		.4byte	0x6cc
  1515 035a BA000000 		.4byte	.LLST6
  1516 035e 10       		.uleb128 0x10
  1517 035f 57010000 		.4byte	.LASF46
  1518 0363 01       		.byte	0x1
- 1519 0364 31       		.byte	0x31
+ 1519 0364 4B       		.byte	0x4b
  1520 0365 8F000000 		.4byte	0x8f
  1521 0369 DB000000 		.4byte	.LLST7
  1522 036d 10       		.uleb128 0x10
  1523 036e C6000000 		.4byte	.LASF47
  1524 0372 01       		.byte	0x1
- 1525 0373 31       		.byte	0x31
+ 1525 0373 4B       		.byte	0x4b
  1526 0374 2C000000 		.4byte	0x2c
  1527 0378 FC000000 		.4byte	.LLST8
  1528 037c 18       		.uleb128 0x18
  1529 037d 757000   		.ascii	"up\000"
  1530 0380 01       		.byte	0x1
- 1531 0381 33       		.byte	0x33
+ 1531 0381 4D       		.byte	0x4d
  1532 0382 2C000000 		.4byte	0x2c
  1533 0386 1A010000 		.4byte	.LLST9
  1534 038a 18       		.uleb128 0x18
  1535 038b 6C6200   		.ascii	"lb\000"
  1536 038e 01       		.byte	0x1
- 1537 038f 33       		.byte	0x33
+ 1537 038f 4D       		.byte	0x4d
  1538 0390 2C000000 		.4byte	0x2c
  1539 0394 66010000 		.4byte	.LLST10
  1540 0398 11       		.uleb128 0x11
  1541 0399 A4030000 		.4byte	.LASF49
  1542 039d 01       		.byte	0x1
- 1543 039e 33       		.byte	0x33
+ 1543 039e 4D       		.byte	0x4d
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 33
+
+
  1544 039f 2C000000 		.4byte	0x2c
  1545 03a3 8C020000 		.4byte	.LLST11
  1546 03a7 11       		.uleb128 0x11
  1547 03a8 FB000000 		.4byte	.LASF50
  1548 03ac 01       		.byte	0x1
- 1549 03ad 33       		.byte	0x33
+ 1549 03ad 4D       		.byte	0x4d
  1550 03ae 2C000000 		.4byte	0x2c
  1551 03b2 04030000 		.4byte	.LLST12
  1552 03b6 11       		.uleb128 0x11
  1553 03b7 A8000000 		.4byte	.LASF51
  1554 03bb 01       		.byte	0x1
- 1555 03bc 33       		.byte	0x33
+ 1555 03bc 4D       		.byte	0x4d
  1556 03bd 2C000000 		.4byte	0x2c
  1557 03c1 DA040000 		.4byte	.LLST13
  1558 03c5 11       		.uleb128 0x11
  1559 03c6 F9020000 		.4byte	.LASF52
  1560 03ca 01       		.byte	0x1
- 1561 03cb 33       		.byte	0x33
+ 1561 03cb 4D       		.byte	0x4d
  1562 03cc 2C000000 		.4byte	0x2c
  1563 03d0 82050000 		.4byte	.LLST14
  1564 03d4 18       		.uleb128 0x18
  1565 03d5 75703100 		.ascii	"up1\000"
  1566 03d9 01       		.byte	0x1
- 1567 03da 3F       		.byte	0x3f
+ 1567 03da 59       		.byte	0x59
  1568 03db 2C000000 		.4byte	0x2c
  1569 03df 26080000 		.4byte	.LLST15
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 33
-
-
  1570 03e3 18       		.uleb128 0x18
  1571 03e4 75703200 		.ascii	"up2\000"
  1572 03e8 01       		.byte	0x1
- 1573 03e9 3F       		.byte	0x3f
+ 1573 03e9 59       		.byte	0x59
  1574 03ea 2C000000 		.4byte	0x2c
  1575 03ee 4F080000 		.4byte	.LLST16
  1576 03f2 18       		.uleb128 0x18
  1577 03f3 6C623100 		.ascii	"lb1\000"
  1578 03f7 01       		.byte	0x1
- 1579 03f8 3F       		.byte	0x3f
+ 1579 03f8 59       		.byte	0x59
  1580 03f9 2C000000 		.4byte	0x2c
  1581 03fd 78080000 		.4byte	.LLST17
  1582 0401 18       		.uleb128 0x18
  1583 0402 6C623200 		.ascii	"lb2\000"
  1584 0406 01       		.byte	0x1
- 1585 0407 3F       		.byte	0x3f
+ 1585 0407 59       		.byte	0x59
  1586 0408 2C000000 		.4byte	0x2c
  1587 040c A1080000 		.4byte	.LLST18
  1588 0410 19       		.uleb128 0x19
  1589 0411 2D000000 		.4byte	.LASF53
  1590 0415 01       		.byte	0x1
- 1591 0416 43       		.byte	0x43
+ 1591 0416 5D       		.byte	0x5d
  1592 0417 D2060000 		.4byte	0x6d2
  1593 041b 02       		.uleb128 0x2
  1594 041c 91       		.byte	0x91
@@ -1952,6 +1978,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1598 0423 010B0000 		.4byte	0xb01
  1599 0427 36040000 		.4byte	0x436
  1600 042b 15       		.uleb128 0x15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 34
+
+
  1601 042c 01       		.uleb128 0x1
  1602 042d 51       		.byte	0x51
  1603 042e 01       		.uleb128 0x1
@@ -1978,9 +2007,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1624 0452 010B0000 		.4byte	0xb01
  1625 0456 65040000 		.4byte	0x465
  1626 045a 15       		.uleb128 0x15
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 34
-
-
  1627 045b 01       		.uleb128 0x1
  1628 045c 51       		.byte	0x51
  1629 045d 01       		.uleb128 0x1
@@ -2012,6 +2038,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1655 0480 62000000 		.4byte	.LVL35
  1656 0484 170B0000 		.4byte	0xb17
  1657 0488 14       		.uleb128 0x14
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 35
+
+
  1658 0489 6A000000 		.4byte	.LVL36
  1659 048d 010B0000 		.4byte	0xb01
  1660 0491 A0040000 		.4byte	0x4a0
@@ -2038,9 +2067,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1681 04b2 54       		.sleb128 -44
  1682 04b3 15       		.uleb128 0x15
  1683 04b4 01       		.uleb128 0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 35
-
-
  1684 04b5 50       		.byte	0x50
  1685 04b6 02       		.uleb128 0x2
  1686 04b7 78       		.byte	0x78
@@ -2072,6 +2098,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1712 04e9 01       		.uleb128 0x1
  1713 04ea 51       		.byte	0x51
  1714 04eb 02       		.uleb128 0x2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 36
+
+
  1715 04ec 91       		.byte	0x91
  1716 04ed 54       		.sleb128 -44
  1717 04ee 15       		.uleb128 0x15
@@ -2098,9 +2127,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1738 0512 50       		.byte	0x50
  1739 0513 01       		.uleb128 0x1
  1740 0514 31       		.byte	0x31
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 36
-
-
  1741 0515 00       		.byte	0
  1742 0516 14       		.uleb128 0x14
  1743 0517 52010000 		.4byte	.LVL68
@@ -2132,6 +2158,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1769 0543 60010000 		.4byte	.LVL70
  1770 0547 170B0000 		.4byte	0xb17
  1771 054b 59050000 		.4byte	0x559
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 37
+
+
  1772 054f 15       		.uleb128 0x15
  1773 0550 01       		.uleb128 0x1
  1774 0551 50       		.byte	0x50
@@ -2158,9 +2187,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1795 0572 20020000 		.4byte	.LVL98
  1796 0576 170B0000 		.4byte	0xb17
  1797 057a 88050000 		.4byte	0x588
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 37
-
-
  1798 057e 15       		.uleb128 0x15
  1799 057f 01       		.uleb128 0x1
  1800 0580 50       		.byte	0x50
@@ -2192,6 +2218,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1826 05af 50       		.byte	0x50
  1827 05b0 02       		.uleb128 0x2
  1828 05b1 7B       		.byte	0x7b
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 38
+
+
  1829 05b2 00       		.sleb128 0
  1830 05b3 00       		.byte	0
  1831 05b4 14       		.uleb128 0x14
@@ -2218,9 +2247,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1852 05db 50       		.byte	0x50
  1853 05dc 02       		.uleb128 0x2
  1854 05dd 7B       		.byte	0x7b
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 38
-
-
  1855 05de 00       		.sleb128 0
  1856 05df 00       		.byte	0
  1857 05e0 14       		.uleb128 0x14
@@ -2252,6 +2278,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1883 060f 14       		.uleb128 0x14
  1884 0610 5E020000 		.4byte	.LVL109
  1885 0614 010B0000 		.4byte	0xb01
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 39
+
+
  1886 0618 27060000 		.4byte	0x627
  1887 061c 15       		.uleb128 0x15
  1888 061d 01       		.uleb128 0x1
@@ -2278,9 +2307,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1909 063b 14       		.uleb128 0x14
  1910 063c 6C020000 		.4byte	.LVL111
  1911 0640 010B0000 		.4byte	0xb01
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 39
-
-
  1912 0644 53060000 		.4byte	0x653
  1913 0648 15       		.uleb128 0x15
  1914 0649 01       		.uleb128 0x1
@@ -2312,6 +2338,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1940 0678 01       		.uleb128 0x1
  1941 0679 51       		.byte	0x51
  1942 067a 01       		.uleb128 0x1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 40
+
+
  1943 067b 35       		.byte	0x35
  1944 067c 15       		.uleb128 0x15
  1945 067d 01       		.uleb128 0x1
@@ -2338,9 +2367,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1966 06a1 31       		.byte	0x31
  1967 06a2 00       		.byte	0
  1968 06a3 14       		.uleb128 0x14
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 40
-
-
  1969 06a4 90020000 		.4byte	.LVL117
  1970 06a8 170B0000 		.4byte	0xb17
  1971 06ac B7060000 		.4byte	0x6b7
@@ -2372,6 +2398,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  1997 06d2 1B       		.uleb128 0x1b
  1998 06d3 BB000000 		.4byte	0xbb
  1999 06d7 E2060000 		.4byte	0x6e2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 41
+
+
  2000 06db 1C       		.uleb128 0x1c
  2001 06dc C2000000 		.4byte	0xc2
  2002 06e0 02       		.byte	0x2
@@ -2379,7 +2408,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2004 06e2 0F       		.uleb128 0xf
  2005 06e3 83030000 		.4byte	.LASF55
  2006 06e7 01       		.byte	0x1
- 2007 06e8 74       		.byte	0x74
+ 2007 06e8 8E       		.byte	0x8e
  2008 06e9 DA000000 		.4byte	0xda
  2009 06ed 00000000 		.4byte	.LFB59
  2010 06f1 48000000 		.4byte	.LFE59-.LFB59
@@ -2389,29 +2418,26 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2014 06fb 10       		.uleb128 0x10
  2015 06fc FB030000 		.4byte	.LASF44
  2016 0700 01       		.byte	0x1
- 2017 0701 74       		.byte	0x74
+ 2017 0701 8E       		.byte	0x8e
  2018 0702 9A000000 		.4byte	0x9a
  2019 0706 CA080000 		.4byte	.LLST19
  2020 070a 18       		.uleb128 0x18
  2021 070b 6B657900 		.ascii	"key\000"
  2022 070f 01       		.byte	0x1
- 2023 0710 77       		.byte	0x77
+ 2023 0710 91       		.byte	0x91
  2024 0711 DA000000 		.4byte	0xda
  2025 0715 EB080000 		.4byte	.LLST20
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 41
-
-
  2026 0719 1D       		.uleb128 0x1d
  2027 071a 2D000000 		.4byte	.LASF53
  2028 071e 01       		.byte	0x1
- 2029 071f 7A       		.byte	0x7a
+ 2029 071f 94       		.byte	0x94
  2030 0720 BE070000 		.4byte	0x7be
  2031 0724 1E       		.uleb128 0x1e
  2032 0725 66010000 		.4byte	0x166
  2033 0729 00000000 		.4byte	.LBB12
  2034 072d 00000000 		.4byte	.Ldebug_ranges0+0
  2035 0731 01       		.byte	0x1
- 2036 0732 77       		.byte	0x77
+ 2036 0732 91       		.byte	0x91
  2037 0733 59070000 		.4byte	0x759
  2038 0737 13       		.uleb128 0x13
  2039 0738 A0010000 		.4byte	0x1a0
@@ -2432,6 +2458,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2054 0759 14       		.uleb128 0x14
  2055 075a 20000000 		.4byte	.LVL122
  2056 075e 010B0000 		.4byte	0xb01
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 42
+
+
  2057 0762 71070000 		.4byte	0x771
  2058 0766 15       		.uleb128 0x15
  2059 0767 01       		.uleb128 0x1
@@ -2458,9 +2487,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2080 0788 14       		.uleb128 0x14
  2081 0789 30000000 		.4byte	.LVL124
  2082 078d 010B0000 		.4byte	0xb01
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 42
-
-
  2083 0791 A0070000 		.4byte	0x7a0
  2084 0795 15       		.uleb128 0x15
  2085 0796 01       		.uleb128 0x1
@@ -2492,13 +2518,16 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2111 07bf BB000000 		.4byte	0xbb
  2112 07c3 CE070000 		.4byte	0x7ce
  2113 07c7 1C       		.uleb128 0x1c
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 43
+
+
  2114 07c8 C2000000 		.4byte	0xc2
  2115 07cc 03       		.byte	0x3
  2116 07cd 00       		.byte	0
  2117 07ce 1F       		.uleb128 0x1f
  2118 07cf 34030000 		.4byte	.LASF57
  2119 07d3 01       		.byte	0x1
- 2120 07d4 82       		.byte	0x82
+ 2120 07d4 9C       		.byte	0x9c
  2121 07d5 00000000 		.4byte	.LFB60
  2122 07d9 C0000000 		.4byte	.LFE60-.LFB60
  2123 07dd 01       		.uleb128 0x1
@@ -2507,24 +2536,21 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2126 07e3 11       		.uleb128 0x11
  2127 07e4 68000000 		.4byte	.LASF58
  2128 07e8 01       		.byte	0x1
- 2129 07e9 8B       		.byte	0x8b
+ 2129 07e9 A5       		.byte	0xa5
  2130 07ea 9A000000 		.4byte	0x9a
  2131 07ee 34090000 		.4byte	.LLST22
  2132 07f2 11       		.uleb128 0x11
  2133 07f3 8F000000 		.4byte	.LASF59
  2134 07f7 01       		.byte	0x1
- 2135 07f8 92       		.byte	0x92
+ 2135 07f8 AC       		.byte	0xac
  2136 07f9 9A000000 		.4byte	0x9a
  2137 07fd 5C090000 		.4byte	.LLST23
  2138 0801 12       		.uleb128 0x12
  2139 0802 66010000 		.4byte	0x166
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 43
-
-
  2140 0806 44000000 		.4byte	.LBB20
  2141 080a 14000000 		.4byte	.LBE20-.LBB20
  2142 080e 01       		.byte	0x1
- 2143 080f 8B       		.byte	0x8b
+ 2143 080f A5       		.byte	0xa5
  2144 0810 36080000 		.4byte	0x836
  2145 0814 13       		.uleb128 0x13
  2146 0815 A0010000 		.4byte	0x1a0
@@ -2547,11 +2573,14 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2163 083b 8C000000 		.4byte	.LBB22
  2164 083f 10000000 		.4byte	.LBE22-.LBB22
  2165 0843 01       		.byte	0x1
- 2166 0844 92       		.byte	0x92
+ 2166 0844 AC       		.byte	0xac
  2167 0845 6B080000 		.4byte	0x86b
  2168 0849 13       		.uleb128 0x13
  2169 084a A0010000 		.4byte	0x1a0
  2170 084e 65       		.byte	0x65
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 44
+
+
  2171 084f 13       		.uleb128 0x13
  2172 0850 95010000 		.4byte	0x195
  2173 0854 00       		.byte	0
@@ -2578,9 +2607,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2194 087e 14       		.uleb128 0x14
  2195 087f 0E000000 		.4byte	.LVL129
  2196 0883 730B0000 		.4byte	0xb73
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 44
-
-
  2197 0887 91080000 		.4byte	0x891
  2198 088b 15       		.uleb128 0x15
  2199 088c 01       		.uleb128 0x1
@@ -2612,6 +2638,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2225 08c4 01       		.uleb128 0x1
  2226 08c5 51       		.byte	0x51
  2227 08c6 01       		.uleb128 0x1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 45
+
+
  2228 08c7 3B       		.byte	0x3b
  2229 08c8 15       		.uleb128 0x15
  2230 08c9 01       		.uleb128 0x1
@@ -2638,9 +2667,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2251 08f0 01       		.uleb128 0x1
  2252 08f1 51       		.byte	0x51
  2253 08f2 01       		.uleb128 0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 45
-
-
  2254 08f3 3B       		.byte	0x3b
  2255 08f4 15       		.uleb128 0x15
  2256 08f5 01       		.uleb128 0x1
@@ -2672,6 +2698,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2282 0924 1A       		.uleb128 0x1a
  2283 0925 64000000 		.4byte	.LVL141
  2284 0929 880B0000 		.4byte	0xb88
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 46
+
+
  2285 092d 14       		.uleb128 0x14
  2286 092e 6A000000 		.4byte	.LVL142
  2287 0932 170B0000 		.4byte	0xb17
@@ -2698,9 +2727,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2308 0959 01       		.uleb128 0x1
  2309 095a 32       		.byte	0x32
  2310 095b 00       		.byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 46
-
-
  2311 095c 14       		.uleb128 0x14
  2312 095d 78000000 		.4byte	.LVL144
  2313 0961 170B0000 		.4byte	0xb17
@@ -2732,6 +2758,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2339 098d 170B0000 		.4byte	0xb17
  2340 0991 9F090000 		.4byte	0x99f
  2341 0995 15       		.uleb128 0x15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 47
+
+
  2342 0996 01       		.uleb128 0x1
  2343 0997 50       		.byte	0x50
  2344 0998 05       		.uleb128 0x5
@@ -2755,43 +2784,43 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2362 09bc 1F       		.uleb128 0x1f
  2363 09bd 02010000 		.4byte	.LASF60
  2364 09c1 01       		.byte	0x1
- 2365 09c2 97       		.byte	0x97
+ 2365 09c2 B1       		.byte	0xb1
  2366 09c3 00000000 		.4byte	.LFB61
  2367 09c7 32000000 		.4byte	.LFE61-.LFB61
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 47
-
-
  2368 09cb 01       		.uleb128 0x1
  2369 09cc 9C       		.byte	0x9c
  2370 09cd 340A0000 		.4byte	0xa34
  2371 09d1 10       		.uleb128 0x10
  2372 09d2 5F030000 		.4byte	.LASF61
  2373 09d6 01       		.byte	0x1
- 2374 09d7 97       		.byte	0x97
+ 2374 09d7 B1       		.byte	0xb1
  2375 09d8 340A0000 		.4byte	0xa34
  2376 09dc B6090000 		.4byte	.LLST26
  2377 09e0 10       		.uleb128 0x10
  2378 09e1 71000000 		.4byte	.LASF62
  2379 09e5 01       		.byte	0x1
- 2380 09e6 97       		.byte	0x97
+ 2380 09e6 B1       		.byte	0xb1
  2381 09e7 76000000 		.4byte	0x76
  2382 09eb D4090000 		.4byte	.LLST27
  2383 09ef 10       		.uleb128 0x10
  2384 09f0 78030000 		.4byte	.LASF63
  2385 09f4 01       		.byte	0x1
- 2386 09f5 97       		.byte	0x97
+ 2386 09f5 B1       		.byte	0xb1
  2387 09f6 76000000 		.4byte	0x76
  2388 09fa F2090000 		.4byte	.LLST28
  2389 09fe 18       		.uleb128 0x18
  2390 09ff 6900     		.ascii	"i\000"
  2391 0a01 01       		.byte	0x1
- 2392 0a02 9B       		.byte	0x9b
+ 2392 0a02 B5       		.byte	0xb5
  2393 0a03 76000000 		.4byte	0x76
  2394 0a07 100A0000 		.4byte	.LLST29
  2395 0a0b 14       		.uleb128 0x14
  2396 0a0c 10000000 		.4byte	.LVL155
  2397 0a10 010B0000 		.4byte	0xb01
  2398 0a14 230A0000 		.4byte	0xa23
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 48
+
+
  2399 0a18 15       		.uleb128 0x15
  2400 0a19 01       		.uleb128 0x1
  2401 0a1a 51       		.byte	0x51
@@ -2818,12 +2847,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2422 0a35 04       		.byte	0x4
  2423 0a36 76000000 		.4byte	0x76
  2424 0a3a 1F       		.uleb128 0x1f
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 48
-
-
  2425 0a3b DB020000 		.4byte	.LASF64
  2426 0a3f 01       		.byte	0x1
- 2427 0a40 A2       		.byte	0xa2
+ 2427 0a40 BC       		.byte	0xbc
  2428 0a41 00000000 		.4byte	.LFB62
  2429 0a45 3C000000 		.4byte	.LFE62-.LFB62
  2430 0a49 01       		.uleb128 0x1
@@ -2832,13 +2858,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2433 0a4f 10       		.uleb128 0x10
  2434 0a50 5F030000 		.4byte	.LASF61
  2435 0a54 01       		.byte	0x1
- 2436 0a55 A2       		.byte	0xa2
+ 2436 0a55 BC       		.byte	0xbc
  2437 0a56 340A0000 		.4byte	0xa34
  2438 0a5a 250A0000 		.4byte	.LLST30
  2439 0a5e 19       		.uleb128 0x19
  2440 0a5f 11000000 		.4byte	.LASF65
  2441 0a63 01       		.byte	0x1
- 2442 0a64 A4       		.byte	0xa4
+ 2442 0a64 BE       		.byte	0xbe
  2443 0a65 BA0A0000 		.4byte	0xaba
  2444 0a69 02       		.uleb128 0x2
  2445 0a6a 91       		.byte	0x91
@@ -2852,6 +2878,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2453 0a7b 51       		.byte	0x51
  2454 0a7c 05       		.uleb128 0x5
  2455 0a7d 03       		.byte	0x3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 49
+
+
  2456 0a7e 94000000 		.4byte	.LC21
  2457 0a82 15       		.uleb128 0x15
  2458 0a83 01       		.uleb128 0x1
@@ -2878,9 +2907,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2479 0aa1 74       		.byte	0x74
  2480 0aa2 00       		.sleb128 0
  2481 0aa3 15       		.uleb128 0x15
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 49
-
-
  2482 0aa4 01       		.uleb128 0x1
  2483 0aa5 50       		.byte	0x50
  2484 0aa6 01       		.uleb128 0x1
@@ -2912,6 +2938,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2510 0ad6 22       		.uleb128 0x22
  2511 0ad7 84000000 		.4byte	0x84
  2512 0adb 1B       		.uleb128 0x1b
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 50
+
+
  2513 0adc 8F000000 		.4byte	0x8f
  2514 0ae0 EB0A0000 		.4byte	0xaeb
  2515 0ae4 1C       		.uleb128 0x1c
@@ -2921,7 +2950,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2519 0aeb 23       		.uleb128 0x23
  2520 0aec 18030000 		.4byte	.LASF67
  2521 0af0 01       		.byte	0x1
- 2522 0af1 B9       		.byte	0xb9
+ 2522 0af1 D3       		.byte	0xd3
  2523 0af2 FC0A0000 		.4byte	0xafc
  2524 0af6 05       		.uleb128 0x5
  2525 0af7 03       		.byte	0x3
@@ -2938,9 +2967,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2536 0b11 25       		.uleb128 0x25
  2537 0b12 8F000000 		.4byte	0x8f
  2538 0b16 00       		.byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 50
-
-
  2539 0b17 24       		.uleb128 0x24
  2540 0b18 AB030000 		.4byte	.LASF69
  2541 0b1c 07       		.byte	0x7
@@ -2972,6 +2998,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2567 0b54 C9000000 		.4byte	0xc9
  2568 0b58 620B0000 		.4byte	0xb62
  2569 0b5c 25       		.uleb128 0x25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 51
+
+
  2570 0b5d 76000000 		.4byte	0x76
  2571 0b61 00       		.byte	0
  2572 0b62 24       		.uleb128 0x24
@@ -2998,9 +3027,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2593 0b8f 990B0000 		.4byte	0xb99
  2594 0b93 25       		.uleb128 0x25
  2595 0b94 9A000000 		.4byte	0x9a
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 51
-
-
  2596 0b98 00       		.byte	0
  2597 0b99 27       		.uleb128 0x27
  2598 0b9a 78010000 		.4byte	.LASF75
@@ -3032,6 +3058,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2624 000d 11       		.uleb128 0x11
  2625 000e 01       		.uleb128 0x1
  2626 000f 10       		.uleb128 0x10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 52
+
+
  2627 0010 17       		.uleb128 0x17
  2628 0011 00       		.byte	0
  2629 0012 00       		.byte	0
@@ -3058,9 +3087,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2650 0027 49       		.uleb128 0x49
  2651 0028 13       		.uleb128 0x13
  2652 0029 00       		.byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 52
-
-
  2653 002a 00       		.byte	0
  2654 002b 04       		.uleb128 0x4
  2655 002c 24       		.uleb128 0x24
@@ -3092,6 +3118,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2681 0046 07       		.uleb128 0x7
  2682 0047 04       		.uleb128 0x4
  2683 0048 01       		.byte	0x1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 53
+
+
  2684 0049 03       		.uleb128 0x3
  2685 004a 0E       		.uleb128 0xe
  2686 004b 0B       		.uleb128 0xb
@@ -3118,9 +3147,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2707 0060 01       		.byte	0x1
  2708 0061 3F       		.uleb128 0x3f
  2709 0062 19       		.uleb128 0x19
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 53
-
-
  2710 0063 03       		.uleb128 0x3
  2711 0064 08       		.uleb128 0x8
  2712 0065 3A       		.uleb128 0x3a
@@ -3152,6 +3178,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2738 007f 00       		.byte	0
  2739 0080 0B       		.uleb128 0xb
  2740 0081 05       		.uleb128 0x5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 54
+
+
  2741 0082 00       		.byte	0
  2742 0083 03       		.uleb128 0x3
  2743 0084 0E       		.uleb128 0xe
@@ -3178,9 +3207,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2764 009a 19       		.uleb128 0x19
  2765 009b 01       		.uleb128 0x1
  2766 009c 13       		.uleb128 0x13
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 54
-
-
  2767 009d 00       		.byte	0
  2768 009e 00       		.byte	0
  2769 009f 0D       		.uleb128 0xd
@@ -3212,6 +3238,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2795 00b9 0B       		.uleb128 0xb
  2796 00ba 3B       		.uleb128 0x3b
  2797 00bb 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 55
+
+
  2798 00bc 27       		.uleb128 0x27
  2799 00bd 19       		.uleb128 0x19
  2800 00be 49       		.uleb128 0x49
@@ -3238,9 +3267,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2821 00d4 3B       		.uleb128 0x3b
  2822 00d5 0B       		.uleb128 0xb
  2823 00d6 49       		.uleb128 0x49
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 55
-
-
  2824 00d7 13       		.uleb128 0x13
  2825 00d8 02       		.uleb128 0x2
  2826 00d9 17       		.uleb128 0x17
@@ -3272,6 +3298,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2852 00f3 06       		.uleb128 0x6
  2853 00f4 58       		.uleb128 0x58
  2854 00f5 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 56
+
+
  2855 00f6 59       		.uleb128 0x59
  2856 00f7 0B       		.uleb128 0xb
  2857 00f8 01       		.uleb128 0x1
@@ -3298,9 +3327,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2878 010f 13       		.uleb128 0x13
  2879 0110 00       		.byte	0
  2880 0111 00       		.byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 56
-
-
  2881 0112 15       		.uleb128 0x15
  2882 0113 8A8201   		.uleb128 0x410a
  2883 0116 00       		.byte	0
@@ -3332,6 +3358,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2909 0133 0B       		.uleb128 0xb
  2910 0134 27       		.uleb128 0x27
  2911 0135 19       		.uleb128 0x19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 57
+
+
  2912 0136 11       		.uleb128 0x11
  2913 0137 01       		.uleb128 0x1
  2914 0138 12       		.uleb128 0x12
@@ -3358,9 +3387,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2935 014e 02       		.uleb128 0x2
  2936 014f 17       		.uleb128 0x17
  2937 0150 00       		.byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 57
-
-
  2938 0151 00       		.byte	0
  2939 0152 19       		.uleb128 0x19
  2940 0153 34       		.uleb128 0x34
@@ -3392,6 +3418,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2966 016f 49       		.uleb128 0x49
  2967 0170 13       		.uleb128 0x13
  2968 0171 01       		.uleb128 0x1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 58
+
+
  2969 0172 13       		.uleb128 0x13
  2970 0173 00       		.byte	0
  2971 0174 00       		.byte	0
@@ -3418,9 +3447,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  2992 0189 00       		.byte	0
  2993 018a 00       		.byte	0
  2994 018b 1E       		.uleb128 0x1e
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 58
-
-
  2995 018c 1D       		.uleb128 0x1d
  2996 018d 01       		.byte	0x1
  2997 018e 31       		.uleb128 0x31
@@ -3452,6 +3478,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3023 01a8 19       		.uleb128 0x19
  3024 01a9 11       		.uleb128 0x11
  3025 01aa 01       		.uleb128 0x1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 59
+
+
  3026 01ab 12       		.uleb128 0x12
  3027 01ac 06       		.uleb128 0x6
  3028 01ad 40       		.uleb128 0x40
@@ -3478,9 +3507,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3049 01c6 00       		.byte	0
  3050 01c7 03       		.uleb128 0x3
  3051 01c8 0E       		.uleb128 0xe
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 59
-
-
  3052 01c9 3A       		.uleb128 0x3a
  3053 01ca 0B       		.uleb128 0xb
  3054 01cb 3B       		.uleb128 0x3b
@@ -3512,6 +3538,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3080 01e5 49       		.uleb128 0x49
  3081 01e6 13       		.uleb128 0x13
  3082 01e7 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 60
+
+
  3083 01e8 19       		.uleb128 0x19
  3084 01e9 02       		.uleb128 0x2
  3085 01ea 18       		.uleb128 0x18
@@ -3538,9 +3567,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3106 01ff 00       		.byte	0
  3107 0200 25       		.uleb128 0x25
  3108 0201 05       		.uleb128 0x5
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 60
-
-
  3109 0202 00       		.byte	0
  3110 0203 49       		.uleb128 0x49
  3111 0204 13       		.uleb128 0x13
@@ -3572,6 +3598,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3137 021e 01       		.byte	0x1
  3138 021f 3F       		.uleb128 0x3f
  3139 0220 19       		.uleb128 0x19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 61
+
+
  3140 0221 03       		.uleb128 0x3
  3141 0222 0E       		.uleb128 0xe
  3142 0223 3A       		.uleb128 0x3a
@@ -3598,9 +3627,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3163 0000 00000000 		.4byte	.LVL0
  3164 0004 06000000 		.4byte	.LVL1
  3165 0008 0100     		.2byte	0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 61
-
-
  3166 000a 50       		.byte	0x50
  3167 000b 06000000 		.4byte	.LVL1
  3168 000f 1A000000 		.4byte	.LFE56
@@ -3632,6 +3658,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3194 004c 91       		.byte	0x91
  3195 004d 00       		.sleb128 0
  3196 004e 16000000 		.4byte	.LVL3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 62
+
+
  3197 0052 1A000000 		.4byte	.LFE56
  3198 0056 0200     		.2byte	0x2
  3199 0058 7D       		.byte	0x7d
@@ -3658,9 +3687,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3220 008b 0100     		.2byte	0x1
  3221 008d 54       		.byte	0x54
  3222 008e 86000000 		.4byte	.LVL24
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 62
-
-
  3223 0092 AC000000 		.4byte	.LFE57
  3224 0096 0100     		.2byte	0x1
  3225 0098 50       		.byte	0x50
@@ -3692,6 +3718,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3251 00d2 9F       		.byte	0x9f
  3252 00d3 00000000 		.4byte	0
  3253 00d7 00000000 		.4byte	0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 63
+
+
  3254              	.LLST7:
  3255 00db 00000000 		.4byte	.LVL25
  3256 00df 1C000000 		.4byte	.LVL26
@@ -3718,9 +3747,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3277 0112 00000000 		.4byte	0
  3278 0116 00000000 		.4byte	0
  3279              	.LLST9:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 63
-
-
  3280 011a 2E000000 		.4byte	.LVL28
  3281 011e AA000000 		.4byte	.LVL44
  3282 0122 1800     		.2byte	0x18
@@ -3752,6 +3778,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3308 014a 00       		.sleb128 0
  3309 014b F6       		.byte	0xf6
  3310 014c 08       		.byte	0x8
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 64
+
+
  3311 014d 25       		.uleb128 0x25
  3312 014e 1C       		.byte	0x1c
  3313 014f F4       		.byte	0xf4
@@ -3778,9 +3807,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3334 0176 02       		.uleb128 0x2
  3335 0177 25       		.uleb128 0x25
  3336 0178 1C       		.byte	0x1c
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 64
-
-
  3337 0179 F4       		.byte	0xf4
  3338 017a 25       		.uleb128 0x25
  3339 017b 08       		.byte	0x8
@@ -3812,6 +3838,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3365 01a8 1E       		.byte	0x1e
  3366 01a9 F7       		.byte	0xf7
  3367 01aa 2C       		.uleb128 0x2c
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 65
+
+
  3368 01ab 9F       		.byte	0x9f
  3369 01ac 62010000 		.4byte	.LVL71
  3370 01b0 66010000 		.4byte	.LVL72
@@ -3838,9 +3867,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3391 01cf 9F       		.byte	0x9f
  3392 01d0 66010000 		.4byte	.LVL72
  3393 01d4 30020000 		.4byte	.LVL101
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 65
-
-
  3394 01d8 1A00     		.2byte	0x1a
  3395 01da 7D       		.byte	0x7d
  3396 01db 00       		.sleb128 0
@@ -3872,6 +3898,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3422 0202 25       		.uleb128 0x25
  3423 0203 91       		.byte	0x91
  3424 0204 48       		.sleb128 -56
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 66
+
+
  3425 0205 F6       		.byte	0xf6
  3426 0206 08       		.byte	0x8
  3427 0207 25       		.uleb128 0x25
@@ -3898,9 +3927,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3448 0229 F6       		.byte	0xf6
  3449 022a 08       		.byte	0x8
  3450 022b 25       		.uleb128 0x25
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 66
-
-
  3451 022c 1C       		.byte	0x1c
  3452 022d F4       		.byte	0xf4
  3453 022e 25       		.uleb128 0x25
@@ -3932,6 +3958,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3479 0258 0000E03F 		.4byte	0x3fe00000
  3480 025c 1E       		.byte	0x1e
  3481 025d F7       		.byte	0xf7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 67
+
+
  3482 025e 2C       		.uleb128 0x2c
  3483 025f 9F       		.byte	0x9f
  3484 0260 56020000 		.4byte	.LVL108
@@ -3958,9 +3987,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3505 0282 2C       		.uleb128 0x2c
  3506 0283 9F       		.byte	0x9f
  3507 0284 00000000 		.4byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 67
-
-
  3508 0288 00000000 		.4byte	0
  3509              	.LLST11:
  3510 028c 36000000 		.4byte	.LVL30
@@ -3992,6 +4018,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3536 02b6 9999B93F 		.4byte	0x3fb99999
  3537 02ba 1E       		.byte	0x1e
  3538 02bb 7D       		.byte	0x7d
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 68
+
+
  3539 02bc 00       		.sleb128 0
  3540 02bd F6       		.byte	0xf6
  3541 02be 08       		.byte	0x8
@@ -4018,9 +4047,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3562 02da 00000000 		.4byte	0
  3563 02de 0000E03F 		.4byte	0x3fe00000
  3564 02e2 1E       		.byte	0x1e
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 68
-
-
  3565 02e3 F7       		.byte	0xf7
  3566 02e4 2C       		.uleb128 0x2c
  3567 02e5 F7       		.byte	0xf7
@@ -4052,6 +4078,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3593 0311 08       		.byte	0x8
  3594 0312 25       		.uleb128 0x25
  3595 0313 7D       		.byte	0x7d
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 69
+
+
  3596 0314 00       		.sleb128 0
  3597 0315 F6       		.byte	0xf6
  3598 0316 08       		.byte	0x8
@@ -4078,9 +4107,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3619 0337 1E       		.byte	0x1e
  3620 0338 1C       		.byte	0x1c
  3621 0339 F7       		.byte	0xf7
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 69
-
-
  3622 033a 2C       		.uleb128 0x2c
  3623 033b 9F       		.byte	0x9f
  3624 033c 39000000 		.4byte	.LVL31-1
@@ -4112,6 +4138,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3650 0363 2C       		.uleb128 0x2c
  3651 0364 F7       		.byte	0xf7
  3652 0365 25       		.uleb128 0x25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 70
+
+
  3653 0366 F4       		.byte	0xf4
  3654 0367 25       		.uleb128 0x25
  3655 0368 08       		.byte	0x8
@@ -4138,9 +4167,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3676 038a 91       		.byte	0x91
  3677 038b 48       		.sleb128 -56
  3678 038c F6       		.byte	0xf6
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 70
-
-
  3679 038d 08       		.byte	0x8
  3680 038e 25       		.uleb128 0x25
  3681 038f 1C       		.byte	0x1c
@@ -4172,6 +4198,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3707 03bc F6       		.byte	0xf6
  3708 03bd 08       		.byte	0x8
  3709 03be 25       		.uleb128 0x25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 71
+
+
  3710 03bf 7D       		.byte	0x7d
  3711 03c0 00       		.sleb128 0
  3712 03c1 F6       		.byte	0xf6
@@ -4198,9 +4227,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3733 03dc 08       		.byte	0x8
  3734 03dd 9A999999 		.4byte	0x9999999a
  3735 03e1 9999B93F 		.4byte	0x3fb99999
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 71
-
-
  3736 03e5 1E       		.byte	0x1e
  3737 03e6 1C       		.byte	0x1c
  3738 03e7 F7       		.byte	0xf7
@@ -4232,6 +4258,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3764 040b 0000E03F 		.4byte	0x3fe00000
  3765 040f 1E       		.byte	0x1e
  3766 0410 F7       		.byte	0xf7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 72
+
+
  3767 0411 2C       		.uleb128 0x2c
  3768 0412 F7       		.byte	0xf7
  3769 0413 25       		.uleb128 0x25
@@ -4258,9 +4287,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3790 0435 F6       		.byte	0xf6
  3791 0436 08       		.byte	0x8
  3792 0437 25       		.uleb128 0x25
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 72
-
-
  3793 0438 91       		.byte	0x91
  3794 0439 48       		.sleb128 -56
  3795 043a F6       		.byte	0xf6
@@ -4292,6 +4318,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3821 0466 3000     		.2byte	0x30
  3822 0468 91       		.byte	0x91
  3823 0469 40       		.sleb128 -64
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 73
+
+
  3824 046a F6       		.byte	0xf6
  3825 046b 08       		.byte	0x8
  3826 046c 25       		.uleb128 0x25
@@ -4318,9 +4347,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3847 0487 25       		.uleb128 0x25
  3848 0488 F4       		.byte	0xf4
  3849 0489 25       		.uleb128 0x25
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 73
-
-
  3850 048a 08       		.byte	0x8
  3851 048b 9A999999 		.4byte	0x9999999a
  3852 048f 9999B93F 		.4byte	0x3fb99999
@@ -4352,6 +4378,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3878 04b3 25       		.uleb128 0x25
  3879 04b4 08       		.byte	0x8
  3880 04b5 00000000 		.4byte	0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 74
+
+
  3881 04b9 0000E03F 		.4byte	0x3fe00000
  3882 04bd 1E       		.byte	0x1e
  3883 04be F7       		.byte	0xf7
@@ -4378,9 +4407,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3904 04e5 06       		.uleb128 0x6
  3905 04e6 25       		.uleb128 0x25
  3906 04e7 7D       		.byte	0x7d
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 74
-
-
  3907 04e8 00       		.sleb128 0
  3908 04e9 F6       		.byte	0xf6
  3909 04ea 08       		.byte	0x8
@@ -4412,6 +4438,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3935 0510 F7       		.byte	0xf7
  3936 0511 2C       		.uleb128 0x2c
  3937 0512 F7       		.byte	0xf7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 75
+
+
  3938 0513 25       		.uleb128 0x25
  3939 0514 F4       		.byte	0xf4
  3940 0515 25       		.uleb128 0x25
@@ -4438,9 +4467,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3961 0537 7D       		.byte	0x7d
  3962 0538 00       		.sleb128 0
  3963 0539 F6       		.byte	0xf6
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 75
-
-
  3964 053a 08       		.byte	0x8
  3965 053b 25       		.uleb128 0x25
  3966 053c 1C       		.byte	0x1c
@@ -4472,6 +4498,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  3992 0562 F7       		.byte	0xf7
  3993 0563 25       		.uleb128 0x25
  3994 0564 F4       		.byte	0xf4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 76
+
+
  3995 0565 25       		.uleb128 0x25
  3996 0566 08       		.byte	0x8
  3997 0567 9A999999 		.4byte	0x9999999a
@@ -4498,9 +4527,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4018 058e F6       		.byte	0xf6
  4019 058f 08       		.byte	0x8
  4020 0590 25       		.uleb128 0x25
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 76
-
-
  4021 0591 7D       		.byte	0x7d
  4022 0592 00       		.sleb128 0
  4023 0593 F6       		.byte	0xf6
@@ -4532,6 +4558,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4049 05b9 7D       		.byte	0x7d
  4050 05ba 00       		.sleb128 0
  4051 05bb F6       		.byte	0xf6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 77
+
+
  4052 05bc 08       		.byte	0x8
  4053 05bd 25       		.uleb128 0x25
  4054 05be F5       		.byte	0xf5
@@ -4558,9 +4587,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4075 05e0 25       		.uleb128 0x25
  4076 05e1 7D       		.byte	0x7d
  4077 05e2 00       		.sleb128 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 77
-
-
  4078 05e3 F6       		.byte	0xf6
  4079 05e4 08       		.byte	0x8
  4080 05e5 25       		.uleb128 0x25
@@ -4592,6 +4618,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4106 060b 7D       		.byte	0x7d
  4107 060c 00       		.sleb128 0
  4108 060d F6       		.byte	0xf6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 78
+
+
  4109 060e 08       		.byte	0x8
  4110 060f 25       		.uleb128 0x25
  4111 0610 91       		.byte	0x91
@@ -4618,9 +4647,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4132 0632 F6       		.byte	0xf6
  4133 0633 08       		.byte	0x8
  4134 0634 25       		.uleb128 0x25
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 78
-
-
  4135 0635 91       		.byte	0x91
  4136 0636 40       		.sleb128 -64
  4137 0637 F6       		.byte	0xf6
@@ -4652,6 +4678,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4163 065d F7       		.byte	0xf7
  4164 065e 2C       		.uleb128 0x2c
  4165 065f 91       		.byte	0x91
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 79
+
+
  4166 0660 40       		.sleb128 -64
  4167 0661 F6       		.byte	0xf6
  4168 0662 08       		.byte	0x8
@@ -4678,9 +4707,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4189 0684 7D       		.byte	0x7d
  4190 0685 00       		.sleb128 0
  4191 0686 F6       		.byte	0xf6
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 79
-
-
  4192 0687 08       		.byte	0x8
  4193 0688 25       		.uleb128 0x25
  4194 0689 7D       		.byte	0x7d
@@ -4712,6 +4738,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4220 06af 1E       		.byte	0x1e
  4221 06b0 1C       		.byte	0x1c
  4222 06b1 F7       		.byte	0xf7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 80
+
+
  4223 06b2 2C       		.uleb128 0x2c
  4224 06b3 7D       		.byte	0x7d
  4225 06b4 00       		.sleb128 0
@@ -4738,9 +4767,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4246 06d2 34020000 		.4byte	.LVL102
  4247 06d6 4A00     		.2byte	0x4a
  4248 06d8 91       		.byte	0x91
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 80
-
-
  4249 06d9 40       		.sleb128 -64
  4250 06da F6       		.byte	0xf6
  4251 06db 08       		.byte	0x8
@@ -4772,6 +4798,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4277 06fb 9A999999 		.4byte	0x9999999a
  4278 06ff 9999B93F 		.4byte	0x3fb99999
  4279 0703 1E       		.byte	0x1e
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 81
+
+
  4280 0704 1C       		.byte	0x1c
  4281 0705 F7       		.byte	0xf7
  4282 0706 2C       		.uleb128 0x2c
@@ -4798,9 +4827,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4303 0721 9F       		.byte	0x9f
  4304 0722 34020000 		.4byte	.LVL102
  4305 0726 52020000 		.4byte	.LVL107
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 81
-
-
  4306 072a 4A00     		.2byte	0x4a
  4307 072c 7D       		.byte	0x7d
  4308 072d 00       		.sleb128 0
@@ -4832,6 +4858,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4334 074d 25       		.uleb128 0x25
  4335 074e 08       		.byte	0x8
  4336 074f 9A999999 		.4byte	0x9999999a
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 82
+
+
  4337 0753 9999B93F 		.4byte	0x3fb99999
  4338 0757 1E       		.byte	0x1e
  4339 0758 1C       		.byte	0x1c
@@ -4858,9 +4887,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4360 0773 2C       		.uleb128 0x2c
  4361 0774 1C       		.byte	0x1c
  4362 0775 9F       		.byte	0x9f
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 82
-
-
  4363 0776 52020000 		.4byte	.LVL107
  4364 077a 56020000 		.4byte	.LVL108
  4365 077e 4A00     		.2byte	0x4a
@@ -4892,6 +4918,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4391 079f 25       		.uleb128 0x25
  4392 07a0 F4       		.byte	0xf4
  4393 07a1 25       		.uleb128 0x25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 83
+
+
  4394 07a2 08       		.byte	0x8
  4395 07a3 9A999999 		.4byte	0x9999999a
  4396 07a7 9999B93F 		.4byte	0x3fb99999
@@ -4918,9 +4947,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4417 07c5 1E       		.byte	0x1e
  4418 07c6 F7       		.byte	0xf7
  4419 07c7 2C       		.uleb128 0x2c
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 83
-
-
  4420 07c8 1C       		.byte	0x1c
  4421 07c9 9F       		.byte	0x9f
  4422 07ca 56020000 		.4byte	.LVL108
@@ -4952,6 +4978,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4448 07f1 2C       		.uleb128 0x2c
  4449 07f2 F7       		.byte	0xf7
  4450 07f3 25       		.uleb128 0x25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 84
+
+
  4451 07f4 F4       		.byte	0xf4
  4452 07f5 25       		.uleb128 0x25
  4453 07f6 08       		.byte	0x8
@@ -4978,9 +5007,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4474 0811 00000000 		.4byte	0
  4475 0815 0000E03F 		.4byte	0x3fe00000
  4476 0819 1E       		.byte	0x1e
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 84
-
-
  4477 081a F7       		.byte	0xf7
  4478 081b 2C       		.uleb128 0x2c
  4479 081c 1C       		.byte	0x1c
@@ -5012,6 +5038,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4505 0862 0100     		.2byte	0x1
  4506 0864 54       		.byte	0x54
  4507 0865 34020000 		.4byte	.LVL102
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 85
+
+
  4508 0869 74020000 		.4byte	.LVL113
  4509 086d 0100     		.2byte	0x1
  4510 086f 54       		.byte	0x54
@@ -5038,9 +5067,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4531 08a9 0100     		.2byte	0x1
  4532 08ab 50       		.byte	0x50
  4533 08ac F4010000 		.4byte	.LVL93
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 85
-
-
  4534 08b0 34020000 		.4byte	.LVL102
  4535 08b4 0100     		.2byte	0x1
  4536 08b6 54       		.byte	0x54
@@ -5072,6 +5098,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4562 08f6 3E000000 		.4byte	.LVL127
  4563 08fa 48000000 		.4byte	.LFE59
  4564 08fe 0100     		.2byte	0x1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 86
+
+
  4565 0900 50       		.byte	0x50
  4566 0901 00000000 		.4byte	0
  4567 0905 00000000 		.4byte	0
@@ -5098,9 +5127,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4588 092c 00000000 		.4byte	0
  4589 0930 00000000 		.4byte	0
  4590              	.LLST22:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 86
-
-
  4591 0934 5A000000 		.4byte	.LVL139
  4592 0938 60000000 		.4byte	.LVL140
  4593 093c 1600     		.2byte	0x16
@@ -5132,6 +5158,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4619 0966 70       		.byte	0x70
  4620 0967 00       		.sleb128 0
  4621 0968 12       		.byte	0x12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 87
+
+
  4622 0969 0A       		.byte	0xa
  4623 096a FFFF     		.2byte	0xffff
  4624 096c 1A       		.byte	0x1a
@@ -5158,9 +5187,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4645 098f 00       		.sleb128 0
  4646 0990 40       		.byte	0x40
  4647 0991 24       		.byte	0x24
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 87
-
-
  4648 0992 40       		.byte	0x40
  4649 0993 26       		.byte	0x26
  4650 0994 9F       		.byte	0x9f
@@ -5192,6 +5218,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4676 09d0 00000000 		.4byte	0
  4677              	.LLST27:
  4678 09d4 00000000 		.4byte	.LVL152
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 88
+
+
  4679 09d8 0C000000 		.4byte	.LVL154
  4680 09dc 0100     		.2byte	0x1
  4681 09de 51       		.byte	0x51
@@ -5218,9 +5247,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4702 0a18 0300     		.2byte	0x3
  4703 0a1a 74       		.byte	0x74
  4704 0a1b 7F       		.sleb128 -1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 88
-
-
  4705 0a1c 9F       		.byte	0x9f
  4706 0a1d 00000000 		.4byte	0
  4707 0a21 00000000 		.4byte	0
@@ -5252,6 +5278,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4733 001c AC000000 		.4byte	.LFE57-.LFB57
  4734 0020 00000000 		.4byte	.LFB58
  4735 0024 D0020000 		.4byte	.LFE58-.LFB58
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 89
+
+
  4736 0028 00000000 		.4byte	.LFB59
  4737 002c 48000000 		.4byte	.LFE59-.LFB59
  4738 0030 00000000 		.4byte	.LFB60
@@ -5278,9 +5307,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4759 002c 1A000000 		.4byte	.LFE56
  4760 0030 00000000 		.4byte	.LFB57
  4761 0034 AC000000 		.4byte	.LFE57
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 89
-
-
  4762 0038 00000000 		.4byte	.LFB58
  4763 003c D0020000 		.4byte	.LFE58
  4764 0040 00000000 		.4byte	.LFB59
@@ -5295,7 +5321,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4773 0064 00000000 		.4byte	0
  4774              		.section	.debug_line,"",%progbits
  4775              	.Ldebug_line0:
- 4776 0000 E7020000 		.section	.debug_str,"MS",%progbits,1
+ 4776 0000 EA020000 		.section	.debug_str,"MS",%progbits,1
  4776      02007C01 
  4776      00000201 
  4776      FB0E0D00 
@@ -5312,6 +5338,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4782      6E745374 
  4782      7200
  4783              	.LASF42:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 90
+
+
  4784 001b 6F75745F 		.ascii	"out_min\000"
  4784      6D696E00 
  4785              	.LASF4:
@@ -5338,9 +5367,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4797              	.LASF70:
  4798 0055 6D696469 		.ascii	"midi_note_truename\000"
  4798      5F6E6F74 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 90
-
-
  4798      655F7472 
  4798      75656E61 
  4798      6D6500
@@ -5372,6 +5398,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4814 009e 4B45595F 		.ascii	"KEY_OF_Ab\000"
  4814      4F465F41 
  4814      6200
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 91
+
+
  4815              	.LASF51:
  4816 00a8 75707065 		.ascii	"upperThresh\000"
  4816      72546872 
@@ -5398,9 +5427,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4827              	.LASF54:
  4828 00e3 55706461 		.ascii	"UpdateScaleLCD\000"
  4828      74655363 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 91
-
-
  4828      616C654C 
  4828      434400
  4829              	.LASF6:
@@ -5432,6 +5458,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4840              	.LASF35:
  4841 0162 4D414A4F 		.ascii	"MAJOR_PENT\000"
  4841      525F5045 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 92
+
+
  4841      4E5400
  4842              	.LASF32:
  4843 016d 4D757369 		.ascii	"MusicScale\000"
@@ -5458,9 +5487,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4851      74696F6E 
  4851      00
  4852              	.LASF29:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 92
-
-
  4853 01b4 4B45595F 		.ascii	"KEY_OF_Bb\000"
  4853      4F465F42 
  4853      6200
@@ -5492,6 +5518,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4863      66756E63 
  4863      74696F6E 
  4863      2D736563 
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 93
+
+
  4863      74696F6E 
  4864              	.LASF73:
  4865 0275 4144435F 		.ascii	"ADC_UI_GetResult16\000"
@@ -5518,9 +5547,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4874              	.LASF21:
  4875 02ac 4B45595F 		.ascii	"KEY_OF_D\000"
  4875      4F465F44 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 93
-
-
  4875      00
  4876              	.LASF23:
  4877 02b5 4B45595F 		.ascii	"KEY_OF_E\000"
@@ -5552,6 +5578,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4889      325F7400 
  4890              	.LASF52:
  4891 02f9 6C6F7765 		.ascii	"lowerThresh\000"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 94
+
+
  4891      72546872 
  4891      65736800 
  4892              	.LASF71:
@@ -5578,9 +5607,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4901      5200
  4902              	.LASF7:
  4903 0346 6C6F6E67 		.ascii	"long unsigned int\000"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 94
-
-
  4903      20756E73 
  4903      69676E65 
  4903      6420696E 
@@ -5612,6 +5638,9 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4917 0390 4B45595F 		.ascii	"KEY_OF_Gb\000"
  4917      4F465F47 
  4917      6200
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIZT8oX.s 			page 95
+
+
  4918              	.LASF11:
  4919 039a 5F5F696E 		.ascii	"__int32_t\000"
  4919      7433325F 
@@ -5638,9 +5667,6 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 1
  4927      62657200 
  4928              	.LASF66:
  4929 03e1 49544D5F 		.ascii	"ITM_RxBuffer\000"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccIweaiV.s 			page 95
-
-
  4929      52784275 
  4929      66666572 
  4929      00

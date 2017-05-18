@@ -2,6 +2,32 @@
 *   hbird.c
 *   
 */
+
+/*
+
+float hyst;
+
+if( 60 < freq < 100)
+    hyst = 2.5
+
+if(100 < freq < 200)
+    hyst = 3.5
+
+if(200 < freq < 300)
+    hyst = 4.5
+
+if(300 < freq < 400)
+    hyst 5.5
+
+
+
+*/
+
+
+
+
+
+
 #include "hbird.h"
 
 long map(long x, long in_min, long in_max, long out_min, long out_max)
