@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 1
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccM99FgL.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 1
   29:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
   30:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** * Parameters:
   31:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *  None.
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 2
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccM99FgL.s 			page 2
 
 
   32:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 1
   55              		.global	CharLCD_Sleep
   56              		.thumb
   57              		.thumb_func
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 3
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccM99FgL.s 			page 3
 
 
   58              		.type	CharLCD_Sleep, %function
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 1
   87              		.type	CharLCD_Wakeup, %function
   88              	CharLCD_Wakeup:
   89              	.LFB3:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 4
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccM99FgL.s 			page 4
 
 
   83:Generated_Source\PSoC5/CharLCD_I2C_PM.c **** }
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 1
  113              		.align	2
  114              		.set	.LANCHOR0,. + 0
  115              		.type	CharLCD_backup, %object
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 5
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccM99FgL.s 			page 5
 
 
  116              		.size	CharLCD_backup, 1
@@ -255,80 +255,80 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 1
  127 0006 00000000 		.4byte	.Ldebug_abbrev0
  128 000a 04       		.byte	0x4
  129 000b 01       		.uleb128 0x1
- 130 000c 7D000000 		.4byte	.LASF20
+ 130 000c 7C000000 		.4byte	.LASF20
  131 0010 01       		.byte	0x1
- 132 0011 1F010000 		.4byte	.LASF21
- 133 0015 32000000 		.4byte	.LASF22
+ 132 0011 1E010000 		.4byte	.LASF21
+ 133 0015 16000000 		.4byte	.LASF22
  134 0019 00000000 		.4byte	.Ldebug_ranges0+0
  135 001d 00000000 		.4byte	0
  136 0021 00000000 		.4byte	.Ldebug_line0
  137 0025 02       		.uleb128 0x2
  138 0026 01       		.byte	0x1
  139 0027 06       		.byte	0x6
- 140 0028 2A020000 		.4byte	.LASF0
+ 140 0028 29020000 		.4byte	.LASF0
  141 002c 02       		.uleb128 0x2
  142 002d 01       		.byte	0x1
  143 002e 08       		.byte	0x8
- 144 002f 11010000 		.4byte	.LASF1
+ 144 002f 10010000 		.4byte	.LASF1
  145 0033 02       		.uleb128 0x2
  146 0034 02       		.byte	0x2
  147 0035 05       		.byte	0x5
- 148 0036 F1010000 		.4byte	.LASF2
+ 148 0036 F0010000 		.4byte	.LASF2
  149 003a 02       		.uleb128 0x2
  150 003b 02       		.byte	0x2
  151 003c 07       		.byte	0x7
- 152 003d 59010000 		.4byte	.LASF3
+ 152 003d 58010000 		.4byte	.LASF3
  153 0041 02       		.uleb128 0x2
  154 0042 04       		.byte	0x4
  155 0043 05       		.byte	0x5
- 156 0044 15020000 		.4byte	.LASF4
+ 156 0044 14020000 		.4byte	.LASF4
  157 0048 02       		.uleb128 0x2
  158 0049 04       		.byte	0x4
  159 004a 07       		.byte	0x7
- 160 004b 47010000 		.4byte	.LASF5
+ 160 004b 46010000 		.4byte	.LASF5
  161 004f 02       		.uleb128 0x2
  162 0050 08       		.byte	0x8
  163 0051 05       		.byte	0x5
- 164 0052 DE010000 		.4byte	.LASF6
+ 164 0052 DD010000 		.4byte	.LASF6
  165 0056 02       		.uleb128 0x2
  166 0057 08       		.byte	0x8
  167 0058 07       		.byte	0x7
- 168 0059 B8010000 		.4byte	.LASF7
+ 168 0059 B7010000 		.4byte	.LASF7
  169 005d 03       		.uleb128 0x3
  170 005e 04       		.byte	0x4
  171 005f 05       		.byte	0x5
  172 0060 696E7400 		.ascii	"int\000"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 6
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccM99FgL.s 			page 6
 
 
  173 0064 02       		.uleb128 0x2
  174 0065 04       		.byte	0x4
  175 0066 07       		.byte	0x7
- 176 0067 9C010000 		.4byte	.LASF8
+ 176 0067 9B010000 		.4byte	.LASF8
  177 006b 04       		.uleb128 0x4
- 178 006c FB010000 		.4byte	.LASF12
+ 178 006c FA010000 		.4byte	.LASF12
  179 0070 02       		.byte	0x2
  180 0071 5B       		.byte	0x5b
  181 0072 2C000000 		.4byte	0x2c
  182 0076 02       		.uleb128 0x2
  183 0077 04       		.byte	0x4
  184 0078 04       		.byte	0x4
- 185 0079 0B010000 		.4byte	.LASF9
+ 185 0079 0A010000 		.4byte	.LASF9
  186 007d 02       		.uleb128 0x2
  187 007e 08       		.byte	0x8
  188 007f 04       		.byte	0x4
- 189 0080 6C010000 		.4byte	.LASF10
+ 189 0080 6B010000 		.4byte	.LASF10
  190 0084 02       		.uleb128 0x2
  191 0085 01       		.byte	0x1
  192 0086 08       		.byte	0x8
- 193 0087 EC010000 		.4byte	.LASF11
+ 193 0087 EB010000 		.4byte	.LASF11
  194 008b 05       		.uleb128 0x5
  195 008c 01       		.byte	0x1
  196 008d 03       		.byte	0x3
  197 008e 2D       		.byte	0x2d
  198 008f A0000000 		.4byte	0xa0
  199 0093 06       		.uleb128 0x6
- 200 0094 1E020000 		.4byte	.LASF23
+ 200 0094 1D020000 		.4byte	.LASF23
  201 0098 03       		.byte	0x3
  202 0099 2F       		.byte	0x2f
  203 009a 6B000000 		.4byte	0x6b
@@ -340,12 +340,12 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 1
  209 00a6 31       		.byte	0x31
  210 00a7 8B000000 		.4byte	0x8b
  211 00ab 07       		.uleb128 0x7
- 212 00ac 89010000 		.4byte	.LASF14
+ 212 00ac 88010000 		.4byte	.LASF14
  213 00b0 01       		.byte	0x1
  214 00b1 25       		.byte	0x25
  215 00b2 01       		.byte	0x1
  216 00b3 07       		.uleb128 0x7
- 217 00b4 73010000 		.4byte	.LASF15
+ 217 00b4 72010000 		.4byte	.LASF15
  218 00b8 01       		.byte	0x1
  219 00b9 38       		.byte	0x38
  220 00ba 01       		.byte	0x1
@@ -358,14 +358,14 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 1
  227 00ca 08       		.uleb128 0x8
  228 00cb B3000000 		.4byte	0xb3
  229 00cf 00000000 		.4byte	.LFB1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 7
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccM99FgL.s 			page 7
 
 
  230 00d3 02000000 		.4byte	.LFE1-.LFB1
  231 00d7 01       		.uleb128 0x1
  232 00d8 9C       		.byte	0x9c
  233 00d9 09       		.uleb128 0x9
- 234 00da 36020000 		.4byte	.LASF16
+ 234 00da 35020000 		.4byte	.LASF16
  235 00de 01       		.byte	0x1
  236 00df 4E       		.byte	0x4e
  237 00e0 00000000 		.4byte	.LFB2
@@ -378,7 +378,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 1
  244 00f3 33010000 		.4byte	0x133
  245 00f7 00       		.byte	0
  246 00f8 09       		.uleb128 0x9
- 247 00f9 CF010000 		.4byte	.LASF17
+ 247 00f9 CE010000 		.4byte	.LASF17
  248 00fd 01       		.byte	0x1
  249 00fe 6B       		.byte	0x6b
  250 00ff 00000000 		.4byte	.LFB3
@@ -391,7 +391,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 1
  257 0112 3A010000 		.4byte	0x13a
  258 0116 00       		.byte	0
  259 0117 0B       		.uleb128 0xb
- 260 0118 A9010000 		.4byte	.LASF24
+ 260 0118 A8010000 		.4byte	.LASF24
  261 011c 01       		.byte	0x1
  262 011d 14       		.byte	0x14
  263 011e A0000000 		.4byte	0xa0
@@ -399,16 +399,16 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 1
  265 0123 03       		.byte	0x3
  266 0124 00000000 		.4byte	CharLCD_backup
  267 0128 0C       		.uleb128 0xc
- 268 0129 01020000 		.4byte	.LASF25
+ 268 0129 00020000 		.4byte	.LASF25
  269 012d 03       		.byte	0x3
  270 012e 7C       		.byte	0x7c
  271 012f 6B000000 		.4byte	0x6b
  272 0133 0D       		.uleb128 0xd
- 273 0134 16000000 		.4byte	.LASF18
+ 273 0134 60000000 		.4byte	.LASF18
  274 0138 03       		.byte	0x3
  275 0139 3B       		.byte	0x3b
  276 013a 0D       		.uleb128 0xd
- 277 013b 23000000 		.4byte	.LASF19
+ 277 013b 6D000000 		.4byte	.LASF19
  278 013f 03       		.byte	0x3
  279 0140 39       		.byte	0x39
  280 0141 00       		.byte	0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 1
  284 0001 11       		.uleb128 0x11
  285 0002 01       		.byte	0x1
  286 0003 25       		.uleb128 0x25
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 8
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccM99FgL.s 			page 8
 
 
  287 0004 0E       		.uleb128 0xe
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 1
  341 003a 0B       		.uleb128 0xb
  342 003b 3A       		.uleb128 0x3a
  343 003c 0B       		.uleb128 0xb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 9
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccM99FgL.s 			page 9
 
 
  344 003d 3B       		.uleb128 0x3b
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 1
  398 0074 2E       		.uleb128 0x2e
  399 0075 01       		.byte	0x1
  400 0076 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 10
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccM99FgL.s 			page 10
 
 
  401 0077 19       		.uleb128 0x19
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 1
  455 00b1 3B       		.uleb128 0x3b
  456 00b2 0B       		.uleb128 0xb
  457 00b3 49       		.uleb128 0x49
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 11
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccM99FgL.s 			page 11
 
 
  458 00b4 13       		.uleb128 0x13
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 1
  512 0024 00000000 		.4byte	0
  513              		.section	.debug_line,"",%progbits
  514              	.Ldebug_line0:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 12
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccM99FgL.s 			page 12
 
 
  515 0000 A4000000 		.section	.debug_str,"MS",%progbits,1
@@ -672,146 +672,146 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 1
  517      4241434B 
  517      55505F53 
  517      54525543 
- 518              	.LASF18:
- 519 0016 43686172 		.ascii	"CharLCD_Stop\000"
- 519      4C43445F 
- 519      53746F70 
- 519      00
- 520              	.LASF19:
- 521 0023 43686172 		.ascii	"CharLCD_Enable\000"
- 521      4C43445F 
- 521      456E6162 
- 521      6C6500
- 522              	.LASF22:
- 523 0032 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
- 523      73657273 
- 523      5C6D6772 
- 523      6F6E6265 
- 523      725C4465 
- 524 0060 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
- 524      436F6E74 
- 524      696E756F 
- 524      7573204F 
- 524      75747075 
+ 518              	.LASF22:
+ 519 0016 433A5C55 		.ascii	"C:\\Users\\jwvance\\Desktop\\Hummingbird\\Hummingbi"
+ 519      73657273 
+ 519      5C6A7776 
+ 519      616E6365 
+ 519      5C446573 
+ 520 0044 72642843 		.ascii	"rd(Continuous Output).cydsn\000"
+ 520      6F6E7469 
+ 520      6E756F75 
+ 520      73204F75 
+ 520      74707574 
+ 521              	.LASF18:
+ 522 0060 43686172 		.ascii	"CharLCD_Stop\000"
+ 522      4C43445F 
+ 522      53746F70 
+ 522      00
+ 523              	.LASF19:
+ 524 006d 43686172 		.ascii	"CharLCD_Enable\000"
+ 524      4C43445F 
+ 524      456E6162 
+ 524      6C6500
  525              	.LASF20:
- 526 007d 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 526 007c 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  526      4320342E 
  526      392E3320 
  526      32303135 
  526      30333033 
- 527 00b0 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 527 00af 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
  527      20726576 
  527      6973696F 
  527      6E203232 
  527      31323230 
- 528 00e3 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 528 00e2 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
  528      66756E63 
  528      74696F6E 
  528      2D736563 
  528      74696F6E 
  529              	.LASF9:
- 530 010b 666C6F61 		.ascii	"float\000"
+ 530 010a 666C6F61 		.ascii	"float\000"
  530      7400
  531              	.LASF1:
- 532 0111 756E7369 		.ascii	"unsigned char\000"
+ 532 0110 756E7369 		.ascii	"unsigned char\000"
  532      676E6564 
  532      20636861 
  532      7200
  533              	.LASF21:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 13
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccM99FgL.s 			page 13
 
 
- 534 011f 47656E65 		.ascii	"Generated_Source\\PSoC5\\CharLCD_I2C_PM.c\000"
+ 534 011e 47656E65 		.ascii	"Generated_Source\\PSoC5\\CharLCD_I2C_PM.c\000"
  534      72617465 
  534      645F536F 
  534      75726365 
  534      5C50536F 
  535              	.LASF5:
- 536 0147 6C6F6E67 		.ascii	"long unsigned int\000"
+ 536 0146 6C6F6E67 		.ascii	"long unsigned int\000"
  536      20756E73 
  536      69676E65 
  536      6420696E 
  536      7400
  537              	.LASF3:
- 538 0159 73686F72 		.ascii	"short unsigned int\000"
+ 538 0158 73686F72 		.ascii	"short unsigned int\000"
  538      7420756E 
  538      7369676E 
  538      65642069 
  538      6E7400
  539              	.LASF10:
- 540 016c 646F7562 		.ascii	"double\000"
+ 540 016b 646F7562 		.ascii	"double\000"
  540      6C6500
  541              	.LASF15:
- 542 0173 43686172 		.ascii	"CharLCD_RestoreConfig\000"
+ 542 0172 43686172 		.ascii	"CharLCD_RestoreConfig\000"
  542      4C43445F 
  542      52657374 
  542      6F726543 
  542      6F6E6669 
  543              	.LASF14:
- 544 0189 43686172 		.ascii	"CharLCD_SaveConfig\000"
+ 544 0188 43686172 		.ascii	"CharLCD_SaveConfig\000"
  544      4C43445F 
  544      53617665 
  544      436F6E66 
  544      696700
  545              	.LASF8:
- 546 019c 756E7369 		.ascii	"unsigned int\000"
+ 546 019b 756E7369 		.ascii	"unsigned int\000"
  546      676E6564 
  546      20696E74 
  546      00
  547              	.LASF24:
- 548 01a9 43686172 		.ascii	"CharLCD_backup\000"
+ 548 01a8 43686172 		.ascii	"CharLCD_backup\000"
  548      4C43445F 
  548      6261636B 
  548      757000
  549              	.LASF7:
- 550 01b8 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 550 01b7 6C6F6E67 		.ascii	"long long unsigned int\000"
  550      206C6F6E 
  550      6720756E 
  550      7369676E 
  550      65642069 
  551              	.LASF17:
- 552 01cf 43686172 		.ascii	"CharLCD_Wakeup\000"
+ 552 01ce 43686172 		.ascii	"CharLCD_Wakeup\000"
  552      4C43445F 
  552      57616B65 
  552      757000
  553              	.LASF6:
- 554 01de 6C6F6E67 		.ascii	"long long int\000"
+ 554 01dd 6C6F6E67 		.ascii	"long long int\000"
  554      206C6F6E 
  554      6720696E 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccTqG8Rv.s 			page 14
+ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccM99FgL.s 			page 14
 
 
  554      7400
  555              	.LASF11:
- 556 01ec 63686172 		.ascii	"char\000"
+ 556 01eb 63686172 		.ascii	"char\000"
  556      00
  557              	.LASF2:
- 558 01f1 73686F72 		.ascii	"short int\000"
+ 558 01f0 73686F72 		.ascii	"short int\000"
  558      7420696E 
  558      7400
  559              	.LASF12:
- 560 01fb 75696E74 		.ascii	"uint8\000"
+ 560 01fa 75696E74 		.ascii	"uint8\000"
  560      3800
  561              	.LASF25:
- 562 0201 43686172 		.ascii	"CharLCD_enableState\000"
+ 562 0200 43686172 		.ascii	"CharLCD_enableState\000"
  562      4C43445F 
  562      656E6162 
  562      6C655374 
  562      61746500 
  563              	.LASF4:
- 564 0215 6C6F6E67 		.ascii	"long int\000"
+ 564 0214 6C6F6E67 		.ascii	"long int\000"
  564      20696E74 
  564      00
  565              	.LASF23:
- 566 021e 656E6162 		.ascii	"enableState\000"
+ 566 021d 656E6162 		.ascii	"enableState\000"
  566      6C655374 
  566      61746500 
  567              	.LASF0:
- 568 022a 7369676E 		.ascii	"signed char\000"
+ 568 0229 7369676E 		.ascii	"signed char\000"
  568      65642063 
  568      68617200 
  569              	.LASF16:
- 570 0236 43686172 		.ascii	"CharLCD_Sleep\000"
+ 570 0235 43686172 		.ascii	"CharLCD_Sleep\000"
  570      4C43445F 
  570      536C6565 
  570      7000

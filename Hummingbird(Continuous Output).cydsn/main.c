@@ -27,6 +27,7 @@ uint16 lastHyst = 0;
 uint16 lastVelo = VELO_VAL;
 
 char noteHistory[24] = {};    //note stream array, 4 extra slots for off screen sliding
+uint8 pushingNote = 0;      //set high if system currently pushing a note
 
 // Variables for Button I/O
 uint8 csButtStates = 0u;
@@ -204,22 +205,30 @@ int main()
                 }
                 if(UI_Update_Mask & 0b0100){
                     UI_Update_Mask &= 0b1011;   //clear HYST bit
-                    CharLCD_PosPrintString(2,11,"          ");
-                    CharLCD_PosPrintString(2,11,"Hist:");
+                    //CharLCD_PosPrintString(2,11,"          ");
+                    //CharLCD_PosPrintString(2,11,"Hist:");
                     tempHyst = map(lastHyst,0,255,50,101);
                     if(tempHyst > 100) { tempHyst = 100; }
-                    CharLCD_PrintNumber(tempHyst);
+                    CharLCD_PosPrintString(2,16,"    ");
+                    CharLCD_PosPrintNumber(2,16,tempHyst);
                     CharLCD_PrintString("%");
                     // NOTE: tempHyst is used by the actual hyst function, but is divided by 100 to create values from .50 to .99 
                 }
                 if(UI_Update_Mask & 0b1000){
                     UI_Update_Mask &= 0b0111;   //clear VELO bit
-                    CharLCD_PosPrintString(2,0,"          ");
-                    CharLCD_PosPrintString(2,0,"Velo:"); 
-                    uint16 tempVelo = map(lastVelo,0,255,0,101);
+                    //CharLCD_PosPrintString(2,0,"          ");
+                    //CharLCD_PosPrintString(2,0,"Velo:"); 
+                    CharLCD_PosPrintString(2,5,"   ");
+                    uint16 tempVelo = map(lastVelo,0,255,0,102);
                     if(tempVelo > 100) { tempVelo = 100; }
-                    CharLCD_PrintNumber(tempVelo);
-                }  
+                    CharLCD_PosPrintNumber(2,5,tempVelo);
+                } 
+                if(UI_Update_Mask & 0b10000){
+                    UI_Update_Mask &= 0b01111;
+                    if(!PrintNoteHistory(noteHistory)){   //returns 0 when complete
+                        pushingNote = 0;
+                    }
+                }
             }
             
             /*********************** M I D I  O U T P U T ****************************/
@@ -277,6 +286,13 @@ int main()
                         UART_MIDITX_PutChar(midiMsg[1]);
                         UART_MIDITX_PutChar(midiMsg[2]);
                         //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);                                       
+                        
+                        //Push note to display
+                        if(!pushingNote){
+                            char tempStr[3];
+                            PushArray(noteHistory, midi_note_truename(note, tempStr));
+                            pushingNote = 1;
+                        }
                         
                         lastNote = note;  
                     }
@@ -400,7 +416,10 @@ CY_ISR(UserInterfaceISR){
     if(currVelo < lastVelo - 1 || currVelo > lastVelo + 1){
         lastVelo = currVelo;
         UI_Update_Mask |= 0b1000;   //set bit for LCD  update
-    }    
+    } 
+    if(pushingNote){
+        UI_Update_Mask |= 0b10000;   //set bit for LCD  update
+    }
 }
 
 
