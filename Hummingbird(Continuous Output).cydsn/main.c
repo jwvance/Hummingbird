@@ -225,9 +225,9 @@ int main()
                 } 
                 if(UI_Update_Mask & 0b10000){
                     UI_Update_Mask &= 0b01111;
-                    //if(!PrintNoteHistory(noteHistory)){   //returns 0 when complete
+                    if(!PrintNoteHistory(noteHistory)){   //returns 0 when complete
                         pushingNote = 0;
-                    //}
+                    }
                 }
             }
             
