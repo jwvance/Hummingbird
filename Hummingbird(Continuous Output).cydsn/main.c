@@ -225,9 +225,9 @@ int main()
                 } 
                 if(UI_Update_Mask & 0b10000){
                     UI_Update_Mask &= 0b01111;
-                    if(!PrintNoteHistory(noteHistory)){   //returns 0 when complete
+                    //if(!PrintNoteHistory(noteHistory)){   //returns 0 when complete
                         pushingNote = 0;
-                    }
+                    //}
                 }
             }
             
@@ -244,10 +244,8 @@ int main()
                 frameProcessed = true;
                 
                 //Run Pitch Detection Algorithm        
-                //pitchHz = pitch_fft(dataFrames[sampleFrame], sampImg);
-                //pitchHz = pitch_zero_cross(dataFrames[sampleFrame]);
-                //pitchHz = auto_correlate(dataFrames[sampleFrame]);
-                pitchHz = pitch_auto_fft(dataFrames[sampleFrame]);
+                pitchHz = auto_correlate(dataFrames[sampleFrame]);
+                
                 
                 // Unlocks the frame
                 frameLocked[sampleFrame] = false;
@@ -280,7 +278,7 @@ int main()
                         
                         midiMsg[0] = USB_MIDI_NOTE_ON;
                         midiMsg[1] = note;
-                        midiMsg[2] = lastVelo;
+                        midiMsg[2] = 100;//lastVelo;
                         
                         UART_MIDITX_PutChar(midiMsg[0]);
                         UART_MIDITX_PutChar(midiMsg[1]);

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGOLg12.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 1
   29:Generated_Source\PSoC5/USB_cls.c **** /* `#END` */
   30:Generated_Source\PSoC5/USB_cls.c **** 
   31:Generated_Source\PSoC5/USB_cls.c **** 
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGOLg12.s 			page 2
 
 
   32:Generated_Source\PSoC5/USB_cls.c **** /*******************************************************************************
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 1
   45 0012 104A     		ldr	r2, .L13+4
   46 0014 1268     		ldr	r2, [r2]
   47 0016 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGOLg12.s 			page 3
 
 
   48 0018 012B     		cmp	r3, #1
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 1
   71 003a DBB2     		uxtb	r3, r3
   72              	.LVL3:
   67:Generated_Source\PSoC5/USB_cls.c ****     {
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGOLg12.s 			page 4
 
 
   73              		.loc 1 67 0
@@ -222,48 +222,48 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 1
  108 0006 00000000 		.4byte	.Ldebug_abbrev0
  109 000a 04       		.byte	0x4
  110 000b 01       		.uleb128 0x1
- 111 000c 95000000 		.4byte	.LASF30
+ 111 000c 96000000 		.4byte	.LASF30
  112 0010 01       		.byte	0x1
- 113 0011 D8010000 		.4byte	.LASF31
- 114 0015 16000000 		.4byte	.LASF32
+ 113 0011 D9010000 		.4byte	.LASF31
+ 114 0015 4B000000 		.4byte	.LASF32
  115 0019 00000000 		.4byte	.Ldebug_ranges0+0
  116 001d 00000000 		.4byte	0
  117 0021 00000000 		.4byte	.Ldebug_line0
  118 0025 02       		.uleb128 0x2
  119 0026 01       		.byte	0x1
  120 0027 06       		.byte	0x6
- 121 0028 6C020000 		.4byte	.LASF0
+ 121 0028 6D020000 		.4byte	.LASF0
  122 002c 02       		.uleb128 0x2
  123 002d 01       		.byte	0x1
  124 002e 08       		.byte	0x8
- 125 002f 32010000 		.4byte	.LASF1
+ 125 002f 33010000 		.4byte	.LASF1
  126 0033 02       		.uleb128 0x2
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGOLg12.s 			page 5
 
 
  127 0034 02       		.byte	0x2
  128 0035 05       		.byte	0x5
- 129 0036 36020000 		.4byte	.LASF2
+ 129 0036 37020000 		.4byte	.LASF2
  130 003a 02       		.uleb128 0x2
  131 003b 02       		.byte	0x2
  132 003c 07       		.byte	0x7
- 133 003d 60000000 		.4byte	.LASF3
+ 133 003d 16000000 		.4byte	.LASF3
  134 0041 02       		.uleb128 0x2
  135 0042 04       		.byte	0x4
  136 0043 05       		.byte	0x5
- 137 0044 50020000 		.4byte	.LASF4
+ 137 0044 51020000 		.4byte	.LASF4
  138 0048 02       		.uleb128 0x2
  139 0049 04       		.byte	0x4
  140 004a 07       		.byte	0x7
- 141 004b 45010000 		.4byte	.LASF5
+ 141 004b 46010000 		.4byte	.LASF5
  142 004f 02       		.uleb128 0x2
  143 0050 08       		.byte	0x8
  144 0051 05       		.byte	0x5
- 145 0052 18020000 		.4byte	.LASF6
+ 145 0052 19020000 		.4byte	.LASF6
  146 0056 02       		.uleb128 0x2
  147 0057 08       		.byte	0x8
  148 0058 07       		.byte	0x7
- 149 0059 A4010000 		.4byte	.LASF7
+ 149 0059 A5010000 		.4byte	.LASF7
  150 005d 03       		.uleb128 0x3
  151 005e 04       		.byte	0x4
  152 005f 05       		.byte	0x5
@@ -271,34 +271,34 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 1
  154 0064 02       		.uleb128 0x2
  155 0065 04       		.byte	0x4
  156 0066 07       		.byte	0x7
- 157 0067 97010000 		.4byte	.LASF8
+ 157 0067 98010000 		.4byte	.LASF8
  158 006b 04       		.uleb128 0x4
- 159 006c 40020000 		.4byte	.LASF9
+ 159 006c 41020000 		.4byte	.LASF9
  160 0070 02       		.byte	0x2
  161 0071 5B       		.byte	0x5b
  162 0072 2C000000 		.4byte	0x2c
  163 0076 04       		.uleb128 0x4
- 164 0077 85010000 		.4byte	.LASF10
+ 164 0077 86010000 		.4byte	.LASF10
  165 007b 02       		.byte	0x2
  166 007c 5C       		.byte	0x5c
  167 007d 3A000000 		.4byte	0x3a
  168 0081 02       		.uleb128 0x2
  169 0082 04       		.byte	0x4
  170 0083 04       		.byte	0x4
- 171 0084 23010000 		.4byte	.LASF11
+ 171 0084 24010000 		.4byte	.LASF11
  172 0088 02       		.uleb128 0x2
  173 0089 08       		.byte	0x8
  174 008a 04       		.byte	0x4
- 175 008b 6C010000 		.4byte	.LASF12
+ 175 008b 6D010000 		.4byte	.LASF12
  176 008f 02       		.uleb128 0x2
  177 0090 01       		.byte	0x1
  178 0091 08       		.byte	0x8
- 179 0092 26020000 		.4byte	.LASF13
+ 179 0092 27020000 		.4byte	.LASF13
  180 0096 04       		.uleb128 0x4
- 181 0097 40010000 		.4byte	.LASF14
+ 181 0097 41010000 		.4byte	.LASF14
  182 009b 02       		.byte	0x2
  183 009c F0       		.byte	0xf0
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGOLg12.s 			page 6
 
 
  184 009d A1000000 		.4byte	0xa1
@@ -307,72 +307,72 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 1
  187 00a6 02       		.uleb128 0x2
  188 00a7 04       		.byte	0x4
  189 00a8 07       		.byte	0x7
- 190 00a9 08020000 		.4byte	.LASF15
+ 190 00a9 09020000 		.4byte	.LASF15
  191 00ad 06       		.uleb128 0x6
  192 00ae 0C       		.byte	0xc
  193 00af 03       		.byte	0x3
  194 00b0 7D       		.byte	0x7d
  195 00b1 22010000 		.4byte	0x122
  196 00b5 07       		.uleb128 0x7
- 197 00b6 73010000 		.4byte	.LASF16
+ 197 00b6 74010000 		.4byte	.LASF16
  198 00ba 03       		.byte	0x3
  199 00bb 7F       		.byte	0x7f
  200 00bc 6B000000 		.4byte	0x6b
  201 00c0 00       		.byte	0
  202 00c1 07       		.uleb128 0x7
- 203 00c2 8C010000 		.4byte	.LASF17
+ 203 00c2 8D010000 		.4byte	.LASF17
  204 00c6 03       		.byte	0x3
  205 00c7 80       		.byte	0x80
  206 00c8 6B000000 		.4byte	0x6b
  207 00cc 01       		.byte	0x1
  208 00cd 07       		.uleb128 0x7
- 209 00ce BB010000 		.4byte	.LASF18
+ 209 00ce BC010000 		.4byte	.LASF18
  210 00d2 03       		.byte	0x3
  211 00d3 81       		.byte	0x81
  212 00d4 6B000000 		.4byte	0x6b
  213 00d8 02       		.byte	0x2
  214 00d9 07       		.uleb128 0x7
- 215 00da 29010000 		.4byte	.LASF19
+ 215 00da 2A010000 		.4byte	.LASF19
  216 00de 03       		.byte	0x3
  217 00df 82       		.byte	0x82
  218 00e0 6B000000 		.4byte	0x6b
  219 00e4 03       		.byte	0x3
  220 00e5 07       		.uleb128 0x7
- 221 00e6 57010000 		.4byte	.LASF20
+ 221 00e6 58010000 		.4byte	.LASF20
  222 00ea 03       		.byte	0x3
  223 00eb 83       		.byte	0x83
  224 00ec 6B000000 		.4byte	0x6b
  225 00f0 04       		.byte	0x4
  226 00f1 07       		.uleb128 0x7
- 227 00f2 11020000 		.4byte	.LASF21
+ 227 00f2 12020000 		.4byte	.LASF21
  228 00f6 03       		.byte	0x3
  229 00f7 84       		.byte	0x84
  230 00f8 6B000000 		.4byte	0x6b
  231 00fc 05       		.byte	0x5
  232 00fd 07       		.uleb128 0x7
- 233 00fe 7A010000 		.4byte	.LASF22
+ 233 00fe 7B010000 		.4byte	.LASF22
  234 0102 03       		.byte	0x3
  235 0103 85       		.byte	0x85
  236 0104 76000000 		.4byte	0x76
  237 0108 06       		.byte	0x6
  238 0109 07       		.uleb128 0x7
- 239 010a 2B020000 		.4byte	.LASF23
+ 239 010a 2C020000 		.4byte	.LASF23
  240 010e 03       		.byte	0x3
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGOLg12.s 			page 7
 
 
  241 010f 86       		.byte	0x86
  242 0110 76000000 		.4byte	0x76
  243 0114 08       		.byte	0x8
  244 0115 07       		.uleb128 0x7
- 245 0116 46020000 		.4byte	.LASF24
+ 245 0116 47020000 		.4byte	.LASF24
  246 011a 03       		.byte	0x3
  247 011b 87       		.byte	0x87
  248 011c 6B000000 		.4byte	0x6b
  249 0120 0A       		.byte	0xa
  250 0121 00       		.byte	0
  251 0122 04       		.uleb128 0x4
- 252 0123 59020000 		.4byte	.LASF25
+ 252 0123 5A020000 		.4byte	.LASF25
  253 0127 03       		.byte	0x3
  254 0128 88       		.byte	0x88
  255 0129 AD000000 		.4byte	0xad
@@ -387,13 +387,13 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 1
  264 0141 9C       		.byte	0x9c
  265 0142 6B010000 		.4byte	0x16b
  266 0146 09       		.uleb128 0x9
- 267 0147 F9010000 		.4byte	.LASF26
+ 267 0147 FA010000 		.4byte	.LASF26
  268 014b 01       		.byte	0x1
  269 014c 32       		.byte	0x32
  270 014d 6B000000 		.4byte	0x6b
  271 0151 00       		.byte	0
  272 0152 0A       		.uleb128 0xa
- 273 0153 5C010000 		.4byte	.LASF27
+ 273 0153 5D010000 		.4byte	.LASF27
  274 0157 01       		.byte	0x1
  275 0158 33       		.byte	0x33
  276 0159 6B000000 		.4byte	0x6b
@@ -403,7 +403,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 1
  280 0166 A1010000 		.4byte	0x1a1
  281 016a 00       		.byte	0
  282 016b 0C       		.uleb128 0xc
- 283 016c C5010000 		.4byte	.LASF28
+ 283 016c C6010000 		.4byte	.LASF28
  284 0170 04       		.byte	0x4
  285 0171 32       		.byte	0x32
  286 0172 76010000 		.4byte	0x176
@@ -418,19 +418,19 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 1
  295 018a 10       		.uleb128 0x10
  296 018b A6000000 		.4byte	0xa6
  297 018f 08       		.byte	0x8
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 8
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGOLg12.s 			page 8
 
 
  298 0190 00       		.byte	0
  299 0191 0C       		.uleb128 0xc
- 300 0192 73000000 		.4byte	.LASF29
+ 300 0192 29000000 		.4byte	.LASF29
  301 0196 04       		.byte	0x4
  302 0197 34       		.byte	0x34
  303 0198 9C010000 		.4byte	0x19c
  304 019c 05       		.uleb128 0x5
  305 019d 81010000 		.4byte	0x181
  306 01a1 11       		.uleb128 0x11
- 307 01a2 7A000000 		.4byte	.LASF34
+ 307 01a2 30000000 		.4byte	.LASF34
  308 01a6 04       		.byte	0x4
  309 01a7 81       		.byte	0x81
  310 01a8 6B000000 		.4byte	0x6b
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 1
  352 0026 08       		.uleb128 0x8
  353 0027 00       		.byte	0
  354 0028 00       		.byte	0
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 9
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGOLg12.s 			page 9
 
 
  355 0029 04       		.uleb128 0x4
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 1
  409 005f 0E       		.uleb128 0xe
  410 0060 3A       		.uleb128 0x3a
  411 0061 0B       		.uleb128 0xb
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGOLg12.s 			page 10
 
 
  412 0062 3B       		.uleb128 0x3b
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 1
  466 009c 19       		.uleb128 0x19
  467 009d 31       		.uleb128 0x31
  468 009e 13       		.uleb128 0x13
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 11
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGOLg12.s 			page 11
 
 
  469 009f 00       		.byte	0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 1
  523 00d5 2E       		.uleb128 0x2e
  524 00d6 00       		.byte	0
  525 00d7 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGOLg12.s 			page 12
 
 
  526 00d8 19       		.uleb128 0x19
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 1
  580              		.section	.debug_line,"",%progbits
  581              	.Ldebug_line0:
  582 0000 89000000 		.section	.debug_str,"MS",%progbits,1
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGOLg12.s 			page 13
 
 
  582      02005A00 
@@ -731,177 +731,177 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 1
  584      61746368 
  584      436C6173 
  584      73527173 
- 585              	.LASF32:
- 586 0016 433A5C55 		.ascii	"C:\\Users\\jwvance\\Desktop\\Hummingbird\\Hummingbi"
- 586      73657273 
- 586      5C6A7776 
- 586      616E6365 
- 586      5C446573 
- 587 0044 72642843 		.ascii	"rd(Continuous Output).cydsn\000"
- 587      6F6E7469 
- 587      6E756F75 
- 587      73204F75 
- 587      74707574 
- 588              	.LASF3:
- 589 0060 73686F72 		.ascii	"short unsigned int\000"
- 589      7420756E 
- 589      7369676E 
- 589      65642069 
- 589      6E7400
- 590              	.LASF29:
- 591 0073 5553425F 		.ascii	"USB_EP\000"
- 591      455000
- 592              	.LASF34:
- 593 007a 5553425F 		.ascii	"USB_DispatchAUDIOClassRqst\000"
- 593      44697370 
- 593      61746368 
- 593      41554449 
- 593      4F436C61 
+ 585              	.LASF3:
+ 586 0016 73686F72 		.ascii	"short unsigned int\000"
+ 586      7420756E 
+ 586      7369676E 
+ 586      65642069 
+ 586      6E7400
+ 587              	.LASF29:
+ 588 0029 5553425F 		.ascii	"USB_EP\000"
+ 588      455000
+ 589              	.LASF34:
+ 590 0030 5553425F 		.ascii	"USB_DispatchAUDIOClassRqst\000"
+ 590      44697370 
+ 590      61746368 
+ 590      41554449 
+ 590      4F436C61 
+ 591              	.LASF32:
+ 592 004b 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
+ 592      73657273 
+ 592      5C6D6772 
+ 592      6F6E6265 
+ 592      725C4465 
+ 593 0079 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 593      436F6E74 
+ 593      696E756F 
+ 593      7573204F 
+ 593      75747075 
  594              	.LASF30:
- 595 0095 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 595 0096 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  595      4320342E 
  595      392E3320 
  595      32303135 
  595      30333033 
- 596 00c8 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 596 00c9 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
  596      20726576 
  596      6973696F 
  596      6E203232 
  596      31323230 
- 597 00fb 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 597 00fc 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
  597      66756E63 
  597      74696F6E 
  597      2D736563 
  597      74696F6E 
  598              	.LASF11:
- 599 0123 666C6F61 		.ascii	"float\000"
+ 599 0124 666C6F61 		.ascii	"float\000"
  599      7400
  600              	.LASF19:
- 601 0129 6570546F 		.ascii	"epToggle\000"
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 14
+ 601 012a 6570546F 		.ascii	"epToggle\000"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGOLg12.s 			page 14
 
 
  601      67676C65 
  601      00
  602              	.LASF1:
- 603 0132 756E7369 		.ascii	"unsigned char\000"
+ 603 0133 756E7369 		.ascii	"unsigned char\000"
  603      676E6564 
  603      20636861 
  603      7200
  604              	.LASF14:
- 605 0140 72656738 		.ascii	"reg8\000"
+ 605 0141 72656738 		.ascii	"reg8\000"
  605      00
  606              	.LASF5:
- 607 0145 6C6F6E67 		.ascii	"long unsigned int\000"
+ 607 0146 6C6F6E67 		.ascii	"long unsigned int\000"
  607      20756E73 
  607      69676E65 
  607      6420696E 
  607      7400
  608              	.LASF20:
- 609 0157 61646472 		.ascii	"addr\000"
+ 609 0158 61646472 		.ascii	"addr\000"
  609      00
  610              	.LASF27:
- 611 015c 696E7465 		.ascii	"interfaceNumber\000"
+ 611 015d 696E7465 		.ascii	"interfaceNumber\000"
  611      72666163 
  611      654E756D 
  611      62657200 
  612              	.LASF12:
- 613 016c 646F7562 		.ascii	"double\000"
+ 613 016d 646F7562 		.ascii	"double\000"
  613      6C6500
  614              	.LASF16:
- 615 0173 61747472 		.ascii	"attrib\000"
+ 615 0174 61747472 		.ascii	"attrib\000"
  615      696200
  616              	.LASF22:
- 617 017a 62756666 		.ascii	"buffOffset\000"
+ 617 017b 62756666 		.ascii	"buffOffset\000"
  617      4F666673 
  617      657400
  618              	.LASF10:
- 619 0185 75696E74 		.ascii	"uint16\000"
+ 619 0186 75696E74 		.ascii	"uint16\000"
  619      313600
  620              	.LASF17:
- 621 018c 61706945 		.ascii	"apiEpState\000"
+ 621 018d 61706945 		.ascii	"apiEpState\000"
  621      70537461 
  621      746500
  622              	.LASF8:
- 623 0197 756E7369 		.ascii	"unsigned int\000"
+ 623 0198 756E7369 		.ascii	"unsigned int\000"
  623      676E6564 
  623      20696E74 
  623      00
  624              	.LASF7:
- 625 01a4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 625 01a5 6C6F6E67 		.ascii	"long long unsigned int\000"
  625      206C6F6E 
  625      6720756E 
  625      7369676E 
  625      65642069 
  626              	.LASF18:
- 627 01bb 68774570 		.ascii	"hwEpState\000"
+ 627 01bc 68774570 		.ascii	"hwEpState\000"
  627      53746174 
  627      6500
  628              	.LASF28:
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGOLg12.s 			page 15
 
 
- 629 01c5 5553425F 		.ascii	"USB_interfaceClass\000"
+ 629 01c6 5553425F 		.ascii	"USB_interfaceClass\000"
  629      696E7465 
  629      72666163 
  629      65436C61 
  629      737300
  630              	.LASF31:
- 631 01d8 47656E65 		.ascii	"Generated_Source\\PSoC5\\USB_cls.c\000"
+ 631 01d9 47656E65 		.ascii	"Generated_Source\\PSoC5\\USB_cls.c\000"
  631      72617465 
  631      645F536F 
  631      75726365 
  631      5C50536F 
  632              	.LASF26:
- 633 01f9 72657175 		.ascii	"requestHandled\000"
+ 633 01fa 72657175 		.ascii	"requestHandled\000"
  633      65737448 
  633      616E646C 
  633      656400
  634              	.LASF15:
- 635 0208 73697A65 		.ascii	"sizetype\000"
+ 635 0209 73697A65 		.ascii	"sizetype\000"
  635      74797065 
  635      00
  636              	.LASF21:
- 637 0211 65704D6F 		.ascii	"epMode\000"
+ 637 0212 65704D6F 		.ascii	"epMode\000"
  637      646500
  638              	.LASF6:
- 639 0218 6C6F6E67 		.ascii	"long long int\000"
+ 639 0219 6C6F6E67 		.ascii	"long long int\000"
  639      206C6F6E 
  639      6720696E 
  639      7400
  640              	.LASF13:
- 641 0226 63686172 		.ascii	"char\000"
+ 641 0227 63686172 		.ascii	"char\000"
  641      00
  642              	.LASF23:
- 643 022b 62756666 		.ascii	"bufferSize\000"
+ 643 022c 62756666 		.ascii	"bufferSize\000"
  643      65725369 
  643      7A6500
  644              	.LASF2:
- 645 0236 73686F72 		.ascii	"short int\000"
+ 645 0237 73686F72 		.ascii	"short int\000"
  645      7420696E 
  645      7400
  646              	.LASF9:
- 647 0240 75696E74 		.ascii	"uint8\000"
+ 647 0241 75696E74 		.ascii	"uint8\000"
  647      3800
  648              	.LASF24:
- 649 0246 696E7465 		.ascii	"interface\000"
+ 649 0247 696E7465 		.ascii	"interface\000"
  649      72666163 
  649      6500
  650              	.LASF4:
- 651 0250 6C6F6E67 		.ascii	"long int\000"
+ 651 0251 6C6F6E67 		.ascii	"long int\000"
  651      20696E74 
  651      00
  652              	.LASF25:
- 653 0259 545F5553 		.ascii	"T_USB_EP_CTL_BLOCK\000"
+ 653 025a 545F5553 		.ascii	"T_USB_EP_CTL_BLOCK\000"
  653      425F4550 
  653      5F43544C 
  653      5F424C4F 
  653      434B00
  654              	.LASF0:
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccr9GYsi.s 			page 16
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccGOLg12.s 			page 16
 
 
- 655 026c 7369676E 		.ascii	"signed char\000"
+ 655 026d 7369676E 		.ascii	"signed char\000"
  655      65642063 
  655      68617200 
  656              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

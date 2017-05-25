@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
   29:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** 
   30:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** /*******************************************************************************
   31:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** * Function Name: ADC_MIC_theACLK_Start
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 2
 
 
   32:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** ********************************************************************************
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
   51:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** 
   52:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** 
   53:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** /*******************************************************************************
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 3
 
 
   54:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** * Function Name: ADC_MIC_theACLK_Stop
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
   92              		.type	ADC_MIC_theACLK_StopBlock, %function
   93              	ADC_MIC_theACLK_StopBlock:
   94              	.LFB2:
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 4
 
 
   76:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** }
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  108:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** 
  109:Generated_Source\PSoC5/ADC_MIC_theACLK.c ****         /* Clear all the mask bits except ours. */
  110:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** #if defined(ADC_MIC_theACLK__CFG3)
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 5
 
 
  111:Generated_Source\PSoC5/ADC_MIC_theACLK.c ****         CLK_DIST_AMASK = ADC_MIC_theACLK_CLKEN_MASK;
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  142              		.loc 1 121 0
  143 002c 80B2     		uxth	r0, r0
  144              	.LVL0:
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 6
 
 
  122:Generated_Source\PSoC5/ADC_MIC_theACLK.c ****         CLK_DIST_LD = CYCLK_LD_DISABLE | CYCLK_LD_SYNC_EN | CYCLK_LD_LOAD;
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  180              		.cfi_def_cfa_offset 0
  181              	.LVL1:
  182              	.L16:
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 7
 
 
  183 005a 7047     		bx	lr
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  214              		.loc 1 159 0
  215 0004 18B1     		cbz	r0, .L23
  162:Generated_Source\PSoC5/ADC_MIC_theACLK.c ****     }
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 8
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 8
 
 
  163:Generated_Source\PSoC5/ADC_MIC_theACLK.c ****     else
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  192:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** *******************************************************************************/
  193:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** void ADC_MIC_theACLK_SetDividerRegister(uint16 clkDivider, uint8 restart)
  194:Generated_Source\PSoC5/ADC_MIC_theACLK.c ****                                 
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 9
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 9
 
 
  195:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** {
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  235:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** #else
  236:Generated_Source\PSoC5/ADC_MIC_theACLK.c ****                 CLK_DIST_DMASK = ADC_MIC_theACLK_CLKEN_MASK;
  237:Generated_Source\PSoC5/ADC_MIC_theACLK.c ****                 CLK_DIST_AMASK = 0x00u;
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 10
 
 
  238:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** #endif /* ADC_MIC_theACLK__CFG3 */
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  292:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** * Returns:
  293:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** *  Divide value of the clock minus 1. For example, if the clock is set to
  294:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** *  divide by 2, the return value will be 1.
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 11
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 11
 
 
  295:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** *
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  349:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** *  clkMode: Bit mask containing the bits to clear. For PSoC 3 and PSoC 5,
  350:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** *   clkMode should be a set of the following optional bits or'ed together.
  351:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** *   - CYCLK_EARLY Enable early phase mode. Rising edge of output clock will
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 12
 
 
  352:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** *                 occur when the divider count reaches half of the divide
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  406:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** *   - CYCLK_SRC_SEL_IMO
  407:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** *   - CYCLK_SRC_SEL_XTALM
  408:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** *   - CYCLK_SRC_SEL_ILO
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 13
 
 
  409:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** *   - CYCLK_SRC_SEL_PLL
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  463:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** *******************************************************************************/
  464:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** uint8 ADC_MIC_theACLK_GetSourceRegister(void) 
  465:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** {
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 14
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 14
 
 
  466:Generated_Source\PSoC5/ADC_MIC_theACLK.c ****     return ADC_MIC_theACLK_MOD_SRC & ADC_MIC_theACLK_SRC_SEL_MSK;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  213:Generated_Source\PSoC5/ADC_MIC_theACLK.c ****                 ADC_MIC_theACLK_MOD_SRC &= (uint8)(~CYCLK_SSS);
  300              		.loc 1 213 0 is_stmt 1
  301 001e 3080     		strh	r0, [r6]	@ movhi
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 15
 
 
  214:Generated_Source\PSoC5/ADC_MIC_theACLK.c ****             }
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  342 005c 29D4     		bmi	.L49
  343              	.L34:
  247:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** 
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 16
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 16
 
 
  344              		.loc 1 247 0
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  384              		.loc 1 268 0
  385 0094 14BF     		ite	ne
  386 0096 0321     		movne	r1, #3
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 17
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 17
 
 
  387              	.LVL7:
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  433 00d8 08400040 		.word	1073758216
  434 00dc 01400040 		.word	1073758209
  435 00e0 02400040 		.word	1073758210
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 18
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 18
 
 
  436              		.cfi_endproc
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  485 000a 1070     		strb	r0, [r2]
  486 000c 7047     		bx	lr
  487              	.L57:
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 19
 
 
  488 000e 00BF     		.align	2
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  538 0000 024B     		ldr	r3, .L62
  539 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
  391:Generated_Source\PSoC5/ADC_MIC_theACLK.c **** 
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 20
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 20
 
 
  540              		.loc 1 391 0
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  590              		.loc 1 299 0
  591 0008 9BB2     		uxth	r3, r3
  592              	.LBE27:
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 21
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 21
 
 
  593              	.LBE33:
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  636 0042 1370     		strb	r3, [r2]
  431:Generated_Source\PSoC5/ADC_MIC_theACLK.c ****     }
  637              		.loc 1 431 0
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 22
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 22
 
 
  638 0044 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
@@ -1313,12 +1313,12 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  684 0006 00000000 		.4byte	.Ldebug_abbrev0
  685 000a 04       		.byte	0x4
  686 000b 01       		.uleb128 0x1
- 687 000c 82010000 		.4byte	.LASF36
+ 687 000c CD010000 		.4byte	.LASF36
  688 0010 01       		.byte	0x1
- 689 0011 68020000 		.4byte	.LASF37
- 690 0015 0C030000 		.4byte	.LASF38
+ 689 0011 B3020000 		.4byte	.LASF37
+ 690 0015 03010000 		.4byte	.LASF38
  691 0019 90000000 		.4byte	.Ldebug_ranges0+0x90
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 23
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 23
 
 
  692 001d 00000000 		.4byte	0
@@ -1326,11 +1326,11 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  694 0025 02       		.uleb128 0x2
  695 0026 01       		.byte	0x1
  696 0027 06       		.byte	0x6
- 697 0028 52010000 		.4byte	.LASF0
+ 697 0028 9D010000 		.4byte	.LASF0
  698 002c 02       		.uleb128 0x2
  699 002d 01       		.byte	0x1
  700 002e 08       		.byte	0x8
- 701 002f 38010000 		.4byte	.LASF1
+ 701 002f 83010000 		.4byte	.LASF1
  702 0033 02       		.uleb128 0x2
  703 0034 02       		.byte	0x2
  704 0035 05       		.byte	0x5
@@ -1338,7 +1338,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  706 003a 02       		.uleb128 0x2
  707 003b 02       		.byte	0x2
  708 003c 07       		.byte	0x7
- 709 003d 10020000 		.4byte	.LASF3
+ 709 003d 5B020000 		.4byte	.LASF3
  710 0041 02       		.uleb128 0x2
  711 0042 04       		.byte	0x4
  712 0043 05       		.byte	0x5
@@ -1346,7 +1346,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  714 0048 02       		.uleb128 0x2
  715 0049 04       		.byte	0x4
  716 004a 07       		.byte	0x7
- 717 004b A9020000 		.4byte	.LASF5
+ 717 004b F4020000 		.4byte	.LASF5
  718 004f 02       		.uleb128 0x2
  719 0050 08       		.byte	0x8
  720 0051 05       		.byte	0x5
@@ -1354,7 +1354,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  722 0056 02       		.uleb128 0x2
  723 0057 08       		.byte	0x8
  724 0058 07       		.byte	0x7
- 725 0059 5E010000 		.4byte	.LASF7
+ 725 0059 A9010000 		.4byte	.LASF7
  726 005d 03       		.uleb128 0x3
  727 005e 04       		.byte	0x4
  728 005f 05       		.byte	0x5
@@ -1362,7 +1362,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  730 0064 02       		.uleb128 0x2
  731 0065 04       		.byte	0x4
  732 0066 07       		.byte	0x7
- 733 0067 75010000 		.4byte	.LASF8
+ 733 0067 C0010000 		.4byte	.LASF8
  734 006b 04       		.uleb128 0x4
  735 006c 93000000 		.4byte	.LASF9
  736 0070 02       		.byte	0x2
@@ -1378,18 +1378,18 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  746 0083 04       		.byte	0x4
  747 0084 A4000000 		.4byte	.LASF11
  748 0088 02       		.uleb128 0x2
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 24
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 24
 
 
  749 0089 08       		.byte	0x8
  750 008a 04       		.byte	0x4
- 751 008b DB020000 		.4byte	.LASF12
+ 751 008b 26030000 		.4byte	.LASF12
  752 008f 02       		.uleb128 0x2
  753 0090 01       		.byte	0x1
  754 0091 08       		.byte	0x8
- 755 0092 23020000 		.4byte	.LASF13
+ 755 0092 6E020000 		.4byte	.LASF13
  756 0096 04       		.uleb128 0x4
- 757 0097 A4020000 		.4byte	.LASF14
+ 757 0097 EF020000 		.4byte	.LASF14
  758 009b 02       		.byte	0x2
  759 009c F0       		.byte	0xf0
  760 009d A1000000 		.4byte	0xa1
@@ -1403,13 +1403,13 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  768 00b1 05       		.uleb128 0x5
  769 00b2 76000000 		.4byte	0x76
  770 00b6 06       		.uleb128 0x6
- 771 00b7 EA020000 		.4byte	.LASF16
+ 771 00b7 35030000 		.4byte	.LASF16
  772 00bb 01       		.byte	0x1
  773 00bc D001     		.2byte	0x1d0
  774 00be 6B000000 		.4byte	0x6b
  775 00c2 01       		.byte	0x1
  776 00c3 06       		.uleb128 0x6
- 777 00c4 45020000 		.4byte	.LASF17
+ 777 00c4 90020000 		.4byte	.LASF17
  778 00c8 01       		.byte	0x1
  779 00c9 2901     		.2byte	0x129
  780 00cb 76000000 		.4byte	0x76
@@ -1423,7 +1423,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  788 00df 01       		.uleb128 0x1
  789 00e0 9C       		.byte	0x9c
  790 00e1 07       		.uleb128 0x7
- 791 00e2 09010000 		.4byte	.LASF19
+ 791 00e2 54010000 		.4byte	.LASF19
  792 00e6 01       		.byte	0x1
  793 00e7 47       		.byte	0x47
  794 00e8 00000000 		.4byte	.LFB1
@@ -1431,21 +1431,21 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  796 00f0 01       		.uleb128 0x1
  797 00f1 9C       		.byte	0x9c
  798 00f2 08       		.uleb128 0x8
- 799 00f3 1E010000 		.4byte	.LASF20
+ 799 00f3 69010000 		.4byte	.LASF20
  800 00f7 01       		.byte	0x1
  801 00f8 64       		.byte	0x64
  802 00f9 00000000 		.4byte	.LFB2
  803 00fd 78000000 		.4byte	.LFE2-.LFB2
  804 0101 01       		.uleb128 0x1
  805 0102 9C       		.byte	0x9c
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 25
 
 
  806 0103 1D010000 		.4byte	0x11d
  807 0107 09       		.uleb128 0x9
  808 0108 00000000 		.4byte	.Ldebug_ranges0+0
  809 010c 0A       		.uleb128 0xa
- 810 010d 99020000 		.4byte	.LASF26
+ 810 010d E4020000 		.4byte	.LASF26
  811 0111 01       		.byte	0x1
  812 0112 69       		.byte	0x69
  813 0113 76000000 		.4byte	0x76
@@ -1453,7 +1453,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  815 011b 00       		.byte	0
  816 011c 00       		.byte	0
  817 011d 08       		.uleb128 0x8
- 818 011e 28020000 		.4byte	.LASF21
+ 818 011e 73020000 		.4byte	.LASF21
  819 0122 01       		.byte	0x1
  820 0123 9D       		.byte	0x9d
  821 0124 00000000 		.4byte	.LFB3
@@ -1462,7 +1462,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  824 012d 9C       		.byte	0x9c
  825 012e 40010000 		.4byte	0x140
  826 0132 0B       		.uleb128 0xb
- 827 0133 03010000 		.4byte	.LASF23
+ 827 0133 4E010000 		.4byte	.LASF23
  828 0137 01       		.byte	0x1
  829 0138 9D       		.byte	0x9d
  830 0139 6B000000 		.4byte	0x6b
@@ -1492,21 +1492,21 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  854 0169 6B000000 		.4byte	0x6b
  855 016d 13000000 		.4byte	.LLST1
  856 0171 0A       		.uleb128 0xa
- 857 0172 E2020000 		.4byte	.LASF27
+ 857 0172 2D030000 		.4byte	.LASF27
  858 0176 01       		.byte	0x1
  859 0177 C4       		.byte	0xc4
  860 0178 6B000000 		.4byte	0x6b
  861 017c 3F000000 		.4byte	.LLST2
  862 0180 0D       		.uleb128 0xd
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 26
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 26
 
 
- 863 0181 91020000 		.4byte	.LASF28
+ 863 0181 DC020000 		.4byte	.LASF28
  864 0185 01       		.byte	0x1
  865 0186 C6       		.byte	0xc6
  866 0187 6B000000 		.4byte	0x6b
  867 018b 0D       		.uleb128 0xd
- 868 018c 99020000 		.4byte	.LASF26
+ 868 018c E4020000 		.4byte	.LASF26
  869 0190 01       		.byte	0x1
  870 0191 C7       		.byte	0xc7
  871 0192 76000000 		.4byte	0x76
@@ -1530,7 +1530,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  889 01c2 01       		.uleb128 0x1
  890 01c3 9C       		.byte	0x9c
  891 01c4 10       		.uleb128 0x10
- 892 01c5 BB020000 		.4byte	.LASF29
+ 892 01c5 06030000 		.4byte	.LASF29
  893 01c9 01       		.byte	0x1
  894 01ca 4C01     		.2byte	0x14c
  895 01cc 00000000 		.4byte	.LFB6
@@ -1539,7 +1539,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  898 01d5 9C       		.byte	0x9c
  899 01d6 EB010000 		.4byte	0x1eb
  900 01da 11       		.uleb128 0x11
- 901 01db 46010000 		.4byte	.LASF30
+ 901 01db 91010000 		.4byte	.LASF30
  902 01df 01       		.byte	0x1
  903 01e0 4C01     		.2byte	0x14c
  904 01e2 6B000000 		.4byte	0x6b
@@ -1555,10 +1555,10 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  914 01fc 9C       		.byte	0x9c
  915 01fd 12020000 		.4byte	0x212
  916 0201 11       		.uleb128 0x11
- 917 0202 46010000 		.4byte	.LASF30
+ 917 0202 91010000 		.4byte	.LASF30
  918 0206 01       		.byte	0x1
  919 0207 6F01     		.2byte	0x16f
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 27
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 27
 
 
  920 0209 6B000000 		.4byte	0x6b
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  974 0294 01       		.uleb128 0x1
  975 0295 9C       		.byte	0x9c
  976 0296 00       		.byte	0
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 28
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 28
 
 
  977              		.section	.debug_abbrev,"",%progbits
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  1031 0034 00       		.byte	0
  1032 0035 00       		.byte	0
  1033 0036 05       		.uleb128 0x5
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 29
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 29
 
 
  1034 0037 35       		.uleb128 0x35
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  1088 006e 0E       		.uleb128 0xe
  1089 006f 3A       		.uleb128 0x3a
  1090 0070 0B       		.uleb128 0xb
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 30
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 30
 
 
  1091 0071 3B       		.uleb128 0x3b
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  1145 00a8 05       		.uleb128 0x5
  1146 00a9 00       		.byte	0
  1147 00aa 03       		.uleb128 0x3
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 31
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 31
 
 
  1148 00ab 0E       		.uleb128 0xe
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  1202 00e2 10       		.uleb128 0x10
  1203 00e3 2E       		.uleb128 0x2e
  1204 00e4 01       		.byte	0x1
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 32
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 32
 
 
  1205 00e5 3F       		.uleb128 0x3f
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  1259 011c 12       		.uleb128 0x12
  1260 011d 06       		.uleb128 0x6
  1261 011e 40       		.uleb128 0x40
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 33
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 33
 
 
  1262 011f 18       		.uleb128 0x18
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  1316 002b 9F       		.byte	0x9f
  1317 002c A6000000 		.4byte	.LVL8
  1318 0030 E4000000 		.4byte	.LFE4
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 34
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 34
 
 
  1319 0034 0100     		.2byte	0x1
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  1373 00af 0100     		.2byte	0x1
  1374 00b1 50       		.byte	0x50
  1375 00b2 1C000000 		.4byte	.LVL16
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 35
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 35
 
 
  1376 00b6 20000000 		.4byte	.LVL17
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  1430 006c 00000000 		.4byte	0
  1431              		.section	.debug_ranges,"",%progbits
  1432              	.Ldebug_ranges0:
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 36
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 36
 
 
  1433 0000 08000000 		.4byte	.LBB10
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  1487 00d8 00000000 		.4byte	.LFB9
  1488 00dc 58000000 		.4byte	.LFE9
  1489 00e0 00000000 		.4byte	.LFB10
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 37
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 37
 
 
  1490 00e4 10000000 		.4byte	.LFE10
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  1518              	.LASF11:
  1519 00a4 666C6F61 		.ascii	"float\000"
  1519      7400
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 38
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 38
 
 
  1520              	.LASF6:
@@ -2246,137 +2246,137 @@ ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 1
  1529      74686541 
  1529      434C4B5F 
  1529      53657453 
- 1530              	.LASF23:
- 1531 0103 73746174 		.ascii	"state\000"
- 1531      6500
- 1532              	.LASF19:
- 1533 0109 4144435F 		.ascii	"ADC_MIC_theACLK_Stop\000"
- 1533      4D49435F 
- 1533      74686541 
- 1533      434C4B5F 
- 1533      53746F70 
- 1534              	.LASF20:
- 1535 011e 4144435F 		.ascii	"ADC_MIC_theACLK_StopBlock\000"
- 1535      4D49435F 
- 1535      74686541 
- 1535      434C4B5F 
- 1535      53746F70 
- 1536              	.LASF1:
- 1537 0138 756E7369 		.ascii	"unsigned char\000"
- 1537      676E6564 
- 1537      20636861 
- 1537      7200
- 1538              	.LASF30:
- 1539 0146 6D6F6465 		.ascii	"modeBitMask\000"
- 1539      4269744D 
- 1539      61736B00 
- 1540              	.LASF0:
- 1541 0152 7369676E 		.ascii	"signed char\000"
- 1541      65642063 
- 1541      68617200 
- 1542              	.LASF7:
- 1543 015e 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1543      206C6F6E 
- 1543      6720756E 
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 39
+ 1530              	.LASF38:
+ 1531 0103 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
+ 1531      73657273 
+ 1531      5C6D6772 
+ 1531      6F6E6265 
+ 1531      725C4465 
+ 1532 0131 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 1532      436F6E74 
+ 1532      696E756F 
+ 1532      7573204F 
+ 1532      75747075 
+ 1533              	.LASF23:
+ 1534 014e 73746174 		.ascii	"state\000"
+ 1534      6500
+ 1535              	.LASF19:
+ 1536 0154 4144435F 		.ascii	"ADC_MIC_theACLK_Stop\000"
+ 1536      4D49435F 
+ 1536      74686541 
+ 1536      434C4B5F 
+ 1536      53746F70 
+ 1537              	.LASF20:
+ 1538 0169 4144435F 		.ascii	"ADC_MIC_theACLK_StopBlock\000"
+ 1538      4D49435F 
+ 1538      74686541 
+ 1538      434C4B5F 
+ 1538      53746F70 
+ 1539              	.LASF1:
+ 1540 0183 756E7369 		.ascii	"unsigned char\000"
+ 1540      676E6564 
+ 1540      20636861 
+ 1540      7200
+ 1541              	.LASF30:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 39
 
 
- 1543      7369676E 
- 1543      65642069 
- 1544              	.LASF8:
- 1545 0175 756E7369 		.ascii	"unsigned int\000"
- 1545      676E6564 
- 1545      20696E74 
- 1545      00
- 1546              	.LASF36:
- 1547 0182 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1547      4320342E 
- 1547      392E3320 
- 1547      32303135 
- 1547      30333033 
- 1548 01b5 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 1548      20726576 
- 1548      6973696F 
- 1548      6E203232 
- 1548      31323230 
- 1549 01e8 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
- 1549      66756E63 
- 1549      74696F6E 
- 1549      2D736563 
- 1549      74696F6E 
- 1550              	.LASF3:
- 1551 0210 73686F72 		.ascii	"short unsigned int\000"
- 1551      7420756E 
- 1551      7369676E 
- 1551      65642069 
- 1551      6E7400
- 1552              	.LASF13:
- 1553 0223 63686172 		.ascii	"char\000"
- 1553      00
- 1554              	.LASF21:
- 1555 0228 4144435F 		.ascii	"ADC_MIC_theACLK_StandbyPower\000"
- 1555      4D49435F 
- 1555      74686541 
- 1555      434C4B5F 
- 1555      5374616E 
- 1556              	.LASF17:
- 1557 0245 4144435F 		.ascii	"ADC_MIC_theACLK_GetDividerRegister\000"
- 1557      4D49435F 
- 1557      74686541 
- 1557      434C4B5F 
- 1557      47657444 
- 1558              	.LASF37:
- 1559 0268 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_MIC_theACLK.c\000"
- 1559      72617465 
- 1559      645F536F 
- 1559      75726365 
- 1559      5C50536F 
- 1560              	.LASF28:
- 1561 0291 63757272 		.ascii	"currSrc\000"
- 1561      53726300 
- 1562              	.LASF26:
- 1563 0299 6F6C6444 		.ascii	"oldDivider\000"
- 1563      69766964 
- 1563      657200
-ARM GAS  C:\Users\jwvance\AppData\Local\Temp\ccZ9ulxk.s 			page 40
+ 1542 0191 6D6F6465 		.ascii	"modeBitMask\000"
+ 1542      4269744D 
+ 1542      61736B00 
+ 1543              	.LASF0:
+ 1544 019d 7369676E 		.ascii	"signed char\000"
+ 1544      65642063 
+ 1544      68617200 
+ 1545              	.LASF7:
+ 1546 01a9 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1546      206C6F6E 
+ 1546      6720756E 
+ 1546      7369676E 
+ 1546      65642069 
+ 1547              	.LASF8:
+ 1548 01c0 756E7369 		.ascii	"unsigned int\000"
+ 1548      676E6564 
+ 1548      20696E74 
+ 1548      00
+ 1549              	.LASF36:
+ 1550 01cd 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1550      4320342E 
+ 1550      392E3320 
+ 1550      32303135 
+ 1550      30333033 
+ 1551 0200 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1551      20726576 
+ 1551      6973696F 
+ 1551      6E203232 
+ 1551      31323230 
+ 1552 0233 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 1552      66756E63 
+ 1552      74696F6E 
+ 1552      2D736563 
+ 1552      74696F6E 
+ 1553              	.LASF3:
+ 1554 025b 73686F72 		.ascii	"short unsigned int\000"
+ 1554      7420756E 
+ 1554      7369676E 
+ 1554      65642069 
+ 1554      6E7400
+ 1555              	.LASF13:
+ 1556 026e 63686172 		.ascii	"char\000"
+ 1556      00
+ 1557              	.LASF21:
+ 1558 0273 4144435F 		.ascii	"ADC_MIC_theACLK_StandbyPower\000"
+ 1558      4D49435F 
+ 1558      74686541 
+ 1558      434C4B5F 
+ 1558      5374616E 
+ 1559              	.LASF17:
+ 1560 0290 4144435F 		.ascii	"ADC_MIC_theACLK_GetDividerRegister\000"
+ 1560      4D49435F 
+ 1560      74686541 
+ 1560      434C4B5F 
+ 1560      47657444 
+ 1561              	.LASF37:
+ 1562 02b3 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_MIC_theACLK.c\000"
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccPTFu0d.s 			page 40
 
 
- 1564              	.LASF14:
- 1565 02a4 72656738 		.ascii	"reg8\000"
- 1565      00
- 1566              	.LASF5:
- 1567 02a9 6C6F6E67 		.ascii	"long unsigned int\000"
- 1567      20756E73 
- 1567      69676E65 
- 1567      6420696E 
- 1567      7400
- 1568              	.LASF29:
- 1569 02bb 4144435F 		.ascii	"ADC_MIC_theACLK_SetModeRegister\000"
- 1569      4D49435F 
- 1569      74686541 
- 1569      434C4B5F 
- 1569      5365744D 
- 1570              	.LASF12:
- 1571 02db 646F7562 		.ascii	"double\000"
- 1571      6C6500
- 1572              	.LASF27:
- 1573 02e2 656E6162 		.ascii	"enabled\000"
- 1573      6C656400 
- 1574              	.LASF16:
- 1575 02ea 4144435F 		.ascii	"ADC_MIC_theACLK_GetSourceRegister\000"
- 1575      4D49435F 
- 1575      74686541 
- 1575      434C4B5F 
- 1575      47657453 
- 1576              	.LASF38:
- 1577 030c 433A5C55 		.ascii	"C:\\Users\\jwvance\\Desktop\\Hummingbird\\Hummingbi"
- 1577      73657273 
- 1577      5C6A7776 
- 1577      616E6365 
- 1577      5C446573 
- 1578 033a 72642843 		.ascii	"rd(Continuous Output).cydsn\000"
- 1578      6F6E7469 
- 1578      6E756F75 
- 1578      73204F75 
- 1578      74707574 
+ 1562      72617465 
+ 1562      645F536F 
+ 1562      75726365 
+ 1562      5C50536F 
+ 1563              	.LASF28:
+ 1564 02dc 63757272 		.ascii	"currSrc\000"
+ 1564      53726300 
+ 1565              	.LASF26:
+ 1566 02e4 6F6C6444 		.ascii	"oldDivider\000"
+ 1566      69766964 
+ 1566      657200
+ 1567              	.LASF14:
+ 1568 02ef 72656738 		.ascii	"reg8\000"
+ 1568      00
+ 1569              	.LASF5:
+ 1570 02f4 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1570      20756E73 
+ 1570      69676E65 
+ 1570      6420696E 
+ 1570      7400
+ 1571              	.LASF29:
+ 1572 0306 4144435F 		.ascii	"ADC_MIC_theACLK_SetModeRegister\000"
+ 1572      4D49435F 
+ 1572      74686541 
+ 1572      434C4B5F 
+ 1572      5365744D 
+ 1573              	.LASF12:
+ 1574 0326 646F7562 		.ascii	"double\000"
+ 1574      6C6500
+ 1575              	.LASF27:
+ 1576 032d 656E6162 		.ascii	"enabled\000"
+ 1576      6C656400 
+ 1577              	.LASF16:
+ 1578 0335 4144435F 		.ascii	"ADC_MIC_theACLK_GetSourceRegister\000"
+ 1578      4D49435F 
+ 1578      74686541 
+ 1578      434C4B5F 
+ 1578      47657453 
  1579              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

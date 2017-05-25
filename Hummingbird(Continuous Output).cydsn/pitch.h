@@ -3,7 +3,7 @@
     
 #include "fft.h"
 #include "device.h"
-#define FRAME_LEN 512  //512
+#define FRAME_LEN 256  //256
 #define SAMPLE_RATE 8000 //8000
 
 #define R_THRES 0.9    

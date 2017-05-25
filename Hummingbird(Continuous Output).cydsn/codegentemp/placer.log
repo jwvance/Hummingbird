@@ -6,7 +6,7 @@
 
 #Build Date:         Apr 29 2016 09:00:55
 
-#File Generated:     May 22 2017 22:45:07
+#File Generated:     May 24 2017 17:22:28
 
 #Purpose:            
 
@@ -82,10 +82,10 @@ analysis after routing.
 Number of clocks: 12
 Clock: ADC_MIC_theACLK      | Frequency: N/A       | Target:   1.0 MHz
 Clock: ADC_MIC_theACLK(routed) | Frequency: N/A       | Target:   1.0 MHz
-Clock: ADC_UI_IntClock      | Frequency:  33.9 MHz | Target:   1.0 MHz
+Clock: ADC_UI_IntClock      | Frequency:  33.3 MHz | Target:   1.0 MHz
 Clock: ADC_UI_IntClock(routed) | Frequency: N/A       | Target:   1.0 MHz
-Clock: Clock_1              | Frequency:  44.3 MHz | Target:   0.3 MHz
-Clock: Clock_2              | Frequency:  45.8 MHz | Target:   0.3 MHz
+Clock: Clock_1              | Frequency:  46.1 MHz | Target:   0.3 MHz
+Clock: Clock_2              | Frequency:  49.4 MHz | Target:   0.3 MHz
 Clock: CyBUS_CLK            | Frequency:  56.3 MHz | Target:  60.0 MHz
 Clock: CyBUS_CLK(fixed-function) | Frequency: N/A       | Target:  60.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.1 MHz
@@ -108,8 +108,8 @@ Clock: ADC_MIC_theACLK      | Frequency: N/A       | Target:   1.0 MHz
 Clock: ADC_MIC_theACLK(routed) | Frequency: N/A       | Target:   1.0 MHz
 Clock: ADC_UI_IntClock      | Frequency:  18.0 MHz | Target:   1.0 MHz
 Clock: ADC_UI_IntClock(routed) | Frequency: N/A       | Target:   1.0 MHz
-Clock: Clock_1              | Frequency:  47.3 MHz | Target:   0.3 MHz
-Clock: Clock_2              | Frequency:  48.6 MHz | Target:   0.3 MHz
+Clock: Clock_1              | Frequency:  49.0 MHz | Target:   0.3 MHz
+Clock: Clock_2              | Frequency:  37.4 MHz | Target:   0.3 MHz
 Clock: CyBUS_CLK            | Frequency:  18.0 MHz | Target:  60.0 MHz
 Clock: CyBUS_CLK(fixed-function) | Frequency: N/A       | Target:  60.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.1 MHz
@@ -120,7 +120,7 @@ Clock: CyPLL_OUT            | Frequency: N/A       | Target:  60.0 MHz
 ======================================================================
                      End of Clock Summary
 ######################################################################
-D2088: Phase 7, elapsed time : 3.5 (sec)
+D2088: Phase 7, elapsed time : 3.1 (sec)
 
 Final Design Statistics
     Number of Combinational MCs 	:	25
@@ -155,8 +155,8 @@ Clock: ADC_MIC_theACLK      | Frequency: N/A       | Target:   1.0 MHz
 Clock: ADC_MIC_theACLK(routed) | Frequency: N/A       | Target:   1.0 MHz
 Clock: ADC_UI_IntClock      | Frequency:  18.0 MHz | Target:   1.0 MHz
 Clock: ADC_UI_IntClock(routed) | Frequency: N/A       | Target:   1.0 MHz
-Clock: Clock_1              | Frequency:  44.4 MHz | Target:   0.3 MHz
-Clock: Clock_2              | Frequency:  63.8 MHz | Target:   0.3 MHz
+Clock: Clock_1              | Frequency:  54.3 MHz | Target:   0.3 MHz
+Clock: Clock_2              | Frequency:  60.4 MHz | Target:   0.3 MHz
 Clock: CyBUS_CLK            | Frequency:  18.0 MHz | Target:  60.0 MHz
 Clock: CyBUS_CLK(fixed-function) | Frequency: N/A       | Target:  60.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.1 MHz
@@ -173,5 +173,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 4.4 sec.
+I2076: Total run-time: 4.0 sec.
 

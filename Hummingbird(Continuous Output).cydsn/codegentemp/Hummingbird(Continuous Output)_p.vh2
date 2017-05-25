@@ -1,5 +1,5 @@
 -- Project:   Hummingbird(Continuous Output)
--- Generated: 05/22/2017 22:45:07
+-- Generated: 05/24/2017 17:22:28
 -- PSoC Creator  4.0 Update 1
 
 ENTITY \Hummingbird(Continuous Output)\ IS
@@ -407,7 +407,7 @@ ARCHITECTURE __DEFAULT__ OF \Hummingbird(Continuous Output)\ IS
     ATTRIBUTE lib_model OF POT_IN_SCALE(0) : LABEL IS "iocell6";
     ATTRIBUTE Location OF POT_IN_SCALE(0) : LABEL IS "P2[1]";
     ATTRIBUTE lib_model OF MIDI_OUT(0) : LABEL IS "iocell7";
-    ATTRIBUTE Location OF MIDI_OUT(0) : LABEL IS "P3[0]";
+    ATTRIBUTE Location OF MIDI_OUT(0) : LABEL IS "P1[6]";
     ATTRIBUTE lib_model OF SDA(0) : LABEL IS "iocell8";
     ATTRIBUTE Location OF SDA(0) : LABEL IS "P12[1]";
     ATTRIBUTE lib_model OF SCL(0) : LABEL IS "iocell9";

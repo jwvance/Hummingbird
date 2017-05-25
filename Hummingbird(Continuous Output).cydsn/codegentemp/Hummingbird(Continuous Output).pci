@@ -1,5 +1,5 @@
 # Hummingbird(Continuous Output)
-# 2017-05-23 05:45:07Z
+# 2017-05-25 00:22:28Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -13,7 +13,7 @@ set_io "MIC_IN(0)" iocell 2 6
 set_io "MIC_GND(0)" iocell 2 5
 set_io "POT_IN_KEY(0)" iocell 2 0
 set_io "POT_IN_SCALE(0)" iocell 2 1
-set_io "MIDI_OUT(0)" iocell 3 0
+set_io "MIDI_OUT(0)" iocell 1 6
 set_io "SDA(0)" iocell 12 1
 set_io "SCL(0)" iocell 12 0
 set_io "POT_IN_HYST(0)" iocell 2 3

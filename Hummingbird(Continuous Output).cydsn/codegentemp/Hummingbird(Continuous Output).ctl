@@ -1,6 +1,6 @@
 -- ======================================================================
 -- Hummingbird(Continuous Output).ctl generated from Hummingbird(Continuous Output)
--- 05/22/2017 at 22:44
+-- 05/24/2017 at 17:22
 -- This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 -- ======================================================================
 
