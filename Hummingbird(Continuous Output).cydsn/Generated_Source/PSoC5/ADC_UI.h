@@ -26,7 +26,7 @@
 #include "ADC_UI_FinalBuf_dma.h"
 #include "ADC_UI_SAR.h"
 
-#define ADC_UI_NUMBER_OF_CHANNELS    (4u)
+#define ADC_UI_NUMBER_OF_CHANNELS    (5u)
 #define ADC_UI_SAMPLE_MODE           (1u)
 #define ADC_UI_CLOCK_SOURCE          (0u)
 

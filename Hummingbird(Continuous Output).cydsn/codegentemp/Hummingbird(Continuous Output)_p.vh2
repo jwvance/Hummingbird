@@ -1,5 +1,5 @@
 -- Project:   Hummingbird(Continuous Output)
--- Generated: 05/24/2017 17:22:28
+-- Generated: 05/31/2017 11:25:09
 -- PSoC Creator  4.0 Update 1
 
 ENTITY \Hummingbird(Continuous Output)\ IS
@@ -18,6 +18,7 @@ ENTITY \Hummingbird(Continuous Output)\ IS
 END \Hummingbird(Continuous Output)\;
 
 ARCHITECTURE __DEFAULT__ OF \Hummingbird(Continuous Output)\ IS
+    SIGNAL CTW_OUT : bit;
     SIGNAL ClockBlock_100k : bit;
     SIGNAL ClockBlock_1k : bit;
     SIGNAL ClockBlock_32k : bit;
@@ -62,6 +63,7 @@ ARCHITECTURE __DEFAULT__ OF \Hummingbird(Continuous Output)\ IS
     SIGNAL Net_86 : bit;
     SIGNAL POT_IN_HYST(0)__PA : bit;
     SIGNAL POT_IN_KEY(0)__PA : bit;
+    SIGNAL POT_IN_NOISEGATE(0)__PA : bit;
     SIGNAL POT_IN_SCALE(0)__PA : bit;
     SIGNAL POT_IN_VELO(0)__PA : bit;
     SIGNAL SCL(0)__PA : bit;
@@ -416,6 +418,8 @@ ARCHITECTURE __DEFAULT__ OF \Hummingbird(Continuous Output)\ IS
     ATTRIBUTE Location OF POT_IN_HYST(0) : LABEL IS "P2[3]";
     ATTRIBUTE lib_model OF POT_IN_VELO(0) : LABEL IS "iocell11";
     ATTRIBUTE Location OF POT_IN_VELO(0) : LABEL IS "P2[2]";
+    ATTRIBUTE lib_model OF POT_IN_NOISEGATE(0) : LABEL IS "iocell12";
+    ATTRIBUTE Location OF POT_IN_NOISEGATE(0) : LABEL IS "P2[4]";
     ATTRIBUTE lib_model OF Net_86 : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF \MIDI1_UART:BUART:counter_load_not\ : LABEL IS "macrocell3";
     ATTRIBUTE lib_model OF \MIDI1_UART:BUART:tx_bitclk_enable_pre\ : LABEL IS "macrocell4";
@@ -900,6 +904,14 @@ ARCHITECTURE __DEFAULT__ OF \Hummingbird(Continuous Output)\ IS
     ATTRIBUTE udb_chain OF macrocell : COMPONENT IS "cin,cout";
     ATTRIBUTE chain_lsb OF macrocell : COMPONENT IS "cin";
     ATTRIBUTE chain_msb OF macrocell : COMPONENT IS "cout";
+    COMPONENT pmcell
+        PORT (
+            ctw_int : OUT std_ulogic;
+            ftw_int : OUT std_ulogic;
+            limact_int : OUT std_ulogic;
+            onepps_int : OUT std_ulogic;
+            pm_int : OUT std_ulogic);
+    END COMPONENT;
     COMPONENT sarcell
         PORT (
             clock : IN std_ulogic;
@@ -2046,6 +2058,96 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
+    POT_IN_NOISEGATE:logicalport
+        GENERIC MAP(
+            drive_mode => "000",
+            ibuf_enabled => "0",
+            id => "1becf3d7-a721-4cbf-9187-e0c9e1cb16c3",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "A",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    POT_IN_NOISEGATE(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "POT_IN_NOISEGATE",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
+        PORT MAP(
+            pa_out => POT_IN_NOISEGATE(0)__PA,
+            oe => open,
+            in_clock => open,
+            pin_input => \ADC_UI:AMuxHw_2_Decoder_one_hot_4\,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
     Net_86:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0)",
@@ -3069,7 +3171,7 @@ BEGIN
         GENERIC MAP(
             cy_alt_mode => 0,
             cy_init_value => "0000000",
-            cy_period => "0000011",
+            cy_period => "0000100",
             cy_route_en => 1,
             cy_route_ld => 1,
             clk_inv => '0',
@@ -3456,6 +3558,14 @@ BEGIN
             scl_out => \I2C_CharLCD:Net_643_0\,
             sda_out => \I2C_CharLCD:sda_x_wire\,
             interrupt => \I2C_CharLCD:Net_697\);
+
+    Sleep_isr:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => CTW_OUT,
+            clock => ClockBlock_BUS_CLK);
 
     \MIDI1_UART:BUART:txn\:macrocell
         GENERIC MAP(
@@ -5190,5 +5300,9 @@ BEGIN
             main_1 => \UART_MIDITX:BUART:tx_state_0\,
             main_2 => \UART_MIDITX:BUART:tx_bitclk_enable_pre\,
             main_3 => \UART_MIDITX:BUART:tx_state_2\);
+
+    PM:pmcell
+        PORT MAP(
+            ctw_int => CTW_OUT);
 
 END __DEFAULT__;

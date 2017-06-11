@@ -210,6 +210,7 @@ int PrintNoteHistory(char array[]){
     return status; 
 }
 
+#if 0
 //Random Crap from main.c
 /* Identity Reply message */
 const uint8 CYCODE MIDI_IDENTITY_REPLY[] = {
@@ -224,5 +225,5 @@ const uint8 CYCODE MIDI_IDENTITY_REPLY[] = {
     0x01u, 0x00u, 0x00u, 0x00u, /* Version number */
     /*0xF7         End of SysEx automatically appended */
 };
-
+#endif
 /* [] END OF FILE */

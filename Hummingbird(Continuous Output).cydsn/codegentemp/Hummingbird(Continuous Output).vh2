@@ -2,7 +2,7 @@
 --	Conversion of Hummingbird(Continuous Output).v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Wed May 24 17:22:21 2017
+--	Wed May 31 11:24:59 2017
 --
 
 USE cypress.cypress.all;
@@ -1102,7 +1102,7 @@ TERMINAL Net_1086 : bit;
 TERMINAL Net_1084 : bit;
 TERMINAL Net_1082 : bit;
 TERMINAL Net_1081 : bit;
-TERMINAL Net_1079 : bit;
+TERMINAL Net_1251 : bit;
 TERMINAL Net_751 : bit;
 TERMINAL Net_859 : bit;
 TERMINAL Net_1074 : bit;
@@ -1730,6 +1730,12 @@ SIGNAL tmpFB_0__POT_IN_VELO_net_0 : bit;
 SIGNAL tmpIO_0__POT_IN_VELO_net_0 : bit;
 TERMINAL tmpSIOVREF__POT_IN_VELO_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__POT_IN_VELO_net_0 : bit;
+SIGNAL tmpOE__POT_IN_NOISEGATE_net_0 : bit;
+SIGNAL tmpFB_0__POT_IN_NOISEGATE_net_0 : bit;
+SIGNAL tmpIO_0__POT_IN_NOISEGATE_net_0 : bit;
+TERMINAL tmpSIOVREF__POT_IN_NOISEGATE_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__POT_IN_NOISEGATE_net_0 : bit;
+SIGNAL Net_2 : bit;
 SIGNAL \MIDI1_UART:BUART:reset_reg\\D\ : bit;
 SIGNAL \MIDI1_UART:BUART:txn\\D\ : bit;
 SIGNAL \MIDI1_UART:BUART:tx_state_1\\D\ : bit;
@@ -3701,7 +3707,7 @@ isr_1:cy_isr_v1_0
 			Net_1104, Net_1102, Net_1101, Net_1099,
 			Net_1097, Net_1096, Net_1094, Net_1201,
 			Net_1091, Net_1089, Net_1087, Net_1086,
-			Net_1084, Net_1082, Net_1081, Net_1079,
+			Net_1084, Net_1082, Net_1081, Net_1251,
 			Net_751, Net_859, Net_1074, Net_1199),
 		hw_ctrl_en=>(\ADC_UI:AMuxHw_2_Decoder_one_hot_63\, \ADC_UI:AMuxHw_2_Decoder_one_hot_62\, \ADC_UI:AMuxHw_2_Decoder_one_hot_61\, \ADC_UI:AMuxHw_2_Decoder_one_hot_60\,
 			\ADC_UI:AMuxHw_2_Decoder_one_hot_59\, \ADC_UI:AMuxHw_2_Decoder_one_hot_58\, \ADC_UI:AMuxHw_2_Decoder_one_hot_57\, \ADC_UI:AMuxHw_2_Decoder_one_hot_56\,
@@ -3797,7 +3803,7 @@ isr_1:cy_isr_v1_0
 		control=>(\ADC_UI:bSAR_SEQ:control_7\, \ADC_UI:bSAR_SEQ:control_6\, \ADC_UI:bSAR_SEQ:control_5\, \ADC_UI:bSAR_SEQ:control_4\,
 			\ADC_UI:bSAR_SEQ:control_3\, \ADC_UI:bSAR_SEQ:sw_soc\, \ADC_UI:bSAR_SEQ:load_period\, \ADC_UI:bSAR_SEQ:enable\));
 \ADC_UI:bSAR_SEQ:ChannelCounter\:cy_psoc3_count7
-	GENERIC MAP(cy_period=>"0000011",
+	GENERIC MAP(cy_period=>"0000100",
 		cy_init_value=>"0000000",
 		cy_route_ld=>'1',
 		cy_route_en=>'1',
@@ -4879,6 +4885,83 @@ POT_IN_VELO:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__POT_IN_VELO_net_0);
+POT_IN_NOISEGATE:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"1becf3d7-a721-4cbf-9187-e0c9e1cb16c3",
+		drive_mode=>"000",
+		ibuf_enabled=>"0",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"A",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>(tmpFB_0__POT_IN_NOISEGATE_net_0),
+		analog=>Net_1251,
+		io=>(tmpIO_0__POT_IN_NOISEGATE_net_0),
+		siovref=>(tmpSIOVREF__POT_IN_NOISEGATE_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>one,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>one,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__POT_IN_NOISEGATE_net_0);
+Sleep_isr:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_2);
+\SleepTimer:gsRef_1\:cy_gsref_v1_0
+	GENERIC MAP(guid=>"0335EFD7-9943-4db5-B556-454A5AD8A118")
+	PORT MAP(sig_out=>Net_2);
 \MIDI1_UART:BUART:reset_reg\:cy_dff
 	PORT MAP(d=>zero,
 		clk=>\MIDI1_UART:BUART:clock_op\,

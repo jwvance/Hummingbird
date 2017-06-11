@@ -10,7 +10,7 @@
 #include <hbird.h>
 
 /**** Defines ****/
-#define VOL_THRESHHOLD 200    //minimum volume to exceed before note is played (out of 255)
+#define VOL_THRESHHOLD 220    //minimum volume to exceed before note is played (out of 255)
 #define HYST_VAL 0.75
 #define VELO_VAL 100
 #define UI_THRES 10    //minimum difference in ADC reading before LCD updates
@@ -25,6 +25,7 @@ uint16 lastKey = 0;
 uint16 lastScale = 0;
 uint16 lastHyst = 0;
 uint16 lastVelo = VELO_VAL;
+uint16 lastNoise = VOL_THRESHHOLD;
 
 char noteHistory[24] = {};    //note stream array, 4 extra slots for off screen sliding
 uint8 pushingNote = 0;      //set high if system currently pushing a note
@@ -64,11 +65,39 @@ uint8 frame2InUse=0;
 enum MusicScale curScale=MAJOR;
 enum MusicKey   curKey=KEY_OF_C;
 
+/* Identity Reply message */
+const uint8 CYCODE MIDI_IDENTITY_REPLY[] = {
+    0xF0u,      /* SysEx */
+    0x7Eu,      /* Non-Realtime */
+    0x7Fu,      /* ID of target device (7F - "All Call") */
+    0x06u,      /* Sub-ID#1 - General Information */
+    0x02u,      /* Sub-ID#2 - Identity Reply */
+    0x7Du,      /* Manufacturer's ID: 7D - Educational Use */
+    0xB4u, 0x04u,               /* Family code */
+    0x32u, 0xD2u,               /* Model number */
+    0x01u, 0x00u, 0x00u, 0x00u, /* Version number */
+    /*0xF7         End of SysEx automatically appended */
+};
+
 /* Need for Identity Reply message */
 extern volatile uint8 USB_MIDI1_InqFlags;
 extern volatile uint8 USB_MIDI2_InqFlags;
 volatile uint8 usbActivityCounter = 0u;
 
+CY_ISR(SleepIsr)
+{
+    /* Chech USB activity */
+    if( USB_CheckActivity() != 0u ) 
+    {
+        usbActivityCounter = 0u;
+    } 
+    else 
+    {
+        usbActivityCounter++;
+    }
+    /* Clear Pending Interrupt */
+    SleepTimer_GetStatus();
+}
 
 int main()
 {
@@ -139,12 +168,12 @@ int main()
     /****************************************************** M A I N  L O O P ***************************************************************/
     while(1u)
     {        
-        #if 0
+        #if 1
         if(USB_IsConfigurationChanged() != 0u) /* Host could send double SET_INTERFACE request */
         {
             if(USB_GetConfiguration() != 0u)   /* Init IN endpoints when device configured */
             {
-                MIDI_PWR_Write(0u); /* Power ON CY8CKIT-044 board */ //WE DON'T HAVE THIS BOARD?? -MAG
+                //MIDI_PWR_Write(0u); /* Power ON CY8CKIT-044 board */ //WE DON'T HAVE THIS BOARD?? -MAG
                 /* Start ISR to determine the sleep condition */
                 Sleep_isr_StartEx(SleepIsr);
                 /* Start SleepTimer's operation */
@@ -159,10 +188,10 @@ int main()
         }        
         #endif
         
-        if (1)
-        //if(USB_GetConfiguration() != 0u)    /* Service USB MIDI when device configured */
+        //if (1)
+        if(USB_GetConfiguration() != 0u)    /* Service USB MIDI when device configured */
         {
-            #if 0
+            #if 1
             /* Call this API from UART RX ISR for Auto DMA mode */
             #if(USB_EP_MM != USB__EP_DMAAUTO) 
                 USB_MIDI_IN_Service();
@@ -244,8 +273,7 @@ int main()
                 frameProcessed = true;
                 
                 //Run Pitch Detection Algorithm        
-                pitchHz = auto_correlate(dataFrames[sampleFrame]);
-                
+                pitchHz = auto_correlate(dataFrames[sampleFrame]);                
                 
                 // Unlocks the frame
                 frameLocked[sampleFrame] = false;
@@ -257,7 +285,7 @@ int main()
                     UpdateTuner(noteTable, NoteSnap(noteTable, pitchHz, curKey, curScale), pitchHz);
                     timerFlag = 0;
                 }                
-                if(pitchHz < 1000 && pitchHz > 60){  //eliminate extreme, unintentional freqs
+                if(pitchHz < 1000 && pitchHz > 30){  //eliminate extreme, unintentional freqs
                     if (midi_note_changed(pitchHz, lastNote, noteTable, (float)tempHyst/100)) {
                         note = NoteSnap(noteTable, pitchHz, curKey, curScale);
                     }               
@@ -273,7 +301,7 @@ int main()
                             UART_MIDITX_PutChar(midiMsg[0]);
                             UART_MIDITX_PutChar(midiMsg[1]);
                             UART_MIDITX_PutChar(midiMsg[2]);
-                            //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);
+                            USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);
                         }
                         
                         midiMsg[0] = USB_MIDI_NOTE_ON;
@@ -283,7 +311,7 @@ int main()
                         UART_MIDITX_PutChar(midiMsg[0]);
                         UART_MIDITX_PutChar(midiMsg[1]);
                         UART_MIDITX_PutChar(midiMsg[2]);
-                        //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);                                       
+                        USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);                                       
                         
                         //Push note to display
                         if(!pushingNote){
@@ -318,10 +346,10 @@ int main()
                 UART_MIDITX_PutChar(midiMsg[1]);
                 UART_MIDITX_PutChar(midiMsg[2]);
 
-                //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);  
+                USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);  
             }
 
-                #if 0
+                #if 1
                 #if(USB_EP_MM == USB__EP_DMAAUTO) 
                    #if (USB_MIDI_EXT_MODE >= USB_ONE_EXT_INTRF)
                         MIDI1_UART_DisableRxInt();
@@ -339,6 +367,39 @@ int main()
                 #endif
                 #endif
         } /* END USB CHECK */
+        
+        if( usbActivityCounter >= 2u ) 
+        {
+            MIDI1_UART_Sleep();
+            MIDI2_UART_Sleep();
+            //MIDI_PWR_Write(1u);     /* Power OFF CY8CKIT-044 board */
+                
+            /*******************************************************************
+            * Disable the USBFS block and set DP Interrupt for wake-up 
+            * from sleep mode. 
+            *******************************************************************/
+            USB_Suspend(); 
+            /* Prepares system clocks for the Sleep mode */
+            CyPmSaveClocks();
+            /*******************************************************************
+            * Switch to the Sleep Mode for the PSoC 3 or PSoC 5LP devices:
+            *  - PM_SLEEP_TIME_NONE: wakeup time is defined by PICU source
+            *  - PM_SLEEP_SRC_PICU: PICU wakeup source 
+            *******************************************************************/
+            CyPmSleep(PM_SLEEP_TIME_NONE, PM_SLEEP_SRC_PICU);
+            /* Restore clock configuration */
+            CyPmRestoreClocks();
+            /* Enable the USBFS block after power down mode */
+            USB_Resume();
+            
+            /* Enable the output endpoint */
+            USB_MIDI_EP_Init();
+            //MIDI_PWR_Write(0u);     /* Power ON CY8CKIT-044 board */
+            MIDI1_UART_Wakeup();
+            MIDI2_UART_Wakeup();
+            usbActivityCounter = 0u; /* Re-init USB Activity Counter*/
+        }
+    
     }    
     return 0;
 } /**** END MAIN LOOP ****/    
@@ -372,7 +433,7 @@ CY_ISR(GetSample){
                 frameIndex++;
                 
             } else {                                            // Frame is getting the last value before switching.
-                frameReady[currFrame] = max_value >= VOL_THRESHHOLD;  // Sets the frameReady (note is on) high if the voice went over the
+                frameReady[currFrame] = max_value >= lastNoise;  // Sets the frameReady (note is on) high if the voice went over the noise threshold
                 frameIndex = 0;
                 max_value = 0;
                 currFrame = currFrame ^ 0b01;                   // Swap current frame index.
@@ -388,7 +449,7 @@ CY_ISR(GetSample){
 // This ISR checks each POT and updates the LCD if necessary
 CY_ISR(UserInterfaceISR){
     TIMER_UI_STATUS;
-    float currKey, currScale, currHyst, currVelo;
+    float currKey, currScale, currHyst, currVelo, currNoise;
     
     ADC_UI_StartConvert();    //must call this for multiplexing inputs
     ADC_UI_IsEndConversion(ADC_UI_WAIT_FOR_RESULT);
@@ -398,6 +459,7 @@ CY_ISR(UserInterfaceISR){
     currScale = ADC_UI_GetResult16(SCALE);
     currHyst = ADC_UI_GetResult16(HYST);
     currVelo = ADC_UI_GetResult16(VELO);
+    currNoise = ADC_UI_GetResult16(NOISE);
 
     if(currKey < lastKey - UI_THRES || currKey > lastKey + UI_THRES){
         lastKey = currKey;
@@ -414,6 +476,10 @@ CY_ISR(UserInterfaceISR){
     if(currVelo < lastVelo - 1 || currVelo > lastVelo + 1){
         lastVelo = currVelo;
         UI_Update_Mask |= 0b1000;   //set bit for LCD  update
+    } 
+    if(currNoise < lastNoise - 1 || currNoise > lastNoise + 1){
+        lastNoise = currNoise;
+        UI_Update_Mask |= 0b100000;   //set bit for LCD  update
     } 
     if(pushingNote){
         UI_Update_Mask |= 0b10000;   //set bit for LCD  update

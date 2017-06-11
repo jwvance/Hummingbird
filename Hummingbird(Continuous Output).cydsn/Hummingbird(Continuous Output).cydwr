@@ -354,6 +354,7 @@
       <Data key="cf9e3160-8489-49d3-af75-1fdb76893283/696a0979-21fc-4185-bf38-6c79febcde7a" value="ADC_SAR_1_theACLK" />
     </Group>
     <Group key="Pin">
+      <Data key="1becf3d7-a721-4cbf-9187-e0c9e1cb16c3" value="POT_IN_NOISEGATE" />
       <Data key="2c4bda81-76b8-44ec-a3d6-d700969c0634" value="MIDI_OUT" />
       <Data key="02f2cf2c-2c7a-49df-9246-7a3435c21be3" value="SCL" />
       <Data key="04efcde6-3675-4063-973d-762226039b95" value="POT_IN_VELO" />
@@ -1162,6 +1163,11 @@
     </Group>
   </Group>
   <Group key="Pin2">
+    <Group key="1becf3d7-a721-4cbf-9187-e0c9e1cb16c3">
+      <Group key="0">
+        <Data key="Port Format" value="2,4" />
+      </Group>
+    </Group>
     <Group key="2c4bda81-76b8-44ec-a3d6-d700969c0634">
       <Group key="0">
         <Data key="Port Format" value="1,6" />

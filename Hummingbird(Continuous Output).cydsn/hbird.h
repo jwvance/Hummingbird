@@ -15,6 +15,7 @@
 #define SCALE   1
 #define HYST    2   
 #define VELO    3
+#define NOISE   4
 
 /* Function: Map
 *   Takes a value, an input and output range. Returns the input value "mapped" from the input range to the output range
