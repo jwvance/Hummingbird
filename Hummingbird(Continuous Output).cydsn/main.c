@@ -137,7 +137,7 @@ int main()
     populate_midi_array(noteTable);    
 
     /* Start USBFS device 0 with VDDD operation */
-    USB_Start(0u, USB_DWR_VDDD_OPERATION); 
+    //USB_Start(0u, USB_DWR_VDDD_OPERATION); 
     
     /******* End of initilizations *******/
     
@@ -168,7 +168,7 @@ int main()
     /****************************************************** M A I N  L O O P ***************************************************************/
     while(1u)
     {        
-        #if 1
+        #if 0
         if(USB_IsConfigurationChanged() != 0u) /* Host could send double SET_INTERFACE request */
         {
             if(USB_GetConfiguration() != 0u)   /* Init IN endpoints when device configured */
@@ -188,10 +188,10 @@ int main()
         }        
         #endif
         
-        //if (1)
-        if(USB_GetConfiguration() != 0u)    /* Service USB MIDI when device configured */
+        if (1)
+        //if(USB_GetConfiguration() != 0u)    /* Service USB MIDI when device configured */
         {
-            #if 1
+            #if 0
             /* Call this API from UART RX ISR for Auto DMA mode */
             #if(USB_EP_MM != USB__EP_DMAAUTO) 
                 USB_MIDI_IN_Service();
@@ -245,12 +245,19 @@ int main()
                 }
                 if(UI_Update_Mask & 0b1000){
                     UI_Update_Mask &= 0b0111;   //clear VELO bit
-                    //CharLCD_PosPrintString(2,0,"          ");
-                    //CharLCD_PosPrintString(2,0,"Velo:"); 
+                    CharLCD_PosPrintString(2,0,"          ");
+                    CharLCD_PosPrintString(2,0,"Velo:"); 
                     CharLCD_PosPrintString(2,5,"   ");
                     uint16 tempVelo = map(lastVelo,0,255,0,102);
                     if(tempVelo > 100) { tempVelo = 100; }
                     CharLCD_PosPrintNumber(2,5,tempVelo);
+                } 
+                    if(UI_Update_Mask & 0b100000){
+                    UI_Update_Mask &= 0b011111;   //clear Noise bit
+                    CharLCD_PosPrintString(2,0,"          ");
+                    CharLCD_PosPrintString(2,0,"Gate:"); 
+                    CharLCD_PosPrintString(2,5,"   ");
+                    CharLCD_PosPrintNumber(2,5,lastNoise);
                 } 
                 if(UI_Update_Mask & 0b10000){
                     UI_Update_Mask &= 0b01111;
@@ -301,7 +308,7 @@ int main()
                             UART_MIDITX_PutChar(midiMsg[0]);
                             UART_MIDITX_PutChar(midiMsg[1]);
                             UART_MIDITX_PutChar(midiMsg[2]);
-                            USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);
+                            //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);
                         }
                         
                         midiMsg[0] = USB_MIDI_NOTE_ON;
@@ -311,12 +318,12 @@ int main()
                         UART_MIDITX_PutChar(midiMsg[0]);
                         UART_MIDITX_PutChar(midiMsg[1]);
                         UART_MIDITX_PutChar(midiMsg[2]);
-                        USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);                                       
+                        //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);                                       
                         
                         //Push note to display
                         if(!pushingNote){
                             char tempStr[3];
-                            PushArray(noteHistory, midi_note_truename(note, tempStr));
+                            //PushArray(noteHistory, midi_note_truename(note, tempStr));
                             pushingNote = 1;
                         }
                         
@@ -346,10 +353,10 @@ int main()
                 UART_MIDITX_PutChar(midiMsg[1]);
                 UART_MIDITX_PutChar(midiMsg[2]);
 
-                USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);  
+                //USB_PutUsbMidiIn(3u, midiMsg, USB_MIDI_CABLE_00);  
             }
 
-                #if 1
+                #if 0
                 #if(USB_EP_MM == USB__EP_DMAAUTO) 
                    #if (USB_MIDI_EXT_MODE >= USB_ONE_EXT_INTRF)
                         MIDI1_UART_DisableRxInt();
@@ -368,6 +375,7 @@ int main()
                 #endif
         } /* END USB CHECK */
         
+        #if 0
         if( usbActivityCounter >= 2u ) 
         {
             MIDI1_UART_Sleep();
@@ -399,6 +407,7 @@ int main()
             MIDI2_UART_Wakeup();
             usbActivityCounter = 0u; /* Re-init USB Activity Counter*/
         }
+        #endif
     
     }    
     return 0;

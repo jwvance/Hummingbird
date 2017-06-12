@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccshX0vK.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 1
   29:Generated_Source\PSoC5/ADC_MIC_PM.c **** 
   30:Generated_Source\PSoC5/ADC_MIC_PM.c **** /*******************************************************************************
   31:Generated_Source\PSoC5/ADC_MIC_PM.c **** * Function Name: ADC_MIC_SaveConfig
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccshX0vK.s 			page 2
 
 
   32:Generated_Source\PSoC5/ADC_MIC_PM.c **** ********************************************************************************
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 1
   47              		@ frame_needed = 0, uses_anonymous_args = 0
   48              		@ link register save eliminated.
   49 0000 7047     		bx	lr
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccshX0vK.s 			page 3
 
 
   50              		.cfi_endproc
@@ -165,64 +165,63 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 1
   65              		@ link register save eliminated.
   92:Generated_Source\PSoC5/ADC_MIC_PM.c ****     if((ADC_MIC_PWRMGR_SAR_REG  & ADC_MIC_ACT_PWR_SAR_EN) != 0u)
   66              		.loc 1 92 0
-  67 0000 0A4B     		ldr	r3, .L8
+  67 0000 094B     		ldr	r3, .L8
   68 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  69 0004 03F00203 		and	r3, r3, #2
-  70 0008 03F0FF02 		and	r2, r3, #255
-  71 000c 53B1     		cbz	r3, .L4
+  69 0004 13F00103 		ands	r3, r3, #1
+  70 0008 0AD0     		beq	.L4
   93:Generated_Source\PSoC5/ADC_MIC_PM.c ****     {
   94:Generated_Source\PSoC5/ADC_MIC_PM.c ****         if((ADC_MIC_SAR_CSR0_REG & ADC_MIC_SAR_SOF_START_CONV) != 0u)
-  72              		.loc 1 94 0
-  73 000e 084B     		ldr	r3, .L8+4
-  74 0010 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  75 0012 13F0010F 		tst	r3, #1
+  71              		.loc 1 94 0
+  72 000a 084B     		ldr	r3, .L8+4
+  73 000c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  74 000e 13F0010F 		tst	r3, #1
   95:Generated_Source\PSoC5/ADC_MIC_PM.c ****         {
   96:Generated_Source\PSoC5/ADC_MIC_PM.c ****             ADC_MIC_backup.enableState = ADC_MIC_ENABLED | ADC_MIC_STARTED;
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 4
+  75              		.loc 1 96 0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccshX0vK.s 			page 4
 
 
-  76              		.loc 1 96 0
-  77 0016 074B     		ldr	r3, .L8+8
-  78 0018 14BF     		ite	ne
-  79 001a 0322     		movne	r2, #3
+  76 0012 074B     		ldr	r3, .L8+8
+  77 0014 14BF     		ite	ne
+  78 0016 0322     		movne	r2, #3
   97:Generated_Source\PSoC5/ADC_MIC_PM.c ****         }
   98:Generated_Source\PSoC5/ADC_MIC_PM.c ****         else
   99:Generated_Source\PSoC5/ADC_MIC_PM.c ****         {
  100:Generated_Source\PSoC5/ADC_MIC_PM.c ****             ADC_MIC_backup.enableState = ADC_MIC_ENABLED;
-  80              		.loc 1 100 0
-  81 001c 0122     		moveq	r2, #1
-  82 001e 1A70     		strb	r2, [r3]
+  79              		.loc 1 100 0
+  80 0018 0122     		moveq	r2, #1
+  81 001a 1A70     		strb	r2, [r3]
  101:Generated_Source\PSoC5/ADC_MIC_PM.c ****         }
  102:Generated_Source\PSoC5/ADC_MIC_PM.c ****         ADC_MIC_Stop();
-  83              		.loc 1 102 0
-  84 0020 FFF7FEBF 		b	ADC_MIC_Stop
-  85              	.LVL0:
-  86              	.L4:
+  82              		.loc 1 102 0
+  83 001c FFF7FEBF 		b	ADC_MIC_Stop
+  84              	.LVL0:
+  85              	.L4:
  103:Generated_Source\PSoC5/ADC_MIC_PM.c ****     }
  104:Generated_Source\PSoC5/ADC_MIC_PM.c ****     else
  105:Generated_Source\PSoC5/ADC_MIC_PM.c ****     {
  106:Generated_Source\PSoC5/ADC_MIC_PM.c ****         ADC_MIC_backup.enableState = ADC_MIC_DISABLED;
-  87              		.loc 1 106 0
-  88 0024 034B     		ldr	r3, .L8+8
-  89 0026 1A70     		strb	r2, [r3]
-  90 0028 7047     		bx	lr
-  91              	.L9:
-  92 002a 00BF     		.align	2
-  93              	.L8:
-  94 002c AB430040 		.word	1073759147
-  95 0030 08590040 		.word	1073764616
-  96 0034 00000000 		.word	.LANCHOR0
-  97              		.cfi_endproc
-  98              	.LFE2:
-  99              		.size	ADC_MIC_Sleep, .-ADC_MIC_Sleep
- 100              		.section	.text.ADC_MIC_Wakeup,"ax",%progbits
- 101              		.align	2
- 102              		.global	ADC_MIC_Wakeup
- 103              		.thumb
- 104              		.thumb_func
- 105              		.type	ADC_MIC_Wakeup, %function
- 106              	ADC_MIC_Wakeup:
- 107              	.LFB3:
+  86              		.loc 1 106 0
+  87 0020 034A     		ldr	r2, .L8+8
+  88 0022 1370     		strb	r3, [r2]
+  89 0024 7047     		bx	lr
+  90              	.L9:
+  91 0026 00BF     		.align	2
+  92              	.L8:
+  93 0028 AB430040 		.word	1073759147
+  94 002c 00590040 		.word	1073764608
+  95 0030 00000000 		.word	.LANCHOR0
+  96              		.cfi_endproc
+  97              	.LFE2:
+  98              		.size	ADC_MIC_Sleep, .-ADC_MIC_Sleep
+  99              		.section	.text.ADC_MIC_Wakeup,"ax",%progbits
+ 100              		.align	2
+ 101              		.global	ADC_MIC_Wakeup
+ 102              		.thumb
+ 103              		.thumb_func
+ 104              		.type	ADC_MIC_Wakeup, %function
+ 105              	ADC_MIC_Wakeup:
+ 106              	.LFB3:
  107:Generated_Source\PSoC5/ADC_MIC_PM.c ****     }
  108:Generated_Source\PSoC5/ADC_MIC_PM.c **** }
  109:Generated_Source\PSoC5/ADC_MIC_PM.c **** 
@@ -238,10 +237,10 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 1
  119:Generated_Source\PSoC5/ADC_MIC_PM.c **** *  ADC_MIC_Wakeup() function also re-enables the component.
  120:Generated_Source\PSoC5/ADC_MIC_PM.c **** *
  121:Generated_Source\PSoC5/ADC_MIC_PM.c **** * Parameters:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 5
-
-
  122:Generated_Source\PSoC5/ADC_MIC_PM.c **** *  None.
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccshX0vK.s 			page 5
+
+
  123:Generated_Source\PSoC5/ADC_MIC_PM.c **** *
  124:Generated_Source\PSoC5/ADC_MIC_PM.c **** * Return:
  125:Generated_Source\PSoC5/ADC_MIC_PM.c **** *  None.
@@ -253,630 +252,630 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 1
  131:Generated_Source\PSoC5/ADC_MIC_PM.c **** *******************************************************************************/
  132:Generated_Source\PSoC5/ADC_MIC_PM.c **** void ADC_MIC_Wakeup(void)
  133:Generated_Source\PSoC5/ADC_MIC_PM.c **** {
- 108              		.loc 1 133 0
- 109              		.cfi_startproc
- 110              		@ args = 0, pretend = 0, frame = 0
- 111              		@ frame_needed = 0, uses_anonymous_args = 0
- 112 0000 10B5     		push	{r4, lr}
- 113              		.cfi_def_cfa_offset 8
- 114              		.cfi_offset 4, -8
- 115              		.cfi_offset 14, -4
+ 107              		.loc 1 133 0
+ 108              		.cfi_startproc
+ 109              		@ args = 0, pretend = 0, frame = 0
+ 110              		@ frame_needed = 0, uses_anonymous_args = 0
+ 111 0000 10B5     		push	{r4, lr}
+ 112              		.cfi_def_cfa_offset 8
+ 113              		.cfi_offset 4, -8
+ 114              		.cfi_offset 14, -4
  134:Generated_Source\PSoC5/ADC_MIC_PM.c ****     if(ADC_MIC_backup.enableState != ADC_MIC_DISABLED)
- 116              		.loc 1 134 0
- 117 0002 064C     		ldr	r4, .L19
- 118 0004 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
- 119 0006 03B9     		cbnz	r3, .L18
- 120              	.L10:
- 121 0008 10BD     		pop	{r4, pc}
- 122              	.L18:
+ 115              		.loc 1 134 0
+ 116 0002 064C     		ldr	r4, .L19
+ 117 0004 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 118 0006 03B9     		cbnz	r3, .L18
+ 119              	.L10:
+ 120 0008 10BD     		pop	{r4, pc}
+ 121              	.L18:
  135:Generated_Source\PSoC5/ADC_MIC_PM.c ****     {
  136:Generated_Source\PSoC5/ADC_MIC_PM.c ****         ADC_MIC_Enable();
- 123              		.loc 1 136 0
- 124 000a FFF7FEFF 		bl	ADC_MIC_Enable
- 125              	.LVL1:
+ 122              		.loc 1 136 0
+ 123 000a FFF7FEFF 		bl	ADC_MIC_Enable
+ 124              	.LVL1:
  137:Generated_Source\PSoC5/ADC_MIC_PM.c ****         #if(ADC_MIC_DEFAULT_CONV_MODE != ADC_MIC__HARDWARE_TRIGGER)
  138:Generated_Source\PSoC5/ADC_MIC_PM.c ****             if((ADC_MIC_backup.enableState & ADC_MIC_STARTED) != 0u)
- 126              		.loc 1 138 0
- 127 000e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
- 128 0010 9B07     		lsls	r3, r3, #30
- 129 0012 F9D5     		bpl	.L10
+ 125              		.loc 1 138 0
+ 126 000e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 127 0010 9B07     		lsls	r3, r3, #30
+ 128 0012 F9D5     		bpl	.L10
  139:Generated_Source\PSoC5/ADC_MIC_PM.c ****             {
  140:Generated_Source\PSoC5/ADC_MIC_PM.c ****                 ADC_MIC_StartConvert();
  141:Generated_Source\PSoC5/ADC_MIC_PM.c ****             }
  142:Generated_Source\PSoC5/ADC_MIC_PM.c ****         #endif /* End ADC_MIC_DEFAULT_CONV_MODE != ADC_MIC__HARDWARE_TRIGGER */
  143:Generated_Source\PSoC5/ADC_MIC_PM.c ****     }
  144:Generated_Source\PSoC5/ADC_MIC_PM.c **** }
- 130              		.loc 1 144 0
- 131 0014 BDE81040 		pop	{r4, lr}
- 132              		.cfi_restore 14
- 133              		.cfi_restore 4
- 134              		.cfi_def_cfa_offset 0
+ 129              		.loc 1 144 0
+ 130 0014 BDE81040 		pop	{r4, lr}
+ 131              		.cfi_restore 14
+ 132              		.cfi_restore 4
+ 133              		.cfi_def_cfa_offset 0
  140:Generated_Source\PSoC5/ADC_MIC_PM.c ****             }
- 135              		.loc 1 140 0
- 136 0018 FFF7FEBF 		b	ADC_MIC_StartConvert
- 137              	.LVL2:
- 138              	.L20:
- 139              		.align	2
- 140              	.L19:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 6
+ 134              		.loc 1 140 0
+ 135 0018 FFF7FEBF 		b	ADC_MIC_StartConvert
+ 136              	.LVL2:
+ 137              	.L20:
+ 138              		.align	2
+ 139              	.L19:
+ 140 001c 00000000 		.word	.LANCHOR0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccshX0vK.s 			page 6
 
 
- 141 001c 00000000 		.word	.LANCHOR0
- 142              		.cfi_endproc
- 143              	.LFE3:
- 144              		.size	ADC_MIC_Wakeup, .-ADC_MIC_Wakeup
- 145              		.bss
- 146              		.align	2
- 147              		.set	.LANCHOR0,. + 0
- 148              		.type	ADC_MIC_backup, %object
- 149              		.size	ADC_MIC_backup, 1
- 150              	ADC_MIC_backup:
- 151 0000 00       		.space	1
- 152 0001 000000   		.text
- 153              	.Letext0:
- 154              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
- 155              		.file 3 "Generated_Source\\PSoC5\\ADC_MIC.h"
- 156              		.section	.debug_info,"",%progbits
- 157              	.Ldebug_info0:
- 158 0000 47010000 		.4byte	0x147
- 159 0004 0400     		.2byte	0x4
- 160 0006 00000000 		.4byte	.Ldebug_abbrev0
- 161 000a 04       		.byte	0x4
- 162 000b 01       		.uleb128 0x1
- 163 000c 91000000 		.4byte	.LASF22
- 164 0010 01       		.byte	0x1
- 165 0011 5D010000 		.4byte	.LASF23
- 166 0015 46000000 		.4byte	.LASF24
- 167 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 168 001d 00000000 		.4byte	0
- 169 0021 00000000 		.4byte	.Ldebug_line0
- 170 0025 02       		.uleb128 0x2
- 171 0026 01       		.byte	0x1
- 172 0027 06       		.byte	0x6
- 173 0028 0F020000 		.4byte	.LASF0
- 174 002c 02       		.uleb128 0x2
- 175 002d 01       		.byte	0x1
- 176 002e 08       		.byte	0x8
- 177 002f 25010000 		.4byte	.LASF1
- 178 0033 02       		.uleb128 0x2
- 179 0034 02       		.byte	0x2
- 180 0035 05       		.byte	0x5
- 181 0036 CE010000 		.4byte	.LASF2
- 182 003a 02       		.uleb128 0x2
- 183 003b 02       		.byte	0x2
- 184 003c 07       		.byte	0x7
- 185 003d 4A010000 		.4byte	.LASF3
- 186 0041 02       		.uleb128 0x2
- 187 0042 04       		.byte	0x4
- 188 0043 05       		.byte	0x5
- 189 0044 EB010000 		.4byte	.LASF4
- 190 0048 02       		.uleb128 0x2
- 191 0049 04       		.byte	0x4
- 192 004a 07       		.byte	0x7
- 193 004b 38010000 		.4byte	.LASF5
- 194 004f 02       		.uleb128 0x2
- 195 0050 08       		.byte	0x8
- 196 0051 05       		.byte	0x5
- 197 0052 BB010000 		.4byte	.LASF6
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 7
+ 141              		.cfi_endproc
+ 142              	.LFE3:
+ 143              		.size	ADC_MIC_Wakeup, .-ADC_MIC_Wakeup
+ 144              		.bss
+ 145              		.align	2
+ 146              		.set	.LANCHOR0,. + 0
+ 147              		.type	ADC_MIC_backup, %object
+ 148              		.size	ADC_MIC_backup, 1
+ 149              	ADC_MIC_backup:
+ 150 0000 00       		.space	1
+ 151 0001 000000   		.text
+ 152              	.Letext0:
+ 153              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 154              		.file 3 "Generated_Source\\PSoC5\\ADC_MIC.h"
+ 155              		.section	.debug_info,"",%progbits
+ 156              	.Ldebug_info0:
+ 157 0000 47010000 		.4byte	0x147
+ 158 0004 0400     		.2byte	0x4
+ 159 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 160 000a 04       		.byte	0x4
+ 161 000b 01       		.uleb128 0x1
+ 162 000c 91000000 		.4byte	.LASF22
+ 163 0010 01       		.byte	0x1
+ 164 0011 5D010000 		.4byte	.LASF23
+ 165 0015 46000000 		.4byte	.LASF24
+ 166 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 167 001d 00000000 		.4byte	0
+ 168 0021 00000000 		.4byte	.Ldebug_line0
+ 169 0025 02       		.uleb128 0x2
+ 170 0026 01       		.byte	0x1
+ 171 0027 06       		.byte	0x6
+ 172 0028 0F020000 		.4byte	.LASF0
+ 173 002c 02       		.uleb128 0x2
+ 174 002d 01       		.byte	0x1
+ 175 002e 08       		.byte	0x8
+ 176 002f 25010000 		.4byte	.LASF1
+ 177 0033 02       		.uleb128 0x2
+ 178 0034 02       		.byte	0x2
+ 179 0035 05       		.byte	0x5
+ 180 0036 CE010000 		.4byte	.LASF2
+ 181 003a 02       		.uleb128 0x2
+ 182 003b 02       		.byte	0x2
+ 183 003c 07       		.byte	0x7
+ 184 003d 4A010000 		.4byte	.LASF3
+ 185 0041 02       		.uleb128 0x2
+ 186 0042 04       		.byte	0x4
+ 187 0043 05       		.byte	0x5
+ 188 0044 EB010000 		.4byte	.LASF4
+ 189 0048 02       		.uleb128 0x2
+ 190 0049 04       		.byte	0x4
+ 191 004a 07       		.byte	0x7
+ 192 004b 38010000 		.4byte	.LASF5
+ 193 004f 02       		.uleb128 0x2
+ 194 0050 08       		.byte	0x8
+ 195 0051 05       		.byte	0x5
+ 196 0052 BB010000 		.4byte	.LASF6
+ 197 0056 02       		.uleb128 0x2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccshX0vK.s 			page 7
 
 
- 198 0056 02       		.uleb128 0x2
- 199 0057 08       		.byte	0x8
- 200 0058 07       		.byte	0x7
- 201 0059 A4010000 		.4byte	.LASF7
- 202 005d 03       		.uleb128 0x3
- 203 005e 04       		.byte	0x4
- 204 005f 05       		.byte	0x5
- 205 0060 696E7400 		.ascii	"int\000"
- 206 0064 02       		.uleb128 0x2
- 207 0065 04       		.byte	0x4
- 208 0066 07       		.byte	0x7
- 209 0067 97010000 		.4byte	.LASF8
- 210 006b 04       		.uleb128 0x4
- 211 006c E5010000 		.4byte	.LASF12
- 212 0070 02       		.byte	0x2
- 213 0071 5B       		.byte	0x5b
- 214 0072 2C000000 		.4byte	0x2c
- 215 0076 02       		.uleb128 0x2
- 216 0077 04       		.byte	0x4
- 217 0078 04       		.byte	0x4
- 218 0079 1F010000 		.4byte	.LASF9
- 219 007d 02       		.uleb128 0x2
- 220 007e 08       		.byte	0x8
- 221 007f 04       		.byte	0x4
- 222 0080 81010000 		.4byte	.LASF10
- 223 0084 02       		.uleb128 0x2
- 224 0085 01       		.byte	0x1
- 225 0086 08       		.byte	0x8
- 226 0087 C9010000 		.4byte	.LASF11
- 227 008b 04       		.uleb128 0x4
- 228 008c 33010000 		.4byte	.LASF13
- 229 0090 02       		.byte	0x2
- 230 0091 F0       		.byte	0xf0
- 231 0092 96000000 		.4byte	0x96
- 232 0096 05       		.uleb128 0x5
- 233 0097 6B000000 		.4byte	0x6b
- 234 009b 06       		.uleb128 0x6
- 235 009c 01       		.byte	0x1
- 236 009d 03       		.byte	0x3
- 237 009e 2A       		.byte	0x2a
- 238 009f B0000000 		.4byte	0xb0
- 239 00a3 07       		.uleb128 0x7
- 240 00a4 F4010000 		.4byte	.LASF25
- 241 00a8 03       		.byte	0x3
- 242 00a9 2C       		.byte	0x2c
- 243 00aa 6B000000 		.4byte	0x6b
- 244 00ae 00       		.byte	0
- 245 00af 00       		.byte	0
- 246 00b0 04       		.uleb128 0x4
- 247 00b1 1B020000 		.4byte	.LASF14
- 248 00b5 03       		.byte	0x3
- 249 00b6 2D       		.byte	0x2d
- 250 00b7 9B000000 		.4byte	0x9b
- 251 00bb 08       		.uleb128 0x8
- 252 00bc 16000000 		.4byte	.LASF15
- 253 00c0 01       		.byte	0x1
- 254 00c1 2C       		.byte	0x2c
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 8
+ 198 0057 08       		.byte	0x8
+ 199 0058 07       		.byte	0x7
+ 200 0059 A4010000 		.4byte	.LASF7
+ 201 005d 03       		.uleb128 0x3
+ 202 005e 04       		.byte	0x4
+ 203 005f 05       		.byte	0x5
+ 204 0060 696E7400 		.ascii	"int\000"
+ 205 0064 02       		.uleb128 0x2
+ 206 0065 04       		.byte	0x4
+ 207 0066 07       		.byte	0x7
+ 208 0067 97010000 		.4byte	.LASF8
+ 209 006b 04       		.uleb128 0x4
+ 210 006c E5010000 		.4byte	.LASF12
+ 211 0070 02       		.byte	0x2
+ 212 0071 5B       		.byte	0x5b
+ 213 0072 2C000000 		.4byte	0x2c
+ 214 0076 02       		.uleb128 0x2
+ 215 0077 04       		.byte	0x4
+ 216 0078 04       		.byte	0x4
+ 217 0079 1F010000 		.4byte	.LASF9
+ 218 007d 02       		.uleb128 0x2
+ 219 007e 08       		.byte	0x8
+ 220 007f 04       		.byte	0x4
+ 221 0080 81010000 		.4byte	.LASF10
+ 222 0084 02       		.uleb128 0x2
+ 223 0085 01       		.byte	0x1
+ 224 0086 08       		.byte	0x8
+ 225 0087 C9010000 		.4byte	.LASF11
+ 226 008b 04       		.uleb128 0x4
+ 227 008c 33010000 		.4byte	.LASF13
+ 228 0090 02       		.byte	0x2
+ 229 0091 F0       		.byte	0xf0
+ 230 0092 96000000 		.4byte	0x96
+ 231 0096 05       		.uleb128 0x5
+ 232 0097 6B000000 		.4byte	0x6b
+ 233 009b 06       		.uleb128 0x6
+ 234 009c 01       		.byte	0x1
+ 235 009d 03       		.byte	0x3
+ 236 009e 2A       		.byte	0x2a
+ 237 009f B0000000 		.4byte	0xb0
+ 238 00a3 07       		.uleb128 0x7
+ 239 00a4 F4010000 		.4byte	.LASF25
+ 240 00a8 03       		.byte	0x3
+ 241 00a9 2C       		.byte	0x2c
+ 242 00aa 6B000000 		.4byte	0x6b
+ 243 00ae 00       		.byte	0
+ 244 00af 00       		.byte	0
+ 245 00b0 04       		.uleb128 0x4
+ 246 00b1 1B020000 		.4byte	.LASF14
+ 247 00b5 03       		.byte	0x3
+ 248 00b6 2D       		.byte	0x2d
+ 249 00b7 9B000000 		.4byte	0x9b
+ 250 00bb 08       		.uleb128 0x8
+ 251 00bc 16000000 		.4byte	.LASF15
+ 252 00c0 01       		.byte	0x1
+ 253 00c1 2C       		.byte	0x2c
+ 254 00c2 00000000 		.4byte	.LFB0
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccshX0vK.s 			page 8
 
 
- 255 00c2 00000000 		.4byte	.LFB0
- 256 00c6 02000000 		.4byte	.LFE0-.LFB0
- 257 00ca 01       		.uleb128 0x1
- 258 00cb 9C       		.byte	0x9c
- 259 00cc 08       		.uleb128 0x8
- 260 00cd 00000000 		.4byte	.LASF16
- 261 00d1 01       		.byte	0x1
- 262 00d2 40       		.byte	0x40
- 263 00d3 00000000 		.4byte	.LFB1
- 264 00d7 02000000 		.4byte	.LFE1-.LFB1
- 265 00db 01       		.uleb128 0x1
- 266 00dc 9C       		.byte	0x9c
- 267 00dd 09       		.uleb128 0x9
- 268 00de 38000000 		.4byte	.LASF17
- 269 00e2 01       		.byte	0x1
- 270 00e3 5A       		.byte	0x5a
- 271 00e4 00000000 		.4byte	.LFB2
- 272 00e8 38000000 		.4byte	.LFE2-.LFB2
- 273 00ec 01       		.uleb128 0x1
- 274 00ed 9C       		.byte	0x9c
- 275 00ee FC000000 		.4byte	0xfc
- 276 00f2 0A       		.uleb128 0xa
- 277 00f3 24000000 		.4byte	.LVL0
- 278 00f7 35010000 		.4byte	0x135
- 279 00fb 00       		.byte	0
- 280 00fc 09       		.uleb128 0x9
- 281 00fd 29000000 		.4byte	.LASF18
- 282 0101 01       		.byte	0x1
- 283 0102 84       		.byte	0x84
- 284 0103 00000000 		.4byte	.LFB3
- 285 0107 20000000 		.4byte	.LFE3-.LFB3
- 286 010b 01       		.uleb128 0x1
- 287 010c 9C       		.byte	0x9c
- 288 010d 24010000 		.4byte	0x124
- 289 0111 0B       		.uleb128 0xb
- 290 0112 0E000000 		.4byte	.LVL1
- 291 0116 3C010000 		.4byte	0x13c
- 292 011a 0A       		.uleb128 0xa
- 293 011b 1C000000 		.4byte	.LVL2
- 294 011f 43010000 		.4byte	0x143
- 295 0123 00       		.byte	0
- 296 0124 0C       		.uleb128 0xc
- 297 0125 00020000 		.4byte	.LASF26
- 298 0129 01       		.byte	0x1
- 299 012a 18       		.byte	0x18
- 300 012b B0000000 		.4byte	0xb0
- 301 012f 05       		.uleb128 0x5
- 302 0130 03       		.byte	0x3
- 303 0131 00000000 		.4byte	ADC_MIC_backup
- 304 0135 0D       		.uleb128 0xd
- 305 0136 D8010000 		.4byte	.LASF19
- 306 013a 03       		.byte	0x3
- 307 013b 35       		.byte	0x35
- 308 013c 0D       		.uleb128 0xd
- 309 013d 88010000 		.4byte	.LASF20
- 310 0141 03       		.byte	0x3
- 311 0142 44       		.byte	0x44
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 9
+ 255 00c6 02000000 		.4byte	.LFE0-.LFB0
+ 256 00ca 01       		.uleb128 0x1
+ 257 00cb 9C       		.byte	0x9c
+ 258 00cc 08       		.uleb128 0x8
+ 259 00cd 00000000 		.4byte	.LASF16
+ 260 00d1 01       		.byte	0x1
+ 261 00d2 40       		.byte	0x40
+ 262 00d3 00000000 		.4byte	.LFB1
+ 263 00d7 02000000 		.4byte	.LFE1-.LFB1
+ 264 00db 01       		.uleb128 0x1
+ 265 00dc 9C       		.byte	0x9c
+ 266 00dd 09       		.uleb128 0x9
+ 267 00de 38000000 		.4byte	.LASF17
+ 268 00e2 01       		.byte	0x1
+ 269 00e3 5A       		.byte	0x5a
+ 270 00e4 00000000 		.4byte	.LFB2
+ 271 00e8 34000000 		.4byte	.LFE2-.LFB2
+ 272 00ec 01       		.uleb128 0x1
+ 273 00ed 9C       		.byte	0x9c
+ 274 00ee FC000000 		.4byte	0xfc
+ 275 00f2 0A       		.uleb128 0xa
+ 276 00f3 20000000 		.4byte	.LVL0
+ 277 00f7 35010000 		.4byte	0x135
+ 278 00fb 00       		.byte	0
+ 279 00fc 09       		.uleb128 0x9
+ 280 00fd 29000000 		.4byte	.LASF18
+ 281 0101 01       		.byte	0x1
+ 282 0102 84       		.byte	0x84
+ 283 0103 00000000 		.4byte	.LFB3
+ 284 0107 20000000 		.4byte	.LFE3-.LFB3
+ 285 010b 01       		.uleb128 0x1
+ 286 010c 9C       		.byte	0x9c
+ 287 010d 24010000 		.4byte	0x124
+ 288 0111 0B       		.uleb128 0xb
+ 289 0112 0E000000 		.4byte	.LVL1
+ 290 0116 3C010000 		.4byte	0x13c
+ 291 011a 0A       		.uleb128 0xa
+ 292 011b 1C000000 		.4byte	.LVL2
+ 293 011f 43010000 		.4byte	0x143
+ 294 0123 00       		.byte	0
+ 295 0124 0C       		.uleb128 0xc
+ 296 0125 00020000 		.4byte	.LASF26
+ 297 0129 01       		.byte	0x1
+ 298 012a 18       		.byte	0x18
+ 299 012b B0000000 		.4byte	0xb0
+ 300 012f 05       		.uleb128 0x5
+ 301 0130 03       		.byte	0x3
+ 302 0131 00000000 		.4byte	ADC_MIC_backup
+ 303 0135 0D       		.uleb128 0xd
+ 304 0136 D8010000 		.4byte	.LASF19
+ 305 013a 03       		.byte	0x3
+ 306 013b 35       		.byte	0x35
+ 307 013c 0D       		.uleb128 0xd
+ 308 013d 88010000 		.4byte	.LASF20
+ 309 0141 03       		.byte	0x3
+ 310 0142 44       		.byte	0x44
+ 311 0143 0D       		.uleb128 0xd
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccshX0vK.s 			page 9
 
 
- 312 0143 0D       		.uleb128 0xd
- 313 0144 31020000 		.4byte	.LASF21
- 314 0148 03       		.byte	0x3
- 315 0149 D1       		.byte	0xd1
- 316 014a 00       		.byte	0
- 317              		.section	.debug_abbrev,"",%progbits
- 318              	.Ldebug_abbrev0:
- 319 0000 01       		.uleb128 0x1
- 320 0001 11       		.uleb128 0x11
- 321 0002 01       		.byte	0x1
- 322 0003 25       		.uleb128 0x25
- 323 0004 0E       		.uleb128 0xe
- 324 0005 13       		.uleb128 0x13
- 325 0006 0B       		.uleb128 0xb
- 326 0007 03       		.uleb128 0x3
- 327 0008 0E       		.uleb128 0xe
- 328 0009 1B       		.uleb128 0x1b
- 329 000a 0E       		.uleb128 0xe
- 330 000b 55       		.uleb128 0x55
- 331 000c 17       		.uleb128 0x17
- 332 000d 11       		.uleb128 0x11
- 333 000e 01       		.uleb128 0x1
- 334 000f 10       		.uleb128 0x10
- 335 0010 17       		.uleb128 0x17
- 336 0011 00       		.byte	0
- 337 0012 00       		.byte	0
- 338 0013 02       		.uleb128 0x2
- 339 0014 24       		.uleb128 0x24
- 340 0015 00       		.byte	0
- 341 0016 0B       		.uleb128 0xb
- 342 0017 0B       		.uleb128 0xb
- 343 0018 3E       		.uleb128 0x3e
- 344 0019 0B       		.uleb128 0xb
- 345 001a 03       		.uleb128 0x3
- 346 001b 0E       		.uleb128 0xe
- 347 001c 00       		.byte	0
- 348 001d 00       		.byte	0
- 349 001e 03       		.uleb128 0x3
- 350 001f 24       		.uleb128 0x24
- 351 0020 00       		.byte	0
- 352 0021 0B       		.uleb128 0xb
- 353 0022 0B       		.uleb128 0xb
- 354 0023 3E       		.uleb128 0x3e
- 355 0024 0B       		.uleb128 0xb
- 356 0025 03       		.uleb128 0x3
- 357 0026 08       		.uleb128 0x8
- 358 0027 00       		.byte	0
- 359 0028 00       		.byte	0
- 360 0029 04       		.uleb128 0x4
- 361 002a 16       		.uleb128 0x16
- 362 002b 00       		.byte	0
- 363 002c 03       		.uleb128 0x3
- 364 002d 0E       		.uleb128 0xe
- 365 002e 3A       		.uleb128 0x3a
- 366 002f 0B       		.uleb128 0xb
- 367 0030 3B       		.uleb128 0x3b
- 368 0031 0B       		.uleb128 0xb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 10
+ 312 0144 31020000 		.4byte	.LASF21
+ 313 0148 03       		.byte	0x3
+ 314 0149 D1       		.byte	0xd1
+ 315 014a 00       		.byte	0
+ 316              		.section	.debug_abbrev,"",%progbits
+ 317              	.Ldebug_abbrev0:
+ 318 0000 01       		.uleb128 0x1
+ 319 0001 11       		.uleb128 0x11
+ 320 0002 01       		.byte	0x1
+ 321 0003 25       		.uleb128 0x25
+ 322 0004 0E       		.uleb128 0xe
+ 323 0005 13       		.uleb128 0x13
+ 324 0006 0B       		.uleb128 0xb
+ 325 0007 03       		.uleb128 0x3
+ 326 0008 0E       		.uleb128 0xe
+ 327 0009 1B       		.uleb128 0x1b
+ 328 000a 0E       		.uleb128 0xe
+ 329 000b 55       		.uleb128 0x55
+ 330 000c 17       		.uleb128 0x17
+ 331 000d 11       		.uleb128 0x11
+ 332 000e 01       		.uleb128 0x1
+ 333 000f 10       		.uleb128 0x10
+ 334 0010 17       		.uleb128 0x17
+ 335 0011 00       		.byte	0
+ 336 0012 00       		.byte	0
+ 337 0013 02       		.uleb128 0x2
+ 338 0014 24       		.uleb128 0x24
+ 339 0015 00       		.byte	0
+ 340 0016 0B       		.uleb128 0xb
+ 341 0017 0B       		.uleb128 0xb
+ 342 0018 3E       		.uleb128 0x3e
+ 343 0019 0B       		.uleb128 0xb
+ 344 001a 03       		.uleb128 0x3
+ 345 001b 0E       		.uleb128 0xe
+ 346 001c 00       		.byte	0
+ 347 001d 00       		.byte	0
+ 348 001e 03       		.uleb128 0x3
+ 349 001f 24       		.uleb128 0x24
+ 350 0020 00       		.byte	0
+ 351 0021 0B       		.uleb128 0xb
+ 352 0022 0B       		.uleb128 0xb
+ 353 0023 3E       		.uleb128 0x3e
+ 354 0024 0B       		.uleb128 0xb
+ 355 0025 03       		.uleb128 0x3
+ 356 0026 08       		.uleb128 0x8
+ 357 0027 00       		.byte	0
+ 358 0028 00       		.byte	0
+ 359 0029 04       		.uleb128 0x4
+ 360 002a 16       		.uleb128 0x16
+ 361 002b 00       		.byte	0
+ 362 002c 03       		.uleb128 0x3
+ 363 002d 0E       		.uleb128 0xe
+ 364 002e 3A       		.uleb128 0x3a
+ 365 002f 0B       		.uleb128 0xb
+ 366 0030 3B       		.uleb128 0x3b
+ 367 0031 0B       		.uleb128 0xb
+ 368 0032 49       		.uleb128 0x49
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccshX0vK.s 			page 10
 
 
- 369 0032 49       		.uleb128 0x49
- 370 0033 13       		.uleb128 0x13
- 371 0034 00       		.byte	0
- 372 0035 00       		.byte	0
- 373 0036 05       		.uleb128 0x5
- 374 0037 35       		.uleb128 0x35
- 375 0038 00       		.byte	0
- 376 0039 49       		.uleb128 0x49
- 377 003a 13       		.uleb128 0x13
- 378 003b 00       		.byte	0
- 379 003c 00       		.byte	0
- 380 003d 06       		.uleb128 0x6
- 381 003e 13       		.uleb128 0x13
- 382 003f 01       		.byte	0x1
- 383 0040 0B       		.uleb128 0xb
- 384 0041 0B       		.uleb128 0xb
- 385 0042 3A       		.uleb128 0x3a
- 386 0043 0B       		.uleb128 0xb
- 387 0044 3B       		.uleb128 0x3b
- 388 0045 0B       		.uleb128 0xb
- 389 0046 01       		.uleb128 0x1
- 390 0047 13       		.uleb128 0x13
- 391 0048 00       		.byte	0
- 392 0049 00       		.byte	0
- 393 004a 07       		.uleb128 0x7
- 394 004b 0D       		.uleb128 0xd
- 395 004c 00       		.byte	0
- 396 004d 03       		.uleb128 0x3
- 397 004e 0E       		.uleb128 0xe
- 398 004f 3A       		.uleb128 0x3a
- 399 0050 0B       		.uleb128 0xb
- 400 0051 3B       		.uleb128 0x3b
- 401 0052 0B       		.uleb128 0xb
- 402 0053 49       		.uleb128 0x49
- 403 0054 13       		.uleb128 0x13
- 404 0055 38       		.uleb128 0x38
- 405 0056 0B       		.uleb128 0xb
- 406 0057 00       		.byte	0
- 407 0058 00       		.byte	0
- 408 0059 08       		.uleb128 0x8
- 409 005a 2E       		.uleb128 0x2e
- 410 005b 00       		.byte	0
- 411 005c 3F       		.uleb128 0x3f
- 412 005d 19       		.uleb128 0x19
- 413 005e 03       		.uleb128 0x3
- 414 005f 0E       		.uleb128 0xe
- 415 0060 3A       		.uleb128 0x3a
- 416 0061 0B       		.uleb128 0xb
- 417 0062 3B       		.uleb128 0x3b
- 418 0063 0B       		.uleb128 0xb
- 419 0064 27       		.uleb128 0x27
- 420 0065 19       		.uleb128 0x19
- 421 0066 11       		.uleb128 0x11
- 422 0067 01       		.uleb128 0x1
- 423 0068 12       		.uleb128 0x12
- 424 0069 06       		.uleb128 0x6
- 425 006a 40       		.uleb128 0x40
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 11
+ 369 0033 13       		.uleb128 0x13
+ 370 0034 00       		.byte	0
+ 371 0035 00       		.byte	0
+ 372 0036 05       		.uleb128 0x5
+ 373 0037 35       		.uleb128 0x35
+ 374 0038 00       		.byte	0
+ 375 0039 49       		.uleb128 0x49
+ 376 003a 13       		.uleb128 0x13
+ 377 003b 00       		.byte	0
+ 378 003c 00       		.byte	0
+ 379 003d 06       		.uleb128 0x6
+ 380 003e 13       		.uleb128 0x13
+ 381 003f 01       		.byte	0x1
+ 382 0040 0B       		.uleb128 0xb
+ 383 0041 0B       		.uleb128 0xb
+ 384 0042 3A       		.uleb128 0x3a
+ 385 0043 0B       		.uleb128 0xb
+ 386 0044 3B       		.uleb128 0x3b
+ 387 0045 0B       		.uleb128 0xb
+ 388 0046 01       		.uleb128 0x1
+ 389 0047 13       		.uleb128 0x13
+ 390 0048 00       		.byte	0
+ 391 0049 00       		.byte	0
+ 392 004a 07       		.uleb128 0x7
+ 393 004b 0D       		.uleb128 0xd
+ 394 004c 00       		.byte	0
+ 395 004d 03       		.uleb128 0x3
+ 396 004e 0E       		.uleb128 0xe
+ 397 004f 3A       		.uleb128 0x3a
+ 398 0050 0B       		.uleb128 0xb
+ 399 0051 3B       		.uleb128 0x3b
+ 400 0052 0B       		.uleb128 0xb
+ 401 0053 49       		.uleb128 0x49
+ 402 0054 13       		.uleb128 0x13
+ 403 0055 38       		.uleb128 0x38
+ 404 0056 0B       		.uleb128 0xb
+ 405 0057 00       		.byte	0
+ 406 0058 00       		.byte	0
+ 407 0059 08       		.uleb128 0x8
+ 408 005a 2E       		.uleb128 0x2e
+ 409 005b 00       		.byte	0
+ 410 005c 3F       		.uleb128 0x3f
+ 411 005d 19       		.uleb128 0x19
+ 412 005e 03       		.uleb128 0x3
+ 413 005f 0E       		.uleb128 0xe
+ 414 0060 3A       		.uleb128 0x3a
+ 415 0061 0B       		.uleb128 0xb
+ 416 0062 3B       		.uleb128 0x3b
+ 417 0063 0B       		.uleb128 0xb
+ 418 0064 27       		.uleb128 0x27
+ 419 0065 19       		.uleb128 0x19
+ 420 0066 11       		.uleb128 0x11
+ 421 0067 01       		.uleb128 0x1
+ 422 0068 12       		.uleb128 0x12
+ 423 0069 06       		.uleb128 0x6
+ 424 006a 40       		.uleb128 0x40
+ 425 006b 18       		.uleb128 0x18
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccshX0vK.s 			page 11
 
 
- 426 006b 18       		.uleb128 0x18
- 427 006c 9742     		.uleb128 0x2117
- 428 006e 19       		.uleb128 0x19
- 429 006f 00       		.byte	0
- 430 0070 00       		.byte	0
- 431 0071 09       		.uleb128 0x9
- 432 0072 2E       		.uleb128 0x2e
- 433 0073 01       		.byte	0x1
- 434 0074 3F       		.uleb128 0x3f
- 435 0075 19       		.uleb128 0x19
- 436 0076 03       		.uleb128 0x3
- 437 0077 0E       		.uleb128 0xe
- 438 0078 3A       		.uleb128 0x3a
- 439 0079 0B       		.uleb128 0xb
- 440 007a 3B       		.uleb128 0x3b
- 441 007b 0B       		.uleb128 0xb
- 442 007c 27       		.uleb128 0x27
- 443 007d 19       		.uleb128 0x19
- 444 007e 11       		.uleb128 0x11
- 445 007f 01       		.uleb128 0x1
- 446 0080 12       		.uleb128 0x12
- 447 0081 06       		.uleb128 0x6
- 448 0082 40       		.uleb128 0x40
- 449 0083 18       		.uleb128 0x18
- 450 0084 9742     		.uleb128 0x2117
- 451 0086 19       		.uleb128 0x19
- 452 0087 01       		.uleb128 0x1
- 453 0088 13       		.uleb128 0x13
- 454 0089 00       		.byte	0
- 455 008a 00       		.byte	0
- 456 008b 0A       		.uleb128 0xa
- 457 008c 898201   		.uleb128 0x4109
- 458 008f 00       		.byte	0
- 459 0090 11       		.uleb128 0x11
- 460 0091 01       		.uleb128 0x1
- 461 0092 9542     		.uleb128 0x2115
- 462 0094 19       		.uleb128 0x19
- 463 0095 31       		.uleb128 0x31
- 464 0096 13       		.uleb128 0x13
- 465 0097 00       		.byte	0
- 466 0098 00       		.byte	0
- 467 0099 0B       		.uleb128 0xb
- 468 009a 898201   		.uleb128 0x4109
- 469 009d 00       		.byte	0
- 470 009e 11       		.uleb128 0x11
- 471 009f 01       		.uleb128 0x1
- 472 00a0 31       		.uleb128 0x31
- 473 00a1 13       		.uleb128 0x13
- 474 00a2 00       		.byte	0
- 475 00a3 00       		.byte	0
- 476 00a4 0C       		.uleb128 0xc
- 477 00a5 34       		.uleb128 0x34
- 478 00a6 00       		.byte	0
- 479 00a7 03       		.uleb128 0x3
- 480 00a8 0E       		.uleb128 0xe
- 481 00a9 3A       		.uleb128 0x3a
- 482 00aa 0B       		.uleb128 0xb
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 12
+ 426 006c 9742     		.uleb128 0x2117
+ 427 006e 19       		.uleb128 0x19
+ 428 006f 00       		.byte	0
+ 429 0070 00       		.byte	0
+ 430 0071 09       		.uleb128 0x9
+ 431 0072 2E       		.uleb128 0x2e
+ 432 0073 01       		.byte	0x1
+ 433 0074 3F       		.uleb128 0x3f
+ 434 0075 19       		.uleb128 0x19
+ 435 0076 03       		.uleb128 0x3
+ 436 0077 0E       		.uleb128 0xe
+ 437 0078 3A       		.uleb128 0x3a
+ 438 0079 0B       		.uleb128 0xb
+ 439 007a 3B       		.uleb128 0x3b
+ 440 007b 0B       		.uleb128 0xb
+ 441 007c 27       		.uleb128 0x27
+ 442 007d 19       		.uleb128 0x19
+ 443 007e 11       		.uleb128 0x11
+ 444 007f 01       		.uleb128 0x1
+ 445 0080 12       		.uleb128 0x12
+ 446 0081 06       		.uleb128 0x6
+ 447 0082 40       		.uleb128 0x40
+ 448 0083 18       		.uleb128 0x18
+ 449 0084 9742     		.uleb128 0x2117
+ 450 0086 19       		.uleb128 0x19
+ 451 0087 01       		.uleb128 0x1
+ 452 0088 13       		.uleb128 0x13
+ 453 0089 00       		.byte	0
+ 454 008a 00       		.byte	0
+ 455 008b 0A       		.uleb128 0xa
+ 456 008c 898201   		.uleb128 0x4109
+ 457 008f 00       		.byte	0
+ 458 0090 11       		.uleb128 0x11
+ 459 0091 01       		.uleb128 0x1
+ 460 0092 9542     		.uleb128 0x2115
+ 461 0094 19       		.uleb128 0x19
+ 462 0095 31       		.uleb128 0x31
+ 463 0096 13       		.uleb128 0x13
+ 464 0097 00       		.byte	0
+ 465 0098 00       		.byte	0
+ 466 0099 0B       		.uleb128 0xb
+ 467 009a 898201   		.uleb128 0x4109
+ 468 009d 00       		.byte	0
+ 469 009e 11       		.uleb128 0x11
+ 470 009f 01       		.uleb128 0x1
+ 471 00a0 31       		.uleb128 0x31
+ 472 00a1 13       		.uleb128 0x13
+ 473 00a2 00       		.byte	0
+ 474 00a3 00       		.byte	0
+ 475 00a4 0C       		.uleb128 0xc
+ 476 00a5 34       		.uleb128 0x34
+ 477 00a6 00       		.byte	0
+ 478 00a7 03       		.uleb128 0x3
+ 479 00a8 0E       		.uleb128 0xe
+ 480 00a9 3A       		.uleb128 0x3a
+ 481 00aa 0B       		.uleb128 0xb
+ 482 00ab 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccshX0vK.s 			page 12
 
 
- 483 00ab 3B       		.uleb128 0x3b
- 484 00ac 0B       		.uleb128 0xb
- 485 00ad 49       		.uleb128 0x49
- 486 00ae 13       		.uleb128 0x13
- 487 00af 02       		.uleb128 0x2
- 488 00b0 18       		.uleb128 0x18
- 489 00b1 00       		.byte	0
- 490 00b2 00       		.byte	0
- 491 00b3 0D       		.uleb128 0xd
- 492 00b4 2E       		.uleb128 0x2e
- 493 00b5 00       		.byte	0
- 494 00b6 3F       		.uleb128 0x3f
- 495 00b7 19       		.uleb128 0x19
- 496 00b8 03       		.uleb128 0x3
- 497 00b9 0E       		.uleb128 0xe
- 498 00ba 3A       		.uleb128 0x3a
- 499 00bb 0B       		.uleb128 0xb
- 500 00bc 3B       		.uleb128 0x3b
- 501 00bd 0B       		.uleb128 0xb
- 502 00be 27       		.uleb128 0x27
- 503 00bf 19       		.uleb128 0x19
- 504 00c0 3C       		.uleb128 0x3c
- 505 00c1 19       		.uleb128 0x19
- 506 00c2 00       		.byte	0
- 507 00c3 00       		.byte	0
- 508 00c4 00       		.byte	0
- 509              		.section	.debug_aranges,"",%progbits
- 510 0000 34000000 		.4byte	0x34
- 511 0004 0200     		.2byte	0x2
- 512 0006 00000000 		.4byte	.Ldebug_info0
- 513 000a 04       		.byte	0x4
- 514 000b 00       		.byte	0
- 515 000c 0000     		.2byte	0
- 516 000e 0000     		.2byte	0
- 517 0010 00000000 		.4byte	.LFB0
- 518 0014 02000000 		.4byte	.LFE0-.LFB0
- 519 0018 00000000 		.4byte	.LFB1
- 520 001c 02000000 		.4byte	.LFE1-.LFB1
- 521 0020 00000000 		.4byte	.LFB2
- 522 0024 38000000 		.4byte	.LFE2-.LFB2
- 523 0028 00000000 		.4byte	.LFB3
- 524 002c 20000000 		.4byte	.LFE3-.LFB3
- 525 0030 00000000 		.4byte	0
- 526 0034 00000000 		.4byte	0
- 527              		.section	.debug_ranges,"",%progbits
- 528              	.Ldebug_ranges0:
- 529 0000 00000000 		.4byte	.LFB0
- 530 0004 02000000 		.4byte	.LFE0
- 531 0008 00000000 		.4byte	.LFB1
- 532 000c 02000000 		.4byte	.LFE1
- 533 0010 00000000 		.4byte	.LFB2
- 534 0014 38000000 		.4byte	.LFE2
- 535 0018 00000000 		.4byte	.LFB3
- 536 001c 20000000 		.4byte	.LFE3
- 537 0020 00000000 		.4byte	0
- 538 0024 00000000 		.4byte	0
- 539              		.section	.debug_line,"",%progbits
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 13
+ 483 00ac 0B       		.uleb128 0xb
+ 484 00ad 49       		.uleb128 0x49
+ 485 00ae 13       		.uleb128 0x13
+ 486 00af 02       		.uleb128 0x2
+ 487 00b0 18       		.uleb128 0x18
+ 488 00b1 00       		.byte	0
+ 489 00b2 00       		.byte	0
+ 490 00b3 0D       		.uleb128 0xd
+ 491 00b4 2E       		.uleb128 0x2e
+ 492 00b5 00       		.byte	0
+ 493 00b6 3F       		.uleb128 0x3f
+ 494 00b7 19       		.uleb128 0x19
+ 495 00b8 03       		.uleb128 0x3
+ 496 00b9 0E       		.uleb128 0xe
+ 497 00ba 3A       		.uleb128 0x3a
+ 498 00bb 0B       		.uleb128 0xb
+ 499 00bc 3B       		.uleb128 0x3b
+ 500 00bd 0B       		.uleb128 0xb
+ 501 00be 27       		.uleb128 0x27
+ 502 00bf 19       		.uleb128 0x19
+ 503 00c0 3C       		.uleb128 0x3c
+ 504 00c1 19       		.uleb128 0x19
+ 505 00c2 00       		.byte	0
+ 506 00c3 00       		.byte	0
+ 507 00c4 00       		.byte	0
+ 508              		.section	.debug_aranges,"",%progbits
+ 509 0000 34000000 		.4byte	0x34
+ 510 0004 0200     		.2byte	0x2
+ 511 0006 00000000 		.4byte	.Ldebug_info0
+ 512 000a 04       		.byte	0x4
+ 513 000b 00       		.byte	0
+ 514 000c 0000     		.2byte	0
+ 515 000e 0000     		.2byte	0
+ 516 0010 00000000 		.4byte	.LFB0
+ 517 0014 02000000 		.4byte	.LFE0-.LFB0
+ 518 0018 00000000 		.4byte	.LFB1
+ 519 001c 02000000 		.4byte	.LFE1-.LFB1
+ 520 0020 00000000 		.4byte	.LFB2
+ 521 0024 34000000 		.4byte	.LFE2-.LFB2
+ 522 0028 00000000 		.4byte	.LFB3
+ 523 002c 20000000 		.4byte	.LFE3-.LFB3
+ 524 0030 00000000 		.4byte	0
+ 525 0034 00000000 		.4byte	0
+ 526              		.section	.debug_ranges,"",%progbits
+ 527              	.Ldebug_ranges0:
+ 528 0000 00000000 		.4byte	.LFB0
+ 529 0004 02000000 		.4byte	.LFE0
+ 530 0008 00000000 		.4byte	.LFB1
+ 531 000c 02000000 		.4byte	.LFE1
+ 532 0010 00000000 		.4byte	.LFB2
+ 533 0014 34000000 		.4byte	.LFE2
+ 534 0018 00000000 		.4byte	.LFB3
+ 535 001c 20000000 		.4byte	.LFE3
+ 536 0020 00000000 		.4byte	0
+ 537 0024 00000000 		.4byte	0
+ 538              		.section	.debug_line,"",%progbits
+ 539              	.Ldebug_line0:
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccshX0vK.s 			page 13
 
 
- 540              	.Ldebug_line0:
- 541 0000 A4000000 		.section	.debug_str,"MS",%progbits,1
- 541      02005400 
- 541      00000201 
- 541      FB0E0D00 
- 541      01010101 
- 542              	.LASF16:
- 543 0000 4144435F 		.ascii	"ADC_MIC_RestoreConfig\000"
- 543      4D49435F 
- 543      52657374 
- 543      6F726543 
- 543      6F6E6669 
- 544              	.LASF15:
- 545 0016 4144435F 		.ascii	"ADC_MIC_SaveConfig\000"
- 545      4D49435F 
- 545      53617665 
- 545      436F6E66 
- 545      696700
- 546              	.LASF18:
- 547 0029 4144435F 		.ascii	"ADC_MIC_Wakeup\000"
- 547      4D49435F 
- 547      57616B65 
- 547      757000
- 548              	.LASF17:
- 549 0038 4144435F 		.ascii	"ADC_MIC_Sleep\000"
- 549      4D49435F 
- 549      536C6565 
- 549      7000
- 550              	.LASF24:
- 551 0046 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
- 551      73657273 
- 551      5C6D6772 
- 551      6F6E6265 
- 551      725C4465 
- 552 0074 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
- 552      436F6E74 
- 552      696E756F 
- 552      7573204F 
- 552      75747075 
- 553              	.LASF22:
- 554 0091 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 554      4320342E 
- 554      392E3320 
- 554      32303135 
- 554      30333033 
- 555 00c4 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 555      20726576 
- 555      6973696F 
- 555      6E203232 
- 555      31323230 
- 556 00f7 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
- 556      66756E63 
- 556      74696F6E 
- 556      2D736563 
- 556      74696F6E 
- 557              	.LASF9:
- 558 011f 666C6F61 		.ascii	"float\000"
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 14
+ 540 0000 A4000000 		.section	.debug_str,"MS",%progbits,1
+ 540      02005400 
+ 540      00000201 
+ 540      FB0E0D00 
+ 540      01010101 
+ 541              	.LASF16:
+ 542 0000 4144435F 		.ascii	"ADC_MIC_RestoreConfig\000"
+ 542      4D49435F 
+ 542      52657374 
+ 542      6F726543 
+ 542      6F6E6669 
+ 543              	.LASF15:
+ 544 0016 4144435F 		.ascii	"ADC_MIC_SaveConfig\000"
+ 544      4D49435F 
+ 544      53617665 
+ 544      436F6E66 
+ 544      696700
+ 545              	.LASF18:
+ 546 0029 4144435F 		.ascii	"ADC_MIC_Wakeup\000"
+ 546      4D49435F 
+ 546      57616B65 
+ 546      757000
+ 547              	.LASF17:
+ 548 0038 4144435F 		.ascii	"ADC_MIC_Sleep\000"
+ 548      4D49435F 
+ 548      536C6565 
+ 548      7000
+ 549              	.LASF24:
+ 550 0046 433A5C55 		.ascii	"C:\\Users\\mgronber\\Desktop\\Hummingbird\\Hummingb"
+ 550      73657273 
+ 550      5C6D6772 
+ 550      6F6E6265 
+ 550      725C4465 
+ 551 0074 69726428 		.ascii	"ird(Continuous Output).cydsn\000"
+ 551      436F6E74 
+ 551      696E756F 
+ 551      7573204F 
+ 551      75747075 
+ 552              	.LASF22:
+ 553 0091 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 553      4320342E 
+ 553      392E3320 
+ 553      32303135 
+ 553      30333033 
+ 554 00c4 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 554      20726576 
+ 554      6973696F 
+ 554      6E203232 
+ 554      31323230 
+ 555 00f7 32202D66 		.ascii	"2 -ffunction-sections -ffat-lto-objects\000"
+ 555      66756E63 
+ 555      74696F6E 
+ 555      2D736563 
+ 555      74696F6E 
+ 556              	.LASF9:
+ 557 011f 666C6F61 		.ascii	"float\000"
+ 557      7400
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccshX0vK.s 			page 14
 
 
- 558      7400
- 559              	.LASF1:
- 560 0125 756E7369 		.ascii	"unsigned char\000"
- 560      676E6564 
- 560      20636861 
- 560      7200
- 561              	.LASF13:
- 562 0133 72656738 		.ascii	"reg8\000"
- 562      00
- 563              	.LASF5:
- 564 0138 6C6F6E67 		.ascii	"long unsigned int\000"
- 564      20756E73 
- 564      69676E65 
- 564      6420696E 
- 564      7400
- 565              	.LASF3:
- 566 014a 73686F72 		.ascii	"short unsigned int\000"
- 566      7420756E 
- 566      7369676E 
- 566      65642069 
- 566      6E7400
- 567              	.LASF23:
- 568 015d 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_MIC_PM.c\000"
- 568      72617465 
- 568      645F536F 
- 568      75726365 
- 568      5C50536F 
- 569              	.LASF10:
- 570 0181 646F7562 		.ascii	"double\000"
- 570      6C6500
- 571              	.LASF20:
- 572 0188 4144435F 		.ascii	"ADC_MIC_Enable\000"
- 572      4D49435F 
- 572      456E6162 
- 572      6C6500
- 573              	.LASF8:
- 574 0197 756E7369 		.ascii	"unsigned int\000"
- 574      676E6564 
- 574      20696E74 
- 574      00
- 575              	.LASF7:
- 576 01a4 6C6F6E67 		.ascii	"long long unsigned int\000"
- 576      206C6F6E 
- 576      6720756E 
- 576      7369676E 
- 576      65642069 
- 577              	.LASF6:
- 578 01bb 6C6F6E67 		.ascii	"long long int\000"
- 578      206C6F6E 
- 578      6720696E 
- 578      7400
- 579              	.LASF11:
- 580 01c9 63686172 		.ascii	"char\000"
- 580      00
- 581              	.LASF2:
- 582 01ce 73686F72 		.ascii	"short int\000"
- 582      7420696E 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccc6o6UL.s 			page 15
+ 558              	.LASF1:
+ 559 0125 756E7369 		.ascii	"unsigned char\000"
+ 559      676E6564 
+ 559      20636861 
+ 559      7200
+ 560              	.LASF13:
+ 561 0133 72656738 		.ascii	"reg8\000"
+ 561      00
+ 562              	.LASF5:
+ 563 0138 6C6F6E67 		.ascii	"long unsigned int\000"
+ 563      20756E73 
+ 563      69676E65 
+ 563      6420696E 
+ 563      7400
+ 564              	.LASF3:
+ 565 014a 73686F72 		.ascii	"short unsigned int\000"
+ 565      7420756E 
+ 565      7369676E 
+ 565      65642069 
+ 565      6E7400
+ 566              	.LASF23:
+ 567 015d 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_MIC_PM.c\000"
+ 567      72617465 
+ 567      645F536F 
+ 567      75726365 
+ 567      5C50536F 
+ 568              	.LASF10:
+ 569 0181 646F7562 		.ascii	"double\000"
+ 569      6C6500
+ 570              	.LASF20:
+ 571 0188 4144435F 		.ascii	"ADC_MIC_Enable\000"
+ 571      4D49435F 
+ 571      456E6162 
+ 571      6C6500
+ 572              	.LASF8:
+ 573 0197 756E7369 		.ascii	"unsigned int\000"
+ 573      676E6564 
+ 573      20696E74 
+ 573      00
+ 574              	.LASF7:
+ 575 01a4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 575      206C6F6E 
+ 575      6720756E 
+ 575      7369676E 
+ 575      65642069 
+ 576              	.LASF6:
+ 577 01bb 6C6F6E67 		.ascii	"long long int\000"
+ 577      206C6F6E 
+ 577      6720696E 
+ 577      7400
+ 578              	.LASF11:
+ 579 01c9 63686172 		.ascii	"char\000"
+ 579      00
+ 580              	.LASF2:
+ 581 01ce 73686F72 		.ascii	"short int\000"
+ 581      7420696E 
+ 581      7400
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccshX0vK.s 			page 15
 
 
- 582      7400
- 583              	.LASF19:
- 584 01d8 4144435F 		.ascii	"ADC_MIC_Stop\000"
- 584      4D49435F 
- 584      53746F70 
- 584      00
- 585              	.LASF12:
- 586 01e5 75696E74 		.ascii	"uint8\000"
- 586      3800
- 587              	.LASF4:
- 588 01eb 6C6F6E67 		.ascii	"long int\000"
- 588      20696E74 
- 588      00
- 589              	.LASF25:
- 590 01f4 656E6162 		.ascii	"enableState\000"
- 590      6C655374 
- 590      61746500 
- 591              	.LASF26:
- 592 0200 4144435F 		.ascii	"ADC_MIC_backup\000"
- 592      4D49435F 
- 592      6261636B 
- 592      757000
- 593              	.LASF0:
- 594 020f 7369676E 		.ascii	"signed char\000"
- 594      65642063 
- 594      68617200 
- 595              	.LASF14:
- 596 021b 4144435F 		.ascii	"ADC_MIC_BACKUP_STRUCT\000"
- 596      4D49435F 
- 596      4241434B 
- 596      55505F53 
- 596      54525543 
- 597              	.LASF21:
- 598 0231 4144435F 		.ascii	"ADC_MIC_StartConvert\000"
- 598      4D49435F 
- 598      53746172 
- 598      74436F6E 
- 598      76657274 
- 599              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 582              	.LASF19:
+ 583 01d8 4144435F 		.ascii	"ADC_MIC_Stop\000"
+ 583      4D49435F 
+ 583      53746F70 
+ 583      00
+ 584              	.LASF12:
+ 585 01e5 75696E74 		.ascii	"uint8\000"
+ 585      3800
+ 586              	.LASF4:
+ 587 01eb 6C6F6E67 		.ascii	"long int\000"
+ 587      20696E74 
+ 587      00
+ 588              	.LASF25:
+ 589 01f4 656E6162 		.ascii	"enableState\000"
+ 589      6C655374 
+ 589      61746500 
+ 590              	.LASF26:
+ 591 0200 4144435F 		.ascii	"ADC_MIC_backup\000"
+ 591      4D49435F 
+ 591      6261636B 
+ 591      757000
+ 592              	.LASF0:
+ 593 020f 7369676E 		.ascii	"signed char\000"
+ 593      65642063 
+ 593      68617200 
+ 594              	.LASF14:
+ 595 021b 4144435F 		.ascii	"ADC_MIC_BACKUP_STRUCT\000"
+ 595      4D49435F 
+ 595      4241434B 
+ 595      55505F53 
+ 595      54525543 
+ 596              	.LASF21:
+ 597 0231 4144435F 		.ascii	"ADC_MIC_StartConvert\000"
+ 597      4D49435F 
+ 597      53746172 
+ 597      74436F6E 
+ 597      76657274 
+ 598              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

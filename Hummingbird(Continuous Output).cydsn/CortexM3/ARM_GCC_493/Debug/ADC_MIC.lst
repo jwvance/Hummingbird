@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
   29:Generated_Source\PSoC5/ADC_MIC.c **** static void ADC_MIC_CalcGain(uint8 resolution);
   30:Generated_Source\PSoC5/ADC_MIC.c **** 
   31:Generated_Source\PSoC5/ADC_MIC.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 2
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 2
 
 
   32:Generated_Source\PSoC5/ADC_MIC.c **** /***************************************
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
   86:Generated_Source\PSoC5/ADC_MIC.c **** 
   87:Generated_Source\PSoC5/ADC_MIC.c **** /*******************************************************************************
   88:Generated_Source\PSoC5/ADC_MIC.c **** * Function Name: ADC_MIC_Init
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 3
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 3
 
 
   89:Generated_Source\PSoC5/ADC_MIC.c **** ********************************************************************************
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  143:Generated_Source\PSoC5/ADC_MIC.c **** void ADC_MIC_Enable(void)
  144:Generated_Source\PSoC5/ADC_MIC.c **** {
   27              		.loc 1 144 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 4
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 4
 
 
   28              		.cfi_startproc
@@ -216,7 +216,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
   50 000c 2049     		ldr	r1, .L3+4
  150:Generated_Source\PSoC5/ADC_MIC.c **** 
   51              		.loc 1 150 0
-  52 000e 43F00203 		orr	r3, r3, #2
+  52 000e 43F00103 		orr	r3, r3, #1
   53 0012 1370     		strb	r3, [r2]
   54              		.loc 1 153 0
   55 0014 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
@@ -228,7 +228,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
   57 0016 1F48     		ldr	r0, .L3+8
  153:Generated_Source\PSoC5/ADC_MIC.c **** 
   58              		.loc 1 153 0
-  59 0018 43F00203 		orr	r3, r3, #2
+  59 0018 43F00103 		orr	r3, r3, #1
   60 001c 0B70     		strb	r3, [r1]
   61              		.loc 1 157 0
   62 001e 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  161:Generated_Source\PSoC5/ADC_MIC.c ****     /* Enable VCM buffer and Enable Int Ref Amp */
  162:Generated_Source\PSoC5/ADC_MIC.c ****     tmpReg = ADC_MIC_SAR_CSR3_REG;
   63              		.loc 1 162 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 5
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 5
 
 
   64 0020 01F5AA51 		add	r1, r1, #5440
@@ -250,7 +250,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
   68              		.loc 1 158 0
   69 002a D379     		ldrb	r3, [r2, #7]	@ zero_extendqisi2
   70              		.loc 1 162 0
-  71 002c 1031     		adds	r1, r1, #16
+  71 002c 0831     		adds	r1, r1, #8
  158:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_STBY_PWRMGR_CLK_REG |= ADC_MIC_STBY_PWR_CLK_EN;
   72              		.loc 1 158 0
   73 002e 43F00103 		orr	r3, r3, #1
@@ -294,11 +294,11 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
   81 003a 174B     		ldr	r3, .L3+12
  182:Generated_Source\PSoC5/ADC_MIC.c ****         #else /* INTREF Bypassed of External */
   82              		.loc 1 182 0
-  83 003c 0C30     		adds	r0, r0, #12
+  83 003c 0430     		adds	r0, r0, #4
   84 003e 1825     		movs	r5, #24
  169:Generated_Source\PSoC5/ADC_MIC.c ****     #endif /* ADC_MIC_DEFAULT_REFERENCE == ADC_MIC__EXT_REF */
   85              		.loc 1 169 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 6
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 6
 
 
   86 0040 42F00302 		orr	r2, r2, #3
@@ -353,12 +353,12 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  104              		.loc 1 202 0
  105 0058 02F0FC02 		and	r2, r2, #252
  106              		.loc 1 218 0
- 107 005c 1838     		subs	r0, r0, #24
+ 107 005c 1238     		subs	r0, r0, #18
  206:Generated_Source\PSoC5/ADC_MIC.c ****     /* SAR_HIZ_CLEAR:   Should not be used for LP */
  108              		.loc 1 206 0
  109 005e C827     		movs	r7, #200
  110              		.loc 1 218 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 7
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 7
 
 
  111 0060 0225     		movs	r5, #2
@@ -418,15 +418,15 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  147              	.LVL7:
  148              	.L4:
  149 008a 00BF     		.align	2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 8
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 8
 
 
  150              	.L3:
  151 008c AB430040 		.word	1073759147
  152 0090 BB430040 		.word	1073759163
  153 0094 A2430040 		.word	1073759138
- 154 0098 0D590040 		.word	1073764621
- 155 009c 08590040 		.word	1073764616
+ 154 0098 05590040 		.word	1073764613
+ 155 009c 00590040 		.word	1073764608
  156 00a0 80E200E0 		.word	-536812928
  157              		.cfi_endproc
  158              	.LFE2:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  255:Generated_Source\PSoC5/ADC_MIC.c ****     /* Disable the SAR ADC block in Active Power Mode */
  256:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_PWRMGR_SAR_REG &= (uint8)~ADC_MIC_ACT_PWR_SAR_EN;
  181              		.loc 1 256 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 9
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 9
 
 
  182 0008 0F4A     		ldr	r2, .L7+4
@@ -501,19 +501,19 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  261:Generated_Source\PSoC5/ADC_MIC.c ****     #if(ADC_MIC_DEFAULT_INTERNAL_CLK)
  262:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_PWRMGR_CLK_REG &= (uint8)~ADC_MIC_ACT_PWR_CLK_EN;
  192              		.loc 1 262 0
- 193 0016 A1F5AB51 		sub	r1, r1, #5472
+ 193 0016 A1F5AA51 		sub	r1, r1, #5440
  256:Generated_Source\PSoC5/ADC_MIC.c ****     /* Disable the SAR ADC in Standby Power Mode */
  194              		.loc 1 256 0
- 195 001a 03F0FD03 		and	r3, r3, #253
+ 195 001a 03F0FE03 		and	r3, r3, #254
  196 001e 1370     		strb	r3, [r2]
  258:Generated_Source\PSoC5/ADC_MIC.c **** 
  197              		.loc 1 258 0
  198 0020 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
  199              		.loc 1 262 0
- 200 0022 0639     		subs	r1, r1, #6
+ 200 0022 1E39     		subs	r1, r1, #30
  258:Generated_Source\PSoC5/ADC_MIC.c **** 
  201              		.loc 1 258 0
- 202 0024 03F0FD03 		and	r3, r3, #253
+ 202 0024 03F0FE03 		and	r3, r3, #254
  203 0028 2370     		strb	r3, [r4]
  204              		.loc 1 262 0
  205 002a 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
@@ -538,13 +538,13 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  217              		.loc 1 266 0
  218 003e FFF7FEBF 		b	CyExitCriticalSection
  219              	.LVL9:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 10
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 10
 
 
  220              	.L8:
  221 0042 00BF     		.align	2
  222              	.L7:
- 223 0044 08590040 		.word	1073764616
+ 223 0044 00590040 		.word	1073764608
  224 0048 AB430040 		.word	1073759147
  225 004c BB430040 		.word	1073759163
  226              		.cfi_endproc
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  244 0000 044A     		ldr	r2, .L10
  295:Generated_Source\PSoC5/ADC_MIC.c **** 
  245              		.loc 1 295 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 11
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 11
 
 
  246 0002 00F00300 		and	r0, r0, #3
@@ -618,7 +618,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  258              	.L11:
  259              		.align	2
  260              	.L10:
- 261 0014 08590040 		.word	1073764616
+ 261 0014 00590040 		.word	1073764608
  262              		.cfi_endproc
  263              	.LFE4:
  264              		.size	ADC_MIC_SetPower, .-ADC_MIC_SetPower
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  326:Generated_Source\PSoC5/ADC_MIC.c **** *  should use ADC_IsEndConversion() to wait until conversion is complete
  327:Generated_Source\PSoC5/ADC_MIC.c **** *  before changing the resolution.
  328:Generated_Source\PSoC5/ADC_MIC.c **** *  If you call ADC_SetResolution() during a conversion, the resolution will
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 12
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 12
 
 
  329:Generated_Source\PSoC5/ADC_MIC.c **** *  not be changed until the current conversion is complete. Data will not be
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  358:Generated_Source\PSoC5/ADC_MIC.c ****             /* Halt CPU in debug mode if resolution is out of valid range */
  359:Generated_Source\PSoC5/ADC_MIC.c ****             CYASSERT(0u != 0u);
  296              		.loc 1 359 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 13
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 13
 
 
  297 0010 0020     		movs	r0, #0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  401:Generated_Source\PSoC5/ADC_MIC.c ****     void ADC_MIC_StartConvert(void)
  402:Generated_Source\PSoC5/ADC_MIC.c ****     {
  403:Generated_Source\PSoC5/ADC_MIC.c ****         #if(ADC_MIC_DEFAULT_CONV_MODE != ADC_MIC__FREE_RUNNING)  /* If software triggered mode */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 14
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 14
 
 
  404:Generated_Source\PSoC5/ADC_MIC.c ****             ADC_MIC_SAR_CSR0_REG &= (uint8)~ADC_MIC_SAR_MX_SOF_UDB;   /* source: SOF bit */
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  458:Generated_Source\PSoC5/ADC_MIC.c **** *
  459:Generated_Source\PSoC5/ADC_MIC.c **** * Parameters:
  460:Generated_Source\PSoC5/ADC_MIC.c **** *  retMode:  Check conversion return mode.
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 15
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 15
 
 
  461:Generated_Source\PSoC5/ADC_MIC.c **** *   ADC_MIC_RETURN_STATUS: Immediately returns the status. If the
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  515:Generated_Source\PSoC5/ADC_MIC.c **** *
  516:Generated_Source\PSoC5/ADC_MIC.c **** * Side Effects:
  517:Generated_Source\PSoC5/ADC_MIC.c **** *  Converts the ADC counts to the 2s complement form.
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 16
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 16
 
 
  518:Generated_Source\PSoC5/ADC_MIC.c **** *
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  572:Generated_Source\PSoC5/ADC_MIC.c ****    the same input voltage.
  573:Generated_Source\PSoC5/ADC_MIC.c **** *
  574:Generated_Source\PSoC5/ADC_MIC.c **** * Return:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 17
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 17
 
 
  575:Generated_Source\PSoC5/ADC_MIC.c **** *  None.
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  316              	.LBB9:
  317              	.LBB6:
  318              		.loc 1 620 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 18
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 18
 
 
  319 001e 17D0     		beq	.L18
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  335              		.loc 1 658 0
  336 0034 1248     		ldr	r0, .L30+8
  659:Generated_Source\PSoC5/ADC_MIC.c ****                         ADC_MIC_DEFAULT_REF_VOLTAGE_MV) / (ADC_MIC_DEFAULT_REF_VOLTAGE_MV * 2));
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 19
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 19
 
 
  660:Generated_Source\PSoC5/ADC_MIC.c **** 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  379 0060 4FF40063 		mov	r3, #2048
  380 0064 44F62062 		movw	r2, #20000
  381 0068 E3E7     		b	.L19
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 20
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 20
 
 
  382              	.LVL30:
@@ -1160,7 +1160,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  396              	.L31:
  397              		.align	2
  398              	.L30:
- 399 0078 0A590040 		.word	1073764618
+ 399 0078 02590040 		.word	1073764610
  400 007c 00000000 		.word	ADC_MIC_countsPerVolt
  401 0080 00000000 		.word	ADC_MIC_countsPer10Volt
  402 0084 00000000 		.word	ADC_MIC_shift
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  431 000c FFF7FEFF 		bl	CyIntSetPriority
  432              	.LVL34:
  117:Generated_Source\PSoC5/ADC_MIC.c ****     #endif   /* End ADC_MIC_IRQ_REMOVE */
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 21
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 21
 
 
  433              		.loc 1 117 0
@@ -1231,7 +1231,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  455              		.align	2
  456              	.L34:
  457 0030 00000000 		.word	ADC_MIC_ISR
- 458 0034 09590040 		.word	1073764617
+ 458 0034 01590040 		.word	1073764609
  459 0038 00000000 		.word	ADC_MIC_offset
  460              		.cfi_endproc
  461              	.LFE1:
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  480 0002 054C     		ldr	r4, .L39
  481 0004 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
  482 0006 1BB9     		cbnz	r3, .L37
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 22
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 22
 
 
   80:Generated_Source\PSoC5/ADC_MIC.c ****         ADC_MIC_initVar = 1u;
@@ -1311,14 +1311,14 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  524              	.L43:
  525              		.align	2
  526              	.L42:
- 527 000c 08590040 		.word	1073764616
+ 527 000c 00590040 		.word	1073764608
  528              		.cfi_endproc
  529              	.LFE6:
  530              		.size	ADC_MIC_StartConvert, .-ADC_MIC_StartConvert
  531              		.section	.text.ADC_MIC_StopConvert,"ax",%progbits
  532              		.align	2
  533              		.global	ADC_MIC_StopConvert
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 23
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 23
 
 
  534              		.thumb
@@ -1342,7 +1342,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  550              	.L46:
  551              		.align	2
  552              	.L45:
- 553 000c 08590040 		.word	1073764616
+ 553 000c 00590040 		.word	1073764608
  554              		.cfi_endproc
  555              	.LFE7:
  556              		.size	ADC_MIC_StopConvert, .-ADC_MIC_StopConvert
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  583              	.LVL41:
  584              	.L49:
  481:Generated_Source\PSoC5/ADC_MIC.c ****     } while ((status != ADC_MIC_SAR_EOF_1) && (retMode == ADC_MIC_WAIT_FOR_RESULT));
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 24
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 24
 
 
  585              		.loc 1 481 0 discriminator 2
@@ -1412,7 +1412,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  609              	.L58:
  610              		.align	2
  611              	.L57:
- 612 0024 09590040 		.word	1073764617
+ 612 0024 01590040 		.word	1073764609
  613              		.cfi_endproc
  614              	.LFE8:
  615              		.size	ADC_MIC_IsEndConversion, .-ADC_MIC_IsEndConversion
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  633 0006 1088     		ldrh	r0, [r2]
  634 0008 181A     		subs	r0, r3, r0
  523:Generated_Source\PSoC5/ADC_MIC.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 25
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 25
 
 
  635              		.loc 1 523 0
@@ -1448,7 +1448,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  639 000e 00BF     		.align	2
  640              	.L60:
  641 0010 00000000 		.word	ADC_MIC_shift
- 642 0014 A25B0040 		.word	1073765282
+ 642 0014 A05B0040 		.word	1073765280
  643              		.cfi_endproc
  644              	.LFE9:
  645              		.size	ADC_MIC_GetResult8, .-ADC_MIC_GetResult8
@@ -1486,7 +1486,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  672 000e 00BF     		.align	2
  673              	.L63:
  674 0010 00000000 		.word	ADC_MIC_shift
- 675 0014 A25B0040 		.word	1073765282
+ 675 0014 A05B0040 		.word	1073765280
  676              		.cfi_endproc
  677              	.LFE10:
  678              		.size	ADC_MIC_GetResult16, .-ADC_MIC_GetResult16
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  684              		.type	ADC_MIC_SetOffset, %function
  685              	ADC_MIC_SetOffset:
  686              	.LFB11:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 26
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 26
 
 
  586:Generated_Source\PSoC5/ADC_MIC.c ****     ADC_MIC_offset = offset;
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  712              		.loc 1 693 0
  713              		.cfi_startproc
  714              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 27
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 27
 
 
  715              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  742              		@ args = 0, pretend = 0, frame = 0
  743              		@ frame_needed = 0, uses_anonymous_args = 0
  744              		@ link register save eliminated.
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 28
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 28
 
 
  745              	.LVL52:
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  771              		.loc 1 748 0
  772 0000 0F4A     		ldr	r2, .L79
  773 0002 1388     		ldrh	r3, [r2]
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 29
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 29
 
 
  774 0004 9BB2     		uxth	r3, r3
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  810              	.L75:
  754:Generated_Source\PSoC5/ADC_MIC.c ****     }
  811              		.loc 1 754 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 30
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 30
 
 
  812 003a 034B     		ldr	r3, .L79+8
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  839              		.loc 1 791 0
  840 0000 0D4A     		ldr	r2, .L86
  786:Generated_Source\PSoC5/ADC_MIC.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 31
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 31
 
 
  841              		.loc 1 786 0
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  877              	.L85:
  793:Generated_Source\PSoC5/ADC_MIC.c ****     }
  878              		.loc 1 793 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 32
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 32
 
 
  879 002a 1288     		ldrh	r2, [r2]
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  831:Generated_Source\PSoC5/ADC_MIC.c ****     float32 volts;
  832:Generated_Source\PSoC5/ADC_MIC.c ****     int32 countsPer10Volt;
  833:Generated_Source\PSoC5/ADC_MIC.c **** 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 33
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 33
 
 
  834:Generated_Source\PSoC5/ADC_MIC.c ****     if(ADC_MIC_countsPerVolt != 0)
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  849:Generated_Source\PSoC5/ADC_MIC.c **** }
  949              		.loc 1 849 0
  950 0030 38BD     		pop	{r3, r4, r5, pc}
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 34
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 34
 
 
  951              	.LVL75:
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  1004 002c 02       		.uleb128 0x2
  1005 002d 04       		.byte	0x4
  1006 002e 04       		.byte	0x4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 35
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 35
 
 
  1007 002f 22030000 		.4byte	.LASF1
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  1061 0092 06       		.uleb128 0x6
  1062 0093 24000000 		.4byte	.LASF13
  1063 0097 02       		.byte	0x2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 36
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 36
 
 
  1064 0098 5C       		.byte	0x5c
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  1118 010d 11010000 		.4byte	0x111
  1119 0111 07       		.uleb128 0x7
  1120 0112 9D000000 		.4byte	0x9d
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 37
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 37
 
 
  1121 0116 08       		.uleb128 0x8
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  1175 0195 01       		.byte	0x1
  1176 0196 FA       		.byte	0xfa
  1177 0197 87000000 		.4byte	0x87
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 38
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 38
 
 
  1178 019b 35000000 		.4byte	.LLST2
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  1232 0220 01       		.byte	0x1
  1233 0221 5401     		.2byte	0x154
  1234 0223 00000000 		.4byte	.LFB5
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 39
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 39
 
 
  1235 0227 88000000 		.4byte	.LFE5-.LFB5
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  1289 02a5 00       		.byte	0
  1290 02a6 09       		.uleb128 0x9
  1291 02a7 50000000 		.4byte	.LASF35
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 40
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 40
 
 
  1292 02ab 01       		.byte	0x1
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  1346 030e 01       		.byte	0x1
  1347 030f 4A       		.byte	0x4a
  1348 0310 00000000 		.4byte	.LFB0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 41
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 41
 
 
  1349 0314 1C000000 		.4byte	.LFE0-.LFB0
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  1403 039a 50       		.byte	0x50
  1404 039b 02       		.uleb128 0x2
  1405 039c 74       		.byte	0x74
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 42
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 42
 
 
  1406 039d 00       		.sleb128 0
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  1460 0415 9C       		.byte	0x9c
  1461 0416 2B040000 		.4byte	0x42b
  1462 041a 10       		.uleb128 0x10
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 43
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 43
 
 
  1463 041b 2B000000 		.4byte	.LASF46
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  1517 04a0 01       		.byte	0x1
  1518 04a1 1103     		.2byte	0x311
  1519 04a3 BE000000 		.4byte	0xbe
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 44
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 44
 
 
  1520 04a7 00000000 		.4byte	.LFB16
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  1574 0532 7E030000 		.4byte	.LASF56
  1575 0536 01       		.byte	0x1
  1576 0537 23       		.byte	0x23
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 45
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 45
 
 
  1577 0538 87000000 		.4byte	0x87
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  1631 05ad 33000000 		.4byte	.LASF62
  1632 05b1 03       		.byte	0x3
  1633 05b2 7F       		.byte	0x7f
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 46
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 46
 
 
  1634 05b3 BD050000 		.4byte	0x5bd
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  1688 000b 55       		.uleb128 0x55
  1689 000c 17       		.uleb128 0x17
  1690 000d 11       		.uleb128 0x11
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 47
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 47
 
 
  1691 000e 01       		.uleb128 0x1
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  1745 0044 00       		.byte	0
  1746 0045 00       		.byte	0
  1747 0046 07       		.uleb128 0x7
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 48
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 48
 
 
  1748 0047 35       		.uleb128 0x35
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  1802 007e 13       		.uleb128 0x13
  1803 007f 02       		.uleb128 0x2
  1804 0080 17       		.uleb128 0x17
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 49
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 49
 
 
  1805 0081 00       		.byte	0
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  1859 00c1 19       		.uleb128 0x19
  1860 00c2 11       		.uleb128 0x11
  1861 00c3 01       		.uleb128 0x1
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 50
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 50
 
 
  1862 00c4 12       		.uleb128 0x12
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  1916 00fb 13       		.uleb128 0x13
  1917 00fc 00       		.byte	0
  1918 00fd 00       		.byte	0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 51
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 51
 
 
  1919 00fe 13       		.uleb128 0x13
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  1973 0134 01       		.byte	0x1
  1974 0135 55       		.uleb128 0x55
  1975 0136 17       		.uleb128 0x17
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 52
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 52
 
 
  1976 0137 00       		.byte	0
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2030 0170 27       		.uleb128 0x27
  2031 0171 19       		.uleb128 0x19
  2032 0172 49       		.uleb128 0x49
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 53
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 53
 
 
  2033 0173 13       		.uleb128 0x13
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2087 01ab 05       		.uleb128 0x5
  2088 01ac 00       		.byte	0
  2089 01ad 03       		.uleb128 0x3
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 54
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 54
 
 
  2090 01ae 0E       		.uleb128 0xe
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2144 01e5 00       		.byte	0
  2145 01e6 21       		.uleb128 0x21
  2146 01e7 2E       		.uleb128 0x2e
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 55
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 55
 
 
  2147 01e8 00       		.byte	0
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2201 021e 27       		.uleb128 0x27
  2202 021f 19       		.uleb128 0x19
  2203 0220 49       		.uleb128 0x49
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 56
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 56
 
 
  2204 0221 13       		.uleb128 0x13
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2258 006d 01       		.uleb128 0x1
  2259 006e 50       		.byte	0x50
  2260 006f 33       		.byte	0x33
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 57
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 57
 
 
  2261 0070 1A       		.byte	0x1a
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2315 00f3 0300     		.2byte	0x3
  2316 00f5 09       		.byte	0x9
  2317 00f6 C2       		.byte	0xc2
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 58
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 58
 
 
  2318 00f7 9F       		.byte	0x9f
@@ -3445,7 +3445,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2339 012b 5A000000 		.4byte	.LVL28
  2340 012f 0500     		.2byte	0x5
  2341 0131 0C       		.byte	0xc
- 2342 0132 0A590040 		.4byte	0x4000590a
+ 2342 0132 02590040 		.4byte	0x40005902
  2343 0136 5A000000 		.4byte	.LVL28
  2344 013a 6A000000 		.4byte	.LVL30
  2345 013e 0300     		.2byte	0x3
@@ -3460,7 +3460,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2354 0152 88000000 		.4byte	.LFE5
  2355 0156 0500     		.2byte	0x5
  2356 0158 0C       		.byte	0xc
- 2357 0159 0A590040 		.4byte	0x4000590a
+ 2357 0159 02590040 		.4byte	0x40005902
  2358 015d 00000000 		.4byte	0
  2359 0161 00000000 		.4byte	0
  2360              	.LLST7:
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2372 0184 0100     		.2byte	0x1
  2373 0186 54       		.byte	0x54
  2374 0187 60000000 		.4byte	.LVL29
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 59
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 59
 
 
  2375 018b 6A000000 		.4byte	.LVL30
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2429 020d 22000000 		.4byte	.LVL46
  2430 0211 28000000 		.4byte	.LFE8
  2431 0215 0400     		.2byte	0x4
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 60
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 60
 
 
  2432 0217 F3       		.byte	0xf3
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2486 028c 0100     		.2byte	0x1
  2487 028e 53       		.byte	0x53
  2488 028f 3A000000 		.4byte	.LVL59
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 61
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 61
 
 
  2489 0293 4C000000 		.4byte	.LFE15
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2543 0311 1D00     		.2byte	0x1d
  2544 0313 70       		.byte	0x70
  2545 0314 00       		.sleb128 0
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 62
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 62
 
 
  2546 0315 74       		.byte	0x74
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2600 0383 19000000 		.4byte	.LVL71-1
  2601 0387 1600     		.2byte	0x16
  2602 0389 70       		.byte	0x70
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 63
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 63
 
 
  2603 038a 00       		.sleb128 0
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2657 004c 10000000 		.4byte	.LFE7-.LFB7
  2658 0050 00000000 		.4byte	.LFB8
  2659 0054 28000000 		.4byte	.LFE8-.LFB8
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 64
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 64
 
 
  2660 0058 00000000 		.4byte	.LFB9
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2714 0088 00000000 		.4byte	.LFB13
  2715 008c 10000000 		.4byte	.LFE13
  2716 0090 00000000 		.4byte	.LFB14
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 65
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 65
 
 
  2717 0094 0C000000 		.4byte	.LFE14
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2746 0074 4144435F 		.ascii	"ADC_MIC_IsEndConversion\000"
  2746      4D49435F 
  2746      4973456E 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 66
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 66
 
 
  2746      64436F6E 
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2769 0151 43794465 		.ascii	"CyDelayUs\000"
  2769      6C617955 
  2769      7300
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 67
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 67
 
 
  2770              	.LASF19:
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2795 01f8 73686F72 		.ascii	"short unsigned int\000"
  2795      7420756E 
  2795      7369676E 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 68
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 68
 
 
  2795      65642069 
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2818              	.LASF65:
  2819 02ff 4379496E 		.ascii	"CyIntSetPriority\000"
  2819      74536574 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 69
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 69
 
 
  2819      5072696F 
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2843      6F776572 
  2843      00
  2844              	.LASF34:
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 70
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 70
 
 
  2845 039f 7265736F 		.ascii	"resolution\000"
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 1
  2867 044a 656E6162 		.ascii	"enableInterrupts\000"
  2867      6C65496E 
  2867      74657272 
-ARM GAS  C:\Users\mgronber\AppData\Local\Temp\ccOjsBfw.s 			page 71
+ARM GAS  C:\Users\mgronber\AppData\Local\Temp\cc4wjjXu.s 			page 71
 
 
  2867      75707473 
