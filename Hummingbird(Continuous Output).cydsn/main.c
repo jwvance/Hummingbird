@@ -336,6 +336,9 @@ int main()
                         CharLCD_PosPrintString(0,0,"   ");
                         CharLCD_PosPrintNumber(0,0,pitchHz);
                         CharLCD_PrintString("Hz");
+                        char noteName[3];
+                        CharLCD_PosPrintString(0,6,midi_note_truename(note, noteName));
+                        
                         // Updates the Tuner
                         UpdateTuner(noteTable, note, pitchHz);
                         pitchPrev=pitchHz;
